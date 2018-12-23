@@ -1,14 +1,14 @@
 {
-    "name": "聪聪",
-    "title": "聪聪",
-    "author": "聪聪",
-    "version": "1.7.0",
-    "homepage": "https://congcong0806.github.io",
+    "name": "Euraxluo",
+    "title": "Euraxluo",
+    "author": "Euraxluo",
+    "version": "0.0.1",
+    "homepage": "https://Euraxluo.github.io",
     "repository": {
         "type": "git",
-        "url": "https://github.com/congcong0806/congcong0806.github.io"
+        "url": "https://github.com/Euraxluo/Euraxluo.github.io"
     },
-    "bugs": "https://github.com/congcong0806/congcong0806.github.io/issues",
+    "bugs": "https://github.com/Euraxluo/Euraxluo.github.io/issues",
     "devDependencies": {
         "grunt": "~0.4.5",
         "grunt-contrib-less": "~0.11.4",
