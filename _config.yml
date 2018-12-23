@@ -67,7 +67,7 @@ gitalk:
   clientSecret: d14524b083fad3e81fe7ce32ff49370b4711f33e    #生成的clientSecret
   repo: euraxluo.github.io    #仓库名称
   owner: euraxluo    #github用户名
-  admin: euraxluovvv
+  admin: euraxluo
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
@@ -104,11 +104,7 @@ friends: [
         href: "https://www.cnblogs.com/euraxluo/"
     },
     {
-        title: "Apple",
-        href: "https://www.apple.com/cn"
-    },
-    {
-        title: "Apple Developer",
-        href: "https://developer.apple.com"
+        title: "email",
+        href: "euraxluo@qq.com"
     }
 ]
