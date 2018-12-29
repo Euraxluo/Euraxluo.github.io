@@ -1,8 +1,9 @@
+<!--description就是主頁上名字下面的小字-->
 ---
 layout: page
 description: "Acmer==== NLPer Student"
 ---
-
+<!--置頂文章-->
 <div class="post-preview">
     <a href="https://Euraxluo.github.io/2018/12/12/test">
         <h2 class="post-title">
@@ -13,8 +14,20 @@ description: "Acmer==== NLPer Student"
 	   [推荐]
     </p>
 </div>
-<hr>
 
+<div class="post-preview">
+    <a href="https://Euraxluo.github.io/2018/12/12/test">
+        <h2 class="post-title">
+            Test
+        </h2>
+    </a>
+    <p class="post-meta">
+        [推荐]
+    </p>
+</div>
+<!--寫的博客-->
+
+<hr>
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
@@ -37,11 +50,15 @@ description: "Acmer==== NLPer Student"
     </p>
 </div>
 <hr>
+
+
+
 {% endfor %}
 
 <!-- Pager -->
 {% if paginator.total_pages > 1 %}
 <ul class="pager">
+    index == pager
     {% if paginator.previous_page %}
     <li class="previous">
         <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
