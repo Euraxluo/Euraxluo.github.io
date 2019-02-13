@@ -2,16 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/image/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-12-30-typora畫圖.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-12-30-typora畫圖.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2019-01-18-shell.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-01-18-shell.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,19 +36,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="858">
-                <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
+              <first_editor relative-caret-position="198">
+                <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2018-12-30-typora畫圖.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -202,9 +192,9 @@
         <option value="$PROJECT_DIR$/_posts/2019-01-24-Linux编程实践.md" />
         <option value="$PROJECT_DIR$/# UnixLinux 编程實踐教程.md" />
         <option value="$PROJECT_DIR$/_posts/2019-02-10-python操作Redis.md" />
-        <option value="$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md" />
         <option value="$PROJECT_DIR$/_posts/2019-01-18-shell.md" />
         <option value="$PROJECT_DIR$/_posts/2018-12-30-typora畫圖.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md" />
       </list>
     </option>
   </component>
@@ -354,14 +344,7 @@
       <workItem from="1548755380777" duration="21000" />
       <workItem from="1550050487132" duration="402000" />
       <workItem from="1550050997040" duration="258000" />
-      <workItem from="1550051400285" duration="979000" />
-    </task>
-    <task id="LOCAL-00018" summary="修改index.html">
-      <created>1546087972680</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1546087972680</updated>
+      <workItem from="1550051400285" duration="1237000" />
     </task>
     <task id="LOCAL-00019" summary="修改index.html">
       <created>1546088566296</created>
@@ -699,11 +682,18 @@
       <option name="project" value="LOCAL" />
       <updated>1550051227300</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="add Redis study note">
+      <created>1550053407425</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1550053407426</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53373000" />
+    <option name="totallyTimeSpent" value="53631000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="0" width="1080" height="1920" extended-state="6" />
@@ -1199,16 +1189,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="858">
-            <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2019-01-18-shell.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1224,6 +1204,16 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="910">
             <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="198">
+            <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
           </first_editor>
           <second_editor />
         </state>
