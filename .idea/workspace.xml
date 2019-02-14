@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_posts/2019-02-14-Flask入门.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2019-02-14-Flask入门.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-02-14-Flask入门.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-418">
+              <first_editor relative-caret-position="3146">
                 <caret line="143" selection-start-line="143" selection-end-line="143" />
               </first_editor>
               <second_editor />
@@ -53,8 +53,8 @@
         <entry file="file://$PROJECT_DIR$/_posts/2019-02-14-Flask入门.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="418">
-                <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+              <first_editor relative-caret-position="932">
+                <caret line="111" column="3" lean-forward="true" selection-start-line="111" selection-start-column="3" selection-end-line="111" selection-end-column="3" />
               </first_editor>
               <second_editor />
             </state>
@@ -358,14 +358,8 @@
       <workItem from="1550050487132" duration="402000" />
       <workItem from="1550050997040" duration="258000" />
       <workItem from="1550051400285" duration="1346000" />
-      <workItem from="1550137800314" duration="177000" />
-    </task>
-    <task id="LOCAL-00020" summary="修改index.html">
-      <created>1546089036814</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1546089036814</updated>
+      <workItem from="1550137800314" duration="364000" />
+      <workItem from="1550141043386" duration="161000" />
     </task>
     <task id="LOCAL-00021" summary="修改index.html">
       <created>1546089548023</created>
@@ -703,17 +697,24 @@
       <option name="project" value="LOCAL" />
       <updated>1550053670400</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="add Flask study note">
+      <created>1550138033935</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1550138033935</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53917000" />
+    <option name="totallyTimeSpent" value="54265000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="0" width="1080" height="1920" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16245136" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16634241" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -810,7 +811,8 @@
     <MESSAGE value="Linux编程序实践 读书笔记添加" />
     <MESSAGE value="add a shell script" />
     <MESSAGE value="add Redis study note" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Redis study note" />
+    <MESSAGE value="add Flask study note" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Flask study note" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/img/post-bg-github-cup.jpg">
@@ -1160,6 +1162,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="3146">
+            <caret line="143" selection-start-line="143" selection-end-line="143" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2018-12-30-typora畫圖.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1220,21 +1232,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-418">
-            <caret line="143" selection-start-line="143" selection-end-line="143" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2019-02-14-Flask入门.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="418">
-            <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <first_editor relative-caret-position="932">
+            <caret line="111" column="3" lean-forward="true" selection-start-line="111" selection-start-column="3" selection-end-line="111" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>
