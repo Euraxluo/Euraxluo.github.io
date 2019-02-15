@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_posts/2019-20-15-HowToBuildAOpenSource.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-07-11-git學習.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-07-11-git学习.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2019-01-18-shell.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-01-18-shell.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,18 +12,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="3146">
-                <caret line="143" selection-start-line="143" selection-end-line="143" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2019-02-14-Flask入门.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -38,12 +24,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2019-20-15-HowToBuildAOpenSource.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="264">
-                <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+              <first_editor relative-caret-position="506">
+                <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2019-01-18-shell.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="540">
+                <caret line="189" column="1" lean-forward="true" selection-start-line="189" selection-start-column="1" selection-end-line="189" selection-end-column="1" />
               </first_editor>
               <second_editor />
             </state>
@@ -203,12 +201,12 @@
         <option value="$PROJECT_DIR$/_posts/2019-01-24-Linux编程实践.md" />
         <option value="$PROJECT_DIR$/# UnixLinux 编程實踐教程.md" />
         <option value="$PROJECT_DIR$/_posts/2019-02-10-python操作Redis.md" />
-        <option value="$PROJECT_DIR$/_posts/2019-01-18-shell.md" />
         <option value="$PROJECT_DIR$/_posts/2018-12-30-typora畫圖.md" />
         <option value="$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md" />
         <option value="$PROJECT_DIR$/_posts/2019-02-14-Flask入门.md" />
         <option value="$PROJECT_DIR$/_posts/2018-07-11-git學習.md" />
         <option value="$PROJECT_DIR$/_posts/2019-20-15-HowToBuildAOpenSource.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-01-18-shell.md" />
       </list>
     </option>
   </component>
@@ -218,10 +216,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1366" />
-    <option name="width" value="1080" />
-    <option name="height" value="1920" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1367" />
+    <option name="width" value="1070" />
+    <option name="height" value="1440" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -361,14 +359,7 @@
       <workItem from="1550051400285" duration="1346000" />
       <workItem from="1550137800314" duration="364000" />
       <workItem from="1550141043386" duration="201000" />
-      <workItem from="1550226104967" duration="248000" />
-    </task>
-    <task id="LOCAL-00022" summary="修改index.html">
-      <created>1546089840906</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1546089840906</updated>
+      <workItem from="1550226104967" duration="632000" />
     </task>
     <task id="LOCAL-00023" summary="修改index.html">
       <created>1546089941069</created>
@@ -706,17 +697,24 @@
       <option name="project" value="LOCAL" />
       <updated>1550141216957</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="add a note about how to build a open source app">
+      <created>1550226400503</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1550226400503</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54553000" />
+    <option name="totallyTimeSpent" value="54937000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1366" y="0" width="1080" height="1920" extended-state="6" />
+    <frame x="1367" y="0" width="1070" height="1440" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3385214" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.092337914" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -814,7 +812,8 @@
     <MESSAGE value="add a shell script" />
     <MESSAGE value="add Redis study note" />
     <MESSAGE value="add Flask study note" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Flask study note" />
+    <MESSAGE value="add a note about how to build a open source app" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a note about how to build a open source app" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/_layouts/page.html">
@@ -1121,16 +1120,6 @@
     <entry file="file://$PROJECT_DIR$/_posts/2019-02-10-python操作Redis" />
     <entry file="file://$PROJECT_DIR$/Redis.md" />
     <entry file="file://$PROJECT_DIR$/_posts/2019-02-10-python操作Redis.md" />
-    <entry file="file://$PROJECT_DIR$/_posts/2019-01-18-shell.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1526">
-            <caret line="290" column="33" selection-start-line="290" selection-start-column="33" selection-end-line="290" selection-end-column="33" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2019-01-17-实习学习.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1244,8 +1233,18 @@
     <entry file="file://$PROJECT_DIR$/_posts/2019-20-15-HowToBuildAOpenSource.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="264">
-            <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <first_editor relative-caret-position="506">
+            <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-01-18-shell.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="540">
+            <caret line="189" column="1" lean-forward="true" selection-start-line="189" selection-start-column="1" selection-end-line="189" selection-end-column="1" />
           </first_editor>
           <second_editor />
         </state>
