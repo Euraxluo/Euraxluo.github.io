@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_posts/2019-02-18-TensorFlow学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2019-02-15-HowToBuildAOpenSource.md" beforeDir="false" />
-    </list>
+    <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,24 +10,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2019-02-14-Flask入门.md">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2019-02-18-TensorFlow学习.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="360">
-                <caret line="132" column="3" lean-forward="true" selection-start-line="132" selection-start-column="3" selection-end-line="132" selection-end-column="3" />
+              <first_editor relative-caret-position="545">
+                <caret line="232" column="22" selection-start-line="232" selection-start-column="22" selection-end-line="232" selection-end-column="22" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_posts/2019-02-18-TensorFlow学习.md">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2019-02-15-构建python开源软件.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="493">
-                <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
+              <first_editor relative-caret-position="66">
+                <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
               </first_editor>
               <second_editor />
             </state>
@@ -158,7 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/_posts/2018-05-02-308学习.md" />
         <option value="$PROJECT_DIR$/_posts/2018-04-30-308学习.md" />
         <option value="$PROJECT_DIR$/_posts/2018-04-29-308学习.md" />
         <option value="$PROJECT_DIR$/_posts/2018-04-28-308学习.md" />
@@ -209,6 +204,7 @@
         <option value="$PROJECT_DIR$/_posts/2019-20-15-HowToBuildAOpenSource.md" />
         <option value="$PROJECT_DIR$/_posts/2019-01-18-shell.md" />
         <option value="$PROJECT_DIR$/_posts/2019-02-18-TensorFlow学习.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-02-15-构建python开源软件.md" />
       </list>
     </option>
   </component>
@@ -364,14 +360,7 @@
       <workItem from="1550141043386" duration="201000" />
       <workItem from="1550226104967" duration="663000" />
       <workItem from="1550226900730" duration="268000" />
-      <workItem from="1550503794890" duration="97000" />
-    </task>
-    <task id="LOCAL-00025" summary="修改index.html">
-      <created>1546091331001</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1546091331001</updated>
+      <workItem from="1550503794890" duration="221000" />
     </task>
     <task id="LOCAL-00026" summary="修改index.html">
       <created>1546091604569</created>
@@ -709,15 +698,21 @@
       <option name="project" value="LOCAL" />
       <updated>1550226960372</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="add a note about TensorFlow study">
+      <created>1550503994635</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1550503994636</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55333000" />
+    <option name="totallyTimeSpent" value="55457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="667" width="1366" height="741" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33181125" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -818,12 +813,10 @@
     <MESSAGE value="add Redis study note" />
     <MESSAGE value="add Flask study note" />
     <MESSAGE value="add a note about how to build a open source app" />
-    <option name="LAST_COMMIT_MESSAGE" value="add a note about how to build a open source app" />
+    <MESSAGE value="add a note about TensorFlow study" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a note about TensorFlow study" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_layouts/post.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/default.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1252,11 +1245,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-02-15-构建python开源软件.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="66">
+            <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2019-02-18-TensorFlow学习.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="493">
-            <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
+          <first_editor relative-caret-position="545">
+            <caret line="232" column="22" selection-start-line="232" selection-start-column="22" selection-end-line="232" selection-end-column="22" />
           </first_editor>
           <second_editor />
         </state>
