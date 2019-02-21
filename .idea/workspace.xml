@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_posts/2019-02-20-NLP基础.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2019-02-20-NLP基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-02-20-NLP基础.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +30,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="358">
-                <caret line="165" lean-forward="true" selection-start-line="165" selection-end-line="165" />
+                <caret line="203" lean-forward="true" selection-start-line="203" selection-end-line="203" />
               </first_editor>
               <second_editor />
             </state>
@@ -220,8 +220,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="494" />
     <option name="y" value="667" />
-    <option name="width" value="477" />
-    <option name="height" value="668" />
+    <option name="width" value="467" />
+    <option name="height" value="674" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -229,6 +229,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -280,7 +281,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -365,21 +365,8 @@
       <workItem from="1550226900730" duration="268000" />
       <workItem from="1550503794890" duration="221000" />
       <workItem from="1550630283294" duration="485000" />
-      <workItem from="1550665512288" duration="11000" />
-    </task>
-    <task id="LOCAL-00026" summary="修改index.html">
-      <created>1546091604569</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1546091604569</updated>
-    </task>
-    <task id="LOCAL-00027" summary="修改index.html">
-      <created>1546092445511</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1546092445511</updated>
+      <workItem from="1550665512288" duration="88000" />
+      <workItem from="1550730155569" duration="34000" />
     </task>
     <task id="LOCAL-00028" summary="tags">
       <created>1546092624233</created>
@@ -710,17 +697,31 @@
       <option name="project" value="LOCAL" />
       <updated>1550503994636</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="add a note about NLP study">
+      <created>1550665542804</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1550665542805</updated>
+    </task>
+    <task id="LOCAL-00076" summary="add a note about NLP study">
+      <created>1550665584944</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1550665584944</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55953000" />
+    <option name="totallyTimeSpent" value="56064000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="667" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20395738" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20776255" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -820,7 +821,8 @@
     <MESSAGE value="add Flask study note" />
     <MESSAGE value="add a note about how to build a open source app" />
     <MESSAGE value="add a note about TensorFlow study" />
-    <option name="LAST_COMMIT_MESSAGE" value="add a note about TensorFlow study" />
+    <MESSAGE value="add a note about NLP study" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a note about NLP study" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/_posts/2018-06-13-308学习.md">
@@ -1263,7 +1265,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="358">
-            <caret line="165" lean-forward="true" selection-start-line="165" selection-end-line="165" />
+            <caret line="203" lean-forward="true" selection-start-line="203" selection-end-line="203" />
           </first_editor>
           <second_editor />
         </state>
