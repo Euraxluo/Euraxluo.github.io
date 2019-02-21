@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_posts/2019-02-21-ChatBot模型.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/QAseq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/attention.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/attionAseq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/decoder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/e2dlstm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/encoder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/onlyseq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/ourmodule.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/seq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/seq2seq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/seq2seq2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/yliao.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2019-02-21-语料处理流程.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-02-21-语料处理流程.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2019-02-21-ChatBot模型.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-02-21-ChatBot模型.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,8 +40,8 @@
         <entry file="file://$PROJECT_DIR$/_posts/2019-02-21-ChatBot模型.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="220">
-                <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <first_editor relative-caret-position="1559">
+                <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
               </first_editor>
               <second_editor />
             </state>
@@ -381,14 +367,7 @@
       <workItem from="1550730155569" duration="63000" />
       <workItem from="1550731647774" duration="395000" />
       <workItem from="1550739875831" duration="337000" />
-      <workItem from="1550744759560" duration="232000" />
-    </task>
-    <task id="LOCAL-00030" summary="tags">
-      <created>1546093170737</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1546093170737</updated>
+      <workItem from="1550744759560" duration="568000" />
     </task>
     <task id="LOCAL-00031" summary="tags">
       <created>1546093235159</created>
@@ -726,17 +705,24 @@
       <option name="project" value="LOCAL" />
       <updated>1550739982782</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="add a note about ChatBot study">
+      <created>1550745132563</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1550745132563</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57057000" />
+    <option name="totallyTimeSpent" value="57393000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="0" width="1080" height="1920" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13229571" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35797665" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -837,7 +823,8 @@
     <MESSAGE value="add a note about how to build a open source app" />
     <MESSAGE value="add a note about TensorFlow study" />
     <MESSAGE value="add a note about NLP study" />
-    <option name="LAST_COMMIT_MESSAGE" value="add a note about NLP study" />
+    <MESSAGE value="add a note about ChatBot study" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a note about ChatBot study" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/_posts/2018-04-27-308学习.md">
@@ -1282,8 +1269,8 @@
     <entry file="file://$PROJECT_DIR$/_posts/2019-02-21-ChatBot模型.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="220">
-            <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <first_editor relative-caret-position="1559">
+            <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
           </first_editor>
           <second_editor />
         </state>
