@@ -11,9 +11,11 @@ tags:                               #标签
 
 ---
 # TensorFlow 学习与实战
+
 TensorFlow是一个编程系统,使用图(graphs)来表示计算任务,图(graphs)中的节点称之为op(operation),一个op获得0个或者多个Tensor,执行计算,产生0个或者多个Tensor.Tensor看做是一个n维的数组或者列表.图必须在会话Session里被启动
 
 ##基本概念
+
 - 使用图(graphs)来表示计算任务
 - 在被称为会话(Session)的上下文(context)中执行图
 - 使用张量(tensor)表示数据
@@ -38,6 +40,7 @@ TensorFlow是一个编程系统,使用图(graphs)来表示计算任务,图(graph
 ## 基础使用:
 
 ### op和Session
+
 ```python
 import tensorflow as tf
 ```
