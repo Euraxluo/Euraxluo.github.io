@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2019-01-17-实习学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-01-17-Linux基础学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2019-01-18-实习学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-01-18-ROS入门.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2019-01-19-ros基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-01-19-ros基础.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2019-01-19-ros安装.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-01-19-ros安装.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2019-02-14-Flask入门.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-02-14-Flask入门.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +17,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/2019-03-01-无人驾驶概述.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="41">
+              <first_editor relative-caret-position="396">
                 <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
               </first_editor>
               <second_editor />
@@ -42,12 +37,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="615">
-                <caret line="97" column="6" lean-forward="true" selection-start-line="97" selection-start-column="6" selection-end-line="97" selection-end-column="6" />
+              <first_editor relative-caret-position="20">
+                <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
               </first_editor>
               <second_editor />
             </state>
@@ -82,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/2019-01-24-Linux编程实践.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="5346">
+              <first_editor relative-caret-position="5676">
                 <caret line="258" column="22" selection-start-line="258" selection-start-column="22" selection-end-line="258" selection-end-column="22" />
               </first_editor>
               <second_editor />
@@ -90,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2019-02-14-Flask入门.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="198">
+              <first_editor relative-caret-position="41">
                 <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
               </first_editor>
               <second_editor />
@@ -214,12 +209,12 @@
         <option value="$PROJECT_DIR$/_posts/2019-03-01-无人驾驶概述.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/# 静态环境感知与分割算法概述.md" />
-        <option value="$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md" />
         <option value="$PROJECT_DIR$/_posts/2019-01-18-ROS入门.md" />
         <option value="$PROJECT_DIR$/_posts/2019-01-19-ros基础.md" />
         <option value="$PROJECT_DIR$/_posts/2019-01-17-Linux基础学习.md" />
         <option value="$PROJECT_DIR$/_posts/2019-01-19-ros安装.md" />
         <option value="$PROJECT_DIR$/_posts/2019-02-14-Flask入门.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md" />
       </list>
     </option>
   </component>
@@ -230,8 +225,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="928" />
-    <option name="y" value="-25" />
+    <option name="x" value="326" />
+    <option name="y" value="157" />
     <option name="width" value="980" />
     <option name="height" value="530" />
   </component>
@@ -241,6 +236,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -272,7 +268,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -366,14 +361,8 @@
       <workItem from="1551069661625" duration="445000" />
       <workItem from="1551176891894" duration="765000" />
       <workItem from="1551610621591" duration="396000" />
-      <workItem from="1551691086389" duration="1364000" />
-    </task>
-    <task id="LOCAL-00036" summary="tags">
-      <created>1546140450733</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1546140450733</updated>
+      <workItem from="1551691086389" duration="1399000" />
+      <workItem from="1551883419532" duration="66000" />
     </task>
     <task id="LOCAL-00037" summary="tags">
       <created>1546140842587</created>
@@ -711,17 +700,24 @@
       <option name="project" value="LOCAL" />
       <updated>1551610998008</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="add a note about ros">
+      <created>1551692471701</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1551692471702</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60627000" />
+    <option name="totallyTimeSpent" value="60728000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29755434" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31046197" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -801,7 +797,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
-    <MESSAGE value="test" />
     <MESSAGE value="归档" />
     <MESSAGE value="添加了大佬的學習筆記" />
     <MESSAGE value="修改index.html" />
@@ -826,7 +821,8 @@
     <MESSAGE value="add a note about ChatBot study" />
     <MESSAGE value="add a note about TensorFlow study" />
     <MESSAGE value="add a note about ROS note" />
-    <option name="LAST_COMMIT_MESSAGE" value="add a note about ROS note" />
+    <MESSAGE value="add a note about ros" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a note about ros" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/_posts/2018-10-21-MBatis.md">
@@ -1158,7 +1154,7 @@
     <entry file="file://$PROJECT_DIR$/_posts/2019-03-01-无人驾驶概述.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="41">
+          <first_editor relative-caret-position="396">
             <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
           </first_editor>
           <second_editor />
@@ -1175,11 +1171,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2019-01-17-Linux基础学习.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="615">
-            <caret line="97" column="6" lean-forward="true" selection-start-line="97" selection-start-column="6" selection-end-line="97" selection-end-column="6" />
+          <first_editor relative-caret-position="132">
+            <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-01-19-ros安装.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="44">
+            <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-01-24-Linux编程实践.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="5676">
+            <caret line="258" column="22" selection-start-line="258" selection-start-column="22" selection-end-line="258" selection-end-column="22" />
           </first_editor>
           <second_editor />
         </state>
@@ -1190,16 +1206,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="44">
             <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-01-17-Linux基础学习.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="132">
-            <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
           </first_editor>
           <second_editor />
         </state>
@@ -1225,31 +1231,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-01-19-ros安装.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="44">
-            <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-01-24-Linux编程实践.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="5346">
-            <caret line="258" column="22" selection-start-line="258" selection-start-column="22" selection-end-line="258" selection-end-column="22" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2019-02-14-Flask入门.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="198">
+          <first_editor relative-caret-position="41">
             <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="20">
+            <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
           </first_editor>
           <second_editor />
         </state>
