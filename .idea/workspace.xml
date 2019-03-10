@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_posts/2019-03-09-Redis数据结构.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2019-03-10-Redis持久化策略.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2019-03-10-Redis高级特性.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2019-03-08-Redis配置.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-03-08-Redis配置.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +18,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-6468">
+              <first_editor relative-caret-position="66">
                 <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
               </first_editor>
               <second_editor />
@@ -26,12 +26,36 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2019-03-09-Redis数据结构.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="329">
-                <caret line="395" lean-forward="true" selection-start-line="395" selection-end-line="395" />
+              <first_editor>
+                <caret selection-end-line="11" selection-end-column="3" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2019-03-10-Redis高级特性.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor>
+                <caret selection-end-line="11" selection-end-column="3" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2019-03-10-Redis持久化策略.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="549">
+                <caret line="236" lean-forward="true" selection-start-line="236" selection-end-line="236" />
               </first_editor>
               <second_editor />
             </state>
@@ -42,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/2019-03-08-Redis配置.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="374">
+              <first_editor relative-caret-position="2090">
                 <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
               </first_editor>
               <second_editor />
@@ -141,8 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/_posts/2018-11-10-java學習.md" />
-        <option value="$PROJECT_DIR$/_posts/2018-10-12-java學習.md" />
         <option value="$PROJECT_DIR$/_posts/2018-10-30-JDBC1.md" />
         <option value="$PROJECT_DIR$/_posts/2018-10-31.md" />
         <option value="$PROJECT_DIR$/_posts/2018-11-01-JDBC3.md" />
@@ -192,6 +214,8 @@
         <option value="$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md" />
         <option value="$PROJECT_DIR$/_posts/2019-03-08-Redis配置.md" />
         <option value="$PROJECT_DIR$/_posts/2019-03-09-Redis数据结构.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-03-10-Redis高级特性.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-03-10-Redis持久化策略.md" />
       </list>
     </option>
   </component>
@@ -202,10 +226,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="325" />
-    <option name="y" value="155" />
-    <option name="width" value="980" />
-    <option name="height" value="530" />
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -342,14 +365,9 @@
       <workItem from="1551883419532" duration="2402000" />
       <workItem from="1551934544227" duration="395000" />
       <workItem from="1552040127871" duration="293000" />
-      <workItem from="1552123525394" duration="578000" />
-    </task>
-    <task id="LOCAL-00039" summary="bg-image">
-      <created>1546141759015</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1546141759015</updated>
+      <workItem from="1552123525394" duration="752000" />
+      <workItem from="1552200182274" duration="197000" />
+      <workItem from="1552209108917" duration="74000" />
     </task>
     <task id="LOCAL-00040" summary="bg-image">
       <created>1546141962932</created>
@@ -687,17 +705,24 @@
       <option name="project" value="LOCAL" />
       <updated>1552040322063</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="add a note about redis-api">
+      <created>1552124142050</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1552124142051</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64330000" />
+    <option name="totallyTimeSpent" value="64775000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.3308424" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16847827" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -784,7 +809,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
-    <MESSAGE value="修改index.html" />
     <MESSAGE value="tags" />
     <MESSAGE value="bg-image" />
     <MESSAGE value="添加了一些笔记" />
@@ -809,29 +833,10 @@
     <MESSAGE value="add a note about ros" />
     <MESSAGE value="add a note about opencv" />
     <MESSAGE value="add a note about redis-conf" />
-    <option name="LAST_COMMIT_MESSAGE" value="add a note about redis-conf" />
+    <MESSAGE value="add a note about redis-api" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a note about redis-api" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/2018-10-20-數組.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="68">
-            <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-9.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="238">
-            <caret line="14" selection-start-line="14" selection-end-line="14" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/# ROS.md" />
     <entry file="file://$PROJECT_DIR$/# UnixLinux 编程實踐教程.md" />
     <entry file="file://$PROJECT_DIR$/_layouts/keynote.html">
@@ -1129,6 +1134,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/## 数据结构和内部编码.md" />
+    <entry file="file://$PROJECT_DIR$/# Redis的API.md" />
+    <entry file="file://$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="66">
+            <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-03-09-Redis数据结构.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor>
+            <caret selection-end-line="11" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-03-08-Redis配置.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="2090">
+            <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2019-01-24-Linux编程实践.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1179,49 +1216,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/## 数据结构和内部编码.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2019-03-10-Redis高级特性.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-617" />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-6468">
-            <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <first_editor>
+            <caret selection-end-line="11" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/# Redis的API.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="396">
-            <caret line="18" column="17" selection-end-line="219" selection-end-column="227" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-03-08-Redis配置.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="374">
-            <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-03-09-Redis数据结构.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2019-03-10-Redis持久化策略.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="329">
-            <caret line="395" lean-forward="true" selection-start-line="395" selection-end-line="395" />
+          <first_editor relative-caret-position="549">
+            <caret line="236" lean-forward="true" selection-start-line="236" selection-end-line="236" />
           </first_editor>
           <second_editor />
         </state>
