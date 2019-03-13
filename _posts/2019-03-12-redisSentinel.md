@@ -2,7 +2,7 @@
 layout:     post                    # 使用的布局（不需要改）
 title:      数据库               # 标题
 subtitle:   RedisSentinel                #副标题
-date:       2019-03-11           # 时间
+date:       2019-03-12           # 时间
 author:     Euraxluo                      # 作者
 header-img: img/post-bg-github-cup.jpg  #这篇文章标题背景图片
 catalog: true                 # 是否归档
