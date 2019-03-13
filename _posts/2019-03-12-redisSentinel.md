@@ -127,5 +127,56 @@ while(True):
 
 ## 主观下线
 每个sentinel节点对Redis节点失败的偏见
+`sentinel down-after-milliseconds mastername 30000{超过多久未收到回复}`
 ## 客观下线
-所有sentinel节点对redis节点失败“达成共识”（超过quorum个同意）
+所有sentinel节点对redis节点失败“达成共识”（超过quorum个统一，建议sentinel/2+1）
+`sentinel monitor mastername ip port quorum{法定人数}`
+
+## 故障转移
+### 领导者选举
+- 原因：只有一个sentinel节点完成故障转移
+- 选举：通过sentinel is-master-down-by-addr 命令
+1. 这个命令会发出自己对master的主观判断，并且要求将自己设置为领导者
+2. 收到命令的sentinel如果没有同意其他sentinel发出的请求，就会同意这个请求，否则拒绝
+3. 如果sentinel节点超过sentinel集合半数且超过quorum数，那么它将成为领导者
+4. 如果此过程有多个sentinel节点成为了领导者，那么将等待一段时间重新进行选举
+
+### sentinel领导者节点实现故障转移
+1. 从slave节点中选出一个合适的节点作为新的master
+2. 对上面的slave节点执行`slaveof no one`命令让其成为master节点
+3. 向剩余的slave节点发送命令，让它们成为新master节点的slave节点，复制规则和`parallel-syncs`参数有关{快速复制还是顺序复制}
+4. 更新原来的master节点为slave，并对其保持关注，当其恢复后命令他去复制master
+
+### 怎么选择合适的slave节点
+1. 选择`slave-priority{slava优先级}`最高的节点，如果存在返回，不存在继续
+2. 选择复制偏移量最大的slave节点{复制的最完整}，如果存在返回，不存在继续
+3. 选择runID最小的slave节点
+
+## TIPS
+### 节点运维，节点的上下线
+1. 节点下线
+- 机器性能不足
+- 节点故障
+- 机器故障，过保
+- `sentinel failover <masterName>`,让一个sentinel节点去完成故障转移
+- 节点临时下线还是永久下线
+2. 节点上线
+- 主节点上线，使用`sentinel failover`
+- 从节点上线，`slaveof`，sentinel节点可以感知
+- sentinel上线，配置`sentinel monitor mastername 127.1 port quorum`
+
+
+### 高可用读写分离
+1. 从节点的作用
+- 是一个副本，高可用的基础
+- 读写分离
+2. 依赖三个消息用于监控slave节点资源池
+- +switch-master：切换主节点（从节点晋升主节点）
+- +convet-to-slave：切换从节点（主节点降为从）
+- +sdown：主观下线
+
+### 实际部署
+- 在同一局域网不同物理机部署redis Sentinel节点
+- redis sentinel 的sentinel节点个数最好为奇数，quorum最好是（节点个数/2+1）
+- 客户端初始化时连接的是sentinel节点集合，但是sentinel只是配置中心，不是代理模式
+- 当客户端监控到`switch-master`时，会重新进行redis连接初始化
