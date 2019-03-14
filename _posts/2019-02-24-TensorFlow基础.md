@@ -156,6 +156,7 @@ with tf.Session() as sess:
 ```
 
 ## 张量的动态形状和静态形状
+
 Numpy:把原来的数据通过`reshape`直接改变
 - 静态形状：
 创建一个张量，初始化状态的形状：
@@ -181,6 +182,7 @@ with tf.Session() as sess:
 ```
 
 ## 变量
+
 变量也是一种op,是一种特殊的张量,能够进行持久化,他的值就是张量,默认被训练
 
 
@@ -193,6 +195,7 @@ with tf.Session() as sess:
 ```
 
 ## Tensorboard
+
 - 数据序列化->events文件
 
 TensorBoard通过读取TensorFlow的事件文件来运行
@@ -220,11 +223,12 @@ with tf.Session() as sess:
 ## 文件读取
 
 ### 队列与队列管理器
-# 1. 在训练样本的时候,希望数据有序读取
-# tf.FIFOQueue(capacity,dtypes,name='fifo_queue') 先进先出队列,按顺序出队列
-#   capacity:整数,可能存储在此队列中的元素数量的上限
-#   dtypes:DType对象列表,长度dtypes必须等于每个队列元素中的张量数,dtype的元素形状,决定了后面进队元素的形状
-# tf.RandomShuffleQueue 随机出队列
+
+1. 在训练样本的时候,希望数据有序读取
+>tf.FIFOQueue(capacity,dtypes,name='fifo_queue') 先进先出队列,按顺序出队列   
+   - capacity:整数,可能存储在此队列中的元素数量的上限
+   - dtypes:DType对象列表,长度dtypes必须等于每个队列元素中的张量数,dtype的元素形状,决定了后面进队元素的形状
+>tf.RandomShuffleQueue 随机出队列
 
 ### 异步读取,队列管理器
 >tf.train.QueueRunner(queue,enqueue_ops=None)创建一个QueueRunner

@@ -3,34 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-1.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-1.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-2.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-3.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-4.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-4.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-5.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-5.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-6.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-6.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-7.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-7.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-8.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-8.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-9.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-9.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-04-26-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-04-26-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-04-27-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-04-27-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-04-28-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-04-28-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-04-29-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-04-29-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-04-30-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-04-30-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-05-02-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-05-02-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-05-07-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-05-07-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-05-08-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-05-08-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-05-10-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-05-10-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-05-11-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-05-11-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-05-12-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-05-12-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-05-13-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-05-13-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-05-14-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-05-14-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-06-07-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-06-07-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-06-08-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-06-08-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-06-09-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-06-09-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-06-10-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-06-10-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-06-11-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-06-11-308学习.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2018-06-13-308学习.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2018-06-13-308学习.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2019-02-24-TensorFlow基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-02-24-TensorFlow基础.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +16,79 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2018-10-30-JDBC1.md">
+        <entry file="file://$PROJECT_DIR$/_posts/2019-01-18-shell.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="352">
+                <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-9.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="176">
+                <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-8.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="176">
+                <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-7.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="176">
+                <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-6.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="66">
+                <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="264">
+                <caret line="216" column="12" selection-start-line="216" selection-start-column="12" selection-end-line="216" selection-end-column="12" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2019-03-08-Redis配置.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor />
@@ -51,7 +98,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2018-10-30-爬虫初级3.md">
+        <entry file="file://$PROJECT_DIR$/_posts/2019-03-09-Redis数据结构.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor />
@@ -61,37 +108,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2018-10-31-JDBC2.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2018-11-01-JDBC3.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2019-01-18-ROS入门.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2018-11-10-java學習.md">
+        <entry file="file://$PROJECT_DIR$/_posts/2019-03-10-Redis持久化策略.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor />
@@ -101,42 +118,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_posts/2019-01-18-shell.md">
+        <entry file="file://$PROJECT_DIR$/_posts/2019-02-24-TensorFlow基础.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="154">
-                <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+              <first_editor relative-caret-position="352">
+                <caret line="235" lean-forward="true" selection-start-line="235" selection-end-line="235" />
               </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2018-12-04-java學習.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2018-12-30-typora畫圖.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2019-01-17-Linux基础学习.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
               <second_editor />
             </state>
           </provider>
@@ -175,7 +162,6 @@
       <list>
         <option value="$PROJECT_DIR$/_posts/2019-02-20-NLP基础.md" />
         <option value="$PROJECT_DIR$/_posts/2019-02-21-语料处理流程.md" />
-        <option value="$PROJECT_DIR$/_posts/2019-02-24-TensorFlow基础.md" />
         <option value="$PROJECT_DIR$/_posts/2019-02-18-TensorFlow学习.md" />
         <option value="$PROJECT_DIR$/_posts/2019-02-21-ChatBot模型.md" />
         <option value="$PROJECT_DIR$/_posts/2019-03-01-无人驾驶概述.md" />
@@ -186,7 +172,6 @@
         <option value="$PROJECT_DIR$/_posts/2019-01-17-Linux基础学习.md" />
         <option value="$PROJECT_DIR$/_posts/2019-01-19-ros安装.md" />
         <option value="$PROJECT_DIR$/_posts/2019-02-14-Flask入门.md" />
-        <option value="$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md" />
         <option value="$PROJECT_DIR$/_posts/2018-07-11-git学习.md" />
         <option value="$PROJECT_DIR$/_posts/2019-02-10-Redis基础.md" />
         <option value="$PROJECT_DIR$/_posts/2019-03-08-Redis配置.md" />
@@ -201,7 +186,6 @@
         <option value="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-3.md" />
         <option value="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-4.md" />
         <option value="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-5.md" />
-        <option value="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-6.md" />
         <option value="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-7.md" />
         <option value="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-8.md" />
         <option value="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-9.md" />
@@ -224,6 +208,9 @@
         <option value="$PROJECT_DIR$/_posts/2018-06-10-308学习.md" />
         <option value="$PROJECT_DIR$/_posts/2018-06-11-308学习.md" />
         <option value="$PROJECT_DIR$/_posts/2018-06-13-308学习.md" />
+        <option value="$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-6.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-02-24-TensorFlow基础.md" />
       </list>
     </option>
   </component>
@@ -234,8 +221,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="282" />
-    <option name="width" value="1645" />
+    <option name="x" value="532" />
+    <option name="width" value="1397" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -244,7 +231,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -276,6 +262,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -379,14 +366,9 @@
       <workItem from="1552289233626" duration="72000" />
       <workItem from="1552399604616" duration="249000" />
       <workItem from="1552458212428" duration="84000" />
-      <workItem from="1552473569630" duration="409000" />
-    </task>
-    <task id="LOCAL-00044" summary="bg-image">
-      <created>1546157774911</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1546157774911</updated>
+      <workItem from="1552473569630" duration="449000" />
+      <workItem from="1552487192483" duration="139000" />
+      <workItem from="1552540071852" duration="725000" />
     </task>
     <task id="LOCAL-00045" summary="添加了一些笔记">
       <created>1546698422364</created>
@@ -724,17 +706,24 @@
       <option name="project" value="LOCAL" />
       <updated>1552473713857</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="chage the tags">
+      <created>1552474001905</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1552474001905</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65788000" />
+    <option name="totallyTimeSpent" value="66692000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.37296197" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.07472826" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -821,7 +810,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
-    <MESSAGE value="PyqueryStudy" />
     <MESSAGE value="添加爬虫笔记" />
     <MESSAGE value="添加数据结构笔记,我通过面试拉" />
     <MESSAGE value="添加数据结构笔记" />
@@ -846,99 +834,10 @@
     <MESSAGE value="add a note about redis-aof-rdb" />
     <MESSAGE value="add a note about redisSentinel" />
     <MESSAGE value="add a note about redisCluster1" />
-    <option name="LAST_COMMIT_MESSAGE" value="add a note about redisCluster1" />
+    <MESSAGE value="chage the tags" />
+    <option name="LAST_COMMIT_MESSAGE" value="chage the tags" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-6.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="176">
-            <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-7.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="176">
-            <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-8.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="176">
-            <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-9.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-22">
-            <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2018-04-26-308学习.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="176">
-            <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2018-04-27-308学习.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="176">
-            <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2018-04-28-308学习.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="176">
-            <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2018-04-29-308学习.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="176">
-            <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2018-04-30-308学习.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="176">
-            <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2018-05-02-308学习.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1261,7 +1160,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2018-12-30-typora畫圖.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2019-01-18-ROS入门.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -1285,7 +1184,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-01-17-Linux基础学习.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2018-12-30-typora畫圖.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -1293,7 +1192,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-01-18-ROS入门.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2019-01-17-Linux基础学习.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -1304,8 +1203,92 @@
     <entry file="file://$PROJECT_DIR$/_posts/2019-01-18-shell.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="154">
-            <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <first_editor relative-caret-position="352">
+            <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-9.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="176">
+            <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-8.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="176">
+            <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-7.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="176">
+            <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2018-01-01-向大佬學習java-6.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="66">
+            <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="264">
+            <caret line="216" column="12" selection-start-line="216" selection-start-column="12" selection-end-line="216" selection-end-column="12" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-03-08-Redis配置.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-03-09-Redis数据结构.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-03-10-Redis持久化策略.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-02-24-TensorFlow基础.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="352">
+            <caret line="235" lean-forward="true" selection-start-line="235" selection-end-line="235" />
           </first_editor>
           <second_editor />
         </state>
