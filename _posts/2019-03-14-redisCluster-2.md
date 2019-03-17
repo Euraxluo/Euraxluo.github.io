@@ -61,7 +61,7 @@ def move_slot(source,target,slot):
 		node.cluster("setslot",slot,"node",target.nodeId)
 ```
 - 在集群中添加两个节点7006，7007，7007 slaveof 7006
-```shell
+```bash
 #生成配置
 sed 's/7000/7006/g' redis-7000.conf > redis-7006.conf
 sed 's/7000/7007/g' redis-7000.conf > redis-7007.conf
@@ -86,7 +86,8 @@ redis-cli -p 7000 cluster nodes |grep master
 ### 缩容集群
 1. 下线迁移槽
 - 下线7006，7007
-```shell
+
+```bash
 #添加节点时，7006从三个node上获取槽，因此槽分为三段
 
 #迁移槽
@@ -101,7 +102,8 @@ redis-trib.rb reshard --from <7006.nodeId> --to <7002.nodeId> --slots <slotsNums
 ```
 2. 忘记节点
 - 忘记7006，7007
-```shell
+
+```bash
 #忘记节点,先下线从节点
 redis-trib.rb del-node 127.1:7000 <7007.nodeId>
 
