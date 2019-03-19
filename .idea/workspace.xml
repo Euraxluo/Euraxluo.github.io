@@ -12,12 +12,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2019-03-14-redisCluster-2.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="1386">
-                <caret line="63" column="7" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="7" />
+              <first_editor relative-caret-position="549">
+                <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
               </first_editor>
               <second_editor />
             </state>
@@ -40,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/# 如何准备面试.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="-485" />
+              <first_editor />
               <second_editor />
             </state>
           </provider>
@@ -58,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2019-03-16-RedisCluster-3.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="299">
+              <first_editor relative-caret-position="35">
                 <caret line="224" lean-forward="true" selection-start-line="224" selection-end-line="224" />
               </first_editor>
               <second_editor />
@@ -196,8 +196,8 @@
         <option value="$PROJECT_DIR$/_posts/2019-03-01-无人驾驶概述.md" />
         <option value="$PROJECT_DIR$/_posts/2019-03-14-Apollo架构.md" />
         <option value="$PROJECT_DIR$/_posts/2019-03-16-RedisCluster-3.md" />
-        <option value="$PROJECT_DIR$/_posts/2019-03-14-redisCluster-2.md" />
         <option value="$PROJECT_DIR$/_posts/2019-03-15-缓存的使用和设计.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-03-14-redisCluster-2.md" />
       </list>
     </option>
   </component>
@@ -219,7 +219,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -251,6 +250,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -361,13 +361,7 @@
       <workItem from="1552704466084" duration="21000" />
       <workItem from="1552808240000" duration="385000" />
       <workItem from="1552809362156" duration="171000" />
-    </task>
-    <task id="LOCAL-00049" summary="添加爬虫笔记">
-      <created>1546914614754</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1546914614754</updated>
+      <workItem from="1552809611076" duration="40000" />
     </task>
     <task id="LOCAL-00050" summary="添加数据结构笔记,我通过面试拉">
       <created>1547134055347</created>
@@ -705,16 +699,23 @@
       <option name="project" value="LOCAL" />
       <updated>1552809488125</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="change some style">
+      <created>1552809647310</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1552809647310</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70644000" />
+    <option name="totallyTimeSpent" value="70684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31725544" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3240489" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -801,7 +802,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
-    <MESSAGE value="添加ROS学习笔记" />
     <MESSAGE value="添加ROS安装笔记" />
     <MESSAGE value="linux shell操作" />
     <MESSAGE value="《linux shell操作》補全，更改错误的时间戳" />
@@ -826,7 +826,8 @@
     <MESSAGE value="add 3 note about redis,Apollo" />
     <MESSAGE value="add 2 note about redis,Apollo" />
     <MESSAGE value="change some error" />
-    <option name="LAST_COMMIT_MESSAGE" value="change some error" />
+    <MESSAGE value="change some style" />
+    <option name="LAST_COMMIT_MESSAGE" value="change some style" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/_posts/2018-10-09-爬虫实战.md">
@@ -1176,6 +1177,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/# 如何准备面试.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2019-03-12-redisSentinel.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1214,24 +1223,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/# 如何准备面试.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="-485" />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-03-14-redisCluster-2.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="1386">
-            <caret line="63" column="7" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="7" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2019-03-15-缓存的使用和设计.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
@@ -1245,8 +1236,18 @@
     <entry file="file://$PROJECT_DIR$/_posts/2019-03-16-RedisCluster-3.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="299">
+          <first_editor relative-caret-position="35">
             <caret line="224" lean-forward="true" selection-start-line="224" selection-end-line="224" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-03-14-redisCluster-2.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="549">
+            <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
           </first_editor>
           <second_editor />
         </state>
