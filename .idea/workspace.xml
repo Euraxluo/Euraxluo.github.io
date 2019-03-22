@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/# 如何准备面试.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-03-04-静态环境感知概述.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2019-03-14-Apollo架构.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-03-14-Apollo架构.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2019-03-20-算法面试1.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2019-03-20-算法面试1.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java面试笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/java面试笔记.md" afterDir="false" />
-    </list>
+    <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,14 +365,7 @@
       <workItem from="1553004310525" duration="1911000" />
       <workItem from="1553070313714" duration="842000" />
       <workItem from="1553081257450" duration="507000" />
-      <workItem from="1553179118418" duration="265000" />
-    </task>
-    <task id="LOCAL-00053" summary="添加linux笔记">
-      <created>1547774145958</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1547774145958</updated>
+      <workItem from="1553179118418" duration="315000" />
     </task>
     <task id="LOCAL-00054" summary="添加ROS学习笔记">
       <created>1547808969225</created>
@@ -717,15 +703,21 @@
       <option name="project" value="LOCAL" />
       <updated>1553081478077</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="add a note about algorithms">
+      <created>1553179395753</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1553179395753</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74345000" />
+    <option name="totallyTimeSpent" value="74395000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.08899456" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
