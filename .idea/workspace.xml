@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="" />
+    <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="delete a note">
+      <change afterPath="$PROJECT_DIR$/数学杂谈.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +75,8 @@
         <entry file="file://$PROJECT_DIR$/_posts/2019-03-14-Apollo架构.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="263">
-                <caret line="481" lean-forward="true" selection-start-line="481" selection-end-line="481" />
+              <first_editor relative-caret-position="330">
+                <caret line="510" column="17" lean-forward="true" selection-start-line="510" selection-start-column="17" selection-end-line="510" selection-end-column="17" />
               </first_editor>
               <second_editor />
             </state>
@@ -84,7 +87,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/2019-03-20-算法面试1.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="308">
+              <first_editor relative-caret-position="2222">
                 <caret line="101" column="3" selection-start-line="101" selection-start-column="3" selection-end-line="101" selection-end-column="3" />
               </first_editor>
               <second_editor />
@@ -208,8 +211,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
+    <option name="x" value="950" />
+    <option name="width" value="979" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -366,13 +369,8 @@
       <workItem from="1553070313714" duration="842000" />
       <workItem from="1553081257450" duration="507000" />
       <workItem from="1553179118418" duration="315000" />
-    </task>
-    <task id="LOCAL-00054" summary="添加ROS学习笔记">
-      <created>1547808969225</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1547808969225</updated>
+      <workItem from="1553432156628" duration="662000" />
+      <workItem from="1553527356041" duration="249000" />
     </task>
     <task id="LOCAL-00055" summary="添加ROS学习笔记">
       <created>1547822263735</created>
@@ -710,16 +708,23 @@
       <option name="project" value="LOCAL" />
       <updated>1553179395753</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="delete a note">
+      <created>1553432217181</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1553432217182</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74395000" />
+    <option name="totallyTimeSpent" value="75306000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.08899456" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27581522" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -806,7 +811,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
-    <MESSAGE value="《linux shell操作》補全，更改错误的时间戳" />
     <MESSAGE value="Linux编程序实践 读书笔记添加" />
     <MESSAGE value="add a shell script" />
     <MESSAGE value="add Redis study note" />
@@ -831,7 +835,8 @@
     <MESSAGE value="change some style" />
     <MESSAGE value="add a notes" />
     <MESSAGE value="add a note about algorithms" />
-    <option name="LAST_COMMIT_MESSAGE" value="add a note about algorithms" />
+    <MESSAGE value="delete a note" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete a note" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/_posts/2018-10-09-讀書筆記.md">
@@ -1119,14 +1124,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/## 集群伸缩.md" />
-    <entry file="file://$PROJECT_DIR$/# Android语言学习.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/## Apollo无人车架构.md" />
     <entry file="file://$PROJECT_DIR$/## 缓存的使用和设计.md" />
     <entry file="file://$PROJECT_DIR$/java面试笔记.md">
@@ -1168,6 +1165,7 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/# Android语言学习.md" />
     <entry file="file://$PROJECT_DIR$/_posts/2019-01-18-ROS入门.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
@@ -1216,6 +1214,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-03-20-算法面试1.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="2222">
+            <caret line="101" column="3" selection-start-line="101" selection-start-column="3" selection-end-line="101" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2018-10-20-數組.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
@@ -1236,21 +1244,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-03-20-算法面试1.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="308">
-            <caret line="101" column="3" selection-start-line="101" selection-start-column="3" selection-end-line="101" selection-end-column="3" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2019-03-14-Apollo架构.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="263">
-            <caret line="481" lean-forward="true" selection-start-line="481" selection-end-line="481" />
+          <first_editor relative-caret-position="330">
+            <caret line="510" column="17" lean-forward="true" selection-start-line="510" selection-start-column="17" selection-end-line="510" selection-end-column="17" />
           </first_editor>
           <second_editor />
         </state>
