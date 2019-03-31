@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="delete a note">
-      <change afterPath="$PROJECT_DIR$/数学杂谈.md" afterDir="false" />
+    <list default="true" id="c51a5e72-aeda-4c4d-96bf-94d1dcd1eaca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,8 +74,8 @@
         <entry file="file://$PROJECT_DIR$/_posts/2019-03-14-Apollo架构.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="330">
-                <caret line="510" column="17" lean-forward="true" selection-start-line="510" selection-start-column="17" selection-end-line="510" selection-end-column="17" />
+              <first_editor relative-caret-position="222">
+                <caret line="505" column="19" lean-forward="true" selection-start-line="505" selection-start-column="19" selection-end-line="505" selection-end-column="19" />
               </first_editor>
               <second_editor />
             </state>
@@ -212,7 +211,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="950" />
-    <option name="width" value="979" />
+    <option name="width" value="980" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -221,6 +220,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -252,7 +252,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -370,14 +369,8 @@
       <workItem from="1553081257450" duration="507000" />
       <workItem from="1553179118418" duration="315000" />
       <workItem from="1553432156628" duration="662000" />
-      <workItem from="1553527356041" duration="249000" />
-    </task>
-    <task id="LOCAL-00055" summary="添加ROS学习笔记">
-      <created>1547822263735</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1547822263736</updated>
+      <workItem from="1553527356041" duration="331000" />
+      <workItem from="1553732378669" duration="57000" />
     </task>
     <task id="LOCAL-00056" summary="添加ROS学习笔记">
       <created>1547826511000</created>
@@ -715,16 +708,23 @@
       <option name="project" value="LOCAL" />
       <updated>1553432217182</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="add a note">
+      <created>1553527626981</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1553527626981</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75306000" />
+    <option name="totallyTimeSpent" value="75445000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27581522" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28125" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -811,7 +811,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
-    <MESSAGE value="Linux编程序实践 读书笔记添加" />
     <MESSAGE value="add a shell script" />
     <MESSAGE value="add Redis study note" />
     <MESSAGE value="add Flask study note" />
@@ -836,7 +835,8 @@
     <MESSAGE value="add a notes" />
     <MESSAGE value="add a note about algorithms" />
     <MESSAGE value="delete a note" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete a note" />
+    <MESSAGE value="add a note" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a note" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/_posts/2018-10-09-讀書筆記.md">
@@ -1247,8 +1247,8 @@
     <entry file="file://$PROJECT_DIR$/_posts/2019-03-14-Apollo架构.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="330">
-            <caret line="510" column="17" lean-forward="true" selection-start-line="510" selection-start-column="17" selection-end-line="510" selection-end-column="17" />
+          <first_editor relative-caret-position="222">
+            <caret line="505" column="19" lean-forward="true" selection-start-line="505" selection-start-column="19" selection-end-line="505" selection-end-column="19" />
           </first_editor>
           <second_editor />
         </state>
