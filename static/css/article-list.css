@@ -1,0 +1,227 @@
+article{
+    padding:6px 0px 8px 0px;
+    margin-top: 3em;
+}
+article header{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1em;
+    margin-left: 5px;
+    line-height: 1em;
+    text-shadow: 0 1px #fff;
+    font-weight: bold;
+    display: block;
+}
+
+article header a{
+    color: #666;
+}
+
+article .module {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 25px;
+    border-bottom: 1px solid #b1b1b1;
+    background: #f8f8fd;
+
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.4),0 0 30px rgba(10,10,0,0.1) inset;
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.4),0 0 30px rgba(10,10,0,0.1) inset;
+    -o-box-shadow: 0 1px 2px rgba(0,0,0,0.4),0 0 30px rgba(10,10,0,0.1) inset;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.4),0 0 30px rgba(10,10,0,0.1) inset;
+}
+article .title{
+    font-size: 1.6em;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 10px;
+
+    margin-left: -25px;
+    padding-left: 20px;
+    border-left: 5px solid #2ca6cb;
+}
+
+article .readmore{
+    display: inline-block;
+    line-height: 1em;
+    padding: 6px 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    background: #eee;
+    color: #999;
+    text-shadow: 0 1px #fff;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+article .readmore:hover{
+    background: #258fb8;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 1px #1e7293;
+}
+
+article footer{
+    font-size: .85em;
+    line-height: 1.6em;
+    border-top: 1px solid #ddd;
+    padding-top: 1.6em;
+    margin: 0;
+}
+article footer a{
+    color: #999;
+    margin-right: 15px;
+}
+/* article .left {>ul {
+            padding: 0;
+            >li {
+                list-style: none;
+            }
+            li {
+                color: #333;
+                h2 {
+                    border: none;
+                    font-size: 27px;
+                    margin: 0;
+                }
+                .label {
+                    margin-bottom: 15px;
+                    overflow: hidden;
+                    .label-card {
+                        float: left;
+                        margin-right: 15px;
+                        i {
+                            padding-right: 0;
+                            margin-right: 3px;
+                            color: #6b6a6a;
+                        }
+                    }
+                    .categories {
+                        padding: 0;
+                    }
+                }
+                .excerpt {
+                    h2 {
+                        font-size: 24px;
+                    }
+                    h3 {
+                        font-size: 22px;
+                    }
+                    h4 {
+                        font-size: 20px;
+                    }
+                }
+                .read-all {
+                    text-align: right;
+                    font-size: 14px;
+                    a {
+                        color: #778ab0;
+                        transition: 0.2s ease;
+                        &:hover {
+                            color: #5872a7;
+                        }
+                        i {
+                            padding-right: 3px;
+                        }
+                    }
+                }
+            }
+        }
+ article .pagination {
+            text-align: center;
+            .previous ,.next {
+                font-size: 20px;
+                padding: 0 5px;
+            }
+            .page_number {
+                padding: 0 5px;
+            }
+            .disable {
+                color: #cbcbcb;
+            }
+        }
+
+
+article     .right {
+        .wrap {
+            .side {
+                margin-bottom: 20px;
+                padding-bottom: 0;
+                i {
+                    margin-right: 3px;
+                }
+                .content-ul[cate] {
+                    overflow: hidden;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    li {
+                        font-size: 14px;
+                        a {
+                            display: block;
+                            width: 100%;
+                            padding: 2px 0;
+                            border-bottom: 1px solid #eee;
+                            &:hover {
+                                background-color: #dbdfee;
+                                .badge {
+                                    background-color: #dbdfee;
+                                    transform: scale(1.2) rotate(360deg);
+                                }
+                            }
+                            .name {
+                                padding-left: 15px;
+                            }
+                            .badge {
+                                display: block;
+
+                                // width: 20px;
+                                float: right;
+                                text-align: center;
+                                margin-right: 15px;
+                                margin-top: 3px;
+                                padding: 0px 10px;
+                                font-size: 12px;
+                                color: #fff;
+                                background-color: #bbb;
+                                border-radius:50%;
+                                transition: 0.5s ease-in-out;
+                                    -webkit-transition: 0.4s ease;
+                            }
+                        }
+                        &:last-of-type a {
+                            border: none;
+                        }
+                    }
+                }
+                .content-ul[recent]{
+                    padding-bottom: 16px;
+                    li{
+                        color:#aaa;
+                        font-size: 14px;
+                    }
+                }
+                .tags-cloud {
+                    font-weight: normal;
+                    a {
+                        padding: 0 3px;
+                        border-radius: 5px;
+                        &:hover {
+                            background-color: #f0e7ce;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .fa-pencil-square-o:before {
+  content: "\f044";
+}
+.fa-tags:before {
+  content: "\f02c";
+}
+.fa-th-list:before {
+  content: "\f00b";
+} */

@@ -1,110 +1,53 @@
-# Site settings
-title: Euraxluo
-SEOTitle: Euraxluo
-header-img: img/post-bg-desk.jpg
-email: 
-description: "Evernote Ambassador, Telegram, Shadowsocks"
-keyword: "Acmer NLP CV C++ Python Java"
-url: "http://euraxluo.github.io"          # your host, for absolute URL
-baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/Euraxluo/Euraxluo.github.io" # you code repository
+permalink: /:year-:month-:day/:title/
 
-# Sidebar settings
-sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Acmer NLP CV<p> C++ Python Java</>"
-sidebar-avatar: /img/wxtouxiang.png      # use absolute URL, seeing it's used in both `/` and `/about/`
-
-
-
-# SNS settings
-RSS: true
-telegram_username:     euraxluo
-weibo_username:     euraxluo
-zhihu_username:     euraxluo
-github_username:    euraxluo
-#facebook_username:  baiying.qiu.7
-jianshu_username:   c7265771265f
-twitter_username:   euraxluo
-
-
-
-
-# Build settings
-# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
-permalink: pretty
-paginate: 10   # 每页条数
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
-anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
-
-
-
-# Gems
-# from PR#40, to support local preview for Jekyll 3.0
-gems: [jekyll-paginate]
-
-
-
-
-# Markdown settings
-# replace redcarpet to kramdown,
-# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
-# document: http://jekyllrb.com/docs/configuration/#kramdown
-markdown: kramdown
 highlighter: rouge
+markdown: kramdown
 kramdown:
-  input: GFM                            # use Github Flavored Markdown !important
+  input:  GFM
+  syntax_highlighter: rouge
+
+
+paginate: 8
+paginate_path: ":num"
+baseurl: ""
 
 
 
-# 评论系统
-# Disqus（https://disqus.com/）
-# disqus_username: qiubaiying
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      styles : [highlight.css,post.css]
+      scripts : [post.js]
 
-# Gitalk
+
+
+title: "Euraxluo"  #blog name
+email: "1793939176@qq.com" #email
+description: "<p3>programmer<p3>" #简介
+github_username:  "Euraxluo" #github
+sidebar-avatar: "wxtouxiang.png" #头像
+staticimg: "https://Euraxluo.github.io/static/img" #网站静态资源
+
+# swiftype_searchId: "ncwR9a8S9CTx2q9SgsJm" #搜索库
+# disqus_shortname: "rainyalley" #disqus评论
+
+
+# Gitalk评论
 gitalk:
-  enable: false    #是否开启Gitalk评论
-  clientID: 18b6b9f2cea795c9226d                            #生成的clientID
-  clientSecret: d14524b083fad3e81fe7ce32ff49370b4711f33e    #生成的clientSecret
-  repo: euraxluo.github.io    #仓库名称
-  owner: euraxluo    #github用户名
-  admin: euraxluo
+  enable: true    #是否开启Gitalk评论
+  clientID: 59950782f3ee3975fd60 #8e3b5021c3d411b967ae                          #生成的clientID
+  clientSecret: 6ce5ca9db1c653f29754ed33c3d75b3cdf3f0ae1 #6b7fa1af068e0c0527d6c98f1fe5b61f2f71a0fc    #生成的clientSecret
+  repo: Euraxluo.github.io    #仓库名称
+  owner: Euraxluo    #github用户名
+  admin: Euraxluo
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
-# 统计
 
-# Analytics settings
-# Baidu Analytics
-# ba_track_id: 
+url: "https://Euraxluo.github.io" #博客地址
+imgrepo: "https://Euraxluo.github.io/image" #博客图床
 
-# Google Analytics
-ga_track_id: 'UA-117962740-1'            # Format: UA-xxxxxx-xx
-ga_domain: auto               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
-
-
-
-
-
-# Featured Tags
-featured-tags: true                     # 是否使用首页标签
-featured-condition-size: 3             # 相同标签数量大于这个数，才会出现在首页
-
-
-
-# Progressive Web Apps
-chrome-tab-theme-color: "#000000"
-service-worker: true
-
-
-
-# Friends
-friends: [
-    {
-        title: "博客园·修落",
-        href: "https://www.cnblogs.com/euraxluo/"
-    },
-    {
-        title: "email",
-        href: "euraxluo@qq.com"
-    }
-]
