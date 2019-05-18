@@ -3,7 +3,7 @@ layout:   post
 title:   pyquery        
 date:    2018-10-31      
 author:   Euraxluo           
-categories:Crawler
+categories: Crawler
 tags: 
 ---
 * TOC
