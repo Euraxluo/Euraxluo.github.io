@@ -146,7 +146,7 @@
         function changeDivWithWidth() {
             var codeByEuraxluo = document.getElementById('codeByEuraxluo');
             var needhidden = document.getElementById('needhidden');
-            if (codeByEuraxluo.scrollHeight < needhidden.scrollWidth) {needhidden.style.display = "none";} else needhidden.style.display = "block";
+            if (document.body.scrollHeight < needhidden.scrollWidth) {needhidden.style.display = "none";} else needhidden.style.display = "block";
             if (codeByEuraxluo.scrollWidth + needhidden.scrollWidth + 250 > window.innerWidth) {needhidden.style.display = "none";} else needhidden.style.display = "block";
         }
     </script>
