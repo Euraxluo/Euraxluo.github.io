@@ -27,7 +27,7 @@ defaults:
 
 title: "Euraxluo"  #blog name
 email: "1793939176@qq.com" #email
-description: "<p3>programmer<p3>" #简介
+description: "<h3>programmer</h3>" #简介
 github_username:  "Euraxluo" #github
 sidebar-avatar: "wxtouxiang.png" #头像
 staticimg: "https://Euraxluo.github.io/static/img" #网站静态资源
