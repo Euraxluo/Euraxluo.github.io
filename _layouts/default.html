@@ -43,8 +43,7 @@
                                             <i class="rss icon"></i>RSS
                                         </a>
                                         {% if site.github_username %}
-                                        <a class="ui image label"
-                                            href="https://github.com/{{ site.github_username }}">
+                                        <a class="ui image label" href="https://github.com/{{ site.github_username }}">
                                             <i class="github icon"></i>Github
                                         </a>
                                         {% endif %}
@@ -66,8 +65,8 @@
                                     <ul class="content-ul" cate>
                                         {% for category in site.categories order:ascending %}
                                         <li>
-                                            <a href="/category/#{{ category | first }}"
-                                                class="categories-list-item" cate="{{ category | first }}">
+                                            <a href="/category/#{{ category | first }}" class="categories-list-item"
+                                                cate="{{ category | first }}">
                                                 <span class="name">
                                                     {{ category | first }}
                                                 </span>
@@ -87,8 +86,8 @@
                                     标签云
                                 </div>
                                 <div class=" tagcloud"> -->
-                                    <!--description-->
-                                    <!-- {% for tag in site.tags %}
+                        <!--description-->
+                        <!-- {% for tag in site.tags %}
                                     <a href="{{ root_url }}{{ site.baseurl }}/tags/#{{ tag | first }}">{{ tag | first }}</a>
                                     {% endfor %}
                                 </div>
@@ -132,11 +131,22 @@
             })
 
         window.onload = function () {
-            changeDivHeight();
+            windowResizeEvent();
         }
-        //当浏览器窗口大小改变时，设置显示内容的高度
-        window.onresize = function () {
-            changeDivHeight();
+
+        // 改进代码
+        function windowResizeEvent(callback) {
+            window.onresize = function () {
+                var target = this;
+                if (target.resizeFlag) {
+                    clearTimeout(target.resizeFlag);
+                }
+
+                target.resizeFlag = setTimeout(function () {
+                    changeDivHeight();
+                    target.resizeFlag = null;
+                }, 100);
+            }
         }
         function changeDivHeight() {
             var codeByEuraxluo = document.getElementById('codeByEuraxluo');
@@ -145,7 +155,6 @@
                 needhidden.style.display = "none";
             } else needhidden.style.display = "block";
         }
-
     </script>
     {% include footer.html %}
 
