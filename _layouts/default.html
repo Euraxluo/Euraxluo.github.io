@@ -141,7 +141,7 @@
         function changeDivHeight() {
             var codeByEuraxluo = document.getElementById('codeByEuraxluo');
             var needhidden = document.getElementById('needhidden');
-            if (codeByEuraxluo.scrollWidth + needhidden.scrollWidth + 250 > window.innerWidth || needhidden.scrollHeight > window.innerHeight) {
+            if (needhidden.scrollHeight -50 > window.innerHeight || codeByEuraxluo.scrollWidth + needhidden.scrollWidth + 250 > window.innerWidth) {
                 needhidden.style.display = "none";
             } else needhidden.style.display = "block";
         }
