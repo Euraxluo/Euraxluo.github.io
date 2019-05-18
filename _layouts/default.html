@@ -143,15 +143,23 @@
                 }
 
                 target.resizeFlag = setTimeout(function () {
-                    changeDivHeight();
+                    changeDiv();
                     target.resizeFlag = null;
                 }, 100);
             }
         }
-        function changeDivHeight() {
+        function changeDivWithHight(){
             var codeByEuraxluo = document.getElementById('codeByEuraxluo');
             var needhidden = document.getElementById('needhidden');
-            if (codeByEuraxluo.scrollHeight < needhidden.scrollHeight || codeByEuraxluo.scrollWidth + needhidden.scrollWidth + 250 > window.innerWidth) {
+            if (codeByEuraxluo.clientHeight < needhidden.clientHeight) {
+                needhidden.style.display = "none";
+            } else needhidden.style.display = "block";
+
+        }
+        function changeDivWithWidth() {
+            var codeByEuraxluo = document.getElementById('codeByEuraxluo');
+            var needhidden = document.getElementById('needhidden');
+            if (codeByEuraxluo.scrollHeight < needhidden.clientHeight || codeByEuraxluo.scrollWidth + needhidden.clientHeight + 250 > window.innerWidth) {
                 needhidden.style.display = "none";
             } else needhidden.style.display = "block";
         }
