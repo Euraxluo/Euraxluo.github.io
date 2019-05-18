@@ -18,6 +18,13 @@
 </footer>
 
 {% for script in page.scripts %}
+<script type="text/javascript">
+        $('.ui.sticky')
+                .sticky({
+                        context: '#codeByEuraxluo',
+                        pushing: true
+                })
+</script>
 <script type="text/javascript"
     src="{{'/static/js/' | append:script | prepend:site.baseurl | prepend: site.url  }}"></script>
 {%endfor%}
