@@ -11,8 +11,8 @@
         <div class="container">
 
             <div class="ui segment" id="codeByEuraxluo">
-                <div class="right ui rail " >
-                    <div class="ui sticky divided items sheet" id="needhidden">
+                <div class="right ui rail "  id="needhidden">
+                    <div class="ui sticky divided items sheet" id="jiaoyanWidth">
                         <!-- 博客简介 -->
                         <div class="side item">
                             <div class="content">
@@ -145,8 +145,9 @@
         }
         function changeDivWithWidth() {
             var codeByEuraxluo = document.getElementById('codeByEuraxluo');
+            var jiaoyanWidth = document.getElementById('jiaoyanWidth');
             var needhidden = document.getElementById('needhidden');
-            if (document.body.scrollHeight-100 < needhidden.scrollWidth) {needhidden.style.display = "none";} else {needhidden.style.display = "block";console.log("too hight");}
+            if (document.body.scrollHeight-100 < jiaoyanWidth.scrollWidth) {needhidden.style.display = "none";} else {needhidden.style.display = "block";console.log("too hight");}
             if (codeByEuraxluo.scrollWidth + needhidden.scrollWidth  > window.innerWidth-100) {needhidden.style.display = "none";} else {needhidden.style.display = "block";}
         }
     </script>
