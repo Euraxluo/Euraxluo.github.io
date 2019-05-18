@@ -124,12 +124,6 @@
         </div>
     </div>
     <script>
-        $('.ui.sticky')
-            .sticky({
-                context: '#codeByEuraxluo',
-                pushing: true
-            })
-
         window.onload = function () {
             windowResizeEvent();
         }
@@ -151,6 +145,16 @@
         function changeDivWithHight(){
             var codeByEuraxluo = document.getElementById('codeByEuraxluo');
             var needhidden = document.getElementById('needhidden');
+            alert("changeDivWithHight");
+            console.log(codeByEuraxluo.scrollHeigh);
+            console.log(needhidden.scrollHeigh);
+            console.log(codeByEuraxluo.clientHeight);
+            console.log(needhidden.clientHeight);
+            console.log(window.innerWidth);
+            console.log(codeByEuraxluo.clientWidth);
+            console.log(needhidden.clientWidth);
+            console.log(codeByEuraxluo.scrollWidth);
+            console.log(needhidden.scrollWidth);
             if (codeByEuraxluo.clientHeight < needhidden.clientHeight) {
                 needhidden.style.display = "none";
             } else needhidden.style.display = "block";
@@ -159,6 +163,7 @@
         function changeDivWithWidth() {
             var codeByEuraxluo = document.getElementById('codeByEuraxluo');
             var needhidden = document.getElementById('needhidden');
+            alert("changeDivWithWidth");
             console.log(codeByEuraxluo.scrollHeigh);
             console.log(needhidden.scrollHeigh);
             console.log(codeByEuraxluo.clientHeight);
