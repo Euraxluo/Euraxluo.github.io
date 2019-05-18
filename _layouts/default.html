@@ -147,8 +147,8 @@
             var codeByEuraxluo = document.getElementById('codeByEuraxluo');
             var jiaoyanWidth = document.getElementById('jiaoyanWidth');
             var needhidden = document.getElementById('needhidden');
-            if (document.body.scrollHeight-100 < jiaoyanWidth.scrollWidth) {needhidden.style.display = "none";} else {needhidden.style.display = "block";console.log("too hight");}
-            if (codeByEuraxluo.scrollWidth + needhidden.scrollWidth  > window.innerWidth-100) {needhidden.style.display = "none";} else {needhidden.style.display = "block";}
+            if (document.body.scrollHeight-100 < jiaoyanWidth.scrollWidth) {needhidden.style.display = "none"; jiaoyanWidth.style.display = "none"; } else {needhidden.style.display = "block";console.log("too hight");}
+            if (codeByEuraxluo.scrollWidth + needhidden.scrollWidth  > window.innerWidth-100) {needhidden.style.display = "none";jiaoyanWidth.style.display = "none";} else {needhidden.style.display = "block";}
         }
     </script>
     {% include footer.html %}
