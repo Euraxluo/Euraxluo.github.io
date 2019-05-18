@@ -159,6 +159,15 @@
         function changeDivWithWidth() {
             var codeByEuraxluo = document.getElementById('codeByEuraxluo');
             var needhidden = document.getElementById('needhidden');
+            console.log(codeByEuraxluo.scrollHeigh);
+            console.log(needhidden.scrollHeigh);
+            console.log(codeByEuraxluo.clientHeight);
+            console.log(needhidden.clientHeight);
+            console.log(window.innerWidth);
+            console.log(codeByEuraxluo.clientWidth);
+            console.log(needhidden.clientWidth);
+            console.log(codeByEuraxluo.scrollWidth);
+            console.log(needhidden.scrollWidth);
             if (codeByEuraxluo.scrollHeight < needhidden.clientHeight || codeByEuraxluo.scrollWidth + needhidden.clientHeight + 250 > window.innerWidth) {
                 needhidden.style.display = "none";
             } else needhidden.style.display = "block";
