@@ -1,0 +1,4 @@
+dateFormat = "2006-01-02"
+description = "Euraxluo Blog,Some post about python,cpp,go,java."
+[archive]
+  dateFormat = "01-02"

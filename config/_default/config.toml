@@ -1,0 +1,33 @@
+baseURL = "https://euraxluo.gitee.io/"
+title = "Euraxluo Blog"
+theme = ["hugo-g2plot","hugo-chart","hugo-theme-bootstrap"]
+copyright = "Copyright © 2016-{year} Euraxluo. All Rights Reserved."
+
+# Multilingual mode
+defaultContentLanguage = "zh-cn"
+defaultContentLanguageInSubdir = true
+
+# Pagination
+paginate = 5
+# paginatePath = "page"
+
+# Disqus
+# disqusShortname = "yourdiscussshortname"
+
+# Google analytics
+# googleAnalytics = "UA-123-45"
+
+enableRobotsTXT = true
+
+enableEmoji = true
+
+[blackfriday]
+  hrefTargetBlank = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"

@@ -1,0 +1,33 @@
+[[main]]
+  name = "Repos"
+  identifier = "dropdown"
+[[main]]
+  parent = "dropdown"
+  name = "Euraxluo"
+  url = "https://github.com/Euraxluo"
+  pre = '<i class="fab fa-fw fa-github"></i>'
+[[main]]
+  parent = "dropdown"
+  name = "ProjectPractice"
+  url = "https://github.com/Euraxluo/ProjectPractice"
+  pre = '<i class="fab fa-fw fa-github"></i>'
+[[main]]
+  parent = "dropdown"
+  name = "simple-pythonvm"
+  url = "https://github.com/Euraxluo/simple_pyvm"
+  pre = '<i class="fab fa-fw fa-github"></i>'
+[[main]]
+  parent = "dropdown"
+  name = "verb"
+  url = "https://github.com/Euraxluo/verb"
+  pre = '<i class="fab fa-fw fa-github"></i>'
+[[main]]
+  parent = "dropdown"
+  name = "fastgrpc"
+  url = "https://github.com/Euraxluo/fastgrpc"
+  pre = '<i class="fab fa-fw fa-github"></i>'
+[[main]]
+  parent = "dropdown"
+  name = "pyantv"
+  url = "https://github.com/Euraxluo/pyantv"
+  pre = '<i class="fab fa-fw fa-github"></i>'
