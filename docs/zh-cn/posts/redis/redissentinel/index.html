@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Redis的持久化 - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+    <title>Redis Sentinel - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
 <link rel="manifest" href="/images/favicons/manifest.json">
 <link rel="icon" href="/images/favicons/favicon.ico">
-<meta name="description" content="Redis的持久化" /><meta itemprop="name" content="Redis的持久化">
-<meta itemprop="description" content="Redis的持久化">
+<meta name="description" content="Redis Sentinel" /><meta itemprop="name" content="Redis Sentinel">
+<meta itemprop="description" content="Redis Sentinel">
 <meta itemprop="datePublished" content="2019-03-10T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-03-10T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2422">
+<meta itemprop="wordCount" content="2220">
 
 
 
 <meta itemprop="keywords" content="redis," />
-<meta property="og:title" content="Redis的持久化" />
-<meta property="og:description" content="Redis的持久化" />
+<meta property="og:title" content="Redis Sentinel" />
+<meta property="og:description" content="Redis Sentinel" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/zh-cn/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/" />
+<meta property="og:url" content="/zh-cn/posts/redis/redissentinel/" />
 <meta property="article:published_time" content="2019-03-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-03-10T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/zh-cn/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" /><meta property="og:see_also" content="/zh-cn/posts/redis/rediscluster-1/" /><meta property="og:see_also" content="/zh-cn/posts/redis/rediscluster-2/" /><meta property="og:see_also" content="/zh-cn/posts/redis/rediscluster-3/" /><meta property="og:see_also" content="/zh-cn/posts/redis/redissentinel/" /><meta property="og:see_also" content="/zh-cn/posts/redis/redis%E5%9F%BA%E7%A1%80/" />
+<meta property="article:modified_time" content="2019-03-10T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/zh-cn/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" /><meta property="og:see_also" content="/zh-cn/posts/redis/rediscluster-1/" /><meta property="og:see_also" content="/zh-cn/posts/redis/rediscluster-2/" /><meta property="og:see_also" content="/zh-cn/posts/redis/rediscluster-3/" /><meta property="og:see_also" content="/zh-cn/posts/redis/redis%E5%9F%BA%E7%A1%80/" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Redis的持久化"/>
-<meta name="twitter:description" content="Redis的持久化"/>
+<meta name="twitter:title" content="Redis Sentinel"/>
+<meta name="twitter:description" content="Redis Sentinel"/>
 <meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
 </head>
   <body><header><nav class="navbar fixed-top navbar-expand-xl">
@@ -165,9 +165,9 @@
       <div class="row content">
 <div class="col-md-8">
   <div class="container"><nav class="row" aria-label="breadcrumb">
-  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/zh-cn/">主页</a></li><li class="breadcrumb-item"><a href="/zh-cn/posts/">posts</a></li><li class="breadcrumb-item"><a href="/zh-cn/posts/redis/">redis</a></li><li class="breadcrumb-item active">Redis的持久化</li></ol>
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/zh-cn/">主页</a></li><li class="breadcrumb-item"><a href="/zh-cn/posts/">posts</a></li><li class="breadcrumb-item"><a href="/zh-cn/posts/redis/">redis</a></li><li class="breadcrumb-item active">Redis Sentinel</li></ol>
 </nav><article class="post row surface">
-  <h1 class="post-title my-3">Redis的持久化</h1><div class="post-meta mb-3">
+  <h1 class="post-title my-3">Redis Sentinel</h1><div class="post-meta mb-3">
   <span class="post-date mr-2">
     <i class="fas fa-fw fa-calendar-alt"></i>2019-03-10
   </span>
@@ -184,39 +184,38 @@
       <div class="accordion-body mt-2">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#redis持久化作用">Redis持久化作用</a>
+    <li>
       <ul>
-        <li><a href="#什么是持久化">什么是持久化</a></li>
-        <li><a href="#持久化方式">持久化方式</a></li>
+        <li><a href="#主从复制的问题">主从复制的问题</a></li>
       </ul>
     </li>
-    <li><a href="#rdb持久化">RDB持久化</a>
+    <li><a href="#redis-sentinel架构">Redis Sentinel架构</a></li>
+    <li><a href="#sentinel的故障转移">Sentinel的故障转移</a></li>
+    <li><a href="#安装与配置">安装与配置</a></li>
+    <li><a href="#客户端与sentinel连接">客户端与sentinel连接</a>
       <ul>
-        <li><a href="#什么是rdb">什么是RDB</a></li>
-        <li><a href="#触发机制">触发机制</a></li>
-        <li><a href="#注意">注意</a></li>
+        <li><a href="#高可用">高可用</a></li>
+        <li><a href="#实现原理">实现原理</a></li>
+        <li><a href="#jedisapi">jedisAPI</a></li>
+        <li><a href="#redis-py">redis-py</a></li>
       </ul>
     </li>
-    <li><a href="#aof持久化">AOF持久化</a>
+    <li><a href="#故障转移">故障转移</a></li>
+    <li><a href="#sentinel的定时任务">sentinel的定时任务</a></li>
+    <li><a href="#主观下线">主观下线</a></li>
+    <li><a href="#客观下线">客观下线</a></li>
+    <li><a href="#故障转移-1">故障转移</a>
       <ul>
-        <li><a href="#什么是aof">什么是AOF</a></li>
-        <li><a href="#aof的执行策略">AOF的执行策略</a></li>
-        <li><a href="#aof重写">AOF重写</a></li>
+        <li><a href="#领导者选举">领导者选举</a></li>
+        <li><a href="#sentinel领导者节点实现故障转移">sentinel领导者节点实现故障转移</a></li>
+        <li><a href="#怎么选择合适的slave节点">怎么选择合适的slave节点</a></li>
       </ul>
     </li>
-    <li><a href="#rdb和aof的抉择">RDB和AOF的抉择</a>
+    <li><a href="#tips">TIPS</a>
       <ul>
-        <li><a href="#rdbaof比较">RDB,AOF比较</a></li>
-        <li><a href="#rdb最佳策略">RDB最佳策略</a></li>
-        <li><a href="#aof最佳策略">AOF最佳策略</a></li>
-        <li><a href="#最佳策略">最佳策略</a></li>
-      </ul>
-    </li>
-    <li><a href="#持久化的常见问题">持久化的常见问题</a>
-      <ul>
-        <li><a href="#fork操作的问题">fork操作的问题</a></li>
-        <li><a href="#子进程外开销和优化">子进程外开销和优化</a></li>
-        <li><a href="#aof追加阻塞">AOF追加阻塞</a></li>
+        <li><a href="#节点运维节点的上下线">节点运维，节点的上下线</a></li>
+        <li><a href="#高可用读写分离">高可用读写分离</a></li>
+        <li><a href="#实际部署">实际部署</a></li>
       </ul>
     </li>
   </ul>
@@ -224,447 +223,367 @@
       </div>
     </div>
   </div>
-</div><div class="post-content mb-3"><h1 id="redis的持久化">Redis的持久化</h1>
-<h2 id="redis持久化作用">Redis持久化作用</h2>
-<h3 id="什么是持久化">什么是持久化</h3>
-<p>redis的所有数据保存在内存中，对数据的更新回异步的保存在磁盘中</p>
-<h3 id="持久化方式">持久化方式</h3>
-<h4 id="快照">快照</h4>
+</div><div class="post-content mb-3"><h1 id="redis-sentinel">Redis Sentinel</h1>
+<h3 id="主从复制的问题">主从复制的问题</h3>
+<ul>
+<li>
+<p>手动故障转移</p>
+</li>
+<li>
+<p>写能力和存储能力受限</p>
+</li>
+</ul>
+<h2 id="redis-sentinel架构">Redis Sentinel架构</h2>
+<ul>
+<li>
+<p>有多个Sentinel节点</p>
+</li>
+<li>
+<p>不用来存储数据</p>
+</li>
+<li>
+<p>多个节点判断master节点的故障，进行故障转移</p>
+</li>
+<li>
+<p>保证高可用，即便一个Sentinel节点挂点也没事</p>
+</li>
+<li>
+<p>客户端只会记录sentinel的地址（因为sentinel会进行故障转移，master节点地址不固定）</p>
+</li>
+<li>
+<p>一套sentinel可以监控多套master-slave，利用master-name作为标识</p>
+</li>
+</ul>
+<h2 id="sentinel的故障转移">Sentinel的故障转移</h2>
 <ol>
 <li>
-<p>MySQL Dump</p>
+<p>多个sentinel发现并确认master有问题</p>
 </li>
 <li>
-<p>Redis RDB</p>
+<p>选举出一个sentinel作为领导</p>
+</li>
+<li>
+<p>选出一个slave作为新的master</p>
+</li>
+<li>
+<p>通知其余slave成为新的master的slave</p>
+</li>
+<li>
+<p>通知客户端主从变化</p>
+</li>
+<li>
+<p>等待老的master复活成为新的master的slave</p>
 </li>
 </ol>
-<h4 id="日志">日志</h4>
-<ol>
-<li>
-<p>MySQL Binlog</p>
-</li>
-<li>
-<p>Hbase HLog</p>
-</li>
-<li>
-<p>Redis AOF</p>
-</li>
-</ol>
-<h2 id="rdb持久化">RDB持久化</h2>
-<h3 id="什么是rdb">什么是RDB</h3>
-<p>redis可以通过命令，把当前数据库的状态保为一个RDB文件（二进制）</p>
-<p>也可以通过命令把硬盘上的RDB载入到redis中</p>
-<p>同时RDB文件也是一个复制的媒介</p>
-<h3 id="触发机制">触发机制</h3>
-<h4 id="save">save</h4>
-<ul>
-<li>
-<p>通过save命令让redis生成rdb文件，生成成功返回‘OK’</p>
-</li>
-<li>
-<p>同步命令，阻塞命令，会导致服务器阻塞</p>
-</li>
-<li>
-<p>会替换老的rdb文件</p>
-</li>
-<li>
-<p>复杂度On</p>
-</li>
-</ul>
-<h4 id="bgsave">bgsave</h4>
-<ul>
-<li>
-<p>接收到bgsave后，redis利用linux的fork()命令产生一个子进程，让产生的子进程去生成RDB文件，返回‘Backgroud saving started’</p>
-</li>
-<li>
-<p>fork()函数也是一阻塞命令，一般情况下很快</p>
-</li>
-<li>
-<p>会替换老的rdb文件</p>
-</li>
-<li>
-<p>复杂度On</p>
-</li>
-</ul>
-<h4 id="save与bgsave比较">save与bgsave比较</h4>
-<p>|  命令    | save     | bgsave     |</p>
-<p>| &mdash;- | &mdash;- | &mdash;- |</p>
-<p>| io类型 |同步      |   异步   |</p>
-<p>| 是否阻塞 |  是    |   是   |</p>
-<p>| 时间复杂度 |  On    | On     |</p>
-<p>| 优点 |  不会消耗额外内存      |不阻塞客户端命令    |</p>
-<p>| 缺点 |  阻塞客户端命令    |需要fork()，消耗内存 |</p>
-<h4 id="自动生成快照">自动生成快照</h4>
-<h5 id="策略">策略</h5>
-<p>满足以下三个条件就会触发创建RDB文件的行为（bgsave）</p>
-<ul>
-<li>
-<p>900 1chages</p>
-</li>
-<li>
-<p>300 10chages</p>
-</li>
-<li>
-<p>60 10000chages</p>
-</li>
-</ul>
-<h5 id="缺点">缺点</h5>
-<ul>
-<li>生成快照的频率有些时候可能过高了（写量过高的情况）</li>
-</ul>
-<h4 id="配置">配置</h4>
+<h2 id="安装与配置">安装与配置</h2>
+<p>主从配置：</p>
+<p><code>sed &quot;s/6380/6381/g&quot; redis-6380.conf &gt; redis-6381.conf</code></p>
+<p>查看：</p>
+<p><code>cat redis-6381.conf|grep -v &quot;#&quot; |grep -v &quot;^$&quot;</code></p>
+<p>Sentinel配置</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
-<span style="color:#75715e">#自动策略，一般不配置，不使用自动生成快照</span>
+port <span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span>
 
-save <span style="color:#ae81ff">900</span> <span style="color:#ae81ff">1</span>
+dir <span style="color:#e6db74">&#34;&#34;</span>
 
-save <span style="color:#ae81ff">300</span> <span style="color:#ae81ff">10</span>
+logfile <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span><span style="color:#e6db74">.log&#34;</span>
 
-save <span style="color:#ae81ff">60</span> <span style="color:#ae81ff">10000</span>
+sentinel monitor mastername 127.1 port<span style="color:#f92672">{</span>主节点端口<span style="color:#f92672">}</span> 2<span style="color:#f92672">{</span>故障发现个数<span style="color:#f92672">}</span>
 
-<span style="color:#75715e">#文件名，一般按照端口号区分</span>
+<span style="color:#75715e">#判断失败时间 30000毫秒</span>
 
-dbfilename dump-<span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span>.rdb
+sentinel down-after-milliseconds mastername <span style="color:#ae81ff">30000</span>
 
-<span style="color:#75715e">#rdb,log,aof文件的位置，选择一个大内存的目录，或者需要按照端口进行分盘</span>
+<span style="color:#75715e">#并发度</span>
 
-dir ./
+sentinel parallel-syncs mastername <span style="color:#ae81ff">1</span>
 
-<span style="color:#75715e">#如果bgsave出现错误是否立刻停止</span>
+sentinel failover-timeout mastername <span style="color:#ae81ff">180000</span>
 
-stop-writes-on-bgsave-error yes
+</code></pre></div><h2 id="客户端与sentinel连接">客户端与sentinel连接</h2>
+<h3 id="高可用">高可用</h3>
+<ul>
+<li>
+<p>服务端高可用</p>
+</li>
+<li>
+<p>客户端高可用</p>
+</li>
+</ul>
+<h3 id="实现原理">实现原理</h3>
+<ul>
+<li>
+<p>获取全部的sentinel节点</p>
+</li>
+<li>
+<p>我需要给sentinel我想连接的mastername</p>
+</li>
+<li>
+<p>遍历sentinel节点集合，获取一个可用的sentinel节点</p>
+</li>
+<li>
+<p>通过API<code>get-master-addr-by-name</code>来获取真正的master节点地址</p>
+</li>
+<li>
+<p>通过<code>role/role replication</code>验证得到的master节点是否是真正的master</p>
+</li>
+</ul>
+<h3 id="jedisapi">jedisAPI</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+JedisSentinelPool sentinelPool <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JedisSentinelPool<span style="color:#f92672">(</span>masterName<span style="color:#f92672">,</span>sentinelSet<span style="color:#f92672">,</span>poolConfig<span style="color:#f92672">,</span>timeout<span style="color:#f92672">);</span>
 
-<span style="color:#75715e">#是否采用压缩格式</span>
+Jedis jedis <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
 
-rdbcompression yes
+<span style="color:#66d9ef">try</span><span style="color:#f92672">{</span>
 
-<span style="color:#75715e">#是否进行校验和验证</span>
+    jedis <span style="color:#f92672">=</span> redisSentinelPool<span style="color:#f92672">.</span><span style="color:#a6e22e">getResource</span><span style="color:#f92672">();</span>
 
-rdbchecksum yes
+<span style="color:#f92672">}</span><span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception e<span style="color:#f92672">){</span>
 
-</code></pre></div><h3 id="注意">注意</h3>
+    logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">getMessage</span><span style="color:#f92672">(),</span>e<span style="color:#f92672">);</span>
+
+<span style="color:#f92672">}</span><span style="color:#66d9ef">finally</span><span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>jedis <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
+
+    	jedis<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+
+<span style="color:#f92672">}</span>
+
+
+
+</code></pre></div><h3 id="redis-py">redis-py</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> redis.sentinel <span style="color:#f92672">import</span> Sentinel
+
+sentinel <span style="color:#f92672">=</span> Sentinel([(<span style="color:#e6db74">&#34;localhost&#34;</span>,<span style="color:#ae81ff">26379</span>),(<span style="color:#e6db74">&#34;localhost&#34;</span>,<span style="color:#ae81ff">26380</span>),(<span style="color:#e6db74">&#34;localhost&#34;</span>,<span style="color:#ae81ff">26381</span>)],socket_timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+
+<span style="color:#75715e">#获取主节点ip</span>
+
+sentinel<span style="color:#f92672">.</span>discover_master(<span style="color:#e6db74">&#39;mymaster&#39;</span>)
+
+<span style="color:#75715e">#获取从节点ip</span>
+
+sentinel<span style="color:#f92672">.</span>discover_slaves(<span style="color:#e6db74">&#39;mymaster&#39;</span>)
+
+</code></pre></div><h4 id="如果你的redis一直杀不死">如果你的Redis一直杀不死</h4>
+<ul>
+<li>
+<p>检查是否开了守护进程</p>
+</li>
+<li>
+<p>检测使用kill -9 能否杀死</p>
+</li>
+<li>
+<p>关闭守护进程，利用<code>/etc/init.d/redis-sentinel stop</code>进行关闭</p>
+</li>
+</ul>
+<h2 id="故障转移">故障转移</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> redis.sentinel <span style="color:#f92672">import</span> Sentinel <span style="color:#66d9ef">as</span> St
+
+<span style="color:#f92672">import</span> redis <span style="color:#f92672">as</span> rd
+
+<span style="color:#f92672">import</span> time
+
+st <span style="color:#f92672">=</span> St([(<span style="color:#e6db74">&#34;localhost&#34;</span>,<span style="color:#ae81ff">26379</span>),(<span style="color:#e6db74">&#34;localhost&#34;</span>,<span style="color:#ae81ff">26379</span>),(<span style="color:#e6db74">&#34;localhost&#34;</span>,<span style="color:#ae81ff">26379</span>)],socket_timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+
+key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;master&#34;</span>
+
+i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+
+<span style="color:#66d9ef">while</span>(True):
+
+    <span style="color:#66d9ef">try</span>:
+
+        masterhost,masterport <span style="color:#f92672">=</span> st<span style="color:#f92672">.</span>discover_master(<span style="color:#e6db74">&#39;mymaster&#39;</span>)
+
+        i <span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>
+
+        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">1</span>)
+
+        client <span style="color:#f92672">=</span> rd<span style="color:#f92672">.</span>StrictRedis(host<span style="color:#f92672">=</span>masterhost,port<span style="color:#f92672">=</span>masterport)
+
+        setResult <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>set(key,<span style="color:#e6db74">&#34;value: </span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">%</span>i)
+
+        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">1</span>)
+
+        <span style="color:#66d9ef">if</span> i<span style="color:#f92672">%</span><span style="color:#ae81ff">3</span><span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>:
+
+            <span style="color:#66d9ef">print</span>(client<span style="color:#f92672">.</span>get(key))
+
+    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+
+        <span style="color:#66d9ef">print</span>(e)
+
+</code></pre></div><p>运行这个程序后，kill -9 掉master</p>
+<p>查看脚本的输出，最后查看sentinel和各个server的日志</p>
+<p><code>tail -f redis-sentinel-26379.log</code></p>
+<p>我们可以看到，投票，重写配置，主从辅助，部分复制等等一系列的过程</p>
+<h2 id="sentinel的定时任务">sentinel的定时任务</h2>
 <ol>
-<li>
-<p>全量复制时，主数据库会自动生成RDB</p>
-</li>
-<li>
-<p>debug reload，不清空数据库的重启</p>
-</li>
-<li>
-<p>shutdown，关机时会自动生成rdb文件</p>
-</li>
-<li>
-<p>耗时，耗性能</p>
-</li>
-<li>
-<p>不可控，易丢失以前的数据（宕机与上一次dump之间的操作）</p>
-</li>
-</ol>
-<h2 id="aof持久化">AOF持久化</h2>
-<h3 id="什么是aof">什么是AOF</h3>
-<ol>
-<li>
-<p>每执行一条命令，就会在AOF文件中追加写入</p>
-</li>
-<li>
-<p>恢复时，把AOF文件载入执行</p>
-</li>
-<li>
-<p>执行命令时，会把命令刷新到缓冲区，通过不同的策略，同步到AOF文件中</p>
-</li>
-</ol>
-<h3 id="aof的执行策略">AOF的执行策略</h3>
-<h4 id="always">always</h4>
-<ul>
-<li>每个命令都会从缓冲区fsync到AOF中</li>
-</ul>
-<h4 id="everysec">everysec</h4>
-<ul>
-<li>
-<p>每一秒从缓冲区fsync到AOF中</p>
-</li>
-<li>
-<p>可以保护硬盘</p>
-</li>
-<li>
-<p>刷新频率可以配置</p>
-</li>
-</ul>
-<h4 id="no">no</h4>
-<ul>
-<li>由操作系统决定什么时候fsync</li>
-</ul>
-<h4 id="三种策略比较">三种策略比较</h4>
-<p>| 命令 | always     | everysec      | no     |</p>
-<p>| &mdash;- | &mdash;&mdash;&mdash;- | &mdash;&mdash;&mdash;&mdash;- | &mdash;&mdash; |</p>
-<p>| 优点 | 不丢失数据 | 每秒一次fsync | 不用管 |</p>
-<p>| 缺点 | IO开销大   | 丢失一秒数据  | 不可控 |</p>
-<h3 id="aof重写">AOF重写</h3>
-<h4 id="策略-1">策略</h4>
-<ul>
-<li>
-<p>从内存中重写</p>
-</li>
-<li>
-<p>会把一些过期的命令删除</p>
-</li>
-<li>
-<p>会把一些可以化简的命令化简</p>
-</li>
-<li>
-<p>会把一些等值的命令合并</p>
-</li>
-</ul>
-<h4 id="优点">优点</h4>
-<ul>
-<li>
-<p>减少硬盘占用量</p>
-</li>
-<li>
-<p>加快恢复速度</p>
-</li>
-</ul>
-<h4 id="实现方式">实现方式</h4>
-<ol>
-<li>bgrewriteaof</li>
-</ol>
-<ul>
-<li>异步操作，主进程fork一个子进程，会从内存中完成AOF重写</li>
-</ul>
-<p><img class="img-fluid" src="rewriteaof.png" alt="bgrewriteaof"  loading="lazy" />
-</p>
-<ol start="2">
-<li>AOF重写配置</li>
+<li>每10秒每个sentinel对master和slave执行info命令</li>
 </ol>
 <ul>
 <li>
-<p>auto-aof-rewrite-min-size，AOF文件重写需要的最小尺寸</p>
+<p>发现slave节点</p>
 </li>
 <li>
-<p>auto-aof-rewrite-percentage，AOF文件增长率</p>
-</li>
-</ul>
-<ol start="3">
-<li>AOF统计指标</li>
-</ol>
-<ul>
-<li>
-<p>aof_current_size,AOF当前尺寸</p>
-</li>
-<li>
-<p>aof_base_size，AOF上次启动和重写的尺寸</p>
-</li>
-</ul>
-<ol start="4">
-<li>同时满足以下两条公式</li>
-</ol>
-<ul>
-<li>
-<p>aof_current_size&gt;auto-aof-rewrite-min-size</p>
-</li>
-<li>
-<p>(aof_current_size-aof_base_size/aof_base_size)&gt;auto-aof-rewrite-min-size</p>
-</li>
-</ul>
-<h4 id="aof配置">AOF配置</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
-<span style="color:#75715e">#是否打开aof</span>
-
-appendonly yes
-
-<span style="color:#75715e">#文件名字，使用端口进行区分</span>
-
-appendfilenam <span style="color:#e6db74">&#34;appendonly-</span><span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span><span style="color:#e6db74">.aof&#34;</span>
-
-<span style="color:#75715e">#每秒aof</span>
-
-appendfsync everysec
-
-<span style="color:#75715e">#使用大的盘</span>
-
-dir /bigdiskpath
-
-<span style="color:#75715e">#是否进行append操作，是否允许丢失数据(在重写期间关闭append操作)</span>
-
-no-appendfsync-on-rewrite yes
-
-<span style="color:#75715e">#增长率</span>
-
-auto-aof-rewrite-percentage <span style="color:#ae81ff">100</span>
-
-<span style="color:#75715e">#最小尺寸</span>
-
-auto-aof-rewrite-min-size 64mb
-
-<span style="color:#75715e">#在加载时是否忽略文件错误</span>
-
-aof-load-truncated yes
-
-</code></pre></div><p>conf文件内容</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
-head *.aof#查看文件头部
-
-*2#有两个指令
-
-$6<span style="color:#75715e">#下一行有6个字节</span>
-
-SELECT#指令
-
-$1<span style="color:#75715e">#下一行有1个字节</span>
-
-0#select <span style="color:#ae81ff">0</span> ，选择0号数据库
-
-$3
-
-set
-
-$5
-
-hello
-
-</code></pre></div><h2 id="rdb和aof的抉择">RDB和AOF的抉择</h2>
-<h3 id="rdbaof比较">RDB,AOF比较</h3>
-<p>| 命令       | RDB    | AOF          |</p>
-<p>| &mdash;&mdash;&mdash;- | &mdash;&mdash; | &mdash;&mdash;&mdash;&mdash; |</p>
-<p>| 启动优先级 | 低     | 高           |</p>
-<p>| 体积       | 小     | 大           |</p>
-<p>| 恢复速度   | 快     | 慢           |</p>
-<p>| 数据安全性 | 丢数据 | 根据策略决定 |</p>
-<p>| 轻重       | 重     | 轻           |</p>
-<h3 id="rdb最佳策略">RDB最佳策略</h3>
-<ul>
-<li>
-<p>关掉RDB</p>
-</li>
-<li>
-<p>集中管理</p>
-</li>
-<li>
-<p>主从库，从库打开，密度不要太大</p>
-</li>
-</ul>
-<h3 id="aof最佳策略">AOF最佳策略</h3>
-<ul>
-<li>
-<p>开：缓存还是存储，根据功能决定是否需要这个功能</p>
-</li>
-<li>
-<p>AOF重写集中管理</p>
-</li>
-<li>
-<p>everysec</p>
-</li>
-</ul>
-<h3 id="最佳策略">最佳策略</h3>
-<ul>
-<li>
-<p>小分片</p>
-</li>
-<li>
-<p>根据缓存或者存储决定是否需要这个功能</p>
-</li>
-<li>
-<p>监控：硬盘，内存，负载，网络</p>
-</li>
-<li>
-<p>足够的内存</p>
-</li>
-</ul>
-<h2 id="持久化的常见问题">持久化的常见问题</h2>
-<h3 id="fork操作的问题">fork操作的问题</h3>
-<ol>
-<li>
-<p>是一个同步操作</p>
-</li>
-<li>
-<p>与内存量息息相关；内存越大，耗时越长（也与机器类型有关，虚拟机，物理机）</p>
-</li>
-<li>
-<p>info：latest_fork_usec</p>
-</li>
-</ol>
-<h4 id="改善fork">改善fork</h4>
-<ol>
-<li>
-<p>优先使用物理机或者高效支持fork操作的虚拟化技术</p>
-</li>
-<li>
-<p>控制Redis实例最大可用内存：maxmemory</p>
-</li>
-<li>
-<p>合理配置Linux内存分配策略，让机器确保有足够的内存再fork：vm.overcommit_memory=1（默认为0，会导致内存不够时，fork阻塞）</p>
-</li>
-<li>
-<p>降低fork频率，放宽AOF重写自动触发时机，避免不必要的全量复制（全量复制会bgsave）</p>
-</li>
-</ol>
-<h3 id="子进程外开销和优化">子进程外开销和优化</h3>
-<ol>
-<li>CPU</li>
-</ol>
-<ul>
-<li>
-<p>开销：RDB和AOF文件生成，属于CPU密集型</p>
-</li>
-<li>
-<p>优化：不做CPU绑定，不和CPU密集型应用部署，单机部署时，保证不进行大量的rdb和aof文件生成</p>
+<p>确定主从关系</p>
 </li>
 </ul>
 <ol start="2">
-<li>内存</li>
+<li>每2秒每个sentinel通过master节点的channel交换信息（是不是把master作为一个频道，那如果master挂掉了怎么办）</li>
 </ol>
 <ul>
 <li>
-<p>开销：fork内存开销，copy-on-write</p>
+<p>通过__sentinel__:hello频道交换信息</p>
 </li>
 <li>
-<p>优化：单机部署时，不做大量的重写；在主进程io少时去做fork；关闭大内存分配<code>echo never &gt; /sys/kernel/mm/transparent_hugepage/enable</code></p>
+<p>交互对节点的看法和自身的信息</p>
 </li>
 </ul>
-<ol start="3">
-<li>硬盘</li>
+<p>3.每1秒每个sentinel对其他sentinel和redis执行ping</p>
+<ul>
+<li>
+<p>心跳检测，失败判定依据</p>
+</li>
+<li>
+<p>是故障检测的基础</p>
+</li>
+</ul>
+<h2 id="主观下线">主观下线</h2>
+<p>每个sentinel节点对Redis节点失败的偏见</p>
+<p><code>sentinel down-after-milliseconds mastername 30000{超过多久未收到回复}</code></p>
+<h2 id="客观下线">客观下线</h2>
+<p>所有sentinel节点对redis节点失败“达成共识”（超过quorum个统一，建议sentinel/2+1）</p>
+<p><code>sentinel monitor mastername ip port quorum{法定人数}</code></p>
+<h2 id="故障转移-1">故障转移</h2>
+<h3 id="领导者选举">领导者选举</h3>
+<ul>
+<li>
+<p>原因：只有一个sentinel节点完成故障转移</p>
+</li>
+<li>
+<p>选举：通过sentinel is-master-down-by-addr 命令</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>这个命令会发出自己对master的主观判断，并且要求将自己设置为领导者</p>
+</li>
+<li>
+<p>收到命令的sentinel如果没有同意其他sentinel发出的请求，就会同意这个请求，否则拒绝</p>
+</li>
+<li>
+<p>如果sentinel节点超过sentinel集合半数且超过quorum数，那么它将成为领导者</p>
+</li>
+<li>
+<p>如果此过程有多个sentinel节点成为了领导者，那么将等待一段时间重新进行选举</p>
+</li>
+</ol>
+<h3 id="sentinel领导者节点实现故障转移">sentinel领导者节点实现故障转移</h3>
+<ol>
+<li>
+<p>从slave节点中选出一个合适的节点作为新的master</p>
+</li>
+<li>
+<p>对上面的slave节点执行<code>slaveof no one</code>命令让其成为master节点</p>
+</li>
+<li>
+<p>向剩余的slave节点发送命令，让它们成为新master节点的slave节点，复制规则和<code>parallel-syncs</code>参数有关{快速复制还是顺序复制}</p>
+</li>
+<li>
+<p>更新原来的master节点为slave，并对其保持关注，当其恢复后命令他去复制master</p>
+</li>
+</ol>
+<h3 id="怎么选择合适的slave节点">怎么选择合适的slave节点</h3>
+<ol>
+<li>
+<p>选择<code>slave-priority{slava优先级}</code>最高的节点，如果存在返回，不存在继续</p>
+</li>
+<li>
+<p>选择复制偏移量最大的slave节点{复制的最完整}，如果存在返回，不存在继续</p>
+</li>
+<li>
+<p>选择runID最小的slave节点</p>
+</li>
+</ol>
+<h2 id="tips">TIPS</h2>
+<h3 id="节点运维节点的上下线">节点运维，节点的上下线</h3>
+<ol>
+<li>节点下线</li>
 </ol>
 <ul>
 <li>
-<p>开销：AOF，RDB文件写入，可以结合iostat，iotop分析</p>
+<p>机器性能不足</p>
 </li>
 <li>
-<p>优化：不要和高硬盘负载服务部署在一起（存储服务，消息队列）；根据写入量决定磁盘的类型（ssd）；单机多实例持久化文件目录可以考虑分盘；<code>no-appendfsync-on-rewrite = yes</code></p>
-</li>
-</ul>
-<h3 id="aof追加阻塞">AOF追加阻塞</h3>
-<p>在AOF从缓冲区刷盘时，会启动一个线程来完成这个事，主线程会监控同步时间，如果同步时间超过2秒，即刷盘操作2秒还没有完成，主线程就会阻塞，直到刷盘完成</p>
-<h4 id="问题">问题</h4>
-<ul>
-<li>
-<p>主进程不能阻塞</p>
+<p>节点故障</p>
 </li>
 <li>
-<p>刷盘时可能不止丢失1秒的数据</p>
+<p>机器故障，过保</p>
+</li>
+<li>
+<p><code>sentinel failover &lt;masterName&gt;</code>,让一个sentinel节点去完成故障转移</p>
+</li>
+<li>
+<p>节点临时下线还是永久下线</p>
 </li>
 </ul>
-<h4 id="定位">定位</h4>
+<ol start="2">
+<li>节点上线</li>
+</ol>
 <ul>
 <li>
-<p>看日志，会出现（disk is busy?）提示</p>
+<p>主节点上线，使用<code>sentinel failover</code></p>
 </li>
 <li>
-<p>info Persistence，可以通过aof_delayed_fsync:nums,查看出现这种情况的次数</p>
+<p>从节点上线，<code>slaveof</code>，sentinel节点可以感知</p>
+</li>
+<li>
+<p>sentinel上线，配置<code>sentinel monitor mastername 127.1 port quorum</code></p>
 </li>
 </ul>
-<h4 id="优化">优化</h4>
+<h3 id="高可用读写分离">高可用读写分离</h3>
+<ol>
+<li>从节点的作用</li>
+</ol>
 <ul>
 <li>
-<p>不要和高硬盘负载服务部署在一起（存储服务，消息队列）</p>
+<p>是一个副本，高可用的基础</p>
 </li>
 <li>
-<p>根据写入量决定磁盘的类型（ssd）</p>
+<p>读写分离</p>
+</li>
+</ul>
+<ol start="2">
+<li>依赖三个消息用于监控slave节点资源池</li>
+</ol>
+<ul>
+<li>
+<p>+switch-master：切换主节点（从节点晋升主节点）</p>
 </li>
 <li>
-<p>单机多实例持久化文件目录可以考虑分盘</p>
+<p>+convet-to-slave：切换从节点（主节点降为从）</p>
 </li>
 <li>
-<p><code>no-appendfsync-on-rewrite = yes</code></p>
+<p>+sdown：主观下线</p>
+</li>
+</ul>
+<h3 id="实际部署">实际部署</h3>
+<ul>
+<li>
+<p>在同一局域网不同物理机部署redis Sentinel节点</p>
+</li>
+<li>
+<p>redis sentinel 的sentinel节点个数最好为奇数，quorum最好是（节点个数/2+1）</p>
+</li>
+<li>
+<p>客户端初始化时连接的是sentinel节点集合，但是sentinel只是配置中心，不是代理模式</p>
+</li>
+<li>
+<p>当客户端监控到<code>switch-master</code>时，会重新进行redis连接初始化</p>
 </li>
 </ul>
 </div><div class="post-copyright mb-4">
@@ -701,14 +620,14 @@ hello
   </div>
 </div><div class="post-navs d-flex mb-3 justify-content-between">
   <div class="post-nav w-50"><div class="prev-post">
-      <a href="/zh-cn/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/">Redis高级特性初识别</a>
+      <a href="/zh-cn/posts/redis/redis%E5%9F%BA%E7%A1%80/">Redis基础学习</a>
     </div></div>
   <div class="post-nav flex-row-reverse"><div class="next-post">
-      <a href="/zh-cn/posts/redis/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">Redis的主从复制</a>
+      <a href="/zh-cn/posts/redis/rediscluster-3/">Redis Cluster 3</a>
     </div></div>
 </div><section class="related-posts">
   <h3>相关文章</h3>
-  <ul class="related-posts"><li><a href="/zh-cn/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Redis API及数据结构</a></li><li><a href="/zh-cn/posts/redis/rediscluster-2/">Redis Cluster</a></li><li><a href="/zh-cn/posts/redis/rediscluster-1/">Redis Cluster</a></li><li><a href="/zh-cn/posts/redis/rediscluster-3/">Redis Cluster 3</a></li><li><a href="/zh-cn/posts/redis/redissentinel/">Redis Sentinel</a></li></ul>
+  <ul class="related-posts"><li><a href="/zh-cn/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Redis API及数据结构</a></li><li><a href="/zh-cn/posts/redis/rediscluster-2/">Redis Cluster</a></li><li><a href="/zh-cn/posts/redis/rediscluster-1/">Redis Cluster</a></li><li><a href="/zh-cn/posts/redis/rediscluster-3/">Redis Cluster 3</a></li><li><a href="/zh-cn/posts/redis/redis%E5%9F%BA%E7%A1%80/">Redis基础学习</a></li></ul>
 </section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
   repo="Euraxluo/Euraxluo.github.io"
   issue-term="pathname"
