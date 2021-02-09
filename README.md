@@ -2,7 +2,8 @@
 
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/budparr/awesome-hugo)
 
-
+[github point](https://euraxluo.github.io/zh-cn/)
+[gitee point](https://euraxluo.gitee.io/zh-cn/)
 ## About
 Euraxluo Blog
 
