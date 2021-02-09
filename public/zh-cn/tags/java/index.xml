@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on Euraxluo Blog</title>
+    <link>/zh-cn/tags/java/</link>
+    <description>Recent content in Java on Euraxluo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/zh-cn/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Servlet1</title>
+      <link>/zh-cn/posts/java/servlet1/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/zh-cn/posts/java/servlet1/</guid>
+      <description>Servlet HTTP协议 是客户端与服务器通信的一种方式 参考链接 request: 请求行 请求头 请求体 response: 响应行 响应头 响应体 Get: GET用于信息获取，而且应该是安全的和幂等的 带</description>
+    </item>
+    
+    <item>
+      <title>Servlet2</title>
+      <link>/zh-cn/posts/java/servlet2/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/zh-cn/posts/java/servlet2/</guid>
+      <description>Cookie和Session 会话：浏览器发出http请求。服务器接受，对请求进行响应，浏览器接受http响应 Cookie 把会话数据保存在浏览器客户端 服</description>
+    </item>
+    
+    <item>
+      <title>WebSocket</title>
+      <link>/zh-cn/posts/java/websocket/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/zh-cn/posts/java/websocket/</guid>
+      <description>WebSocket 一、概念 1.WebSocket 是HTTP协议的补充。使用的TCP协议建立连接 2.HTML5是指一系列新API，新协议，WebSocket也是其中之一 二、优点 1</description>
+    </item>
+    
+    <item>
+      <title>XML</title>
+      <link>/zh-cn/posts/java/xml/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/zh-cn/posts/java/xml/</guid>
+      <description>Xml Xml eXtendsible markup language 可扩展的标记语言 XML 有什么用? 可以用来保存数据 可以用来做配置文件 数据传输载体 定义xml 其实就是一个文件，文件的后缀为 .xml 文档声明 简单声</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据结构 on Euraxluo Blog</title>
+    <link>/zh-cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+    <description>Recent content in 数据结构 on Euraxluo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/zh-cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>链表</title>
+      <link>/zh-cn/posts/algorithm/%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/zh-cn/posts/algorithm/%E9%93%BE%E8%A1%A8/</guid>
+      <description>链表 单链表 data.next&amp;ndash;&amp;gt;data.next&amp;ndash;&amp;gt;NULL 插入节点: 时间复杂度:O1 删除节点 时间复杂度:O1 查找节点 时间复杂度:O(n) 链表想要随机访问第K个元素 arr[k],需要根据指</description>
+    </item>
+    
+    <item>
+      <title>数组</title>
+      <link>/zh-cn/posts/algorithm/%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Sat, 20 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>/zh-cn/posts/algorithm/%E6%95%B0%E7%BB%84/</guid>
+      <description>数组 线性表(每个线性表上的数据最多只有前和后两个方向):数组,链表,队列,栈 非线性表(数据之间并不是简单的前后关系):二叉树,堆,图 数组:数</description>
+    </item>
+    
+  </channel>
+</rss>

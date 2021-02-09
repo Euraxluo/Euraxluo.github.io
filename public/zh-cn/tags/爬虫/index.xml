@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>爬虫 on Euraxluo Blog</title>
+    <link>/zh-cn/tags/%E7%88%AC%E8%99%AB/</link>
+    <description>Recent content in 爬虫 on Euraxluo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
+    <lastBuildDate>Mon, 22 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="/zh-cn/tags/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>爬虫学习1</title>
+      <link>/zh-cn/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/</link>
+      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/zh-cn/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/</guid>
+      <description>前记： 爬虫：使用任何技术手段，批量获取网站信息的一种方式。关键在于批量。 反爬虫：使用任何技术手段，阻止别人批量获取自己网站信息的一种方式。关</description>
+    </item>
+    
+    <item>
+      <title>爬虫学习2</title>
+      <link>/zh-cn/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</link>
+      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/zh-cn/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</guid>
+      <description>Requests库 发送请求 方法： r=requests.get(&amp;#39;http://httpbin.org/get&amp;#39;)#get r = requests.post(&amp;#34;http://httpbin.org/post&amp;#34;)#post r = requests.put(&amp;#34;http://httpbin.org/put&amp;#34;)#put r = requests.delete(&amp;#34;http://httpbin.org/delete&amp;#34;)#delect r = requests.head(&amp;#34;http://httpbin.org/get&amp;#34;)#head r = requests.options(&amp;#34;http://httpbin.org/get&amp;#34;)#options eg import requests r = requests.get(url=&amp;#39;http://www.euraxluo.cn&amp;#39;) # 最基本的GET请求 print(r.status_code) # 内置的状态码查询对象 #状态码非200视为</description>
+    </item>
+    
+    <item>
+      <title>爬虫学习3</title>
+      <link>/zh-cn/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/</link>
+      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/zh-cn/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/</guid>
+      <description>代理 获取代理ip import requests import bs4 from bs4 import BeautifulSoup User_Agent = &amp;#39;Mozilla/5.0 (Windows NT 6.3; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0&amp;#39; header = {} header[&amp;#39;User-Agent&amp;#39;] = User_Agent url = &amp;#39;http://www.xicidaili.com/nn/1&amp;#39; r = requests.get(url,headers=header) res = r.text soup = BeautifulSoup(res,&amp;#34;html.parser&amp;#34;) ips = soup.findAll(&amp;#39;tr&amp;#39;) f = open(&amp;#34;./ip_proy/ip&amp;#34;,&amp;#34;w&amp;#34;) for x in range(1,len(ips)): ip = ips[x]#一行 tds = ip.findAll(&amp;#34;td&amp;#34;) line =</description>
+    </item>
+    
+    <item>
+      <title>爬虫学习4</title>
+      <link>/zh-cn/posts/python/pyquerystudy/</link>
+      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/zh-cn/posts/python/pyquerystudy/</guid>
+      <description>PyQuery 初始化 %%html &amp;lt;div id = &amp;#34;container&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;frist item&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link2.html&amp;#34;&amp;gt;second item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link3.html&amp;#34; style=&amp;#34;color:black;&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;bold&amp;#34;&amp;gt;third item&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link4.html&amp;#34;&amp;gt;fourth item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link5.html&amp;#34;&amp;gt;fifth item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/div&amp;gt; 字符串初始化 html = &amp;#39;&amp;#39;&amp;#39; &amp;lt;div id = &amp;#34;container&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;frist item&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1&amp;#34;&amp;gt;&amp;lt;a</description>
+    </item>
+    
+  </channel>
+</rss>

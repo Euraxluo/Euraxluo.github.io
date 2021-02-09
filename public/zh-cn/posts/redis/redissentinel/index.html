@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redis Sentinel - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="description" content="Redis Sentinel" /><meta itemprop="name" content="Redis Sentinel">
+<meta itemprop="description" content="Redis Sentinel">
+<meta itemprop="datePublished" content="2019-03-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-03-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2220">
+
+
+
+<meta itemprop="keywords" content="redis," />
+<meta property="og:title" content="Redis Sentinel" />
+<meta property="og:description" content="Redis Sentinel" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/zh-cn/posts/redis/redissentinel/" />
+<meta property="article:published_time" content="2019-03-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-03-10T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/zh-cn/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" /><meta property="og:see_also" content="/zh-cn/posts/redis/rediscluster-1/" /><meta property="og:see_also" content="/zh-cn/posts/redis/rediscluster-2/" /><meta property="og:see_also" content="/zh-cn/posts/redis/rediscluster-3/" /><meta property="og:see_also" content="/zh-cn/posts/redis/redis%E5%9F%BA%E7%A1%80/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Redis Sentinel"/>
+<meta name="twitter:description" content="Redis Sentinel"/>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+</head>
+  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+  <div class="container">
+    <a class="navbar-brand" href="/zh-cn/">
+      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/zh-cn/search">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
+    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
+  </div>
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/archives">
+            <i class="fas fa-fw fa-file-archive"></i>归档
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/categories">
+            <i class="fas fa-fw fa-folder"></i>分类
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/tags">
+            <i class="fas fa-fw fa-tags"></i>标签
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/series">
+            <i class="fas fa-fw fa-columns"></i>专栏
+          </a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Repos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo" target="_blank">
+                <i class="fab fa-fw fa-github"></i>Euraxluo
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                <i class="fab fa-fw fa-github"></i>fastgrpc
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                <i class="fab fa-fw fa-github"></i>ProjectPractice
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                <i class="fab fa-fw fa-github"></i>pyantv
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                <i class="fab fa-fw fa-github"></i>simple-pythonvm
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/verb" target="_blank">
+                <i class="fab fa-fw fa-github"></i>verb
+              </a>
+            </li></ul>
+        </li></ul>
+      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
+    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-language" ></i>
+  </a>
+</li>
+<script type="text/html" id="languagesPopoverBody">
+  <ul class="languages list-group"><li class="language list-group-item">
+      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
+      <a href="/zh-tw/">繁體中文</a></li></ul>
+</script>
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#palettesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-palette" ></i>
+  </a>
+</li>
+<script type="text/html" id="palettesPopoverBody">
+  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
+      <a>蓝色</a>
+    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
+      <a>蓝灰色</a>
+    </li><li id="palette-brown" class="palette list-group-item bg-brown">
+      <a>棕色</a>
+    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
+      <a>青色</a>
+    </li><li id="palette-green" class="palette list-group-item bg-green">
+      <a>绿色</a>
+    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
+      <a>靛青色</a>
+    </li><li id="palette-orange" class="palette list-group-item bg-orange">
+      <a>橙色</a>
+    </li><li id="palette-pink" class="palette list-group-item bg-pink">
+      <a>粉色</a>
+    </li><li id="palette-purple" class="palette list-group-item bg-purple">
+      <a>紫色</a>
+    </li><li id="palette-red" class="palette list-group-item bg-red">
+      <a>红色</a>
+    </li><li id="palette-teal" class="palette list-group-item bg-teal">
+      <a>蓝绿色</a>
+    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
+      <a>黄色</a>
+    </li></ul>
+</script>
+
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#fontSizesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-font" ></i>
+  </a>
+</li>
+<script type="text/html" id="fontSizesPopoverBody">
+  <form class="font-size-switcher-form">
+    <label for="fontSize" class="form-label">字体大小</label>
+    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+  </form>
+</script>
+<form class="mode-switcher-form d-flex align-items-center">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="modeSwitcher">
+  </div>
+</form>
+</ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-md-8">
+  <div class="container"><nav class="row" aria-label="breadcrumb">
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/zh-cn/">主页</a></li><li class="breadcrumb-item"><a href="/zh-cn/posts/">posts</a></li><li class="breadcrumb-item"><a href="/zh-cn/posts/redis/">redis</a></li><li class="breadcrumb-item active">Redis Sentinel</li></ol>
+</nav><article class="post row surface">
+  <h1 class="post-title my-3">Redis Sentinel</h1><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2019-03-10
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>5 分钟阅读
+  </span>
+<a href="/zh-cn/categories/redis/" class="post-taxonomy">#redis</a><a href="/zh-cn/series/redis/" class="post-taxonomy">#redis</a><a href="/zh-cn/tags/redis/" class="post-taxonomy">#redis</a></div>
+<div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
+  <div class="accordion-item">
+    <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
+      <i class="fas fa-fw fa-bars"></i>目录
+    </div>
+    <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
+      <div class="accordion-body mt-2">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#主从复制的问题">主从复制的问题</a></li>
+      </ul>
+    </li>
+    <li><a href="#redis-sentinel架构">Redis Sentinel架构</a></li>
+    <li><a href="#sentinel的故障转移">Sentinel的故障转移</a></li>
+    <li><a href="#安装与配置">安装与配置</a></li>
+    <li><a href="#客户端与sentinel连接">客户端与sentinel连接</a>
+      <ul>
+        <li><a href="#高可用">高可用</a></li>
+        <li><a href="#实现原理">实现原理</a></li>
+        <li><a href="#jedisapi">jedisAPI</a></li>
+        <li><a href="#redis-py">redis-py</a></li>
+      </ul>
+    </li>
+    <li><a href="#故障转移">故障转移</a></li>
+    <li><a href="#sentinel的定时任务">sentinel的定时任务</a></li>
+    <li><a href="#主观下线">主观下线</a></li>
+    <li><a href="#客观下线">客观下线</a></li>
+    <li><a href="#故障转移-1">故障转移</a>
+      <ul>
+        <li><a href="#领导者选举">领导者选举</a></li>
+        <li><a href="#sentinel领导者节点实现故障转移">sentinel领导者节点实现故障转移</a></li>
+        <li><a href="#怎么选择合适的slave节点">怎么选择合适的slave节点</a></li>
+      </ul>
+    </li>
+    <li><a href="#tips">TIPS</a>
+      <ul>
+        <li><a href="#节点运维节点的上下线">节点运维，节点的上下线</a></li>
+        <li><a href="#高可用读写分离">高可用读写分离</a></li>
+        <li><a href="#实际部署">实际部署</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div><div class="post-content mb-3"><h1 id="redis-sentinel">Redis Sentinel</h1>
+<h3 id="主从复制的问题">主从复制的问题</h3>
+<ul>
+<li>
+<p>手动故障转移</p>
+</li>
+<li>
+<p>写能力和存储能力受限</p>
+</li>
+</ul>
+<h2 id="redis-sentinel架构">Redis Sentinel架构</h2>
+<ul>
+<li>
+<p>有多个Sentinel节点</p>
+</li>
+<li>
+<p>不用来存储数据</p>
+</li>
+<li>
+<p>多个节点判断master节点的故障，进行故障转移</p>
+</li>
+<li>
+<p>保证高可用，即便一个Sentinel节点挂点也没事</p>
+</li>
+<li>
+<p>客户端只会记录sentinel的地址（因为sentinel会进行故障转移，master节点地址不固定）</p>
+</li>
+<li>
+<p>一套sentinel可以监控多套master-slave，利用master-name作为标识</p>
+</li>
+</ul>
+<h2 id="sentinel的故障转移">Sentinel的故障转移</h2>
+<ol>
+<li>
+<p>多个sentinel发现并确认master有问题</p>
+</li>
+<li>
+<p>选举出一个sentinel作为领导</p>
+</li>
+<li>
+<p>选出一个slave作为新的master</p>
+</li>
+<li>
+<p>通知其余slave成为新的master的slave</p>
+</li>
+<li>
+<p>通知客户端主从变化</p>
+</li>
+<li>
+<p>等待老的master复活成为新的master的slave</p>
+</li>
+</ol>
+<h2 id="安装与配置">安装与配置</h2>
+<p>主从配置：</p>
+<p><code>sed &quot;s/6380/6381/g&quot; redis-6380.conf &gt; redis-6381.conf</code></p>
+<p>查看：</p>
+<p><code>cat redis-6381.conf|grep -v &quot;#&quot; |grep -v &quot;^$&quot;</code></p>
+<p>Sentinel配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+port <span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span>
+
+dir <span style="color:#e6db74">&#34;&#34;</span>
+
+logfile <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span><span style="color:#e6db74">.log&#34;</span>
+
+sentinel monitor mastername 127.1 port<span style="color:#f92672">{</span>主节点端口<span style="color:#f92672">}</span> 2<span style="color:#f92672">{</span>故障发现个数<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">#判断失败时间 30000毫秒</span>
+
+sentinel down-after-milliseconds mastername <span style="color:#ae81ff">30000</span>
+
+<span style="color:#75715e">#并发度</span>
+
+sentinel parallel-syncs mastername <span style="color:#ae81ff">1</span>
+
+sentinel failover-timeout mastername <span style="color:#ae81ff">180000</span>
+
+</code></pre></div><h2 id="客户端与sentinel连接">客户端与sentinel连接</h2>
+<h3 id="高可用">高可用</h3>
+<ul>
+<li>
+<p>服务端高可用</p>
+</li>
+<li>
+<p>客户端高可用</p>
+</li>
+</ul>
+<h3 id="实现原理">实现原理</h3>
+<ul>
+<li>
+<p>获取全部的sentinel节点</p>
+</li>
+<li>
+<p>我需要给sentinel我想连接的mastername</p>
+</li>
+<li>
+<p>遍历sentinel节点集合，获取一个可用的sentinel节点</p>
+</li>
+<li>
+<p>通过API<code>get-master-addr-by-name</code>来获取真正的master节点地址</p>
+</li>
+<li>
+<p>通过<code>role/role replication</code>验证得到的master节点是否是真正的master</p>
+</li>
+</ul>
+<h3 id="jedisapi">jedisAPI</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+JedisSentinelPool sentinelPool <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JedisSentinelPool<span style="color:#f92672">(</span>masterName<span style="color:#f92672">,</span>sentinelSet<span style="color:#f92672">,</span>poolConfig<span style="color:#f92672">,</span>timeout<span style="color:#f92672">);</span>
+
+Jedis jedis <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">try</span><span style="color:#f92672">{</span>
+
+    jedis <span style="color:#f92672">=</span> redisSentinelPool<span style="color:#f92672">.</span><span style="color:#a6e22e">getResource</span><span style="color:#f92672">();</span>
+
+<span style="color:#f92672">}</span><span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception e<span style="color:#f92672">){</span>
+
+    logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">getMessage</span><span style="color:#f92672">(),</span>e<span style="color:#f92672">);</span>
+
+<span style="color:#f92672">}</span><span style="color:#66d9ef">finally</span><span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>jedis <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
+
+    	jedis<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+
+<span style="color:#f92672">}</span>
+
+
+
+</code></pre></div><h3 id="redis-py">redis-py</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> redis.sentinel <span style="color:#f92672">import</span> Sentinel
+
+sentinel <span style="color:#f92672">=</span> Sentinel([(<span style="color:#e6db74">&#34;localhost&#34;</span>,<span style="color:#ae81ff">26379</span>),(<span style="color:#e6db74">&#34;localhost&#34;</span>,<span style="color:#ae81ff">26380</span>),(<span style="color:#e6db74">&#34;localhost&#34;</span>,<span style="color:#ae81ff">26381</span>)],socket_timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+
+<span style="color:#75715e">#获取主节点ip</span>
+
+sentinel<span style="color:#f92672">.</span>discover_master(<span style="color:#e6db74">&#39;mymaster&#39;</span>)
+
+<span style="color:#75715e">#获取从节点ip</span>
+
+sentinel<span style="color:#f92672">.</span>discover_slaves(<span style="color:#e6db74">&#39;mymaster&#39;</span>)
+
+</code></pre></div><h4 id="如果你的redis一直杀不死">如果你的Redis一直杀不死</h4>
+<ul>
+<li>
+<p>检查是否开了守护进程</p>
+</li>
+<li>
+<p>检测使用kill -9 能否杀死</p>
+</li>
+<li>
+<p>关闭守护进程，利用<code>/etc/init.d/redis-sentinel stop</code>进行关闭</p>
+</li>
+</ul>
+<h2 id="故障转移">故障转移</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> redis.sentinel <span style="color:#f92672">import</span> Sentinel <span style="color:#66d9ef">as</span> St
+
+<span style="color:#f92672">import</span> redis <span style="color:#f92672">as</span> rd
+
+<span style="color:#f92672">import</span> time
+
+st <span style="color:#f92672">=</span> St([(<span style="color:#e6db74">&#34;localhost&#34;</span>,<span style="color:#ae81ff">26379</span>),(<span style="color:#e6db74">&#34;localhost&#34;</span>,<span style="color:#ae81ff">26379</span>),(<span style="color:#e6db74">&#34;localhost&#34;</span>,<span style="color:#ae81ff">26379</span>)],socket_timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+
+key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;master&#34;</span>
+
+i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+
+<span style="color:#66d9ef">while</span>(True):
+
+    <span style="color:#66d9ef">try</span>:
+
+        masterhost,masterport <span style="color:#f92672">=</span> st<span style="color:#f92672">.</span>discover_master(<span style="color:#e6db74">&#39;mymaster&#39;</span>)
+
+        i <span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>
+
+        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">1</span>)
+
+        client <span style="color:#f92672">=</span> rd<span style="color:#f92672">.</span>StrictRedis(host<span style="color:#f92672">=</span>masterhost,port<span style="color:#f92672">=</span>masterport)
+
+        setResult <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>set(key,<span style="color:#e6db74">&#34;value: </span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">%</span>i)
+
+        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">1</span>)
+
+        <span style="color:#66d9ef">if</span> i<span style="color:#f92672">%</span><span style="color:#ae81ff">3</span><span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>:
+
+            <span style="color:#66d9ef">print</span>(client<span style="color:#f92672">.</span>get(key))
+
+    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+
+        <span style="color:#66d9ef">print</span>(e)
+
+</code></pre></div><p>运行这个程序后，kill -9 掉master</p>
+<p>查看脚本的输出，最后查看sentinel和各个server的日志</p>
+<p><code>tail -f redis-sentinel-26379.log</code></p>
+<p>我们可以看到，投票，重写配置，主从辅助，部分复制等等一系列的过程</p>
+<h2 id="sentinel的定时任务">sentinel的定时任务</h2>
+<ol>
+<li>每10秒每个sentinel对master和slave执行info命令</li>
+</ol>
+<ul>
+<li>
+<p>发现slave节点</p>
+</li>
+<li>
+<p>确定主从关系</p>
+</li>
+</ul>
+<ol start="2">
+<li>每2秒每个sentinel通过master节点的channel交换信息（是不是把master作为一个频道，那如果master挂掉了怎么办）</li>
+</ol>
+<ul>
+<li>
+<p>通过__sentinel__:hello频道交换信息</p>
+</li>
+<li>
+<p>交互对节点的看法和自身的信息</p>
+</li>
+</ul>
+<p>3.每1秒每个sentinel对其他sentinel和redis执行ping</p>
+<ul>
+<li>
+<p>心跳检测，失败判定依据</p>
+</li>
+<li>
+<p>是故障检测的基础</p>
+</li>
+</ul>
+<h2 id="主观下线">主观下线</h2>
+<p>每个sentinel节点对Redis节点失败的偏见</p>
+<p><code>sentinel down-after-milliseconds mastername 30000{超过多久未收到回复}</code></p>
+<h2 id="客观下线">客观下线</h2>
+<p>所有sentinel节点对redis节点失败“达成共识”（超过quorum个统一，建议sentinel/2+1）</p>
+<p><code>sentinel monitor mastername ip port quorum{法定人数}</code></p>
+<h2 id="故障转移-1">故障转移</h2>
+<h3 id="领导者选举">领导者选举</h3>
+<ul>
+<li>
+<p>原因：只有一个sentinel节点完成故障转移</p>
+</li>
+<li>
+<p>选举：通过sentinel is-master-down-by-addr 命令</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>这个命令会发出自己对master的主观判断，并且要求将自己设置为领导者</p>
+</li>
+<li>
+<p>收到命令的sentinel如果没有同意其他sentinel发出的请求，就会同意这个请求，否则拒绝</p>
+</li>
+<li>
+<p>如果sentinel节点超过sentinel集合半数且超过quorum数，那么它将成为领导者</p>
+</li>
+<li>
+<p>如果此过程有多个sentinel节点成为了领导者，那么将等待一段时间重新进行选举</p>
+</li>
+</ol>
+<h3 id="sentinel领导者节点实现故障转移">sentinel领导者节点实现故障转移</h3>
+<ol>
+<li>
+<p>从slave节点中选出一个合适的节点作为新的master</p>
+</li>
+<li>
+<p>对上面的slave节点执行<code>slaveof no one</code>命令让其成为master节点</p>
+</li>
+<li>
+<p>向剩余的slave节点发送命令，让它们成为新master节点的slave节点，复制规则和<code>parallel-syncs</code>参数有关{快速复制还是顺序复制}</p>
+</li>
+<li>
+<p>更新原来的master节点为slave，并对其保持关注，当其恢复后命令他去复制master</p>
+</li>
+</ol>
+<h3 id="怎么选择合适的slave节点">怎么选择合适的slave节点</h3>
+<ol>
+<li>
+<p>选择<code>slave-priority{slava优先级}</code>最高的节点，如果存在返回，不存在继续</p>
+</li>
+<li>
+<p>选择复制偏移量最大的slave节点{复制的最完整}，如果存在返回，不存在继续</p>
+</li>
+<li>
+<p>选择runID最小的slave节点</p>
+</li>
+</ol>
+<h2 id="tips">TIPS</h2>
+<h3 id="节点运维节点的上下线">节点运维，节点的上下线</h3>
+<ol>
+<li>节点下线</li>
+</ol>
+<ul>
+<li>
+<p>机器性能不足</p>
+</li>
+<li>
+<p>节点故障</p>
+</li>
+<li>
+<p>机器故障，过保</p>
+</li>
+<li>
+<p><code>sentinel failover &lt;masterName&gt;</code>,让一个sentinel节点去完成故障转移</p>
+</li>
+<li>
+<p>节点临时下线还是永久下线</p>
+</li>
+</ul>
+<ol start="2">
+<li>节点上线</li>
+</ol>
+<ul>
+<li>
+<p>主节点上线，使用<code>sentinel failover</code></p>
+</li>
+<li>
+<p>从节点上线，<code>slaveof</code>，sentinel节点可以感知</p>
+</li>
+<li>
+<p>sentinel上线，配置<code>sentinel monitor mastername 127.1 port quorum</code></p>
+</li>
+</ul>
+<h3 id="高可用读写分离">高可用读写分离</h3>
+<ol>
+<li>从节点的作用</li>
+</ol>
+<ul>
+<li>
+<p>是一个副本，高可用的基础</p>
+</li>
+<li>
+<p>读写分离</p>
+</li>
+</ul>
+<ol start="2">
+<li>依赖三个消息用于监控slave节点资源池</li>
+</ol>
+<ul>
+<li>
+<p>+switch-master：切换主节点（从节点晋升主节点）</p>
+</li>
+<li>
+<p>+convet-to-slave：切换从节点（主节点降为从）</p>
+</li>
+<li>
+<p>+sdown：主观下线</p>
+</li>
+</ul>
+<h3 id="实际部署">实际部署</h3>
+<ul>
+<li>
+<p>在同一局域网不同物理机部署redis Sentinel节点</p>
+</li>
+<li>
+<p>redis sentinel 的sentinel节点个数最好为奇数，quorum最好是（节点个数/2+1）</p>
+</li>
+<li>
+<p>客户端初始化时连接的是sentinel节点集合，但是sentinel只是配置中心，不是代理模式</p>
+</li>
+<li>
+<p>当客户端监控到<code>switch-master</code>时，会重新进行redis连接初始化</p>
+</li>
+</ul>
+</div><div class="post-copyright mb-4">
+  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+</div>
+<div class="post-reward mb-4 text-center">
+  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
+    <i class="fas fa-fw fa-medal"></i>打赏
+  </button>
+</div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay"></i>支付宝
+            </a>
+          </li><li class="nav-item" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin"></i>微信
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg" loading="lazy" />
+          </div><div class="tab-pane fade post-reward-content show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg" loading="lazy" />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div><div class="post-navs d-flex mb-3 justify-content-between">
+  <div class="post-nav w-50"><div class="prev-post">
+      <a href="/zh-cn/posts/redis/redis%E5%9F%BA%E7%A1%80/">Redis基础学习</a>
+    </div></div>
+  <div class="post-nav flex-row-reverse"><div class="next-post">
+      <a href="/zh-cn/posts/redis/rediscluster-3/">Redis Cluster 3</a>
+    </div></div>
+</div><section class="related-posts">
+  <h3>相关文章</h3>
+  <ul class="related-posts"><li><a href="/zh-cn/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Redis API及数据结构</a></li><li><a href="/zh-cn/posts/redis/rediscluster-1/">Redis Cluster</a></li><li><a href="/zh-cn/posts/redis/rediscluster-2/">Redis Cluster</a></li><li><a href="/zh-cn/posts/redis/rediscluster-3/">Redis Cluster 3</a></li><li><a href="/zh-cn/posts/redis/redis%E5%9F%BA%E7%A1%80/">Redis基础学习</a></li></ul>
+</section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+  repo="Euraxluo/Euraxluo.github.io"
+  issue-term="pathname"
+  label="✨💬✨"
+  theme="github-dark"
+  crossorigin="anonymous"
+  async>
+</script></div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container"><section class="profile surface row">
+  <div class="col-xl-6 d-flex align-items-center justify-content-center">
+    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  </div>
+  <div class="col-xl-6">
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+</section><section class="recent-posts row surface">
+  <h4>最近文章</h4>
+  <ul><li><a href="/zh-cn/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/zh-cn/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/zh-cn/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/zh-cn/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/zh-cn/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+</section>
+<section class="taxonomy-categories row surface">
+  <h4>
+    <a href="/zh-cn/categories">分类</a>
+  </h4>
+  <div><a href="/zh-cn/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
+      Shortcode <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+      java <span class="badge rounded-pill">8</span>
+    </a><a href="/zh-cn/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/zh-cn/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/categories/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="无人驾驶">
+      无人驾驶 <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-series row surface">
+  <h4>
+    <a href="/zh-cn/series">专栏</a>
+  </h4>
+  <div><a href="/zh-cn/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/zh-cn/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/series/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="无人驾驶">
+      无人驾驶 <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-tags row surface">
+  <h4>
+    <a href="/zh-cn/tags">标签</a>
+  </h4>
+  <div><a href="/zh-cn/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
+      python <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/tags/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section></div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a>
+  </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
+        <i class="fab fa-fw fa-2x fa-github"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
+        <i class="fab fa-fw fa-2x fa-qq"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
+        <i class="fab fa-fw fa-2x fa-zhihu"></i>
+      </a>
+    </li></nav>
+<div class="copyright mb-2">
+  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+</div>
+<script>
+  window.parent.postMessage(window.location.href, "*");
+</script><div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
+</div></footer>
+<a id="btnScrollToTop" class="btn-scroll-to-top">
+  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
+</a>
+</body>
+</html>

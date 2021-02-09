@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TensorFlow 基础 - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="description" content="TensorFlow 基础" /><meta itemprop="name" content="TensorFlow 基础">
+<meta itemprop="description" content="TensorFlow 基础">
+<meta itemprop="datePublished" content="2019-02-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-02-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2719">
+
+
+
+<meta itemprop="keywords" content="TensorFlow," />
+<meta property="og:title" content="TensorFlow 基础" />
+<meta property="og:description" content="TensorFlow 基础" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/zh-cn/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/" />
+<meta property="article:published_time" content="2019-02-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-02-22T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/zh-cn/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TensorFlow 基础"/>
+<meta name="twitter:description" content="TensorFlow 基础"/>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+</head>
+  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+  <div class="container">
+    <a class="navbar-brand" href="/zh-cn/">
+      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/zh-cn/search">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
+    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
+  </div>
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/archives">
+            <i class="fas fa-fw fa-file-archive"></i>归档
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/categories">
+            <i class="fas fa-fw fa-folder"></i>分类
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/tags">
+            <i class="fas fa-fw fa-tags"></i>标签
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/series">
+            <i class="fas fa-fw fa-columns"></i>专栏
+          </a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Repos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo" target="_blank">
+                <i class="fab fa-fw fa-github"></i>Euraxluo
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                <i class="fab fa-fw fa-github"></i>fastgrpc
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                <i class="fab fa-fw fa-github"></i>ProjectPractice
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                <i class="fab fa-fw fa-github"></i>pyantv
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                <i class="fab fa-fw fa-github"></i>simple-pythonvm
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/verb" target="_blank">
+                <i class="fab fa-fw fa-github"></i>verb
+              </a>
+            </li></ul>
+        </li></ul>
+      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
+    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-language" ></i>
+  </a>
+</li>
+<script type="text/html" id="languagesPopoverBody">
+  <ul class="languages list-group"><li class="language list-group-item">
+      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
+      <a href="/zh-tw/">繁體中文</a></li></ul>
+</script>
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#palettesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-palette" ></i>
+  </a>
+</li>
+<script type="text/html" id="palettesPopoverBody">
+  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
+      <a>蓝色</a>
+    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
+      <a>蓝灰色</a>
+    </li><li id="palette-brown" class="palette list-group-item bg-brown">
+      <a>棕色</a>
+    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
+      <a>青色</a>
+    </li><li id="palette-green" class="palette list-group-item bg-green">
+      <a>绿色</a>
+    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
+      <a>靛青色</a>
+    </li><li id="palette-orange" class="palette list-group-item bg-orange">
+      <a>橙色</a>
+    </li><li id="palette-pink" class="palette list-group-item bg-pink">
+      <a>粉色</a>
+    </li><li id="palette-purple" class="palette list-group-item bg-purple">
+      <a>紫色</a>
+    </li><li id="palette-red" class="palette list-group-item bg-red">
+      <a>红色</a>
+    </li><li id="palette-teal" class="palette list-group-item bg-teal">
+      <a>蓝绿色</a>
+    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
+      <a>黄色</a>
+    </li></ul>
+</script>
+
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#fontSizesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-font" ></i>
+  </a>
+</li>
+<script type="text/html" id="fontSizesPopoverBody">
+  <form class="font-size-switcher-form">
+    <label for="fontSize" class="form-label">字体大小</label>
+    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+  </form>
+</script>
+<form class="mode-switcher-form d-flex align-items-center">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="modeSwitcher">
+  </div>
+</form>
+</ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-md-8">
+  <div class="container"><nav class="row" aria-label="breadcrumb">
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/zh-cn/">主页</a></li><li class="breadcrumb-item"><a href="/zh-cn/posts/">posts</a></li><li class="breadcrumb-item"><a href="/zh-cn/posts/tensorflow/">tensorflow</a></li><li class="breadcrumb-item active">TensorFlow 基础</li></ol>
+</nav><article class="post row surface">
+  <h1 class="post-title my-3">TensorFlow 基础</h1><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2019-02-22
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>6 分钟阅读
+  </span>
+<a href="/zh-cn/categories/tensorflow/" class="post-taxonomy">#TensorFlow</a><a href="/zh-cn/series/tensorflow/" class="post-taxonomy">#TensorFlow</a><a href="/zh-cn/tags/tensorflow/" class="post-taxonomy">#TensorFlow</a></div>
+<div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
+  <div class="accordion-item">
+    <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
+      <i class="fas fa-fw fa-bars"></i>目录
+    </div>
+    <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
+      <div class="accordion-body mt-2">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#计算密集型tensorflow">计算密集型(tensorflow)</a></li>
+        <li><a href="#io密集型djangoscrapy">io密集型(Django,Scrapy)</a></li>
+      </ul>
+    </li>
+    <li><a href="#线性回归回顾">线性回归回顾</a>
+      <ul>
+        <li><a href="#变量作用域">变量作用域</a></li>
+        <li><a href="#让变量显示可观测">让变量显示可观测</a></li>
+        <li><a href="#模型的保存和加载">模型的保存和加载</a></li>
+        <li><a href="#定义命令行参数">定义命令行参数</a></li>
+      </ul>
+    </li>
+    <li><a href="#graph图">graph图</a>
+      <ul>
+        <li><a href="#一个session运行一张图">一个Session运行一张图</a></li>
+        <li><a href="#重载">重载</a></li>
+        <li><a href="#实时的提供数据进行训练">实时的提供数据进行训练</a></li>
+      </ul>
+    </li>
+    <li><a href="#张量的动态形状和静态形状">张量的动态形状和静态形状</a></li>
+    <li><a href="#变量">变量</a></li>
+    <li><a href="#tensorboard">Tensorboard</a></li>
+    <li><a href="#文件读取">文件读取</a>
+      <ul>
+        <li><a href="#队列与队列管理器">队列与队列管理器</a></li>
+        <li><a href="#异步读取队列管理器">异步读取,队列管理器</a></li>
+        <li><a href="#线程协调器实现一个简单的机制来协调一组线程的终止">线程协调器,实现一个简单的机制来协调一组线程的终止</a></li>
+        <li><a href="#读取文件的流程">读取文件的流程</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div><div class="post-content mb-3"><h1 id="tensorflow-基础">TensorFlow 基础</h1>
+<h3 id="计算密集型tensorflow">计算密集型(tensorflow)</h3>
+<p>cpu计算</p>
+<h3 id="io密集型djangoscrapy">io密集型(Django,Scrapy)</h3>
+<p>http请求</p>
+<h2 id="线性回归回顾">线性回归回顾</h2>
+<ol>
+<li>准备好特征和lable</li>
+</ol>
+<p>y = x*0.7+0.8</p>
+<p>2.建模.随机初始化一个权重w,一个偏置b</p>
+<p>y_predict = wx+b</p>
+<ol start="3">
+<li>求损失函数</li>
+</ol>
+<p>less化损失函数</p>
+<p>(y-y_predict)^2/x.shape[0]</p>
+<p>4.梯度下降优化损失函数,我们需要查阅tensorflowAPI,制定合适的eta</p>
+<h3 id="变量作用域">变量作用域</h3>
+<p>tf.variable_scope</p>
+<h3 id="让变量显示可观测">让变量显示可观测</h3>
+<ol>
+<li>收集变量</li>
+</ol>
+<ul>
+<li>
+<p>tf.summary.scalar(name='',tensor) #收集单值变量,name是变量名,tensor为值</p>
+</li>
+<li>
+<p>tf.summary.histogram(name='',tensor) #收集高纬度的变量参数</p>
+</li>
+<li>
+<p>tf.summary.image(name='',tensor) #收集输入的图片张量能显示图片</p>
+</li>
+</ul>
+<ol start="2">
+<li>合并变量写入事件文件</li>
+</ol>
+<ul>
+<li>
+<p>merged = tf.summary.merge_all()</p>
+</li>
+<li>
+<p>summary = sess.run(merged) #每次迭代都需要运行</p>
+</li>
+<li>
+<p>FileWriter.add_summary(summary,i) #表示第几次的值</p>
+</li>
+</ul>
+<h3 id="模型的保存和加载">模型的保存和加载</h3>
+<p>tf.train.Save(var_list = None,max_to_keep = 5)</p>
+<blockquote>
+<p>var_list:指定将要保存和还原的变量.他可以作为一个dict或一个列表传递</p>
+</blockquote>
+<blockquote>
+<p>max_to_keep:指示要保留的最近检查点文件的最大数量.创建新文件时,会删除较旧文件,默认为5,即保留最近的5个检查点文件</p>
+</blockquote>
+<h3 id="定义命令行参数">定义命令行参数</h3>
+<ul>
+<li>
+<p>先定义有哪些参数需要在运行时指定</p>
+</li>
+<li>
+<p>程序中获取定义命令行参数</p>
+</li>
+<li>
+<p>使用时<code> python *.py --name=参数 [--DEFINE_name=参数]</code></p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+
+
+<span style="color:#f92672">import</span> os
+
+<span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+
+<span style="color:#75715e">#定义参数的名字,默认值,说明</span>
+
+tf<span style="color:#f92672">.</span>app<span style="color:#f92672">.</span>flags<span style="color:#f92672">.</span>DEFINE_integer(<span style="color:#e6db74">&#34;max_step&#34;</span>,<span style="color:#ae81ff">100</span>,<span style="color:#e6db74">&#34;模型的训练步数&#34;</span>)
+
+tf<span style="color:#f92672">.</span>app<span style="color:#f92672">.</span>flags<span style="color:#f92672">.</span>DEFINE_string(<span style="color:#e6db74">&#34;model_dir&#34;</span>,<span style="color:#e6db74">&#34;&#34;</span>,<span style="color:#e6db74">&#34;模型文件的加载路径&#34;</span>)
+
+<span style="color:#75715e">#定义获取命令行参数的名字</span>
+
+FLAGS <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>app<span style="color:#f92672">.</span>flags<span style="color:#f92672">.</span>FLAGS
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mylg</span>():
+
+    g3 <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>get_default_graph()
+
+    <span style="color:#66d9ef">with</span> tf<span style="color:#f92672">.</span>variable_scope(<span style="color:#e6db74">&#34;data&#34;</span>):
+
+        <span style="color:#75715e"># 准备特征和lablel</span>
+
+        x <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>random_normal([<span style="color:#ae81ff">1000</span>,<span style="color:#ae81ff">1</span>],mean<span style="color:#f92672">=</span><span style="color:#ae81ff">1.75</span>,stddev<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>,name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X_data&#34;</span>)
+
+        y <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>matmul(x,[[<span style="color:#ae81ff">0.7</span>]]) <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.8</span><span style="color:#75715e">#举证相乘必须是二维的</span>
+
+    <span style="color:#66d9ef">with</span> tf<span style="color:#f92672">.</span>variable_scope(<span style="color:#e6db74">&#34;model&#34;</span>):
+
+        <span style="color:#75715e"># 设置模型</span>
+
+        w <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>Variable(tf<span style="color:#f92672">.</span>random_normal([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>],mean<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>,stddev<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span>),name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;w&#34;</span>,trainable<span style="color:#f92672">=</span>True)
+
+        <span style="color:#75715e">#trainable设置这个变量是否变化</span>
+
+        b <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>Variable(<span style="color:#ae81ff">0.5</span>,name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>)
+
+        y_predict <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>matmul(x,w) <span style="color:#f92672">+</span> b
+
+    <span style="color:#66d9ef">with</span> tf<span style="color:#f92672">.</span>variable_scope(<span style="color:#e6db74">&#34;loss&#34;</span>):
+
+        <span style="color:#75715e">#写损失函数</span>
+
+        loss <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>reduce_mean(tf<span style="color:#f92672">.</span>square(y<span style="color:#f92672">-</span>y_predict))
+
+    <span style="color:#66d9ef">with</span> tf<span style="color:#f92672">.</span>variable_scope(<span style="color:#e6db74">&#34;train&#34;</span>):
+
+        train <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>train<span style="color:#f92672">.</span>GradientDescentOptimizer(<span style="color:#ae81ff">0.01</span>)<span style="color:#f92672">.</span>minimize(loss)
+
+    <span style="color:#75715e">#1. 收集tensor</span>
+
+    tf<span style="color:#f92672">.</span>summary<span style="color:#f92672">.</span>scalar(<span style="color:#e6db74">&#34;loss&#34;</span>,loss)
+
+    tf<span style="color:#f92672">.</span>summary<span style="color:#f92672">.</span>histogram(<span style="color:#e6db74">&#39;weight&#39;</span>,w)
+
+    tf<span style="color:#f92672">.</span>summary<span style="color:#f92672">.</span>histogram(<span style="color:#e6db74">&#39;bias&#39;</span>,b)
+
+    <span style="color:#75715e">#2. 合并变量</span>
+
+    merged <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>summary<span style="color:#f92672">.</span>merge_all()
+
+    <span style="color:#75715e">#初始化变量</span>
+
+    init <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>global_variables_initializer()
+
+    <span style="color:#75715e">#定义一个保存模型的实例</span>
+
+    saver <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>train<span style="color:#f92672">.</span>Saver()
+
+    <span style="color:#66d9ef">with</span> tf<span style="color:#f92672">.</span>Session(graph<span style="color:#f92672">=</span>g3) <span style="color:#66d9ef">as</span> sess:
+
+        sess<span style="color:#f92672">.</span>run(init)
+
+        filewriter <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>summary<span style="color:#f92672">.</span>FileWriter(<span style="color:#e6db74">&#39;/home/python/jupyter/TensorFlow&#39;</span>,graph<span style="color:#f92672">=</span>g3)
+
+        <span style="color:#75715e">#加载模型</span>
+
+        <span style="color:#66d9ef">if</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(FLAGS<span style="color:#f92672">.</span>model_dir<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;/checkpoint&#34;</span>):
+
+            saver<span style="color:#f92672">.</span>restore(sess,FLAGS<span style="color:#f92672">.</span>model_dir<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;/model&#34;</span>)
+
+            
+
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(FLAGS<span style="color:#f92672">.</span>max_step):
+
+            sess<span style="color:#f92672">.</span>run(train)
+
+            summary <span style="color:#f92672">=</span> sess<span style="color:#f92672">.</span>run(merged)
+
+            filewriter<span style="color:#f92672">.</span>add_summary(summary,i) 
+
+            <span style="color:#66d9ef">if</span> i<span style="color:#f92672">%</span><span style="color:#ae81ff">20</span><span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>:
+
+                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;第</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">次优化的参数权重为</span><span style="color:#e6db74">%f</span><span style="color:#e6db74">,偏置为</span><span style="color:#e6db74">%f</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">%</span>(i,w<span style="color:#f92672">.</span>eval(),b<span style="color:#f92672">.</span>eval()))
+
+            <span style="color:#66d9ef">if</span> i<span style="color:#f92672">%</span><span style="color:#ae81ff">200</span><span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>: 
+
+                saver<span style="color:#f92672">.</span>save(sess,FLAGS<span style="color:#f92672">.</span>model_dir<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;/model&#34;</span>)<span style="color:#75715e">#保存模型</span>
+
+mylg()
+
+</code></pre></div><h2 id="graph图">graph图</h2>
+<p>创建一张图包含了一组op和tensor,上下文环境</p>
+<p>没创建一个图就会包含一个内存地址</p>
+<h3 id="一个session运行一张图">一个Session运行一张图</h3>
+<p>tf.InteractiveSession()#开启Session一个上下文环境</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+g <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>Graph()
+
+<span style="color:#66d9ef">with</span> g<span style="color:#f92672">.</span>as_default():
+
+    c <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>constant(<span style="color:#ae81ff">11.0</span>)
+
+a <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>constant(<span style="color:#ae81ff">5.0</span>)
+
+b <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>constant(<span style="color:#ae81ff">6.0</span>)
+
+sum1 <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>add(a,b)
+
+mul <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>multiply(a,b)
+
+
+
+g2 <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>get_default_graph()
+
+<span style="color:#75715e">#config=tf.ConfigProto(log_device_placement=True) 可以查看运行在那些cpu</span>
+
+<span style="color:#66d9ef">with</span> tf<span style="color:#f92672">.</span>Session(graph<span style="color:#f92672">=</span>g2,config<span style="color:#f92672">=</span>tf<span style="color:#f92672">.</span>ConfigProto(log_device_placement<span style="color:#f92672">=</span>True)) <span style="color:#66d9ef">as</span> sess:
+
+    <span style="color:#66d9ef">print</span>(sess<span style="color:#f92672">.</span>run(sum1))<span style="color:#75715e">## run()方法</span>
+
+    <span style="color:#66d9ef">print</span>(sess<span style="color:#f92672">.</span>run([a,b]))
+
+    <span style="color:#66d9ef">print</span>(sum1<span style="color:#f92672">.</span>eval())
+
+</code></pre></div><h3 id="重载">重载</h3>
+<p>默认会把运算符重载为op</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+d <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>constant(<span style="color:#ae81ff">1.0</span>)
+
+e <span style="color:#f92672">=</span> <span style="color:#ae81ff">11.0</span>
+
+sum2 <span style="color:#f92672">=</span> d<span style="color:#f92672">+</span>e
+
+<span style="color:#66d9ef">with</span> tf<span style="color:#f92672">.</span>Session() <span style="color:#66d9ef">as</span> sess:
+
+    <span style="color:#66d9ef">print</span>(sess<span style="color:#f92672">.</span>run(sum2))<span style="color:#75715e">## run()方法</span>
+
+</code></pre></div><h3 id="实时的提供数据进行训练">实时的提供数据进行训练</h3>
+<p>在程序执行时,不确定输入的shape</p>
+<p>placeholder #占位符</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+plt <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>placeholder(tf<span style="color:#f92672">.</span>float32,[None,<span style="color:#ae81ff">3</span>])<span style="color:#75715e">#样本数不固定,三列</span>
+
+<span style="color:#66d9ef">print</span>(plt)<span style="color:#75715e">#打印这个张量</span>
+
+<span style="color:#75715e">#使用</span>
+
+<span style="color:#66d9ef">with</span> tf<span style="color:#f92672">.</span>Session() <span style="color:#66d9ef">as</span> sess:
+
+    <span style="color:#66d9ef">print</span>(sess<span style="color:#f92672">.</span>run(plt,feed_dict<span style="color:#f92672">=</span>{plt:[[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>],[<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>]]}))<span style="color:#75715e">## run()方法</span>
+
+</code></pre></div><h2 id="张量的动态形状和静态形状">张量的动态形状和静态形状</h2>
+<p>Numpy:把原来的数据通过<code>reshape</code>直接改变</p>
+<ul>
+<li>静态形状：</li>
+</ul>
+<p>创建一个张量，初始化状态的形状：</p>
+<pre><code>tf.Tensor.get_shape:获取静态形状
+
+
+
+
+
+tf.Tensor.set_shape():更新Tensor对象的静态形状
+</code></pre>
+<ul>
+<li>动态形状:</li>
+</ul>
+<p>一种描述原始张量在执行过程中的一种形状(动态变化)</p>
+<pre><code>tf.reshape:创建一个具有不同形状的新张量
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+plt<span style="color:#f92672">.</span>set_shape([<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">3</span>])<span style="color:#75715e">#把plt的shape从[?,3]变成[3,3]</span>
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#66d9ef">with</span> tf<span style="color:#f92672">.</span>Session() <span style="color:#66d9ef">as</span> sess:
+
+    <span style="color:#66d9ef">print</span>(sess<span style="color:#f92672">.</span>run(plt,feed_dict<span style="color:#f92672">=</span>{plt:[[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>],[<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>],[<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>]]}))<span style="color:#75715e">## run()方法</span>
+
+</code></pre></div><h2 id="变量">变量</h2>
+<p>变量也是一种op,是一种特殊的张量,能够进行持久化,他的值就是张量,默认被训练</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+var <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>Variable(tf<span style="color:#f92672">.</span>random_normal([<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>],mean<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>,stddev<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span>))<span style="color:#75715e">#均值为0,标准差为1</span>
+
+init <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>global_variables_initializer()
+
+<span style="color:#66d9ef">with</span> tf<span style="color:#f92672">.</span>Session() <span style="color:#66d9ef">as</span> sess:
+
+    sess<span style="color:#f92672">.</span>run(init)
+
+    <span style="color:#66d9ef">print</span>(sess<span style="color:#f92672">.</span>run(var))
+
+</code></pre></div><h2 id="tensorboard">Tensorboard</h2>
+<ul>
+<li>数据序列化-&gt;events文件</li>
+</ul>
+<p>TensorBoard通过读取TensorFlow的事件文件来运行</p>
+<ul>
+<li>生成文件:</li>
+</ul>
+<p>tf.summary.FileWriter(&lsquo;dir-path&rsquo;,graph=g?)</p>
+<p>返回一个filewriter</p>
+<ul>
+<li>开启:</li>
+</ul>
+<p>tensorboard &ndash;logdir='/dir-path'</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+d <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>constant(<span style="color:#ae81ff">1.0</span>)
+
+e <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>constant(<span style="color:#ae81ff">1.0</span>)
+
+sum2 <span style="color:#f92672">=</span> d<span style="color:#f92672">+</span>e
+
+var <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>Variable(tf<span style="color:#f92672">.</span>random_normal([<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>],mean<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>,stddev<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span>))<span style="color:#75715e">#均值为0,标准差为1</span>
+
+init <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>global_variables_initializer()
+
+<span style="color:#66d9ef">with</span> tf<span style="color:#f92672">.</span>Session() <span style="color:#66d9ef">as</span> sess:
+
+    sess<span style="color:#f92672">.</span>run(init)
+
+    <span style="color:#66d9ef">print</span>(sess<span style="color:#f92672">.</span>run(var))
+
+    <span style="color:#66d9ef">print</span>(sess<span style="color:#f92672">.</span>run(sum2))<span style="color:#75715e">## run()方法</span>
+
+    filewriter <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>summary<span style="color:#f92672">.</span>FileWriter(<span style="color:#e6db74">&#39;/home/python/jupyter/TensorFlow&#39;</span>,graph<span style="color:#f92672">=</span>sess<span style="color:#f92672">.</span>graph)
+
+</code></pre></div><h2 id="文件读取">文件读取</h2>
+<h3 id="队列与队列管理器">队列与队列管理器</h3>
+<ol>
+<li>在训练样本的时候,希望数据有序读取</li>
+</ol>
+<blockquote>
+<p>tf.FIFOQueue(capacity,dtypes,name=&lsquo;fifo_queue&rsquo;) 先进先出队列,按顺序出队列</p>
+</blockquote>
+<ul>
+<li>
+<p>capacity:整数,可能存储在此队列中的元素数量的上限</p>
+</li>
+<li>
+<p>dtypes:DType对象列表,长度dtypes必须等于每个队列元素中的张量数,dtype的元素形状,决定了后面进队元素的形状</p>
+</li>
+</ul>
+<blockquote>
+<p>tf.RandomShuffleQueue 随机出队列</p>
+</blockquote>
+<h3 id="异步读取队列管理器">异步读取,队列管理器</h3>
+<blockquote>
+<p>tf.train.QueueRunner(queue,enqueue_ops=None)创建一个QueueRunner</p>
+</blockquote>
+<h3 id="线程协调器实现一个简单的机制来协调一组线程的终止">线程协调器,实现一个简单的机制来协调一组线程的终止</h3>
+<blockquote>
+<p>tf.train.Coordinator()</p>
+</blockquote>
+<ul>
+<li>
+<p>request_stop()</p>
+</li>
+<li>
+<p>should_stop()检查是否要求停止</p>
+</li>
+<li>
+<p>join(threads = None,stop_grace_period_secs=120)</p>
+</li>
+</ul>
+<h3 id="读取文件的流程">读取文件的流程</h3>
+<h4 id="1构建文件队列">1.构建文件队列</h4>
+<p>将输出字符串到管道队列中</p>
+<blockquote>
+<p>tf.train.string_input_producer(string_tensor,shuffle = True)</p>
+</blockquote>
+<ul>
+<li>
+<p>string_tensor  含有文件名的1阶张量</p>
+</li>
+<li>
+<p>num_epochs 过几遍数据,默认无线过数据</p>
+</li>
+<li>
+<p>return:具有输出字符串的队列</p>
+</li>
+</ul>
+<h4 id="2构造文件阅读器读取队列内容都是用readfile_queue这个方法从文件中读取指定数量内容">2.构造文件阅读器,读取队列内容(都是用read(file_queue)这个方法,从文件中读取指定数量内容)</h4>
+<blockquote>
+<p>tf.TextLineReader(阅读文本文件csv,默认按行读取)</p>
+</blockquote>
+<blockquote>
+<p>tf.FixedLengthRecordReader(record_bytes):读取每个记录是固定数量的二进制文件</p>
+</blockquote>
+<ul>
+<li>record_bytes:整形,指定每次读取的字节数</li>
+</ul>
+<blockquote>
+<p>tf.TFRecordReader: 读取TFRecords文件</p>
+</blockquote>
+<h4 id="3读取每个队列文件的每一个样本">3.读取每个队列文件的每一个样本</h4>
+<blockquote>
+<p>tf.decode_csv(records,record_defaults=None,field_delim=None,name=None)</p>
+</blockquote>
+<ul>
+<li>
+<p>将csv转换为张量,与tf.TextLineReader搭配使用</p>
+</li>
+<li>
+<p>records:tensor型字符串,每个字符串是csv中的记录行</p>
+</li>
+<li>
+<p>field_delim:默认分隔符&quot;,&quot;</p>
+</li>
+<li>
+<p>record_defauts:参数决定所得每一列张量的类型,并设置一个值,在输入字符串中缺少使用默认值</p>
+</li>
+</ul>
+<blockquote>
+<p>tf.decode_raw(bytes,out_type,little_endian=None,name=None)</p>
+</blockquote>
+<p>将字节转换为一个数字向量表示,字节为一字符类型的张量,二进制读取为uint8</p>
+<h4 id="4批处理">4.批处理</h4>
+<p><code>tf.train.batch([sentence],batch_size=30,num_threads=1,capacity=30)</code></p>
+<p>​</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+
+<span style="color:#f92672">import</span> os
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">myqueu</span>():
+
+    <span style="color:#75715e"># 1. 定义队列</span>
+
+    Q <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>FIFOQueue(<span style="color:#ae81ff">1000</span>,tf<span style="color:#f92672">.</span>float32)
+
+    <span style="color:#75715e"># 2. 定义子线程操作</span>
+
+    var  <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>Variable(<span style="color:#ae81ff">0.0</span>)
+
+    data <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>assign_add(var,tf<span style="color:#f92672">.</span>constant(<span style="color:#ae81ff">1.0</span>))
+
+    enq <span style="color:#f92672">=</span> Q<span style="color:#f92672">.</span>enqueue(data)
+
+    <span style="color:#75715e"># 3. 定义队列管理器,指定线程数</span>
+
+    qr <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>train<span style="color:#f92672">.</span>QueueRunner(Q,enqueue_ops<span style="color:#f92672">=</span>[enq]<span style="color:#f92672">*</span><span style="color:#ae81ff">4</span>)
+
+    <span style="color:#75715e">#初始化变量</span>
+
+    init <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>global_variables_initializer()
+
+    <span style="color:#66d9ef">with</span> tf<span style="color:#f92672">.</span>Session() <span style="color:#66d9ef">as</span> sess:
+
+        sess<span style="color:#f92672">.</span>run(init)
+
+        <span style="color:#75715e">#开启线程协调管理器</span>
+
+        coord <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>train<span style="color:#f92672">.</span>Coordinator()
+
+        threads <span style="color:#f92672">=</span> qr<span style="color:#f92672">.</span>create_threads(sess,coord<span style="color:#f92672">=</span>coord,start<span style="color:#f92672">=</span>True)
+
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">300</span>):
+
+            <span style="color:#66d9ef">print</span>(sess<span style="color:#f92672">.</span>run(Q<span style="color:#f92672">.</span>dequeue()))
+
+        coord<span style="color:#f92672">.</span>request_stop()
+
+        coord<span style="color:#f92672">.</span>join(threads)
+
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">convread</span>(filelist):
+
+    <span style="color:#75715e"># 1.构造队列</span>
+
+    file_queue <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>train<span style="color:#f92672">.</span>string_input_producer(filelist)
+
+    <span style="color:#75715e"># 2.构造阅读器</span>
+
+    reader <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>TextLineReader()
+
+    key, value <span style="color:#f92672">=</span> reader<span style="color:#f92672">.</span>read(file_queue)
+
+    <span style="color:#75715e"># 3.对每一行解码</span>
+
+    records <span style="color:#f92672">=</span> [[<span style="color:#e6db74">&#34; &#34;</span>],]<span style="color:#75715e">#以字符串读取每一行,默认值是&#34; &#34;</span>
+
+    sentence <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>decode_csv(value,record_defaults<span style="color:#f92672">=</span>records)
+
+    <span style="color:#75715e">#开启批处理</span>
+
+    sentence_batch <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>train<span style="color:#f92672">.</span>batch([sentence],batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>,num_threads<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,capacity<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>)
+
+    <span style="color:#66d9ef">return</span> sentence<span style="color:#75715e">#返回句子</span>
+
+
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+
+    <span style="color:#75715e">#构造文件列表</span>
+
+    file_name <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>listdir(<span style="color:#e6db74">&#34;../data/&#34;</span>)
+
+    filelist <span style="color:#f92672">=</span> [os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#34;../data/&#34;</span>,file) <span style="color:#66d9ef">for</span> file <span style="color:#f92672">in</span> file_name]
+
+    <span style="color:#75715e">#读取文件</span>
+
+    sentence_batch <span style="color:#f92672">=</span> convread(filelist)
+
+    <span style="color:#75715e">#开启会话</span>
+
+    <span style="color:#66d9ef">with</span> tf<span style="color:#f92672">.</span>Session() <span style="color:#66d9ef">as</span> sess:
+
+        <span style="color:#75715e">#定义一个线程协调器</span>
+
+        coord <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>train<span style="color:#f92672">.</span>Coordinator()
+
+        <span style="color:#75715e">#开启读取文件的线程</span>
+
+        threads <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>train<span style="color:#f92672">.</span>start_queue_runners(sess,coord<span style="color:#f92672">=</span>coord)
+
+        <span style="color:#66d9ef">print</span>(sess<span style="color:#f92672">.</span>run(sentence_batch))
+
+        <span style="color:#75715e">#回收子线程</span>
+
+        coord<span style="color:#f92672">.</span>request_stop()
+
+        coord<span style="color:#f92672">.</span>join(threads)
+
+</code></pre></div></div><div class="post-copyright mb-4">
+  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+</div>
+<div class="post-reward mb-4 text-center">
+  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
+    <i class="fas fa-fw fa-medal"></i>打赏
+  </button>
+</div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay"></i>支付宝
+            </a>
+          </li><li class="nav-item" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin"></i>微信
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg" loading="lazy" />
+          </div><div class="tab-pane fade post-reward-content show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg" loading="lazy" />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div><div class="post-navs d-flex mb-3 justify-content-between">
+  <div class="post-nav w-50"><div class="prev-post">
+      <a href="/zh-cn/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">TensorFlow 线性回归</a>
+    </div></div>
+  <div class="post-nav flex-row-reverse"><div class="next-post">
+      <a href="/zh-cn/posts/redis/redis%E9%85%8D%E7%BD%AE/">Redis基础配置</a>
+    </div></div>
+</div><section class="related-posts">
+  <h3>相关文章</h3>
+  <ul class="related-posts"><li><a href="/zh-cn/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">TensorFlow 线性回归</a></li></ul>
+</section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+  repo="Euraxluo/Euraxluo.github.io"
+  issue-term="pathname"
+  label="✨💬✨"
+  theme="github-dark"
+  crossorigin="anonymous"
+  async>
+</script></div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container"><section class="profile surface row">
+  <div class="col-xl-6 d-flex align-items-center justify-content-center">
+    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  </div>
+  <div class="col-xl-6">
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+</section><section class="recent-posts row surface">
+  <h4>最近文章</h4>
+  <ul><li><a href="/zh-cn/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/zh-cn/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/zh-cn/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/zh-cn/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/zh-cn/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+</section>
+<section class="taxonomy-categories row surface">
+  <h4>
+    <a href="/zh-cn/categories">分类</a>
+  </h4>
+  <div><a href="/zh-cn/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
+      Shortcode <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+      java <span class="badge rounded-pill">8</span>
+    </a><a href="/zh-cn/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/zh-cn/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/categories/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="无人驾驶">
+      无人驾驶 <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-series row surface">
+  <h4>
+    <a href="/zh-cn/series">专栏</a>
+  </h4>
+  <div><a href="/zh-cn/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/zh-cn/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/series/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="无人驾驶">
+      无人驾驶 <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-tags row surface">
+  <h4>
+    <a href="/zh-cn/tags">标签</a>
+  </h4>
+  <div><a href="/zh-cn/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
+      python <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/tags/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section></div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a>
+  </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
+        <i class="fab fa-fw fa-2x fa-github"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
+        <i class="fab fa-fw fa-2x fa-qq"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
+        <i class="fab fa-fw fa-2x fa-zhihu"></i>
+      </a>
+    </li></nav>
+<div class="copyright mb-2">
+  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+</div>
+<script>
+  window.parent.postMessage(window.location.href, "*");
+</script><div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
+</div></footer>
+<a id="btnScrollToTop" class="btn-scroll-to-top">
+  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
+</a>
+</body>
+</html>

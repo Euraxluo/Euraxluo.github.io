@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JDBC3 - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="description" content="JDBC" /><meta itemprop="name" content="JDBC3">
+<meta itemprop="description" content="JDBC">
+<meta itemprop="datePublished" content="2018-12-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-12-20T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1405">
+
+
+
+<meta itemprop="keywords" content="JDBC," />
+<meta property="og:title" content="JDBC3" />
+<meta property="og:description" content="JDBC" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/zh-cn/posts/java/jdbc3/" />
+<meta property="article:published_time" content="2018-12-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-12-20T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/zh-cn/posts/java/jdbc1/" /><meta property="og:see_also" content="/zh-cn/posts/java/jdbc2/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JDBC3"/>
+<meta name="twitter:description" content="JDBC"/>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+</head>
+  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+  <div class="container">
+    <a class="navbar-brand" href="/zh-cn/">
+      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/zh-cn/search">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
+    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
+  </div>
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/archives">
+            <i class="fas fa-fw fa-file-archive"></i>归档
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/categories">
+            <i class="fas fa-fw fa-folder"></i>分类
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/tags">
+            <i class="fas fa-fw fa-tags"></i>标签
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/series">
+            <i class="fas fa-fw fa-columns"></i>专栏
+          </a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Repos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo" target="_blank">
+                <i class="fab fa-fw fa-github"></i>Euraxluo
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                <i class="fab fa-fw fa-github"></i>fastgrpc
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                <i class="fab fa-fw fa-github"></i>ProjectPractice
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                <i class="fab fa-fw fa-github"></i>pyantv
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                <i class="fab fa-fw fa-github"></i>simple-pythonvm
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/verb" target="_blank">
+                <i class="fab fa-fw fa-github"></i>verb
+              </a>
+            </li></ul>
+        </li></ul>
+      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
+    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-language" ></i>
+  </a>
+</li>
+<script type="text/html" id="languagesPopoverBody">
+  <ul class="languages list-group"><li class="language list-group-item">
+      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
+      <a href="/zh-tw/">繁體中文</a></li></ul>
+</script>
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#palettesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-palette" ></i>
+  </a>
+</li>
+<script type="text/html" id="palettesPopoverBody">
+  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
+      <a>蓝色</a>
+    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
+      <a>蓝灰色</a>
+    </li><li id="palette-brown" class="palette list-group-item bg-brown">
+      <a>棕色</a>
+    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
+      <a>青色</a>
+    </li><li id="palette-green" class="palette list-group-item bg-green">
+      <a>绿色</a>
+    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
+      <a>靛青色</a>
+    </li><li id="palette-orange" class="palette list-group-item bg-orange">
+      <a>橙色</a>
+    </li><li id="palette-pink" class="palette list-group-item bg-pink">
+      <a>粉色</a>
+    </li><li id="palette-purple" class="palette list-group-item bg-purple">
+      <a>紫色</a>
+    </li><li id="palette-red" class="palette list-group-item bg-red">
+      <a>红色</a>
+    </li><li id="palette-teal" class="palette list-group-item bg-teal">
+      <a>蓝绿色</a>
+    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
+      <a>黄色</a>
+    </li></ul>
+</script>
+
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#fontSizesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-font" ></i>
+  </a>
+</li>
+<script type="text/html" id="fontSizesPopoverBody">
+  <form class="font-size-switcher-form">
+    <label for="fontSize" class="form-label">字体大小</label>
+    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+  </form>
+</script>
+<form class="mode-switcher-form d-flex align-items-center">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="modeSwitcher">
+  </div>
+</form>
+</ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-md-8">
+  <div class="container"><nav class="row" aria-label="breadcrumb">
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/zh-cn/">主页</a></li><li class="breadcrumb-item"><a href="/zh-cn/posts/">posts</a></li><li class="breadcrumb-item"><a href="/zh-cn/posts/java/">java</a></li><li class="breadcrumb-item active">JDBC3</li></ol>
+</nav><article class="post row surface">
+  <h1 class="post-title my-3">JDBC3</h1><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2018-12-20
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>3 分钟阅读
+  </span>
+<a href="/zh-cn/categories/java/" class="post-taxonomy">#java</a><a href="/zh-cn/series/jdbc/" class="post-taxonomy">#JDBC</a><a href="/zh-cn/tags/jdbc/" class="post-taxonomy">#JDBC</a></div>
+<div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
+  <div class="accordion-item">
+    <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
+      <i class="fas fa-fw fa-bars"></i>目录
+    </div>
+    <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
+      <div class="accordion-body mt-2">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-executeexecutequeryexecuteudate的区别">1. execute,executeQuery,executeUdate的区别</a></li>
+        <li><a href="#2-sql注入">2. SQL注入</a></li>
+      </ul>
+    </li>
+    <li><a href="#事务是并发控制的基本单位指作为单个逻辑工作单位执行的一系列操作而这些逻辑工作单元需要满足acid特性">事务:{是并发控制的基本单位,指作为单个逻辑工作单位执行的一系列操作,而这些逻辑工作单元需要满足ACID特性}</a>
+      <ul>
+        <li><a href="#jdbc事务控制">jdbc事务控制</a></li>
+        <li><a href="#事务并发执行">事务并发执行</a></li>
+        <li><a href="#mysql中的锁">MySql中的锁:</a></li>
+        <li><a href="#加锁方式">加锁方式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div><div class="post-content mb-3"><h3 id="1-executeexecutequeryexecuteudate的区别">1. execute,executeQuery,executeUdate的区别</h3>
+<p>JDBCTM中Statement接口提供的execute,executeQuery,executeUdate之间的区别:</p>
+<ol>
+<li>
+<p>executeQuery:</p>
+<p>用于产生单个结果集的语句,例如SELECT语句,使用最多的方法</p>
+</li>
+<li>
+<p>executeUpdate:</p>
+<p>用于执行INSERT,UPDATE,DELETE语句以及DDL语言,返回值是一个整数,指示受影响的行</p>
+</li>
+<li>
+<p>execute:</p>
+<p>用于执行返回多个结果集,多个更新技术或者两者皆有的语句</p>
+</li>
+</ol>
+<h3 id="2-sql注入">2. SQL注入</h3>
+<p>防范措施:</p>
+<ol>
+<li>
+<p>使用动态封装的方式会导致SQL注入的风险,我们应该使用prepareStatement提供的参数化SQL</p>
+</li>
+<li>
+<p>严格的数据库权限管理</p>
+<blockquote>
+<p>仅给web应用访问数据库的最小权限</p>
+</blockquote>
+<blockquote>
+<p>避免Drop table等权限</p>
+</blockquote>
+</li>
+<li>
+<p>封装数据库错误</p>
+<blockquote>
+<p>不要直接将后端数据库异常信息暴露给用户</p>
+</blockquote>
+<blockquote>
+<p>对后端遗产信息进行必要的封装,避免用户直接看到后端异常</p>
+</blockquote>
+</li>
+<li>
+<p>机密信息禁止明文存储</p>
+<blockquote>
+<p>涉密信息需要加密处理</p>
+</blockquote>
+<blockquote>
+<p>使用AES_ENCRYPT/AES_DECRYPT加密和解密</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="事务是并发控制的基本单位指作为单个逻辑工作单位执行的一系列操作而这些逻辑工作单元需要满足acid特性">事务:{是并发控制的基本单位,指作为单个逻辑工作单位执行的一系列操作,而这些逻辑工作单元需要满足ACID特性}</h2>
+<p>ACID:原子性,一致性,隔离性,持久性</p>
+<h3 id="jdbc事务控制">jdbc事务控制</h3>
+<p>connection:</p>
+<blockquote>
+<p><code>.setAutoCommit('false')</code>开启事务</p>
+</blockquote>
+<blockquote>
+<p><code>.commit()</code>事务执行结束提交事务</p>
+</blockquote>
+<blockquote>
+<p><code>.rollback()</code>回滚到事务开始之前的状态</p>
+</blockquote>
+<p>eg:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">try</span><span style="color:#f92672">{</span>
+
+    conn <span style="color:#f92672">=</span> JDCBUtil<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">;</span>
+
+    conn<span style="color:#f92672">.</span><span style="color:#a6e22e">setAutoCommit</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+
+    <span style="color:#f92672">/**</span>
+
+    <span style="color:#f92672">*</span>sql语句
+
+    <span style="color:#f92672">*</span> 
+
+    conn<span style="color:#f92672">.</span><span style="color:#a6e22e">commit</span><span style="color:#f92672">();</span>
+
+<span style="color:#f92672">}</span><span style="color:#66d9ef">catch</span><span style="color:#f92672">(){</span>
+
+    <span style="color:#75715e">//如果出错,事务回滚
+</span><span style="color:#75715e"></span>
+    conn<span style="color:#f92672">.</span><span style="color:#a6e22e">rollback</span><span style="color:#f92672">();</span>
+
+<span style="color:#f92672">}</span>
+
+</code></pre></div><h3 id="事务并发执行">事务并发执行</h3>
+<ol>
+<li>
+<p>脏读:读取一个事务未提交的更新</p>
+</li>
+<li>
+<p>不可重复读:一个失误读取到另一个事务的更新,两次读取的结果包含的行记录的值不一样</p>
+</li>
+<li>
+<p>幻读:两次读取的结果包含的行记录不一样</p>
+</li>
+</ol>
+<h4 id="事务隔离级别">事务隔离级别</h4>
+<ol>
+<li>
+<p>读未提交{允许脏读}</p>
+</li>
+<li>
+<p>读提交{不允许脏读,允许重复读}</p>
+</li>
+<li>
+<p>重复读{不允许不可重复读,可以幻读}</p>
+</li>
+<li>
+<p>串行化{严格的并发控制}{如果有一个连接的隔离级别设置为了串行化 ，那么谁先打开了事务， 谁就有了先执行的权利， 谁后打开事务，谁就只能得着，等前面的那个事务，提交或者回滚后，才能执行。  但是这种隔离级别一般比较少用。 容易造成性能上的问题。 效率比较低。}</p>
+</li>
+</ol>
+<h4 id="例子">例子</h4>
+<ol>
+<li>
+<p>查看隔离级别:<code>select @@tx_isolation</code></p>
+</li>
+<li>
+<p>设置隔离级别为读未更新:<code>set session transaction isolation level read uncommitted;</code></p>
+</li>
+<li>
+<p>开启事务:<code>start transaction</code></p>
+</li>
+<li>
+<p>按效率划分,从高到低:</p>
+</li>
+</ol>
+<blockquote>
+<p>读未更新&gt;读已提交&gt;可重复读&gt;可串行化</p>
+</blockquote>
+<ol start="5">
+<li>按拦截成都,从高到低</li>
+</ol>
+<blockquote>
+<p>可串行化 &gt; 可重复读 &gt; 读已提交 &gt;  读未提交</p>
+</blockquote>
+<ol start="6">
+<li>默认隔离级别:</li>
+</ol>
+<blockquote>
+<p>mySql:可重复读</p>
+</blockquote>
+<blockquote>
+<p>Oracle:读已提交</p>
+</blockquote>
+<ol start="7">
+<li>在JDBC中使用事务</li>
+</ol>
+<p>Connection</p>
+<blockquote>
+<p><code>.getTranactionlsolation()</code>获取事务隔离级别</p>
+</blockquote>
+<blockquote>
+<p><code>.setTransactionlsolation</code>设置事务隔离级别</p>
+</blockquote>
+<p>##　死锁</p>
+<h3 id="mysql中的锁">MySql中的锁:</h3>
+<p>|已有锁\预加锁|X{排它锁}|S{共享锁}|</p>
+<p>|:&ndash;:|:&ndash;:|:&ndash;:|</p>
+<p>|X|冲突|冲突|</p>
+<p>|S|冲突|兼容|</p>
+<h3 id="加锁方式">加锁方式</h3>
+<ol>
+<li>外部加锁:</li>
+</ol>
+<blockquote>
+<p>由应用程序添加,锁依赖关系较容易分析</p>
+</blockquote>
+<blockquote>
+<p>共享锁:<code>select * from table lock in share mode</code></p>
+</blockquote>
+<blockquote>
+<p>排它锁:<code>select * from table for update</code>{解决丢失更新}</p>
+</blockquote>
+<ol start="2">
+<li>内部加锁</li>
+</ol>
+<blockquote>
+<p>为了实现ACID特性,由数据库系统内部自动添加</p>
+</blockquote>
+<blockquote>
+<p>加锁规则繁琐,与SQL执行计划,事务隔离级别,表索引结构有关</p>
+</blockquote>
+<ol start="3">
+<li>
+<p>SQL持有锁的情况</p>
+<p>快照读</p>
+<blockquote>
+<p>Innodb实现了多版本控制(MVCC),支持不加锁快照读</p>
+</blockquote>
+<blockquote>
+<p><code>Select * from table where</code></p>
+</blockquote>
+<blockquote>
+<p>能够保证同一个Select结果集是一致的</p>
+</blockquote>
+<blockquote>
+<p>不能够保证同一个事务内部,Select语句和其他语句的数据一致性,如果业务需要,应该通过外部显式加锁</p>
+</blockquote>
+</li>
+<li>
+<p>分析死锁的原因,排查出死锁的SQL</p>
+<p><code>show engine innodb status</code></p>
+<p>会反馈出发生死锁是等待的SQL</p>
+</li>
+</ol>
+</div><div class="post-copyright mb-4">
+  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+</div>
+<div class="post-reward mb-4 text-center">
+  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
+    <i class="fas fa-fw fa-medal"></i>打赏
+  </button>
+</div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay"></i>支付宝
+            </a>
+          </li><li class="nav-item" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin"></i>微信
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg" loading="lazy" />
+          </div><div class="tab-pane fade post-reward-content show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg" loading="lazy" />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div><div class="post-navs d-flex mb-3 justify-content-between">
+  <div class="post-nav w-50"><div class="prev-post">
+      <a href="/zh-cn/posts/java/jsp%E5%AD%A6%E4%B9%A0/">JSP</a>
+    </div></div>
+  <div class="post-nav flex-row-reverse"><div class="next-post">
+      <a href="/zh-cn/posts/java/jdbc2/">JDBC2</a>
+    </div></div>
+</div><section class="related-posts">
+  <h3>相关文章</h3>
+  <ul class="related-posts"><li><a href="/zh-cn/posts/java/jdbc1/">JDBC1</a></li><li><a href="/zh-cn/posts/java/jdbc2/">JDBC2</a></li></ul>
+</section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+  repo="Euraxluo/Euraxluo.github.io"
+  issue-term="pathname"
+  label="✨💬✨"
+  theme="github-dark"
+  crossorigin="anonymous"
+  async>
+</script></div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container"><section class="profile surface row">
+  <div class="col-xl-6 d-flex align-items-center justify-content-center">
+    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  </div>
+  <div class="col-xl-6">
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+</section><section class="recent-posts row surface">
+  <h4>最近文章</h4>
+  <ul><li><a href="/zh-cn/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/zh-cn/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/zh-cn/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/zh-cn/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/zh-cn/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+</section>
+<section class="taxonomy-categories row surface">
+  <h4>
+    <a href="/zh-cn/categories">分类</a>
+  </h4>
+  <div><a href="/zh-cn/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
+      Shortcode <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+      java <span class="badge rounded-pill">8</span>
+    </a><a href="/zh-cn/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/zh-cn/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/categories/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="无人驾驶">
+      无人驾驶 <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-series row surface">
+  <h4>
+    <a href="/zh-cn/series">专栏</a>
+  </h4>
+  <div><a href="/zh-cn/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/zh-cn/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/series/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="无人驾驶">
+      无人驾驶 <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-tags row surface">
+  <h4>
+    <a href="/zh-cn/tags">标签</a>
+  </h4>
+  <div><a href="/zh-cn/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
+      python <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/tags/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section></div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a>
+  </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
+        <i class="fab fa-fw fa-2x fa-github"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
+        <i class="fab fa-fw fa-2x fa-qq"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
+        <i class="fab fa-fw fa-2x fa-zhihu"></i>
+      </a>
+    </li></nav>
+<div class="copyright mb-2">
+  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+</div>
+<script>
+  window.parent.postMessage(window.location.href, "*");
+</script><div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
+</div></footer>
+<a id="btnScrollToTop" class="btn-scroll-to-top">
+  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
+</a>
+</body>
+</html>

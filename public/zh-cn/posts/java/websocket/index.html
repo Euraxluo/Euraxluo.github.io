@@ -1,0 +1,1412 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebSocket - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="description" content="WebSocket" /><meta itemprop="name" content="WebSocket">
+<meta itemprop="description" content="WebSocket">
+<meta itemprop="datePublished" content="2020-10-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-10-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3002">
+
+
+
+<meta itemprop="keywords" content="Java,WebSocket," />
+<meta property="og:title" content="WebSocket" />
+<meta property="og:description" content="WebSocket" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/zh-cn/posts/java/websocket/" />
+<meta property="article:published_time" content="2020-10-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-22T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="WebSocket"/>
+<meta name="twitter:description" content="WebSocket"/>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+</head>
+  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+  <div class="container">
+    <a class="navbar-brand" href="/zh-cn/">
+      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/zh-cn/search">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
+    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
+  </div>
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/archives">
+            <i class="fas fa-fw fa-file-archive"></i>归档
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/categories">
+            <i class="fas fa-fw fa-folder"></i>分类
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/tags">
+            <i class="fas fa-fw fa-tags"></i>标签
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/zh-cn/series">
+            <i class="fas fa-fw fa-columns"></i>专栏
+          </a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Repos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo" target="_blank">
+                <i class="fab fa-fw fa-github"></i>Euraxluo
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                <i class="fab fa-fw fa-github"></i>fastgrpc
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                <i class="fab fa-fw fa-github"></i>ProjectPractice
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                <i class="fab fa-fw fa-github"></i>pyantv
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                <i class="fab fa-fw fa-github"></i>simple-pythonvm
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/verb" target="_blank">
+                <i class="fab fa-fw fa-github"></i>verb
+              </a>
+            </li></ul>
+        </li></ul>
+      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
+    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-language" ></i>
+  </a>
+</li>
+<script type="text/html" id="languagesPopoverBody">
+  <ul class="languages list-group"><li class="language list-group-item">
+      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
+      <a href="/zh-tw/">繁體中文</a></li></ul>
+</script>
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#palettesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-palette" ></i>
+  </a>
+</li>
+<script type="text/html" id="palettesPopoverBody">
+  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
+      <a>蓝色</a>
+    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
+      <a>蓝灰色</a>
+    </li><li id="palette-brown" class="palette list-group-item bg-brown">
+      <a>棕色</a>
+    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
+      <a>青色</a>
+    </li><li id="palette-green" class="palette list-group-item bg-green">
+      <a>绿色</a>
+    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
+      <a>靛青色</a>
+    </li><li id="palette-orange" class="palette list-group-item bg-orange">
+      <a>橙色</a>
+    </li><li id="palette-pink" class="palette list-group-item bg-pink">
+      <a>粉色</a>
+    </li><li id="palette-purple" class="palette list-group-item bg-purple">
+      <a>紫色</a>
+    </li><li id="palette-red" class="palette list-group-item bg-red">
+      <a>红色</a>
+    </li><li id="palette-teal" class="palette list-group-item bg-teal">
+      <a>蓝绿色</a>
+    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
+      <a>黄色</a>
+    </li></ul>
+</script>
+
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#fontSizesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-font" ></i>
+  </a>
+</li>
+<script type="text/html" id="fontSizesPopoverBody">
+  <form class="font-size-switcher-form">
+    <label for="fontSize" class="form-label">字体大小</label>
+    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+  </form>
+</script>
+<form class="mode-switcher-form d-flex align-items-center">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="modeSwitcher">
+  </div>
+</form>
+</ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-md-8">
+  <div class="container"><nav class="row" aria-label="breadcrumb">
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/zh-cn/">主页</a></li><li class="breadcrumb-item"><a href="/zh-cn/posts/">posts</a></li><li class="breadcrumb-item"><a href="/zh-cn/posts/java/">java</a></li><li class="breadcrumb-item active">WebSocket</li></ol>
+</nav><article class="post row surface">
+  <h1 class="post-title my-3">WebSocket</h1><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2020-10-22
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>6 分钟阅读
+  </span>
+<a href="/zh-cn/categories/websocket/" class="post-taxonomy">#WebSocket</a><a href="/zh-cn/series/websocket/" class="post-taxonomy">#WebSocket</a><a href="/zh-cn/tags/java/" class="post-taxonomy">#Java</a><a href="/zh-cn/tags/websocket/" class="post-taxonomy">#WebSocket</a></div>
+<div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
+  <div class="accordion-item">
+    <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
+      <i class="fas fa-fw fa-bars"></i>目录
+    </div>
+    <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
+      <div class="accordion-body mt-2">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一概念">一、概念</a></li>
+        <li><a href="#二优点">二、优点</a></li>
+        <li><a href="#三作用">三、作用</a></li>
+        <li><a href="#四特点">四、特点</a></li>
+        <li><a href="#五客户端">五、客户端</a></li>
+        <li><a href="#六服务器端">六、服务器端</a></li>
+        <li><a href="#七完整实例环境tomcat8idea">七、完整实例（环境：tomcat8，idea）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div><div class="post-content mb-3"><h1 id="websocket">WebSocket</h1>
+<h3 id="一概念">一、概念</h3>
+<p>1.WebSocket 是HTTP协议的补充。使用的TCP协议建立连接</p>
+<p>2.HTML5是指一系列新API，新协议，WebSocket也是其中之一</p>
+<h3 id="二优点">二、优点</h3>
+<p>1.WebSocket是持久化协议，每次通信只需要一次连接</p>
+<p>2.HTTP中一个request只能有一个response</p>
+<p>3.连接过程：进行握手时，使用http协议对服务器发起连接请求，并且升级为websocket协议，确定后服务器建立连接，并且继续使用Websocket</p>
+<h3 id="三作用">三、作用</h3>
+<p>1.实现实时信息传递的其他方式</p>
+<p>​	(1).ajax轮询：让浏览器隔个几秒就发送一次请求，询问服务器是否有新信息</p>
+<p>​	(2).HTTP long poll：客户端发起连接后，如果没消息，就一直不返回Response给客户端。直到有消息才返回，返回完之后，客户端再次建立连接，周而复始。</p>
+<p>​	(3).缺点：</p>
+<p>​	ajax轮询：需要服务器有很快的处理速度和资源。（速度）</p>
+<p>​	long poll：需要有很高的并发，也就是说同时接待客户的能力。（资源大小）</p>
+<p>2.服务器完成协议升级后（HTTP-&gt;Websocket），服务端就可以主动推送信息给客户端啦</p>
+<p>3.整个通讯过程是建立在一次连接/状态中，避免了HTTP的非状态性，服务端会一直知道你的信息，直到你关闭请求</p>
+<h3 id="四特点">四、特点</h3>
+<p>1.建立在 TCP 协议之上，服务器端的实现比较容易。</p>
+<p>2.与 HTTP 协议有着良好的兼容性。默认端口也是80和443，并且握手阶段采用 HTTP 协议，因此握手时不容易屏蔽，能通过各种 HTTP 代理服务器。</p>
+<p>3.数据格式比较轻量，性能开销小，通信高效。</p>
+<p>4.可以发送文本，也可以发送二进制数据。</p>
+<p>5.没有同源限制，客户端可以与任意服务器通信。</p>
+<p>6.协议标识符是ws（如果加密，则为wss），服务器网址就是 URL。</p>
+<h3 id="五客户端">五、客户端</h3>
+<h4 id="1创建websocket对象">1.创建WebSocket对象：</h4>
+<p><code>var Socket = new WebSocket(url,[protocol])</code></p>
+<p>url = 服务器地址，protocol是可接受的子协议</p>
+<h4 id="2属性">2.属性：</h4>
+<p>(1)<code>Socket.readyState//表示连接状态：0：尚未连接，1：已经连接，2：连接正在关闭，3：连接已经关闭，或不能打开。</code></p>
+<p>(2)<code>Socket.buffererdAmount//表示send()放在队列正在队列中等待传输</code></p>
+<h4 id="3事件">3.事件：</h4>
+<p>| 对象触发的程序   | 描述                       |</p>
+<p>| &mdash;&mdash;&mdash;&mdash;&mdash;- | &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash; |</p>
+<p>| Socket.onopen    | 连接建立时触发             |</p>
+<p>| Socket.onmessage | 客户端接受服务端数据时触发 |</p>
+<p>| Socket.onerror   | 通信错误时触发             |</p>
+<p>| Socket.onclose   | 连接关闭时触发             |</p>
+<h4 id="4方法">4.方法：</h4>
+<p>| 方法           | 描述                 |</p>
+<p>| &mdash;&mdash;&mdash;&mdash;&ndash; | &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash; |</p>
+<p>| Socket.send()  | 使用连接程序发送数据 |</p>
+<p>| Socket.close() | 关闭连接             |</p>
+<h4 id="5实例">5.实例：</h4>
+<h5 id="客户端前端">客户端前端：</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">
+&lt;<span style="color:#f92672">html</span>&gt;
+
+&lt;<span style="color:#f92672">head</span>&gt;
+
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/head&gt;</span>
+
+<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">body</span><span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span> <span style="color:#a6e22e">onclick</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;online()&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;连接！&#34;</span> <span style="color:#f92672">/&gt;</span>
+
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/body&gt;</span>
+
+<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span><span style="color:#f92672">&gt;</span>
+
+<span style="color:#75715e">//初始化一个WebSocket对象
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ws</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">WebSocket</span>(<span style="color:#e6db74">&#34;wss://echo.websocket.org&#34;</span>);
+
+
+
+<span style="color:#75715e">//建立WebSocket连接成功触发事件
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">ws</span>.<span style="color:#a6e22e">onopen</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">online</span>() { <span style="color:#75715e">//js的事件写法
+</span><span style="color:#75715e"></span>
+	<span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;我是一个消息框！&#34;</span>)
+
+  	<span style="color:#a6e22e">ws</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;Hello WebSockets!&#34;</span>);<span style="color:#75715e">//使用send发送数据
+</span><span style="color:#75715e"></span>
+};
+
+
+
+<span style="color:#75715e">//接受服务端数据时触发的数据
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">ws</span>.<span style="color:#a6e22e">onmessage</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">evt</span>) {
+
+   <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">received_msg</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">evt</span>.<span style="color:#a6e22e">data</span>;
+
+  <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;数据已接收...&#34;</span>);
+
+  <span style="color:#a6e22e">ws</span>.<span style="color:#a6e22e">close</span>();
+
+};
+
+
+
+<span style="color:#75715e">//断开WebSocket时触发的数据
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">ws</span>.<span style="color:#a6e22e">onclose</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">evt</span>) {
+
+  <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;数据已接收...&#34;</span>);
+
+};
+
+&lt;/<span style="color:#f92672">script</span>&gt;
+
+&lt;/<span style="color:#f92672">html</span>&gt;
+
+</code></pre></div><h3 id="六服务器端">六、服务器端</h3>
+<h4 id="nodejs">Node.js</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ws</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;nodejs-websocket&#39;</span>);
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;开始建立连接...&#39;</span>)
+
+
+
+<span style="color:#a6e22e">ws</span>.<span style="color:#a6e22e">createServer</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">conn</span>) {
+
+    <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;text&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">str</span>) {
+
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;收到的信息为:&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">str</span>)
+
+        <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">sendText</span>(<span style="color:#a6e22e">str</span>)
+
+    })
+
+    <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;close&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">code</span>, <span style="color:#a6e22e">reason</span>) {
+
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;关闭连接&#39;</span>, <span style="color:#a6e22e">code</span>, <span style="color:#a6e22e">reason</span>)
+
+    });
+
+    <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;error&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">code</span>, <span style="color:#a6e22e">reason</span>) {
+
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;异常关闭&#39;</span>, <span style="color:#a6e22e">code</span>, <span style="color:#a6e22e">reason</span>)
+
+    });
+
+}).<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">8888</span>)
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;WebSocket建立完毕&#39;</span>);
+
+</code></pre></div><h4 id="java">java</h4>
+<p>1.Spring</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">WebSocketHandler</span> <span style="color:#f92672">{</span>
+
+   <span style="color:#75715e">/**
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    * 建立连接后触发的回调
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    */</span>
+
+   <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterConnectionEstablished</span><span style="color:#f92672">(</span>WebSocketSession session<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception<span style="color:#f92672">;</span>
+
+   <span style="color:#75715e">/**
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    * 收到消息时触发的回调
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    */</span>
+
+   <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handleMessage</span><span style="color:#f92672">(</span>WebSocketSession session<span style="color:#f92672">,</span> WebSocketMessage<span style="color:#f92672">&lt;?&gt;</span> message<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception<span style="color:#f92672">;</span>
+
+   <span style="color:#75715e">/**
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    * 传输消息出错时触发的回调
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    */</span>
+
+   <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handleTransportError</span><span style="color:#f92672">(</span>WebSocketSession session<span style="color:#f92672">,</span> Throwable exception<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception<span style="color:#f92672">;</span>
+
+   <span style="color:#75715e">/**
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    * 断开连接后触发的回调
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    */</span>
+
+   <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterConnectionClosed</span><span style="color:#f92672">(</span>WebSocketSession session<span style="color:#f92672">,</span> CloseStatus closeStatus<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception<span style="color:#f92672">;</span>
+
+   <span style="color:#75715e">/**
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    * 是否处理分片消息
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    */</span>
+
+   <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">supportsPartialMessages</span><span style="color:#f92672">();</span>
+
+<span style="color:#f92672">}</span>
+
+</code></pre></div><p>2.javax.websocket</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#75715e">// 收到消息触发事件
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">@OnMessage</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onMessage</span><span style="color:#f92672">(</span>String message<span style="color:#f92672">,</span> Session session<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException<span style="color:#f92672">,</span> InterruptedException <span style="color:#f92672">{</span>
+
+    <span style="color:#f92672">...</span>
+
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">// 打开连接触发事件
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">@OnOpen</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onOpen</span><span style="color:#f92672">(</span>Session session<span style="color:#f92672">,</span> EndpointConfig config<span style="color:#f92672">,</span> <span style="color:#a6e22e">@PathParam</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">)</span> String id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#f92672">...</span>
+
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">// 关闭连接触发事件
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">@OnClose</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onClose</span><span style="color:#f92672">(</span>Session session<span style="color:#f92672">,</span> CloseReason closeReason<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#f92672">...</span>
+
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">// 传输消息错误触发事件
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">@OnError</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onError</span><span style="color:#f92672">(</span>Throwable error<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#f92672">...</span>
+
+<span style="color:#f92672">}</span>
+
+</code></pre></div><h3 id="七完整实例环境tomcat8idea">七、完整实例（环境：tomcat8，idea）</h3>
+<h4 id="服务器端">服务器端：</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#75715e">/**
+</span><span style="color:#75715e">
+</span><span style="color:#75715e"> * netstat -aon | findstr 1099
+</span><span style="color:#75715e">
+</span><span style="color:#75715e"> * taskkill -f -pid PID
+</span><span style="color:#75715e">
+</span><span style="color:#75715e"> */</span>
+
+
+
+<span style="color:#f92672">package</span> servlet<span style="color:#f92672">;</span>
+
+
+
+<span style="color:#f92672">import</span> javax.websocket.*<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> javax.websocket.server.ServerEndpoint<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.concurrent.CopyOnWriteArraySet<span style="color:#f92672">;</span>
+
+
+
+<span style="color:#75715e">//指明websocket名字
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">@ServerEndpoint</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/chat&#34;</span><span style="color:#f92672">)</span>
+
+
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WS</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">//通过SESSION发送数据
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">private</span> Session session<span style="color:#f92672">;</span>
+
+
+
+    <span style="color:#75715e">//静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> onlineCount <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+
+
+
+    <span style="color:#75715e">//concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。若要实现服务端与单一客户端通信的话，可以使用Map来存放，其中Key可以为用户标识
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> CopyOnWriteArraySet<span style="color:#f92672">&lt;</span>WS<span style="color:#f92672">&gt;</span> webSocketSet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CopyOnWriteArraySet<span style="color:#f92672">&lt;</span>WS<span style="color:#f92672">&gt;();</span>
+
+
+
+
+
+
+
+    <span style="color:#75715e">/*
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     * 连接建立成功调用的方法
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     * @param session
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     */</span>
+
+    <span style="color:#a6e22e">@OnOpen</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onOpen</span><span style="color:#f92672">(</span>Session session<span style="color:#f92672">){</span>
+
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">session</span> <span style="color:#f92672">=</span> session<span style="color:#f92672">;</span>
+
+        webSocketSet<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span>     <span style="color:#75715e">//加入set中
+</span><span style="color:#75715e"></span>
+    <span style="color:#f92672">}</span>
+
+
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     * 收到客户端消息后调用的方法
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     * @param message 客户端发送过来的消息
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     * @param session 可选的参数
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     */</span>
+
+    <span style="color:#a6e22e">@OnMessage</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onMessage</span><span style="color:#f92672">(</span>String message<span style="color:#f92672">,</span> Session session<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;来自客户端的消息:&#34;</span> <span style="color:#f92672">+</span> message<span style="color:#f92672">);</span>
+
+        <span style="color:#75715e">//群发消息
+</span><span style="color:#75715e"></span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>WS item<span style="color:#f92672">:</span> webSocketSet<span style="color:#f92672">){</span>
+
+            <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+
+                item<span style="color:#f92672">.</span><span style="color:#a6e22e">sendMessage</span><span style="color:#f92672">(</span>message<span style="color:#f92672">);</span>
+
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+                e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+
+                <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+
+            <span style="color:#f92672">}</span>
+
+        <span style="color:#f92672">}</span>
+
+    <span style="color:#f92672">}</span>
+
+
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     * 连接关闭调用的方法
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     */</span>
+
+    <span style="color:#a6e22e">@OnClose</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onClose</span><span style="color:#f92672">(){</span>
+
+        webSocketSet<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span>  <span style="color:#75715e">//从set中删除
+</span><span style="color:#75715e"></span>
+    <span style="color:#f92672">}</span>
+
+
+
+
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     * 发生错误时调用
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     * @param session
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     * @param error
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     */</span>
+
+    <span style="color:#a6e22e">@OnError</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onError</span><span style="color:#f92672">(</span>Session session<span style="color:#f92672">,</span> Throwable error<span style="color:#f92672">){</span>
+
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;发生错误&#34;</span><span style="color:#f92672">);</span>
+
+        error<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+
+    <span style="color:#f92672">}</span>
+
+
+
+
+
+     <span style="color:#75715e">/* 这个方法与上面几个方法不一样。没有用注解，是根据自己需要添加的方法。
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     * @param message
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     * @throws IOException
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    */</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sendMessage</span><span style="color:#f92672">(</span>String message<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">session</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getAsyncRemote</span><span style="color:#f92672">().</span><span style="color:#a6e22e">sendText</span><span style="color:#f92672">(</span>message<span style="color:#f92672">);</span>
+
+    <span style="color:#f92672">}</span>
+
+
+
+
+
+<span style="color:#f92672">}</span>
+
+
+
+</code></pre></div><h4 id="浏览器端">浏览器端：</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#f92672">&lt;%--</span>
+
+  Created by IntelliJ IDEA<span style="color:#f92672">.</span>
+
+  User: Euraxluo
+
+  Date: 2018<span style="color:#f92672">/</span>7<span style="color:#f92672">/</span>30
+
+  Time: 14<span style="color:#f92672">:</span>19
+
+  To change <span style="color:#66d9ef">this</span> template use File <span style="color:#f92672">|</span> Settings <span style="color:#f92672">|</span> File Templates<span style="color:#f92672">.</span>
+
+<span style="color:#f92672">--%&gt;</span>
+
+<span style="color:#f92672">&lt;!</span>DOCTYPE html<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;%</span><span style="color:#960050;background-color:#1e0010">@</span> page contentType<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/html;charset=UTF-8&#34;</span> language<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;java&#34;</span> <span style="color:#f92672">%&gt;</span>
+
+<span style="color:#f92672">&lt;</span>html doctype<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;html&#34;</span><span style="color:#f92672">&gt;&lt;</span>head<span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;</span>meta http<span style="color:#f92672">-</span>equiv<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content-type&#34;</span> content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/html; charset=UTF-8&#34;</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;</span>meta charset<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;</span>title<span style="color:#f92672">&gt;</span>chat<span style="color:#f92672">&lt;/</span>title<span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;!--</span> 输入框<span style="color:#f92672">--&gt;</span>
+
+    <span style="color:#f92672">&lt;</span>link href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;css/vendor/bootstrap/bootstrap.min.css&#34;</span> rel<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;</span>link href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css&#34;</span> rel<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;</span>link rel<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/vendor/summernote/summernote.css&#34;</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;</span>style<span style="color:#f92672">&gt;</span>
+
+        <span style="color:#f92672">*</span> <span style="color:#f92672">{</span>
+
+            padding: 0<span style="color:#f92672">;</span>
+
+            margin: 0<span style="color:#f92672">;</span>
+
+        <span style="color:#f92672">}</span>
+
+
+
+        body<span style="color:#f92672">{</span>
+
+            height: 100<span style="color:#f92672">%;</span>
+
+            border:2px solid<span style="color:#f92672">;</span>
+
+            border<span style="color:#f92672">-</span>radius<span style="color:#f92672">:</span>5px<span style="color:#f92672">;</span>
+
+            background<span style="color:#f92672">-</span>image<span style="color:#f92672">:</span> url<span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;</span>images<span style="color:#f92672">/</span>bkg<span style="color:#f92672">.</span><span style="color:#a6e22e">jpg</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">);</span>
+
+            scrollbar<span style="color:#f92672">-</span>face<span style="color:#f92672">-</span>color<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span>22beef<span style="color:#f92672">;</span>
+
+
+
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#f92672">::-</span>webkit<span style="color:#f92672">-</span>scrollbar<span style="color:#f92672">-</span>button<span style="color:#f92672">{</span>
+
+            background<span style="color:#f92672">-</span>color<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span>1ccdaa<span style="color:#f92672">;</span>
+
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#f92672">::-</span>webkit<span style="color:#f92672">-</span>scrollbar<span style="color:#f92672">-</span>track<span style="color:#f92672">{</span>
+
+            background<span style="color:#f92672">-</span>color<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span>1296db<span style="color:#f92672">;</span>
+
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#f92672">::-</span>webkit<span style="color:#f92672">-</span>scrollbar<span style="color:#f92672">-</span>thumb<span style="color:#f92672">{</span>
+
+            background<span style="color:#f92672">-</span>color<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span>22beef<span style="color:#f92672">;</span>
+
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#f92672">&lt;!----&gt;</span>
+
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">welcome</span>
+
+        <span style="color:#f92672">{</span>
+
+            color:<span style="color:#960050;background-color:#1e0010">#</span>fff<span style="color:#f92672">;</span>
+
+            margin<span style="color:#f92672">-</span>left<span style="color:#f92672">:</span> <span style="color:#f92672">-</span>1px<span style="color:#f92672">;</span>
+
+            background<span style="color:#f92672">-</span>color<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span>2cc1f0<span style="color:#f92672">;</span>
+
+            border<span style="color:#f92672">-</span>color<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span>4cae4c<span style="color:#f92672">;</span>
+
+            width: 100<span style="color:#f92672">%;</span>
+
+            height: 70<span style="color:#f92672">%;</span>
+
+            border<span style="color:#f92672">-</span>radius<span style="color:#f92672">:</span>10px<span style="color:#f92672">;</span>
+
+            font<span style="color:#f92672">-</span>size<span style="color:#f92672">:</span> 30px<span style="color:#f92672">;</span>
+
+        <span style="color:#f92672">}</span>
+
+
+
+        header<span style="color:#f92672">{</span>
+
+            border:2px solid <span style="color:#960050;background-color:#1e0010">#</span>2a6496<span style="color:#f92672">;</span>
+
+            border<span style="color:#f92672">-</span>radius<span style="color:#f92672">:</span>8px<span style="color:#f92672">;</span>
+
+            height:80px<span style="color:#f92672">;</span>
+
+            width: 100<span style="color:#f92672">%;</span>
+
+            position: relative<span style="color:#f92672">;</span>
+
+            overflow<span style="color:#f92672">-</span>y<span style="color:#f92672">:</span> auto<span style="color:#f92672">;</span>
+
+            margin<span style="color:#f92672">-</span>top<span style="color:#f92672">:</span> 2<span style="color:#f92672">%;</span>
+
+            padding: 5px<span style="color:#f92672">;</span>
+
+        <span style="color:#f92672">}</span>
+
+
+
+
+
+        <span style="color:#f92672">&lt;!----&gt;</span>
+
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">hist</span><span style="color:#f92672">{</span>
+
+
+
+            margin<span style="color:#f92672">-</span>bottom<span style="color:#f92672">:</span> 2px<span style="color:#f92672">;</span>
+
+            margin<span style="color:#f92672">-</span>left<span style="color:#f92672">:</span> 1px<span style="color:#f92672">;</span>
+
+            width: 100<span style="color:#f92672">%;</span>
+
+            overflow<span style="color:#f92672">-</span>y<span style="color:#f92672">:</span> scroll<span style="color:#f92672">;</span>
+
+            background<span style="color:#f92672">-</span>image<span style="color:#f92672">:</span> url<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;images/bgk2.jpg&#34;</span><span style="color:#f92672">);</span>
+
+
+
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">hist</span> span<span style="color:#f92672">{</span>
+
+            background<span style="color:#f92672">-</span>color<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span>11b4e7<span style="color:#f92672">;</span>
+
+        <span style="color:#f92672">}</span>
+
+
+
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">hist</span> li<span style="color:#f92672">{</span>
+
+            list<span style="color:#f92672">-</span>style<span style="color:#f92672">:</span>none<span style="color:#f92672">;</span>
+
+            margin<span style="color:#f92672">-</span>left<span style="color:#f92672">:</span> 2px<span style="color:#f92672">;</span>
+
+            margin<span style="color:#f92672">-</span>top<span style="color:#f92672">:</span> 5px<span style="color:#f92672">;</span>
+
+            padding: 0px<span style="color:#f92672">;</span>
+
+            float:bottom<span style="color:#f92672">;</span>
+
+            padding<span style="color:#f92672">-</span>left<span style="color:#f92672">:</span> 5px<span style="color:#f92672">;</span>
+
+            padding<span style="color:#f92672">-</span>right<span style="color:#f92672">:</span> 3px<span style="color:#f92672">;</span>
+
+            display: table<span style="color:#f92672">;</span>
+
+            overflow: auto<span style="color:#f92672">;</span>
+
+            min<span style="color:#f92672">-</span>width<span style="color:#f92672">:</span> 100px<span style="color:#f92672">;</span>
+
+            max<span style="color:#f92672">-</span>width<span style="color:#f92672">:</span> 100vw<span style="color:#f92672">;</span>
+
+            word<span style="color:#f92672">-</span><span style="color:#66d9ef">break</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">-</span>all<span style="color:#f92672">;</span>
+
+            word<span style="color:#f92672">-</span>wrap<span style="color:#f92672">:</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">-</span>word<span style="color:#f92672">;</span>
+
+            min<span style="color:#f92672">-</span>height<span style="color:#f92672">:</span> 100px<span style="color:#f92672">;</span>
+
+            border:2px solid <span style="color:#960050;background-color:#1e0010">#</span>2a6496<span style="color:#f92672">;</span>
+
+            border<span style="color:#f92672">-</span>radius<span style="color:#f92672">:</span> 5px<span style="color:#f92672">;</span>
+
+            background<span style="color:#f92672">-</span>image<span style="color:#f92672">:</span> url<span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;</span>images<span style="color:#f92672">/</span>bgk0<span style="color:#f92672">.</span><span style="color:#a6e22e">jpg</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">);</span>
+
+
+
+        <span style="color:#f92672">}</span>
+
+
+
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">but</span><span style="color:#f92672">{</span>
+
+            height: 30px<span style="color:#f92672">;</span>
+
+            line<span style="color:#f92672">-</span>height<span style="color:#f92672">:</span> 35px<span style="color:#f92672">;</span>
+
+            position: fixed<span style="color:#f92672">;</span>
+
+            bottom: 180px<span style="color:#f92672">;</span>
+
+            width: 100<span style="color:#f92672">%;</span>
+
+            text<span style="color:#f92672">-</span>align<span style="color:#f92672">:</span> center<span style="color:#f92672">;</span>
+
+            color: <span style="color:#960050;background-color:#1e0010">#</span>fff<span style="color:#f92672">;</span>
+
+            font<span style="color:#f92672">-</span>size<span style="color:#f92672">:</span> 14px<span style="color:#f92672">;</span>
+
+            letter<span style="color:#f92672">-</span>spacing<span style="color:#f92672">:</span> 1px<span style="color:#f92672">;</span>
+
+            background<span style="color:#f92672">-</span>color<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span>96e6f1<span style="color:#f92672">;</span>
+
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">{</span>
+
+            text<span style="color:#f92672">-</span>align<span style="color:#f92672">:</span> center<span style="color:#f92672">;</span>
+
+            vertical<span style="color:#f92672">-</span>align<span style="color:#f92672">:</span> middle<span style="color:#f92672">;</span>
+
+            cursor: pointer<span style="color:#f92672">;</span>
+
+            white<span style="color:#f92672">-</span>space<span style="color:#f92672">:</span> nowrap<span style="color:#f92672">;</span>
+
+            color: <span style="color:#960050;background-color:#1e0010">#</span>fff<span style="color:#f92672">;</span>
+
+            background<span style="color:#f92672">-</span>color<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span>5cb85c<span style="color:#f92672">;</span>
+
+            border<span style="color:#f92672">-</span>color<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span>4cae4c<span style="color:#f92672">;</span>
+
+            padding: 6px 12px<span style="color:#f92672">;</span>
+
+            font<span style="color:#f92672">-</span>size<span style="color:#f92672">:</span> 14px<span style="color:#f92672">;</span>
+
+            line<span style="color:#f92672">-</span>height<span style="color:#f92672">:</span> 1<span style="color:#f92672">.</span><span style="color:#a6e22e">5</span><span style="color:#f92672">;</span>
+
+            border<span style="color:#f92672">-</span>radius<span style="color:#f92672">:</span> 4px<span style="color:#f92672">;</span>
+
+            height: 30px<span style="color:#f92672">;</span>
+
+            float: left<span style="color:#f92672">;</span>
+
+            display: inline<span style="color:#f92672">-</span>block<span style="color:#f92672">;</span>
+
+            font<span style="color:#f92672">-</span>weight<span style="color:#f92672">:</span> 400<span style="color:#f92672">;</span>
+
+
+
+
+
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">right</span><span style="color:#f92672">{</span>
+
+
+
+            text<span style="color:#f92672">-</span>align<span style="color:#f92672">:</span> center<span style="color:#f92672">;</span>
+
+            vertical<span style="color:#f92672">-</span>align<span style="color:#f92672">:</span> middle<span style="color:#f92672">;</span>
+
+            cursor: pointer<span style="color:#f92672">;</span>
+
+            white<span style="color:#f92672">-</span>space<span style="color:#f92672">:</span> nowrap<span style="color:#f92672">;</span>
+
+            color: <span style="color:#960050;background-color:#1e0010">#</span>fff<span style="color:#f92672">;</span>
+
+            background<span style="color:#f92672">-</span>color<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span>5cb85c<span style="color:#f92672">;</span>
+
+            border<span style="color:#f92672">-</span>color<span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span>4cae4c<span style="color:#f92672">;</span>
+
+            float: right<span style="color:#f92672">;</span>
+
+            display: inline<span style="color:#f92672">-</span>block<span style="color:#f92672">;</span>
+
+            font<span style="color:#f92672">-</span>weight<span style="color:#f92672">:</span> 400<span style="color:#f92672">;</span>
+
+            padding: 6px 12px<span style="color:#f92672">;</span>
+
+            font<span style="color:#f92672">-</span>size<span style="color:#f92672">:</span> 14px<span style="color:#f92672">;</span>
+
+            line<span style="color:#f92672">-</span>height<span style="color:#f92672">:</span> 1<span style="color:#f92672">.</span><span style="color:#a6e22e">5</span><span style="color:#f92672">;</span>
+
+            border<span style="color:#f92672">-</span>radius<span style="color:#f92672">:</span> 4px<span style="color:#f92672">;</span>
+
+            height: 30px<span style="color:#f92672">;</span>
+
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">foot</span><span style="color:#f92672">{</span>
+
+            height: 180px<span style="color:#f92672">;</span>
+
+            line<span style="color:#f92672">-</span>height<span style="color:#f92672">:</span> 35px<span style="color:#f92672">;</span>
+
+            position: fixed<span style="color:#f92672">;</span>
+
+            bottom: 0<span style="color:#f92672">;</span>
+
+            width: 100<span style="color:#f92672">%;</span>
+
+            color: <span style="color:#960050;background-color:#1e0010">#</span>fff<span style="color:#f92672">;</span>
+
+            font<span style="color:#f92672">-</span>size<span style="color:#f92672">:</span> 14px<span style="color:#f92672">;</span>
+
+            letter<span style="color:#f92672">-</span>spacing<span style="color:#f92672">:</span> 1px<span style="color:#f92672">;</span>
+
+            background<span style="color:#f92672">-</span>image<span style="color:#f92672">:</span> url<span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;</span>images<span style="color:#f92672">/</span>bgk3<span style="color:#f92672">.</span><span style="color:#a6e22e">gif</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">);</span>
+
+
+
+        <span style="color:#f92672">}</span>
+
+    <span style="color:#f92672">&lt;/</span>style<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;/</span>head<span style="color:#f92672">&gt;</span>
+
+
+
+<span style="color:#f92672">&lt;</span>header id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;top&#34;</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;</span>button class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;welcome&#34;</span> onclick<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;printme()&#34;</span><span style="color:#f92672">&gt;&lt;</span>strong<span style="color:#f92672">&gt;</span>Welcome<span style="color:#f92672">&lt;/</span>strong<span style="color:#f92672">&gt;&lt;/</span>button<span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;!--</span>状态栏<span style="color:#f92672">--&gt;</span>
+
+    <span style="color:#f92672">&lt;</span>strong style<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;float: left&#34;</span><span style="color:#f92672">&gt;</span>状态<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#f92672">&lt;/</span>strong<span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;</span>strong id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;message&#34;</span> <span style="color:#f92672">&gt;&lt;/</span>strong<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;/</span>header<span style="color:#f92672">&gt;</span>
+
+
+
+<span style="color:#f92672">&lt;</span>div style<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;clear: both&#34;</span><span style="color:#f92672">&gt;</span>
+
+
+
+<span style="color:#f92672">&lt;</span>div id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;historyMsg&#34;</span>  class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hist&#34;</span> <span style="color:#f92672">&gt;&lt;/</span>div<span style="color:#f92672">&gt;</span>
+
+
+
+<span style="color:#f92672">&lt;/</span>div<span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;</span>div class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;but&#34;</span><span style="color:#f92672">&gt;</span>
+
+        <span style="color:#f92672">&lt;</span>button type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>  class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;right&#34;</span> onclick<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;send()&#34;</span><span style="color:#f92672">&gt;&lt;</span>strong<span style="color:#f92672">&gt;</span>Send<span style="color:#f92672">&lt;/</span>strong<span style="color:#f92672">&gt;&lt;/</span>button<span style="color:#f92672">&gt;</span>
+
+        <span style="color:#f92672">&lt;</span>button type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span> class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>  onclick<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;closeWebSocket()&#34;</span><span style="color:#f92672">&gt;&lt;</span>strong<span style="color:#f92672">&gt;</span>Close<span style="color:#f92672">&lt;/</span>strong<span style="color:#f92672">&gt;&lt;/</span>button<span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;/</span>div<span style="color:#f92672">&gt;</span>
+
+
+
+
+
+<span style="color:#f92672">&lt;</span>div class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;foot&#34;</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;!--</span>summernote<span style="color:#f92672">--&gt;</span>
+
+    <span style="color:#f92672">&lt;</span>div id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;summernote&#34;</span><span style="color:#f92672">&gt;&lt;/</span>div<span style="color:#f92672">&gt;</span>
+
+
+
+<span style="color:#f92672">&lt;/</span>div<span style="color:#f92672">&gt;</span>
+
+
+
+
+
+
+
+<span style="color:#f92672">&lt;</span>script src<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/jquery.js&#34;</span><span style="color:#f92672">&gt;&lt;/</span>script<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;</span>script src<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/vendor/bootstrap/bootstrap.min.js&#34;</span><span style="color:#f92672">&gt;&lt;/</span>script<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;</span>script type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> src<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/vendor/mmenu/js/jquery.mmenu.min.js&#34;</span><span style="color:#f92672">&gt;&lt;/</span>script<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;</span>script type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> src<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/vendor/sparkline/jquery.sparkline.min.js&#34;</span><span style="color:#f92672">&gt;&lt;/</span>script<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;</span>script type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> src<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/vendor/nicescroll/jquery.nicescroll.min.js&#34;</span><span style="color:#f92672">&gt;&lt;/</span>script<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;</span>script src<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/vendor/tabdrop/bootstrap-tabdrop.min.js&#34;</span><span style="color:#f92672">&gt;&lt;/</span>script<span style="color:#f92672">&gt;</span>
+
+
+
+<span style="color:#f92672">&lt;</span>script src<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/vendor/summernote/summernote.min.js&#34;</span><span style="color:#f92672">&gt;&lt;/</span>script<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;</span>script src<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/minimal.min.js&#34;</span><span style="color:#f92672">&gt;&lt;/</span>script<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;</span>script type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span><span style="color:#f92672">&gt;</span>
+
+
+
+    window<span style="color:#f92672">.</span><span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> windowHeight<span style="color:#f92672">;</span> <span style="color:#75715e">//页面载入完毕执行函数
+</span><span style="color:#75715e"></span>
+    function <span style="color:#a6e22e">windowHeight</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+
+        var h <span style="color:#f92672">=</span> document<span style="color:#f92672">.</span><span style="color:#a6e22e">documentElement</span><span style="color:#f92672">.</span><span style="color:#a6e22e">clientHeight</span><span style="color:#f92672">;</span> <span style="color:#75715e">//获取当前窗口可视操作区域高度
+</span><span style="color:#75715e"></span>
+        var history <span style="color:#f92672">=</span> document<span style="color:#f92672">.</span><span style="color:#a6e22e">getElementById</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;historyMsg&#34;</span><span style="color:#f92672">);</span>
+
+        history<span style="color:#f92672">.</span><span style="color:#a6e22e">style</span><span style="color:#f92672">.</span><span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>h<span style="color:#f92672">-</span>294<span style="color:#f92672">-</span>30<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;px&#34;</span><span style="color:#f92672">;</span> <span style="color:#75715e">//你想要自适应高度的对象
+</span><span style="color:#75715e"></span>
+    <span style="color:#f92672">}</span>
+
+    setInterval<span style="color:#f92672">(</span>windowHeight<span style="color:#f92672">,</span> 100<span style="color:#f92672">)</span><span style="color:#75715e">//每100微秒执行一次windowHeight函数
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">//精简版
+</span><span style="color:#75715e"></span>
+    $<span style="color:#f92672">(</span>document<span style="color:#f92672">).</span><span style="color:#a6e22e">ready</span><span style="color:#f92672">(</span>function <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+
+        $<span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;#</span>summernote<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">summernote</span><span style="color:#f92672">({</span>
+
+            height: 180<span style="color:#f92672">,</span>
+
+            focus:<span style="color:#66d9ef">true</span><span style="color:#f92672">,</span>
+
+            toolbar: <span style="color:#f92672">[</span>
+
+                <span style="color:#f92672">[</span><span style="color:#960050;background-color:#1e0010">&#39;</span>style<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> <span style="color:#f92672">[</span><span style="color:#960050;background-color:#1e0010">&#39;</span>bold<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>italic<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>underline<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>clear<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">]],</span>
+
+                <span style="color:#f92672">[</span><span style="color:#960050;background-color:#1e0010">&#39;</span>fontsize<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> <span style="color:#f92672">[</span><span style="color:#960050;background-color:#1e0010">&#39;</span>fontsize<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">]],</span>
+
+                <span style="color:#f92672">[</span><span style="color:#960050;background-color:#1e0010">&#39;</span>color<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> <span style="color:#f92672">[</span><span style="color:#960050;background-color:#1e0010">&#39;</span>color<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">]],</span>
+
+                <span style="color:#f92672">[</span><span style="color:#960050;background-color:#1e0010">&#39;</span>para<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> <span style="color:#f92672">[</span><span style="color:#960050;background-color:#1e0010">&#39;</span>ul<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>ol<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>paragraph<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">]],</span>
+
+                <span style="color:#f92672">[</span><span style="color:#960050;background-color:#1e0010">&#39;</span>height<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">,</span> <span style="color:#f92672">[</span><span style="color:#960050;background-color:#1e0010">&#39;</span>height<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">]],</span>
+
+            <span style="color:#f92672">]</span><span style="color:#75715e">/*,
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">            callbacks: {
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">                onImageUpload: function (files) { //the onImageUpload API
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">                    send(sendFile(files[0]));
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">                }
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">            }*/</span>
+
+        <span style="color:#f92672">});</span>
+
+    <span style="color:#f92672">});</span>
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    function sendFile(file) {
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">        var data = new FormData();
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">        data.append(&#34;file&#34;, file);
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">        alert(data);
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">        console.log(data);
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">        $.ajax({
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">            data: data,
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">            type: &#34;POST&#34;,
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">            url: &#34;/upload/uploadPic.html&#34;,
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">            cache: false,
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">            contentType: false,
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">            processData: false,
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">            //dataType: &#34;json&#34;,
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">            success: function (url) {//data是返回的hash,key之类的值，key是定义的文件名
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">                alert(url);
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">            $(&#39;#summernote&#39;).summernote(&#39;insertImage&#39;,url,&#39;image name&#39;);
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">        },
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">        error:function () {
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">            alert(&#34;上传失败&#34;);
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">            },
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">        });
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    }
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    */</span>
+
+    <span style="color:#75715e">//构建通道
+</span><span style="color:#75715e"></span>
+    var websocket <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> WebSocket<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ws://localhost:8080/chat&#34;</span><span style="color:#f92672">);</span>
+
+
+
+    <span style="color:#75715e">//连接成功建立的回调方法
+</span><span style="color:#75715e"></span>
+    websocket<span style="color:#f92672">.</span><span style="color:#a6e22e">onopen</span> <span style="color:#f92672">=</span> function<span style="color:#f92672">(</span>evt<span style="color:#f92672">){</span>
+
+        loginMessage<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;open&#34;</span><span style="color:#f92672">);</span>
+
+    <span style="color:#f92672">};</span>
+
+    var name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">;</span>
+
+
+
+    <span style="color:#75715e">//连接发生错误的回调方法
+</span><span style="color:#75715e"></span>
+    websocket<span style="color:#f92672">.</span><span style="color:#a6e22e">onerror</span> <span style="color:#f92672">=</span> function<span style="color:#f92672">(</span>evt<span style="color:#f92672">){</span>
+
+        loginMessage<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;error&#34;</span><span style="color:#f92672">);</span>
+
+
+
+    <span style="color:#f92672">};</span>
+
+
+
+    <span style="color:#75715e">//接收到消息的回调方法
+</span><span style="color:#75715e"></span>
+    websocket<span style="color:#f92672">.</span><span style="color:#a6e22e">onmessage</span> <span style="color:#f92672">=</span> function<span style="color:#f92672">(</span>evt<span style="color:#f92672">){</span>
+
+        setMessageInnerHTML<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;li&gt;&lt;sanp&gt;&lt;strong&gt;&#34;</span><span style="color:#f92672">+</span>name<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;:&lt;/strong&gt;&lt;br&gt;&#34;</span><span style="color:#f92672">+</span>evt<span style="color:#f92672">.</span><span style="color:#a6e22e">data</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&lt;/sanp&gt;&lt;/li&gt;&#34;</span><span style="color:#f92672">);</span>
+
+    <span style="color:#f92672">};</span>
+
+    <span style="color:#75715e">//连接关闭的回调方法
+</span><span style="color:#75715e"></span>
+    websocket<span style="color:#f92672">.</span><span style="color:#a6e22e">onclose</span> <span style="color:#f92672">=</span> function<span style="color:#f92672">(</span>evt<span style="color:#f92672">){</span>
+
+        loginMessage<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;close&#34;</span><span style="color:#f92672">);</span>
+
+    <span style="color:#f92672">};</span>
+
+
+
+    <span style="color:#75715e">//监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+</span><span style="color:#75715e"></span>
+    window<span style="color:#f92672">.</span><span style="color:#a6e22e">onbeforeunload</span> <span style="color:#f92672">=</span> function<span style="color:#f92672">(</span>evt<span style="color:#f92672">){</span>
+
+        websocket<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+
+    <span style="color:#f92672">};</span>
+
+    <span style="color:#75715e">//将消息显示在网页上
+</span><span style="color:#75715e"></span>
+    function <span style="color:#a6e22e">loginMessage</span><span style="color:#f92672">(</span>innerHTML<span style="color:#f92672">){</span>
+
+        document<span style="color:#f92672">.</span><span style="color:#a6e22e">getElementById</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;</span>message<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> innerHTML<span style="color:#f92672">;</span>
+
+    <span style="color:#f92672">}</span>
+
+
+
+    <span style="color:#75715e">//将消息显示在网页上
+</span><span style="color:#75715e"></span>
+    function <span style="color:#a6e22e">setMessageInnerHTML</span><span style="color:#f92672">(</span>innerHTML<span style="color:#f92672">){</span>
+
+        document<span style="color:#f92672">.</span><span style="color:#a6e22e">getElementById</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;</span>historyMsg<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">+=</span> innerHTML<span style="color:#f92672">;</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">//将消息显示在网页上
+</span><span style="color:#75715e"></span>
+    function <span style="color:#a6e22e">setMessagehistory</span><span style="color:#f92672">(</span>innerHTML<span style="color:#f92672">){</span>
+
+        document<span style="color:#f92672">.</span><span style="color:#a6e22e">getElementById</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;</span>historyMsg<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">+=</span> innerHTML<span style="color:#f92672">;</span>s
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">//关闭连接
+</span><span style="color:#75715e"></span>
+    function <span style="color:#a6e22e">closeWebSocket</span><span style="color:#f92672">(</span>evt<span style="color:#f92672">){</span>
+
+        websocket<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+
+    <span style="color:#f92672">}</span>
+
+
+
+    <span style="color:#75715e">//发送消息
+</span><span style="color:#75715e"></span>
+    function <span style="color:#a6e22e">send</span><span style="color:#f92672">(</span>evt<span style="color:#f92672">){</span>
+
+        var message <span style="color:#f92672">=</span> $<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;#summernote&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">summernote</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;</span>code<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">);</span>
+
+        $<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;#summernote&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">summernote</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;</span>code<span style="color:#e6db74">&#39;,&#39;</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">);</span>
+
+
+
+        var regexstr <span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> RegExp<span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">&lt;(?!</span>img<span style="color:#f92672">|</span>br<span style="color:#f92672">/|</span>p<span style="color:#f92672">|/</span>p<span style="color:#f92672">).*?&gt;</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">);</span> <span style="color:#75715e">//去除标签
+</span><span style="color:#75715e"></span>
+        var str<span style="color:#f92672">=</span>message<span style="color:#f92672">.</span><span style="color:#a6e22e">replace</span><span style="color:#f92672">(</span>regexstr<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">);</span>
+
+        websocket<span style="color:#f92672">.</span><span style="color:#a6e22e">send</span><span style="color:#f92672">(</span>str<span style="color:#f92672">);</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">//发送给自己
+</span><span style="color:#75715e"></span>
+    function <span style="color:#a6e22e">printme</span><span style="color:#f92672">(</span>evt<span style="color:#f92672">){</span>
+
+        alert<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Welocom to chat_room!&#34;</span><span style="color:#f92672">);</span>
+
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">&lt;/</span>script<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;/</span>body<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;/</span>html<span style="color:#f92672">&gt;</span>
+
+
+
+</code></pre></div></div><div class="post-copyright mb-4">
+  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+</div>
+<div class="post-reward mb-4 text-center">
+  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
+    <i class="fas fa-fw fa-medal"></i>打赏
+  </button>
+</div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay"></i>支付宝
+            </a>
+          </li><li class="nav-item" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin"></i>微信
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg" loading="lazy" />
+          </div><div class="tab-pane fade post-reward-content show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg" loading="lazy" />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div><div class="post-navs d-flex mb-3 justify-content-between">
+  <div class="post-nav w-50"><div class="prev-post">
+      <a href="/zh-cn/posts/java/xml/">XML</a>
+    </div></div>
+  <div class="post-nav flex-row-reverse"><div class="next-post">
+      <a href="/zh-cn/posts/tools/typora%E7%94%BB%E5%9B%BE/">Typora画图</a>
+    </div></div>
+</div><section class="related-posts">
+  <h3>相关文章</h3>
+  <ul class="related-posts"><li><a href="/zh-cn/posts/java/servlet1/">Servlet1</a></li><li><a href="/zh-cn/posts/java/servlet2/">Servlet2</a></li></ul>
+</section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+  repo="Euraxluo/Euraxluo.github.io"
+  issue-term="pathname"
+  label="✨💬✨"
+  theme="github-dark"
+  crossorigin="anonymous"
+  async>
+</script></div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container"><section class="profile surface row">
+  <div class="col-xl-6 d-flex align-items-center justify-content-center">
+    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  </div>
+  <div class="col-xl-6">
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+</section><section class="recent-posts row surface">
+  <h4>最近文章</h4>
+  <ul><li><a href="/zh-cn/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/zh-cn/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/zh-cn/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/zh-cn/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/zh-cn/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+</section>
+<section class="taxonomy-categories row surface">
+  <h4>
+    <a href="/zh-cn/categories">分类</a>
+  </h4>
+  <div><a href="/zh-cn/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
+      Shortcode <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+      java <span class="badge rounded-pill">8</span>
+    </a><a href="/zh-cn/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/zh-cn/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/categories/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="无人驾驶">
+      无人驾驶 <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-series row surface">
+  <h4>
+    <a href="/zh-cn/series">专栏</a>
+  </h4>
+  <div><a href="/zh-cn/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/zh-cn/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/series/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="无人驾驶">
+      无人驾驶 <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-tags row surface">
+  <h4>
+    <a href="/zh-cn/tags">标签</a>
+  </h4>
+  <div><a href="/zh-cn/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/zh-cn/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/zh-cn/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/zh-cn/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
+      python <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/zh-cn/tags/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section></div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a>
+  </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
+        <i class="fab fa-fw fa-2x fa-github"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
+        <i class="fab fa-fw fa-2x fa-qq"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
+        <i class="fab fa-fw fa-2x fa-zhihu"></i>
+      </a>
+    </li></nav>
+<div class="copyright mb-2">
+  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+</div>
+<script>
+  window.parent.postMessage(window.location.href, "*");
+</script><div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
+</div></footer>
+<a id="btnScrollToTop" class="btn-scroll-to-top">
+  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
+</a>
+</body>
+</html>

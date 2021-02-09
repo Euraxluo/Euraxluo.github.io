@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>slam on Euraxluo Blog</title>
+    <link>/zh-cn/posts/slam/</link>
+    <description>Recent content in slam on Euraxluo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><atom:link href="/zh-cn/posts/slam/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

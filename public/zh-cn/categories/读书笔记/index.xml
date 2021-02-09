@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>读书笔记 on Euraxluo Blog</title>
+    <link>/zh-cn/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 读书笔记 on Euraxluo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/zh-cn/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CleanCode读书笔记</title>
+      <link>/zh-cn/posts/reading/cleancode/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/zh-cn/posts/reading/cleancode/</guid>
+      <description>CleanCode读书笔记 最小惊异原则 1.从一而终，便于修改 2.遵守大家的约定 有意义的命名 1.名副其实 1.命名需要注释来补充，那就不算名副其</description>
+    </item>
+    
+    <item>
+      <title>MVC分层模型</title>
+      <link>/zh-cn/posts/nlp/mvc/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/zh-cn/posts/nlp/mvc/</guid>
+      <description>MVC分层模型 DAO 模式初识 PO(persistant object) 持久对象 在o/r映射的时候出现的概念，如果没有o/r映射，没有这个概念存在了。通常对应数据模型(数据库),本身还</description>
+    </item>
+    
+    <item>
+      <title>链表</title>
+      <link>/zh-cn/posts/algorithm/%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/zh-cn/posts/algorithm/%E9%93%BE%E8%A1%A8/</guid>
+      <description>链表 单链表 data.next&amp;ndash;&amp;gt;data.next&amp;ndash;&amp;gt;NULL 插入节点: 时间复杂度:O1 删除节点 时间复杂度:O1 查找节点 时间复杂度:O(n) 链表想要随机访问第K个元素 arr[k],需要根据指</description>
+    </item>
+    
+    <item>
+      <title>Unix/Linux编程实践1</title>
+      <link>/zh-cn/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/zh-cn/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</guid>
+      <description>Unix/Linux 编程實踐教程 ## 什麼是系統編程 系统资源 处理器 程序由指令构成,处理器是执行指令的硬件设备,一个系统中可能有多个处理器,内核可以安排一个程序何时</description>
+    </item>
+    
+    <item>
+      <title>数组</title>
+      <link>/zh-cn/posts/algorithm/%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Sat, 20 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>/zh-cn/posts/algorithm/%E6%95%B0%E7%BB%84/</guid>
+      <description>数组 线性表(每个线性表上的数据最多只有前和后两个方向):数组,链表,队列,栈 非线性表(数据之间并不是简单的前后关系):二叉树,堆,图 数组:数</description>
+    </item>
+    
+  </channel>
+</rss>
