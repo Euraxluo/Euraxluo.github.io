@@ -1,3 +1,14 @@
+---
+title: "关于musicplayer"
+date: "2019-02-21"
+description: "关于musicplayer"
+featured : false
+categories: ["notes"]
+tags: [ "notes" ]
+series: [ "notes" ]
+images: []
+---
+
 ## 关于musicplayer
 
 

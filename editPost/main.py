@@ -5,12 +5,15 @@ import os
 import multiprocessing
 
 app = Flask(__name__)
+
 def execCmd(cmd):
     try:
+        print("*"*20)
+        print(cmd,"starting...")
+        print("*"*20)
         os.system(cmd)
     except Exception as e:
         print ('%s\t 运行失败,失败原因\r\n%s' % (cmd,e))
-
 
 @app.route('/')
 def render_index():
@@ -55,14 +58,20 @@ def get_url():
     }
     return data
     
-
-if __name__ == '__main__':
-    cmds = ['hugo server',]
+def start_server():
+    cmds = ['hugo server -p 5001']
     threads = []
-
     for cmd in cmds:
+        print(".................")
         th = multiprocessing.Process(target=execCmd, args=(cmd,))
         th.start()
+        threads.append(th)
 
     app.run(debug=True)
+    for th in threads:
+        th.join()
     print ("程序结束运行%s" % datetime.datetime.now())
+
+if __name__ == '__main__':
+    start_server()
+

@@ -1,5 +1,5 @@
 +++
-title = "Redis Cluster"
+title = "Redis Cluster 2"
 date = "2019-03-10"
 description = "Redis Cluter"
 featured = false

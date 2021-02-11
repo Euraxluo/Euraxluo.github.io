@@ -1,3 +1,14 @@
+---
+title: "C++ 小记"
+date: "2019-02-21"
+description: "C++ 小记"
+featured : false
+categories: ["notes"]
+tags: [ "notes" ]
+series: [ "notes" ]
+images: []
+---
+
 ## C++ 小记
 
 

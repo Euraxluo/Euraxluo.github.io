@@ -1,3 +1,13 @@
+---
+title: "关于ViewPager"
+date: "2019-02-21"
+description: "关于ViewPager"
+featured : false
+categories: ["notes"]
+tags: [ "notes" ]
+series: [ "notes" ]
+images: []
+---
 ## 关于ViewPager
 
 使用方法：先在xml中定义

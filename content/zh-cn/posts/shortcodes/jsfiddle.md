@@ -23,5 +23,5 @@ images = [
 ```
 
 ## 例子
-
+{{</* jsfiddle "user/id" */>}}
 {{< jsfiddle "razonyang/bya1vuxn" >}}

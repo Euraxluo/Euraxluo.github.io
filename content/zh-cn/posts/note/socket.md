@@ -1,3 +1,13 @@
+---
+title: "TCP"
+date: "2019-02-21"
+description: "TCP"
+featured : true
+categories: ["notes"]
+tags: [ "notes" ]
+series: [ "notes" ]
+images: []
+---
 TCP的三次握手和四次挥手
 
 ## 三次握手:

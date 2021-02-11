@@ -14,6 +14,7 @@ images = [
 +++
 
 关于 JSRun shortcode 的详细说明。
+
 <!--more-->
 
 ## 使用
@@ -23,6 +24,6 @@ images = [
 ```
 
 ## 例子
+{{< jsrun "gsaKp" >}}
 
-{{< jsrun "QG6Kp" >}}
 

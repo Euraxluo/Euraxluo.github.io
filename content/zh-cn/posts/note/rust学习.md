@@ -1,3 +1,14 @@
+---
+title: "rust学习"
+date: "2019-02-21"
+description: "rust学习"
+featured : true
+categories: ["notes"]
+tags: [ "notes" ]
+series: [ "notes" ]
+images: []
+---
+
 ## rust学习
 
 所有权

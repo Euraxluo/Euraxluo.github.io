@@ -1,3 +1,14 @@
+---
+title: "C语言小计"
+date: "2019-02-21"
+description: "C语言小计"
+featured : false
+categories: ["notes"]
+tags: [ "notes" ]
+series: [ "notes" ]
+images: []
+---
+
 # C语言小计
 
 ## Unix C

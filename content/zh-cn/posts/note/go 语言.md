@@ -1,3 +1,13 @@
+---
+title: "go 语言小记"
+date: "2019-02-21"
+description: "go 语言小记"
+featured : false
+categories: ["notes"]
+tags: [ "notes" ]
+series: [ "notes" ]
+images: []
+---
 go 语言
 
 1.go程序是使用packag来进行组织的，只有package中名为main的包可以包含main函数

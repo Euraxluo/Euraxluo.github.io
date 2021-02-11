@@ -1,3 +1,13 @@
+---
+title: "java面试笔记"
+date: "2019-02-21"
+description: "java面试笔记"
+featured : true
+categories: ["notes"]
+tags: [ "notes" ]
+series: [ "notes" ]
+images: []
+---
 ## java跨平台
 
 实现java跨平台只需要在相应的平台安装对应的虚拟机，我们就可以使用统一的接口进行开发。
