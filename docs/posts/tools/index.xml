@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tools on Euraxluo Blog</title>
+    <link>/posts/tools/</link>
+    <description>Recent content in tools on Euraxluo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/posts/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Typora画图</title>
+      <link>/posts/tools/typora%E7%94%BB%E5%9B%BE/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/tools/typora%E7%94%BB%E5%9B%BE/</guid>
+      <description>typora画流程图介绍 标准流程图源码格式： st=&amp;gt;start: 开始框 op=&amp;gt;operation: 处理框 cond=&amp;gt;condition: 判断框 sub1=&amp;gt;subroutine: 子流程 io=&amp;gt;inputoutput: 输入输出框 e=&amp;gt;end: 结束框 st-&amp;gt;op-&amp;gt;cond cond(yes)-&amp;gt;io-&amp;gt;e cond(no)-&amp;gt;sub1(right)-&amp;gt;op 标准流程图源码格式（横向）： st=&amp;gt;start: 开始框 op=&amp;gt;operation:</description>
+    </item>
+    
+  </channel>
+</rss>

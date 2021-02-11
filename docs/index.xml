@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Euraxluo Blog</title>
+    <link>/</link>
+    <description>Recent content on Euraxluo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alert Shortcode</title>
+      <link>/posts/shortcodes/alert/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/shortcodes/alert/</guid>
+      <description>&lt;p&gt;本文展示了如何使用 &lt;code&gt;alert&lt;/code&gt; shortcode。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Bilibili Shortcode</title>
+      <link>/posts/shortcodes/bilibili/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/shortcodes/bilibili/</guid>
+      <description>&lt;p&gt;关于哔哩哔哩 shortcode 的详细使用说明。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CleanCode读书笔记</title>
+      <link>/posts/reading/cleancode/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/reading/cleancode/</guid>
+      <description>CleanCode读书笔记 最小惊异原则 1.从一而终，便于修改 2.遵守大家的约定 有意义的命名 1.名副其实 1.命名需要注释来补充，那就不算名副其</description>
+    </item>
+    
+    <item>
+      <title>CodePen Shortcode</title>
+      <link>/posts/shortcodes/codepen/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/shortcodes/codepen/</guid>
+      <description>&lt;p&gt;关于 CodePen shortcode 的详细说明。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JSFiddle Shortcode</title>
+      <link>/posts/shortcodes/jsfiddle/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/shortcodes/jsfiddle/</guid>
+      <description>&lt;p&gt;关于 JSFiddle shortcode 的详细说明。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JSRun Shortcode</title>
+      <link>/posts/shortcodes/jsrun/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/shortcodes/jsrun/</guid>
+      <description>&lt;p&gt;关于 JSRun shortcode 的详细说明。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MVC分层模型</title>
+      <link>/posts/nlp/mvc/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/nlp/mvc/</guid>
+      <description>MVC分层模型 DAO 模式初识 PO(persistant object) 持久对象 在o/r映射的时候出现的概念，如果没有o/r映射，没有这个概念存在了。通常对应数据模型(数据库),本身还</description>
+    </item>
+    
+    <item>
+      <title>NLP基础 </title>
+      <link>/posts/nlp/nlp%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/nlp/nlp%E5%9F%BA%E7%A1%80/</guid>
+      <description>NLP概览 什么是NLP 自然语言处理,是探讨如何处理及运用自然语言 自然语言认知,是让电脑明白人类的语言 自然语言处理主要包括:文本分析,信息检索</description>
+    </item>
+    
+    <item>
+      <title>Servlet1</title>
+      <link>/posts/java/servlet1/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/java/servlet1/</guid>
+      <description>Servlet HTTP协议 是客户端与服务器通信的一种方式 参考链接 request: 请求行 请求头 请求体 response: 响应行 响应头 响应体 Get: GET用于信息获取，而且应该是安全的和幂等的 带</description>
+    </item>
+    
+    <item>
+      <title>Servlet2</title>
+      <link>/posts/java/servlet2/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/java/servlet2/</guid>
+      <description>Cookie和Session 会话：浏览器发出http请求。服务器接受，对请求进行响应，浏览器接受http响应 Cookie 把会话数据保存在浏览器客户端 服</description>
+    </item>
+    
+    <item>
+      <title>TestShortcode</title>
+      <link>/posts/shortcodes/g2plot_charts_test/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/shortcodes/g2plot_charts_test/</guid>
+      <description>&lt;p&gt;关于 echarts shortcode 的详细说明。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Typora画图</title>
+      <link>/posts/tools/typora%E7%94%BB%E5%9B%BE/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/tools/typora%E7%94%BB%E5%9B%BE/</guid>
+      <description>typora画流程图介绍 标准流程图源码格式： st=&amp;gt;start: 开始框 op=&amp;gt;operation: 处理框 cond=&amp;gt;condition: 判断框 sub1=&amp;gt;subroutine: 子流程 io=&amp;gt;inputoutput: 输入输出框 e=&amp;gt;end: 结束框 st-&amp;gt;op-&amp;gt;cond cond(yes)-&amp;gt;io-&amp;gt;e cond(no)-&amp;gt;sub1(right)-&amp;gt;op 标准流程图源码格式（横向）： st=&amp;gt;start: 开始框 op=&amp;gt;operation:</description>
+    </item>
+    
+    <item>
+      <title>WebSocket</title>
+      <link>/posts/java/websocket/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/java/websocket/</guid>
+      <description>WebSocket 一、概念 1.WebSocket 是HTTP协议的补充。使用的TCP协议建立连接 2.HTML5是指一系列新API，新协议，WebSocket也是其中之一 二、优点 1</description>
+    </item>
+    
+    <item>
+      <title>XML</title>
+      <link>/posts/java/xml/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/java/xml/</guid>
+      <description>Xml Xml eXtendsible markup language 可扩展的标记语言 XML 有什么用? 可以用来保存数据 可以用来做配置文件 数据传输载体 定义xml 其实就是一个文件，文件的后缀为 .xml 文档声明 简单声</description>
+    </item>
+    
+    <item>
+      <title>优酷 Shortcode</title>
+      <link>/posts/shortcodes/youku/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/shortcodes/youku/</guid>
+      <description>&lt;p&gt;关于优酷 shortcode 的详细说明。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>无人驾驶概述</title>
+      <link>/posts/driverless/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%A6%82%E8%BF%B0/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/driverless/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%A6%82%E8%BF%B0/</guid>
+      <description>&lt;p&gt;无人驾驶概述&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>爱奇艺 Shortcode</title>
+      <link>/posts/shortcodes/iqiyi/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/shortcodes/iqiyi/</guid>
+      <description>&lt;p&gt;关于爱奇艺 shortcode 的详细说明。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>缓存的使用和设计</title>
+      <link>/posts/redis/%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/redis/%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AE%BE%E8%AE%A1/</guid>
+      <description>缓存的使用和设计 缓存的收益与成本 收益 加速读写 通过缓存加速读写：CPU L1/L2/L3 Cache，浏览器缓存，Ehcache缓存数据库结果 降低后端负载 后端服</description>
+    </item>
+    
+    <item>
+      <title>网易云音乐 Shortcode</title>
+      <link>/posts/shortcodes/neteasemusic/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/shortcodes/neteasemusic/</guid>
+      <description>&lt;p&gt;关于网易云音乐 Shortcode 的详细使用说明。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>腾讯视频 Shortcode</title>
+      <link>/posts/shortcodes/tencentvideo/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/shortcodes/tencentvideo/</guid>
+      <description>&lt;p&gt;关于腾讯视频 shortcode 的详细说明。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>链表</title>
+      <link>/posts/algorithm/%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/algorithm/%E9%93%BE%E8%A1%A8/</guid>
+      <description>链表 单链表 data.next&amp;ndash;&amp;gt;data.next&amp;ndash;&amp;gt;NULL 插入节点: 时间复杂度:O1 删除节点 时间复杂度:O1 查找节点 时间复杂度:O(n) 链表想要随机访问第K个元素 arr[k],需要根据指</description>
+    </item>
+    
+    <item>
+      <title>Hbase基础</title>
+      <link>/posts/distributed/hbase%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/distributed/hbase%E5%9F%BA%E7%A1%80/</guid>
+      <description>Hbase 基础 Hbase 能做什么 海量数据存储 准实时查询 HBase在实际业务场景中的应用 交通:gps,摄像头信息 金融:交易信息 电商:交易信息,浏览信息,物流信</description>
+    </item>
+    
+    <item>
+      <title>Redis API及数据结构</title>
+      <link>/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <description>&lt;p&gt;本文介绍了redisApi以及数据结构&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Redis Cluster</title>
+      <link>/posts/redis/rediscluster-1/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/redis/rediscluster-1/</guid>
+      <description>Redis Cluster 背景 并发量 &amp;lt;10万dps 数据量 单机内存&amp;lt;256G 带宽 网卡限制 解决方式 提高机器配置 分布式 数据分布 | 分布方式 | 特点 | 典型产品 | |</description>
+    </item>
+    
+    <item>
+      <title>Redis Cluster 2</title>
+      <link>/posts/redis/rediscluster-2/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/redis/rediscluster-2/</guid>
+      <description>集群伸缩 伸缩原理 伸：增加节点 缩：节点下线 集群伸缩：槽和数据在节点之间的移动 扩容集群 准备新节点 打开集群模式 配置和其他节点统一 启动后是孤立的节点</description>
+    </item>
+    
+    <item>
+      <title>Redis Cluster 3</title>
+      <link>/posts/redis/rediscluster-3/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/redis/rediscluster-3/</guid>
+      <description>RedisCluster 客户端使用 moved重定向 对任意节点发送键命令 节点会计算槽和对应节点确定这个键是否指向自身 如果指向自身，就执行命令，返回key所在的槽 否则</description>
+    </item>
+    
+    <item>
+      <title>Redis Sentinel</title>
+      <link>/posts/redis/redissentinel/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/redis/redissentinel/</guid>
+      <description>Redis Sentinel 主从复制的问题 手动故障转移 写能力和存储能力受限 Redis Sentinel架构 有多个Sentinel节点 不用来存储数据 多个节点判断master节点</description>
+    </item>
+    
+    <item>
+      <title>Redis基础学习</title>
+      <link>/posts/redis/redis%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/redis/redis%E5%9F%BA%E7%A1%80/</guid>
+      <description>Redis基础学习 Redis是一个key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括string</description>
+    </item>
+    
+    <item>
+      <title>Redis的主从复制</title>
+      <link>/posts/redis/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/redis/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid>
+      <description>Redis的主从复制 单机部署的问题 机器故障（高可用） 容量瓶颈（分布式） QPS瓶颈（分布式） 主从复制的作用 为一个数据提供了副本 slave从ma</description>
+    </item>
+    
+    <item>
+      <title>Redis的持久化</title>
+      <link>/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/</guid>
+      <description>Redis的持久化 Redis持久化作用 什么是持久化 redis的所有数据保存在内存中，对数据的更新回异步的保存在磁盘中 持久化方式 快照 MySQL Dump Redis RDB 日</description>
+    </item>
+    
+    <item>
+      <title>Redis高级特性初识别</title>
+      <link>/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</guid>
+      <description>Redis高级特性初识 慢查询 客户端请求的生命周期 客户端发送命令 入队列 执行命令（慢查询在这一阶段） 返回客户端 （客户端超时，不一定是慢查询，慢查</description>
+    </item>
+    
+    <item>
+      <title>ROS基础学习1</title>
+      <link>/posts/ros/ros%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/ros/ros%E5%9F%BA%E7%A1%80/</guid>
+      <description>利用enve使用在ros中使用python3 因为ros的python有很多依赖需要使用C，python3的支持不太好。我们可以让当前的环境变</description>
+    </item>
+    
+    <item>
+      <title>ROS基础学习2</title>
+      <link>/posts/ros/ros%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/ros/ros%E5%85%A5%E9%97%A8/</guid>
+      <description>ROS 工作空间:组织和管理功能包的文件夹 catkin workspace build (cmake,catkin缓存中间件) src(package 源代码) package1(是catkin编译的基本单元) package2</description>
+    </item>
+    
+    <item>
+      <title>Shell 基础</title>
+      <link>/posts/shell/shell%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/shell/shell%E5%9F%BA%E7%A1%80/</guid>
+      <description>shell 基础 在终端输入:sh进入脚本界面 helloworld 编辑内容 #!/bin/bash echo &amp;quot;hello world!&amp;quot; 保存退出: w ~/helloworld.sh 运行: chmod +x ~/helloworld.sh cd ~ ./helloworld.sh 执行结果: hello world! 分析: 第一行中#!是一个约定的标记,告诉系</description>
+    </item>
+    
+    <item>
+      <title>Shell 进阶</title>
+      <link>/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</guid>
+      <description>shell进阶 破壳漏洞 env x=&#39;() { :;}; echo shellshocked&#39; bash –c &amp;quot;echo test&amp;quot;检查,如果输出了两行,那么需要升级bash的版本 解释器的类型 系统中的shell</description>
+    </item>
+    
+    <item>
+      <title>Redis基础配置</title>
+      <link>/posts/redis/redis%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/redis/redis%E9%85%8D%E7%BD%AE/</guid>
+      <description>Redis的特点 速度快 使用内存 使用C语言 单线程 持久化 对数据的更新，异步保存到磁盘上 多种数据结构 strings/Blobs/Bitmaps Hash Tables Linked Lists Sets Sorted Sets BitMaps HyperLogLog(超小</description>
+    </item>
+    
+    <item>
+      <title>TensorFlow 基础</title>
+      <link>/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/</guid>
+      <description>TensorFlow 基础 计算密集型(tensorflow) cpu计算 io密集型(Django,Scrapy) http请求 线性回归回顾 准备好特征和lable y =</description>
+    </item>
+    
+    <item>
+      <title>TensorFlow 线性回归</title>
+      <link>/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</guid>
+      <description>TensorFlow 线性回归 TensorFlow是一个编程系统,使用图(graphs)来表示计算任务,图(graphs)中的节点称之为op(operation</description>
+    </item>
+    
+    <item>
+      <title>BIO</title>
+      <link>/posts/note/bio%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/bio%E5%AD%A6%E4%B9%A0/</guid>
+      <description>BIO (block io) 同步阻塞IO 线程池:伪异步IO,实际上也是同步阻塞IO NIO(同步非阻塞) selector会主动轮询,与客户端建立通信(channel</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; 小记</title>
+      <link>/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</guid>
+      <description>C++ 小记 CMAKE 工程构建工具 简单的使用 文件名大小写敏感 语法 cmake_minimum_required(VERSION 2.8)#设置cmake的版本 set(CMAKE_BUILD_TYPE Debug )#设置为debug模式 #项目名 PROJECT(HEL</description>
+    </item>
+    
+    <item>
+      <title>ChatBot模型基础</title>
+      <link>/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/</guid>
+      <description>word2vec !(http://www.cnblogs.com/neopenx/p/4571996.html)(是个巨佬) !(https://blog.csdn.net/itplus/article/details/37969817) 概率语言模型 概率语言模型 预测</description>
+    </item>
+    
+    <item>
+      <title>Colab的使用</title>
+      <link>/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>Colab的使用 首先是梯子 校园网改ipv6连接谷歌 1.修改SDN服务器 在ipv6的sdn中设置这两个记录，也可以只设置一个 2001:4860:4860::8888 2001:4860:4860::8844 linux:修</description>
+    </item>
+    
+    <item>
+      <title>C语言小计</title>
+      <link>/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</guid>
+      <description>C语言小计 Unix C 内核-》系统调用-》shell/共用函数库-》应用程序 系统调用和库函数 库函数会调用系统调用来实现自己的算法 公用函数库构建在系统</description>
+    </item>
+    
+    <item>
+      <title>go 语言小记</title>
+      <link>/posts/note/go-%E8%AF%AD%E8%A8%80/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/go-%E8%AF%AD%E8%A8%80/</guid>
+      <description>go 语言 1.go程序是使用packag来进行组织的，只有package中名为main的包可以包含main函数 2.一个可执行程序有且仅有一个ma</description>
+    </item>
+    
+    <item>
+      <title>java面试笔记</title>
+      <link>/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</guid>
+      <description>java跨平台 实现java跨平台只需要在相应的平台安装对应的虚拟机，我们就可以使用统一的接口进行开发。 java通过不同的系统，不同的版本，不</description>
+    </item>
+    
+    <item>
+      <title>Make My LIsp NAME lispluo</title>
+      <link>/posts/note/make-lispluo/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/make-lispluo/</guid>
+      <description>Make My LIsp NAME lispluo 一个用 Python 实现的 Lisp 解释器 根据教程项目 https://github.com/kanaka/mal 进行实现及测试。 教程中文翻译 https://github.com/Windfarer/mal-zh 1. 准备 1） 选择的python编写解释器 2） fork，克隆项目，修</description>
+    </item>
+    
+    <item>
+      <title>pattern:斑图</title>
+      <link>/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</guid>
+      <description>pattern:斑图 是一种构型，是一种系统，不关心是使用的什么物质去实现 把各种方法论抽取出来 complexity:复杂性科学 按照复杂性思维去</description>
+    </item>
+    
+    <item>
+      <title>rust学习</title>
+      <link>/posts/note/rust%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/rust%E5%AD%A6%E4%B9%A0/</guid>
+      <description>rust学习 所有权 Rust 的核心功能（之一）是 所有权（ownership）。虽然该功能很容易解释，但它对语言的其他部分有着深刻的影响。 所有运行的程</description>
+    </item>
+    
+    <item>
+      <title>Scala入门</title>
+      <link>/posts/note/scala%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/scala%E5%85%A5%E9%97%A8/</guid>
+      <description>Scala 入门之随便写写 import scala.util.control._ object HelloWorld{ def hello(name:String) = { s&amp;#34;Hello ,${name}&amp;#34; } def add(x: Int,y:Int) = x+y def main(args:Array[String]):Unit = { /** * 违反引用透明的例子: * 怎么样获得引用透明性:{ * 需要具有不变性,即为了获得引用透</description>
+    </item>
+    
+    <item>
+      <title>SLAM</title>
+      <link>/posts/note/slam/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/slam/</guid>
+      <description>SLAM 相机 以一定的速率采集图像，形成视频 各类相机的区别 单目：无深度，需要其他手段估计 双目：通过视差计算深度 RGB-D：通过物理方法测量深度 相机的</description>
+    </item>
+    
+    <item>
+      <title>stream编程</title>
+      <link>/posts/note/stream%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/stream%E7%BC%96%E7%A8%8B/</guid>
+      <description>stream 编程 import java.util.function.Consumer; import java.util.stream.Collectors; import java.util.stream.IntStream; import java.util.stream.Stream; Consumer&amp;lt;String&amp;gt; P = System.out::println;//消费者 // P.andThen(P.andThen(P)).accept(2); /** * 流的创建 */ List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); //从集合创建流 list.stream(); list.parallelStream(); //从数组创建</description>
+    </item>
+    
+    <item>
+      <title>TCP</title>
+      <link>/posts/note/socket/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/socket/</guid>
+      <description>TCP的三次握手和四次挥手 三次握手: 为什么需要三次握手? 客户端:我可以发东西给你(确保客户端的发送能力) 服务器:我可以收到,你能收到么?(确</description>
+    </item>
+    
+    <item>
+      <title>VSLAM</title>
+      <link>/posts/note/vslam/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/vslam/</guid>
+      <description>VSLAM ## project1 熟悉Linux sudo apt-get install 安装软件，apt-get 下载后软件的路径一般为/var/cache/apt/archives 具体的安装目录是由包维</description>
+    </item>
+    
+    <item>
+      <title>三维建模软件的简单实现</title>
+      <link>/posts/note/%E4%B8%89%E7%BB%B4%E5%BB%BA%E6%A8%A1%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/%E4%B8%89%E7%BB%B4%E5%BB%BA%E6%A8%A1%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</guid>
+      <description>三维建模软件的简单实现 wget http://labfile.oss.aliyuncs.com/courses/561/Python3DFirst.zip 关于OpenGL OpenGL是开发跨平台图形应用的接口标准，当前的OpenGL编程分为两类：现代OpenGL与传统</description>
+    </item>
+    
+    <item>
+      <title>关于musicplayer</title>
+      <link>/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</guid>
+      <description>关于musicplayer 首先给权限 &amp;lt;!-- 网络权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.INTERNET&amp;#34;/&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.READ_EXTERNAL_STORAGE&amp;#34;/&amp;gt; &amp;lt;!-- 向SD卡写入数据权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.WRITE_EXTERNAL_STORAGE&amp;#34;/&amp;gt; &amp;lt;!-- 在SD卡中创建与删除文件权限 --&amp;gt; &amp;lt;!-- 扫描数据库的权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.MOUNT_UNMOUNT_FILESYSTEMS&amp;#34;</description>
+    </item>
+    
+    <item>
+      <title>关于ViewPager</title>
+      <link>/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</guid>
+      <description>关于ViewPager 使用方法：先在xml中定义 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;android.support.design.widget.CoordinatorLayout xmlns:android=&amp;#34;http://schemas.android.com/apk/res/android&amp;#34; xmlns:tools=&amp;#34;http://schemas.android.com/tools&amp;#34; xmlns:app=&amp;#34;http://schemas.android.com/apk/res-auto&amp;#34; android:id=&amp;#34;@+id/main_content&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;match_parent&amp;#34; android:fitsSystemWindows=&amp;#34;true&amp;#34; tools:context=&amp;#34;.MainActivity&amp;#34;&amp;gt; &amp;lt;android.support.v4.view.ViewPager android:background=&amp;#34;@drawable/img5&amp;#34; android:id=&amp;#34;@+id/view_pager&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;match_parent&amp;#34; app:layout_behavior=&amp;#34;@string/appbar_scrolling_view_behavior&amp;#34;/&amp;gt; &amp;lt;/android.support.design.widget.CoordinatorLayout&amp;gt; 再到Activity中写 package cn.euraxluo.myapplication; import android.support.annotation.NonNull; import android.support.v4.view.PagerAdapter; import android.support.v7.app.AppCompatActivity; import android.support.v4.view.ViewPager; import android.os.Bundle; import android.util.Log; import</description>
+    </item>
+    
+    <item>
+      <title>前端</title>
+      <link>/posts/note/%E5%89%8D%E7%AB%AF/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/%E5%89%8D%E7%AB%AF/</guid>
+      <description>前端 CSS 网格布局 table标签（具有性能问题）=&amp;gt; hack float流式布局=&amp;gt;position绝对定位（不利于使用响应式）-&amp;gt;i</description>
+    </item>
+    
+    <item>
+      <title>卡包开发步骤</title>
+      <link>/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</guid>
+      <description>卡包开发步骤 开发步骤 需求规划,需求拆解,需求辩论 技术选型:为什么是HBase or MySQL 工程设计:工程图各个模块设计的功能点,各个功能点涉及的技术 编</description>
+    </item>
+    
+    <item>
+      <title>操作系统小记</title>
+      <link>/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</guid>
+      <description>&lt;p&gt;操作系统小记&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>数学杂谈</title>
+      <link>/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</guid>
+      <description>数学杂谈 欧氏空间：在实数域上的有限的内积向量空间对加法和数乘封闭 意思是。在“向量空间”V这个向量集合中： ①。任意取V的两个向量α，β。则α+</description>
+    </item>
+    
+    <item>
+      <title>简易服务器</title>
+      <link>/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>简易服务器 创建套接字 填充数据结构 绑定端口 监听，accept 获得accept的句柄并处理 封装resp字符串 写回到accept的句柄中 2.C标准</description>
+    </item>
+    
+    <item>
+      <title>语料处理基础</title>
+      <link>/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/</guid>
+      <description>语料处理流程 语料收集 &amp;gt; 语料清洗 &amp;gt; 句子向量编码化 &amp;gt; 语料问答对构建 &amp;gt; 语料的模型保存 &amp;gt; 结束 语料收集 聊天记录 电影对话 台词片断 语料清洗 要清洗的内容 多余</description>
+    </item>
+    
+    <item>
+      <title>逆波兰式</title>
+      <link>/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</guid>
+      <description>逆波兰式 定义 一个表达式E的后缀形式可以如下定义： （1）如果E是一个变量或常量，则E的后缀式是E本身。 （2）如果E是E1 op E2形式的表达式，这</description>
+    </item>
+    
+    <item>
+      <title>Flask入门</title>
+      <link>/posts/python/flask%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/python/flask%E5%85%A5%E9%97%A8/</guid>
+      <description>Flask 学习 入门： 最小的Flask 程序 from flask import Flask # 导入flask app = Flask(__name__)#使用单一的模块（如本例），你应该使用 __name__ @app.route(&amp;#39;/hello&amp;#39;) #rou</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu18.04安装ROS</title>
+      <link>/posts/ros/ros%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/ros/ros%E5%AE%89%E8%A3%85/</guid>
+      <description>Ubuntu18.04安装ROS 源配置: sudo sh -c &#39;. /etc/lsb-release &amp;amp;&amp;amp; echo &amp;quot;deb &amp;lt;http://mirrors.ustc.edu.cn/ros/ubuntu/&amp;gt; $DISTRIB_CODENAME main&amp;quot; &amp;gt; /etc/apt/sources.list.d/ros-latest.list&#39; 更新: sudo apt-get update 添加密匙: sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116 和官网步骤一样: sudo apt-get install ros-melodic-desktop-full sudo rosdep init 报错: 由</description>
+    </item>
+    
+    <item>
+      <title>JDBC1</title>
+      <link>/posts/java/jdbc1/</link>
+      <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/java/jdbc1/</guid>
+      <description>jdbc JAVA Database Connectivity java 数据库连接 为什么会出现JDBC SUN公司提供的一种数据库访问规则、规范, 由于数据库种类较多，并且java语言使用比较广泛，sun公</description>
+    </item>
+    
+    <item>
+      <title>JDBC2</title>
+      <link>/posts/java/jdbc2/</link>
+      <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/java/jdbc2/</guid>
+      <description>业务场景1 过滤条件比较弱,一次读出多条记录 读取数据库表中的所有记录 海量数据读取 这些都容易产生内存溢出,为了不使得内存溢出,我们采用游标的方式</description>
+    </item>
+    
+    <item>
+      <title>JDBC3</title>
+      <link>/posts/java/jdbc3/</link>
+      <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/java/jdbc3/</guid>
+      <description>1. execute,executeQuery,executeUdate的区别 JDBCTM中Statement接口提供的execute,exec</description>
+    </item>
+    
+    <item>
+      <title>JSP</title>
+      <link>/posts/java/jsp%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/java/jsp%E5%AD%A6%E4%B9%A0/</guid>
+      <description>jsp Java Server Page 什么是jsp 从用户角度看待 ，就是是一个网页 ， 从程序员角度看待 ， 其实是一个java类， 它继承了servlet，所以可以直接说jsp 就是</description>
+    </item>
+    
+    <item>
+      <title>Linux基础</title>
+      <link>/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
+      <description>Linux基础 文件基本属性 ll/ls -l 显示一个文件的属性以及文件所属的用户组 eg: [root@www /]# ls -l total 64 dr-xr-xr-x 2 root root 4096 Dec 14 2012 bin dr-xr-xr-x 4 root root 4096 Apr 19 2012 boot …… bin 以d开头,表示这</description>
+    </item>
+    
+    <item>
+      <title>MyBatis</title>
+      <link>/posts/java/mbatis%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/java/mbatis%E5%9F%BA%E7%A1%80/</guid>
+      <description>MyBatis 一个ORM框架,(不直接建立java对象到关系数据库表数据的映射,而是建立对对象的操作方法到SQL的映射)支持自定义SQL,存储过程和高级</description>
+    </item>
+    
+    <item>
+      <title>Python构建开源项目</title>
+      <link>/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</guid>
+      <description>Python构建开源软件 python的构建工具setup.py的应用场景 一般在安装python模块的时候,我们会使用pip install 模块名进行在线安</description>
+    </item>
+    
+    <item>
+      <title>Unix/Linux编程实践1</title>
+      <link>/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</guid>
+      <description>Unix/Linux 编程實踐教程 ## 什麼是系統編程 系统资源 处理器 程序由指令构成,处理器是执行指令的硬件设备,一个系统中可能有多个处理器,内核可以安排一个程序何时</description>
+    </item>
+    
+    <item>
+      <title>爬虫学习1</title>
+      <link>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/</link>
+      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/</guid>
+      <description>前记： 爬虫：使用任何技术手段，批量获取网站信息的一种方式。关键在于批量。 反爬虫：使用任何技术手段，阻止别人批量获取自己网站信息的一种方式。关</description>
+    </item>
+    
+    <item>
+      <title>爬虫学习2</title>
+      <link>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</link>
+      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</guid>
+      <description>Requests库 发送请求 方法： r=requests.get(&amp;#39;http://httpbin.org/get&amp;#39;)#get r = requests.post(&amp;#34;http://httpbin.org/post&amp;#34;)#post r = requests.put(&amp;#34;http://httpbin.org/put&amp;#34;)#put r = requests.delete(&amp;#34;http://httpbin.org/delete&amp;#34;)#delect r = requests.head(&amp;#34;http://httpbin.org/get&amp;#34;)#head r = requests.options(&amp;#34;http://httpbin.org/get&amp;#34;)#options eg import requests r = requests.get(url=&amp;#39;http://www.euraxluo.cn&amp;#39;) # 最基本的GET请求 print(r.status_code) # 内置的状态码查询对象 #状态码非200视为</description>
+    </item>
+    
+    <item>
+      <title>爬虫学习3</title>
+      <link>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/</link>
+      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/</guid>
+      <description>代理 获取代理ip import requests import bs4 from bs4 import BeautifulSoup User_Agent = &amp;#39;Mozilla/5.0 (Windows NT 6.3; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0&amp;#39; header = {} header[&amp;#39;User-Agent&amp;#39;] = User_Agent url = &amp;#39;http://www.xicidaili.com/nn/1&amp;#39; r = requests.get(url,headers=header) res = r.text soup = BeautifulSoup(res,&amp;#34;html.parser&amp;#34;) ips = soup.findAll(&amp;#39;tr&amp;#39;) f = open(&amp;#34;./ip_proy/ip&amp;#34;,&amp;#34;w&amp;#34;) for x in range(1,len(ips)): ip = ips[x]#一行 tds = ip.findAll(&amp;#34;td&amp;#34;) line =</description>
+    </item>
+    
+    <item>
+      <title>爬虫学习4</title>
+      <link>/posts/python/pyquerystudy/</link>
+      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/python/pyquerystudy/</guid>
+      <description>PyQuery 初始化 %%html &amp;lt;div id = &amp;#34;container&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;frist item&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link2.html&amp;#34;&amp;gt;second item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link3.html&amp;#34; style=&amp;#34;color:black;&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;bold&amp;#34;&amp;gt;third item&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link4.html&amp;#34;&amp;gt;fourth item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link5.html&amp;#34;&amp;gt;fifth item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/div&amp;gt; 字符串初始化 html = &amp;#39;&amp;#39;&amp;#39; &amp;lt;div id = &amp;#34;container&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;frist item&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1&amp;#34;&amp;gt;&amp;lt;a</description>
+    </item>
+    
+    <item>
+      <title>数组</title>
+      <link>/posts/algorithm/%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Sat, 20 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>/posts/algorithm/%E6%95%B0%E7%BB%84/</guid>
+      <description>数组 线性表(每个线性表上的数据最多只有前和后两个方向):数组,链表,队列,栈 非线性表(数据之间并不是简单的前后关系):二叉树,堆,图 数组:数</description>
+    </item>
+    
+    <item>
+      <title>Git学习笔记</title>
+      <link>/posts/reading/git%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/reading/git%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Git 学习笔记 cd相对路径 cd 什么都不加 回到用户的家目录下 cd ~ 回到root目录下 cd .. 进入上一级目录 cd - 返回上一次目录 cd . 当前目录 创建和删除目录 创建</description>
+    </item>
+    
+    <item>
+      <title>Apollo无人车架构</title>
+      <link>/posts/driverless/apollo%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/driverless/apollo%E6%9E%B6%E6%9E%84/</guid>
+      <description>Apollo无人车架构 以HD-map为核心 线控车辆，计算机和传感器通过CAN卡进行通信 ROTS(Ubuntu+apollo kernel) 保证实时性 Feameworf(ROS+) 共享内存 减少传输中的数据拷贝，提高传输</description>
+    </item>
+    
+  </channel>
+</rss>

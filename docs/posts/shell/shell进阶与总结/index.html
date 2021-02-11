@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shell 进阶 - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="description" content="Shell 进阶" /><meta itemprop="name" content="Shell 进阶">
+<meta itemprop="description" content="Shell 进阶">
+<meta itemprop="datePublished" content="2019-03-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-03-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3559">
+
+
+
+<meta itemprop="keywords" content="Shell," />
+<meta property="og:title" content="Shell 进阶" />
+<meta property="og:description" content="Shell 进阶" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/" />
+<meta property="article:published_time" content="2019-03-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-03-10T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/posts/shell/shell%E5%9F%BA%E7%A1%80/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Shell 进阶"/>
+<meta name="twitter:description" content="Shell 进阶"/>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+</head>
+  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/search">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
+    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
+  </div>
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/archives">
+            <i class="fas fa-fw fa-file-archive"></i>归档
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/categories">
+            <i class="fas fa-fw fa-folder"></i>分类
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/tags">
+            <i class="fas fa-fw fa-tags"></i>标签
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/series">
+            <i class="fas fa-fw fa-columns"></i>专栏
+          </a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Repos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo" target="_blank">
+                <i class="fab fa-fw fa-github"></i>Euraxluo
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                <i class="fab fa-fw fa-github"></i>fastgrpc
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                <i class="fab fa-fw fa-github"></i>ProjectPractice
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                <i class="fab fa-fw fa-github"></i>pyantv
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                <i class="fab fa-fw fa-github"></i>simple-pythonvm
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/verb" target="_blank">
+                <i class="fab fa-fw fa-github"></i>verb
+              </a>
+            </li></ul>
+        </li></ul>
+      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
+    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-language" ></i>
+  </a>
+</li>
+<script type="text/html" id="languagesPopoverBody">
+  <ul class="languages list-group"><li class="language list-group-item">
+      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
+      <a href="/zh-tw/">繁體中文</a></li></ul>
+</script>
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#palettesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-palette" ></i>
+  </a>
+</li>
+<script type="text/html" id="palettesPopoverBody">
+  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
+      <a>蓝色</a>
+    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
+      <a>蓝灰色</a>
+    </li><li id="palette-brown" class="palette list-group-item bg-brown">
+      <a>棕色</a>
+    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
+      <a>青色</a>
+    </li><li id="palette-green" class="palette list-group-item bg-green">
+      <a>绿色</a>
+    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
+      <a>靛青色</a>
+    </li><li id="palette-orange" class="palette list-group-item bg-orange">
+      <a>橙色</a>
+    </li><li id="palette-pink" class="palette list-group-item bg-pink">
+      <a>粉色</a>
+    </li><li id="palette-purple" class="palette list-group-item bg-purple">
+      <a>紫色</a>
+    </li><li id="palette-red" class="palette list-group-item bg-red">
+      <a>红色</a>
+    </li><li id="palette-teal" class="palette list-group-item bg-teal">
+      <a>蓝绿色</a>
+    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
+      <a>黄色</a>
+    </li></ul>
+</script>
+
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#fontSizesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-font" ></i>
+  </a>
+</li>
+<script type="text/html" id="fontSizesPopoverBody">
+  <form class="font-size-switcher-form">
+    <label for="fontSize" class="form-label">字体大小</label>
+    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+  </form>
+</script>
+<form class="mode-switcher-form d-flex align-items-center">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="modeSwitcher">
+  </div>
+</form>
+</ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-md-8">
+  <div class="container"><nav class="row" aria-label="breadcrumb">
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/">主页</a></li><li class="breadcrumb-item"><a href="/posts/">posts</a></li><li class="breadcrumb-item"><a href="/posts/shell/">shell</a></li><li class="breadcrumb-item active">Shell 进阶</li></ol>
+</nav><article class="post row surface">
+  <h1 class="post-title my-3">Shell 进阶</h1><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2019-03-10
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>8 分钟阅读
+  </span>
+<a href="/categories/shell/" class="post-taxonomy">#Shell</a><a href="/series/shell/" class="post-taxonomy">#Shell</a><a href="/tags/shell/" class="post-taxonomy">#Shell</a></div>
+<div class="post-content mb-3"><h1 id="shell进阶">shell进阶</h1>
+<ol start="0">
+<li>
+<p>破壳漏洞</p>
+<p><code>env x='() { :;}; echo shellshocked' bash –c &quot;echo test&quot;</code>检查,如果输出了两行,那么需要升级bash的版本</p>
+</li>
+<li>
+<p>解释器的类型</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>系统中的shells使用<code>cat /etc/shells</code>查看:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/sh
+/bin/dash
+/bin/bash
+/bin/rbash
+/usr/bin/tmux
+/usr/bin/screen
+/bin/zsh
+/usr/bin/zsh
+</code></pre></div></li>
+<li>
+<p>设置解释器的类型
+<code>#!/bin/bash</code>在文件的开头使用,内核会根据&quot;#!&ldquo;后的解释器来确定该用那个程序解释这个脚本中的内容</p>
+</li>
+</ul>
+<ol start="2">
+<li>脚本的编辑</li>
+</ol>
+<ul>
+<li>vim帮助我们编辑脚本</li>
+</ul>
+<p><strong>我的vimrc内容</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  <span style="color:#ae81ff">1</span> set tabstop<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+  <span style="color:#ae81ff">2</span> set shiftwidth<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+  <span style="color:#ae81ff">3</span> set expandtab
+  <span style="color:#ae81ff">4</span> set number
+  <span style="color:#ae81ff">5</span> autocmd BufNewFile *.py,*.cc,*.sh,*.java exec <span style="color:#e6db74">&#34;:call SetTitle()&#34;</span>
+  <span style="color:#ae81ff">6</span> func SetTitle<span style="color:#f92672">()</span>
+  <span style="color:#ae81ff">7</span>         <span style="color:#66d9ef">if</span> expand<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%:e&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;sh&#39;</span>
+  <span style="color:#ae81ff">8</span>         call setline<span style="color:#f92672">(</span>1,<span style="color:#e6db74">&#34;#!/bin/bash&#34;</span><span style="color:#f92672">)</span>
+  <span style="color:#ae81ff">9</span>         call setline<span style="color:#f92672">(</span>2,<span style="color:#e6db74">&#34;# Author: Euraxluo&#34;</span><span style="color:#f92672">)</span>
+ <span style="color:#ae81ff">10</span>         call setline<span style="color:#f92672">(</span>3,<span style="color:#e6db74">&#34;# Email: Euraxluo@outlook.com&#34;</span><span style="color:#f92672">)</span>
+ <span style="color:#ae81ff">11</span>         call setline<span style="color:#f92672">(</span>4,<span style="color:#e6db74">&#34;# Time:&#34;</span> .strftime<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%F %T&#34;</span><span style="color:#f92672">))</span>
+ <span style="color:#ae81ff">12</span>         call setline<span style="color:#f92672">(</span>5,<span style="color:#e6db74">&#34;# Description: &#34;</span><span style="color:#f92672">)</span>
+ <span style="color:#ae81ff">13</span>         call append<span style="color:#f92672">(</span>line<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">)</span>, <span style="color:#e6db74">&#34;\# File Name: &#34;</span>.expand<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%&#34;</span><span style="color:#f92672">))</span>
+ <span style="color:#ae81ff">14</span>     endif
+ <span style="color:#ae81ff">15</span>     autocmd BufNewFile * normal G
+ <span style="color:#ae81ff">16</span> endfunc
+</code></pre></div><ol start="3">
+<li>
+<p>脚本的执行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sh/bash   scripts.sh 
+chown +x   ./scripts.sh  <span style="color:#f92672">&amp;&amp;</span> ./scripts.sh  
+</code></pre></div></li>
+</ol>
+<p>source scripts.sh
+.  scripts.sh
+cat oldboyedu.sh |bash  # 效率较低</p>
+<pre><code>
+其中`source` 和`.` 都是在当前的shell中执行一个文件中的命令
+
+而`sh`会新建一个进程去执行一个文件中的命令
+
+sh和bash的关系:
+
+```bash
+which sh
+&gt; /bin/sh
+
+ll /bin/sh
+&gt; lrwxrwxrwx 1 root root 4 Jul 25 21:47 /bin/sh -&gt; bash
+</code></pre><ol start="4">
+<li>变量</li>
+</ol>
+<ul>
+<li>
+<p>环境变量</p>
+<p><code>env/declare/set/export -p</code> 这四个命令 输出的结果有些不同</p>
+<p>配置文件的读取顺序:</p>
+<p>① /etc/profile</p>
+<p>② ~/.bash_profile</p>
+<p>③ ~/.bashrc</p>
+<p>④ /etc/bashrc</p>
+</li>
+<li>
+<p>普通变量</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">a<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+b<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1&#39;</span>
+c<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>
+a<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+echo <span style="color:#e6db74">&#34;</span>$a<span style="color:#e6db74">&#34;</span>
+&gt; <span style="color:#ae81ff">1</span>
+echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>b<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+&gt; <span style="color:#ae81ff">1</span>
+echo <span style="color:#e6db74">&#34;</span>$c<span style="color:#e6db74">&#34;</span>
+&gt; <span style="color:#ae81ff">1</span>
+</code></pre></div><p>连续普通字符串内容赋值给变量，不管用什么引号或者不用引号，它的内容是什么，打印变量就输出什么</p>
+<ul>
+<li>
+<p>位置变量</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$0</td>
+<td>获取当前执行shell脚本的文件名,执行时带路径,则包括路径</td>
+</tr>
+<tr>
+<td>$n</td>
+<td>获取当前执行shell脚本的第n个参数,n:1&hellip;9,如果n大于9用大括号括起来{10}</td>
+</tr>
+<tr>
+<td>$#</td>
+<td>获取当前执行的shell脚本后面接的参数的个数</td>
+</tr>
+<tr>
+<td>$*/$@</td>
+<td>获取当前shell的所有传参的参数</td>
+</tr>
+<tr>
+<td>&ldquo;$*&rdquo;</td>
+<td>将所有的参数视为单个字符串</td>
+</tr>
+<tr>
+<td>&ldquo;$@&rdquo;</td>
+<td>将所有的参数视为不同的独立字符,多用于传递参数</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#./test.sh 1s asa 2 3 4 5 6</span>
+  
+set -v <span style="color:#75715e">#用于调试</span>
+set -x
+test<span style="color:#f92672">(){</span>
+    mm<span style="color:#f92672">=</span>$1
+    echo $mm
+<span style="color:#f92672">}</span>
+echo $*
++ echo 1s asa <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
+1s asa <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
+test $*
++ test 1s asa <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
++ mm<span style="color:#f92672">=</span>1s
+echo <span style="color:#e6db74">&#34;</span>$*<span style="color:#e6db74">&#34;</span>
++ echo <span style="color:#e6db74">&#39;1s asa 2 3 4 5 6&#39;</span>
+1s asa <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
+  
+test <span style="color:#e6db74">&#34;</span>$*<span style="color:#e6db74">&#34;</span>
++ test <span style="color:#e6db74">&#39;1s asa 2 3 4 5 6&#39;</span>
++ mm<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1s asa 2 3 4 5 6&#39;</span>
++ echo 1s asa <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
+1s asa <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
+echo $@
++ echo 1s asa <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
+1s asa <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
+echo <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
++ echo 1s asa <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
+1s asa <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
+test <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
++ test 1s asa <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
++ mm<span style="color:#f92672">=</span>1s
+</code></pre></div></li>
+<li>
+<p>进程状态变量</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$?</td>
+<td>获取上一个指令的执行状态返回值(0成功,非零为失败)</td>
+</tr>
+<tr>
+<td>$$</td>
+<td>获取当前执行的shell脚本的PID</td>
+</tr>
+<tr>
+<td>$!</td>
+<td>获取上一个后台工作的进程的PID</td>
+</tr>
+<tr>
+<td>$_</td>
+<td>获取在此之前执行的命令或脚本的最后一个参数</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>export命令</p>
+<p>说明:</p>
+<ol>
+<li>
+<p>在当前shell窗口及子shell窗口生效</p>
+</li>
+<li>
+<p>在新开的shell窗口不会生效，生效需要写入配置文件</p>
+</li>
+</ol>
+</li>
+<li>
+<p>反引号赋值</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">time<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>data<span style="color:#e6db74">`</span>
+echo $time
+&gt; Fri Jan  <span style="color:#ae81ff">3</span> 21:44:04 CST <span style="color:#ae81ff">2020</span>
+</code></pre></div></li>
+<li>
+<p>TIPS</p>
+<ol>
+<li>
+<p>变量名通常要大写。</p>
+</li>
+<li>
+<p>变量可以在<strong>自身的Shell及子Shell</strong>中使用。</p>
+</li>
+<li>
+<p>常用export来定义环境变量。</p>
+</li>
+<li>
+<p>执行env默认可以显示所有的环境变量名称及对应的值。</p>
+</li>
+<li>
+<p>输出时用“$变量名”，取消时用“<strong>unset</strong>变量名*”。</p>
+</li>
+<li>
+<p>书写crond定时任务时要注意，脚本要用到的环境变量最好先在所执行的<strong>Shell脚本</strong>中<strong>重新</strong>定义。</p>
+</li>
+<li>
+<p>如果希望<strong>环境变量永久生效</strong>，则可以将其放在用户环境变量文件或全局环境变量文件里。</p>
+</li>
+<li>
+<p>只有在变量的值中有空格时,才需要使用引号,<strong>单引号和双引号</strong>的区别在于是否能解析特殊符号</p>
+</li>
+<li>
+<p>如果内容是纯数字简单连续的字符(不喊空格)时,可以不使用引号</p>
+</li>
+<li>
+<p>没有特殊情况时,字符串一律使用双引号定义赋值</p>
+</li>
+<li>
+<p>当变量中的内容需要原样输出时,使用单引号</p>
+</li>
+<li>
+<p>希望变量的内容是命令的解析结果时,要使用反引号或者$()把命令括起来在赋值</p>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="5">
+<li>变量子串</li>
+</ol>
+<ul>
+<li>说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${v}</td>
+<td>返回变量$v的内容</td>
+</tr>
+<tr>
+<td>${#v}</td>
+<td>返回$v的长度</td>
+</tr>
+<tr>
+<td>${v:offset}</td>
+<td>返回在变量${v}中，从位置offset之后开始提取子串到结尾</td>
+</tr>
+<tr>
+<td>${v:offset:lenght}</td>
+<td>在变量${v}中，从位置offset之后开始提取长度为length的子串</td>
+</tr>
+<tr>
+<td>${v#word}</td>
+<td>从变量${v}开头开始删除最短匹配的word子串</td>
+</tr>
+<tr>
+<td>${v##word}</td>
+<td>从变量${v}开头开始删除最长匹配的word子串</td>
+</tr>
+<tr>
+<td>${v%word}</td>
+<td>从变量${v}结尾开始删除最短匹配的word子串</td>
+</tr>
+<tr>
+<td>${v%%word}</td>
+<td>从变量${v}结尾开始删除最长匹配的word子串</td>
+</tr>
+<tr>
+<td>${parameter/pattem/string}</td>
+<td>使用string代替第一个匹配的pattern</td>
+</tr>
+<tr>
+<td>${parameter//pattem/string}</td>
+<td>使用string代替所有匹配的pattern</td>
+</tr>
+</tbody>
+</table>
+<p>范例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># ${v:offset:lenght}</span>
+mm<span style="color:#f92672">=</span><span style="color:#ae81ff">0123456</span>
+echo <span style="color:#e6db74">${</span>mm:1:0<span style="color:#e6db74">}</span>
+&gt; 
+echo <span style="color:#e6db74">${</span>mm:1:1<span style="color:#e6db74">}</span>
+&gt; <span style="color:#ae81ff">1</span>
+echo <span style="color:#e6db74">${</span>mm:1:2<span style="color:#e6db74">}</span>
+&gt; <span style="color:#ae81ff">12</span>
+echo <span style="color:#e6db74">${</span>mm:1<span style="color:#66d9ef">:-</span>1<span style="color:#e6db74">}</span>
+&gt; <span style="color:#ae81ff">12345</span>
+
+<span style="color:#75715e"># ## 与 # </span>
+file<span style="color:#f92672">=</span>/dir1/dir2/dir3/my.file.txt
+&gt; file<span style="color:#f92672">=</span>/dir1/dir2/dir3/my.file.txt
+echo <span style="color:#e6db74">${</span>file#*/<span style="color:#e6db74">}</span>
+&gt; dir1/dir2/dir3/my.file.txt
+echo <span style="color:#e6db74">${</span>file##*/<span style="color:#e6db74">}</span>
+&gt; my.file.txt
+echo <span style="color:#e6db74">${</span>file#*.<span style="color:#e6db74">}</span>
+&gt; file.txt
+echo <span style="color:#e6db74">${</span>file##*.<span style="color:#e6db74">}</span>
+&gt; txt
+
+<span style="color:#75715e"># %% 与 %</span>
+echo <span style="color:#e6db74">${</span>file%/*<span style="color:#e6db74">}</span>
+&gt; /dir1/dir2/dir3
+echo <span style="color:#e6db74">${</span>file%%/*<span style="color:#e6db74">}</span>
+&gt; 
+echo <span style="color:#e6db74">${</span>file%.*<span style="color:#e6db74">}</span>
+&gt; /dir1/dir2/dir3/my.file
+echo <span style="color:#e6db74">${</span>file%%.*<span style="color:#e6db74">}</span>
+&gt; /dir1/dir2/dir3/my
+
+<span style="color:#75715e"># // 与 /</span>
+
+echo <span style="color:#e6db74">${</span>file/dir/path<span style="color:#e6db74">}</span>
+&gt; /path1/dir2/dir3/my.file.txt
+echo <span style="color:#e6db74">${</span>file//dir/path<span style="color:#e6db74">}</span>
+&gt; /path1/path2/path3/my.file.txt
+
+<span style="color:#75715e"># // split 字符串</span>
+list<span style="color:#f92672">=</span>1,2,3,4,5
+echo <span style="color:#e6db74">${</span>list//,/ <span style="color:#e6db74">}</span>
+&gt; <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span>
+array<span style="color:#f92672">=(</span><span style="color:#e6db74">${</span>list//,/ <span style="color:#e6db74">}</span><span style="color:#f92672">)</span>
+echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>array[*]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+&gt; <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span>
+</code></pre></div><ol start="6">
+<li>
+<p>特殊扩展变量</p>
+<p>说明</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${v:+word}</td>
+<td>(v != &lsquo;') ?word :</td>
+</tr>
+<tr>
+<td>${v:-word}</td>
+<td>(v != &lsquo;') ? :word</td>
+</tr>
+<tr>
+<td>${v:?word}</td>
+<td>(v != &lsquo;') ? :(word;exit -1)</td>
+</tr>
+<tr>
+<td>${v:=word}</td>
+<td>(v != &lsquo;') ? :(word;v=word)</td>
+</tr>
+<tr>
+<td>${v-word}</td>
+<td>(v not exist) ?word :v</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>条件表达式</p>
+</li>
+</ol>
+<ul>
+<li>文件判断</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>常用文件测试操作符</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d文件，d的全拼为directory</td>
+<td>文件存在且为目录则为真，即测试表达式成立</td>
+</tr>
+<tr>
+<td>-f文件，f的全拼为file</td>
+<td>文件存在且为普通文件则为真，即测试表达式成立</td>
+</tr>
+<tr>
+<td>-e文件，e的全拼为exist</td>
+<td>文件存在则为真，即测试表达式成立。注意区别于“-f”，-e不辨别是目录还是文件</td>
+</tr>
+<tr>
+<td>-r文件，r的全拼为read</td>
+<td>文件存在且可读则为真，即测试表达式成立</td>
+</tr>
+<tr>
+<td>-s文件，s的全拼为size</td>
+<td>文件存在且文件大小不为0则为真，即测试表达式成立</td>
+</tr>
+<tr>
+<td>-w文件，w的全拼为write</td>
+<td>文件存在且可写则为真，即测试表达式成立</td>
+</tr>
+<tr>
+<td>-x文件，x的全拼为executable</td>
+<td>文件存在且可执行则为真，即测试表达式成立</td>
+</tr>
+<tr>
+<td>-L文件，L的全拼为link</td>
+<td>文件存在且为链接文件则为真，即测试表达式成立</td>
+</tr>
+<tr>
+<td>fl -nt f2，nt 的全拼为 newer than</td>
+<td>文件fl比文件f2新则为真，即测试表达式成立。根据文件的修改时间来计算</td>
+</tr>
+<tr>
+<td>fl -ot f2，ot 的全拼为 older than</td>
+<td>文件fl比文件f2旧则为真，即测试表达式成立。根据文件的修改时间来计算</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>字符串判断</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>常用字符串测试操作符</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>-n &ldquo;字符串&rdquo;</strong></td>
+<td>若字符串的长度不为0,则为真，即测试表达式成立，n可以理解为no zero</td>
+</tr>
+<tr>
+<td><strong>-Z &ldquo;字符串&rdquo;</strong></td>
+<td>若字符串的长度为0,则为真，即测试表达式成立，z可以理解为zero的缩写</td>
+</tr>
+<tr>
+<td><strong>&ldquo;串1&rdquo;== &ldquo;串2&rdquo;</strong></td>
+<td>若字符串1等于字符串2,则为真，即测试表达式成立，可使用&rdquo;==&ldquo;代替&rdquo;=&quot;</td>
+</tr>
+<tr>
+<td><strong>&ldquo;串1&rdquo;!= &ldquo;串*2&rdquo;</strong></td>
+<td>若字符串1不等于字符串2,则为真，即测试表达式成立，但不能用&quot;!==&ldquo;代替&rdquo;!=&quot;</td>
+</tr>
+<tr>
+<td>1.对于字符串的测试，一定要将字符串加<strong>双引号</strong>之后再进行比较。</td>
+<td>2.空格非空</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>整数判断</p>
+<table>
+<thead>
+<tr>
+<th>在**[]**以及**test**中使用的比较符号</th>
+<th>在**(())**和**[[]]**中使用的比较符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>-eq</strong></td>
+<td><strong>==/=</strong></td>
+<td>相等，全拼为equal</td>
+</tr>
+<tr>
+<td><strong>-ne</strong></td>
+<td><strong>!=</strong></td>
+<td>不相等，全拼为not equal</td>
+</tr>
+<tr>
+<td><strong>-gt</strong></td>
+<td><strong>&gt;</strong></td>
+<td>大于，全拼为greater than</td>
+</tr>
+<tr>
+<td><strong>-ge</strong></td>
+<td><strong>&gt;=</strong></td>
+<td>大于等于，全拼为greater equal</td>
+</tr>
+<tr>
+<td><strong>-lt</strong></td>
+<td><strong>&lt;</strong></td>
+<td>小于，全拼为丨ess than</td>
+</tr>
+<tr>
+<td><strong>-le</strong></td>
+<td><strong>&lt;=</strong></td>
+<td>小于等于，全拼为less equal</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>逻辑符号</p>
+<table>
+<thead>
+<tr>
+<th>在**[]**和**test**中使用的操作符</th>
+<th><strong>说明</strong></th>
+<th>在**[[]]**和**(())**中使用的操作符</th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>-a</strong></td>
+<td>[ 条件A -a 条件B ]A与B都要成立，整个表达式才成立</td>
+<td><strong>&amp;&amp;</strong></td>
+<td>and，与，两端都为真，则结果为真</td>
+</tr>
+<tr>
+<td><strong>-o</strong></td>
+<td>[ 条件A -o 条件B]A与B都不成立，整个表达式才不成立</td>
+<td><strong>||</strong></td>
+<td>or，或，两端有一个为真，则结果为真</td>
+</tr>
+<tr>
+<td><strong>！</strong></td>
+<td>非</td>
+<td><strong>!</strong></td>
+<td>not，非，两端相反，则结果为真</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ol start="8">
+<li>if条件语句</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">file<span style="color:#f92672">=</span>$1
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -d $file <span style="color:#f92672">]</span>
+<span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74"> is a dir&#34;</span>
+<span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> -f $file <span style="color:#f92672">]</span>
+<span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74"> is a file&#34;</span>
+<span style="color:#66d9ef">else</span>
+    echo <span style="color:#e6db74">&#34;end&#34;</span>
+<span style="color:#66d9ef">fi</span>
+</code></pre></div><ol start="8">
+<li>
+<p>case条件语句</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># . ./test.sh -a 1 -b 2 -c 3 -d 4 -1</span>
+<span style="color:#75715e"># &gt;</span>
+<span style="color:#75715e"># 2</span>
+<span style="color:#75715e"># 3</span>
+<span style="color:#75715e"># 4</span>
+<span style="color:#75715e"># e</span>
+p<span style="color:#f92672">(){</span>
+     str<span style="color:#f92672">=</span>$1
+     echo <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+<span style="color:#f92672">}</span>
+main<span style="color:#f92672">(){</span>
+<span style="color:#66d9ef">while</span> getopts <span style="color:#e6db74">&#34;🅰️b:c:d:e:&#34;</span> OPT
+<span style="color:#66d9ef">do</span>
+    <span style="color:#66d9ef">case</span> $OPT in
+        a<span style="color:#f92672">)</span> p $OPTARG;;
+        b<span style="color:#f92672">)</span> p $OPTARG;;
+        c<span style="color:#f92672">)</span> p $OPTARG;;
+        d<span style="color:#f92672">)</span> p $OPTARG;;
+        e<span style="color:#f92672">)</span> p $OPTARG;;
+        :<span style="color:#f92672">)</span> p $OPTARG;;
+        ?<span style="color:#f92672">)</span> p $OPTARG;;
+    <span style="color:#66d9ef">esac</span>
+<span style="color:#66d9ef">done</span>
+<span style="color:#f92672">}</span>
+   
+main <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+   
+   
+</code></pre></div></li>
+<li>
+<p>for循环</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>列表for循环</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># . ./test.sh 1 2 3 </span>
+<span style="color:#75715e"># 1 lenght: 1</span>
+<span style="color:#75715e"># 13 lenght: 2</span>
+<span style="color:#75715e"># 43 lenght: 2</span>
+<span style="color:#75715e"># 4 lenght: 1</span>
+<span style="color:#75715e"># 0 lenght: 1</span>
+<span style="color:#75715e"># 5 lenght: 1</span>
+  
+array<span style="color:#f92672">=(</span><span style="color:#ae81ff">1</span> <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">43</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">0</span> 5<span style="color:#f92672">)</span>
+main<span style="color:#f92672">(){</span>
+    <span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">${</span>array[*]<span style="color:#e6db74">}</span>
+    <span style="color:#66d9ef">do</span>
+        echo <span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74"> lenght: </span><span style="color:#e6db74">${#</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    <span style="color:#66d9ef">done</span>
+<span style="color:#f92672">}</span>
+  
+main <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+</code></pre></div></li>
+<li>
+<p>不带列表for循环</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># . ./test.sh 1 2 3 </span>
+<span style="color:#75715e"># 1</span>
+<span style="color:#75715e"># 2</span>
+<span style="color:#75715e"># 3</span>
+<span style="color:#75715e"># 1</span>
+<span style="color:#75715e"># 2</span>
+<span style="color:#75715e"># 3</span>
+  
+<span style="color:#66d9ef">for</span> i
+<span style="color:#66d9ef">do</span>
+    echo $i
+<span style="color:#66d9ef">done</span>
+<span style="color:#75715e">## 效果等同于:</span>
+<span style="color:#66d9ef">for</span> i in $*
+<span style="color:#66d9ef">do</span>
+    echo $i
+<span style="color:#66d9ef">done</span>
+</code></pre></div></li>
+<li>
+<p>C风格for循环</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">array<span style="color:#f92672">=(</span><span style="color:#ae81ff">1</span> <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">43</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">0</span> 5<span style="color:#f92672">)</span>
+<span style="color:#66d9ef">for</span><span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>0;i&lt;<span style="color:#e6db74">${#</span>array[@]<span style="color:#e6db74">}</span>;i++<span style="color:#f92672">))</span>
+<span style="color:#66d9ef">do</span>
+    echo <span style="color:#e6db74">${</span>array[$i]<span style="color:#e6db74">}</span>
+<span style="color:#66d9ef">done</span>
+</code></pre></div></li>
+</ul>
+<ol start="8">
+<li>
+<p>while循环</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#while :创建守护进程</span>
+<span style="color:#75715e">#临时监听81端口,达到服务器的效果</span>
+<span style="color:#75715e"># nc -l 81</span>
+<span style="color:#66d9ef">while</span> true
+<span style="color:#66d9ef">do</span>
+    echo <span style="color:#e6db74">&#34;ok&#34;</span>|nc -l <span style="color:#ae81ff">81</span>
+<span style="color:#66d9ef">done</span>
+   
+</code></pre></div></li>
+<li>
+<p>文件读取</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>迭代获取文件的每一行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#1</span>
+<span style="color:#66d9ef">while</span> read line
+<span style="color:#66d9ef">do</span>
+    echo $line
+<span style="color:#66d9ef">done</span> &lt; $1
+<span style="color:#75715e">#2</span>
+cat $1| <span style="color:#66d9ef">while</span> read line
+<span style="color:#66d9ef">do</span>
+    echo $line
+<span style="color:#66d9ef">done</span>
+<span style="color:#75715e">#3</span>
+exec &lt; $1
+<span style="color:#66d9ef">while</span> read line
+<span style="color:#66d9ef">do</span>
+    echo $line
+<span style="color:#66d9ef">done</span>
+</code></pre></div></li>
+<li>
+<p>迭代获取每一个单词</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">line<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sasa sas as as asas&#34;</span>
+array<span style="color:#f92672">=(</span>$line<span style="color:#f92672">)</span>
+<span style="color:#66d9ef">for</span> word in <span style="color:#e6db74">${</span>array[@]<span style="color:#e6db74">}</span>;
+  <span style="color:#66d9ef">do</span>
+  echo $word;
+<span style="color:#66d9ef">done</span>
+</code></pre></div></li>
+<li>
+<p>迭代获取每一个字符</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">word<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wordwordword&#34;</span>
+<span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>0;i&lt;<span style="color:#e6db74">${#</span>word<span style="color:#e6db74">}</span>;i++<span style="color:#f92672">))</span>
+<span style="color:#66d9ef">do</span>
+    echo <span style="color:#e6db74">${</span>word:$i:1<span style="color:#e6db74">}</span>
+<span style="color:#66d9ef">done</span>
+</code></pre></div></li>
+<li>
+<p>统计文章的行数和词数,字节数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">exec &lt; $1
+lines<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+total_words<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+bytes<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">while</span> read line
+<span style="color:#66d9ef">do</span>
+    echo <span style="color:#e6db74">&#34;</span>$lines<span style="color:#e6db74">:&#34;</span>$line
+    words<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+    array<span style="color:#f92672">=(</span>$line<span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">for</span> word in <span style="color:#e6db74">${</span>array[@]<span style="color:#e6db74">}</span>;
+    <span style="color:#66d9ef">do</span>
+        echo <span style="color:#e6db74">&#34;</span>$words<span style="color:#e6db74">:&#34;</span>$word;
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>0;i&lt;<span style="color:#e6db74">${#</span>word<span style="color:#e6db74">}</span>;i++<span style="color:#f92672">))</span>
+        <span style="color:#66d9ef">do</span>
+            echo  <span style="color:#e6db74">${</span>word:$i:1<span style="color:#e6db74">}</span>;
+        <span style="color:#66d9ef">done</span>
+        <span style="color:#f92672">((</span>words++<span style="color:#f92672">))</span>
+        <span style="color:#f92672">((</span>total_words<span style="color:#f92672">+=</span>words<span style="color:#f92672">))</span>
+    <span style="color:#66d9ef">done</span>
+    <span style="color:#f92672">((</span>bytes<span style="color:#f92672">+=</span><span style="color:#e6db74">${#</span>line<span style="color:#e6db74">}</span><span style="color:#f92672">))</span>
+    <span style="color:#f92672">((</span>lines++<span style="color:#f92672">))</span>
+<span style="color:#66d9ef">done</span>
+echo <span style="color:#e6db74">&#34;lines:</span>$lines<span style="color:#e6db74">;total_words:</span>$total_words<span style="color:#e6db74">;bytes:</span>$bytes<span style="color:#e6db74">(with out &#39; |\r|\n&#39;)&#34;</span>
+</code></pre></div></li>
+</ul>
+<ol start="10">
+<li>分割字符串转为数组</li>
+</ol>
+<ul>
+<li>
+<p>使用{str//,/ }处理</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">str<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1,2,3,4,5&#34;</span>
+arr<span style="color:#f92672">=(</span><span style="color:#e6db74">${</span>str//,/<span style="color:#e6db74">}</span><span style="color:#f92672">)</span>
+echo <span style="color:#e6db74">${</span>arr[@]<span style="color:#e6db74">}</span>
+</code></pre></div></li>
+<li>
+<p>使用tr</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">str<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1,2,3,4,5&#34;</span>   
+arr<span style="color:#f92672">=(</span><span style="color:#e6db74">`</span>echo $str | tr <span style="color:#e6db74">&#39;,&#39;</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#e6db74">`</span><span style="color:#f92672">)</span>
+echo <span style="color:#e6db74">${</span>arr[@]<span style="color:#e6db74">}</span> 
+</code></pre></div></li>
+<li>
+<p>awk</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">str<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1,2,3,4,5&#34;</span>
+arr<span style="color:#f92672">=(</span><span style="color:#66d9ef">$(</span>echo $str|awk <span style="color:#e6db74">&#39;BEGIN{FS=&#34;,&#34;;OFS=&#34; &#34;}{print $1,$2,$3,$4,$5}&#39;</span><span style="color:#66d9ef">)</span><span style="color:#f92672">)</span>
+echo <span style="color:#e6db74">${</span>arr[@]<span style="color:#e6db74">}</span>
+</code></pre></div></li>
+<li>
+<p>IFS</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">str<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1,2,3,4,5&#34;</span>
+IFS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;,&#34;</span>
+arr<span style="color:#f92672">=(</span>str<span style="color:#f92672">)</span>
+echo <span style="color:#e6db74">${</span>str[@]<span style="color:#e6db74">}</span>
+</code></pre></div></li>
+</ul>
+<ol start="11">
+<li>array</li>
+</ol>
+<ul>
+<li>
+<p>定义数组<code>arr=(001 002 003)</code></p>
+</li>
+<li>
+<p>定义数组<code>arr=([1]=321 [3]=ewq)</code></p>
+</li>
+<li>
+<p>命令执行结果赋值`</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dir<span style="color:#f92672">=(</span><span style="color:#e6db74">`</span>ls<span style="color:#e6db74">`</span><span style="color:#f92672">)</span>
+dir<span style="color:#f92672">=(</span><span style="color:#66d9ef">$(</span>ls<span style="color:#66d9ef">)</span><span style="color:#f92672">)</span>
+</code></pre></div></li>
+<li>
+<p>数组<strong>长度</strong><code>${#arr[@]}</code></p>
+</li>
+<li>
+<p>获取<strong>所有元素</strong><code>${arr[@]}</code></p>
+</li>
+<li>
+<p>获取所有的<strong>下标</strong><code>${!arr[@]}</code></p>
+</li>
+<li>
+<p>根据索引(下标)获取元素<code>${arr[1]}</code></p>
+</li>
+<li>
+<p><strong>遍历数组</strong><code> for i in ${arr[@]};do echo $i;done</code></p>
+</li>
+<li>
+<p><strong>遍历数组</strong><code>for i in ${!arr[@]};do echo ${arr[$i]};done</code></p>
+</li>
+<li>
+<p>遍历数组</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">`</span>eval echo <span style="color:#f92672">{</span>1..<span style="color:#e6db74">${#</span>arr[@]<span style="color:#e6db74">}</span><span style="color:#f92672">}</span><span style="color:#e6db74">`</span>;<span style="color:#66d9ef">do</span> echo <span style="color:#e6db74">${</span>arr[$i]<span style="color:#e6db74">}</span>;<span style="color:#66d9ef">done</span>
+</code></pre></div></li>
+<li>
+<p>增加元素<code>arr[3]=004</code></p>
+</li>
+<li>
+<p>修改元素<code>arr[3]=005</code></p>
+</li>
+<li>
+<p>删除元素<code>unset arr[2]</code></p>
+</li>
+</ul>
+<ol start="11">
+<li>map</li>
+</ol>
+<ul>
+<li>定义map<code>declare -A map=([key1]=value1 [key2]=value2 [key3]=value3)</code></li>
+<li>获取所有<strong>元素</strong><code>${map[@]}</code></li>
+<li>获取所有<strong>keys</strong><code>${!map[@]}</code></li>
+<li>根据key获取value<code>${map[key1]}</code></li>
+<li>修改元素<code>map[key1]=&quot;new value&quot;</code></li>
+<li><strong>遍历</strong>map<code>for i in ${!map[@]};do echo ${map[$i]};done</code></li>
+</ul>
+</div><div class="post-copyright mb-4">
+  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+</div>
+<div class="post-reward mb-4 text-center">
+  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
+    <i class="fas fa-fw fa-medal"></i>打赏
+  </button>
+</div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay"></i>支付宝
+            </a>
+          </li><li class="nav-item" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin"></i>微信
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg" loading="lazy" />
+          </div><div class="tab-pane fade post-reward-content show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg" loading="lazy" />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div><div class="post-navs d-flex mb-3 justify-content-between">
+  <div class="post-nav w-50"><div class="prev-post">
+      <a href="/posts/redis/redis%E9%85%8D%E7%BD%AE/">Redis基础配置</a>
+    </div></div>
+  <div class="post-nav flex-row-reverse"><div class="next-post">
+      <a href="/posts/shell/shell%E5%9F%BA%E7%A1%80/">Shell 基础</a>
+    </div></div>
+</div><section class="related-posts">
+  <h3>相关文章</h3>
+  <ul class="related-posts"><li><a href="/posts/shell/shell%E5%9F%BA%E7%A1%80/">Shell 基础</a></li></ul>
+</section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+  repo="Euraxluo/Euraxluo.github.io"
+  issue-term="pathname"
+  label="✨💬✨"
+  theme="github-dark"
+  crossorigin="anonymous"
+  async>
+</script></div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container"><section class="profile surface row">
+  <div class="col-xl-6 d-flex align-items-center justify-content-center">
+    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  </div>
+  <div class="col-xl-6">
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+</section><section class="featured-posts row surface">
+  <h4>精选文章</h4>
+  <ul><li><a href="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li><li><a href="/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="/posts/note/slam/">SLAM</a></li></ul>
+</section><section class="recent-posts row surface">
+  <h4>最近文章</h4>
+  <ul><li><a href="/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+</section>
+<section class="taxonomy-categories row surface">
+  <h4>
+    <a href="/categories">分类</a>
+  </h4>
+  <div><a href="/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
+      Shortcode <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+      java <span class="badge rounded-pill">8</span>
+    </a><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-series row surface">
+  <h4>
+    <a href="/series">专栏</a>
+  </h4>
+  <div><a href="/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">3</span>
+    </a><a href="/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-tags row surface">
+  <h4>
+    <a href="/tags">标签</a>
+  </h4>
+  <div><a href="/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
+      python <span class="badge rounded-pill">2</span>
+    </a><a href="/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a></div>
+</section></div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a>
+  </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
+        <i class="fab fa-fw fa-2x fa-github"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
+        <i class="fab fa-fw fa-2x fa-qq"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
+        <i class="fab fa-fw fa-2x fa-zhihu"></i>
+      </a>
+    </li></nav>
+<div class="copyright mb-2">
+  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+</div>
+<script>
+  window.parent.postMessage(window.location.href, "*");
+</script><div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
+</div></footer>
+<a id="btnScrollToTop" class="btn-scroll-to-top">
+  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
+</a>
+</body>
+</html>

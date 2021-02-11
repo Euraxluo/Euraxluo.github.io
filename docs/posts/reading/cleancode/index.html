@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CleanCode读书笔记 - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="description" content="CleanCode读书笔记" /><meta itemprop="name" content="CleanCode读书笔记">
+<meta itemprop="description" content="CleanCode读书笔记">
+<meta itemprop="datePublished" content="2020-10-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-10-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1543">
+
+
+
+<meta itemprop="keywords" content="ClearnCode," />
+<meta property="og:title" content="CleanCode读书笔记" />
+<meta property="og:description" content="CleanCode读书笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/reading/cleancode/" />
+<meta property="article:published_time" content="2020-10-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-22T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CleanCode读书笔记"/>
+<meta name="twitter:description" content="CleanCode读书笔记"/>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+</head>
+  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/search">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
+    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
+  </div>
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/archives">
+            <i class="fas fa-fw fa-file-archive"></i>归档
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/categories">
+            <i class="fas fa-fw fa-folder"></i>分类
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/tags">
+            <i class="fas fa-fw fa-tags"></i>标签
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/series">
+            <i class="fas fa-fw fa-columns"></i>专栏
+          </a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Repos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo" target="_blank">
+                <i class="fab fa-fw fa-github"></i>Euraxluo
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                <i class="fab fa-fw fa-github"></i>fastgrpc
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                <i class="fab fa-fw fa-github"></i>ProjectPractice
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                <i class="fab fa-fw fa-github"></i>pyantv
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                <i class="fab fa-fw fa-github"></i>simple-pythonvm
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/verb" target="_blank">
+                <i class="fab fa-fw fa-github"></i>verb
+              </a>
+            </li></ul>
+        </li></ul>
+      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
+    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-language" ></i>
+  </a>
+</li>
+<script type="text/html" id="languagesPopoverBody">
+  <ul class="languages list-group"><li class="language list-group-item">
+      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
+      <a href="/zh-tw/">繁體中文</a></li></ul>
+</script>
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#palettesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-palette" ></i>
+  </a>
+</li>
+<script type="text/html" id="palettesPopoverBody">
+  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
+      <a>蓝色</a>
+    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
+      <a>蓝灰色</a>
+    </li><li id="palette-brown" class="palette list-group-item bg-brown">
+      <a>棕色</a>
+    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
+      <a>青色</a>
+    </li><li id="palette-green" class="palette list-group-item bg-green">
+      <a>绿色</a>
+    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
+      <a>靛青色</a>
+    </li><li id="palette-orange" class="palette list-group-item bg-orange">
+      <a>橙色</a>
+    </li><li id="palette-pink" class="palette list-group-item bg-pink">
+      <a>粉色</a>
+    </li><li id="palette-purple" class="palette list-group-item bg-purple">
+      <a>紫色</a>
+    </li><li id="palette-red" class="palette list-group-item bg-red">
+      <a>红色</a>
+    </li><li id="palette-teal" class="palette list-group-item bg-teal">
+      <a>蓝绿色</a>
+    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
+      <a>黄色</a>
+    </li></ul>
+</script>
+
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#fontSizesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-font" ></i>
+  </a>
+</li>
+<script type="text/html" id="fontSizesPopoverBody">
+  <form class="font-size-switcher-form">
+    <label for="fontSize" class="form-label">字体大小</label>
+    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+  </form>
+</script>
+<form class="mode-switcher-form d-flex align-items-center">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="modeSwitcher">
+  </div>
+</form>
+</ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-md-8">
+  <div class="container"><nav class="row" aria-label="breadcrumb">
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/">主页</a></li><li class="breadcrumb-item"><a href="/posts/">posts</a></li><li class="breadcrumb-item"><a href="/posts/reading/">reading</a></li><li class="breadcrumb-item active">CleanCode读书笔记</li></ol>
+</nav><article class="post row surface">
+  <h1 class="post-title my-3">CleanCode读书笔记</h1><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2020-10-22
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>4 分钟阅读
+  </span>
+<a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy">#读书笔记</a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy">#读书笔记</a><a href="/tags/clearncode/" class="post-taxonomy">#ClearnCode</a></div>
+<div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
+  <div class="accordion-item">
+    <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
+      <i class="fas fa-fw fa-bars"></i>目录
+    </div>
+    <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
+      <div class="accordion-body mt-2">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#最小惊异原则">最小惊异原则</a>
+      <ul>
+        <li><a href="#1从一而终便于修改">1.从一而终，便于修改</a></li>
+        <li><a href="#2遵守大家的约定">2.遵守大家的约定</a></li>
+      </ul>
+    </li>
+    <li><a href="#有意义的命名">有意义的命名</a>
+      <ul>
+        <li><a href="#1名副其实">1.名副其实</a></li>
+        <li><a href="#2避免误导">2.避免误导</a></li>
+        <li><a href="#3使用读得出来的名称">3.使用读得出来的名称</a></li>
+        <li><a href="#4使用可搜索的名称">4.使用可搜索的名称</a></li>
+        <li><a href="#5避免使用编码和前缀">5.避免使用编码和前缀</a></li>
+        <li><a href="#6避免思维映射">6.避免思维映射</a></li>
+        <li><a href="#7类名和方法名">7.类名和方法名</a></li>
+        <li><a href="#8宁可明确勿为好玩">8.宁可明确，勿为好玩</a></li>
+        <li><a href="#9每个概念对应一个词">9.每个概念对应一个词</a></li>
+        <li><a href="#10避免将同一单词用于不同目的">10.避免将同一单词用于不同目的</a></li>
+        <li><a href="#11使用解决方案领域名称">11.使用解决方案领域名称</a></li>
+        <li><a href="#12使用源自所涉问题领域的名称">12.使用源自所涉问题领域的名称</a></li>
+        <li><a href="#13添加有意义的语境">13.添加有意义的语境</a></li>
+      </ul>
+    </li>
+    <li><a href="#2函数">2.函数</a>
+      <ul>
+        <li><a href="#1短小">1.短小</a></li>
+        <li><a href="#2只做一件事">2.只做一件事</a></li>
+        <li><a href="#3使用描述性的名称">3.使用描述性的名称</a></li>
+        <li><a href="#4函数参数应少并且不要使用输出参数">4.函数参数应少，并且不要使用输出参数</a></li>
+      </ul>
+    </li>
+    <li><a href="#3注释">3.注释</a>
+      <ul>
+        <li><a href="#1注释不能美化糟糕的代码">1.注释不能美化糟糕的代码</a></li>
+        <li><a href="#2注释的内容">2.注释的内容</a></li>
+      </ul>
+    </li>
+    <li><a href="#格式">格式</a>
+      <ul>
+        <li><a href="#1纵向格式">1.纵向格式</a></li>
+        <li><a href="#2横向格式">2.横向格式</a></li>
+      </ul>
+    </li>
+    <li><a href="#对象和数据结构">对象和数据结构</a>
+      <ul>
+        <li><a href="#1数据对象的反对称性">1.数据对象的反对称性</a></li>
+        <li><a href="#2demeter律">2.Demeter律</a></li>
+        <li><a href="#3dto">3.DTO</a></li>
+      </ul>
+    </li>
+    <li><a href="#错误和异常处理">错误和异常处理</a></li>
+    <li><a href="#类应该短小">类应该短小</a></li>
+    <li><a href="#启发">启发</a>
+      <ul>
+        <li><a href="#一般性问题">一般性问题</a></li>
+        <li><a href="#java">java</a></li>
+      </ul>
+    </li>
+    <li><a href="#单元测试及junit以后再读一遍">单元测试及JUnit以后再读一遍</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div><div class="post-content mb-3"><h1 id="cleancode读书笔记">CleanCode读书笔记</h1>
+<h2 id="最小惊异原则">最小惊异原则</h2>
+<h3 id="1从一而终便于修改">1.从一而终，便于修改</h3>
+<h3 id="2遵守大家的约定">2.遵守大家的约定</h3>
+<h2 id="有意义的命名">有意义的命名</h2>
+<h3 id="1名副其实">1.名副其实</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">命名需要注释来补充，那就不算名副其实</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">在命名时尽量采用有意义的名称，代码的简洁不会改变（运算符和常量的数量，嵌套数量）</span>
+
+</code></pre></div><h3 id="2避免误导">2.避免误导</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">避免使用与本意相驳的词</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">提防使用不同之处较小的词</span>
+
+<span style="color:#ae81ff">3.</span><span style="color:#960050;background-color:#1e0010">不要使用小写</span>l和大写O作为变量名
+
+<span style="color:#ae81ff">4.</span><span style="color:#960050;background-color:#1e0010">命名有区分，应当有明显的区分，应使读者可以鉴别</span>
+
+</code></pre></div><h3 id="3使用读得出来的名称">3.使用读得出来的名称</h3>
+<h3 id="4使用可搜索的名称">4.使用可搜索的名称</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">长名称胜于短名称，搜得到的名称胜于自造的名称</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">单字母仅用于短方法中的本地变量</span>
+
+<span style="color:#ae81ff">3.</span><span style="color:#960050;background-color:#1e0010">名称长短应与其作用域大小相对应</span>
+
+<span style="color:#ae81ff">4.</span><span style="color:#960050;background-color:#1e0010">若变量或常量可能在代码中多次使用，则应赋予其便于搜索的名称</span>
+
+</code></pre></div><h3 id="5避免使用编码和前缀">5.避免使用编码和前缀</h3>
+<h3 id="6避免思维映射">6.避免思维映射</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#960050;background-color:#1e0010">不应当让读者在脑中把你的名称翻译为他们熟知的名称</span>
+
+</code></pre></div><h3 id="7类名和方法名">7.类名和方法名</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">类名和对象名应该是名词</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">类名不应是动词</span>
+
+<span style="color:#ae81ff">3.</span><span style="color:#960050;background-color:#1e0010">方法名应当是动词或动词短语</span>
+
+<span style="color:#ae81ff">4.</span><span style="color:#960050;background-color:#1e0010">属性访问器，修改器和断言应该根据其值命名</span>
+
+</code></pre></div><h3 id="8宁可明确勿为好玩">8.宁可明确，勿为好玩</h3>
+<h3 id="9每个概念对应一个词">9.每个概念对应一个词</h3>
+<h3 id="10避免将同一单词用于不同目的">10.避免将同一单词用于不同目的</h3>
+<h3 id="11使用解决方案领域名称">11.使用解决方案领域名称</h3>
+<h3 id="12使用源自所涉问题领域的名称">12.使用源自所涉问题领域的名称</h3>
+<h3 id="13添加有意义的语境">13.添加有意义的语境</h3>
+<h2 id="2函数">2.函数</h2>
+<h3 id="1短小">1.短小</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#66d9ef">if</span>,<span style="color:#66d9ef">else</span>,<span style="color:#66d9ef">while</span> <span style="color:#960050;background-color:#1e0010">语句，其中的代码块应该只有一行</span>
+
+<span style="color:#960050;background-color:#1e0010">并且应该大抵是一个函数调用语句</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">函数不应该大到足以容纳嵌套语句</span>
+
+<span style="color:#ae81ff">3.</span><span style="color:#960050;background-color:#1e0010">永不调用的函数应该丢弃</span>
+
+</code></pre></div><h3 id="2只做一件事">2.只做一件事</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#960050;background-color:#1e0010">要判断函数是否不止做了一件事，就是看能否再拆出一个函数</span>
+
+</code></pre></div><h3 id="3使用描述性的名称">3.使用描述性的名称</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">函数越短小，功能越集中，就便于取个好名字</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">长而具有描述性的名称要比短的名称或者注释好</span>
+
+</code></pre></div><h3 id="4函数参数应少并且不要使用输出参数">4.函数参数应少，并且不要使用输出参数</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">如果函数需要很多参数，说明需要封装为类</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">函数名称为动词可以明确函数是做什么的</span>
+
+<span style="color:#ae81ff">3.</span><span style="color:#960050;background-color:#1e0010">函数参数自然而然的视为输入参数</span>
+
+<span style="color:#ae81ff">4.</span><span style="color:#960050;background-color:#1e0010">将代码集中到基类</span>i<span style="color:#960050;background-color:#1e0010">，避免冗余和重复</span>
+
+</code></pre></div><h2 id="3注释">3.注释</h2>
+<h3 id="1注释不能美化糟糕的代码">1.注释不能美化糟糕的代码</h3>
+<h3 id="2注释的内容">2.注释的内容</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">版权及著作权声明</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">提供基本信息</span>
+
+<span style="color:#ae81ff">3.</span><span style="color:#960050;background-color:#1e0010">对意图解释（提供某个决定的意图）</span>
+
+<span style="color:#ae81ff">4.</span><span style="color:#960050;background-color:#1e0010">阐释（如果参数或者返回值是某个标准库的一部分，或者不能修改，帮助其阐释含义）</span>
+
+<span style="color:#ae81ff">5.</span><span style="color:#960050;background-color:#1e0010">警告其他程序员会出现某种后果</span>
+
+<span style="color:#ae81ff">6.</span><span style="color:#75715e">//TODO注释（放置工作列表：程序员认为应该做，但由于某些原因还没有做的工作）
+</span><span style="color:#75715e"></span>
+<span style="color:#ae81ff">7.</span><span style="color:#960050;background-color:#1e0010">不要留下注释代码</span>
+
+</code></pre></div><h2 id="格式">格式</h2>
+<h3 id="1纵向格式">1.纵向格式</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">封包声明，导入声明，每个函数之间，用空白行隔开</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">关系密切或概念相关的代码应该互相靠近</span>
+
+<span style="color:#ae81ff">3.</span><span style="color:#960050;background-color:#1e0010">变量声明应尽可能的靠近使用位置</span>
+
+<span style="color:#ae81ff">4.</span><span style="color:#960050;background-color:#1e0010">实体变量应该在类的顶部声明</span>
+
+<span style="color:#ae81ff">5.</span><span style="color:#960050;background-color:#1e0010">循环中的控制变量应该在循环语中声明</span>
+
+<span style="color:#ae81ff">6.</span><span style="color:#960050;background-color:#1e0010">相关函数（相互靠近，调用者应该在被调用者的上面）</span>
+
+</code></pre></div><h3 id="2横向格式">2.横向格式</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">赋值操作符周围加空格</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">函数名和左圆括号不能分开（函数于其参数关系紧密）</span>
+
+<span style="color:#ae81ff">3.</span><span style="color:#960050;background-color:#1e0010">根据运算符优先级在运算部分加空格</span>
+
+<span style="color:#ae81ff">4.</span><span style="color:#66d9ef">if</span>,whle,<span style="color:#960050;background-color:#1e0010">短函数</span> <span style="color:#960050;background-color:#1e0010">不要违反或忽视缩进</span>
+
+<span style="color:#ae81ff">5.</span><span style="color:#66d9ef">while</span>,<span style="color:#66d9ef">for</span> <span style="color:#960050;background-color:#1e0010">语句的语句体为空，应该把语句体分号换行缩进</span>
+
+</code></pre></div><h2 id="对象和数据结构">对象和数据结构</h2>
+<h3 id="1数据对象的反对称性">1.数据对象的反对称性</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">过程式（使用数据结构）代码便于在添加新函数</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">面向对象代码难以添加新类</span>
+
+</code></pre></div><h3 id="2demeter律">2.Demeter律</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">模块不应了解他所操作对象内部的情况</span>
+
+</code></pre></div><h3 id="3dto">3.DTO</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">数据传送对象，只有一个公共变量，没有函数的类</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">使用于数据库通信，解析套接字传递</span>
+
+</code></pre></div><h2 id="错误和异常处理">错误和异常处理</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">给出异常发生的环境说明</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">依调用者需要定义异常类</span>
+
+<span style="color:#ae81ff">3.</span><span style="color:#960050;background-color:#1e0010">不能返回和传递</span>NULL值
+
+</code></pre></div><h2 id="类应该短小">类应该短小</h2>
+<h2 id="启发">启发</h2>
+<h3 id="一般性问题">一般性问题</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">一个源文件不要使用多种语言（尽力）</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">明显的行为未被实现，阅读者不会再相信编写者</span>
+
+<span style="color:#ae81ff">3.</span><span style="color:#960050;background-color:#1e0010">尽可能找到并且删除重复</span>
+
+<span style="color:#ae81ff">4.</span><span style="color:#960050;background-color:#1e0010">基类不能依赖于派生类</span>
+
+<span style="color:#ae81ff">5.</span><span style="color:#960050;background-color:#1e0010">不执行的代码应该删除</span>
+
+</code></pre></div><h3 id="java">java</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">通过使用通配符避免过长的导入清单</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">不要继承常量</span>
+
+<span style="color:#ae81ff">3.</span><span style="color:#960050;background-color:#1e0010">多使用</span>enum而非常量
+
+</code></pre></div><h2 id="单元测试及junit以后再读一遍">单元测试及JUnit以后再读一遍</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
+<span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">测试不充分</span>
+
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">使用覆盖率工具（容易发现测试不足的模块）</span>
+
+<span style="color:#ae81ff">3.</span><span style="color:#960050;background-color:#1e0010">别略过过小的测试</span>
+
+<span style="color:#ae81ff">4.</span><span style="color:#960050;background-color:#1e0010">特别注意测试边界条件</span>
+
+<span style="color:#ae81ff">5.</span><span style="color:#960050;background-color:#1e0010">缺陷趋于扎堆，全面测试相近的部分</span>
+
+<span style="color:#ae81ff">6.</span><span style="color:#960050;background-color:#1e0010">测试应该快速</span>
+
+</code></pre></div></div><div class="post-copyright mb-4">
+  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+</div>
+<div class="post-reward mb-4 text-center">
+  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
+    <i class="fas fa-fw fa-medal"></i>打赏
+  </button>
+</div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay"></i>支付宝
+            </a>
+          </li><li class="nav-item" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin"></i>微信
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg" loading="lazy" />
+          </div><div class="tab-pane fade post-reward-content show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg" loading="lazy" />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div><div class="post-navs d-flex mb-3 justify-content-between">
+  <div class="post-nav w-50"><div class="prev-post">
+      <a href="/posts/shortcodes/codepen/">CodePen Shortcode</a>
+    </div></div>
+  <div class="post-nav flex-row-reverse"><div class="next-post">
+      <a href="/posts/shortcodes/bilibili/">Bilibili Shortcode</a>
+    </div></div>
+</div></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+  repo="Euraxluo/Euraxluo.github.io"
+  issue-term="pathname"
+  label="✨💬✨"
+  theme="github-dark"
+  crossorigin="anonymous"
+  async>
+</script></div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container"><section class="profile surface row">
+  <div class="col-xl-6 d-flex align-items-center justify-content-center">
+    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  </div>
+  <div class="col-xl-6">
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+</section><section class="featured-posts row surface">
+  <h4>精选文章</h4>
+  <ul><li><a href="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li><li><a href="/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="/posts/note/slam/">SLAM</a></li></ul>
+</section><section class="recent-posts row surface">
+  <h4>最近文章</h4>
+  <ul><li><a href="/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+</section>
+<section class="taxonomy-categories row surface">
+  <h4>
+    <a href="/categories">分类</a>
+  </h4>
+  <div><a href="/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
+      Shortcode <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+      java <span class="badge rounded-pill">8</span>
+    </a><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-series row surface">
+  <h4>
+    <a href="/series">专栏</a>
+  </h4>
+  <div><a href="/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">3</span>
+    </a><a href="/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-tags row surface">
+  <h4>
+    <a href="/tags">标签</a>
+  </h4>
+  <div><a href="/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
+      python <span class="badge rounded-pill">2</span>
+    </a><a href="/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a></div>
+</section></div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a>
+  </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
+        <i class="fab fa-fw fa-2x fa-github"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
+        <i class="fab fa-fw fa-2x fa-qq"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
+        <i class="fab fa-fw fa-2x fa-zhihu"></i>
+      </a>
+    </li></nav>
+<div class="copyright mb-2">
+  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+</div>
+<script>
+  window.parent.postMessage(window.location.href, "*");
+</script><div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
+</div></footer>
+<a id="btnScrollToTop" class="btn-scroll-to-top">
+  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
+</a>
+</body>
+</html>

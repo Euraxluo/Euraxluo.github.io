@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redis Cluster - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="description" content="Redis Cluster" /><meta itemprop="name" content="Redis Cluster">
+<meta itemprop="description" content="Redis Cluster">
+<meta itemprop="datePublished" content="2019-03-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-03-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1663">
+
+
+
+<meta itemprop="keywords" content="redis," />
+<meta property="og:title" content="Redis Cluster" />
+<meta property="og:description" content="Redis Cluster" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/redis/rediscluster-1/" />
+<meta property="article:published_time" content="2019-03-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-03-10T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" /><meta property="og:see_also" content="/posts/redis/rediscluster-2/" /><meta property="og:see_also" content="/posts/redis/rediscluster-3/" /><meta property="og:see_also" content="/posts/redis/redissentinel/" /><meta property="og:see_also" content="/posts/redis/redis%E5%9F%BA%E7%A1%80/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Redis Cluster"/>
+<meta name="twitter:description" content="Redis Cluster"/>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+</head>
+  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/search">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
+    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
+  </div>
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/archives">
+            <i class="fas fa-fw fa-file-archive"></i>归档
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/categories">
+            <i class="fas fa-fw fa-folder"></i>分类
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/tags">
+            <i class="fas fa-fw fa-tags"></i>标签
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/series">
+            <i class="fas fa-fw fa-columns"></i>专栏
+          </a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Repos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo" target="_blank">
+                <i class="fab fa-fw fa-github"></i>Euraxluo
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                <i class="fab fa-fw fa-github"></i>fastgrpc
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                <i class="fab fa-fw fa-github"></i>ProjectPractice
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                <i class="fab fa-fw fa-github"></i>pyantv
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                <i class="fab fa-fw fa-github"></i>simple-pythonvm
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/verb" target="_blank">
+                <i class="fab fa-fw fa-github"></i>verb
+              </a>
+            </li></ul>
+        </li></ul>
+      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
+    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-language" ></i>
+  </a>
+</li>
+<script type="text/html" id="languagesPopoverBody">
+  <ul class="languages list-group"><li class="language list-group-item">
+      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
+      <a href="/zh-tw/">繁體中文</a></li></ul>
+</script>
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#palettesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-palette" ></i>
+  </a>
+</li>
+<script type="text/html" id="palettesPopoverBody">
+  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
+      <a>蓝色</a>
+    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
+      <a>蓝灰色</a>
+    </li><li id="palette-brown" class="palette list-group-item bg-brown">
+      <a>棕色</a>
+    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
+      <a>青色</a>
+    </li><li id="palette-green" class="palette list-group-item bg-green">
+      <a>绿色</a>
+    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
+      <a>靛青色</a>
+    </li><li id="palette-orange" class="palette list-group-item bg-orange">
+      <a>橙色</a>
+    </li><li id="palette-pink" class="palette list-group-item bg-pink">
+      <a>粉色</a>
+    </li><li id="palette-purple" class="palette list-group-item bg-purple">
+      <a>紫色</a>
+    </li><li id="palette-red" class="palette list-group-item bg-red">
+      <a>红色</a>
+    </li><li id="palette-teal" class="palette list-group-item bg-teal">
+      <a>蓝绿色</a>
+    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
+      <a>黄色</a>
+    </li></ul>
+</script>
+
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#fontSizesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-font" ></i>
+  </a>
+</li>
+<script type="text/html" id="fontSizesPopoverBody">
+  <form class="font-size-switcher-form">
+    <label for="fontSize" class="form-label">字体大小</label>
+    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+  </form>
+</script>
+<form class="mode-switcher-form d-flex align-items-center">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="modeSwitcher">
+  </div>
+</form>
+</ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-md-8">
+  <div class="container"><nav class="row" aria-label="breadcrumb">
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/">主页</a></li><li class="breadcrumb-item"><a href="/posts/">posts</a></li><li class="breadcrumb-item"><a href="/posts/redis/">redis</a></li><li class="breadcrumb-item active">Redis Cluster</li></ol>
+</nav><article class="post row surface">
+  <h1 class="post-title my-3">Redis Cluster</h1><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2019-03-10
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>4 分钟阅读
+  </span>
+<a href="/categories/redis/" class="post-taxonomy">#redis</a><a href="/series/redis/" class="post-taxonomy">#redis</a><a href="/tags/redis/" class="post-taxonomy">#redis</a></div>
+<div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
+  <div class="accordion-item">
+    <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
+      <i class="fas fa-fw fa-bars"></i>目录
+    </div>
+    <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
+      <div class="accordion-body mt-2">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景">背景</a>
+      <ul>
+        <li><a href="#解决方式">解决方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据分布">数据分布</a>
+      <ul>
+        <li><a href="#哈希分布">哈希分布</a></li>
+        <li><a href="#虚拟槽分区">虚拟槽分区</a></li>
+      </ul>
+    </li>
+    <li><a href="#搭建集群">搭建集群</a>
+      <ul>
+        <li><a href="#redis-cluster架构">Redis Cluster架构</a></li>
+      </ul>
+    </li>
+    <li><a href="#安装">安装</a>
+      <ul>
+        <li><a href="#配置安装">配置安装</a></li>
+        <li><a href="#设置主从">设置主从</a></li>
+        <li><a href="#工具安装">工具安装</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div><div class="post-content mb-3"><h1 id="redis-cluster">Redis Cluster</h1>
+<h2 id="背景">背景</h2>
+<ol>
+<li>
+<p>并发量 &lt;10万dps</p>
+</li>
+<li>
+<p>数据量 单机内存&lt;256G</p>
+</li>
+<li>
+<p>带宽 网卡限制</p>
+</li>
+</ol>
+<h3 id="解决方式">解决方式</h3>
+<ul>
+<li>
+<p>提高机器配置</p>
+</li>
+<li>
+<p>分布式</p>
+</li>
+</ul>
+<h2 id="数据分布">数据分布</h2>
+<p>| 分布方式 | 特点              | 典型产品 |</p>
+<p>| &mdash;&mdash;&ndash; | &mdash;&mdash;&mdash;&mdash;&mdash;&ndash; | &mdash;&mdash;&ndash; |</p>
+<p>| 哈希分布 | 数据分散度高<!-- raw HTML omitted -->数据分布业务无关<!-- raw HTML omitted -->无法顺序访问<!-- raw HTML omitted -->支持批量操作 | 一致性哈希Memcache<!-- raw HTML omitted -->Redis Cluster<!-- raw HTML omitted -->缓存产品 |</p>
+<p>| 顺序分布 | 数据分散度易倾斜<!-- raw HTML omitted -->键值业务相关<!-- raw HTML omitted -->可顺序访问<!-- raw HTML omitted -->支持批量操作 | BigTable<!-- raw HTML omitted -->HBase |</p>
+<h3 id="哈希分布">哈希分布</h3>
+<ol>
+<li>节点取余：hash(key)%nodes</li>
+</ol>
+<ul>
+<li>
+<p>客户端分片：哈希+取余</p>
+</li>
+<li>
+<p>节点扩容：扩容时需要数据迁移</p>
+</li>
+<li>
+<p>翻倍扩容：扩容时最好多倍扩容</p>
+</li>
+</ul>
+<ol start="2">
+<li>一致性哈希</li>
+</ol>
+<p>有一个token环，节点在token环上，会为每个key分配一个token，在依据token在环上顺时针寻找最近的节点</p>
+<ul>
+<li>
+<p>客户端分片：哈希+顺时针选择节点</p>
+</li>
+<li>
+<p>节点伸缩：扩容时减少影响的范围</p>
+</li>
+<li>
+<p>翻倍伸缩：保证最小迁移数据和保证负载均衡</p>
+</li>
+</ul>
+<h3 id="虚拟槽分区">虚拟槽分区</h3>
+<ul>
+<li>
+<p>预设虚拟槽：每个槽映射一个数据子集，一般比节点数大</p>
+</li>
+<li>
+<p>良好的哈希函数：CRC16</p>
+</li>
+<li>
+<p>服务端管理节点，槽，数据：例如Redis Cluster</p>
+</li>
+</ul>
+<h2 id="搭建集群">搭建集群</h2>
+<h3 id="redis-cluster架构">Redis Cluster架构</h3>
+<ul>
+<li>
+<p>节点，很多节点，都负责读写</p>
+</li>
+<li>
+<p>meet，使用raft协议，是互相通信的基础</p>
+</li>
+<li>
+<p>指派槽，把节点指派槽，才能正常读写</p>
+</li>
+<li>
+<p>复制，保证高可用</p>
+</li>
+</ul>
+<h2 id="安装">安装</h2>
+<h3 id="配置安装">配置安装</h3>
+<h4 id="节点配置">节点配置</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+port <span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span>
+
+daemonize yes
+
+dir <span style="color:#e6db74">&#34;path/to/run&#34;</span>
+
+dbdilename <span style="color:#e6db74">&#34;dump-</span><span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span><span style="color:#e6db74">.rdb&#34;</span>
+
+logfile <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span><span style="color:#e6db74">.log&#34;</span>
+
+cluster-enabled &lt;yes/no&gt;: 使redis实例作为集群的一个节点
+
+cluster-config-file nodes-<span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span>.conf: 集群配置文件
+
+cluster-require-full-coverage no,部分节点不可用，依然提供服务
+
+</code></pre></div><h4 id="meet操作">meet操作</h4>
+<p><code>cluster meet ip port</code></p>
+<p>当前节点开启meet</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+redis-cli -h 127.1 -p <span style="color:#ae81ff">7000</span> cluster meet 127.1 <span style="color:#ae81ff">7001</span>
+
+redis-cli -h 127.1 -p <span style="color:#ae81ff">7000</span> cluster meet 127.1 <span style="color:#ae81ff">7002</span>
+
+redis-cli -h 127.1 -p <span style="color:#ae81ff">7000</span> cluster meet 127.1 <span style="color:#ae81ff">7003</span>
+
+redis-cli -h 127.1 -p <span style="color:#ae81ff">7000</span> cluster meet 127.1 <span style="color:#ae81ff">7004</span>
+
+redis-cli -h 127.1 -p <span style="color:#ae81ff">7000</span> cluster meet 127.1 <span style="color:#ae81ff">7005</span>
+
+</code></pre></div><h4 id="cluster-配置详解">Cluster 配置详解</h4>
+<ul>
+<li>
+<p><code>cluster-enabled &lt;yes/no&gt;</code>: 使redis实例作为集群的一个节点</p>
+</li>
+<li>
+<p><code>cluster-config-file nodes-${port}.conf</code>: 集群配置文件</p>
+</li>
+<li>
+<p><code>cluster-node-timeout &lt;milliseconds&gt;</code>: 这是集群中的节点能够失联的最大时间，超过这个时间，该节点就会被认为故障。如果主节点超过这个时间还是不可达，则用它的从节点将启动故障迁移，升级成主节点。注意，任何一个节点在这个时间之内如果还是没有连上大部分的主节点，则此节点将停止接收任何请求。</p>
+</li>
+<li>
+<p><code>cluster-slave-validity-factor &lt;factor&gt;</code>: 如果设置成０，则无论从节点与主节点失联多久，从节点都会尝试升级成主节点。如果设置成正数，则cluster-node-timeout乘以cluster-slave-validity-factor得到的时间，是从节点与主节点失联后，此从节点数据有效的最长时间，超过这个时间，从节点不会启动故障迁移。假设cluster-node-timeout=5，cluster-slave-validity-factor=10，则如果从节点跟主节点失联超过50秒，此从节点不能成为主节点。注意，如果此参数配置为非0，将可能出现由于某主节点失联却没有从节点能顶上的情况，从而导致集群不能正常工作，在这种情况下，只有等到原来的主节点重新回归到集群，集群才恢复运作。</p>
+</li>
+<li>
+<p><code>cluster-migration-barrier &lt;count&gt;</code>:主节点需要的最小从节点数，只有达到这个数，主节点失败时，它从节点才会进行迁移。更详细介绍可以看本教程后面关于副本迁移到部分。</p>
+</li>
+<li>
+<p><code>cluster-require-full-coverage &lt;yes/no&gt;</code>:在部分key所在的节点不可用时，如果此参数设置为”yes”(默认值), 则整个集群停止接受操作；如果此参数设置为”no”，则集群依然为可达节点上的key提供读操作。</p>
+</li>
+</ul>
+<h4 id="分配槽">分配槽</h4>
+<p><code>cluster addslots slot [slot ...]</code></p>
+<p>分配槽，一共6个节点，三主三从：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+redis-cli -h 127.1 -p <span style="color:#ae81ff">7000</span> cluster addslots <span style="color:#f92672">{</span>0...5461<span style="color:#f92672">}</span>
+
+redis-cli -h 127.1 -p <span style="color:#ae81ff">7001</span> cluster addslots <span style="color:#f92672">{</span>5462...10922<span style="color:#f92672">}</span>
+
+redis-cli -h 127.1 -p <span style="color:#ae81ff">7002</span> cluster addslots <span style="color:#f92672">{</span>10923...16383<span style="color:#f92672">}</span>
+
+</code></pre></div><p>使用脚本来分配槽</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+start<span style="color:#f92672">=</span>$1
+
+end<span style="color:#f92672">=</span>$2
+
+port<span style="color:#f92672">=</span>$3
+
+<span style="color:#66d9ef">for</span> slot in <span style="color:#e6db74">`</span>seq <span style="color:#e6db74">${</span>start<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>end<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+
+<span style="color:#66d9ef">do</span> 
+
+	echo <span style="color:#e6db74">&#34;slot:</span><span style="color:#e6db74">${</span>slot<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+	redis-cli -p <span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span> cluster addslots <span style="color:#e6db74">${</span>slot<span style="color:#e6db74">}</span>
+
+<span style="color:#66d9ef">done</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span><span style="color:#e6db74">${</span>end<span style="color:#e6db74">}</span><span style="color:#f92672">==</span>16383<span style="color:#f92672">]</span>
+
+<span style="color:#66d9ef">then</span> redis-cli -p <span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span> cluster info
+
+<span style="color:#66d9ef">fi</span>
+
+</code></pre></div><h3 id="设置主从">设置主从</h3>
+<p><code>cluster replicate node-id</code>设置不会更改的node-id</p>
+<p>设置从节点去复制主节点</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+redis-cli -h 127.1 -p <span style="color:#ae81ff">7003</span> cluster replicate <span style="color:#e6db74">${</span>node-id-7000<span style="color:#e6db74">}</span>
+
+redis-cli -h 127.1 -p <span style="color:#ae81ff">7004</span> cluster replicate <span style="color:#e6db74">${</span>node-id-7001<span style="color:#e6db74">}</span>
+
+redis-cli -h 127.1 -p <span style="color:#ae81ff">7005</span> cluster replicate <span style="color:#e6db74">${</span>node-id-7002<span style="color:#e6db74">}</span>
+
+</code></pre></div><p>使用脚本分配主从</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+a<span style="color:#f92672">=</span>$1
+
+b<span style="color:#f92672">=</span>$2
+
+c<span style="color:#f92672">=</span>$3
+
+d<span style="color:#f92672">=</span>$4
+
+master_arr<span style="color:#f92672">=(</span><span style="color:#66d9ef">$(</span>seq <span style="color:#e6db74">${</span>a<span style="color:#e6db74">}</span> <span style="color:#ae81ff">1</span> <span style="color:#e6db74">${</span>b<span style="color:#e6db74">}</span><span style="color:#66d9ef">)</span><span style="color:#f92672">)</span>
+
+slave_arr<span style="color:#f92672">=(</span><span style="color:#66d9ef">$(</span>seq <span style="color:#e6db74">${</span>c<span style="color:#e6db74">}</span> <span style="color:#ae81ff">1</span> <span style="color:#e6db74">${</span>d<span style="color:#e6db74">}</span><span style="color:#66d9ef">)</span><span style="color:#f92672">)</span>
+
+<span style="color:#66d9ef">for</span> index in <span style="color:#e6db74">`</span>seq <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">$((</span> <span style="color:#e6db74">${#</span>master_arr[*]<span style="color:#e6db74">}</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#66d9ef">))</span><span style="color:#e6db74">`</span>
+
+<span style="color:#66d9ef">do</span>
+
+	nodeid<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>redis-cli -p <span style="color:#e6db74">${</span>slave_arr[index]<span style="color:#e6db74">}</span> cluster nodes |grep <span style="color:#e6db74">${</span>master_arr[index]<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+
+	redis-cli -h 127.1 -p <span style="color:#e6db74">${</span>slave_arr[index]<span style="color:#e6db74">}</span> cluster replicate <span style="color:#e6db74">${</span>nodeid:0:41<span style="color:#e6db74">}</span>
+
+<span style="color:#66d9ef">done</span>
+
+</code></pre></div><p>最好把主从端口配置在文件中，通过脚本读取运行</p>
+<h3 id="工具安装">工具安装</h3>
+<h4 id="ruby环境安装">ruby环境安装</h4>
+<ul>
+<li>下载ruby</li>
+</ul>
+<p><code>wget https://cache.ruby-lang.org/ruby/2.3/ruby-2.3.1.tar.gz</code></p>
+<ul>
+<li>安装ruby</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+tar -xvf ruby-2.3.1.tar.gz
+
+./configure -prefix<span style="color:#f92672">=</span>/usr/local/ruby
+
+make
+
+make install
+
+cd /usr/local/ruby
+
+cp bin/ruby /usr/local/bin
+
+</code></pre></div><ul>
+<li>安装rubygem redis</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+wget http://rubygems.org/downloads/redis-3.3.0.gem
+
+gem install -l redis-3.3.0.gem
+
+gem list --check redis gem
+
+</code></pre></div><ul>
+<li>安装redis-trib.rb</li>
+</ul>
+<p><code>cp ${REDIS_HOME}/src/redis-trib.rb /usr/local/bin</code></p>
+<h4 id="通过redis-trib搭建集群">通过redis-trib搭建集群</h4>
+<ol>
+<li>配置开启redis节点</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+redis-server redis-8000.conf
+
+redis-server redis-8001.conf
+
+redis-server redis-8002.conf
+
+redis-server redis-8003.conf
+
+redis-server redis-8004.conf
+
+redis-server redis-8005.conf
+
+</code></pre></div><ol start="2">
+<li>一键开启集群</li>
+</ol>
+<p><code>./redis-trib.rb creat --replicas 1{每个master的slave数量} [ip：port...]{前面都是master，后面的都是slave}</code></p>
+</div><div class="post-copyright mb-4">
+  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+</div>
+<div class="post-reward mb-4 text-center">
+  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
+    <i class="fas fa-fw fa-medal"></i>打赏
+  </button>
+</div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay"></i>支付宝
+            </a>
+          </li><li class="nav-item" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin"></i>微信
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg" loading="lazy" />
+          </div><div class="tab-pane fade post-reward-content show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg" loading="lazy" />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div><div class="post-navs d-flex mb-3 justify-content-between">
+  <div class="post-nav w-50"><div class="prev-post">
+      <a href="/posts/redis/rediscluster-2/">Redis Cluster 2</a>
+    </div></div>
+  <div class="post-nav flex-row-reverse"><div class="next-post">
+      <a href="/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Redis API及数据结构</a>
+    </div></div>
+</div><section class="related-posts">
+  <h3>相关文章</h3>
+  <ul class="related-posts"><li><a href="/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Redis API及数据结构</a></li><li><a href="/posts/redis/rediscluster-2/">Redis Cluster 2</a></li><li><a href="/posts/redis/rediscluster-3/">Redis Cluster 3</a></li><li><a href="/posts/redis/redissentinel/">Redis Sentinel</a></li><li><a href="/posts/redis/redis%E5%9F%BA%E7%A1%80/">Redis基础学习</a></li></ul>
+</section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+  repo="Euraxluo/Euraxluo.github.io"
+  issue-term="pathname"
+  label="✨💬✨"
+  theme="github-dark"
+  crossorigin="anonymous"
+  async>
+</script></div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container"><section class="profile surface row">
+  <div class="col-xl-6 d-flex align-items-center justify-content-center">
+    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  </div>
+  <div class="col-xl-6">
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+</section><section class="featured-posts row surface">
+  <h4>精选文章</h4>
+  <ul><li><a href="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li><li><a href="/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="/posts/note/slam/">SLAM</a></li></ul>
+</section><section class="recent-posts row surface">
+  <h4>最近文章</h4>
+  <ul><li><a href="/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+</section>
+<section class="taxonomy-categories row surface">
+  <h4>
+    <a href="/categories">分类</a>
+  </h4>
+  <div><a href="/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
+      Shortcode <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+      java <span class="badge rounded-pill">8</span>
+    </a><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-series row surface">
+  <h4>
+    <a href="/series">专栏</a>
+  </h4>
+  <div><a href="/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">3</span>
+    </a><a href="/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-tags row surface">
+  <h4>
+    <a href="/tags">标签</a>
+  </h4>
+  <div><a href="/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
+      python <span class="badge rounded-pill">2</span>
+    </a><a href="/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a></div>
+</section></div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a>
+  </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
+        <i class="fab fa-fw fa-2x fa-github"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
+        <i class="fab fa-fw fa-2x fa-qq"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
+        <i class="fab fa-fw fa-2x fa-zhihu"></i>
+      </a>
+    </li></nav>
+<div class="copyright mb-2">
+  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+</div>
+<script>
+  window.parent.postMessage(window.location.href, "*");
+</script><div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
+</div></footer>
+<a id="btnScrollToTop" class="btn-scroll-to-top">
+  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
+</a>
+</body>
+</html>

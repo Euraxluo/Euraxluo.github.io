@@ -1,0 +1,994 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>爬虫学习4 - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="description" content="PyQuery" /><meta itemprop="name" content="爬虫学习4">
+<meta itemprop="description" content="PyQuery">
+<meta itemprop="datePublished" content="2018-10-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-10-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="993">
+
+
+
+<meta itemprop="keywords" content="爬虫,Pathon," />
+<meta property="og:title" content="爬虫学习4" />
+<meta property="og:description" content="PyQuery" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/python/pyquerystudy/" />
+<meta property="article:published_time" content="2018-10-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-10-22T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/" /><meta property="og:see_also" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/" /><meta property="og:see_also" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="爬虫学习4"/>
+<meta name="twitter:description" content="PyQuery"/>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+</head>
+  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/search">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
+    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
+  </div>
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/archives">
+            <i class="fas fa-fw fa-file-archive"></i>归档
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/categories">
+            <i class="fas fa-fw fa-folder"></i>分类
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/tags">
+            <i class="fas fa-fw fa-tags"></i>标签
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/series">
+            <i class="fas fa-fw fa-columns"></i>专栏
+          </a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Repos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo" target="_blank">
+                <i class="fab fa-fw fa-github"></i>Euraxluo
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                <i class="fab fa-fw fa-github"></i>fastgrpc
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                <i class="fab fa-fw fa-github"></i>ProjectPractice
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                <i class="fab fa-fw fa-github"></i>pyantv
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                <i class="fab fa-fw fa-github"></i>simple-pythonvm
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/verb" target="_blank">
+                <i class="fab fa-fw fa-github"></i>verb
+              </a>
+            </li></ul>
+        </li></ul>
+      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
+    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-language" ></i>
+  </a>
+</li>
+<script type="text/html" id="languagesPopoverBody">
+  <ul class="languages list-group"><li class="language list-group-item">
+      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
+      <a href="/zh-tw/">繁體中文</a></li></ul>
+</script>
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#palettesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-palette" ></i>
+  </a>
+</li>
+<script type="text/html" id="palettesPopoverBody">
+  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
+      <a>蓝色</a>
+    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
+      <a>蓝灰色</a>
+    </li><li id="palette-brown" class="palette list-group-item bg-brown">
+      <a>棕色</a>
+    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
+      <a>青色</a>
+    </li><li id="palette-green" class="palette list-group-item bg-green">
+      <a>绿色</a>
+    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
+      <a>靛青色</a>
+    </li><li id="palette-orange" class="palette list-group-item bg-orange">
+      <a>橙色</a>
+    </li><li id="palette-pink" class="palette list-group-item bg-pink">
+      <a>粉色</a>
+    </li><li id="palette-purple" class="palette list-group-item bg-purple">
+      <a>紫色</a>
+    </li><li id="palette-red" class="palette list-group-item bg-red">
+      <a>红色</a>
+    </li><li id="palette-teal" class="palette list-group-item bg-teal">
+      <a>蓝绿色</a>
+    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
+      <a>黄色</a>
+    </li></ul>
+</script>
+
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#fontSizesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-font" ></i>
+  </a>
+</li>
+<script type="text/html" id="fontSizesPopoverBody">
+  <form class="font-size-switcher-form">
+    <label for="fontSize" class="form-label">字体大小</label>
+    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+  </form>
+</script>
+<form class="mode-switcher-form d-flex align-items-center">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="modeSwitcher">
+  </div>
+</form>
+</ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-md-8">
+  <div class="container"><nav class="row" aria-label="breadcrumb">
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/">主页</a></li><li class="breadcrumb-item"><a href="/posts/">posts</a></li><li class="breadcrumb-item"><a href="/posts/python/">python</a></li><li class="breadcrumb-item active">爬虫学习4</li></ol>
+</nav><article class="post row surface">
+  <h1 class="post-title my-3">爬虫学习4</h1><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2018-10-22
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>2 分钟阅读
+  </span>
+<a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy">#爬虫</a><a href="/series/pathon/" class="post-taxonomy">#Pathon</a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy">#爬虫</a><a href="/tags/pathon/" class="post-taxonomy">#Pathon</a></div>
+<div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
+  <div class="accordion-item">
+    <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
+      <i class="fas fa-fw fa-bars"></i>目录
+    </div>
+    <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
+      <div class="accordion-body mt-2">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#初始化">初始化</a>
+      <ul>
+        <li><a href="#字符串初始化">字符串初始化</a></li>
+        <li><a href="#url初始化">URL初始化</a></li>
+        <li><a href="#文件初始化">文件初始化</a></li>
+      </ul>
+    </li>
+    <li><a href="#css选择器">css选择器</a></li>
+    <li><a href="#查找元素">查找元素</a>
+      <ul>
+        <li><a href="#子元素">子元素</a></li>
+        <li><a href="#父级元素">父级元素</a></li>
+        <li><a href="#兄弟元素">兄弟元素</a></li>
+      </ul>
+    </li>
+    <li><a href="#遍历">遍历</a></li>
+    <li><a href="#获取信息">获取信息</a>
+      <ul>
+        <li><a href="#获取属性">获取属性</a></li>
+        <li><a href="#获取文本">获取文本</a></li>
+        <li><a href="#获取html">获取html</a></li>
+        <li><a href="#addclassremoveclass">addClass,removeClass</a></li>
+        <li><a href="#attrcss">attr,css</a></li>
+        <li><a href="#remove">remove</a></li>
+        <li><a href="#apihttppyqueryreadthedocsioenlatestapihtml"><a href="http://pyquery.readthedocs.io/en/latest/api.html">API</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#伪类选择器">伪类选择器</a>
+      <ul>
+        <li><a href="#css选择器httpwwww3schoolcomcncssindexasp"><a href="http://www.w3school.com.cn/css/index.asp">css选择器</a></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div><div class="post-content mb-3"><h1 id="pyquery">PyQuery</h1>
+<h2 id="初始化">初始化</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">%%</span>html
+
+<span style="color:#f92672">&lt;</span>div id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;container&#34;</span><span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;</span>ul class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;list&#34;</span><span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;</span>li <span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">= &#34;</span><span style="color:#a6e22e">item</span><span style="color:#f92672">-</span><span style="color:#ae81ff">0</span><span style="color:#e6db74">&#34;&gt;frist item&lt;/li&gt;</span>
+
+<span style="color:#f92672">&lt;</span>li <span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">= &#34;</span><span style="color:#a6e22e">item</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#34;&gt;&lt;a href=&#34;</span>link2<span style="color:#f92672">.</span>html<span style="color:#e6db74">&#34;&gt;second item&lt;/a&gt;&lt;/li&gt;</span>
+
+<span style="color:#f92672">&lt;</span>li <span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">= &#34;</span><span style="color:#a6e22e">item</span><span style="color:#f92672">-</span><span style="color:#ae81ff">0</span> active<span style="color:#e6db74">&#34;&gt;&lt;a href=&#34;</span>link3<span style="color:#f92672">.</span>html<span style="color:#e6db74">&#34; style=&#34;</span>color:black;<span style="color:#e6db74">&#34;&gt;&lt;span class=&#34;</span>bold<span style="color:#e6db74">&#34;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+
+<span style="color:#f92672">&lt;</span>li <span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">= &#34;</span><span style="color:#a6e22e">item</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> active<span style="color:#e6db74">&#34;&gt;&lt;a href=&#34;</span>link4<span style="color:#f92672">.</span>html<span style="color:#e6db74">&#34;&gt;fourth item&lt;/a&gt;&lt;/li&gt;</span>
+
+<span style="color:#f92672">&lt;</span>li <span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">= &#34;</span><span style="color:#a6e22e">item</span><span style="color:#f92672">-</span><span style="color:#ae81ff">0</span><span style="color:#e6db74">&#34;&gt;&lt;a href=&#34;</span>link5<span style="color:#f92672">.</span>html<span style="color:#e6db74">&#34;&gt;fifth item&lt;/a&gt;&lt;/li&gt;</span>
+
+<span style="color:#f92672">&lt;/</span>ul<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;/</span>div<span style="color:#f92672">&gt;</span>
+
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="字符串初始化">字符串初始化</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+html <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&lt;div id = &#34;container&#34;&gt;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&lt;ul class=&#34;list&#34;&gt;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&lt;li class = &#34;item-0&#34;&gt;frist item&lt;/li&gt;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&lt;li class = &#34;item-1&#34;&gt;&lt;a href=&#34;link2.html&#34;&gt;second item&lt;/a&gt;&lt;/li&gt;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&lt;li class = &#34;item-0 active&#34;&gt;&lt;a href=&#34;link3.html&#34; style=&#34;color:black;&#34;&gt;&lt;span class=&#34;bold&#34;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&lt;li class = &#34;item-1 active&#34;&gt;&lt;a href=&#34;link4.html&#34;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&lt;li class = &#34;item-0&#34;&gt;&lt;a href=&#34;link5.html&#34;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&lt;/ul&gt;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&lt;/div&gt;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&#39;&#39;&#39;</span>
+
+<span style="color:#f92672">from</span> pyquery <span style="color:#f92672">import</span> PyQuery <span style="color:#66d9ef">as</span> pq
+
+doc <span style="color:#f92672">=</span> pq(html)
+
+<span style="color:#66d9ef">print</span>(doc(<span style="color:#e6db74">&#34;li&#34;</span>))
+
+</code></pre></div><pre><code>&lt;li class=&quot;item-0&quot;&gt;frist item&lt;/li&gt;
+
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>​</p>
+<h3 id="url初始化">URL初始化</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+doc <span style="color:#f92672">=</span> pq(url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.baidu.com&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(doc(<span style="color:#e6db74">&#34;head&#34;</span>)<span style="color:#f92672">.</span>text()<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#39;iso8859-1&#39;</span>)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;utf8&#39;</span>))
+
+</code></pre></div><pre><code>百度一下，你就知道
+</code></pre>
+<h3 id="文件初始化">文件初始化</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+doc <span style="color:#f92672">=</span> pq(filename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;test.html&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(doc(<span style="color:#e6db74">&#34;li&#34;</span>))
+
+</code></pre></div><pre><code>&lt;li class=&quot;item-0&quot;&gt;frist item&lt;/li&gt;
+
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>​</p>
+<h2 id="css选择器">css选择器</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+doc <span style="color:#f92672">=</span> pq(html)
+
+<span style="color:#66d9ef">print</span>(doc(<span style="color:#e6db74">&#34;#container .list li&#34;</span>))
+
+</code></pre></div><pre><code>&lt;li class=&quot;item-0&quot;&gt;frist item&lt;/li&gt;
+
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>​</p>
+<h2 id="查找元素">查找元素</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+doc <span style="color:#f92672">=</span> pq(html)
+
+items <span style="color:#f92672">=</span> doc(<span style="color:#e6db74">&#34;.list&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(type(items))
+
+<span style="color:#66d9ef">print</span>(items)
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;------------------&#34;</span>)
+
+
+
+lis <span style="color:#f92672">=</span> items<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#34;li&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(type(lis))
+
+<span style="color:#66d9ef">print</span>(lis)
+
+
+
+</code></pre></div><pre><code>&lt;class 'pyquery.pyquery.PyQuery'&gt;
+
+&lt;ul class=&quot;list&quot;&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;frist item&lt;/li&gt;
+
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+
+
+------------------
+
+&lt;class 'pyquery.pyquery.PyQuery'&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;frist item&lt;/li&gt;
+
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>​</p>
+<h3 id="子元素">子元素</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+lis1 <span style="color:#f92672">=</span> items<span style="color:#f92672">.</span>children()
+
+<span style="color:#66d9ef">print</span>(lis1)
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;------------------&#34;</span>)
+
+
+
+lis2 <span style="color:#f92672">=</span> items<span style="color:#f92672">.</span>children(<span style="color:#e6db74">&#34;.active&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(lis2)
+
+</code></pre></div><pre><code>&lt;li class=&quot;item-0&quot;&gt;frist item&lt;/li&gt;
+
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+
+
+
+------------------
+
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>​</p>
+<h3 id="父级元素">父级元素</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+parent <span style="color:#f92672">=</span> items<span style="color:#f92672">.</span>children()<span style="color:#f92672">.</span>parent()
+
+<span style="color:#66d9ef">print</span>(parent)
+
+</code></pre></div><pre><code>&lt;ul class=&quot;list&quot;&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;frist item&lt;/li&gt;
+
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+</code></pre>
+<p>​</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+parents <span style="color:#f92672">=</span>items<span style="color:#f92672">.</span>children()<span style="color:#f92672">.</span>parents()
+
+<span style="color:#66d9ef">print</span>(parents)
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;------------------&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(parents(<span style="color:#e6db74">&#34;.list&#34;</span>))
+
+</code></pre></div><pre><code>&lt;div id=&quot;container&quot;&gt;
+
+&lt;ul class=&quot;list&quot;&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;frist item&lt;/li&gt;
+
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;/div&gt;&lt;ul class=&quot;list&quot;&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;frist item&lt;/li&gt;
+
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+
+
+------------------
+
+&lt;ul class=&quot;list&quot;&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;frist item&lt;/li&gt;
+
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;ul class=&quot;list&quot;&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;frist item&lt;/li&gt;
+
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+</code></pre>
+<p>​</p>
+<h3 id="兄弟元素">兄弟元素</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+third <span style="color:#f92672">=</span> doc(<span style="color:#e6db74">&#34;.list .item-0.active&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(third)
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;----------&#34;</span>)
+
+brothers <span style="color:#f92672">=</span> third<span style="color:#f92672">.</span>siblings()
+
+<span style="color:#66d9ef">print</span>(brothers)
+
+</code></pre></div><pre><code>&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+
+
+----------
+
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;frist item&lt;/li&gt;
+
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>​</p>
+<h2 id="遍历">遍历</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+doc <span style="color:#f92672">=</span> pq(html)
+
+lis <span style="color:#f92672">=</span> doc(<span style="color:#e6db74">&#34;li&#34;</span>)<span style="color:#f92672">.</span>items()
+
+<span style="color:#66d9ef">print</span>(type(lis))
+
+<span style="color:#66d9ef">for</span> li <span style="color:#f92672">in</span> lis:
+
+    <span style="color:#66d9ef">print</span>(li)
+
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;---&#34;</span>)
+
+</code></pre></div><pre><code>&lt;class 'generator'&gt;
+
+&lt;li class=&quot;item-0&quot;&gt;frist item&lt;/li&gt;
+
+
+
+---
+
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+
+
+
+---
+
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+
+
+---
+
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+
+
+
+---
+
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+
+
+
+---
+</code></pre>
+<h2 id="获取信息">获取信息</h2>
+<h3 id="获取属性">获取属性</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+doc <span style="color:#f92672">=</span> pq(html)
+
+a <span style="color:#f92672">=</span> doc(<span style="color:#e6db74">&#34;.item-0.active a&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(a)
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;---&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(a<span style="color:#f92672">.</span>attr(<span style="color:#e6db74">&#34;style&#34;</span>))
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;---&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(a<span style="color:#f92672">.</span>attr<span style="color:#f92672">.</span>href)
+
+</code></pre></div><pre><code>&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;
+
+---
+
+color:black;
+
+---
+
+link3.html
+</code></pre>
+<h3 id="获取文本">获取文本</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+texts <span style="color:#f92672">=</span> doc<span style="color:#f92672">.</span>items()
+
+<span style="color:#66d9ef">for</span> text <span style="color:#f92672">in</span> texts:
+
+    <span style="color:#66d9ef">print</span>(text<span style="color:#f92672">.</span>text())
+
+</code></pre></div><pre><code>frist item
+
+second item
+
+third item
+
+fourth item
+
+fifth item
+</code></pre>
+<h3 id="获取html">获取html</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+a <span style="color:#f92672">=</span> doc(<span style="color:#e6db74">&#34;.item-0.active a&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(a)
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;---&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(a<span style="color:#f92672">.</span>html())
+
+</code></pre></div><pre><code>&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;
+
+---
+
+&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;
+</code></pre>
+<h3 id="addclassremoveclass">addClass,removeClass</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+doc <span style="color:#f92672">=</span> pq(html)
+
+li <span style="color:#f92672">=</span> doc(<span style="color:#e6db74">&#34;.item-0.active&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(li)
+
+li<span style="color:#f92672">.</span>removeClass(<span style="color:#e6db74">&#39;active&#39;</span>)
+
+<span style="color:#66d9ef">print</span>(li)
+
+li<span style="color:#f92672">.</span>addClass(<span style="color:#e6db74">&#39;active&#39;</span>)
+
+<span style="color:#66d9ef">print</span>(li)
+
+</code></pre></div><pre><code>&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>​</p>
+<h3 id="attrcss">attr,css</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+doc <span style="color:#f92672">=</span> pq(html)
+
+li <span style="color:#f92672">=</span> doc(<span style="color:#e6db74">&#34;.item-0.active&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(li)
+
+li<span style="color:#f92672">.</span>attr(<span style="color:#e6db74">&#39;name&#39;</span>,<span style="color:#e6db74">&#39;link&#39;</span>)
+
+<span style="color:#66d9ef">print</span>(li)
+
+li(<span style="color:#e6db74">&#34;a&#34;</span>)<span style="color:#f92672">.</span>css(<span style="color:#e6db74">&#39;font-size&#39;</span>,<span style="color:#e6db74">&#39;14px&#39;</span>)
+
+<span style="color:#66d9ef">print</span>(li)
+
+</code></pre></div><pre><code>&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li class=&quot;item-0 active&quot; name=&quot;link&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black;&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li class=&quot;item-0 active&quot; name=&quot;link&quot;&gt;&lt;a href=&quot;link3.html&quot; style=&quot;color:black; font-size: 14px&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>​</p>
+<h3 id="remove">remove</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+doc <span style="color:#f92672">=</span>pq(html)
+
+li <span style="color:#f92672">=</span> doc(<span style="color:#e6db74">&#34;li&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(li<span style="color:#f92672">.</span>text())
+
+li<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#39;a&#39;</span>)<span style="color:#f92672">.</span>remove()
+
+<span style="color:#66d9ef">print</span>(li<span style="color:#f92672">.</span>text())
+
+</code></pre></div><pre><code>frist item second item third item fourth item fifth item
+
+frist item    
+</code></pre>
+<h3 id="apihttppyqueryreadthedocsioenlatestapihtml"><a href="http://pyquery.readthedocs.io/en/latest/api.html" target="_blank">API</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">%%</span>html
+
+<span style="color:#f92672">&lt;</span>pre style<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;line-height: 1.25; white-space: pre;&#34;</span><span style="color:#f92672">&gt;</span>
+
+        \          SORRY            <span style="color:#f92672">/</span>
+
+         \                         <span style="color:#f92672">/</span>
+
+          \    This page does     <span style="color:#f92672">/</span>
+
+           ]   <span style="color:#f92672">not</span> exist yet<span style="color:#f92672">.</span>    [    ,<span style="color:#e6db74">&#39;|</span>
+
+           ]                     [   <span style="color:#f92672">/</span>  <span style="color:#f92672">|</span>
+
+           ]___               ___[ ,<span style="color:#e6db74">&#39;   |</span>
+
+           ]  ]\             <span style="color:#f92672">/</span>[  [ <span style="color:#f92672">|</span>:   <span style="color:#f92672">|</span>
+
+           ]  ] \           <span style="color:#f92672">/</span> [  [ <span style="color:#f92672">|</span>:   <span style="color:#f92672">|</span>
+
+           ]  ]  ]         [  [  [ <span style="color:#f92672">|</span>:   <span style="color:#f92672">|</span>
+
+           ]  ]  ]__     __[  [  [ <span style="color:#f92672">|</span>:   <span style="color:#f92672">|</span>
+
+           ]  ]  ] ]\ _ <span style="color:#f92672">/</span>[ [  [  [ <span style="color:#f92672">|</span>:   <span style="color:#f92672">|</span>
+
+           ]  ]  ] ] (<span style="color:#75715e">#) [ [  [  [ :====&#39;</span>
+
+           ]  ]  ]_]<span style="color:#f92672">.</span>nHn<span style="color:#f92672">.</span>[_[  [  [
+
+           ]  ]  ]  HHHHH<span style="color:#f92672">.</span> [  [  [
+
+           ]  ] <span style="color:#f92672">/</span>   <span style="color:#960050;background-color:#1e0010">`</span>HH(<span style="color:#e6db74">&#34;N  \ [  [</span>
+
+           ]__]<span style="color:#f92672">/</span>     HHH  <span style="color:#e6db74">&#34;  \[__[</span>
+
+           ]         NNN         [
+
+           ]         N<span style="color:#f92672">/</span><span style="color:#e6db74">&#34;         [</span>
+
+           ]         N H         [
+
+          <span style="color:#f92672">/</span>          N            \
+
+         <span style="color:#f92672">/</span>           q,            \
+
+        <span style="color:#f92672">/</span>                           \
+
+<span style="color:#f92672">&lt;/</span>pre<span style="color:#f92672">&gt;</span>
+
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="伪类选择器">伪类选择器</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+doc <span style="color:#f92672">=</span> pq(html)
+
+li <span style="color:#f92672">=</span> doc(<span style="color:#e6db74">&#34;li:first-child&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(li<span style="color:#f92672">.</span>text())
+
+li <span style="color:#f92672">=</span> doc(<span style="color:#e6db74">&#34;li:last-child&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(li<span style="color:#f92672">.</span>text())
+
+li <span style="color:#f92672">=</span> doc(<span style="color:#e6db74">&#34;li:nth-child(2)&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(li<span style="color:#f92672">.</span>text())
+
+li <span style="color:#f92672">=</span> doc(<span style="color:#e6db74">&#34;li:nth-child(3n)&#34;</span>)
+
+<span style="color:#66d9ef">print</span>(li<span style="color:#f92672">.</span>text())
+
+li <span style="color:#f92672">=</span> doc(<span style="color:#e6db74">&#34;li:gt(3)&#34;</span>)<span style="color:#75715e">#取第5个,即第4个以后,第四个下标为3</span>
+
+<span style="color:#66d9ef">print</span>(li<span style="color:#f92672">.</span>text())
+
+li <span style="color:#f92672">=</span> doc(<span style="color:#e6db74">&#34;li:contains(second)&#34;</span>)<span style="color:#75715e">#搜索文本</span>
+
+<span style="color:#66d9ef">print</span>(li<span style="color:#f92672">.</span>text())
+
+</code></pre></div><pre><code>frist item
+
+fifth item
+
+second item
+
+third item
+
+fifth item
+
+second item
+</code></pre>
+<h3 id="css选择器httpwwww3schoolcomcncssindexasp"><a href="http://www.w3school.com.cn/css/index.asp" target="_blank">css选择器</a>
+</h3>
+</div><div class="post-copyright mb-4">
+  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+</div>
+<div class="post-reward mb-4 text-center">
+  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
+    <i class="fas fa-fw fa-medal"></i>打赏
+  </button>
+</div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay"></i>支付宝
+            </a>
+          </li><li class="nav-item" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin"></i>微信
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg" loading="lazy" />
+          </div><div class="tab-pane fade post-reward-content show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg" loading="lazy" />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div><div class="post-navs d-flex mb-3 justify-content-between">
+  <div class="post-nav w-50"><div class="prev-post">
+      <a href="/posts/algorithm/%E6%95%B0%E7%BB%84/">数组</a>
+    </div></div>
+  <div class="post-nav flex-row-reverse"><div class="next-post">
+      <a href="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/">爬虫学习3</a>
+    </div></div>
+</div><section class="related-posts">
+  <h3>相关文章</h3>
+  <ul class="related-posts"><li><a href="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/">爬虫学习1</a></li><li><a href="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/">爬虫学习2</a></li><li><a href="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/">爬虫学习3</a></li></ul>
+</section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+  repo="Euraxluo/Euraxluo.github.io"
+  issue-term="pathname"
+  label="✨💬✨"
+  theme="github-dark"
+  crossorigin="anonymous"
+  async>
+</script></div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container"><section class="profile surface row">
+  <div class="col-xl-6 d-flex align-items-center justify-content-center">
+    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  </div>
+  <div class="col-xl-6">
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+</section><section class="featured-posts row surface">
+  <h4>精选文章</h4>
+  <ul><li><a href="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li><li><a href="/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="/posts/note/slam/">SLAM</a></li></ul>
+</section><section class="recent-posts row surface">
+  <h4>最近文章</h4>
+  <ul><li><a href="/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+</section>
+<section class="taxonomy-categories row surface">
+  <h4>
+    <a href="/categories">分类</a>
+  </h4>
+  <div><a href="/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
+      Shortcode <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+      java <span class="badge rounded-pill">8</span>
+    </a><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-series row surface">
+  <h4>
+    <a href="/series">专栏</a>
+  </h4>
+  <div><a href="/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">3</span>
+    </a><a href="/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-tags row surface">
+  <h4>
+    <a href="/tags">标签</a>
+  </h4>
+  <div><a href="/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
+      python <span class="badge rounded-pill">2</span>
+    </a><a href="/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a></div>
+</section></div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a>
+  </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
+        <i class="fab fa-fw fa-2x fa-github"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
+        <i class="fab fa-fw fa-2x fa-qq"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
+        <i class="fab fa-fw fa-2x fa-zhihu"></i>
+      </a>
+    </li></nav>
+<div class="copyright mb-2">
+  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+</div>
+<script>
+  window.parent.postMessage(window.location.href, "*");
+</script><div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
+</div></footer>
+<a id="btnScrollToTop" class="btn-scroll-to-top">
+  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
+</a>
+</body>
+</html>

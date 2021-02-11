@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>缓存 on Euraxluo Blog</title>
+    <link>/series/%E7%BC%93%E5%AD%98/</link>
+    <description>Recent content in 缓存 on Euraxluo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/series/%E7%BC%93%E5%AD%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>缓存的使用和设计</title>
+      <link>/posts/redis/%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/redis/%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AE%BE%E8%AE%A1/</guid>
+      <description>缓存的使用和设计 缓存的收益与成本 收益 加速读写 通过缓存加速读写：CPU L1/L2/L3 Cache，浏览器缓存，Ehcache缓存数据库结果 降低后端负载 后端服</description>
+    </item>
+    
+  </channel>
+</rss>

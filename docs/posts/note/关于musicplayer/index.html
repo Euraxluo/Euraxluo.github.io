@@ -1,0 +1,1252 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>关于musicplayer - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="description" content="关于musicplayer" /><meta itemprop="name" content="关于musicplayer">
+<meta itemprop="description" content="关于musicplayer">
+<meta itemprop="datePublished" content="2019-02-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-02-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4467">
+
+
+
+<meta itemprop="keywords" content="notes," />
+<meta property="og:title" content="关于musicplayer" />
+<meta property="og:description" content="关于musicplayer" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/" />
+<meta property="article:published_time" content="2019-02-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-02-21T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/posts/note/bio%E5%AD%A6%E4%B9%A0/" /><meta property="og:see_also" content="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/" /><meta property="og:see_also" content="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/" /><meta property="og:see_also" content="/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/" /><meta property="og:see_also" content="/posts/note/go-%E8%AF%AD%E8%A8%80/" /><meta property="og:see_also" content="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="关于musicplayer"/>
+<meta name="twitter:description" content="关于musicplayer"/>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+</head>
+  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/search">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
+    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
+  </div>
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/archives">
+            <i class="fas fa-fw fa-file-archive"></i>归档
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/categories">
+            <i class="fas fa-fw fa-folder"></i>分类
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/tags">
+            <i class="fas fa-fw fa-tags"></i>标签
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/series">
+            <i class="fas fa-fw fa-columns"></i>专栏
+          </a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Repos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo" target="_blank">
+                <i class="fab fa-fw fa-github"></i>Euraxluo
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                <i class="fab fa-fw fa-github"></i>fastgrpc
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                <i class="fab fa-fw fa-github"></i>ProjectPractice
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                <i class="fab fa-fw fa-github"></i>pyantv
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                <i class="fab fa-fw fa-github"></i>simple-pythonvm
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/verb" target="_blank">
+                <i class="fab fa-fw fa-github"></i>verb
+              </a>
+            </li></ul>
+        </li></ul>
+      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
+    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-language" ></i>
+  </a>
+</li>
+<script type="text/html" id="languagesPopoverBody">
+  <ul class="languages list-group"><li class="language list-group-item">
+      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
+      <a href="/zh-tw/">繁體中文</a></li></ul>
+</script>
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#palettesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-palette" ></i>
+  </a>
+</li>
+<script type="text/html" id="palettesPopoverBody">
+  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
+      <a>蓝色</a>
+    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
+      <a>蓝灰色</a>
+    </li><li id="palette-brown" class="palette list-group-item bg-brown">
+      <a>棕色</a>
+    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
+      <a>青色</a>
+    </li><li id="palette-green" class="palette list-group-item bg-green">
+      <a>绿色</a>
+    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
+      <a>靛青色</a>
+    </li><li id="palette-orange" class="palette list-group-item bg-orange">
+      <a>橙色</a>
+    </li><li id="palette-pink" class="palette list-group-item bg-pink">
+      <a>粉色</a>
+    </li><li id="palette-purple" class="palette list-group-item bg-purple">
+      <a>紫色</a>
+    </li><li id="palette-red" class="palette list-group-item bg-red">
+      <a>红色</a>
+    </li><li id="palette-teal" class="palette list-group-item bg-teal">
+      <a>蓝绿色</a>
+    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
+      <a>黄色</a>
+    </li></ul>
+</script>
+
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#fontSizesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-font" ></i>
+  </a>
+</li>
+<script type="text/html" id="fontSizesPopoverBody">
+  <form class="font-size-switcher-form">
+    <label for="fontSize" class="form-label">字体大小</label>
+    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+  </form>
+</script>
+<form class="mode-switcher-form d-flex align-items-center">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="modeSwitcher">
+  </div>
+</form>
+</ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-md-8">
+  <div class="container"><nav class="row" aria-label="breadcrumb">
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/">主页</a></li><li class="breadcrumb-item"><a href="/posts/">posts</a></li><li class="breadcrumb-item"><a href="/posts/note/">note</a></li><li class="breadcrumb-item active">关于musicplayer</li></ol>
+</nav><article class="post row surface">
+  <h1 class="post-title my-3">关于musicplayer</h1><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2019-02-21
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>9 分钟阅读
+  </span>
+<a href="/categories/notes/" class="post-taxonomy">#notes</a><a href="/series/notes/" class="post-taxonomy">#notes</a><a href="/tags/notes/" class="post-taxonomy">#notes</a></div>
+<div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
+  <div class="accordion-item">
+    <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
+      <i class="fas fa-fw fa-bars"></i>目录
+    </div>
+    <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
+      <div class="accordion-body mt-2">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#关于musicplayer">关于musicplayer</a>
+      <ul>
+        <li><a href="#首先给权限">首先给权限</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div><div class="post-content mb-3"><h2 id="关于musicplayer">关于musicplayer</h2>
+<h3 id="首先给权限">首先给权限</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">	<span style="color:#75715e">&lt;!-- 网络权限 --&gt;</span>
+    <span style="color:#f92672">&lt;uses-permission</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;android.permission.INTERNET&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;uses-permission</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;android.permission.READ_EXTERNAL_STORAGE&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#75715e">&lt;!-- 向SD卡写入数据权限 --&gt;</span>
+    <span style="color:#f92672">&lt;uses-permission</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;android.permission.WRITE_EXTERNAL_STORAGE&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#75715e">&lt;!-- 在SD卡中创建与删除文件权限 --&gt;</span>
+	<span style="color:#75715e">&lt;!-- 扫描数据库的权限 --&gt;</span>
+    <span style="color:#f92672">&lt;uses-permission</span> 
+            <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;android.permission.MOUNT_UNMOUNT_FILESYSTEMS&#34;</span>
+            <span style="color:#a6e22e">tools:ignore=</span><span style="color:#e6db74">&#34;ProtectedPermissions&#34;</span><span style="color:#f92672">/&gt;</span>
+</code></pre></div><p>包含ListView的布局文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;LinearLayout</span>
+        <span style="color:#a6e22e">xmlns:android=</span><span style="color:#e6db74">&#34;http://schemas.android.com/apk/res/android&#34;</span>
+        <span style="color:#a6e22e">xmlns:tools=</span><span style="color:#e6db74">&#34;http://schemas.android.com/tools&#34;</span>
+        <span style="color:#a6e22e">xmlns:app=</span><span style="color:#e6db74">&#34;http://schemas.android.com/apk/res-auto&#34;</span>
+        <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+        <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+        <span style="color:#a6e22e">android:orientation=</span><span style="color:#e6db74">&#34;vertical&#34;</span>
+        <span style="color:#a6e22e">android:layout_gravity=</span><span style="color:#e6db74">&#34;center&#34;</span>
+        <span style="color:#a6e22e">tools:context=</span><span style="color:#e6db74">&#34;.MainActivity&#34;</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;LinearLayout</span>
+            <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+            <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;400dp&#34;</span>
+            <span style="color:#a6e22e">android:orientation=</span><span style="color:#e6db74">&#34;vertical&#34;</span><span style="color:#f92672">&gt;</span>
+
+        <span style="color:#f92672">&lt;ListView</span>
+                <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/lv1&#34;</span>
+                <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+                <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span><span style="color:#f92672">&gt;&lt;/ListView&gt;</span>
+    <span style="color:#f92672">&lt;/LinearLayout&gt;</span>
+
+
+    <span style="color:#f92672">&lt;SeekBar</span>
+            <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/sb&#34;</span>
+            <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+            <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;30dp&#34;</span>
+            <span style="color:#a6e22e">android:maxHeight=</span><span style="color:#e6db74">&#34;2dp&#34;</span>
+            <span style="color:#a6e22e">android:minHeight=</span><span style="color:#e6db74">&#34;2dp&#34;</span>
+            <span style="color:#a6e22e">android:paddingBottom=</span><span style="color:#e6db74">&#34;3dp&#34;</span>
+            <span style="color:#a6e22e">android:paddingLeft=</span><span style="color:#e6db74">&#34;12dp&#34;</span>
+            <span style="color:#a6e22e">android:max=</span><span style="color:#e6db74">&#34;200&#34;</span>
+            <span style="color:#a6e22e">android:paddingRight=</span><span style="color:#e6db74">&#34;12dp&#34;</span>
+            <span style="color:#a6e22e">android:paddingTop=</span><span style="color:#e6db74">&#34;3dp&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;TextView</span>
+            <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/tv1&#34;</span>
+            <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+            <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span> <span style="color:#f92672">/&gt;</span>
+
+    <span style="color:#f92672">&lt;LinearLayout</span>
+            <span style="color:#a6e22e">android:orientation=</span><span style="color:#e6db74">&#34;horizontal&#34;</span>
+            <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+            <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;cn.study.euraxluo.androidtup.CircleImageView</span>
+                <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/imageView&#34;</span>
+                <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;70dp&#34;</span>
+                <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;70dp&#34;</span>
+                <span style="color:#a6e22e">android:scaleType=</span><span style="color:#e6db74">&#34;centerCrop&#34;</span>
+                <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;Button</span>
+                <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/btn_last&#34;</span>
+                <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;70dp&#34;</span>
+                <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+                <span style="color:#a6e22e">android:text=</span><span style="color:#e6db74">&#34;@string/btn_last&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;Button</span>
+                <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/btn_star&#34;</span>
+                <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;70dp&#34;</span>
+                <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+                <span style="color:#a6e22e">android:text=</span><span style="color:#e6db74">&#34;@string/btn_star&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;Button</span>
+                <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/btn_next&#34;</span>
+                <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;70dp&#34;</span>
+                <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+                <span style="color:#a6e22e">android:text=</span><span style="color:#e6db74">&#34;@string/btn_next&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;Button</span>
+                <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/btn_stop&#34;</span>
+                <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;70dp&#34;</span>
+                <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+                <span style="color:#a6e22e">android:text=</span><span style="color:#e6db74">&#34;@string/btn_stop&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/LinearLayout&gt;</span>
+<span style="color:#f92672">&lt;/LinearLayout&gt;</span>
+</code></pre></div><p>MainActivity.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainActivity</span> <span style="color:#66d9ef">extends</span> AppCompatActivity <span style="color:#66d9ef">implements</span> Runnable <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String TAG <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;MainActivity&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">int</span> flag <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span><span style="color:#75715e">//设置一个标志，供点击“开始/暂停”按钮使用
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> Button btnStart<span style="color:#f92672">,</span> btnStop<span style="color:#f92672">,</span> btnNext<span style="color:#f92672">,</span> btnLast<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> TextView txtInfo<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> ListView listView<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> SeekBar seekBar<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> MusicService musicService<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Handler handler<span style="color:#f92672">;</span><span style="color:#75715e">// 处理改变进度条事件
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> UPDATE <span style="color:#f92672">=</span> 0x101<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> autoChange<span style="color:#f92672">,</span> manulChange<span style="color:#f92672">;</span><span style="color:#75715e">// 判断是进度条是自动改变还是手动改变
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> isPause<span style="color:#f92672">;</span><span style="color:#75715e">// 判断是从暂停中恢复还是重新播
+</span><span style="color:#75715e"></span>
+    AudioUtils audioUtils <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AudioUtils<span style="color:#f92672">();</span>
+<span style="color:#75715e">//    ArrayList&lt;Song&gt; songs;
+</span><span style="color:#75715e"></span>
+    Bitmap musicFm<span style="color:#f92672">;</span><span style="color:#75715e">//音乐的封面的bitmap
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> ImageView imageView<span style="color:#f92672">;</span><span style="color:#75715e">//封面的imageView
+</span><span style="color:#75715e"></span>    RotateAnimation rotateAnimation<span style="color:#f92672">;</span><span style="color:#75715e">//特效
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCreate</span><span style="color:#f92672">(</span>Bundle savedInstanceState<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Log<span style="color:#f92672">.</span><span style="color:#a6e22e">d</span><span style="color:#f92672">(</span>TAG<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;onCreate&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onCreate</span><span style="color:#f92672">(</span>savedInstanceState<span style="color:#f92672">);</span>
+        setContentView<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">activity_main</span><span style="color:#f92672">);</span>
+
+
+        Log<span style="color:#f92672">.</span><span style="color:#a6e22e">d</span><span style="color:#f92672">(</span>TAG<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;checkSelfPermission&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//关于验证的函数，如果缺少这两个函数，那么需要自己开启应用的权限
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//判断权限,申请权限
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>ContextCompat<span style="color:#f92672">.</span><span style="color:#a6e22e">checkSelfPermission</span><span style="color:#f92672">(</span>MainActivity<span style="color:#f92672">.</span><span style="color:#a6e22e">this</span><span style="color:#f92672">,</span> Manifest<span style="color:#f92672">.</span><span style="color:#a6e22e">permission</span><span style="color:#f92672">.</span><span style="color:#a6e22e">WRITE_EXTERNAL_STORAGE</span>
+        <span style="color:#f92672">)</span> <span style="color:#f92672">!=</span> PackageManager<span style="color:#f92672">.</span><span style="color:#a6e22e">PERMISSION_GRANTED</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            ActivityCompat<span style="color:#f92672">.</span><span style="color:#a6e22e">requestPermissions</span><span style="color:#f92672">(</span>MainActivity<span style="color:#f92672">.</span><span style="color:#a6e22e">this</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]{</span>Manifest
+                    <span style="color:#f92672">.</span><span style="color:#a6e22e">permission</span><span style="color:#f92672">.</span><span style="color:#a6e22e">WRITE_EXTERNAL_STORAGE</span><span style="color:#f92672">},</span> 1<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            initMediaPlayer<span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>ContextCompat<span style="color:#f92672">.</span><span style="color:#a6e22e">checkSelfPermission</span><span style="color:#f92672">(</span>MainActivity<span style="color:#f92672">.</span><span style="color:#a6e22e">this</span><span style="color:#f92672">,</span> Manifest<span style="color:#f92672">.</span><span style="color:#a6e22e">permission</span><span style="color:#f92672">.</span><span style="color:#a6e22e">READ_EXTERNAL_STORAGE</span>
+        <span style="color:#f92672">)</span> <span style="color:#f92672">!=</span> PackageManager<span style="color:#f92672">.</span><span style="color:#a6e22e">PERMISSION_GRANTED</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+            ActivityCompat<span style="color:#f92672">.</span><span style="color:#a6e22e">requestPermissions</span><span style="color:#f92672">(</span>MainActivity<span style="color:#f92672">.</span><span style="color:#a6e22e">this</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]{</span>Manifest
+                    <span style="color:#f92672">.</span><span style="color:#a6e22e">permission</span><span style="color:#f92672">.</span><span style="color:#a6e22e">READ_EXTERNAL_STORAGE</span><span style="color:#f92672">},</span> 2<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            initMediaPlayer<span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+
+    <span style="color:#f92672">}</span>
+
+
+	<span style="color:#75715e">//关于验证的函数
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//请求权限处理回调
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onRequestPermissionsResult</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> requestCode<span style="color:#f92672">,</span> <span style="color:#a6e22e">@NonNull</span> String<span style="color:#f92672">[]</span> permissions<span style="color:#f92672">,</span> <span style="color:#a6e22e">@NonNull</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> grantResults<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Log<span style="color:#f92672">.</span><span style="color:#a6e22e">d</span><span style="color:#f92672">(</span>TAG<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;onRequestPermissionsResult&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span>requestCode<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">case</span> 1<span style="color:#f92672">:</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>grantResults<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> 0 <span style="color:#f92672">&amp;&amp;</span> grantResults<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> PackageManager<span style="color:#f92672">.</span><span style="color:#a6e22e">PERMISSION_GRANTED</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    initMediaPlayer<span style="color:#f92672">();</span>
+                <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                    Toast<span style="color:#f92672">.</span><span style="color:#a6e22e">makeText</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;获取授权失败&#34;</span><span style="color:#f92672">,</span> Toast<span style="color:#f92672">.</span><span style="color:#a6e22e">LENGTH_SHORT</span><span style="color:#f92672">).</span><span style="color:#a6e22e">show</span><span style="color:#f92672">();</span>
+                <span style="color:#f92672">}</span>
+                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">case</span> 2<span style="color:#f92672">:</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>grantResults<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> 0 <span style="color:#f92672">&amp;&amp;</span> grantResults<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> PackageManager<span style="color:#f92672">.</span><span style="color:#a6e22e">PERMISSION_GRANTED</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    initMediaPlayer<span style="color:#f92672">();</span>
+                <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                    Toast<span style="color:#f92672">.</span><span style="color:#a6e22e">makeText</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;正在获取授权&#34;</span><span style="color:#f92672">,</span> Toast<span style="color:#f92672">.</span><span style="color:#a6e22e">LENGTH_SHORT</span><span style="color:#f92672">).</span><span style="color:#a6e22e">show</span><span style="color:#f92672">();</span>
+                <span style="color:#f92672">}</span>
+                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+                Toast<span style="color:#f92672">.</span><span style="color:#a6e22e">makeText</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;获取授权失败&#34;</span><span style="color:#f92672">,</span> Toast<span style="color:#f92672">.</span><span style="color:#a6e22e">LENGTH_SHORT</span><span style="color:#f92672">).</span><span style="color:#a6e22e">show</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+
+<span style="color:#75715e">//如果有权限就会运行这里的函数
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">initMediaPlayer</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        
+        Log<span style="color:#f92672">.</span><span style="color:#a6e22e">d</span><span style="color:#f92672">(</span>TAG<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;init MediaPlayer &#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//必须在获取权限后new MusicService，
+</span><span style="color:#75715e"></span>        musicService <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MusicService<span style="color:#f92672">();</span>
+
+        <span style="color:#75715e">/* 非扫描的方式获取的音乐，是从数据库中直接获取
+</span><span style="color:#75715e">        songs =  audioUtils.getAllSongs(this);
+</span><span style="color:#75715e">//        for (Song song:songs){
+</span><span style="color:#75715e">//            musicService.test(songs.get(0));
+</span><span style="color:#75715e">        Bitmap fm = songs.get(0).getThumbnail();
+</span><span style="color:#75715e">        imageView.setImageBitmap(fm);
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">        Toast.makeText(this, songs.get(0).getFileName()+&#34; &#34;+songs.size(), Toast.LENGTH_SHORT).show();
+</span><span style="color:#75715e">//        }
+</span><span style="color:#75715e">*/</span>
+
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            setListViewAdapter<span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            Log<span style="color:#f92672">.</span><span style="color:#a6e22e">i</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;TAG&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;读取信息失败&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+
+
+        imageView <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ImageView<span style="color:#f92672">)</span> findViewById<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">imageView</span><span style="color:#f92672">);</span>
+        btnStart <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Button<span style="color:#f92672">)</span> findViewById<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">btn_star</span><span style="color:#f92672">);</span>
+
+        <span style="color:#75715e">//初始化特效
+</span><span style="color:#75715e"></span>        rotateAnimation <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RotateAnimation<span style="color:#f92672">(</span>0<span style="color:#f92672">,</span>360<span style="color:#f92672">,</span>
+                Animation<span style="color:#f92672">.</span><span style="color:#a6e22e">RELATIVE_TO_SELF</span><span style="color:#f92672">,</span>0<span style="color:#f92672">.</span><span style="color:#a6e22e">5f</span><span style="color:#f92672">,</span>
+                Animation<span style="color:#f92672">.</span><span style="color:#a6e22e">RELATIVE_TO_SELF</span><span style="color:#f92672">,</span>0<span style="color:#f92672">.</span><span style="color:#a6e22e">5f</span><span style="color:#f92672">);</span>
+        
+        <span style="color:#75715e">//开始的监听按钮，我们可以直接从这开始
+</span><span style="color:#75715e"></span>        btnStart<span style="color:#f92672">.</span><span style="color:#a6e22e">setOnClickListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> View<span style="color:#f92672">.</span><span style="color:#a6e22e">OnClickListener</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">(</span>View view<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                    <span style="color:#75715e">/**
+</span><span style="color:#75715e">                     * flag为1 的时候，此时player内没有东西，所以执行musicService.play()函数
+</span><span style="color:#75715e">                     * 进行第一次播放，然后flag自增二不再进行第一次播放
+</span><span style="color:#75715e">                     * 当再次点击“开始/暂停”按钮次数即大于1 将执行暂停或继续播放goplay()函数
+</span><span style="color:#75715e">                     */</span>
+                    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>flag <span style="color:#f92672">==</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                        btnStart<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">.</span><span style="color:#a6e22e">btn_pause</span><span style="color:#f92672">);</span>
+                        Rotate<span style="color:#f92672">();</span><span style="color:#75715e">//旋转开始
+</span><span style="color:#75715e"></span>                        musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">play</span><span style="color:#f92672">();</span>
+                        flag<span style="color:#f92672">++;</span>
+                    <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">player</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isPlaying</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+                            btnStart<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">.</span><span style="color:#a6e22e">btn_pause</span><span style="color:#f92672">);</span>
+                            Rotate<span style="color:#f92672">();</span><span style="color:#75715e">//旋转开始
+</span><span style="color:#75715e"></span>                            musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">goPlay</span><span style="color:#f92672">();</span>
+                        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">player</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isPlaying</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+                            btnStart<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">.</span><span style="color:#a6e22e">btn_star</span><span style="color:#f92672">);</span>
+                            rotateAnimation<span style="color:#f92672">.</span><span style="color:#a6e22e">cancel</span><span style="color:#f92672">();</span><span style="color:#75715e">//暂停图片
+</span><span style="color:#75715e"></span>                            musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">pause</span><span style="color:#f92672">();</span>
+                        <span style="color:#f92672">}</span>
+                    <span style="color:#f92672">}</span>
+                <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    Log<span style="color:#f92672">.</span><span style="color:#a6e22e">i</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;LAT&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;开始异常！&#34;</span><span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span>
+
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">});</span>
+
+        btnStop <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Button<span style="color:#f92672">)</span> findViewById<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">btn_stop</span><span style="color:#f92672">);</span>
+        btnStop<span style="color:#f92672">.</span><span style="color:#a6e22e">setOnClickListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> View<span style="color:#f92672">.</span><span style="color:#a6e22e">OnClickListener</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">(</span>View view<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+
+                    btnStart<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">.</span><span style="color:#a6e22e">btn_star</span><span style="color:#f92672">);</span>
+                    rotateAnimation<span style="color:#f92672">.</span><span style="color:#a6e22e">cancel</span><span style="color:#f92672">();</span><span style="color:#75715e">//暂停旋转
+</span><span style="color:#75715e"></span>                    musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">stop</span><span style="color:#f92672">();</span>
+                    flag <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span><span style="color:#75715e">//当点击停止按钮时，flag置为1
+</span><span style="color:#75715e"></span>                    seekBar<span style="color:#f92672">.</span><span style="color:#a6e22e">setProgress</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+                    txtInfo<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;播放已经停止&#34;</span><span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    Log<span style="color:#f92672">.</span><span style="color:#a6e22e">i</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;LAT&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;停止异常！&#34;</span><span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span>
+
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">});</span>
+
+        btnLast <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Button<span style="color:#f92672">)</span> findViewById<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">btn_last</span><span style="color:#f92672">);</span>
+        btnLast<span style="color:#f92672">.</span><span style="color:#a6e22e">setOnClickListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> View<span style="color:#f92672">.</span><span style="color:#a6e22e">OnClickListener</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">(</span>View view<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                    btnStart<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">.</span><span style="color:#a6e22e">btn_pause</span><span style="color:#f92672">);</span>
+                    Rotate<span style="color:#f92672">();</span><span style="color:#75715e">//继续旋转
+</span><span style="color:#75715e"></span>                    musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">last</span><span style="color:#f92672">();</span>
+                <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    Log<span style="color:#f92672">.</span><span style="color:#a6e22e">i</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;LAT&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;上一曲异常！&#34;</span><span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span>
+
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">});</span>
+
+
+        btnNext <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Button<span style="color:#f92672">)</span> findViewById<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">btn_next</span><span style="color:#f92672">);</span>
+        btnNext<span style="color:#f92672">.</span><span style="color:#a6e22e">setOnClickListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> View<span style="color:#f92672">.</span><span style="color:#a6e22e">OnClickListener</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">(</span>View view<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                    btnStart<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">.</span><span style="color:#a6e22e">btn_pause</span><span style="color:#f92672">);</span>
+<span style="color:#75715e">//                    Rotate();//继续旋转
+</span><span style="color:#75715e"></span>                    rotateAnimation<span style="color:#f92672">.</span><span style="color:#a6e22e">startNow</span><span style="color:#f92672">();</span>
+                    musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+                <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    Log<span style="color:#f92672">.</span><span style="color:#a6e22e">i</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;LAT&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;下一曲异常！&#34;</span><span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span>
+
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">});</span>
+
+
+        seekBar <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>SeekBar<span style="color:#f92672">)</span>
+
+                findViewById<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">sb</span><span style="color:#f92672">);</span>
+        seekBar<span style="color:#f92672">.</span><span style="color:#a6e22e">setOnSeekBarChangeListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> SeekBar<span style="color:#f92672">.</span><span style="color:#a6e22e">OnSeekBarChangeListener</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onProgressChanged</span><span style="color:#f92672">(</span>SeekBar seekBar<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> i<span style="color:#f92672">,</span> <span style="color:#66d9ef">boolean</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#75715e">//用于监听SeekBar进度值的改变
+</span><span style="color:#75715e"></span>
+            <span style="color:#f92672">}</span>
+
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onStartTrackingTouch</span><span style="color:#f92672">(</span>SeekBar seekBar<span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#75715e">//用于监听SeekBar开始拖动
+</span><span style="color:#75715e"></span>
+            <span style="color:#f92672">}</span>
+
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onStopTrackingTouch</span><span style="color:#f92672">(</span>SeekBar seekBar<span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#75715e">//用于监听SeekBar停止拖动  SeekBar停止拖动后的事件
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">int</span> progress <span style="color:#f92672">=</span> seekBar<span style="color:#f92672">.</span><span style="color:#a6e22e">getProgress</span><span style="color:#f92672">();</span>
+                Log<span style="color:#f92672">.</span><span style="color:#a6e22e">i</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;TAG:&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">+</span> progress <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">);</span>
+                <span style="color:#66d9ef">int</span> musicMax <span style="color:#f92672">=</span> musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">player</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getDuration</span><span style="color:#f92672">();</span> <span style="color:#75715e">//得到该首歌曲最长秒数
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">int</span> seekBarMax <span style="color:#f92672">=</span> seekBar<span style="color:#f92672">.</span><span style="color:#a6e22e">getMax</span><span style="color:#f92672">();</span>
+                musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">player</span>
+                        <span style="color:#f92672">.</span><span style="color:#a6e22e">seekTo</span><span style="color:#f92672">(</span>musicMax <span style="color:#f92672">*</span> progress <span style="color:#f92672">/</span> seekBarMax<span style="color:#f92672">);</span><span style="color:#75715e">//跳到该曲该秒
+</span><span style="color:#75715e"></span>                autoChange <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+                manulChange <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">});</span>
+
+        txtInfo <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>TextView<span style="color:#f92672">)</span> findViewById<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">tv1</span><span style="color:#f92672">);</span>
+
+        Thread t <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span><span style="color:#75715e">// 自动改变进度条的线程
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//实例化一个handler对象
+</span><span style="color:#75715e"></span>        handler <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span>
+
+                Handler<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+                    <span style="color:#a6e22e">@Override</span>
+                    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handleMessage</span><span style="color:#f92672">(</span>Message msg<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">handleMessage</span><span style="color:#f92672">(</span>msg<span style="color:#f92672">);</span>
+                        <span style="color:#75715e">//更新UI
+</span><span style="color:#75715e"></span>                        <span style="color:#66d9ef">int</span> mMax <span style="color:#f92672">=</span> musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">player</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getDuration</span><span style="color:#f92672">();</span><span style="color:#75715e">//最大秒数
+</span><span style="color:#75715e"></span>                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>msg<span style="color:#f92672">.</span><span style="color:#a6e22e">what</span> <span style="color:#f92672">==</span> UPDATE<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                            <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                                seekBar<span style="color:#f92672">.</span><span style="color:#a6e22e">setProgress</span><span style="color:#f92672">(</span>msg<span style="color:#f92672">.</span><span style="color:#a6e22e">arg1</span><span style="color:#f92672">);</span>
+                                txtInfo<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span>setPlayInfo<span style="color:#f92672">(</span>msg<span style="color:#f92672">.</span><span style="color:#a6e22e">arg2</span> <span style="color:#f92672">/</span> 1000<span style="color:#f92672">,</span> mMax <span style="color:#f92672">/</span> 1000<span style="color:#f92672">));</span>
+                            <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                                e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+                            <span style="color:#f92672">}</span>
+                        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                            seekBar<span style="color:#f92672">.</span><span style="color:#a6e22e">setProgress</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+                            txtInfo<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;播放已经停止&#34;</span><span style="color:#f92672">);</span>
+                        <span style="color:#f92672">}</span>
+                    <span style="color:#f92672">}</span>
+                <span style="color:#f92672">}</span>
+
+        <span style="color:#f92672">;</span>
+        t<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+
+    <span style="color:#f92672">}</span>
+    
+    <span style="color:#75715e">//向列表添加MP3名字，和listView有关的函数
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setListViewAdapter</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        Log<span style="color:#f92672">.</span><span style="color:#a6e22e">d</span><span style="color:#f92672">(</span>TAG<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;musicList.size:&#34;</span><span style="color:#f92672">+</span>musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">musicList</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">());</span>
+        String<span style="color:#f92672">[]</span> str <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">[</span>musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">musicList</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()];</span>
+        <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String path <span style="color:#f92672">:</span> musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">musicList</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span>path<span style="color:#f92672">);</span>
+            str<span style="color:#f92672">[</span>i<span style="color:#f92672">++]</span> <span style="color:#f92672">=</span> file<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+        ArrayAdapter adapter <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayAdapter<span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">,</span> android<span style="color:#f92672">.</span><span style="color:#a6e22e">R</span><span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">simple_list_item_1</span><span style="color:#f92672">,</span>str<span style="color:#f92672">);</span>
+        listView <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ListView<span style="color:#f92672">)</span> findViewById<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">lv1</span><span style="color:#f92672">);</span>
+        listView<span style="color:#f92672">.</span><span style="color:#a6e22e">setAdapter</span><span style="color:#f92672">(</span>adapter<span style="color:#f92672">);</span>
+
+        <span style="color:#75715e">//通过播放的音乐路径来得到音乐大的封面
+</span><span style="color:#75715e"></span>        String dataSource <span style="color:#f92672">=</span> musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">musicList</span><span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">songNum</span><span style="color:#f92672">);</span><span style="color:#75715e">//得到当前播放音乐的路径
+</span><span style="color:#75715e"></span>        musicFm <span style="color:#f92672">=</span>  audioUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">createAlbumArt</span><span style="color:#f92672">(</span>dataSource<span style="color:#f92672">);</span>
+        imageView<span style="color:#f92672">.</span><span style="color:#a6e22e">setImageBitmap</span><span style="color:#f92672">(</span>musicFm<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span><span style="color:#75715e">//这里需要新开一个线程在后台播放，同时需要控制bar，因此需要service通信
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> position<span style="color:#f92672">,</span> mMax<span style="color:#f92672">,</span> sMax<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(!</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">isInterrupted</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">player</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">player</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isPlaying</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+                position <span style="color:#f92672">=</span> musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">getCurrentProgress</span><span style="color:#f92672">();</span><span style="color:#75715e">//得到当前歌曲播放进度(秒)
+</span><span style="color:#75715e"></span>                mMax <span style="color:#f92672">=</span> musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">player</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getDuration</span><span style="color:#f92672">();</span><span style="color:#75715e">//最大秒数
+</span><span style="color:#75715e"></span>                sMax <span style="color:#f92672">=</span> seekBar<span style="color:#f92672">.</span><span style="color:#a6e22e">getMax</span><span style="color:#f92672">();</span><span style="color:#75715e">//seekBar最大值，算百分比
+</span><span style="color:#75715e"></span>                Message m <span style="color:#f92672">=</span> handler<span style="color:#f92672">.</span><span style="color:#a6e22e">obtainMessage</span><span style="color:#f92672">();</span><span style="color:#75715e">//获取一个Message
+</span><span style="color:#75715e"></span>                m<span style="color:#f92672">.</span><span style="color:#a6e22e">arg1</span> <span style="color:#f92672">=</span> position <span style="color:#f92672">*</span> sMax <span style="color:#f92672">/</span> mMax<span style="color:#f92672">;</span><span style="color:#75715e">//seekBar进度条的百分比
+</span><span style="color:#75715e"></span>                m<span style="color:#f92672">.</span><span style="color:#a6e22e">arg2</span> <span style="color:#f92672">=</span> position<span style="color:#f92672">;</span>
+                m<span style="color:#f92672">.</span><span style="color:#a6e22e">what</span> <span style="color:#f92672">=</span> UPDATE<span style="color:#f92672">;</span>
+                handler<span style="color:#f92672">.</span><span style="color:#a6e22e">sendMessage</span><span style="color:#f92672">(</span>m<span style="color:#f92672">);</span>
+                <span style="color:#75715e">//  handler.sendEmptyMessage(UPDATE);
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                    Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>1000<span style="color:#f92672">);</span><span style="color:#75715e">// 每间隔1秒发送一次更新消息
+</span><span style="color:#75715e"></span>                <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+
+        <span style="color:#f92672">}</span>
+
+    <span style="color:#f92672">}</span>
+
+
+    <span style="color:#75715e">//设置当前播放的信息
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> String <span style="color:#a6e22e">setPlayInfo</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> position<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> max<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//设置图片
+</span><span style="color:#75715e"></span>        String dataSource <span style="color:#f92672">=</span> musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">musicList</span><span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">songNum</span><span style="color:#f92672">);</span><span style="color:#75715e">//得到当前播放音乐的路径
+</span><span style="color:#75715e"></span>        musicFm <span style="color:#f92672">=</span>  audioUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">createAlbumArt</span><span style="color:#f92672">(</span>dataSource<span style="color:#f92672">);</span>
+        imageView<span style="color:#f92672">.</span><span style="color:#a6e22e">setImageBitmap</span><span style="color:#f92672">(</span>musicFm<span style="color:#f92672">);</span>
+        <span style="color:#75715e">//设置音乐信息
+</span><span style="color:#75715e"></span>        String info <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;正在播放:  &#34;</span> <span style="color:#f92672">+</span> musicService<span style="color:#f92672">.</span><span style="color:#a6e22e">songName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\t\t&#34;</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> pMinutes <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>position <span style="color:#f92672">&gt;=</span> 60<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            pMinutes<span style="color:#f92672">++;</span>
+            position <span style="color:#f92672">-=</span> 60<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        String now <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>pMinutes <span style="color:#f92672">&lt;</span> 10 <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#f92672">+</span> pMinutes <span style="color:#f92672">:</span> pMinutes<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;:&#34;</span>
+                <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>position <span style="color:#f92672">&lt;</span> 10 <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#f92672">+</span> position <span style="color:#f92672">:</span> position<span style="color:#f92672">);</span>
+
+        <span style="color:#66d9ef">int</span> mMinutes <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>max <span style="color:#f92672">&gt;=</span> 60<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            mMinutes<span style="color:#f92672">++;</span>
+            max <span style="color:#f92672">-=</span> 60<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        String all <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>mMinutes <span style="color:#f92672">&lt;</span> 10 <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#f92672">+</span> mMinutes <span style="color:#f92672">:</span> mMinutes<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;:&#34;</span>
+                <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>max <span style="color:#f92672">&lt;</span> 10 <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#f92672">+</span> max <span style="color:#f92672">:</span> max<span style="color:#f92672">);</span>
+
+        <span style="color:#66d9ef">return</span> info <span style="color:#f92672">+</span> now <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; / &#34;</span> <span style="color:#f92672">+</span> all<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">//音乐封面旋转特效
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Rotate</span><span style="color:#f92672">(){</span>
+<span style="color:#75715e">//        AnimationSet animationSet = new AnimationSet(true);
+</span><span style="color:#75715e"></span>
+        rotateAnimation<span style="color:#f92672">.</span><span style="color:#a6e22e">setDuration</span><span style="color:#f92672">(</span>20000<span style="color:#f92672">);</span><span style="color:#75715e">//设定转一圈的时间
+</span><span style="color:#75715e"></span>        rotateAnimation<span style="color:#f92672">.</span><span style="color:#a6e22e">setRepeatCount</span><span style="color:#f92672">(</span>Animation<span style="color:#f92672">.</span><span style="color:#a6e22e">INFINITE</span><span style="color:#f92672">);</span><span style="color:#75715e">//设定无限循环
+</span><span style="color:#75715e"></span>        rotateAnimation<span style="color:#f92672">.</span><span style="color:#a6e22e">setRepeatMode</span><span style="color:#f92672">(</span>Animation<span style="color:#f92672">.</span><span style="color:#a6e22e">RESTART</span><span style="color:#f92672">);</span><span style="color:#75715e">//
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">//        animationSet.addAnimation(rotateAnimation);
+</span><span style="color:#75715e"></span>        imageView<span style="color:#f92672">.</span><span style="color:#a6e22e">startAnimation</span><span style="color:#f92672">(</span>rotateAnimation<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>我的MusicService文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MusicService</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> File PATH <span style="color:#f92672">=</span> Environment<span style="color:#f92672">.</span><span style="color:#a6e22e">getExternalStorageDirectory</span><span style="color:#f92672">();</span><span style="color:#75715e">// 获取SD卡总目录。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> musicList<span style="color:#f92672">;</span><span style="color:#75715e">// 存放找到的所有mp3的绝对路径。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> MediaPlayer player<span style="color:#f92672">;</span> <span style="color:#75715e">// 定义多媒体对象
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> songNum<span style="color:#f92672">;</span> <span style="color:#75715e">// 当前播放的歌曲在List中的下标,flag为标致
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> String songName<span style="color:#f92672">;</span> <span style="color:#75715e">// 当前播放的歌曲名
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MusicFilter</span> <span style="color:#66d9ef">implements</span> FilenameFilter <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">accept</span><span style="color:#f92672">(</span>File dir<span style="color:#f92672">,</span> String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>name<span style="color:#f92672">.</span><span style="color:#a6e22e">endsWith</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.mp3&#34;</span><span style="color:#f92672">));</span><span style="color:#75715e">//返回当前目录所有以.mp3结尾的文件
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MusicService</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+        player <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MediaPlayer<span style="color:#f92672">();</span>
+        musicList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;();</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            File MUSIC_PATH <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span>PATH<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;netease/cloudmusic/Music&#34;</span><span style="color:#f92672">);</span><span style="color:#75715e">//获取Music文件的二级目录
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>MUSIC_PATH<span style="color:#f92672">.</span><span style="color:#a6e22e">listFiles</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MusicFilter<span style="color:#f92672">()).</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>File file <span style="color:#f92672">:</span> MUSIC_PATH<span style="color:#f92672">.</span><span style="color:#a6e22e">listFiles</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MusicFilter<span style="color:#f92672">()))</span> <span style="color:#f92672">{</span>
+
+                    musicList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>file<span style="color:#f92672">.</span><span style="color:#a6e22e">getAbsolutePath</span><span style="color:#f92672">());</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            Log<span style="color:#f92672">.</span><span style="color:#a6e22e">i</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;TAG&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;读取文件异常&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setPlayName</span><span style="color:#f92672">(</span>String dataSource<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span>dataSource<span style="color:#f92672">);</span><span style="color:#75715e">//假设为D:\\mm.mp3
+</span><span style="color:#75715e"></span>        String name <span style="color:#f92672">=</span> file<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span><span style="color:#75715e">//name=mm.mp3
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> index <span style="color:#f92672">=</span> name<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">);</span><span style="color:#75715e">//找到最后一个.
+</span><span style="color:#75715e"></span>        songName <span style="color:#f92672">=</span> name<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> index<span style="color:#f92672">);</span><span style="color:#75715e">//截取为mm
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">play</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            player<span style="color:#f92672">.</span><span style="color:#a6e22e">reset</span><span style="color:#f92672">();</span> <span style="color:#75715e">//重置多媒体
+</span><span style="color:#75715e"></span>            String dataSource <span style="color:#f92672">=</span> musicList<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>songNum<span style="color:#f92672">);</span><span style="color:#75715e">//得到当前播放音乐的路径
+</span><span style="color:#75715e"></span>            setPlayName<span style="color:#f92672">(</span>dataSource<span style="color:#f92672">);</span><span style="color:#75715e">//截取歌名
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// 指定参数为音频文件
+</span><span style="color:#75715e"></span>            player<span style="color:#f92672">.</span><span style="color:#a6e22e">setAudioStreamType</span><span style="color:#f92672">(</span>AudioManager<span style="color:#f92672">.</span><span style="color:#a6e22e">STREAM_MUSIC</span><span style="color:#f92672">);</span>
+            player<span style="color:#f92672">.</span><span style="color:#a6e22e">setDataSource</span><span style="color:#f92672">(</span>dataSource<span style="color:#f92672">);</span><span style="color:#75715e">//为多媒体对象设置播放路径
+</span><span style="color:#75715e"></span>            player<span style="color:#f92672">.</span><span style="color:#a6e22e">prepare</span><span style="color:#f92672">();</span><span style="color:#75715e">//准备播放
+</span><span style="color:#75715e"></span>            player<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span><span style="color:#75715e">//开始播放
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">//setOnCompletionListener 当当前多媒体对象播放完成时发生的事件
+</span><span style="color:#75715e"></span>            player<span style="color:#f92672">.</span><span style="color:#a6e22e">setOnCompletionListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MediaPlayer<span style="color:#f92672">.</span><span style="color:#a6e22e">OnCompletionListener</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCompletion</span><span style="color:#f92672">(</span>MediaPlayer arg0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    next<span style="color:#f92672">();</span><span style="color:#75715e">//如果当前歌曲播放完毕,自动播放下一首.
+</span><span style="color:#75715e"></span>                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">});</span>
+
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            Log<span style="color:#f92672">.</span><span style="color:#a6e22e">v</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MusicService&#34;</span><span style="color:#f92672">,</span> e<span style="color:#f92672">.</span><span style="color:#a6e22e">getMessage</span><span style="color:#f92672">());</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#75715e">/*和数据库有关的
+</span><span style="color:#75715e">    public void test(Song song){//测试数据库
+</span><span style="color:#75715e">        try {
+</span><span style="color:#75715e">            player.reset(); //重置多媒体
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">            String dataSource = song.getFileUrl();
+</span><span style="color:#75715e">//            String dataSource = musicList.get(songNum);//得到当前播放音乐的路径
+</span><span style="color:#75715e">            setPlayName(dataSource);//截取歌名
+</span><span style="color:#75715e">            // 指定参数为音频文件
+</span><span style="color:#75715e">            player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+</span><span style="color:#75715e">            player.setDataSource(dataSource);//为多媒体对象设置播放路径
+</span><span style="color:#75715e">            player.prepare();//准备播放
+</span><span style="color:#75715e">            player.start();//开始播放
+</span><span style="color:#75715e">            //setOnCompletionListener 当当前多媒体对象播放完成时发生的事件
+</span><span style="color:#75715e">            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+</span><span style="color:#75715e">                public void onCompletion(MediaPlayer arg0) {
+</span><span style="color:#75715e">                    next();//如果当前歌曲播放完毕,自动播放下一首.
+</span><span style="color:#75715e">                }
+</span><span style="color:#75715e">            });
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">        } catch (Exception e) {
+</span><span style="color:#75715e">            Log.v(&#34;MusicService&#34;, e.getMessage());
+</span><span style="color:#75715e">        }
+</span><span style="color:#75715e">    }
+</span><span style="color:#75715e">*/</span>
+    <span style="color:#75715e">//继续播放
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">goPlay</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> position <span style="color:#f92672">=</span> getCurrentProgress<span style="color:#f92672">();</span>
+        player<span style="color:#f92672">.</span><span style="color:#a6e22e">seekTo</span><span style="color:#f92672">(</span>position<span style="color:#f92672">);</span><span style="color:#75715e">//设置当前MediaPlayer的播放位置，单位是毫秒。
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            player<span style="color:#f92672">.</span><span style="color:#a6e22e">prepare</span><span style="color:#f92672">();</span><span style="color:#75715e">//  同步的方式装载流媒体文件。
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+        player<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 获取当前进度
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getCurrentProgress</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>player <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;</span> player<span style="color:#f92672">.</span><span style="color:#a6e22e">isPlaying</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> player<span style="color:#f92672">.</span><span style="color:#a6e22e">getCurrentPosition</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>player <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;</span> <span style="color:#f92672">(!</span>player<span style="color:#f92672">.</span><span style="color:#a6e22e">isPlaying</span><span style="color:#f92672">()))</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> player<span style="color:#f92672">.</span><span style="color:#a6e22e">getCurrentPosition</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">next</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        songNum <span style="color:#f92672">=</span> songNum <span style="color:#f92672">==</span> musicList<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> 1 <span style="color:#f92672">?</span> 0 <span style="color:#f92672">:</span> songNum <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span>
+        play<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">last</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        songNum <span style="color:#f92672">=</span> songNum <span style="color:#f92672">==</span> 0 <span style="color:#f92672">?</span> musicList<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> 1 <span style="color:#f92672">:</span> songNum <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span>
+        play<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 暂停播放
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">pause</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>player <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> player<span style="color:#f92672">.</span><span style="color:#a6e22e">isPlaying</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            player<span style="color:#f92672">.</span><span style="color:#a6e22e">pause</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">stop</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>player <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> player<span style="color:#f92672">.</span><span style="color:#a6e22e">isPlaying</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            player<span style="color:#f92672">.</span><span style="color:#a6e22e">stop</span><span style="color:#f92672">();</span>
+            player<span style="color:#f92672">.</span><span style="color:#a6e22e">reset</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><p>我的圆形封面</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> cn.study.euraxluo.androidtup<span style="color:#f92672">;</span><span style="color:#75715e">/* AndroidTup
+</span><span style="color:#75715e"> * cn.study.euraxluo.androidtup
+</span><span style="color:#75715e"> * CircleImageView
+</span><span style="color:#75715e"> * 2019/5/13 13:26
+</span><span style="color:#75715e"> * author:Euraxluo
+</span><span style="color:#75715e"> * TODO
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">import</span> android.content.Context<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.graphics.*<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.graphics.drawable.BitmapDrawable<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.graphics.drawable.ColorDrawable<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.graphics.drawable.Drawable<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.support.annotation.Nullable<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.util.AttributeSet<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.widget.ImageView<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CircleImageView</span> <span style="color:#66d9ef">extends</span> android<span style="color:#f92672">.</span><span style="color:#a6e22e">support</span><span style="color:#f92672">.</span><span style="color:#a6e22e">v7</span><span style="color:#f92672">.</span><span style="color:#a6e22e">widget</span><span style="color:#f92672">.</span><span style="color:#a6e22e">AppCompatImageView</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> Paint mPaintBitmap <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Paint<span style="color:#f92672">(</span>Paint<span style="color:#f92672">.</span><span style="color:#a6e22e">ANTI_ALIAS_FLAG</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">private</span> Bitmap mRawBitmap<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> BitmapShader mShader<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Matrix mMatrix <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Matrix<span style="color:#f92672">();</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">CircleImageView</span><span style="color:#f92672">(</span>Context context<span style="color:#f92672">,</span>AttributeSet attrs<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">(</span>context<span style="color:#f92672">,</span> attrs<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onDraw</span><span style="color:#f92672">(</span>Canvas canvas<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Bitmap rawBitmap <span style="color:#f92672">=</span> getBimap<span style="color:#f92672">(</span>getDrawable<span style="color:#f92672">());</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>rawBitmap <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">int</span> viewWidth <span style="color:#f92672">=</span> getWidth<span style="color:#f92672">();</span>
+            <span style="color:#66d9ef">int</span> viewHeight <span style="color:#f92672">=</span> getHeight<span style="color:#f92672">();</span>
+            <span style="color:#66d9ef">int</span> viewMinSize <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">min</span><span style="color:#f92672">(</span>viewWidth<span style="color:#f92672">,</span> viewHeight<span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">float</span> dstHeight <span style="color:#f92672">=</span> viewMinSize<span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">float</span> dstWidth <span style="color:#f92672">=</span> viewMinSize<span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>mShader <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span>rawBitmap<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>mRawBitmap<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+                mRawBitmap <span style="color:#f92672">=</span> rawBitmap<span style="color:#f92672">;</span>
+                mShader <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BitmapShader<span style="color:#f92672">(</span>mRawBitmap<span style="color:#f92672">,</span> Shader<span style="color:#f92672">.</span><span style="color:#a6e22e">TileMode</span><span style="color:#f92672">.</span><span style="color:#a6e22e">CLAMP</span><span style="color:#f92672">,</span> Shader<span style="color:#f92672">.</span><span style="color:#a6e22e">TileMode</span><span style="color:#f92672">.</span><span style="color:#a6e22e">CLAMP</span><span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>mShader <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                mMatrix<span style="color:#f92672">.</span><span style="color:#a6e22e">setScale</span><span style="color:#f92672">(</span>dstWidth <span style="color:#f92672">/</span> rawBitmap<span style="color:#f92672">.</span><span style="color:#a6e22e">getWidth</span><span style="color:#f92672">(),</span> dstHeight <span style="color:#f92672">/</span> rawBitmap<span style="color:#f92672">.</span><span style="color:#a6e22e">getHeight</span><span style="color:#f92672">());</span>
+                mShader<span style="color:#f92672">.</span><span style="color:#a6e22e">setLocalMatrix</span><span style="color:#f92672">(</span>mMatrix<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+            mPaintBitmap<span style="color:#f92672">.</span><span style="color:#a6e22e">setShader</span><span style="color:#f92672">(</span>mShader<span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">float</span> radius <span style="color:#f92672">=</span> viewMinSize <span style="color:#f92672">/</span> 2<span style="color:#f92672">.</span><span style="color:#a6e22e">0f</span><span style="color:#f92672">;</span>
+            canvas<span style="color:#f92672">.</span><span style="color:#a6e22e">drawCircle</span><span style="color:#f92672">(</span>radius<span style="color:#f92672">,</span> radius<span style="color:#f92672">,</span> radius<span style="color:#f92672">,</span> mPaintBitmap<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onDraw</span><span style="color:#f92672">(</span>canvas<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> Bitmap <span style="color:#a6e22e">getBimap</span><span style="color:#f92672">(</span>Drawable drawable<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>drawable <span style="color:#66d9ef">instanceof</span> BitmapDrawable<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#f92672">((</span>BitmapDrawable<span style="color:#f92672">)</span> drawable<span style="color:#f92672">).</span><span style="color:#a6e22e">getBitmap</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>drawable <span style="color:#66d9ef">instanceof</span> ColorDrawable<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            Rect rect <span style="color:#f92672">=</span> drawable<span style="color:#f92672">.</span><span style="color:#a6e22e">getBounds</span><span style="color:#f92672">();</span>
+            <span style="color:#66d9ef">int</span> width <span style="color:#f92672">=</span> rect<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span> <span style="color:#f92672">-</span> rect<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">int</span> height <span style="color:#f92672">=</span> rect<span style="color:#f92672">.</span><span style="color:#a6e22e">bottom</span> <span style="color:#f92672">-</span> rect<span style="color:#f92672">.</span><span style="color:#a6e22e">top</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">int</span> color <span style="color:#f92672">=</span> <span style="color:#f92672">((</span>ColorDrawable<span style="color:#f92672">)</span> drawable<span style="color:#f92672">).</span><span style="color:#a6e22e">getColor</span><span style="color:#f92672">();</span>
+            Bitmap bitmap <span style="color:#f92672">=</span> Bitmap<span style="color:#f92672">.</span><span style="color:#a6e22e">createBitmap</span><span style="color:#f92672">(</span>width<span style="color:#f92672">,</span> height<span style="color:#f92672">,</span> Bitmap<span style="color:#f92672">.</span><span style="color:#a6e22e">Config</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ARGB_8888</span><span style="color:#f92672">);</span>
+            Canvas canvas <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Canvas<span style="color:#f92672">(</span>bitmap<span style="color:#f92672">);</span>
+            canvas<span style="color:#f92672">.</span><span style="color:#a6e22e">drawARGB</span><span style="color:#f92672">(</span>Color<span style="color:#f92672">.</span><span style="color:#a6e22e">alpha</span><span style="color:#f92672">(</span>color<span style="color:#f92672">),</span> Color<span style="color:#f92672">.</span><span style="color:#a6e22e">red</span><span style="color:#f92672">(</span>color<span style="color:#f92672">),</span> Color<span style="color:#f92672">.</span><span style="color:#a6e22e">green</span><span style="color:#f92672">(</span>color<span style="color:#f92672">),</span> Color<span style="color:#f92672">.</span><span style="color:#a6e22e">blue</span><span style="color:#f92672">(</span>color<span style="color:#f92672">));</span>
+            <span style="color:#66d9ef">return</span> bitmap<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+
+</code></pre></div><hr>
+<p>数据库扫描用的：Song实体类</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> cn.study.euraxluo.androidtup<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> android.graphics.Bitmap<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Song</span> <span style="color:#f92672">{</span>
+
+
+    <span style="color:#66d9ef">private</span> String fileName<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String title<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> duration<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String singer<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String album<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String year<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String type<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String size<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String fileUrl<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Bitmap Thumbnail<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> Bitmap <span style="color:#a6e22e">getThumbnail</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> Thumbnail<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setThumbnail</span><span style="color:#f92672">(</span>Bitmap thumbnail<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Thumbnail <span style="color:#f92672">=</span> thumbnail<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getFileName</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> fileName<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setFileName</span><span style="color:#f92672">(</span>String fileName<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">fileName</span> <span style="color:#f92672">=</span> fileName<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getTitle</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> title<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setTitle</span><span style="color:#f92672">(</span>String title<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> title<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getDuration</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> duration<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setDuration</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> duration<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">duration</span> <span style="color:#f92672">=</span> duration<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getSinger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> singer<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setSinger</span><span style="color:#f92672">(</span>String singer<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">singer</span> <span style="color:#f92672">=</span> singer<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getAlbum</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> album<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setAlbum</span><span style="color:#f92672">(</span>String album<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">album</span> <span style="color:#f92672">=</span> album<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getYear</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> year<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setYear</span><span style="color:#f92672">(</span>String year<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">year</span> <span style="color:#f92672">=</span> year<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getType</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> type<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setType</span><span style="color:#f92672">(</span>String type<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> type<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getSize</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> size<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setSize</span><span style="color:#f92672">(</span>String size<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> size<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getFileUrl</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> fileUrl<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setFileUrl</span><span style="color:#f92672">(</span>String fileUrl<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">fileUrl</span> <span style="color:#f92672">=</span> fileUrl<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Song</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Song</span><span style="color:#f92672">(</span>String fileName<span style="color:#f92672">,</span> String title<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> duration<span style="color:#f92672">,</span> String singer<span style="color:#f92672">,</span>
+                String album<span style="color:#f92672">,</span> String year<span style="color:#f92672">,</span> String type<span style="color:#f92672">,</span> String size<span style="color:#f92672">,</span> String fileUrl<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">fileName</span> <span style="color:#f92672">=</span> fileName<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> title<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">duration</span> <span style="color:#f92672">=</span> duration<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">singer</span> <span style="color:#f92672">=</span> singer<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">album</span> <span style="color:#f92672">=</span> album<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">year</span> <span style="color:#f92672">=</span> year<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> type<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> size<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">fileUrl</span> <span style="color:#f92672">=</span> fileUrl<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Song [fileName=&#34;</span> <span style="color:#f92672">+</span> fileName <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, title=&#34;</span> <span style="color:#f92672">+</span> title
+                <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, duration=&#34;</span> <span style="color:#f92672">+</span> duration <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, singer=&#34;</span> <span style="color:#f92672">+</span> singer <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, album=&#34;</span>
+                <span style="color:#f92672">+</span> album <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, year=&#34;</span> <span style="color:#f92672">+</span> year <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, type=&#34;</span> <span style="color:#f92672">+</span> type <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, size=&#34;</span>
+                <span style="color:#f92672">+</span> size <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, fileUrl=&#34;</span> <span style="color:#f92672">+</span> fileUrl <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;]&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>扫描数据的AudioUtils.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> cn.study.euraxluo.androidtup<span style="color:#f92672">;</span>
+
+
+<span style="color:#f92672">import</span> android.content.Context<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.database.Cursor<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.graphics.Bitmap<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.graphics.BitmapFactory<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.media.MediaMetadataRetriever<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.provider.MediaStore<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AudioUtils</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 获取sd卡所有的音乐文件
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     * @throws Exception
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> ArrayList<span style="color:#f92672">&lt;</span>Song<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllSongs</span><span style="color:#f92672">(</span>Context context<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+        ArrayList<span style="color:#f92672">&lt;</span>Song<span style="color:#f92672">&gt;</span> songs <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+
+        Cursor cursor <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getContentResolver</span><span style="color:#f92672">().</span><span style="color:#a6e22e">query</span><span style="color:#f92672">(</span>
+                MediaStore<span style="color:#f92672">.</span><span style="color:#a6e22e">Audio</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Media</span><span style="color:#f92672">.</span><span style="color:#a6e22e">EXTERNAL_CONTENT_URI</span><span style="color:#f92672">,</span>
+                <span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]</span> <span style="color:#f92672">{</span> MediaStore<span style="color:#f92672">.</span><span style="color:#a6e22e">Audio</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Media</span><span style="color:#f92672">.</span><span style="color:#a6e22e">_ID</span><span style="color:#f92672">,</span>
+                        MediaStore<span style="color:#f92672">.</span><span style="color:#a6e22e">Audio</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Media</span><span style="color:#f92672">.</span><span style="color:#a6e22e">DISPLAY_NAME</span><span style="color:#f92672">,</span>
+                        MediaStore<span style="color:#f92672">.</span><span style="color:#a6e22e">Audio</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Media</span><span style="color:#f92672">.</span><span style="color:#a6e22e">TITLE</span><span style="color:#f92672">,</span>
+                        MediaStore<span style="color:#f92672">.</span><span style="color:#a6e22e">Audio</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Media</span><span style="color:#f92672">.</span><span style="color:#a6e22e">DURATION</span><span style="color:#f92672">,</span>
+                        MediaStore<span style="color:#f92672">.</span><span style="color:#a6e22e">Audio</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Media</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ARTIST</span><span style="color:#f92672">,</span>
+                        MediaStore<span style="color:#f92672">.</span><span style="color:#a6e22e">Audio</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Media</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ALBUM</span><span style="color:#f92672">,</span>
+                        MediaStore<span style="color:#f92672">.</span><span style="color:#a6e22e">Audio</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Media</span><span style="color:#f92672">.</span><span style="color:#a6e22e">YEAR</span><span style="color:#f92672">,</span>
+                        MediaStore<span style="color:#f92672">.</span><span style="color:#a6e22e">Audio</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Media</span><span style="color:#f92672">.</span><span style="color:#a6e22e">MIME_TYPE</span><span style="color:#f92672">,</span>
+                        MediaStore<span style="color:#f92672">.</span><span style="color:#a6e22e">Audio</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Media</span><span style="color:#f92672">.</span><span style="color:#a6e22e">SIZE</span><span style="color:#f92672">,</span>
+                        MediaStore<span style="color:#f92672">.</span><span style="color:#a6e22e">Audio</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Media</span><span style="color:#f92672">.</span><span style="color:#a6e22e">DATA</span> <span style="color:#f92672">},</span>
+                MediaStore<span style="color:#f92672">.</span><span style="color:#a6e22e">Audio</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Media</span><span style="color:#f92672">.</span><span style="color:#a6e22e">MIME_TYPE</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;=? or &#34;</span>
+                        <span style="color:#f92672">+</span> MediaStore<span style="color:#f92672">.</span><span style="color:#a6e22e">Audio</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Media</span><span style="color:#f92672">.</span><span style="color:#a6e22e">MIME_TYPE</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;=?&#34;</span><span style="color:#f92672">,</span>
+                <span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;audio/mpeg&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;audio/x-ms-wma&#34;</span> <span style="color:#f92672">},</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+
+        songs <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>Song<span style="color:#f92672">&gt;();</span>
+
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">moveToFirst</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+
+            Song song <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+
+            <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+                song <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Song<span style="color:#f92672">();</span>
+                <span style="color:#75715e">// 文件名
+</span><span style="color:#75715e"></span>                song<span style="color:#f92672">.</span><span style="color:#a6e22e">setFileName</span><span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>1<span style="color:#f92672">));</span>
+                <span style="color:#75715e">// 歌曲名
+</span><span style="color:#75715e"></span>                song<span style="color:#f92672">.</span><span style="color:#a6e22e">setTitle</span><span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>2<span style="color:#f92672">));</span>
+                <span style="color:#75715e">// 时长
+</span><span style="color:#75715e"></span>                song<span style="color:#f92672">.</span><span style="color:#a6e22e">setDuration</span><span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">getInt</span><span style="color:#f92672">(</span>3<span style="color:#f92672">));</span>
+                <span style="color:#75715e">// 歌手名
+</span><span style="color:#75715e"></span>                song<span style="color:#f92672">.</span><span style="color:#a6e22e">setSinger</span><span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>4<span style="color:#f92672">));</span>
+                <span style="color:#75715e">// 专辑名
+</span><span style="color:#75715e"></span>                song<span style="color:#f92672">.</span><span style="color:#a6e22e">setAlbum</span><span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>5<span style="color:#f92672">));</span>
+                <span style="color:#75715e">// 年代
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>6<span style="color:#f92672">)</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    song<span style="color:#f92672">.</span><span style="color:#a6e22e">setYear</span><span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>6<span style="color:#f92672">));</span>
+                <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                    song<span style="color:#f92672">.</span><span style="color:#a6e22e">setYear</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;未知&#34;</span><span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span>
+                <span style="color:#75715e">// 歌曲格式
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;audio/mpeg&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>7<span style="color:#f92672">).</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">()))</span> <span style="color:#f92672">{</span>
+                    song<span style="color:#f92672">.</span><span style="color:#a6e22e">setType</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;mp3&#34;</span><span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;audio/x-ms-wma&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>7<span style="color:#f92672">).</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">()))</span> <span style="color:#f92672">{</span>
+                    song<span style="color:#f92672">.</span><span style="color:#a6e22e">setType</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;wma&#34;</span><span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span>
+                <span style="color:#75715e">// 文件大小
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>8<span style="color:#f92672">)</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    <span style="color:#66d9ef">float</span> size <span style="color:#f92672">=</span> cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">getInt</span><span style="color:#f92672">(</span>8<span style="color:#f92672">)</span> <span style="color:#f92672">/</span> 1024f <span style="color:#f92672">/</span> 1024f<span style="color:#f92672">;</span>
+                    song<span style="color:#f92672">.</span><span style="color:#a6e22e">setSize</span><span style="color:#f92672">((</span>size <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> 4<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;M&#34;</span><span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                    song<span style="color:#f92672">.</span><span style="color:#a6e22e">setSize</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;未知&#34;</span><span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span>
+                <span style="color:#75715e">// 文件路径
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>9<span style="color:#f92672">)</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    song<span style="color:#f92672">.</span><span style="color:#a6e22e">setFileUrl</span><span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>9<span style="color:#f92672">));</span>
+                <span style="color:#f92672">}</span>
+
+                <span style="color:#75715e">//获取专辑封面（如果数据量大的话，会很耗时——需要考虑如何开辟子线程加载）
+</span><span style="color:#75715e"></span>                Bitmap albumArt <span style="color:#f92672">=</span> createAlbumArt<span style="color:#f92672">(</span>song<span style="color:#f92672">.</span><span style="color:#a6e22e">getFileUrl</span><span style="color:#f92672">());</span>
+                song<span style="color:#f92672">.</span><span style="color:#a6e22e">setThumbnail</span><span style="color:#f92672">(</span>albumArt<span style="color:#f92672">);</span>
+                
+                songs<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>song<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">moveToNext</span><span style="color:#f92672">());</span>
+
+            cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> songs<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">calculateInSampleSize</span><span style="color:#f92672">(</span>BitmapFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">Options</span> options<span style="color:#f92672">,</span><span style="color:#66d9ef">int</span> reqWidth<span style="color:#f92672">,</span><span style="color:#66d9ef">int</span> reqHeight<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> height <span style="color:#f92672">=</span> options<span style="color:#f92672">.</span><span style="color:#a6e22e">outHeight</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> width <span style="color:#f92672">=</span> options<span style="color:#f92672">.</span><span style="color:#a6e22e">outWidth</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> inSampleSize <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>height <span style="color:#f92672">&gt;</span> reqHeight <span style="color:#f92672">||</span> width <span style="color:#f92672">&gt;</span> reqWidth<span style="color:#f92672">){</span>
+            <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> halfHeight <span style="color:#f92672">=</span> height<span style="color:#f92672">/</span>2<span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> halfWidth <span style="color:#f92672">=</span> width<span style="color:#f92672">/</span>2<span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">while</span> <span style="color:#f92672">((</span>halfHeight<span style="color:#f92672">/</span>inSampleSize<span style="color:#f92672">)&gt;</span>reqHeight <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>halfWidth<span style="color:#f92672">/</span>inSampleSize<span style="color:#f92672">)&gt;</span>reqWidth<span style="color:#f92672">)</span> inSampleSize<span style="color:#f92672">*=</span>2<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> inSampleSize<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Bitmap <span style="color:#a6e22e">createAlbumArt</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> String filePath<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Bitmap bitmap <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">//能够获取多媒体文件元数据的类
+</span><span style="color:#75715e"></span>        MediaMetadataRetriever retriever <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MediaMetadataRetriever<span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            retriever<span style="color:#f92672">.</span><span style="color:#a6e22e">setDataSource</span><span style="color:#f92672">(</span>filePath<span style="color:#f92672">);</span> <span style="color:#75715e">//设置数据源
+</span><span style="color:#75715e"></span>
+            <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> embedPic <span style="color:#f92672">=</span> retriever<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmbeddedPicture</span><span style="color:#f92672">();</span> <span style="color:#75715e">//得到字节型数据
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">final</span> BitmapFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">Options</span> options <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BitmapFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">Options</span><span style="color:#f92672">();</span>
+            options<span style="color:#f92672">.</span><span style="color:#a6e22e">inJustDecodeBounds</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+            BitmapFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">decodeByteArray</span><span style="color:#f92672">(</span>embedPic<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> embedPic<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">,</span>options<span style="color:#f92672">);</span>
+            options<span style="color:#f92672">.</span><span style="color:#a6e22e">inSampleSize</span> <span style="color:#f92672">=</span> calculateInSampleSize<span style="color:#f92672">(</span>options<span style="color:#f92672">,</span>100<span style="color:#f92672">,</span>100<span style="color:#f92672">);</span>
+            options<span style="color:#f92672">.</span><span style="color:#a6e22e">inJustDecodeBounds</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+            bitmap <span style="color:#f92672">=</span> BitmapFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">decodeByteArray</span><span style="color:#f92672">(</span>embedPic<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> embedPic<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">,</span>options<span style="color:#f92672">);</span> <span style="color:#75715e">//转换为图片
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                retriever<span style="color:#f92672">.</span><span style="color:#a6e22e">release</span><span style="color:#f92672">();</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                e2<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> bitmap<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></div><div class="post-copyright mb-4">
+  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+</div>
+<div class="post-reward mb-4 text-center">
+  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
+    <i class="fas fa-fw fa-medal"></i>打赏
+  </button>
+</div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay"></i>支付宝
+            </a>
+          </li><li class="nav-item" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin"></i>微信
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg" loading="lazy" />
+          </div><div class="tab-pane fade post-reward-content show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg" loading="lazy" />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div><div class="post-navs d-flex mb-3 justify-content-between">
+  <div class="post-nav w-50"><div class="prev-post">
+      <a href="/posts/note/%E5%85%B3%E4%BA%8Eviewpager/">关于ViewPager</a>
+    </div></div>
+  <div class="post-nav flex-row-reverse"><div class="next-post">
+      <a href="/posts/note/%E4%B8%89%E7%BB%B4%E5%BB%BA%E6%A8%A1%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">三维建模软件的简单实现</a>
+    </div></div>
+</div><section class="related-posts">
+  <h3>相关文章</h3>
+  <ul class="related-posts"><li><a href="/posts/note/bio%E5%AD%A6%E4%B9%A0/">BIO</a></li><li><a href="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/">C&#43;&#43; 小记</a></li><li><a href="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/">Colab的使用</a></li><li><a href="/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/">C语言小计</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li></ul>
+</section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+  repo="Euraxluo/Euraxluo.github.io"
+  issue-term="pathname"
+  label="✨💬✨"
+  theme="github-dark"
+  crossorigin="anonymous"
+  async>
+</script></div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container"><section class="profile surface row">
+  <div class="col-xl-6 d-flex align-items-center justify-content-center">
+    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  </div>
+  <div class="col-xl-6">
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+</section><section class="featured-posts row surface">
+  <h4>精选文章</h4>
+  <ul><li><a href="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li><li><a href="/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="/posts/note/slam/">SLAM</a></li></ul>
+</section><section class="recent-posts row surface">
+  <h4>最近文章</h4>
+  <ul><li><a href="/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+</section>
+<section class="taxonomy-categories row surface">
+  <h4>
+    <a href="/categories">分类</a>
+  </h4>
+  <div><a href="/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
+      Shortcode <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+      java <span class="badge rounded-pill">8</span>
+    </a><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-series row surface">
+  <h4>
+    <a href="/series">专栏</a>
+  </h4>
+  <div><a href="/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">3</span>
+    </a><a href="/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-tags row surface">
+  <h4>
+    <a href="/tags">标签</a>
+  </h4>
+  <div><a href="/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
+      python <span class="badge rounded-pill">2</span>
+    </a><a href="/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a></div>
+</section></div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a>
+  </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
+        <i class="fab fa-fw fa-2x fa-github"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
+        <i class="fab fa-fw fa-2x fa-qq"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
+        <i class="fab fa-fw fa-2x fa-zhihu"></i>
+      </a>
+    </li></nav>
+<div class="copyright mb-2">
+  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+</div>
+<script>
+  window.parent.postMessage(window.location.href, "*");
+</script><div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
+</div></footer>
+<a id="btnScrollToTop" class="btn-scroll-to-top">
+  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
+</a>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ROS on Euraxluo Blog</title>
+    <link>/series/ros/</link>
+    <description>Recent content in ROS on Euraxluo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
+    <lastBuildDate>Sun, 10 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="/series/ros/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ROS基础学习1</title>
+      <link>/posts/ros/ros%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/ros/ros%E5%9F%BA%E7%A1%80/</guid>
+      <description>利用enve使用在ros中使用python3 因为ros的python有很多依赖需要使用C，python3的支持不太好。我们可以让当前的环境变</description>
+    </item>
+    
+    <item>
+      <title>ROS基础学习2</title>
+      <link>/posts/ros/ros%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/ros/ros%E5%85%A5%E9%97%A8/</guid>
+      <description>ROS 工作空间:组织和管理功能包的文件夹 catkin workspace build (cmake,catkin缓存中间件) src(package 源代码) package1(是catkin编译的基本单元) package2</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu18.04安装ROS</title>
+      <link>/posts/ros/ros%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/ros/ros%E5%AE%89%E8%A3%85/</guid>
+      <description>Ubuntu18.04安装ROS 源配置: sudo sh -c &#39;. /etc/lsb-release &amp;amp;&amp;amp; echo &amp;quot;deb &amp;lt;http://mirrors.ustc.edu.cn/ros/ubuntu/&amp;gt; $DISTRIB_CODENAME main&amp;quot; &amp;gt; /etc/apt/sources.list.d/ros-latest.list&#39; 更新: sudo apt-get update 添加密匙: sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116 和官网步骤一样: sudo apt-get install ros-melodic-desktop-full sudo rosdep init 报错: 由</description>
+    </item>
+    
+  </channel>
+</rss>

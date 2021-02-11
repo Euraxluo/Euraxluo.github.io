@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ClearnCode on Euraxluo Blog</title>
+    <link>/tags/clearncode/</link>
+    <description>Recent content in ClearnCode on Euraxluo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/clearncode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CleanCode读书笔记</title>
+      <link>/posts/reading/cleancode/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/reading/cleancode/</guid>
+      <description>CleanCode读书笔记 最小惊异原则 1.从一而终，便于修改 2.遵守大家的约定 有意义的命名 1.名副其实 1.命名需要注释来补充，那就不算名副其</description>
+    </item>
+    
+  </channel>
+</rss>

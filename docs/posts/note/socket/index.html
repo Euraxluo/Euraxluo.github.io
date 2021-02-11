@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TCP - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="description" content="TCP" /><meta itemprop="name" content="TCP">
+<meta itemprop="description" content="TCP">
+<meta itemprop="datePublished" content="2019-02-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-02-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1921">
+
+
+
+<meta itemprop="keywords" content="notes," />
+<meta property="og:title" content="TCP" />
+<meta property="og:description" content="TCP" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/note/socket/" />
+<meta property="article:published_time" content="2019-02-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-02-21T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/posts/note/bio%E5%AD%A6%E4%B9%A0/" /><meta property="og:see_also" content="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/" /><meta property="og:see_also" content="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/" /><meta property="og:see_also" content="/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/" /><meta property="og:see_also" content="/posts/note/go-%E8%AF%AD%E8%A8%80/" /><meta property="og:see_also" content="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TCP"/>
+<meta name="twitter:description" content="TCP"/>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+</head>
+  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/search">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
+    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
+  </div>
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/archives">
+            <i class="fas fa-fw fa-file-archive"></i>归档
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/categories">
+            <i class="fas fa-fw fa-folder"></i>分类
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/tags">
+            <i class="fas fa-fw fa-tags"></i>标签
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/series">
+            <i class="fas fa-fw fa-columns"></i>专栏
+          </a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Repos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo" target="_blank">
+                <i class="fab fa-fw fa-github"></i>Euraxluo
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                <i class="fab fa-fw fa-github"></i>fastgrpc
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                <i class="fab fa-fw fa-github"></i>ProjectPractice
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                <i class="fab fa-fw fa-github"></i>pyantv
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                <i class="fab fa-fw fa-github"></i>simple-pythonvm
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/verb" target="_blank">
+                <i class="fab fa-fw fa-github"></i>verb
+              </a>
+            </li></ul>
+        </li></ul>
+      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
+    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-language" ></i>
+  </a>
+</li>
+<script type="text/html" id="languagesPopoverBody">
+  <ul class="languages list-group"><li class="language list-group-item">
+      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
+      <a href="/zh-tw/">繁體中文</a></li></ul>
+</script>
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#palettesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-palette" ></i>
+  </a>
+</li>
+<script type="text/html" id="palettesPopoverBody">
+  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
+      <a>蓝色</a>
+    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
+      <a>蓝灰色</a>
+    </li><li id="palette-brown" class="palette list-group-item bg-brown">
+      <a>棕色</a>
+    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
+      <a>青色</a>
+    </li><li id="palette-green" class="palette list-group-item bg-green">
+      <a>绿色</a>
+    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
+      <a>靛青色</a>
+    </li><li id="palette-orange" class="palette list-group-item bg-orange">
+      <a>橙色</a>
+    </li><li id="palette-pink" class="palette list-group-item bg-pink">
+      <a>粉色</a>
+    </li><li id="palette-purple" class="palette list-group-item bg-purple">
+      <a>紫色</a>
+    </li><li id="palette-red" class="palette list-group-item bg-red">
+      <a>红色</a>
+    </li><li id="palette-teal" class="palette list-group-item bg-teal">
+      <a>蓝绿色</a>
+    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
+      <a>黄色</a>
+    </li></ul>
+</script>
+
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#fontSizesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-font" ></i>
+  </a>
+</li>
+<script type="text/html" id="fontSizesPopoverBody">
+  <form class="font-size-switcher-form">
+    <label for="fontSize" class="form-label">字体大小</label>
+    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+  </form>
+</script>
+<form class="mode-switcher-form d-flex align-items-center">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="modeSwitcher">
+  </div>
+</form>
+</ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-md-8">
+  <div class="container"><nav class="row" aria-label="breadcrumb">
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/">主页</a></li><li class="breadcrumb-item"><a href="/posts/">posts</a></li><li class="breadcrumb-item"><a href="/posts/note/">note</a></li><li class="breadcrumb-item active">TCP</li></ol>
+</nav><article class="post row surface">
+  <h1 class="post-title my-3">TCP</h1><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2019-02-21
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>4 分钟阅读
+  </span>
+<a href="/categories/notes/" class="post-taxonomy">#notes</a><a href="/series/notes/" class="post-taxonomy">#notes</a><a href="/tags/notes/" class="post-taxonomy">#notes</a></div>
+<div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
+  <div class="accordion-item">
+    <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
+      <i class="fas fa-fw fa-bars"></i>目录
+    </div>
+    <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
+      <div class="accordion-body mt-2">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#三次握手">三次握手:</a></li>
+    <li><a href="#四次挥手">四次挥手:</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div><div class="post-content mb-3"><p>TCP的三次握手和四次挥手</p>
+<h2 id="三次握手">三次握手:</h2>
+<p>为什么需要三次握手?
+客户端:我可以发东西给你(确保客户端的发送能力)
+服务器:我可以收到,你能收到么?(确保服务器的接受和发送)
+客户端:我能收到!(确保能收到)</p>
+<p>连接建立!</p>
+<p>如果是四次握手?
+没必要啊,第三次已经确认可以收到消息了</p>
+<p>如果是两次握手?
+当网络阻塞时,客户端会发送两次,第一次请求到达服务器的时间慢于第二次
+如果当时通信结束,服务器又收到了第一次阻塞的消息,如果是两次握手,就会分配资源
+然而客户端已经完成了通信,不需要再连接了,会造成资源的浪费和安全隐患</p>
+<h2 id="四次挥手">四次挥手:</h2>
+<p>客户端:我说完了,我想停止发送请求了
+服务器:我知道你要停止发送了,我会停止接受消息
+(
+服务器停止接受消息,但是可能还有很多待发送的消息</p>
+<p>客户端:收到服务器的确认信息,于是默不作声,等待服务器发送完他的消息</p>
+<p>)
+服务器:我的东西全发完啦!,我想要停止发送消息啦!
+客户端:我知道你也要停止发送了,我也要停止接收消息(实际上还等了两个最大周期才真正停止接收消息)
+(
+服务器:收到了客户端的确认消息,于是停止发送消息
+)</p>
+<p><a href="https://blog.csdn.net/qq_38950316/article/details/81087809" target="_blank">关于tcp的博客</a>
+</p>
+<p>使用tcp和udp让进程之间进行通信</p>
+<p>ip地址：用來標記網絡上的主機
+動態端口：1024-65535的端口，用完就回收</p>
+<p>tcp socket client的基本流程</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> socket
+<span style="color:#75715e">##創建socket</span>
+s <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>af_inet,socket<span style="color:#f92672">.</span>sock_stream)
+<span style="color:#75715e">##使用</span>
+ipaddr <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#34;ip&#34;</span>,port)<span style="color:#75715e">#服务器的ip addr</span>
+s<span style="color:#f92672">.</span>connect(ipaddr)<span style="color:#75715e">#连接服务器</span>
+<span style="color:#75715e">### 发送数据</span>
+send_msg <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sasa&#34;</span>
+s<span style="color:#f92672">.</span>send(send_msg<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
+<span style="color:#75715e">### 接受数据</span>
+recvData <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>rec(<span style="color:#ae81ff">1024</span>)<span style="color:#75715e">#一次接收的字符数</span>
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;recved msg:&#34;</span>,recvData<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;&#34;</span>utf<span style="color:#f92672">-</span><span style="color:#ae81ff">8</span>))
+
+<span style="color:#75715e">##關閉</span>
+s<span style="color:#f92672">.</span>close()
+</code></pre></div><p>tcp server的基本过程</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># socket创建套接字</span>
+tcp <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET,socket<span style="color:#f92672">.</span>SOCK_STREAM)
+<span style="color:#75715e"># 绑定端口</span>
+tcp<span style="color:#f92672">.</span>bind((<span style="color:#e6db74">&#34;127.1&#34;</span>,<span style="color:#ae81ff">7788</span>))
+<span style="color:#75715e"># 设置为被动监听</span>
+tcp<span style="color:#f92672">.</span>listen(<span style="color:#ae81ff">128</span>)
+
+<span style="color:#66d9ef">while</span> True:
+	<span style="color:#75715e">#等待客户端的连接</span>
+
+
+	<span style="color:#75715e">#tcp套接字,现在用来被动接听</span>
+
+	<span style="color:#75715e"># accept阻塞等待链接</span>
+	new_client_socket,client_addr <span style="color:#f92672">=</span> tcp<span style="color:#f92672">.</span>accept()<span style="color:#75715e">#阻塞等待一个客户端进行conect,返回元组: 新的套接字,(客户端的ip,端口)</span>
+	<span style="color:#75715e">#有客户端connect后,阻塞解除,返回connect的一个客户端的addr,以及已经和客户端完成连接的套接字,接下来的收发都是用这个新的socket</span>
+	
+	<span style="color:#66d9ef">while</span> True:
+
+		<span style="color:#75715e"># 处理请求,先收,再发,因此,这里会阻塞等待这个new_client_socket接收到消息</span>
+		recv_data <span style="color:#f92672">=</span> new_client_socket<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">1024</span>)
+		<span style="color:#66d9ef">print</span>(recv_data)
+
+		<span style="color:#75715e">#当recv解阻塞时,有两种情况,1.客户端发送了消息 ;2.客户端调用了close()</span>
+		<span style="color:#75715e">#通过判断recv_data是否为空,那么判断出客户端断开了链接</span>
+		<span style="color:#66d9ef">if</span> recv_data:
+			<span style="color:#75715e">#收到消息后,我们返回一下,非必要的</span>
+			new_client_socket<span style="color:#f92672">.</span>send(<span style="color:#e6db74">&#34;服务器返回的消息&#34;</span><span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#39;utf-8&#39;</span>))
+		<span style="color:#66d9ef">else</span>:
+			<span style="color:#66d9ef">break</span>
+
+	new_client_socket<span style="color:#f92672">.</span>close()
+
+tcp<span style="color:#f92672">.</span>close()
+</code></pre></div><p>創建一個udp socket</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> socket
+
+<span style="color:#75715e">##創建</span>
+send_data <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;input:&#34;</span>)
+s <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET,socket<span style="color:#f92672">.</span>SOCK_DGRAM)
+<span style="color:#75715e">#bind a port,接受方可以不绑定</span>
+s<span style="color:#f92672">.</span>bind(<span style="color:#e6db74">&#34;&#34;</span>,<span style="color:#ae81ff">7890</span>)
+<span style="color:#75715e">##使用</span>
+<span style="color:#75715e">#s.sendto(b&#34;test&#34;,(&#34;127.1&#34;,8888))#需要使用二进制第二个参数是元组</span>
+s<span style="color:#f92672">.</span>sendto(send_data<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;utf-8&#34;</span>),(<span style="color:#e6db74">&#34;127.1&#34;</span>,<span style="color:#ae81ff">8888</span>))<span style="color:#75715e">#需要编码</span>
+
+s<span style="color:#f92672">.</span>close()<span style="color:#75715e">#关闭</span>
+</code></pre></div><p>socket.socket(AddressFamily,Type)
+AddressFamily:協議族
+Type:套接字類型</p>
+<p>绑定端口接收数据</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> socket
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+	<span style="color:#75715e">#创建套接字</span>
+	udp <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET,socket<span style="color:#f92672">.</span>SOCK_DGRAM)
+	<span style="color:#75715e">#绑定端口</span>
+	localaddr <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#34;&#34;</span>,<span style="color:#ae81ff">7788</span>)
+	udp<span style="color:#f92672">.</span>bind(localaddr)
+	<span style="color:#75715e">#接收数据</span>
+	recv_data <span style="color:#f92672">=</span> udp<span style="color:#f92672">.</span>recvfrom(<span style="color:#ae81ff">1024</span>)<span style="color:#75715e">#可以接收的最大字节数</span>
+	<span style="color:#75715e">#打印接受的数据</span>
+	<span style="color:#75715e">#会接收到一个元组二进制流,发送方地址</span>
+	msg <span style="color:#f92672">=</span>  recv_data[<span style="color:#ae81ff">0</span>]
+	sendaddr <span style="color:#f92672">=</span> recv_data[<span style="color:#ae81ff">1</span>]
+	<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">:</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">%</span>str(sendaddr),msg<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))<span style="color:#75715e">#需要解码</span>
+	<span style="color:#75715e">#关闭套接字</span>
+	udp<span style="color:#f92672">.</span>close()
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+	main()
+</code></pre></div><p>一个套接字可以同时接收全双工的</p>
+<p>一个攻击
+扫描端口向缓冲区发送数据</p>
+<p>使用tcp进行文件下载</p>
+<p>client:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> socket
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+	<span style="color:#75715e">#1.创建套接字</span>
+	tcp_socket <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET,socket<span style="color:#f92672">.</span>SOCK_STREAM)
+	<span style="color:#75715e">#2.获取服务器的ip port</span>
+	dest_ip <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;ip:&#34;</span>)
+	dest_port <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;port:&#34;</span>)
+	<span style="color:#75715e">#3.连接服务器</span>
+	tcp_socket<span style="color:#f92672">.</span>connect((dest_ip,dest_port))
+	<span style="color:#75715e">#4.获取下载的名字</span>
+	download_file_name <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;input the file name&#34;</span>)
+	<span style="color:#75715e">#5.将名字发送到服务器</span>
+	tcp_socket<span style="color:#f92672">.</span>send(download_file_name<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
+	<span style="color:#75715e">#6.接受文件中的数据</span>
+	recv_data <span style="color:#f92672">=</span> tcp_socket<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">1024</span>)<span style="color:#75715e">#1k</span>
+	<span style="color:#66d9ef">if</span> recv_data:
+		<span style="color:#75715e">#7.保存文件中的数据</span>
+		<span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;[new]&#34;</span><span style="color:#f92672">+</span>download_file_name,<span style="color:#e6db74">&#34;wb&#34;</span>) <span style="color:#66d9ef">as</span> f:
+			f<span style="color:#f92672">.</span>write(recv_data)
+	<span style="color:#75715e">#8.关闭套接字</span>
+	tcp_socket<span style="color:#f92672">.</span>close()
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+	main()
+
+
+</code></pre></div><p>server:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> socket
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">send_file2client</span>(new_client_socket,client_addr):
+	<span style="color:#75715e">#1.接受客户端需要下载的文件名</span>
+	file_name <span style="color:#f92672">=</span> new_client_socket<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">1024</span>)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;utf-8&#39;</span>)
+	<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;客户端下载的文件是:</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">%</span>(str(client_addr),file_name))
+	<span style="color:#75715e">#2.打开这个文件,读取数据</span>
+	file_content <span style="color:#f92672">=</span> None
+	<span style="color:#66d9ef">try</span>:
+		f <span style="color:#f92672">=</span> open(file_name,<span style="color:#e6db74">&#34;rb&#34;</span>)
+		file_content <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>read()
+		f<span style="color:#f92672">.</span>close()
+	<span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> ret:
+		<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;没有要下载的文件(</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">)&#34;</span><span style="color:#f92672">%</span>file_name)
+	<span style="color:#75715e">#3.发送文件的数据给客户端</span>
+	<span style="color:#66d9ef">if</span> file_content:
+		new_client_socket<span style="color:#f92672">.</span>send(file_conect)
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+	<span style="color:#75715e"># socket创建套接字</span>
+	tcp_socket <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET,socket<span style="color:#f92672">.</span>SOCK_STREAM)
+	
+	<span style="color:#75715e"># 绑定端口</span>
+	tcp_socket <span style="color:#f92672">.</span>bind((<span style="color:#e6db74">&#34;127.1&#34;</span>,<span style="color:#ae81ff">7788</span>))
+	
+	<span style="color:#75715e"># 设置为被动监听</span>
+	tcp_socket <span style="color:#f92672">.</span>listen(<span style="color:#ae81ff">128</span>)
+
+	<span style="color:#66d9ef">while</span> True:
+		<span style="color:#75715e"># accept阻塞等待链接</span>
+		new_client_socket,client_addr <span style="color:#f92672">=</span> tcp_socket <span style="color:#f92672">.</span>accept()<span style="color:#75715e">#阻塞等待一个客户端进行conect,返回元组: 新的套接字,(客户端的ip,端口)</span>
+
+		<span style="color:#75715e"># 调用函数,发送文件</span>
+		send_file2client(new_client_socket,client_addr)
+
+		<span style="color:#75715e"># 关闭套接字</span>
+		new_client_socket<span style="color:#f92672">.</span>close()
+
+	tcp_socket <span style="color:#f92672">.</span>close()
+
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+	main()
+</code></pre></div></div><div class="post-copyright mb-4">
+  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+</div>
+<div class="post-reward mb-4 text-center">
+  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
+    <i class="fas fa-fw fa-medal"></i>打赏
+  </button>
+</div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay"></i>支付宝
+            </a>
+          </li><li class="nav-item" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin"></i>微信
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg" loading="lazy" />
+          </div><div class="tab-pane fade post-reward-content show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg" loading="lazy" />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div><div class="post-navs d-flex mb-3 justify-content-between">
+  <div class="post-nav w-50"><div class="prev-post">
+      <a href="/posts/note/vslam/">VSLAM</a>
+    </div></div>
+  <div class="post-nav flex-row-reverse"><div class="next-post">
+      <a href="/posts/note/stream%E7%BC%96%E7%A8%8B/">stream编程</a>
+    </div></div>
+</div><section class="related-posts">
+  <h3>相关文章</h3>
+  <ul class="related-posts"><li><a href="/posts/note/bio%E5%AD%A6%E4%B9%A0/">BIO</a></li><li><a href="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/">C&#43;&#43; 小记</a></li><li><a href="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/">Colab的使用</a></li><li><a href="/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/">C语言小计</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li></ul>
+</section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+  repo="Euraxluo/Euraxluo.github.io"
+  issue-term="pathname"
+  label="✨💬✨"
+  theme="github-dark"
+  crossorigin="anonymous"
+  async>
+</script></div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container"><section class="profile surface row">
+  <div class="col-xl-6 d-flex align-items-center justify-content-center">
+    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  </div>
+  <div class="col-xl-6">
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+</section><section class="featured-posts row surface">
+  <h4>精选文章</h4>
+  <ul><li><a href="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li><li><a href="/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="/posts/note/slam/">SLAM</a></li></ul>
+</section><section class="recent-posts row surface">
+  <h4>最近文章</h4>
+  <ul><li><a href="/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+</section>
+<section class="taxonomy-categories row surface">
+  <h4>
+    <a href="/categories">分类</a>
+  </h4>
+  <div><a href="/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
+      Shortcode <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+      java <span class="badge rounded-pill">8</span>
+    </a><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-series row surface">
+  <h4>
+    <a href="/series">专栏</a>
+  </h4>
+  <div><a href="/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">3</span>
+    </a><a href="/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-tags row surface">
+  <h4>
+    <a href="/tags">标签</a>
+  </h4>
+  <div><a href="/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
+      python <span class="badge rounded-pill">2</span>
+    </a><a href="/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a></div>
+</section></div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a>
+  </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
+        <i class="fab fa-fw fa-2x fa-github"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
+        <i class="fab fa-fw fa-2x fa-qq"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
+        <i class="fab fa-fw fa-2x fa-zhihu"></i>
+      </a>
+    </li></nav>
+<div class="copyright mb-2">
+  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+</div>
+<script>
+  window.parent.postMessage(window.location.href, "*");
+</script><div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
+</div></footer>
+<a id="btnScrollToTop" class="btn-scroll-to-top">
+  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
+</a>
+</body>
+</html>

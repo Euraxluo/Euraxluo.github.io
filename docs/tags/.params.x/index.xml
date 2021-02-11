@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{.Params.x}} on Euraxluo Blog</title>
+    <link>/tags/.params.x/</link>
+    <description>Recent content in {{.Params.x}} on Euraxluo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/.params.x/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>简易服务器</title>
+      <link>/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>简易服务器 创建套接字 填充数据结构 绑定端口 监听，accept 获得accept的句柄并处理 封装resp字符串 写回到accept的句柄中 2.C标准</description>
+    </item>
+    
+  </channel>
+</rss>

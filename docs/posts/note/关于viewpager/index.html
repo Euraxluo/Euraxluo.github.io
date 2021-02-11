@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>关于ViewPager - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="description" content="关于ViewPager" /><meta itemprop="name" content="关于ViewPager">
+<meta itemprop="description" content="关于ViewPager">
+<meta itemprop="datePublished" content="2019-02-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-02-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1231">
+
+
+
+<meta itemprop="keywords" content="notes," />
+<meta property="og:title" content="关于ViewPager" />
+<meta property="og:description" content="关于ViewPager" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/note/%E5%85%B3%E4%BA%8Eviewpager/" />
+<meta property="article:published_time" content="2019-02-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-02-21T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/posts/note/bio%E5%AD%A6%E4%B9%A0/" /><meta property="og:see_also" content="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/" /><meta property="og:see_also" content="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/" /><meta property="og:see_also" content="/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/" /><meta property="og:see_also" content="/posts/note/go-%E8%AF%AD%E8%A8%80/" /><meta property="og:see_also" content="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="关于ViewPager"/>
+<meta name="twitter:description" content="关于ViewPager"/>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+</head>
+  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/search">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
+    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
+  </div>
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/archives">
+            <i class="fas fa-fw fa-file-archive"></i>归档
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/categories">
+            <i class="fas fa-fw fa-folder"></i>分类
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/tags">
+            <i class="fas fa-fw fa-tags"></i>标签
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/series">
+            <i class="fas fa-fw fa-columns"></i>专栏
+          </a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Repos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo" target="_blank">
+                <i class="fab fa-fw fa-github"></i>Euraxluo
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                <i class="fab fa-fw fa-github"></i>fastgrpc
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                <i class="fab fa-fw fa-github"></i>ProjectPractice
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                <i class="fab fa-fw fa-github"></i>pyantv
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                <i class="fab fa-fw fa-github"></i>simple-pythonvm
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/verb" target="_blank">
+                <i class="fab fa-fw fa-github"></i>verb
+              </a>
+            </li></ul>
+        </li></ul>
+      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
+    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-language" ></i>
+  </a>
+</li>
+<script type="text/html" id="languagesPopoverBody">
+  <ul class="languages list-group"><li class="language list-group-item">
+      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
+      <a href="/zh-tw/">繁體中文</a></li></ul>
+</script>
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#palettesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-palette" ></i>
+  </a>
+</li>
+<script type="text/html" id="palettesPopoverBody">
+  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
+      <a>蓝色</a>
+    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
+      <a>蓝灰色</a>
+    </li><li id="palette-brown" class="palette list-group-item bg-brown">
+      <a>棕色</a>
+    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
+      <a>青色</a>
+    </li><li id="palette-green" class="palette list-group-item bg-green">
+      <a>绿色</a>
+    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
+      <a>靛青色</a>
+    </li><li id="palette-orange" class="palette list-group-item bg-orange">
+      <a>橙色</a>
+    </li><li id="palette-pink" class="palette list-group-item bg-pink">
+      <a>粉色</a>
+    </li><li id="palette-purple" class="palette list-group-item bg-purple">
+      <a>紫色</a>
+    </li><li id="palette-red" class="palette list-group-item bg-red">
+      <a>红色</a>
+    </li><li id="palette-teal" class="palette list-group-item bg-teal">
+      <a>蓝绿色</a>
+    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
+      <a>黄色</a>
+    </li></ul>
+</script>
+
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#fontSizesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-font" ></i>
+  </a>
+</li>
+<script type="text/html" id="fontSizesPopoverBody">
+  <form class="font-size-switcher-form">
+    <label for="fontSize" class="form-label">字体大小</label>
+    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+  </form>
+</script>
+<form class="mode-switcher-form d-flex align-items-center">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="modeSwitcher">
+  </div>
+</form>
+</ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-md-8">
+  <div class="container"><nav class="row" aria-label="breadcrumb">
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/">主页</a></li><li class="breadcrumb-item"><a href="/posts/">posts</a></li><li class="breadcrumb-item"><a href="/posts/note/">note</a></li><li class="breadcrumb-item active">关于ViewPager</li></ol>
+</nav><article class="post row surface">
+  <h1 class="post-title my-3">关于ViewPager</h1><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2019-02-21
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>3 分钟阅读
+  </span>
+<a href="/categories/notes/" class="post-taxonomy">#notes</a><a href="/series/notes/" class="post-taxonomy">#notes</a><a href="/tags/notes/" class="post-taxonomy">#notes</a></div>
+<div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
+  <div class="accordion-item">
+    <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
+      <i class="fas fa-fw fa-bars"></i>目录
+    </div>
+    <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
+      <div class="accordion-body mt-2">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#关于viewpager">关于ViewPager</a>
+      <ul>
+        <li><a href="#一些简单的特效">一些简单的特效</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div><div class="post-content mb-3"><h2 id="关于viewpager">关于ViewPager</h2>
+<p>使用方法：先在xml中定义</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;android.support.design.widget.CoordinatorLayout</span> <span style="color:#a6e22e">xmlns:android=</span><span style="color:#e6db74">&#34;http://schemas.android.com/apk/res/android&#34;</span>
+                                                 <span style="color:#a6e22e">xmlns:tools=</span><span style="color:#e6db74">&#34;http://schemas.android.com/tools&#34;</span>
+                                                 <span style="color:#a6e22e">xmlns:app=</span><span style="color:#e6db74">&#34;http://schemas.android.com/apk/res-auto&#34;</span>
+                                                 <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/main_content&#34;</span>
+                                                 <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+                                                 <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+                                                 <span style="color:#a6e22e">android:fitsSystemWindows=</span><span style="color:#e6db74">&#34;true&#34;</span>
+                                                 <span style="color:#a6e22e">tools:context=</span><span style="color:#e6db74">&#34;.MainActivity&#34;</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;android.support.v4.view.ViewPager</span>
+            <span style="color:#a6e22e">android:background=</span><span style="color:#e6db74">&#34;@drawable/img5&#34;</span>
+            <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/view_pager&#34;</span>
+            <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+            <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+            <span style="color:#a6e22e">app:layout_behavior=</span><span style="color:#e6db74">&#34;@string/appbar_scrolling_view_behavior&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/android.support.design.widget.CoordinatorLayout&gt;</span>
+</code></pre></div><p>再到Activity中写</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> cn.euraxluo.myapplication<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> android.support.annotation.NonNull<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.support.v4.view.PagerAdapter<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.support.v7.app.AppCompatActivity<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> android.support.v4.view.ViewPager<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.os.Bundle<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.util.Log<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.view.*<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> android.widget.ImageView<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> cn.euraxluo.myapplication.transform.ZoomOutPageTransformer<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainActivity</span> <span style="color:#66d9ef">extends</span> AppCompatActivity <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String TAG <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;MainActivity&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> ViewPager mViewPager<span style="color:#f92672">;</span><span style="color:#75715e">//viewpager
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> textViewAdapter mViewAdapter<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> pictureViewAdapter mpViewAdapter<span style="color:#f92672">;</span><span style="color:#75715e">//图片的adapter
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> mImage <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>10<span style="color:#f92672">];</span>
+    <span style="color:#66d9ef">private</span> View view1<span style="color:#f92672">,</span> view2<span style="color:#f92672">,</span> view3<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>View<span style="color:#f92672">&gt;</span> viewList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>View<span style="color:#f92672">&gt;(</span>3<span style="color:#f92672">);</span><span style="color:#75715e">//view数组
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> LayoutInflater inflater<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCreate</span><span style="color:#f92672">(</span>Bundle savedInstanceState<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onCreate</span><span style="color:#f92672">(</span>savedInstanceState<span style="color:#f92672">);</span>
+        setContentView<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">activity_main</span><span style="color:#f92672">);</span>
+        initView<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">initView</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        Log<span style="color:#f92672">.</span><span style="color:#a6e22e">d</span><span style="color:#f92672">(</span>TAG<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;initView&#34;</span><span style="color:#f92672">);</span>
+        mViewPager <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ViewPager<span style="color:#f92672">)</span> findViewById<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">view_pager</span><span style="color:#f92672">);</span>
+
+        <span style="color:#75715e">//关于图片的
+</span><span style="color:#75715e">//        initmImage();
+</span><span style="color:#75715e">//        mpViewAdapter = new pictureViewAdapter(mImage);
+</span><span style="color:#75715e">//        mViewPager.setAdapter(mpViewAdapter);
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//页面滑动
+</span><span style="color:#75715e"></span>        initmlayouts<span style="color:#f92672">();</span>
+        mViewAdapter <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> textViewAdapter<span style="color:#f92672">();</span>
+        mViewPager<span style="color:#f92672">.</span><span style="color:#a6e22e">setAdapter</span><span style="color:#f92672">(</span>mViewAdapter<span style="color:#f92672">);</span>
+        mViewPager<span style="color:#f92672">.</span><span style="color:#a6e22e">setPageTransformer</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> ZoomOutPageTransformer<span style="color:#f92672">());</span><span style="color:#75715e">//这一句是特效
+</span><span style="color:#75715e"></span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">initmImage</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        mImage<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">drawable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">img1</span><span style="color:#f92672">;</span>
+        mImage<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">drawable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">img2</span><span style="color:#f92672">;</span>
+        mImage<span style="color:#f92672">[</span>2<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">drawable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">img3</span><span style="color:#f92672">;</span>
+        mImage<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">drawable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">img4</span><span style="color:#f92672">;</span>
+        mImage<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">drawable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">img5</span><span style="color:#f92672">;</span>
+        mImage<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">drawable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">img6</span><span style="color:#f92672">;</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">initmlayouts</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//findViewById是找具体的widget控件
+</span><span style="color:#75715e"></span>        inflater <span style="color:#f92672">=</span> getLayoutInflater<span style="color:#f92672">();</span><span style="color:#75715e">//寻找xml下的布局文件，并且实例化
+</span><span style="color:#75715e"></span>        view1 <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>View<span style="color:#f92672">)</span> inflater<span style="color:#f92672">.</span><span style="color:#a6e22e">inflate</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">activity_music</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span><span style="color:#75715e">//这是三个layout
+</span><span style="color:#75715e"></span>        view2 <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>View<span style="color:#f92672">)</span> inflater<span style="color:#f92672">.</span><span style="color:#a6e22e">inflate</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">activity_list</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span><span style="color:#75715e">//实际用的时候发生了OOM
+</span><span style="color:#75715e"></span>        view3 <span style="color:#f92672">=</span>  <span style="color:#f92672">(</span>View<span style="color:#f92672">)</span> inflater<span style="color:#f92672">.</span><span style="color:#a6e22e">inflate</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">activity_about</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+
+        viewList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>view1<span style="color:#f92672">);</span>
+        viewList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>view2<span style="color:#f92672">);</span>
+        viewList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>view3<span style="color:#f92672">);</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">pictureViewAdapter</span> <span style="color:#66d9ef">extends</span> PagerAdapter <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> mImage<span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">pictureViewAdapter</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> mImage<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mImage</span> <span style="color:#f92672">=</span> mImage<span style="color:#f92672">;</span><span style="color:#75715e">//接受传入的mImge
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+
+        <span style="color:#a6e22e">@NonNull</span>
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">instantiateItem</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@NonNull</span> ViewGroup container<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> position<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            ImageView imageView <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ImageView<span style="color:#f92672">(</span>container<span style="color:#f92672">.</span><span style="color:#a6e22e">getContext</span><span style="color:#f92672">());</span>
+            imageView<span style="color:#f92672">.</span><span style="color:#a6e22e">setImageResource</span><span style="color:#f92672">(</span>mImage<span style="color:#f92672">[</span>position<span style="color:#f92672">]);</span><span style="color:#75715e">//设置图片
+</span><span style="color:#75715e"></span>            container<span style="color:#f92672">.</span><span style="color:#a6e22e">addView</span><span style="color:#f92672">(</span>imageView<span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">return</span> imageView<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">destroyItem</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@NonNull</span> ViewGroup container<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> position<span style="color:#f92672">,</span> <span style="color:#a6e22e">@NonNull</span> Object object<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            container<span style="color:#f92672">.</span><span style="color:#a6e22e">removeView</span><span style="color:#f92672">((</span>View<span style="color:#f92672">)</span> object<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getCount</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span><span style="color:#75715e">//在viewpager显示几个页面
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">return</span> mImage<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isViewFromObject</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@NonNull</span> View view<span style="color:#f92672">,</span> <span style="color:#a6e22e">@NonNull</span> Object o<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> view <span style="color:#f92672">==</span> o<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">textViewAdapter</span> <span style="color:#66d9ef">extends</span> PagerAdapter <span style="color:#f92672">{</span>
+
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getCount</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> viewList<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span><span style="color:#75715e">//在viewPager中显示3个页面
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+
+        <span style="color:#a6e22e">@NonNull</span>
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">instantiateItem</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@NonNull</span> ViewGroup container<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> position<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            container<span style="color:#f92672">.</span><span style="color:#a6e22e">addView</span><span style="color:#f92672">(</span>viewList<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>position<span style="color:#f92672">));</span><span style="color:#75715e">//添加到viewPager容器中
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">return</span> viewList<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>position<span style="color:#f92672">);</span><span style="color:#75715e">//返回填充的对象
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">//1.将当前视图添加到container中，2.返回当前View
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isViewFromObject</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@NonNull</span> View view<span style="color:#f92672">,</span> <span style="color:#a6e22e">@NonNull</span> Object o<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> view <span style="color:#f92672">==</span> o<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">destroyItem</span><span style="color:#f92672">(</span>ViewGroup container<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> position<span style="color:#f92672">,</span> Object obj<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            container<span style="color:#f92672">.</span><span style="color:#a6e22e">removeView</span><span style="color:#f92672">((</span>View<span style="color:#f92672">)</span> obj<span style="color:#f92672">);</span><span style="color:#75715e">//从当前container删除指定位置的view
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><h3 id="一些简单的特效">一些简单的特效</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> cn.euraxluo.myapplication.transform<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.support.v4.view.ViewPager<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.util.Log<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.view.View<span style="color:#f92672">;</span>
+
+<span style="color:#75715e">//扇子变换
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RotateDownTransformer</span> <span style="color:#66d9ef">implements</span> ViewPager<span style="color:#f92672">.</span><span style="color:#a6e22e">PageTransformer</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">float</span> ROT_MAX <span style="color:#f92672">=</span> 20<span style="color:#f92672">.</span><span style="color:#a6e22e">0f</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">float</span> mRot<span style="color:#f92672">;</span>
+
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">transformPage</span><span style="color:#f92672">(</span>View view<span style="color:#f92672">,</span> <span style="color:#66d9ef">float</span> position<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        Log<span style="color:#f92672">.</span><span style="color:#a6e22e">e</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;TAG&#34;</span><span style="color:#f92672">,</span> view <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; , &#34;</span> <span style="color:#f92672">+</span> position <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>position <span style="color:#f92672">&lt;</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">)</span>
+        <span style="color:#f92672">{</span> <span style="color:#75715e">// [-Infinity,-1)
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// This page is way off-screen to the left.
+</span><span style="color:#75715e"></span>            view<span style="color:#f92672">.</span><span style="color:#a6e22e">setRotation</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>position <span style="color:#f92672">&lt;=</span> 1<span style="color:#f92672">)</span> <span style="color:#75715e">// a页滑动至b页 ； a页从 0.0 ~ -1 ；b页从1 ~ 0.0
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">{</span> <span style="color:#75715e">// [-1,1]
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// Modify the default slide transition to shrink the page as well
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>position <span style="color:#f92672">&lt;</span> 0<span style="color:#f92672">)</span>
+            <span style="color:#f92672">{</span>
+                mRot <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ROT_MAX <span style="color:#f92672">*</span> position<span style="color:#f92672">);</span>
+                view<span style="color:#f92672">.</span><span style="color:#a6e22e">setPivotX</span><span style="color:#f92672">(</span>view<span style="color:#f92672">.</span><span style="color:#a6e22e">getMeasuredWidth</span><span style="color:#f92672">()</span> <span style="color:#f92672">*</span> 0<span style="color:#f92672">.</span><span style="color:#a6e22e">5f</span><span style="color:#f92672">);</span>
+                view<span style="color:#f92672">.</span><span style="color:#a6e22e">setPivotY</span><span style="color:#f92672">(</span>view<span style="color:#f92672">.</span><span style="color:#a6e22e">getMeasuredHeight</span><span style="color:#f92672">());</span>
+                view<span style="color:#f92672">.</span><span style="color:#a6e22e">setRotation</span><span style="color:#f92672">(</span> mRot<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span>
+            <span style="color:#f92672">{</span>
+                mRot <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ROT_MAX <span style="color:#f92672">*</span> position<span style="color:#f92672">);</span>
+                view<span style="color:#f92672">.</span><span style="color:#a6e22e">setPivotX</span><span style="color:#f92672">(</span>view<span style="color:#f92672">.</span><span style="color:#a6e22e">getMeasuredWidth</span><span style="color:#f92672">()</span> <span style="color:#f92672">*</span> 0<span style="color:#f92672">.</span><span style="color:#a6e22e">5f</span><span style="color:#f92672">);</span>
+                view<span style="color:#f92672">.</span><span style="color:#a6e22e">setPivotY</span><span style="color:#f92672">(</span>view<span style="color:#f92672">.</span><span style="color:#a6e22e">getMeasuredHeight</span><span style="color:#f92672">());</span>
+                view<span style="color:#f92672">.</span><span style="color:#a6e22e">setRotation</span><span style="color:#f92672">(</span> mRot<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#75715e">// Scale the page down (between MIN_SCALE and 1)
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// Fade the page relative to its size.
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span>
+        <span style="color:#f92672">{</span> <span style="color:#75715e">// (1,+Infinity]
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// This page is way off-screen to the right.
+</span><span style="color:#75715e"></span>            view<span style="color:#f92672">.</span><span style="color:#a6e22e">setRotation</span><span style="color:#f92672">(</span> 0<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> cn.euraxluo.myapplication.transform<span style="color:#f92672">;</span><span style="color:#75715e">/* MyApplication2
+</span><span style="color:#75715e"> * cn.euraxluo.myapplication.Transform
+</span><span style="color:#75715e"> * ScalePageTransformer
+</span><span style="color:#75715e"> * 2019/5/18 16:31
+</span><span style="color:#75715e"> * author:Euraxluo
+</span><span style="color:#75715e"> * TODO
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">import</span> android.support.annotation.NonNull<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.support.v4.view.ViewPager<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.view.View<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ScalePageTransformer</span> <span style="color:#66d9ef">implements</span> ViewPager<span style="color:#f92672">.</span><span style="color:#a6e22e">PageTransformer</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">float</span> MIN_SCALE<span style="color:#f92672">=</span>0<span style="color:#f92672">.</span><span style="color:#a6e22e">75f</span><span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">transformPage</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@NonNull</span> View page<span style="color:#f92672">,</span> <span style="color:#66d9ef">float</span> position<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>position<span style="color:#f92672">&lt;-</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">0f</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            page<span style="color:#f92672">.</span><span style="color:#a6e22e">setScaleX</span><span style="color:#f92672">(</span>MIN_SCALE<span style="color:#f92672">);</span>
+            page<span style="color:#f92672">.</span><span style="color:#a6e22e">setScaleY</span><span style="color:#f92672">(</span>MIN_SCALE<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#75715e">// slide left
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>position<span style="color:#f92672">&lt;=</span>0<span style="color:#f92672">.</span><span style="color:#a6e22e">0f</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            page<span style="color:#f92672">.</span><span style="color:#a6e22e">setAlpha</span><span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">0f</span><span style="color:#f92672">);</span>
+            page<span style="color:#f92672">.</span><span style="color:#a6e22e">setTranslationX</span><span style="color:#f92672">(</span>0<span style="color:#f92672">.</span><span style="color:#a6e22e">0f</span><span style="color:#f92672">);</span>
+            page<span style="color:#f92672">.</span><span style="color:#a6e22e">setScaleX</span><span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">0f</span><span style="color:#f92672">);</span>
+            page<span style="color:#f92672">.</span><span style="color:#a6e22e">setScaleY</span><span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">0f</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#75715e">// slide right
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>position<span style="color:#f92672">&lt;=</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">0f</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            page<span style="color:#f92672">.</span><span style="color:#a6e22e">setAlpha</span><span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">0f</span><span style="color:#f92672">-</span>position<span style="color:#f92672">);</span>
+            page<span style="color:#f92672">.</span><span style="color:#a6e22e">setTranslationX</span><span style="color:#f92672">(-</span>page<span style="color:#f92672">.</span><span style="color:#a6e22e">getWidth</span><span style="color:#f92672">()*</span>position<span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">float</span> scale<span style="color:#f92672">=</span>MIN_SCALE<span style="color:#f92672">+(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">0f</span><span style="color:#f92672">-</span>MIN_SCALE<span style="color:#f92672">)*(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">0f</span><span style="color:#f92672">-</span>position<span style="color:#f92672">);</span>
+            page<span style="color:#f92672">.</span><span style="color:#a6e22e">setScaleX</span><span style="color:#f92672">(</span>scale<span style="color:#f92672">);</span>
+            page<span style="color:#f92672">.</span><span style="color:#a6e22e">setScaleY</span><span style="color:#f92672">(</span>scale<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#75715e">// out of right screen
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            page<span style="color:#f92672">.</span><span style="color:#a6e22e">setScaleX</span><span style="color:#f92672">(</span>MIN_SCALE<span style="color:#f92672">);</span>
+            page<span style="color:#f92672">.</span><span style="color:#a6e22e">setScaleY</span><span style="color:#f92672">(</span>MIN_SCALE<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> cn.euraxluo.myapplication.transform<span style="color:#f92672">;</span><span style="color:#75715e">/* MyApplication2
+</span><span style="color:#75715e"> * cn.euraxluo.myapplication.Transform
+</span><span style="color:#75715e"> * ZoomOutPageTransformer
+</span><span style="color:#75715e"> * 2019/5/18 17:06
+</span><span style="color:#75715e"> * author:Euraxluo
+</span><span style="color:#75715e"> * TODO
+</span><span style="color:#75715e"> */</span>
+
+
+<span style="color:#f92672">import</span> android.annotation.SuppressLint<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.support.v4.view.ViewPager<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> android.view.View<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ZoomOutPageTransformer</span> <span style="color:#66d9ef">implements</span> ViewPager<span style="color:#f92672">.</span><span style="color:#a6e22e">PageTransformer</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">float</span> MIN_SCALE <span style="color:#f92672">=</span> 0<span style="color:#f92672">.</span><span style="color:#a6e22e">85f</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">float</span> MIN_ALPHA <span style="color:#f92672">=</span> 0<span style="color:#f92672">.</span><span style="color:#a6e22e">85f</span><span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@SuppressLint</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;NewApi&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">transformPage</span><span style="color:#f92672">(</span>View view<span style="color:#f92672">,</span> <span style="color:#66d9ef">float</span> position<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>position <span style="color:#f92672">&lt;=</span> 1<span style="color:#f92672">)</span> <span style="color:#75715e">//a页滑动至b页 ； a页从 0.0 -1 ；b页从1 ~ 0.0
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">{</span><span style="color:#75715e">// 还可以修改默认的幻灯片转换以缩小页面
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">float</span> scaleFactor <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>MIN_SCALE<span style="color:#f92672">,</span> 1 <span style="color:#f92672">-</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">abs</span><span style="color:#f92672">(</span>position<span style="color:#f92672">));</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>position <span style="color:#f92672">&lt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#75715e">//代表左边的view
+</span><span style="color:#75715e"></span>                view<span style="color:#f92672">.</span><span style="color:#a6e22e">setAlpha</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span><span style="color:#75715e">// 使页面相对于大小淡入颜色。
+</span><span style="color:#75715e"></span>                view<span style="color:#f92672">.</span><span style="color:#a6e22e">setAlpha</span><span style="color:#f92672">(</span>MIN_ALPHA <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>scaleFactor <span style="color:#f92672">-</span> MIN_SCALE<span style="color:#f92672">)</span>
+                        <span style="color:#f92672">/</span> <span style="color:#f92672">(</span>2 <span style="color:#f92672">-</span> MIN_SCALE<span style="color:#f92672">)</span> <span style="color:#f92672">*</span> <span style="color:#f92672">(</span>2 <span style="color:#f92672">-</span> MIN_ALPHA<span style="color:#f92672">));</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div></div><div class="post-copyright mb-4">
+  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+</div>
+<div class="post-reward mb-4 text-center">
+  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
+    <i class="fas fa-fw fa-medal"></i>打赏
+  </button>
+</div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay"></i>支付宝
+            </a>
+          </li><li class="nav-item" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin"></i>微信
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg" loading="lazy" />
+          </div><div class="tab-pane fade post-reward-content show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg" loading="lazy" />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div><div class="post-navs d-flex mb-3 justify-content-between">
+  <div class="post-nav w-50"><div class="prev-post">
+      <a href="/posts/note/%E5%89%8D%E7%AB%AF/">前端</a>
+    </div></div>
+  <div class="post-nav flex-row-reverse"><div class="next-post">
+      <a href="/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/">关于musicplayer</a>
+    </div></div>
+</div><section class="related-posts">
+  <h3>相关文章</h3>
+  <ul class="related-posts"><li><a href="/posts/note/bio%E5%AD%A6%E4%B9%A0/">BIO</a></li><li><a href="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/">C&#43;&#43; 小记</a></li><li><a href="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/">Colab的使用</a></li><li><a href="/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/">C语言小计</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li></ul>
+</section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+  repo="Euraxluo/Euraxluo.github.io"
+  issue-term="pathname"
+  label="✨💬✨"
+  theme="github-dark"
+  crossorigin="anonymous"
+  async>
+</script></div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container"><section class="profile surface row">
+  <div class="col-xl-6 d-flex align-items-center justify-content-center">
+    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  </div>
+  <div class="col-xl-6">
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+</section><section class="featured-posts row surface">
+  <h4>精选文章</h4>
+  <ul><li><a href="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li><li><a href="/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="/posts/note/slam/">SLAM</a></li></ul>
+</section><section class="recent-posts row surface">
+  <h4>最近文章</h4>
+  <ul><li><a href="/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+</section>
+<section class="taxonomy-categories row surface">
+  <h4>
+    <a href="/categories">分类</a>
+  </h4>
+  <div><a href="/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
+      Shortcode <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+      java <span class="badge rounded-pill">8</span>
+    </a><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-series row surface">
+  <h4>
+    <a href="/series">专栏</a>
+  </h4>
+  <div><a href="/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">3</span>
+    </a><a href="/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-tags row surface">
+  <h4>
+    <a href="/tags">标签</a>
+  </h4>
+  <div><a href="/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
+      python <span class="badge rounded-pill">2</span>
+    </a><a href="/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a></div>
+</section></div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a>
+  </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
+        <i class="fab fa-fw fa-2x fa-github"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
+        <i class="fab fa-fw fa-2x fa-qq"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
+        <i class="fab fa-fw fa-2x fa-zhihu"></i>
+      </a>
+    </li></nav>
+<div class="copyright mb-2">
+  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+</div>
+<script>
+  window.parent.postMessage(window.location.href, "*");
+</script><div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
+</div></footer>
+<a id="btnScrollToTop" class="btn-scroll-to-top">
+  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
+</a>
+</body>
+</html>

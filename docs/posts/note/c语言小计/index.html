@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>C语言小计 - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="description" content="C语言小计" /><meta itemprop="name" content="C语言小计">
+<meta itemprop="description" content="C语言小计">
+<meta itemprop="datePublished" content="2019-02-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-02-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4578">
+
+
+
+<meta itemprop="keywords" content="notes," />
+<meta property="og:title" content="C语言小计" />
+<meta property="og:description" content="C语言小计" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/" />
+<meta property="article:published_time" content="2019-02-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-02-21T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/posts/note/bio%E5%AD%A6%E4%B9%A0/" /><meta property="og:see_also" content="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/" /><meta property="og:see_also" content="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/" /><meta property="og:see_also" content="/posts/note/go-%E8%AF%AD%E8%A8%80/" /><meta property="og:see_also" content="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="C语言小计"/>
+<meta name="twitter:description" content="C语言小计"/>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+</head>
+  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/search">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
+    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
+  </div>
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/archives">
+            <i class="fas fa-fw fa-file-archive"></i>归档
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/categories">
+            <i class="fas fa-fw fa-folder"></i>分类
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/tags">
+            <i class="fas fa-fw fa-tags"></i>标签
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/series">
+            <i class="fas fa-fw fa-columns"></i>专栏
+          </a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Repos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo" target="_blank">
+                <i class="fab fa-fw fa-github"></i>Euraxluo
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                <i class="fab fa-fw fa-github"></i>fastgrpc
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                <i class="fab fa-fw fa-github"></i>ProjectPractice
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                <i class="fab fa-fw fa-github"></i>pyantv
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                <i class="fab fa-fw fa-github"></i>simple-pythonvm
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/verb" target="_blank">
+                <i class="fab fa-fw fa-github"></i>verb
+              </a>
+            </li></ul>
+        </li></ul>
+      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
+    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-language" ></i>
+  </a>
+</li>
+<script type="text/html" id="languagesPopoverBody">
+  <ul class="languages list-group"><li class="language list-group-item">
+      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
+      <a href="/zh-tw/">繁體中文</a></li></ul>
+</script>
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#palettesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-palette" ></i>
+  </a>
+</li>
+<script type="text/html" id="palettesPopoverBody">
+  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
+      <a>蓝色</a>
+    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
+      <a>蓝灰色</a>
+    </li><li id="palette-brown" class="palette list-group-item bg-brown">
+      <a>棕色</a>
+    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
+      <a>青色</a>
+    </li><li id="palette-green" class="palette list-group-item bg-green">
+      <a>绿色</a>
+    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
+      <a>靛青色</a>
+    </li><li id="palette-orange" class="palette list-group-item bg-orange">
+      <a>橙色</a>
+    </li><li id="palette-pink" class="palette list-group-item bg-pink">
+      <a>粉色</a>
+    </li><li id="palette-purple" class="palette list-group-item bg-purple">
+      <a>紫色</a>
+    </li><li id="palette-red" class="palette list-group-item bg-red">
+      <a>红色</a>
+    </li><li id="palette-teal" class="palette list-group-item bg-teal">
+      <a>蓝绿色</a>
+    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
+      <a>黄色</a>
+    </li></ul>
+</script>
+
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#fontSizesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-font" ></i>
+  </a>
+</li>
+<script type="text/html" id="fontSizesPopoverBody">
+  <form class="font-size-switcher-form">
+    <label for="fontSize" class="form-label">字体大小</label>
+    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+  </form>
+</script>
+<form class="mode-switcher-form d-flex align-items-center">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="modeSwitcher">
+  </div>
+</form>
+</ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-md-8">
+  <div class="container"><nav class="row" aria-label="breadcrumb">
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/">主页</a></li><li class="breadcrumb-item"><a href="/posts/">posts</a></li><li class="breadcrumb-item"><a href="/posts/note/">note</a></li><li class="breadcrumb-item active">C语言小计</li></ol>
+</nav><article class="post row surface">
+  <h1 class="post-title my-3">C语言小计</h1><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2019-02-21
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>10 分钟阅读
+  </span>
+<a href="/categories/notes/" class="post-taxonomy">#notes</a><a href="/series/notes/" class="post-taxonomy">#notes</a><a href="/tags/notes/" class="post-taxonomy">#notes</a></div>
+<div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
+  <div class="accordion-item">
+    <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
+      <i class="fas fa-fw fa-bars"></i>目录
+    </div>
+    <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
+      <div class="accordion-body mt-2">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#unix-c">Unix C</a></li>
+    <li><a href="#文件io不带缓冲的io">文件IO（不带缓冲的IO）</a>
+      <ul>
+        <li><a href="#文件共享">文件共享</a></li>
+      </ul>
+    </li>
+    <li><a href="#文件和目录">文件和目录</a>
+      <ul>
+        <li><a href="#stat函数">stat函数</a></li>
+        <li><a href="#文件类型stat结构的st_mode">文件类型：stat结构的st_mode</a></li>
+        <li><a href="#用户id和组id">用户id和组id</a></li>
+        <li><a href="#文件的访问权限">文件的访问权限</a></li>
+        <li><a href="#权限测试">权限测试</a></li>
+        <li><a href="#权限">权限</a></li>
+        <li><a href="#文件和目录处理">文件和目录处理</a></li>
+        <li><a href="#标准io库">标准I/O库</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div><div class="post-content mb-3"><h1 id="c语言小计">C语言小计</h1>
+<h2 id="unix-c">Unix C</h2>
+<ol>
+<li>
+<p>内核-》系统调用-》shell/共用函数库-》应用程序</p>
+</li>
+<li>
+<p>系统调用和库函数</p>
+<ul>
+<li>
+<p>库函数会调用系统调用来实现自己的算法</p>
+</li>
+<li>
+<p>公用函数库构建在系统调用之上，应用程序既可以使公用函数库，也可以使用系统调用</p>
+</li>
+</ul>
+</li>
+<li>
+<p>口令文件：<code>/etc/passwd</code> 字段结构：</p>
+<p><code>登录名：加密口令：UID：GID：注释字段：起始目录：sell</code></p>
+</li>
+<li>
+<p>文件系统：</p>
+<ul>
+<li><code>/</code>是root目录</li>
+<li><code>/和空字符</code>不能出现在文件名字中，斜线用来分隔开构成路径名的各文件名，空字符用来终止一个路径名</li>
+<li>工作目录：每个进程都有一个工作目录，所有的相对路径名都从工作目录开始解释，进程可以使用<code>chdir()</code>更改工作目录,以<code>/</code>开始的路径名是绝对路径名</li>
+<li>登陆时工作目录设置为起始目录，从口令文件中取得</li>
+</ul>
+</li>
+<li>
+<p>输入输出</p>
+<ul>
+<li>不带缓冲区的io：<code>open,read,write,lseek,close</code></li>
+<li><code>stdout &gt; file</code>可以把标准输出或者符号左边的字符重定向到文件</li>
+</ul>
+</li>
+<li>
+<p>进程</p>
+<ul>
+<li>
+<p>每个进程都有一个pid，<code>pid_t</code>保证可以用long保存</p>
+</li>
+<li>
+<p>进程控制：<code>fork,waitpid,exec(exec函数有很多变体)</code></p>
+</li>
+<li>
+<p>signal，用于通知进程发生了某种情况；进程会：</p>
+<ol>
+<li>
+<p>忽略信号</p>
+</li>
+<li>
+<p>按系统默认方式处理</p>
+</li>
+<li>
+<p>提供一个函数，信号捕捉（类似错误处理？）</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>时间值</p>
+<ul>
+<li>用户cpu时间：执行用户指令所用的时间</li>
+<li>系统cpu时间：该进程执行内核程序经历的时间</li>
+<li>时钟时间：进程运行的时间总量</li>
+<li>CPU时间 = time_t + clock_t</li>
+<li>问题：若日历时间放在带符号的32位int中，哪一年会溢出？怎么扩展</li>
+</ul>
+</li>
+</ol>
+<h2 id="文件io不带缓冲的io">文件IO（不带缓冲的IO）</h2>
+<ol>
+<li>
+<p>不带缓冲：指的是每个read和write都调用系统调用，这些函数不是ISO C的组成部分</p>
+</li>
+<li>
+<p>幻数：没来由的，不利于维护的数字，最好define</p>
+<ul>
+<li>define STDIN_FILENO 0</li>
+<li>define STDOUT_FILENO 1</li>
+<li>define STDERR_FILENO 3</li>
+</ul>
+</li>
+<li>
+<p><code>open(path，oflag)</code>,oflag常量很多，说明了文件的打开描述</p>
+</li>
+<li>
+<p><code>openat(path，oflag)</code>,oflag常量很多，说明了文件的打开描述</p>
+</li>
+<li>
+<p><code>creat(path,mode)</code>mode指示文件访问权限</p>
+</li>
+<li>
+<p><code>close(int fd)</code>关闭一个文件的同时还会释放该进程加在这个文件上的所有记录锁</p>
+</li>
+<li>
+<p><code>off_t/-1 =  lseek(int fd,off_t offset,int whence)</code>偏移量设置函数</p>
+<ul>
+<li>whence == SEEK_SET,off_t = begin()+offset,文首绝对偏移量</li>
+<li>whence == SEEK_CUR,off_t = off_t + offset,相对当前位置偏移</li>
+<li>whence == SEEK_END,off_t = end() + offset,文尾相对位置偏移</li>
+</ul>
+</li>
+<li>
+<p><code>od -c file</code>查看文件的实际内容,<code>-c</code>以字符方式</p>
+</li>
+<li>
+<p><code>ssize_t read(int fd,void *buf,size_t nbytes)</code>从文件中中读取数据，<code>void *</code>通用指针</p>
+</li>
+<li>
+<p>shell提供一种方法，从标准输入上打开一个文件用于读，在标准输出上创建/重写一个文件。因此很多程序可以不必打开输出和输入文件</p>
+</li>
+<li>
+<p>预读技术：检测到正在顺序读取时，系统试图读入比应用所要求的更多数据</p>
+</li>
+<li>
+<p><code>ioctl(int fd,int request,...)</code>:io杂物箱</p>
+<p>很多的设备的驱动程序可以自定义自己的一组ioctl</p>
+</li>
+<li>
+<p><code>/dev/fd</code></p>
+<p>这个目录的目录项时0,1,2，这些等效于<code>/dev/stdin,/dev/stdout,/dev/stderr</code>，打开<code>/dev/fd/n</code>等效于复制描述符</p>
+</li>
+</ol>
+<h3 id="文件共享">文件共享</h3>
+<h4 id="数据结构">数据结构</h4>
+<ol>
+<li>
+<p>记录表：每个进程在进程表中都有一个记录项，记录项中包含一个文件描述符</p>
+<p>a. 文件描述标志（close_no_exec）</p>
+<p>b. 指向一个文件表项的指针</p>
+</li>
+<li>
+<p>内核为所有的打开文件都维持一张文件表</p>
+<p>a. 文件状态标志（r,w,a,async）</p>
+<p>b. 当前文件偏移量</p>
+<p>c. 指向该文件v节点的指针</p>
+</li>
+<li>
+<p>每个打开文件或设备都有一个v节点结构</p>
+</li>
+</ol>
+<h4 id="原子操作">原子操作</h4>
+<ol>
+<li>
+<p>追加，在打开文件时设置<code>O_APPEND</code>标志，使得内核在每次写操作之前，都会将文件的当前偏移量设置到文件尾端处</p>
+</li>
+<li>
+<p><code>pwrite()/pread(int fd,void *buf,size_t nbytes,off_t offset)</code>相当于调用lseek后调用read</p>
+<ul>
+<li>调用pread时，无法中断其定位和读操作</li>
+<li>不更新当前文件的偏移量</li>
+</ul>
+</li>
+<li>
+<p><code>dup()/dup2(int fd,int fd2)</code>复制文件描述符，相当于调用了close(fd2),fcntl(fd,F_DUPFD,fd2)</p>
+</li>
+</ol>
+<h4 id="延迟写数据-缓冲区-queue-disk">延迟写：数据-》缓冲区-》queue-》disk</h4>
+<p>为了保证实际文件系统与缓冲区中内容的一致性，Unix系统提供了sync，fsync，fdatasync</p>
+<ol>
+<li><code>fsync(int fd)</code>:只对fd起作用，并且会更新文件的属性，并且等待写操作结束才返回</li>
+<li><code>fdatasync(int fd)</code>：和fsync类似，但是只影响文件的数据部分，不更新文件的数据部分</li>
+<li><code>void sync(void)</code>：将修改过的快缓冲区排入写队列，马上返回，并不等待实际写磁盘操作结束</li>
+</ol>
+<h4 id="fchtlint-fdint-cmd">fchtl(int fd,int cmd)</h4>
+<ul>
+<li>复制一个已有的文件描述符</li>
+<li>获取/设置文件描述符标志</li>
+<li>获取/设置文件状态标志</li>
+<li>获取/设置异步IO所有权</li>
+<li>获取/设置记录锁</li>
+</ul>
+<h4 id="文件中的空洞">文件中的空洞</h4>
+<p>普通文件会包含空洞，是由于所设置的偏移量超过了文件的尾端，并写入了某些数据后造成的</p>
+<ul>
+<li><code>ls -l file</code>:可以查看文件的大小</li>
+</ul>
+<h2 id="文件和目录">文件和目录</h2>
+<h3 id="stat函数">stat函数</h3>
+<ol>
+<li>
+<p><code>stat(pathname,buf)</code>:返回与此命名文件有关的信息结构</p>
+</li>
+<li>
+<p><code>fstat(fd,buf)</code>：获得已在描述符fd上打开文件的信息结构</p>
+</li>
+<li>
+<p><code>lstat(pathname,buf)</code>：当命名文件是一个是一个符号链接时，返回链接文件的有关信息，而不是由该符号链接引用的文件的信息</p>
+</li>
+<li>
+<p><code>fstatat(fd,pathname,buf,flag)</code>为一个相对于当前打开目录(fd指示)的路径名返回文件统计信息</p>
+</li>
+</ol>
+<h3 id="文件类型stat结构的st_mode">文件类型：stat结构的st_mode</h3>
+<ol>
+<li>普通文件：普通文件内容的解释是由处理该文件的应用程序进行
+<ul>
+<li>二进制可执行文件除外，遵循一种标准化的格式</li>
+</ul>
+</li>
+<li>目录文件：包含了其他文件的名字以及指向这些文件信息的指针
+<ul>
+<li>对一目录文件具有读权限的任一进程都可以读该目录的内容</li>
+<li>只有内核可以直接写目录文件</li>
+<li>进程只有通过特定的函数才能更改目录</li>
+</ul>
+</li>
+<li>块特殊文件（block）：提供对设备带缓冲的，每次访问以固定长度为单位进行</li>
+<li>字符特殊文件（character）;提供对设备不带缓冲的访问
+<ul>
+<li>系统中的设备要么是字符特殊文件，要么是块特殊文件</li>
+</ul>
+</li>
+<li>FIFO:用于进程之间的通信，也叫管道</li>
+<li>套接字：用于进程间的网络通信</li>
+<li>符号链接:指向另一个文件</li>
+<li>消息队列：进程间通信对象(IPC)</li>
+<li>信号量:进程间通信对象(IPC)</li>
+<li>共享存储对象:进程间通信对象(IPC)</li>
+</ol>
+<h3 id="用户id和组id">用户id和组id</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">实际用户ID<!-- raw HTML omitted -->实际组ID</th>
+<th>我们实际上是谁</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">有效组ID<!-- raw HTML omitted -->有效组ID<!-- raw HTML omitted -->附属组ID</td>
+<td>用于文件访问权限的检查</td>
+</tr>
+<tr>
+<td style="text-align:left">保存的设置用户ID<!-- raw HTML omitted -->保存的设置组ID</td>
+<td>由exec函数保存</td>
+</tr>
+</tbody>
+</table>
+<p>每个文件都有一个所有者和组所有者，所有者由stat结构中的st_uid指定，组所有者则由st_gid指定</p>
+<h3 id="文件的访问权限">文件的访问权限</h3>
+<ul>
+<li>为了在一个目录中创建一个新文件，必须对改目录具有写权限和执行权限</li>
+<li>为了在open()函数中对一个文件指定O_TRUNC标志，必须对该文件具有写权限</li>
+<li>为了删除以恶搞现有的文件，必须对包含该文件的目录具有写权限和执行权限，对该文件本身不需要读和写权限</li>
+<li>如果用7个exec函数中的任意一个执行某个文件，都必须对该文件具有执行权限，该文件还必须是一个普通文件</li>
+<li>在使用open和creat创建一个文件时，新文件的用户ID设置为进程的有效用户ID</li>
+</ul>
+<h3 id="权限测试">权限测试</h3>
+<p>当open函数打开一个文件时，内核以进程的有效ID和有效组ID为基础执行其访问权限测试。</p>
+<ul>
+<li>
+<p><code>access(pathname,mode)</code></p>
+</li>
+<li>
+<p><code>faccessat(fd,pathname,mode,flag)</code>,计算相对于打开目录(fd指示)的pathname</p>
+<p>mode: R_OK,W_OK,X_OK</p>
+</li>
+</ul>
+<h3 id="权限">权限</h3>
+<ol>
+<li>umask(mode_t cmask)
+<ul>
+<li>000 任何用户可以读文件</li>
+<li>002 阻止其他用户写入文件</li>
+<li>027 阻止同组成员写入你的文件，以及其他用户的rwx权限</li>
+</ul>
+</li>
+<li><code>chmod(pathname,mode)</code>更改指定文件的权限</li>
+<li><code>fchmod(fd,mode)</code>针对打开的文件进行操作</li>
+<li><code>fchmodat(fd,pathname,made,flag)</code>，fd为AT_FDCWD时和chmod一致，flag改变fchmodat的行为</li>
+<li>chmod函数更新的是i节点最近一次被更改的时间，ls -l 列出来的是文件最后被修改的时间</li>
+<li><code>fchown,fchownat,lchown,chown(pathname,owner,group)</code>可用于更改文件的用户ID和组ID</li>
+</ol>
+<h3 id="文件和目录处理">文件和目录处理</h3>
+<ol>
+<li><code>truncate/ftruncate(fd,off_t length)</code>;截断函数，将一个现有的文件长度截断为length，如果之前该文件以前的长度大于length，则langth、以外的数据就不能再访问。如果以前的长度小于length，文件长度将增加。</li>
+<li><code>link/linkat(efd,existingpath,nfd,*newpath,flag)</code>,创建newpath，引用existingpath，如果newpath已经存在，则返回出错。</li>
+<li><code>renameat/rename(oldname,newname);</code>如果oldname是指文件，为此文件重命名。link文件的话，重命名此文件，不是链接的文件</li>
+<li><code>futimens,utimes,utimensat(fd,path,times,flag)</code>修改一个文件的访问和修改时间</li>
+<li><code>mkdirat，mkdir(fd,pathname,mode):</code>这两个函数创建一个新的空目录，所指定的文件的访问权限mode由进程的文件模式创建屏蔽字修改</li>
+<li><code>rmdir(const char*pathname)</code>删除一个空目录，空目录是只包含<code>.和..</code>两项的目录</li>
+<li>对某目录具有访问权限的任意用户都可以读该目录，但是，为了防止文件系统产生混乱，只有内核才能写目录。一个目录的的写权限位和执行权限决定了在该目录能否创建新文件以及删除文件，但是不代表可以写目录</li>
+<li><code>DIR *fdopendir(int fd)</code>表示可以把打开文件描述符转换成目录处理函数需要的DIR结构</li>
+</ol>
+<h3 id="标准io库">标准I/O库</h3>
+<ol>
+<li>
+<p>标准输入流，标准输出流，标准错误流。一个进程预定义了3个流，并且可以自动的被进程所使用</p>
+</li>
+<li>
+<p>缓冲</p>
+<ul>
+<li>
+<p>全缓冲：填满标准I/O缓冲区后才进行实际I/O操作，一般用于驻留在磁盘上的文件</p>
+<p>在一个流上第一次执行I/O操作时，I/O函数通常调用malloc函数获得需要的缓冲区</p>
+<p><strong>flush</strong>:冲洗，标准I/O缓冲区的写操作，当填满一个缓冲区时，I/O例程会自动的冲洗</p>
+</li>
+<li>
+<p>行缓冲：当在输入和输出中遇到换行符时，标准I/O执行I/O操作，当流涉及一个终端时，通常使用行缓冲</p>
+<p><strong>限制</strong>:缓冲区的长度固定的，所以有时没有遇到换行符，也会进行I/O操作</p>
+</li>
+<li>
+<p>不带缓冲：标准错误流通常不带缓冲，使得他们的错误可以尽快显示出来</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>setbuf(fp,buf)</code>打开或或关闭缓冲机制，开启后一般为全缓冲</p>
+</li>
+<li>
+<p><code>setvbuf(fp,buf,mode,size)</code>通过设置mode精确的说明所需的缓冲类型</p>
+</li>
+<li>
+<p><code>fflush(fp)</code>，强制冲洗一个流</p>
+</li>
+<li>
+<p><code>FILE *fopen(pathname,type,)</code>打开路径名为pathname的一个文件</p>
+</li>
+<li>
+<p><code>FILE *freopen(pathname,type,fp)</code>重定向流，在一个指定的流上打开文件，若流已经打开，则先关闭</p>
+</li>
+<li>
+<p><code>fdopen(fd,type)</code>获取一个已有的文件描述符，并使一个标准I/O流与该描述符相结合，此函数常用于由管道创建和网络通信函数返回的描述符</p>
+</li>
+<li>
+<p>当以读和写类型打开一个文件时，如果中间没有<code>fflush，fseek，fsetpos或rewind</code>，那么在输出的后面不能直接跟随输入</p>
+</li>
+<li>
+<p>以读和写打开一个文件时，当中间没有<code>fseek,fsetpos,rewind</code>,或者一个输入操作没有到达文件尾端，则在输入操作之后不能直接跟随输出</p>
+</li>
+<li>
+<p>读和写流</p>
+<ul>
+<li>每次一个字符的I/O，<code>getc,fgetc,getchar</code>一次读或者写一个字符，如果流是带缓冲的，则标准I/O函数处理所有的缓冲</li>
+<li>每次一行的I/O，<code>fgets,fputs</code>,每行以一个换行符终止，当调用fgets时，应说明能处理的最大行</li>
+<li>direct I/O，<code>fread,fwrite</code>每次I/O操作读或写某种数量的对象，每个对象具有指定的长度，常用于读写二进制文件</li>
+<li>压送回流，<code>ungetc(int c,FILE fp)</code>,压送回流的字符又可以</li>
+</ul>
+</li>
+</ol>
+</div><div class="post-copyright mb-4">
+  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+</div>
+<div class="post-reward mb-4 text-center">
+  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
+    <i class="fas fa-fw fa-medal"></i>打赏
+  </button>
+</div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay"></i>支付宝
+            </a>
+          </li><li class="nav-item" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin"></i>微信
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg" loading="lazy" />
+          </div><div class="tab-pane fade post-reward-content show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg" loading="lazy" />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div><div class="post-navs d-flex mb-3 justify-content-between">
+  <div class="post-nav w-50"><div class="prev-post">
+      <a href="/posts/note/go-%E8%AF%AD%E8%A8%80/">go 语言小记</a>
+    </div></div>
+  <div class="post-nav flex-row-reverse"><div class="next-post">
+      <a href="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/">Colab的使用</a>
+    </div></div>
+</div><section class="related-posts">
+  <h3>相关文章</h3>
+  <ul class="related-posts"><li><a href="/posts/note/bio%E5%AD%A6%E4%B9%A0/">BIO</a></li><li><a href="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/">C&#43;&#43; 小记</a></li><li><a href="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/">Colab的使用</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li><li><a href="/posts/note/slam/">SLAM</a></li></ul>
+</section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+  repo="Euraxluo/Euraxluo.github.io"
+  issue-term="pathname"
+  label="✨💬✨"
+  theme="github-dark"
+  crossorigin="anonymous"
+  async>
+</script></div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container"><section class="profile surface row">
+  <div class="col-xl-6 d-flex align-items-center justify-content-center">
+    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  </div>
+  <div class="col-xl-6">
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+</section><section class="featured-posts row surface">
+  <h4>精选文章</h4>
+  <ul><li><a href="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li><li><a href="/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="/posts/note/slam/">SLAM</a></li></ul>
+</section><section class="recent-posts row surface">
+  <h4>最近文章</h4>
+  <ul><li><a href="/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+</section>
+<section class="taxonomy-categories row surface">
+  <h4>
+    <a href="/categories">分类</a>
+  </h4>
+  <div><a href="/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
+      Shortcode <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+      java <span class="badge rounded-pill">8</span>
+    </a><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-series row surface">
+  <h4>
+    <a href="/series">专栏</a>
+  </h4>
+  <div><a href="/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">3</span>
+    </a><a href="/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-tags row surface">
+  <h4>
+    <a href="/tags">标签</a>
+  </h4>
+  <div><a href="/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
+      python <span class="badge rounded-pill">2</span>
+    </a><a href="/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a></div>
+</section></div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a>
+  </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
+        <i class="fab fa-fw fa-2x fa-github"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
+        <i class="fab fa-fw fa-2x fa-qq"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
+        <i class="fab fa-fw fa-2x fa-zhihu"></i>
+      </a>
+    </li></nav>
+<div class="copyright mb-2">
+  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+</div>
+<script>
+  window.parent.postMessage(window.location.href, "*");
+</script><div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
+</div></footer>
+<a id="btnScrollToTop" class="btn-scroll-to-top">
+  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
+</a>
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>逆波兰式 - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="icon" href="/images/favicons/favicon.ico">
+<meta name="description" content="逆波兰式" /><meta itemprop="name" content="逆波兰式">
+<meta itemprop="description" content="逆波兰式">
+<meta itemprop="datePublished" content="2019-02-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-02-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2154">
+
+
+
+<meta itemprop="keywords" content="notes," />
+<meta property="og:title" content="逆波兰式" />
+<meta property="og:description" content="逆波兰式" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/" />
+<meta property="article:published_time" content="2019-02-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-02-21T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/posts/note/bio%E5%AD%A6%E4%B9%A0/" /><meta property="og:see_also" content="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/" /><meta property="og:see_also" content="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/" /><meta property="og:see_also" content="/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/" /><meta property="og:see_also" content="/posts/note/go-%E8%AF%AD%E8%A8%80/" /><meta property="og:see_also" content="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="逆波兰式"/>
+<meta name="twitter:description" content="逆波兰式"/>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+</head>
+  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/search">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
+    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
+  </div>
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
+          <a class="nav-link" href="/archives">
+            <i class="fas fa-fw fa-file-archive"></i>归档
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/categories">
+            <i class="fas fa-fw fa-folder"></i>分类
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/tags">
+            <i class="fas fa-fw fa-tags"></i>标签
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="/series">
+            <i class="fas fa-fw fa-columns"></i>专栏
+          </a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Repos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo" target="_blank">
+                <i class="fab fa-fw fa-github"></i>Euraxluo
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                <i class="fab fa-fw fa-github"></i>fastgrpc
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                <i class="fab fa-fw fa-github"></i>ProjectPractice
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                <i class="fab fa-fw fa-github"></i>pyantv
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                <i class="fab fa-fw fa-github"></i>simple-pythonvm
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/verb" target="_blank">
+                <i class="fab fa-fw fa-github"></i>verb
+              </a>
+            </li></ul>
+        </li></ul>
+      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
+    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-language" ></i>
+  </a>
+</li>
+<script type="text/html" id="languagesPopoverBody">
+  <ul class="languages list-group"><li class="language list-group-item">
+      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
+      <a href="/zh-tw/">繁體中文</a></li></ul>
+</script>
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#palettesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-palette" ></i>
+  </a>
+</li>
+<script type="text/html" id="palettesPopoverBody">
+  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
+      <a>蓝色</a>
+    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
+      <a>蓝灰色</a>
+    </li><li id="palette-brown" class="palette list-group-item bg-brown">
+      <a>棕色</a>
+    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
+      <a>青色</a>
+    </li><li id="palette-green" class="palette list-group-item bg-green">
+      <a>绿色</a>
+    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
+      <a>靛青色</a>
+    </li><li id="palette-orange" class="palette list-group-item bg-orange">
+      <a>橙色</a>
+    </li><li id="palette-pink" class="palette list-group-item bg-pink">
+      <a>粉色</a>
+    </li><li id="palette-purple" class="palette list-group-item bg-purple">
+      <a>紫色</a>
+    </li><li id="palette-red" class="palette list-group-item bg-red">
+      <a>红色</a>
+    </li><li id="palette-teal" class="palette list-group-item bg-teal">
+      <a>蓝绿色</a>
+    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
+      <a>黄色</a>
+    </li></ul>
+</script>
+
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#fontSizesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-font" ></i>
+  </a>
+</li>
+<script type="text/html" id="fontSizesPopoverBody">
+  <form class="font-size-switcher-form">
+    <label for="fontSize" class="form-label">字体大小</label>
+    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+  </form>
+</script>
+<form class="mode-switcher-form d-flex align-items-center">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="modeSwitcher">
+  </div>
+</form>
+</ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-md-8">
+  <div class="container"><nav class="row" aria-label="breadcrumb">
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/">主页</a></li><li class="breadcrumb-item"><a href="/posts/">posts</a></li><li class="breadcrumb-item"><a href="/posts/note/">note</a></li><li class="breadcrumb-item active">逆波兰式</li></ol>
+</nav><article class="post row surface">
+  <h1 class="post-title my-3">逆波兰式</h1><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2019-02-21
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>5 分钟阅读
+  </span>
+<a href="/categories/notes/" class="post-taxonomy">#notes</a><a href="/series/notes/" class="post-taxonomy">#notes</a><a href="/tags/notes/" class="post-taxonomy">#notes</a></div>
+<div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
+  <div class="accordion-item">
+    <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
+      <i class="fas fa-fw fa-bars"></i>目录
+    </div>
+    <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
+      <div class="accordion-body mt-2">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#定义">定义</a></li>
+    <li><a href="#作用">作用:</a></li>
+    <li><a href="#算法实现">算法实现</a></li>
+    <li><a href="#计算方法">计算方法</a>
+      <ul>
+        <li><a href="#举例">举例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div><div class="post-content mb-3"><h1 id="逆波兰式">逆波兰式</h1>
+<h2 id="定义">定义</h2>
+<p>一个表达式E的后缀形式可以如下定义：</p>
+<p>（1）如果E是一个变量或常量，则E的后缀式是E本身。</p>
+<p>（2）如果E是E1 op E2形式的表达式，这里op是如何二元操作符，则E的后缀式为E1&rsquo;E2' op，这里E1&rsquo;和E2&rsquo;分别为E1和E2的后缀式。</p>
+<p>（3)如果E是（E1）形式的表达式，则E1的后缀式就是E的后缀式。</p>
+<p>如：我们平时写a+b，这是中缀表达式，写成后缀表达式就是：ab+</p>
+<p>(a+b)*c-(a+b)/e的后缀表达式为：</p>
+<p>(a+b)*c-(a+b)/e</p>
+<p>→((a+b)*c)((a+b)/e)-</p>
+<p>→((a+b)c*)((a+b)e/)-</p>
+<p>→(ab+c*)(ab+e/)-</p>
+<p>→ab+c*ab+e/-</p>
+<h2 id="作用">作用:</h2>
+<p>实现逆波兰式的算法，难度并不大，但为什么要将看似简单的中序<a href="https://baike.baidu.com/item/%e8%a1%a8%e8%be%be%e5%bc%8f" target="_blank">表达式</a>
+转换为复杂的逆波兰式？原因就在于这个简单是相对人类的思维结构来说的，对计算机而言中序表达式是非常复杂的结构。相对的，逆波兰式在计算机看来却是比较简单易懂的结构。因为计算机普遍采用的内存结构是栈式结构，它执行先进后出的顺序。</p>
+<h2 id="算法实现">算法实现</h2>
+<p>将一个普通的中序表达式转换为逆波兰表达式的一般算法是：</p>
+<p>首先需要分配2个栈，一个作为临时存储运算符的栈S1（含一个结束符号），一个作为输入逆波兰式的栈S2（空栈），S1栈可先放入优先级最低的运算符#，注意，中缀式应以此最低优先级的运算符结束。可指定其他字符，不一定非#不可。从中缀式的左端开始取字符，逐序进行如下步骤：</p>
+<p>（1）若取出的字符是操作数，则分析出完整的运算数，该操作数直接送入S2栈</p>
+<p>（2）若取出的字符是运算符，则将该运算符与S1栈栈顶元素比较，如果该运算符优先级(不包括括号运算符)大于S1栈栈顶运算符优先级，则将该运算符进S1栈，否则，将S1栈的栈顶运算符弹出，送入S2栈中，直至S1栈栈顶运算符低于（不包括等于）该运算符优先级，最后将该运算符送入S1栈。</p>
+<p>（3）若取出的字符是“（”，则直接送入S1栈顶。</p>
+<p>（4）若取出的字符是“）”，则将距离S1栈栈顶最近的“（”之间的运算符，逐个出栈，依次送入S2栈，此时抛弃“（”。</p>
+<p>（5）重复上面的1~4步，直至处理完所有的输入字符</p>
+<p>（6）若取出的字符是“#”，则将S1栈内所有运算符（不包括“#”），逐个出栈，依次送入S2栈。</p>
+<p>完成以上步骤，S2栈便为逆波兰式输出结果。不过S2应做一下逆序处理。便可以按照逆波兰式的计算方法计算了！</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TransformReversePolishNotation</span> {
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    stack<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span> temp;
+    stack<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span> rpn;
+    unordered_map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span>, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> dict;
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">init</span>() {
+        <span style="color:#75715e">//初始化字典
+</span><span style="color:#75715e"></span>        dict[<span style="color:#e6db74">&#39;#&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+        dict[<span style="color:#e6db74">&#39;+&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+        dict[<span style="color:#e6db74">&#39;-&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+        dict[<span style="color:#e6db74">&#39;*&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+        dict[<span style="color:#e6db74">&#39;/&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+        dict[<span style="color:#e6db74">&#39;(&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        dict[<span style="color:#e6db74">&#39;)&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    }
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    stack<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span> pn2rpn(string s) {
+        stack<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span> result;
+        init();
+        temp.push(<span style="color:#e6db74">&#39;#&#39;</span>);
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> s.size(); <span style="color:#f92672">++</span>i) {
+            <span style="color:#66d9ef">if</span> (dict.count(s[i]) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {<span style="color:#75715e">//如果这个字符不存在
+</span><span style="color:#75715e"></span>                rpn.push(s[i]);<span style="color:#75715e">//将操作数入栈
+</span><span style="color:#75715e"></span>            } <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span> (s[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;(&#39;</span>) {<span style="color:#75715e">//直接进temp中
+</span><span style="color:#75715e"></span>                temp.push(s[i]);
+            }<span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span> (s[i] <span style="color:#f92672">==</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>)<span style="color:#960050;background-color:#1e0010">&#39;</span>) {<span style="color:#75715e">//将(间的元素放入pn,删除(
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">while</span>(temp.top()<span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;(&#39;</span>) {<span style="color:#75715e">//当temp的栈顶不为(且,当前运算符的优先级小于或等于栈顶
+</span><span style="color:#75715e"></span>                    rpn.push(temp.top());<span style="color:#75715e">//将temp栈顶元素放进pn中
+</span><span style="color:#75715e"></span>                    temp.pop();<span style="color:#75715e">//将栈顶元素出栈
+</span><span style="color:#75715e"></span>                }
+                temp.pop();<span style="color:#75715e">//删除&#39;(&#39;
+</span><span style="color:#75715e"></span>            } <span style="color:#66d9ef">else</span> {<span style="color:#75715e">//各种运算符
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">for</span> (;dict[s[i]] <span style="color:#f92672">&lt;=</span> dict[temp.top()];temp.pop()) {<span style="color:#75715e">//当temp的栈顶不为(且,当前运算符的优先级小于或等于栈顶
+</span><span style="color:#75715e"></span>                    rpn.push(temp.top());<span style="color:#75715e">//将temp栈顶元素放进pn中
+</span><span style="color:#75715e">//                    temp.pop();//将栈顶元素出栈
+</span><span style="color:#75715e"></span>                }
+                <span style="color:#66d9ef">if</span>(dict[s[i]] <span style="color:#f92672">&gt;</span> dict[temp.top()])
+                    temp.push(s[i]);
+            }
+        }
+        <span style="color:#66d9ef">for</span>(;dict[temp.top()]<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>;temp.pop())
+            rpn.push(temp.top());<span style="color:#75715e">//将temp栈顶元素放进pn中
+</span><span style="color:#75715e"></span>
+        <span style="color:#75715e">//遍历并逆序
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> (; rpn.size() <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>; rpn.pop())
+            result.push(rpn.top());
+        <span style="color:#66d9ef">return</span> result;
+    }
+};
+</code></pre></div><h2 id="计算方法">计算方法</h2>
+<p>新建一个表达式,如果当前字符为变量或者为数字，则压栈，如果是运算符，则将栈顶两个元素弹出作相应运算，结果再入栈，最后当表达式扫描完后，栈里的就是结果。</p>
+<h3 id="举例">举例</h3>
+<p>下面以(a+b)<em>c为例子进行说明：
+(a+b)<em>c的逆波兰式为ab+c</em>，假设计算机把ab+c</em>按从左到右的顺序压入栈中，并且按照遇到运算符就把栈顶两个元素出栈，执行运算，得到的结果再入栈的原则来进行处理，那么ab+c<em>的执行结果如下：
+1）a入栈（0位置）
+2）b入栈（1位置）
+3）遇到运算符“+”，将a和b出栈，执行a+b的操作，得到结果d=a+b，再将d入栈（0位置）
+4）c入栈（1位置）
+5）遇到运算符“</em>”，将d和c出栈，执行d*c的操作，得到结果e，再将e入栈（0位置）
+经过以上运算，计算机就可以得到(a+b)*c的运算结果e了。
+逆波兰式除了可以实现上述类型的运算，它还可以派生出许多新的算法，数据结构，这就需要灵活运用了。逆波兰式只是一种序列体现形式。</p>
+<p>简单实现:10以内的式子</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TransformReversePolishNotation</span> {
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    stack<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span> temp;
+    stack<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span> rpn;
+    unordered_map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span>, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> dict;
+
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">init</span>() {
+        <span style="color:#75715e">//初始化字典
+</span><span style="color:#75715e"></span>        dict[<span style="color:#e6db74">&#39;#&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+        dict[<span style="color:#e6db74">&#39;+&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+        dict[<span style="color:#e6db74">&#39;-&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+        dict[<span style="color:#e6db74">&#39;*&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+        dict[<span style="color:#e6db74">&#39;/&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+        dict[<span style="color:#e6db74">&#39;(&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        dict[<span style="color:#e6db74">&#39;)&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    }
+
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">computeRPN</span>(stack<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span> rpn) {
+        init();
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> count;
+        <span style="color:#66d9ef">while</span> (rpn.size() <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+            <span style="color:#66d9ef">for</span> (; rpn.size() <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> dict.find(rpn.top()) <span style="color:#f92672">==</span> dict.end(); rpn.pop()) {<span style="color:#75715e">//如果栈顶是操作数
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">int</span> num <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int</span>) rpn.top() <span style="color:#f92672">-</span> <span style="color:#ae81ff">48</span>;
+<span style="color:#75715e">//            int number = atoi(num);//转换字符串的,用来处理123+1213等
+</span><span style="color:#75715e"></span>                count.push_back(num);
+            }
+            <span style="color:#66d9ef">switch</span> (rpn.top()) {
+                <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;+&#39;</span><span style="color:#f92672">:</span>
+                    count[count.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>] <span style="color:#f92672">+=</span> count[count.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
+                    count.pop_back();
+                    rpn.pop();
+                    <span style="color:#66d9ef">break</span>;
+                <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;-&#39;</span><span style="color:#f92672">:</span>
+                    count[count.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>] <span style="color:#f92672">-=</span> count[count.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
+                    count.pop_back();
+                    rpn.pop();
+                    <span style="color:#66d9ef">break</span>;
+                <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;*&#39;</span><span style="color:#f92672">:</span>
+                    count[count.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>] <span style="color:#f92672">*=</span> count[count.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
+                    count.pop_back();
+                    rpn.pop();
+                    <span style="color:#66d9ef">break</span>;
+                <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;/&#39;</span><span style="color:#f92672">:</span>
+                    count[count.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span>
+                            count[count.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> count[count.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>] <span style="color:#f92672">*</span> count[count.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">:</span> count[
+                                    count.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>];
+                    count.pop_back();
+                    rpn.pop();
+                    <span style="color:#66d9ef">break</span>;
+                <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+                    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;不支持的运算类型&#34;</span>;
+
+            }
+
+        }
+
+
+        <span style="color:#66d9ef">return</span> count[<span style="color:#ae81ff">0</span>];
+    }
+};
+</code></pre></div><p>leetcode 150:逆波兰式计算:
+题解:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> evalRPN(vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;&amp;</span> tokens) {
+        <span style="color:#66d9ef">if</span> (tokens.empty()) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+        stack<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> st;
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> token : tokens) {
+            <span style="color:#66d9ef">if</span> (token <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;+&#34;</span> <span style="color:#f92672">||</span> token <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#f92672">||</span> token <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;*&#34;</span> <span style="color:#f92672">||</span> token <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;/&#34;</span>) {
+                <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> st.top();
+                st.pop();
+                <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> st.top();
+                st.pop(); 
+                <span style="color:#66d9ef">if</span> (token <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;+&#34;</span>) {
+                    st.push(a<span style="color:#f92672">+</span>b);
+                } <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span> (token <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;-&#34;</span>) {
+                    st.push(a<span style="color:#f92672">-</span>b);
+                } <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span> (token <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;*&#34;</span>) {
+                    st.push(a<span style="color:#f92672">*</span>b);
+                } <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span> (token <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;/&#34;</span>) {
+                    st.push(a<span style="color:#f92672">/</span>b);
+                }
+            } <span style="color:#66d9ef">else</span> {
+                st.push(stoi(token));
+            }
+        }
+        <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">int</span>)st.top();
+    }
+};
+</code></pre></div></div><div class="post-copyright mb-4">
+  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+</div>
+<div class="post-reward mb-4 text-center">
+  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
+    <i class="fas fa-fw fa-medal"></i>打赏
+  </button>
+</div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay"></i>支付宝
+            </a>
+          </li><li class="nav-item" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin"></i>微信
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg" loading="lazy" />
+          </div><div class="tab-pane fade post-reward-content show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg" loading="lazy" />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div><div class="post-navs d-flex mb-3 justify-content-between">
+  <div class="post-nav w-50"><div class="prev-post">
+      <a href="/posts/python/flask%E5%85%A5%E9%97%A8/">Flask入门</a>
+    </div></div>
+  <div class="post-nav flex-row-reverse"><div class="next-post">
+      <a href="/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/">语料处理基础</a>
+    </div></div>
+</div><section class="related-posts">
+  <h3>相关文章</h3>
+  <ul class="related-posts"><li><a href="/posts/note/bio%E5%AD%A6%E4%B9%A0/">BIO</a></li><li><a href="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/">C&#43;&#43; 小记</a></li><li><a href="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/">Colab的使用</a></li><li><a href="/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/">C语言小计</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li></ul>
+</section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+  repo="Euraxluo/Euraxluo.github.io"
+  issue-term="pathname"
+  label="✨💬✨"
+  theme="github-dark"
+  crossorigin="anonymous"
+  async>
+</script></div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container"><section class="profile surface row">
+  <div class="col-xl-6 d-flex align-items-center justify-content-center">
+    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  </div>
+  <div class="col-xl-6">
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+</section><section class="featured-posts row surface">
+  <h4>精选文章</h4>
+  <ul><li><a href="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li><li><a href="/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="/posts/note/slam/">SLAM</a></li></ul>
+</section><section class="recent-posts row surface">
+  <h4>最近文章</h4>
+  <ul><li><a href="/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+</section>
+<section class="taxonomy-categories row surface">
+  <h4>
+    <a href="/categories">分类</a>
+  </h4>
+  <div><a href="/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
+      Shortcode <span class="badge rounded-pill">10</span>
+    </a><a href="/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+      java <span class="badge rounded-pill">8</span>
+    </a><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-series row surface">
+  <h4>
+    <a href="/series">专栏</a>
+  </h4>
+  <div><a href="/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">5</span>
+    </a><a href="/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">3</span>
+    </a><a href="/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
+      TensorFlow <span class="badge rounded-pill">2</span>
+    </a></div>
+</section><section class="taxonomy-tags row surface">
+  <h4>
+    <a href="/tags">标签</a>
+  </h4>
+  <div><a href="/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">23</span>
+    </a><a href="/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
+      Pathon <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
+      NLP <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
+      ROS <span class="badge rounded-pill">3</span>
+    </a><a href="/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
+      python <span class="badge rounded-pill">2</span>
+    </a><a href="/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
+      Shell <span class="badge rounded-pill">2</span>
+    </a></div>
+</section></div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a>
+  </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
+        <i class="fab fa-fw fa-2x fa-github"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
+        <i class="fab fa-fw fa-2x fa-qq"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
+        <i class="fab fa-fw fa-2x fa-zhihu"></i>
+      </a>
+    </li></nav>
+<div class="copyright mb-2">
+  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+</div>
+<script>
+  window.parent.postMessage(window.location.href, "*");
+</script><div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
+</div></footer>
+<a id="btnScrollToTop" class="btn-scroll-to-top">
+  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
+</a>
+</body>
+</html>
