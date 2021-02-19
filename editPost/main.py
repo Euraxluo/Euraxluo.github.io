@@ -13,7 +13,7 @@ def execCmd(cmd):
         print("*"*20)
         os.system(cmd)
     except Exception as e:
-        print ('%s\t 运行失败,失败原因\r\n%s' % (cmd,e))
+        print ('%s\t run failed\r\n%s' % (cmd,e))
 
 @app.route('/')
 def render_index():
@@ -70,7 +70,7 @@ def start_server():
     app.run(debug=True)
     for th in threads:
         th.join()
-    print ("程序结束运行%s" % datetime.datetime.now())
+    print ("terminated server%s" % datetime.datetime.now())
 
 if __name__ == '__main__':
     start_server()
