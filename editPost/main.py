@@ -70,7 +70,7 @@ def start_server():
     app.run(debug=True)
     for th in threads:
         th.join()
-    print ("terminated server%s" % datetime.datetime.now())
+    print("terminated server%s" % datetime.datetime.now())
 
 if __name__ == '__main__':
     start_server()

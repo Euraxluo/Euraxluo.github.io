@@ -1,6 +1,6 @@
 baseURL = "https://euraxluo.gitee.io/blog"
 title = "Euraxluo Blog"
-theme = ["hugo-g2plot","hugo-chart","hugo-theme-bootstrap"]
+theme = ["hugo-g2plot", "hugo-chart", "hugo-theme-bootstrap"]
 copyright = "Copyright © 2016-{year} Euraxluo. All Rights Reserved."
 
 # Multilingual mode
@@ -22,12 +22,12 @@ enableRobotsTXT = true
 enableEmoji = true
 
 [blackfriday]
-  hrefTargetBlank = true
+hrefTargetBlank = true
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+home = ["HTML", "RSS", "JSON"]
 
 [taxonomies]
-  category = "categories"
-  series = "series"
-  tag = "tags"
+category = "categories"
+series = "series"
+tag = "tags"
