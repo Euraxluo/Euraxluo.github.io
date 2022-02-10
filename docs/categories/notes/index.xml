@@ -2,217 +2,353 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>notes on Euraxluo Blog</title>
-    <link>/categories/notes/</link>
+    <link>https://euraxluo.gitee.io/blog/categories/notes/</link>
     <description>Recent content in notes on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/blog/categories/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>BIO</title>
-      <link>/posts/note/bio%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      <title>数据分析</title>
+      <link>https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
+      <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/bio%E5%AD%A6%E4%B9%A0/</guid>
-      <description>BIO (block io) 同步阻塞IO 线程池:伪异步IO,实际上也是同步阻塞IO NIO(同步非阻塞) selector会主动轮询,与客户端建立通信(channel</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
+      <description></description>
     </item>
     
     <item>
       <title>C&#43;&#43; 小记</title>
-      <link>/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</guid>
-      <description>C++ 小记 CMAKE 工程构建工具 简单的使用 文件名大小写敏感 语法 cmake_minimum_required(VERSION 2.8)#设置cmake的版本 set(CMAKE_BUILD_TYPE Debug )#设置为debug模式 #项目名 PROJECT(HEL</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</guid>
+      <description>C++ 小记 CMAKE  工程构建工具  简单的使用  文件名大小写敏感 语法  cmake_minimum_required(VERSION 2.8)#设置cmake的版本 set(CMAKE_BUILD_TYPE Debug )#设置为debug模式 #项目名 PROJECT(HELLO)#设置某文件夹为头文件 include_directories(&amp;#34;include&amp;#34;)#设置一个头文件，把hello.cpp编译为libfile add_library(libfile src/hello.cpp)SET(SRC_LIST “fu nc.c”)#设置可执行二进制文件的输出路径和库的输出路径 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin) SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)ADD_EXECUTABLE(hello main.c;func.c;$\{RC_LIST\}) target_link_libraries(hello libfile)#链接一个lib #设置编译的源文件在编译当前目录的bin下 ADD_SUBDIRECTORY (src bin)#修改为 SUBDIRS(src) 结果放在src中 #安装 DESTDIR= 	install: mkdir -p $(DESTDIR)/usr/bin 	install -m 755 hello $(DESTDIR)/usr/bin 更像一个工程 Hello- src- CMakeLists.txt- build #进去此目录进行外部编译 =》 cmake .. &amp;amp; make - CMakeLists.txtproject(hello)add_executable(hello hello.c)set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)map和set 底层使用的是红黑树</description>
+    </item>
+    
+    <item>
+      <title>chromedriver-安装</title>
+      <link>https://euraxluo.gitee.io/blog/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://euraxluo.gitee.io/blog/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</guid>
+      <description>![reference])(https://blog.csdn.net/shuchuan0409/article/details/101615221)
+第一步：
+执行 sudo apt-get update 更新apt-get，耗时可能会比较久
+第二步：安装谷歌浏览器
+直接下载谷歌浏览器最新版：wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+安装：dpkg -i google-chrome-stable_current_amd64.deb
+如果不出意外，上面这一步一般都不会安装成功（但是也要执行），这个时候我们需要执行 ：apt-get install -f 用来下载兼容或者必须的一些软件包
+等下载完成以后再重新安装谷歌浏览器，这个时候要记下谷歌浏览器的版本号，这是个很重要的信息，下面安装chromedriver的时候需要使用
+Unpacking google-chrome-stable (77.0.3865.90-1) 里面的77.0.3865.90-1就是谷歌浏览器的版本号
+第三步：
+安装xvfb 安装这个工具是为了让我们可以无界面运行谷歌浏览器，直接apt-get安装即可
+sudo apt-get install xvfb
+第四步：安装chromedriver
+下载chromedriver的安装包，直接访问地址：http://chromedriver.storage.googleapis.com/index.html 去下载自己浏览区对应的版本，如果找不到自己浏览器对应的版本，就找个比较接近的版本就行了，比如我这边的谷歌版本号是77.0.3865.90，但是网站上并没有找个版本对应的驱动
+我这边就下载了77.0.3865.40这个版本，点击去找到linux对应的下载地址，直接使用wget进行下载
+wget http://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip
+下载后解压到当前目录下,如果没有安装unzip，就使用apt-get install unzip 安装解压工具
+unzip 你下载的zip文件
+移动文件夹到usr文件夹下面，并创建软链接，升级为全局变量
+mv -f chromedriver /usr/local/share/chromedriver
+ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
+到此安装结束，我们执行 chromedriver &amp;ndash;version 可以查看安装的版本号</description>
     </item>
     
     <item>
       <title>Colab的使用</title>
-      <link>/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
-      <description>Colab的使用 首先是梯子 校园网改ipv6连接谷歌 1.修改SDN服务器 在ipv6的sdn中设置这两个记录，也可以只设置一个 2001:4860:4860::8888 2001:4860:4860::8844 linux:修</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>首先是梯子 校园网改ipv6连接谷歌 1.修改SDN服务器
+在ipv6的sdn中设置这两个记录，也可以只设置一个
+2001:4860:4860::88882001:4860:4860::8844linux:修改/etc/resolv.conf
+2.修改hosts
+windows路径：%SystemRoot%\system32\drivers\etc\hosts
+linux:/etc/hosts
+ipv6 hosts 入门： 进入colab 因为我有基础，所以直接跳过了机器学习速成课部分，做了我在calab的第一个实验: 图像风格转换
+连接Colab和google drive !apt-get install -y -qq software-properties-common python-software-properties module-init-tools !add-apt-repository -y ppa:alessandro-strada/ppa 2&amp;gt;&amp;amp;1 &amp;gt; /dev/null !apt-get update -qq 2&amp;gt;&amp;amp;1 &amp;gt; /dev/null !apt-get -y install -qq google-drive-ocamlfuse fuse from google.colab import auth auth.authenticate_user() from oauth2client.client import GoogleCredentials creds = GoogleCredentials.get_application_default() import getpass !google-drive-ocamlfuse -headless -id={creds.client_id} -secret={creds.client_secret} &amp;lt; /dev/null 2&amp;gt;&amp;amp;1 | grep URL vcode = getpass.getpass() !</description>
     </item>
     
     <item>
       <title>C语言小计</title>
-      <link>/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</guid>
-      <description>C语言小计 Unix C 内核-》系统调用-》shell/共用函数库-》应用程序 系统调用和库函数 库函数会调用系统调用来实现自己的算法 公用函数库构建在系统</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</guid>
+      <description>C语言小计 Unix C   内核-》系统调用-》shell/共用函数库-》应用程序
+  系统调用和库函数
+  库函数会调用系统调用来实现自己的算法
+  公用函数库构建在系统调用之上，应用程序既可以使公用函数库，也可以使用系统调用
+    口令文件：/etc/passwd 字段结构：
+登录名：加密口令：UID：GID：注释字段：起始目录：sell
+  文件系统：
+ /是root目录 /和空字符不能出现在文件名字中，斜线用来分隔开构成路径名的各文件名，空字符用来终止一个路径名 工作目录：每个进程都有一个工作目录，所有的相对路径名都从工作目录开始解释，进程可以使用chdir()更改工作目录,以/开始的路径名是绝对路径名 登陆时工作目录设置为起始目录，从口令文件中取得    输入输出
+ 不带缓冲区的io：open,read,write,lseek,close stdout &amp;gt; file可以把标准输出或者符号左边的字符重定向到文件    进程
+  每个进程都有一个pid，pid_t保证可以用long保存
+  进程控制：fork,waitpid,exec(exec函数有很多变体)
+  signal，用于通知进程发生了某种情况；进程会：
+  忽略信号
+  按系统默认方式处理
+  提供一个函数，信号捕捉（类似错误处理？）
+      时间值
+ 用户cpu时间：执行用户指令所用的时间 系统cpu时间：该进程执行内核程序经历的时间 时钟时间：进程运行的时间总量 CPU时间 = time_t + clock_t 问题：若日历时间放在带符号的32位int中，哪一年会溢出？怎么扩展    文件IO（不带缓冲的IO）   不带缓冲：指的是每个read和write都调用系统调用，这些函数不是ISO C的组成部分</description>
     </item>
     
     <item>
-      <title>go 语言小记</title>
-      <link>/posts/note/go-%E8%AF%AD%E8%A8%80/</link>
+      <title>IO模型小记</title>
+      <link>https://euraxluo.gitee.io/blog/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/go-%E8%AF%AD%E8%A8%80/</guid>
-      <description>go 语言 1.go程序是使用packag来进行组织的，只有package中名为main的包可以包含main函数 2.一个可执行程序有且仅有一个ma</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</guid>
+      <description>BIO (block io) 同步阻塞IO
+线程池:伪异步IO,实际上也是同步阻塞IO
+NIO(同步非阻塞)
+selector会主动轮询,与客户端建立通信(channel)
+每一个server会有一个selector
+AIO(异步非阻塞)
+当客户端通知我(回调),我再去连接
+单线程模式:所有的IO操作都由同一个NIO线程处理
+主线程组,从单线程模型
+主从线程组模型,具有一个主线程族和从线程组,主线程组去建立channel,从线程组会去进行处理</description>
     </item>
     
     <item>
       <title>java面试笔记</title>
-      <link>/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</guid>
-      <description>java跨平台 实现java跨平台只需要在相应的平台安装对应的虚拟机，我们就可以使用统一的接口进行开发。 java通过不同的系统，不同的版本，不</description>
-    </item>
-    
-    <item>
-      <title>Make My LIsp NAME lispluo</title>
-      <link>/posts/note/make-lispluo/</link>
-      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/note/make-lispluo/</guid>
-      <description>Make My LIsp NAME lispluo 一个用 Python 实现的 Lisp 解释器 根据教程项目 https://github.com/kanaka/mal 进行实现及测试。 教程中文翻译 https://github.com/Windfarer/mal-zh 1. 准备 1） 选择的python编写解释器 2） fork，克隆项目，修</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</guid>
+      <description>java跨平台 实现java跨平台只需要在相应的平台安装对应的虚拟机，我们就可以使用统一的接口进行开发。
+java通过不同的系统，不同的版本，不同的位数，来屏蔽不同的系统指令集的差异，对外提供统一的接口
+java中int数据占几个字节   java中有几种基本数据类型？8种
+基本类型：byte 二进制位数：8 包装类：java.lang.Byte 最小值：Byte.MIN_VALUE=-128 最大值：Byte.MAX_VALUE=127 基本类型：short 二进制位数：16 包装类：java.lang.Short 最小值：Short.MIN_VALUE=-32768 最大值：Short.MAX_VALUE=32767 基本类型：int 二进制位数：32 包装类：java.lang.Integer 最小值：Integer.MIN_VALUE=-2147483648 最大值：Integer.MAX_VALUE=2147483647 基本类型：long 二进制位数：64 包装类：java.lang.Long 最小值：Long.MIN_VALUE=-9223372036854775808 最大值：Long.MAX_VALUE=9223372036854775807 基本类型：float 二进制位数：32 包装类：java.lang.Float 最小值：Float.MIN_VALUE=1.4E-45 最大值：Float.MAX_VALUE=3.4028235E38 基本类型：double 二进制位数：64 包装类：java.lang.Double 最小值：Double.MIN_VALUE=4.9E-324 最大值：Double.MAX_VALUE=1.7976931348623157E308 基本类型：char 二进制位数：16 包装类：java.lang.Character 最小值：Character.MIN_VALUE=0 最大值：Character.MAX_VALUE=65535 面向对象的特征 封装 将对象封装成一个高度自洽相对封闭的个体，对象状态(属性)由这个对象自己的行为(方法)来读取和改变
+抽象 抽象就是找出一些事物的相似和共性之处，然后把他们抽象为类
+继承 把这个已经存在的类所定义的内容作为自己的内容，并可以加入若干新的内容，或修改原来的方法使之更适合特殊的需要
+多态 指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用只有在程序运行时才确定
+  </description>
     </item>
     
     <item>
       <title>pattern:斑图</title>
-      <link>/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</guid>
-      <description>pattern:斑图 是一种构型，是一种系统，不关心是使用的什么物质去实现 把各种方法论抽取出来 complexity:复杂性科学 按照复杂性思维去</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</guid>
+      <description>pattern:斑图
+是一种构型，是一种系统，不关心是使用的什么物质去实现
+把各种方法论抽取出来
+complexity:复杂性科学
+按照复杂性思维去设计虚拟世界
+ 仿真 层次 初始条件的影响 时间之箭？ 因果箭头  movie：黑客帝国，盗梦空间，时间之箭，超体，蝴蝶效应，前目的地
+book：失控
+我们需要对抗的是复杂系统
+根据用户去决定复杂系统
+设计的系统？ 涌现的系统？
+区块链：ai，算法管理社会
+奇点，技术奇点</description>
     </item>
     
     <item>
       <title>rust学习</title>
-      <link>/posts/note/rust%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/rust%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/rust%E5%AD%A6%E4%B9%A0/</guid>
-      <description>rust学习 所有权 Rust 的核心功能（之一）是 所有权（ownership）。虽然该功能很容易解释，但它对语言的其他部分有着深刻的影响。 所有运行的程</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/rust%E5%AD%A6%E4%B9%A0/</guid>
+      <description>rust学习 所有权
+Rust 的核心功能（之一）是 所有权（ownership）。虽然该功能很容易解释，但它对语言的其他部分有着深刻的影响。
+所有运行的程序都必须管理其使用计算机内存的方式。一些语言中具有垃圾回收机制，在程序运行时不断地寻找不再使用的内存；在另一些语言中，程序员必须亲自分配和释放内存。Rust 则选择了第三种方式：通过所有权系统管理内存，编译器在编译时会根据一系列的规则进行检查。在运行时，所有权系统的任何功能都不会减慢程序。（其他的GC会不断运行来寻找垃圾）
+因为所有权对很多程序员来说都是一个新概念，需要一些时间来适应。好消息是随着你对 Rust 和所有权系统的规则越来越有经验，你就越能自然地编写出安全和高效的代码。持之以恒！
+当你理解了所有权，你将有一个坚实的基础来理解那些使 Rust 独特的功能。在本章中，你将通过完成一些示例来学习所有权，这些示例基于一个常用的数据结构：字符串。
+所有权（系统）是 Rust 最独特的功能，其令 Rust 无需垃圾回收（garbage collector）即可保障内存安全。因此，理解 Rust 中所有权如何工作是十分重要的。
+栈（Stack）与堆（Heap） 在很多语言中，你并不需要经常考虑到栈与堆。不过在像 Rust 这样的系统编程语言中，值是位于栈上还是堆上在更大程度上影响了语言的行为以及为何必须做出这样的抉择。我们会在本章的稍后部分描述所有权与栈和堆相关的内容，所以这里只是一个用来预热的简要解释。 栈和堆都是代码在运行时可供使用的内存，但是它们的结构不同。栈以放入值的顺序存储值并以相反顺序取出值。这也被称作 后进先出（last in, first out）。想象一下一叠盘子：当增加更多盘子时，把它们放在盘子堆的顶部，当需要盘子时，也从顶部拿走。不能从中间也不能从底部增加或拿走盘子！增加数据叫做 进栈（pushing onto the stack），而移出数据叫做 出栈（popping off the stack）。 栈的操作是十分快速的，这主要是得益于它存取数据的方式：因为数据存取的位置总是在栈顶而不需要寻找一个位置存放或读取数据。另一个让操作栈快速的属性是，栈中的所有数据都必须占用已知且固定的大小。 在编译时大小未知或大小可能变化的数据，要改为存储在堆上。堆是缺乏组织的：当向堆放入数据时，你要请求一定大小的空间。操作系统在堆的某处找到一块足够大的空位，把它标记为已使用，并返回一个表示该位置地址的 指针（pointer）。这个过程称作 在堆上分配内存（allocating on the heap），有时简称为 “分配”（allocating）。将数据推入栈中并不被认为是分配。因为指针的大小是已知并且固定的，你可以将指针存储在栈上，不过当需要实际数据时，必须访问指针。 想象一下去餐馆就座吃饭。当进入时，你说明有几个人，餐馆员工会找到一个够大的空桌子并领你们过去。如果有人来迟了，他们也可以通过询问来找到你们坐在哪。 访问堆上的数据比访问栈上的数据慢，因为必须通过指针来访问。现代处理器在内存中跳转越少就越快（缓存）。继续类比，假设有一个服务员在餐厅里处理多个桌子的点菜。在一个桌子报完所有菜后再移动到下一个桌子是最有效率的。从桌子 A 听一个菜，接着桌子 B 听一个菜，然后再桌子 A，然后再桌子 B 这样的流程会更加缓慢。出于同样原因，处理器在处理的数据彼此较近的时候（比如在栈上）比较远的时候（比如可能在堆上）能更好的工作。在堆上分配大量的空间也可能消耗时间。
+栈： 执行期间编译器自动分配，编译器用它实现函数调用，调用函数时，栈增长，函数返回时，栈收缩。局部变量、函数参数、返回数据、返回地址等放在栈中
+栈的特点  内存分配取决于编译器，用户栈在程序运行期间可以动态的扩展和收缩。 . 和数据结构中的“栈”本质上是不一样的，但是操作方式类似于栈。 数据从栈中的进出满足“后进先出”的规律。 . 栈向低地址方向增长，esp（栈指针）指向栈顶元素。  堆： ​ 动态储存器分配器维护着的一个进程的虚拟存储器区域。一般由程序员分配释放（堆在操作系统对进程初始化的时候分配），若程序员不释放，程序结束时可能由OS回收，每个进程，内核都维护着一个变量brk指向堆顶。
+堆的特点  内存分配取决于程序员，C/C++可以手动释放该片内存。 在所有权系统中，会自动完成清理堆的活动 .</description>
     </item>
     
     <item>
       <title>Scala入门</title>
-      <link>/posts/note/scala%E5%85%A5%E9%97%A8/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/scala%E5%85%A5%E9%97%A8/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/scala%E5%85%A5%E9%97%A8/</guid>
-      <description>Scala 入门之随便写写 import scala.util.control._ object HelloWorld{ def hello(name:String) = { s&amp;#34;Hello ,${name}&amp;#34; } def add(x: Int,y:Int) = x+y def main(args:Array[String]):Unit = { /** * 违反引用透明的例子: * 怎么样获得引用透明性:{ * 需要具有不变性,即为了获得引用透</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/scala%E5%85%A5%E9%97%A8/</guid>
+      <description>Scala 入门之随便写写
+import scala.util.control._ object HelloWorld{ def hello(name:String) = { s&amp;#34;Hello ,${name}&amp;#34; } def add(x: Int,y:Int) = x+y def main(args:Array[String]):Unit = { /** * 违反引用透明的例子: * 怎么样获得引用透明性:{ * 需要具有不变性,即为了获得引用透明性,任何值都不能改变 * } */ var x = new StringBuilder(&amp;#34;Hello &amp;#34;); println(x); var y = x.append(&amp;#34; world&amp;#34;); println(y); var z = x.append(&amp;#34; world&amp;#34;); println(z); /** * 递归函数: * 使用递归实现循环 * 尾递归函数 */ /** * 变量: * val 定义immutable variable:常量 * var 定义mutable variable:变量 * lazy val:惰性求值常量 * 可以再定义时不指定变量的类型,Scala会自动进行类型推导 */ println(hello(&amp;#34;Euraxluo&amp;#34;)) println(add(1,2)) /** * for循环 */ val list = List(&amp;#34;Euraxluo&amp;#34;,&amp;#34;xiaoli&amp;#34;,&amp;#34;xiaoxiong&amp;#34;) //循环1  for ( s &amp;lt;- list//generator  )println(s) println(&amp;#34;&amp;#34;) //循环2  for { s&amp;lt;-list if (s.</description>
     </item>
     
     <item>
       <title>SLAM</title>
-      <link>/posts/note/slam/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/slam/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/slam/</guid>
-      <description>SLAM 相机 以一定的速率采集图像，形成视频 各类相机的区别 单目：无深度，需要其他手段估计 双目：通过视差计算深度 RGB-D：通过物理方法测量深度 相机的</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/slam/</guid>
+      <description>SLAM 相机
+ 以一定的速率采集图像，形成视频  各类相机的区别  单目：无深度，需要其他手段估计 双目：通过视差计算深度 RGB-D：通过物理方法测量深度  相机的特点  以二维投影的形式记录了三维世界的信息 该过程丢掉了一个维度：距离 深度即第三维信息，对SLAM来说至关重要  VSLAM框架   前端：Visual Odometry 通过传感器数据计算，估计临近时刻的相机运动 方法：特征点法和直接法
+  后端：Optimization 从带有噪声的数据中估计最优轨迹与地图 滤波器，图优化，最大后验概率估计 非线性优化
+  回环：Loop Closing 检测相机是否到达过之间的位置 判断与之前位置的差异 计算图像之间的差异性 词袋模型
+  建图：Mapping 导航，规划，通讯，交互，可视化 类型:度量地图，拓扑地图，稀疏地图，稠密地图
+  SLAM的数学描述 把连续的时间离散化，避免使用随机场
+状态估计模型：
+运动方程 $$ X_{K+1}=f(x_k,u_k )+w_k $$ 观测方程 $$ Z_{k,j} = h(X_k,y_j)+W_{k,j} $$</description>
     </item>
     
     <item>
       <title>stream编程</title>
-      <link>/posts/note/stream%E7%BC%96%E7%A8%8B/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/stream%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/stream%E7%BC%96%E7%A8%8B/</guid>
-      <description>stream 编程 import java.util.function.Consumer; import java.util.stream.Collectors; import java.util.stream.IntStream; import java.util.stream.Stream; Consumer&amp;lt;String&amp;gt; P = System.out::println;//消费者 // P.andThen(P.andThen(P)).accept(2); /** * 流的创建 */ List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); //从集合创建流 list.stream(); list.parallelStream(); //从数组创建</description>
-    </item>
-    
-    <item>
-      <title>TCP</title>
-      <link>/posts/note/socket/</link>
-      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/note/socket/</guid>
-      <description>TCP的三次握手和四次挥手 三次握手: 为什么需要三次握手? 客户端:我可以发东西给你(确保客户端的发送能力) 服务器:我可以收到,你能收到么?(确</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/stream%E7%BC%96%E7%A8%8B/</guid>
+      <description>stream 编程
+import java.util.function.Consumer; import java.util.stream.Collectors; import java.util.stream.IntStream; import java.util.stream.Stream; Consumer&amp;lt;String&amp;gt; P = System.out::println;//消费者 // P.andThen(P.andThen(P)).accept(2);  /** * 流的创建 */ List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); //从集合创建流  list.stream(); list.parallelStream(); //从数组创建  Arrays.stream(new int[]{2,3,5}); // P.accept(Arrays.stream(new int[]{2,3,5}).map(x-&amp;gt;x+1).sum());  //创建数字流  IntStream.of(1,2,3); IntStream.rangeClosed(1,10); //从random创建一个无限流  new Random().ints().limit(10); //自己产生流  Stream.generate(()-&amp;gt;new Random().nextInt()).limit(20); // P.accept(Stream.generate(()-&amp;gt;new Random().nextInt()).limit(20).findAny().toString());  /** * 中间操作 */ //filter操作  Stream.of(msg.split(&amp;#34; &amp;#34;)).filter(s-&amp;gt;s.length()&amp;gt;1).forEach(P); //flatMap :将流中的属性提取出来作为流  //这里需要装箱,s.chars()返回IntStream,不是Stream的子类  Stream.of(msg.split(&amp;#34; &amp;#34;)).flatMap(s-&amp;gt;s.chars().boxed()).forEach(i-&amp;gt;System.out.println((char)i.intValue())); //limit  new Random().</description>
     </item>
     
     <item>
       <title>VSLAM</title>
-      <link>/posts/note/vslam/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/vslam/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/vslam/</guid>
-      <description>VSLAM ## project1 熟悉Linux sudo apt-get install 安装软件，apt-get 下载后软件的路径一般为/var/cache/apt/archives 具体的安装目录是由包维</description>
-    </item>
-    
-    <item>
-      <title>三维建模软件的简单实现</title>
-      <link>/posts/note/%E4%B8%89%E7%BB%B4%E5%BB%BA%E6%A8%A1%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</link>
-      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/note/%E4%B8%89%E7%BB%B4%E5%BB%BA%E6%A8%A1%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</guid>
-      <description>三维建模软件的简单实现 wget http://labfile.oss.aliyuncs.com/courses/561/Python3DFirst.zip 关于OpenGL OpenGL是开发跨平台图形应用的接口标准，当前的OpenGL编程分为两类：现代OpenGL与传统</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/vslam/</guid>
+      <description>VSLAM ## project1 熟悉Linux   sudo apt-get install 安装软件，apt-get 下载后软件的路径一般为/var/cache/apt/archives
+具体的安装目录是由包维护者决定
+  可以通过echo $PATH查看当前的PATH，通过export PATH=$PATH:/XXX/XXX将需要的配置路径加入$PATH等号两边不能有空格
+  /usr/bin可执行文件 ，/usr/share文档的路径， /usr/liblib文件， /etc配置文件
+  chmod +x 文件名 为文件增加可执行权限
+  chown root filename 更改文件的所有者
+  SLAM综述文献阅读 Visual Simultaneous Localization and Mapping:A Survey 最初，定位与建图是独立的。但是要在一个环境中精确的定位，必须有一个正确的地图；但是为了构造一个好的地图，必须在构造地图是，添加合适的定位信息
+VSLAM系统在以下条件下会失败：外部环境，动态环境，显著特征太多或者太少的环境，大规模环境，相机不稳定运动以及传感器发生部分或全部遮挡。一个成功的VSLAM系统的关键是可以在以下环境中任然能够正确操作。
+为了从环境中构建地图，物体必须拥有传感器。使其能够感知并获得周围环境中元素的测量值。这些传感器分为外部感受和本体感受。在外部传感器中有可能找到声纳、距离激光器，gps。所有的这戏传感器都是有噪声的，而且范围有限。此外，使用这些传感器只能获得环境的局部视图。
+同时他们有以下问题：
+1.在高度杂乱的环境中或在识别对象时，没有用处。者两种机器人都很昂贵，笨重，而且由大型设备组成，是的他们难以用于机载，而GPS传感器在狭窄的街道，水下，其他星球不能很好的工作。
+本体传感器可以获得位姿信息，速度，位置变化，加速度等测量值，但是这些方法不足以始终准确的估计实体位置，因为误差会累计
+使用相机作为唯一的外部传感器。
+基于摄像头的系统能够获取距离信息，同时也能获取环境的外观，颜色和纹理，这使得机器人可以集成其他高级任务，如对人和地点的检测和识别。并且相机更便宜更轻。</description>
     </item>
     
     <item>
       <title>关于musicplayer</title>
-      <link>/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</guid>
-      <description>关于musicplayer 首先给权限 &amp;lt;!-- 网络权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.INTERNET&amp;#34;/&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.READ_EXTERNAL_STORAGE&amp;#34;/&amp;gt; &amp;lt;!-- 向SD卡写入数据权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.WRITE_EXTERNAL_STORAGE&amp;#34;/&amp;gt; &amp;lt;!-- 在SD卡中创建与删除文件权限 --&amp;gt; &amp;lt;!-- 扫描数据库的权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.MOUNT_UNMOUNT_FILESYSTEMS&amp;#34;</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</guid>
+      <description>关于musicplayer 首先给权限 &amp;lt;!-- 网络权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.INTERNET&amp;#34;/&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.READ_EXTERNAL_STORAGE&amp;#34;/&amp;gt; &amp;lt;!-- 向SD卡写入数据权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.WRITE_EXTERNAL_STORAGE&amp;#34;/&amp;gt; &amp;lt;!-- 在SD卡中创建与删除文件权限 --&amp;gt; &amp;lt;!-- 扫描数据库的权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.MOUNT_UNMOUNT_FILESYSTEMS&amp;#34; tools:ignore=&amp;#34;ProtectedPermissions&amp;#34;/&amp;gt; 包含ListView的布局文件
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;LinearLayout xmlns:android=&amp;#34;http://schemas.android.com/apk/res/android&amp;#34; xmlns:tools=&amp;#34;http://schemas.android.com/tools&amp;#34; xmlns:app=&amp;#34;http://schemas.android.com/apk/res-auto&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:orientation=&amp;#34;vertical&amp;#34; android:layout_gravity=&amp;#34;center&amp;#34; tools:context=&amp;#34;.MainActivity&amp;#34;&amp;gt; &amp;lt;LinearLayout android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;400dp&amp;#34; android:orientation=&amp;#34;vertical&amp;#34;&amp;gt; &amp;lt;ListView android:id=&amp;#34;@+id/lv1&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34;&amp;gt;&amp;lt;/ListView&amp;gt; &amp;lt;/LinearLayout&amp;gt; &amp;lt;SeekBar android:id=&amp;#34;@+id/sb&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;30dp&amp;#34; android:maxHeight=&amp;#34;2dp&amp;#34; android:minHeight=&amp;#34;2dp&amp;#34; android:paddingBottom=&amp;#34;3dp&amp;#34; android:paddingLeft=&amp;#34;12dp&amp;#34; android:max=&amp;#34;200&amp;#34; android:paddingRight=&amp;#34;12dp&amp;#34; android:paddingTop=&amp;#34;3dp&amp;#34; /&amp;gt; &amp;lt;TextView android:id=&amp;#34;@+id/tv1&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; /&amp;gt; &amp;lt;LinearLayout android:orientation=&amp;#34;horizontal&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34;&amp;gt; &amp;lt;cn.study.euraxluo.androidtup.CircleImageView android:id=&amp;#34;@+id/imageView&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;70dp&amp;#34; android:scaleType=&amp;#34;centerCrop&amp;#34; /&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_last&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_last&amp;#34;/&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_star&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_star&amp;#34;/&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_next&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_next&amp;#34;/&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_stop&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_stop&amp;#34;/&amp;gt; &amp;lt;/LinearLayout&amp;gt; &amp;lt;/LinearLayout&amp;gt; MainActivity.</description>
     </item>
     
     <item>
       <title>关于ViewPager</title>
-      <link>/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</guid>
-      <description>关于ViewPager 使用方法：先在xml中定义 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;android.support.design.widget.CoordinatorLayout xmlns:android=&amp;#34;http://schemas.android.com/apk/res/android&amp;#34; xmlns:tools=&amp;#34;http://schemas.android.com/tools&amp;#34; xmlns:app=&amp;#34;http://schemas.android.com/apk/res-auto&amp;#34; android:id=&amp;#34;@+id/main_content&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;match_parent&amp;#34; android:fitsSystemWindows=&amp;#34;true&amp;#34; tools:context=&amp;#34;.MainActivity&amp;#34;&amp;gt; &amp;lt;android.support.v4.view.ViewPager android:background=&amp;#34;@drawable/img5&amp;#34; android:id=&amp;#34;@+id/view_pager&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;match_parent&amp;#34; app:layout_behavior=&amp;#34;@string/appbar_scrolling_view_behavior&amp;#34;/&amp;gt; &amp;lt;/android.support.design.widget.CoordinatorLayout&amp;gt; 再到Activity中写 package cn.euraxluo.myapplication; import android.support.annotation.NonNull; import android.support.v4.view.PagerAdapter; import android.support.v7.app.AppCompatActivity; import android.support.v4.view.ViewPager; import android.os.Bundle; import android.util.Log; import</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</guid>
+      <description>关于ViewPager 使用方法：先在xml中定义
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;android.support.design.widget.CoordinatorLayout xmlns:android=&amp;#34;http://schemas.android.com/apk/res/android&amp;#34; xmlns:tools=&amp;#34;http://schemas.android.com/tools&amp;#34; xmlns:app=&amp;#34;http://schemas.android.com/apk/res-auto&amp;#34; android:id=&amp;#34;@+id/main_content&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;match_parent&amp;#34; android:fitsSystemWindows=&amp;#34;true&amp;#34; tools:context=&amp;#34;.MainActivity&amp;#34;&amp;gt; &amp;lt;android.support.v4.view.ViewPager android:background=&amp;#34;@drawable/img5&amp;#34; android:id=&amp;#34;@+id/view_pager&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;match_parent&amp;#34; app:layout_behavior=&amp;#34;@string/appbar_scrolling_view_behavior&amp;#34;/&amp;gt; &amp;lt;/android.support.design.widget.CoordinatorLayout&amp;gt; 再到Activity中写
+package cn.euraxluo.myapplication; import android.support.annotation.NonNull; import android.support.v4.view.PagerAdapter; import android.support.v7.app.AppCompatActivity; import android.support.v4.view.ViewPager; import android.os.Bundle; import android.util.Log; import android.view.*; import android.widget.ImageView; import cn.euraxluo.myapplication.transform.ZoomOutPageTransformer; import java.util.ArrayList; import java.util.List; public class MainActivity extends AppCompatActivity { private static final String TAG = &amp;#34;MainActivity&amp;#34;; private ViewPager mViewPager;//viewpager  private textViewAdapter mViewAdapter; private pictureViewAdapter mpViewAdapter;//图片的adapter  private int[] mImage = new int[10]; private View view1, view2, view3; private List&amp;lt;View&amp;gt; viewList = new ArrayList&amp;lt;View&amp;gt;(3);//view数组  private LayoutInflater inflater; @Override protected void onCreate(Bundle savedInstanceState) { super.</description>
     </item>
     
     <item>
       <title>前端</title>
-      <link>/posts/note/%E5%89%8D%E7%AB%AF/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/%E5%89%8D%E7%AB%AF/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/%E5%89%8D%E7%AB%AF/</guid>
-      <description>前端 CSS 网格布局 table标签（具有性能问题）=&amp;gt; hack float流式布局=&amp;gt;position绝对定位（不利于使用响应式）-&amp;gt;i</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/%E5%89%8D%E7%AB%AF/</guid>
+      <description>前端 CSS 网格布局
+table标签（具有性能问题）=&amp;gt;
+hack
+float流式布局=&amp;gt;position绝对定位（不利于使用响应式）-&amp;gt;inline(块级放在同一行)
+flexBox(正对某一维度进行自适应)
+=》grid布局
+Backbone.js提供了一套web开发的框架，通过Models进行key-value绑定及自定义事件处理，通过Collections提供一套丰富的API用于枚举功能，通过Views来进行事件处理及与现有的Application通过RESTful JSON接口进行交互.它是基于jQuery和underscore的一个前端js框架。
+在Backbonejs有几个重要的概念，先介绍一下:Model，Collection，View，Router。其中Model是根据现实数据建立的抽象，比如人（People）；Collection是Model的一个集合，比如一群人；View是对Model和Collection中数据的展示，把数据渲染（Render）到页面上；Router是对路由的处理，就像传统网站通过url现实不同的页面，在单页面应用（SPA）中通过Router来控制前面说的View的展示。
+通过Backbone，你可以把你的数据当作Models，通过Models你可以创建数据，进行数据验证，销毁或者保存到服务器上。当界面上的操作引起model中属性的变化时，model会触发change的事件。那些用来显示model状态的views会接受到model触发change的消息，进而发出对应的响应，并且重新渲染新的数据到界面。在一个完整的Backbone应用中，你不需要写那些胶水代码来从DOM中通过特殊的id来获取节点，或者手工的更新HTML页面，因为在model发生变化时，views会很简单的进行自我更新。</description>
     </item>
     
     <item>
       <title>卡包开发步骤</title>
-      <link>/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</guid>
-      <description>卡包开发步骤 开发步骤 需求规划,需求拆解,需求辩论 技术选型:为什么是HBase or MySQL 工程设计:工程图各个模块设计的功能点,各个功能点涉及的技术 编</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</guid>
+      <description>卡包开发步骤 开发步骤
+ 需求规划,需求拆解,需求辩论 技术选型:为什么是HBase or MySQL 工程设计:工程图各个模块设计的功能点,各个功能点涉及的技术 编码 测试:功能测试,压力测试 部署:自动化上线  开发技术
+ kafka 消息队列 Mysql存储商户信息 HBase存储用户信息 Spring-boot 搭建项目 Redis存储Token信息  测试用例
+测试上线
+应用技术分层
+ 框架层:Spring-boot 存储层:MySql,HBase,Redis 消息队列:Kafka  基础工具介绍:
+ Maven PostMan/RestAPI  需求分析: 功能需求解析:
+ 什么是卡包应用:卡券收集聚合类应用 包含哪些子系统:商户投放子系统,用户使用子系统 优惠卷使用方法:展示型,兑换型,token核销型 扩展:存储纪念性卡券,身份证件信息,银行卡  我的卡包:
+ 我的卡包(显示我领取的优惠券,临近过期时需要提醒) 过期优惠券(显示过期优惠券) 优惠券库存:可以领取商家投放的优惠券,每个优惠券只能领取一张(可以改一下?) 用户反馈:分为卡包应用反馈和优惠券反馈  商户投放系统
+商户接口字段:
+         name 商户名   logo_url 商户logo   business_license_url 商户营业执照   phone 商户联系电话   address 商户地址   is_audit 商户是否通过审核    优惠券接口字段:</description>
     </item>
     
     <item>
       <title>操作系统小记</title>
-      <link>/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</guid>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</guid>
       <description>&lt;p&gt;操作系统小记&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>数学杂谈</title>
-      <link>/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</guid>
-      <description>数学杂谈 欧氏空间：在实数域上的有限的内积向量空间对加法和数乘封闭 意思是。在“向量空间”V这个向量集合中： ①。任意取V的两个向量α，β。则α+</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</guid>
+      <description>数学杂谈 欧氏空间：在实数域上的有限的内积向量空间对加法和数乘封闭
+意思是。在“向量空间”V这个向量集合中：
+①。任意取V的两个向量α，β。则α+β∈V，[这叫V对加法封闭]
+②，任意取V的一个向量α，及一个实数k.则kα∈V，[这叫V对数乘封闭]
+** 距离和空间 **
+傅里叶分析之掐死教程（完整版）更新于2014.06.06 
+欧拉公式 </description>
     </item>
     
     <item>
       <title>简易服务器</title>
-      <link>/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
-      <description>简易服务器 创建套接字 填充数据结构 绑定端口 监听，accept 获得accept的句柄并处理 封装resp字符串 写回到accept的句柄中 2.C标准</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>简易服务器  创建套接字 填充数据结构 绑定端口 监听，accept 获得accept的句柄并处理 封装resp字符串 写回到accept的句柄中  2.C标准函数
+1.int2float to string/array:
+C语言提供了几个标准库函数，可以将任意类型(整型、长整型、浮点型等)的数字转换为字符串，下面列举了各函数的方法及其说明。 ● itoa()：将整型值转换为字符串。 ● ltoa()：将长整型值转换为字符串。 ● ultoa()：将无符号长整型值转换为字符串。 ● gcvt()：将浮点型数转换为字符串，取四舍五入。 ● ecvt()：将双精度浮点型值转换为字符串，转换结果中不包含十进制小数点。 ● fcvt()：指定位数为转换精度，其余同ecvt()。
+除此外，还可以使用sprintf系列函数把数字转换成字符串，其比itoa()系列函数运行速度慢
+string/array to int/float C/C++语言提供了几个标准库函数，可以将字符串转换为任意类型(整型、长整型、浮点型等)。 ● atof()：将字符串转换为双精度浮点型值。 ● atoi()：将字符串转换为整型值。 ● atol()：将字符串转换为长整型值。 ● strtod()：将字符串转换为双精度浮点型值，并报告不能被转换的所有剩余数字。 ● strtol()：将字符串转换为长整值，并报告不能被转换的所有剩余数字。 ● strtoul()：将字符串转换为无符号长整型值，并报告不能被转换的所有剩余数字。  	itoa(num,str,10);int port = atoi(str);创建套接字，绑定端口，监听 socket() setsockopt()//设置重启后可以重新使用端口 bzero()，将结构体的其他字段设置为空 int setsockopt(int sockfd, int level, int optname,const void *optval, socklen_t optlen); sockfd：标识一个套接口的描述字。 level：选项定义的层次；支持SOL_SOCKET、IPPROTO_TCP、IPPROTO_IP和IPPROTO_IPV6。 optname：需设置的选项。 optval：指针，指向存放选项待设置的新值的缓冲区。 optlen：optval缓冲区长度。   </description>
     </item>
     
     <item>
       <title>逆波兰式</title>
-      <link>/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</guid>
-      <description>逆波兰式 定义 一个表达式E的后缀形式可以如下定义： （1）如果E是一个变量或常量，则E的后缀式是E本身。 （2）如果E是E1 op E2形式的表达式，这</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</guid>
+      <description>逆波兰式 定义 一个表达式E的后缀形式可以如下定义：
+（1）如果E是一个变量或常量，则E的后缀式是E本身。
+（2）如果E是E1 op E2形式的表达式，这里op是如何二元操作符，则E的后缀式为E1&amp;rsquo;E2&#39; op，这里E1&amp;rsquo;和E2&amp;rsquo;分别为E1和E2的后缀式。
+（3)如果E是（E1）形式的表达式，则E1的后缀式就是E的后缀式。
+如：我们平时写a+b，这是中缀表达式，写成后缀表达式就是：ab+
+(a+b)*c-(a+b)/e的后缀表达式为：
+(a+b)*c-(a+b)/e
+→((a+b)*c)((a+b)/e)-
+→((a+b)c*)((a+b)e/)-
+→(ab+c*)(ab+e/)-
+→ab+c*ab+e/-
+作用: 实现逆波兰式的算法，难度并不大，但为什么要将看似简单的中序表达式 转换为复杂的逆波兰式？原因就在于这个简单是相对人类的思维结构来说的，对计算机而言中序表达式是非常复杂的结构。相对的，逆波兰式在计算机看来却是比较简单易懂的结构。因为计算机普遍采用的内存结构是栈式结构，它执行先进后出的顺序。
+算法实现 将一个普通的中序表达式转换为逆波兰表达式的一般算法是：
+首先需要分配2个栈，一个作为临时存储运算符的栈S1（含一个结束符号），一个作为输入逆波兰式的栈S2（空栈），S1栈可先放入优先级最低的运算符#，注意，中缀式应以此最低优先级的运算符结束。可指定其他字符，不一定非#不可。从中缀式的左端开始取字符，逐序进行如下步骤：
+（1）若取出的字符是操作数，则分析出完整的运算数，该操作数直接送入S2栈
+（2）若取出的字符是运算符，则将该运算符与S1栈栈顶元素比较，如果该运算符优先级(不包括括号运算符)大于S1栈栈顶运算符优先级，则将该运算符进S1栈，否则，将S1栈的栈顶运算符弹出，送入S2栈中，直至S1栈栈顶运算符低于（不包括等于）该运算符优先级，最后将该运算符送入S1栈。
+（3）若取出的字符是“（”，则直接送入S1栈顶。
+（4）若取出的字符是“）”，则将距离S1栈栈顶最近的“（”之间的运算符，逐个出栈，依次送入S2栈，此时抛弃“（”。
+（5）重复上面的1~4步，直至处理完所有的输入字符
+（6）若取出的字符是“#”，则将S1栈内所有运算符（不包括“#”），逐个出栈，依次送入S2栈。
+完成以上步骤，S2栈便为逆波兰式输出结果。不过S2应做一下逆序处理。便可以按照逆波兰式的计算方法计算了！
+class TransformReversePolishNotation { private: stack&amp;lt;char&amp;gt; temp; stack&amp;lt;char&amp;gt; rpn; unordered_map&amp;lt;char, int&amp;gt; dict; void init() { //初始化字典  dict[&amp;#39;#&amp;#39;] = -1; dict[&amp;#39;+&amp;#39;] = 1; dict[&amp;#39;-&amp;#39;] = 1; dict[&amp;#39;*&amp;#39;] = 2; dict[&amp;#39;/&amp;#39;] = 2; dict[&amp;#39;(&amp;#39;] = 0; dict[&amp;#39;)&amp;#39;] = 0; } public: stack&amp;lt;char&amp;gt; pn2rpn(string s) { stack&amp;lt;char&amp;gt; result; init(); temp.</description>
     </item>
     
   </channel>

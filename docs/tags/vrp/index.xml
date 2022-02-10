@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VRP on Euraxluo Blog</title>
+    <link>https://euraxluo.gitee.io/blog/tags/vrp/</link>
+    <description>Recent content in VRP on Euraxluo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
+    <lastBuildDate>Sun, 21 Mar 2021 00:00:00 +0800</lastBuildDate><atom:link href="https://euraxluo.gitee.io/blog/tags/vrp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>车辆路径问题</title>
+      <link>https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sun, 21 Mar 2021 00:00:00 +0800</pubDate>
+      
+      <guid>https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</guid>
+      <description>TSP，即Traveling Salesman Problem，也就是旅行商问题 ，又译为旅行推销员问题、货郎担问题 ，简称为TSP问题 ，是最基本的路线问题，该问题是在寻求单一旅行者由起点出发，通过所有给定的需求点之后，最后再回到原点的最小路径成本。最早的旅行商问题的数学规划是由Dantzig（1959）等人提出。
+二、
+有时间窗车辆路径问题（vehicle routing problems with time windows，VRPTW）车辆路线问题（VRP）最早是由Dantzig和Ramser于1959年首次提出，它是指一定数量的客户，各自有不同数量的货物需求，配送中心向客户提供货物，由一个车队负责分送货物，组织适当的行车路线，目标是使得客户的需求得到满足，并能在一定的约束下，达到诸如路程最短、成本最小、耗费时间最少等目的。三、以下内容from：http://wiki.mbalib.com/wiki/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98
+车辆路径问题 车辆路径问题（Vehicle Routing Problem,VRP）
+什么是车辆路径问题 　车辆路线问题（VRP）最早是由Dantzig 和Ramser 于1959年首次提出，它是指一定数量的客户，各自有不同数量的货物需求，配送中心 向客户提供货物，由一个车队负责分送货物，组织 适当的行车路线，目标是使得客户的需求 得到满足，并能在一定的约束下，达到诸如路程最短、成本 最小、耗费时间最少等目的[1] 。
+　由此定义不难看出，旅行商问题 （Traveling Saleman Problem ,TSP）是VRP的特例，由于Gaery [2] 已证明TSP问题 是NP难题 ，因此，VRP也属于NP难题。
+　车辆路线问题自1959年提出以来，一直是网络优化问题中最基本的问题之一，由于其应用的广泛性和经济 上的重大价值，一直受到国内外学者的广泛关注。车辆路线问题可以描述如下（如图1）：
+　 　设有一场站（depot），共有M 辆货车，车辆容量为Q，有N位顾客 （customer），每位顾客有其需求量D。车辆从场站 出发对客户进行配送服务最后返回场站，要求所有顾客都被配送，每位顾客一次配送完成，且不能违反车辆容量的限制，目的是所有车辆路线的总距离最小。车辆路线的实际问题包括配送中心配送 、公共汽车路线制定、信件和报纸投递、航空和铁路时间表安排、工业废品收集等。
+[编辑 ]
+车辆路径问题的类型[3]  　一般而言车辆路线问题大致可以分为以下三种类型（Ballou，1992）：
+　1、相异的单一起点和单一终点。
+　2、相同的单一起点和终点。
+　3、多个起点和终点。
+[编辑 ]
+车辆路径问题的方法[3]  　关于车辆路线问题之学术研究文献众多，也提出了相当多的求解策略与方法，Bodin and Golden（1981）将众多之求解方法归纳成以下七种：
+ 数学解析法 （Exact Procedure ）； 人机互动法 （Interactive Optimization ）； 先分群再排路线 （Cluster First–Route Second）； 先排路线再分群 （Route First–Cluster Second）； 节省法 或插入法 （Saving or Insertion）； 改善或交换法 （Improvement or Exchanges）； 数学规划近似法 （Mathematical programming）。  [编辑 ]</description>
+    </item>
+    
+  </channel>
+</rss>

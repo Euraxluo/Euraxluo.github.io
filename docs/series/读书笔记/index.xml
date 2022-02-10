@@ -2,55 +2,101 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>读书笔记 on Euraxluo Blog</title>
-    <link>/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+    <link>https://euraxluo.gitee.io/blog/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
     <description>Recent content in 读书笔记 on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>CleanCode读书笔记</title>
-      <link>/posts/reading/cleancode/</link>
-      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/reading/cleancode/</guid>
-      <description>CleanCode读书笔记 最小惊异原则 1.从一而终，便于修改 2.遵守大家的约定 有意义的命名 1.名副其实 1.命名需要注释来补充，那就不算名副其</description>
-    </item>
-    
-    <item>
-      <title>MVC分层模型</title>
-      <link>/posts/nlp/mvc/</link>
-      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/nlp/mvc/</guid>
-      <description>MVC分层模型 DAO 模式初识 PO(persistant object) 持久对象 在o/r映射的时候出现的概念，如果没有o/r映射，没有这个概念存在了。通常对应数据模型(数据库),本身还</description>
-    </item>
-    
-    <item>
-      <title>链表</title>
-      <link>/posts/algorithm/%E9%93%BE%E8%A1%A8/</link>
-      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/algorithm/%E9%93%BE%E8%A1%A8/</guid>
-      <description>链表 单链表 data.next&amp;ndash;&amp;gt;data.next&amp;ndash;&amp;gt;NULL 插入节点: 时间复杂度:O1 删除节点 时间复杂度:O1 查找节点 时间复杂度:O(n) 链表想要随机访问第K个元素 arr[k],需要根据指</description>
-    </item>
-    
+    <lastBuildDate>Mon, 29 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/blog/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unix/Linux编程实践1</title>
-      <link>/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</guid>
-      <description>Unix/Linux 编程實踐教程 ## 什麼是系統編程 系统资源 处理器 程序由指令构成,处理器是执行指令的硬件设备,一个系统中可能有多个处理器,内核可以安排一个程序何时</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</guid>
+      <description>Unix/Linux 编程實踐教程 ##　什麼是系統編程
+系统资源  处理器  程序由指令构成,处理器是执行指令的硬件设备,一个系统中可能有多个处理器,内核可以安排一个程序何时开始开始执行,暂时停止,恢复执行,终止执行
+输入输出  程序中所有的输入输出都必须流经内核,集中处理,保证了系统的正确性,安全性,有效性
+进程管理  每个程序执行都必须有自己的资源,内核可以新建进程,中止进程,进程调度
+内存  程序必须被装载到内存中才能运行,内核可以对进程进行管理,在程序需要的时候给程序分配内存,当程序不需要时,回收内存,还可以保证内存不被其他进程非法访问.
+设备  各种设备的操作方式不相同,通过内核,可以屏蔽這種差异,使我们对设备的操作简单统一
+计时器  程序的工作和时间有关,内核可以通过系统调用向应用程序提供计时器服务
+进程间通信  内核可以让进程之间进行通信
+网络  内核可以让不同主机上的不同进程进行通信
+bc:Unix计算器,可以接受逆波兰表达式 通过他的与处理器dc,转换为逆波兰表达式,通过pip给dc
+和web服务类似,web服务器作为預处理器,浏览器作为前端显示
+more: more filename,分页显示file内容
+command | more:分页显示command命令
+more &amp;lt; filename:分页+重定向
+自己写一个more
+//more command  #include&amp;lt;stdio.h&amp;gt; #include&amp;lt;stdlib.h&amp;gt; #define PAGELEN 24  #define LINELEN 512  void do_more(FILE* ); int see_more(FILE*,int ); int sum_size = 0; int main(int ac,char *av[]) { FILE* fp; if(ac == 1) do_more(stdin); else while(--ac) { if((fp = fopen(*++av,&amp;#34;r&amp;#34;)) !</description>
     </item>
     
     <item>
       <title>数组</title>
-      <link>/posts/algorithm/%E6%95%B0%E7%BB%84/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/algorithm/%E6%95%B0%E7%BB%84/</link>
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>/posts/algorithm/%E6%95%B0%E7%BB%84/</guid>
-      <description>数组 线性表(每个线性表上的数据最多只有前和后两个方向):数组,链表,队列,栈 非线性表(数据之间并不是简单的前后关系):二叉树,堆,图 数组:数</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/algorithm/%E6%95%B0%E7%BB%84/</guid>
+      <description>线性表(每个线性表上的数据最多只有前和后两个方向):数组,链表,队列,栈 非线性表(数据之间并不是简单的前后关系):二叉树,堆,图
+数组的概念 数组( Array )是一种线性表数据结构。它用一组连续的内存空间,来存储一组具有相同类型的数据。
+数组的特点 连续的内存空间和相同类型的数据
+数组的优点   随机访问:利用寻址公式对元素进行访问:
+a[i]_address = base_address + i * data_type_size
+  数组的查找操作时间复杂度不是O(1),即便是排好的数组,用二分查找,时间复杂度也是O(logn);正确的说法
+数组支持随机访问,根据下标随机访问的时间复杂度为O(1)
+  数组的缺点   低效的插入和删除
+ 插入:最好O(1),最坏O(n)  数组若无序,插入新的元素时,可以将第 K 个位置元素移动到数组末尾,把新的元素,插入到第 k 个位置,此处复杂度为O(1)
+删除:最好O(1),最坏O(n)  多次删除集中在一起,提高删除效率,记录下已经被删除的数据,每次的删除操作并不是搬移数据,只是记录数据已经被删除,当数组没有更多的存储空间时,再触发一次真正的删除操作。即 JVM 标记清除垃圾回收算法。
+  标记 - 清除算法
+标记 - 清除算法在垃圾收集时会先标记出需要回收的对象,标记完成后统一回收所有被标记的对象。清除之后会产生大量不连续的内存碎片。标记 - 整理垃圾回收算法在标记完成之后让所有存活的对象都向一端移动,然后直接清理掉边界以外的内存
+  访问越界
+数组越界在 C 语言中是一种未决行为,并没有规定数组访问越界时编译器应该如何处理。因为,访问数组的本质就是访问一段连续内存,只要数组通过偏移计算得到的内存地址是可用的,那么程序就可能不会报任何错误
+  数组和容器 容器能否完全替代数组(ArrayList,vector)
+  相比于数组, java 中的 ArrayList 封装了数组的很多细节(插入删除时数据的迁移工作),并支持动态扩容。一旦超过存储容量,扩容时比较耗时,因为涉及到内存申请和数据搬移。
+  Java ArrayList 无法存储基本类型,比如 int 、 long ,需要封装为 Integer 、 Long 类,而Autoboxing 、 Unboxing 则有一定的性能消耗,所以如果特别关注性能,或者希望使用基本类型,就可以选用数组。</description>
+    </item>
+    
+    <item>
+      <title>链表</title>
+      <link>https://euraxluo.gitee.io/blog/posts/algorithm/%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Sat, 20 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://euraxluo.gitee.io/blog/posts/algorithm/%E9%93%BE%E8%A1%A8/</guid>
+      <description>单链表 data.next--&amp;gt;data.next--&amp;gt;NULL
+时间复杂度   插入节点:
+时间复杂度:O1
+  删除节点
+时间复杂度:O1
+  查找节点
+时间复杂度:O(n)
+链表想要随机访问第K个元素arr[k],需要根据指针一个一个找
+  双向链表 --&amp;gt;prev.data.next&amp;lt;==&amp;gt;prev.data.next&amp;lt;==&amp;gt;prev.data.next 即支持两个方向,每个节点不知有一个后继指针next,还有一个前驱指针prev指向前面的结点
+空间复杂度 双向链表需要额外的两个空间来存储后继结点和其前驱结点的地址.所以,如果存储同样多的数据,双向链表要比单链表占用更多的内存空间.虽然两个指针比较浪费存储空间,但是可以支持双向遍历.这样也带来了双向链表操作的灵活性
+特点 双向链表可以支持O1时间复杂度的情况下找到前驱结点,这样,双向链表在某些情况的插入,删除操作都要比单链表简单高校.
+循环链表 单链表的尾节点指针指向空地址
+循环链表的尾节点指针指向链表的头结点
+优点:从链尾到链头比较方便.当要处理的数据具有环型结构特点时,就特别适合采用循环链表 把约瑟夫问题降低到O(n)时间复杂度
+具体的复杂度分析: 删除操作,有两种情况   删除结点中 “ 值等于某个给定值 ” 的结点;    删除给定指针指向的结点。   第一种情况,为了找到节点的值等于给定值的结点,单链表和双向链表都要从头结点一个一个一次遍历比较,直到找到这个节点,才利用指正操作进行删除.
+ 主要的时间复杂度在于遍历结点,时间复杂度为On
+ 第二种情况,我们知道要删除哪一个结点,可是删除这个结点的操作需要其前驱结点的参与,因此我们还要知道指向前驱结点的指正.这时双向链表和单链表的区别就体现出来了.
+ 单链表依然需要从头结点开始遍历链表.因此,单链表删除的时间复杂度为On
+  双向链表的结点中有prev,可以直接删除,因此,双向链表删除的时间复杂度为O1
+ 查找 除了插入和删除操作以外,双向链表的按值查询效率也比单链表快
+ 记录上次查找的位置P,每次查询时,根据要查找的值与P的大小关系,决定是往前还是往后查找,平均下来只需要查找一般的数据
+ 范例 LinkedHashMap,采用了双向链表的数据结构
+链表与数组 数组 实现上使用的是连续的内存空间,可以借助CPU的缓存机制,预读数组中的数据,所以访问效率高
+缺点:大小固定,如果内存不够,只能重新再申请一个更大的内存空间,把原数组拷贝进去,费时
+链表 在内存中并不是连续存储,对于CPU缓存不友好,没有办法有效预读.
+与数组相比,天然支持动态扩容</description>
+    </item>
+    
+    <item>
+      <title>CleanCode-读书笔记</title>
+      <link>https://euraxluo.gitee.io/blog/posts/reading/cleancode/</link>
+      <pubDate>Mon, 22 Jan 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://euraxluo.gitee.io/blog/posts/reading/cleancode/</guid>
+      <description>CleanCode读书笔记 最小惊异原则 1.从一而终，便于修改 2.遵守大家的约定 有意义的命名 1.名副其实 1.命名需要注释来补充，那就不算名副其实 2.在命名时尽量采用有意义的名称，代码的简洁不会改变（运算符和常量的数量，嵌套数量） 2.避免误导 1.避免使用与本意相驳的词 2.提防使用不同之处较小的词 3.不要使用小写l和大写O作为变量名 4.命名有区分，应当有明显的区分，应使读者可以鉴别 3.使用读得出来的名称 4.使用可搜索的名称 1.长名称胜于短名称，搜得到的名称胜于自造的名称 2.单字母仅用于短方法中的本地变量 3.名称长短应与其作用域大小相对应 4.若变量或常量可能在代码中多次使用，则应赋予其便于搜索的名称 5.避免使用编码和前缀 6.避免思维映射 不应当让读者在脑中把你的名称翻译为他们熟知的名称 7.类名和方法名 1.类名和对象名应该是名词 2.类名不应是动词 3.方法名应当是动词或动词短语 4.属性访问器，修改器和断言应该根据其值命名 8.宁可明确，勿为好玩 9.每个概念对应一个词 10.避免将同一单词用于不同目的 11.使用解决方案领域名称 12.使用源自所涉问题领域的名称 13.添加有意义的语境 2.函数 1.短小 1.if,else,while 语句，其中的代码块应该只有一行 并且应该大抵是一个函数调用语句 2.函数不应该大到足以容纳嵌套语句 3.永不调用的函数应该丢弃 2.只做一件事 要判断函数是否不止做了一件事，就是看能否再拆出一个函数 3.使用描述性的名称 1.函数越短小，功能越集中，就便于取个好名字 2.长而具有描述性的名称要比短的名称或者注释好 4.函数参数应少，并且不要使用输出参数 1.如果函数需要很多参数，说明需要封装为类 2.函数名称为动词可以明确函数是做什么的 3.函数参数自然而然的视为输入参数 4.将代码集中到基类i，避免冗余和重复 3.注释 1.注释不能美化糟糕的代码 2.注释的内容 1.版权及著作权声明 2.提供基本信息 3.对意图解释（提供某个决定的意图） 4.阐释（如果参数或者返回值是某个标准库的一部分，或者不能修改，帮助其阐释含义） 5.警告其他程序员会出现某种后果 6.//TODO注释（放置工作列表：程序员认为应该做，但由于某些原因还没有做的工作）  7.不要留下注释代码 格式 1.纵向格式 1.封包声明，导入声明，每个函数之间，用空白行隔开 2.关系密切或概念相关的代码应该互相靠近 3.变量声明应尽可能的靠近使用位置 4.实体变量应该在类的顶部声明 5.循环中的控制变量应该在循环语中声明 6.相关函数（相互靠近，调用者应该在被调用者的上面） 2.横向格式 1.</description>
     </item>
     
   </channel>

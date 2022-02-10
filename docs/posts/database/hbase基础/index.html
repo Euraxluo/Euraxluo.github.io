@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hbase基础-概念和安装 - Euraxluo Blog</title><link rel="apple-touch-icon" href="https://euraxluo.gitee.io/blog/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="https://euraxluo.gitee.io/blog/images/favicons/manifest.json">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon.ico">
+<meta name="description" content="Hbase基础" /><meta itemprop="name" content="Hbase基础-概念和安装">
+<meta itemprop="description" content="Hbase基础">
+<meta itemprop="datePublished" content="2019-12-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-20T00:00:00+00:00" />
+<meta itemprop="wordCount" content="703">
+
+
+
+<meta itemprop="keywords" content="Hbase,database," />
+<meta property="og:title" content="Hbase基础-概念和安装" />
+<meta property="og:description" content="Hbase基础" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://euraxluo.gitee.io/blog/posts/database/hbase%E5%9F%BA%E7%A1%80/" />
+<meta property="article:published_time" content="2019-12-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hbase基础-概念和安装"/>
+<meta name="twitter:description" content="Hbase基础"/>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="https://euraxluo.gitee.io/blog/css/bundle.min.c499608f8442ace06c5f0f9298ce8f109f7a84d0bc7a2d5cfce2221e20d34177.css" integrity="sha256-xJlgj4RCrOBsXw&#43;SmM6PEJ96hNC8ei1c/OIiHiDTQXc=" crossorigin="anonymous"><script src="https://euraxluo.gitee.io/blog/js/bundle.min.4f0bf0084c93f18baec18d21035f382e8b666d326b7f3a3fddfab7c6e7566bfc.js" integrity="sha256-TwvwCEyT8YuuwY0hA184LotmbTJrfzo/3fq3xudWa/w=" crossorigin="anonymous"></script>
+</head>
+  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="https://euraxluo.gitee.io/blog">
+      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="https://euraxluo.gitee.io/blog/search">
+  <div class="input-group input-group-sm">
+    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
+    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
+  </div>
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 mr-auto"><li class="nav-item">
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/archives">
+            <i class="fas fa-fw fa-file-archive"></i>timeline
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/categories">
+            <i class="fas fa-fw fa-folder"></i>category
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/tags">
+            <i class="fas fa-fw fa-tags"></i>tags
+          </a>
+        </li><li class="nav-item">
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/series">
+            <i class="fas fa-fw fa-columns"></i>series
+          </a>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-repos" role="button" data-toggle="dropdown" aria-expanded="false">
+            <i class="fab fa-fw fa-github"></i>Repos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-repos"><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo" target="_blank">
+                <i class="fab fa-fw fa-github"></i>Euraxluo
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                <i class="fab fa-fw fa-github"></i>fastgrpc
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                <i class="fab fa-fw fa-github"></i>ProjectPractice
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                <i class="fab fa-fw fa-github"></i>pyantv
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                <i class="fab fa-fw fa-github"></i>simple-pythonvm
+              </a>
+            </li><li>
+              <a class="dropdown-item"
+                href="https://github.com/Euraxluo/verb" target="_blank">
+                <i class="fab fa-fw fa-github"></i>verb
+              </a>
+            </li></ul>
+        </li></ul>
+      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
+    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-language" ></i>
+  </a>
+</li>
+<script type="text/html" id="languagesPopoverBody">
+  <ul class="languages list-group"></ul>
+</script>
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#palettesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-palette" ></i>
+  </a>
+</li>
+<script type="text/html" id="palettesPopoverBody">
+  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
+      <a>Blue</a>
+    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
+      <a>Blue Gray</a>
+    </li><li id="palette-brown" class="palette list-group-item bg-brown">
+      <a>Brown</a>
+    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
+      <a>Cyan</a>
+    </li><li id="palette-green" class="palette list-group-item bg-green">
+      <a>Green</a>
+    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
+      <a>Indigo</a>
+    </li><li id="palette-orange" class="palette list-group-item bg-orange">
+      <a>Orange</a>
+    </li><li id="palette-pink" class="palette list-group-item bg-pink">
+      <a>Pink</a>
+    </li><li id="palette-purple" class="palette list-group-item bg-purple">
+      <a>Purple</a>
+    </li><li id="palette-red" class="palette list-group-item bg-red">
+      <a>Red</a>
+    </li><li id="palette-teal" class="palette list-group-item bg-teal">
+      <a>Teal</a>
+    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
+      <a>Yellow</a>
+    </li></ul>
+</script>
+
+<li class="nav-item mr-2">
+  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
+    data-target="#fontSizesPopoverBody" data-html="true">
+    <i class="fas fa-fw fa-font" ></i>
+  </a>
+</li>
+<script type="text/html" id="fontSizesPopoverBody">
+  <form class="font-size-switcher-form">
+    <label for="fontSize" class="form-label">Font Size</label>
+    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+  </form>
+</script>
+<form class="mode-switcher-form d-flex align-items-center">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="modeSwitcher">
+  </div>
+</form>
+</ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container-fluid">
+      <div class="row content">
+<div class="col-md-8">
+  <div class="container"><nav class="row" aria-label="breadcrumb">
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/">Home</a></li><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/posts/">posts</a></li><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/posts/database/">database</a></li><li class="breadcrumb-item active">Hbase基础-概念和安装</li></ol>
+</nav><article class="post row surface">
+  <h1 class="post-title my-3">Hbase基础-概念和安装</h1><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2019-12-20
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>4 min read
+  </span>
+<a href="https://euraxluo.gitee.io/blog/categories/bigdata/" class="post-taxonomy">#BigData</a><a href="https://euraxluo.gitee.io/blog/tags/hbase/" class="post-taxonomy">#Hbase</a><a href="https://euraxluo.gitee.io/blog/tags/database/" class="post-taxonomy">#database</a></div>
+<div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
+  <div class="accordion-item">
+    <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
+      <i class="fas fa-fw fa-bars"></i>Table Of Contents
+    </div>
+    <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
+      <div class="accordion-body mt-2">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hbase-基本概念">Hbase 基本概念</a></li>
+    <li><a href="#hbase数据模型">HBase数据模型</a></li>
+    <li><a href="#安装hadoopzookeeperhbasekafka-单机伪分布式安装过程及注意事项">安装(Hadoop,ZooKeeper,HBase,Kafka 单机伪分布式安装过程及注意事项)</a>
+      <ul>
+        <li><a href="#tar包地址">tar包地址</a></li>
+        <li><a href="#etcprofile">/etc/profile</a></li>
+        <li><a href="#安装jdk">安装JDK</a></li>
+        <li><a href="#hadoop-安装配置过程">Hadoop 安装配置过程:</a></li>
+        <li><a href="#zookeeper-安装配置">Zookeeper 安装配置</a></li>
+        <li><a href="#hbase配置">HBASE配置</a></li>
+        <li><a href="#kafka-安装配置">Kafka 安装配置</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div><div class="post-content mb-3"><h2 id="hbase-基本概念">Hbase 基本概念</h2>
+<p>Hbase 能做什么</p>
+<ul>
+<li>海量数据存储</li>
+<li>准实时查询</li>
+</ul>
+<p>HBase在实际业务场景中的应用</p>
+<ul>
+<li>交通:gps,摄像头信息</li>
+<li>金融:交易信息</li>
+<li>电商:交易信息,浏览信息,物流信息</li>
+</ul>
+<p>HBase特点</p>
+<ul>
+<li><strong>容量大</strong>:Hbase单表可以有百亿行,百万列,数据矩阵的横纵维度所支持的数据量级都十分具有弹性</li>
+<li><strong>面向列</strong>:HBase是面向列的存储和权限控制,并支持独立检索.列式存储,其数据在表中是按照某列存储的,这样在查询只需要少数几个字段的时候,能大大减少读取的数据量.并且 可以动态增加列</li>
+<li><strong>多版本</strong>:HBase每一列的数据存储有多个Version</li>
+<li><strong>稀疏性</strong>:为空的列并不占用存储空间,表可以设计的很稀疏</li>
+<li><strong>扩展性</strong>:底层依赖于HDFS(只需要增加机器就可以扩大容量)</li>
+<li><strong>高可靠性</strong>:WAL机制保证了数据写入时不会因集群异常而导致写入数据丢失;HBase底层使用的HDFS,会有备份</li>
+<li><strong>高性能</strong>:底层的<strong>LSM数据结构</strong>和Rowkey有序排列等架构的独特设计,使得HBase具有非常高的写入性能.region切分,主键索引和缓存机制使得HBase在海量数据下具备-定的随机读取性能,该性能针对Rowkey的查询能够达到毫秒级别</li>
+</ul>
+<h2 id="hbase数据模型">HBase数据模型</h2>
+<p>列簇:</p>
+<ul>
+<li>一张表列簇不会超过5个,多个会增加磁盘交互,降低性能</li>
+<li>每个列簇中的列数没有限制</li>
+<li>列只有插入数据后存在</li>
+<li>列在列簇中是有序的</li>
+</ul>
+<p>基本操作</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hbase<span style="color:#f92672">(</span>main<span style="color:#f92672">)</span>:001:0&gt; create <span style="color:#e6db74">&#39;test&#39;</span>,<span style="color:#e6db74">&#39;info&#39;</span>
+<span style="color:#ae81ff">0</span> row<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> in 11.7610 seconds
+
+<span style="color:#f92672">=</span>&gt; Hbase::Table - test
+hbase<span style="color:#f92672">(</span>main<span style="color:#f92672">)</span>:002:0&gt; put <span style="color:#e6db74">&#39;test&#39;</span>,<span style="color:#e6db74">&#39;0001&#39;</span>,<span style="color:#e6db74">&#39;info:username&#39;</span>,<span style="color:#e6db74">&#39;euraxluo&#39;</span>
+<span style="color:#ae81ff">0</span> row<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> in 6.6130 seconds
+
+hbase<span style="color:#f92672">(</span>main<span style="color:#f92672">)</span>:003:0&gt; scan <span style="color:#e6db74">&#39;test&#39;</span>
+ROW                     COLUMN+CELL
+ <span style="color:#ae81ff">0001</span>                   column<span style="color:#f92672">=</span>info:username, timestamp<span style="color:#f92672">=</span>1577270839695, value<span style="color:#f92672">=</span>euraxluo   <span style="color:#ae81ff">1</span> row<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> in 0.6160 seconds
+
+hbase<span style="color:#f92672">(</span>main<span style="color:#f92672">)</span>:004:0&gt; put <span style="color:#e6db74">&#39;test&#39;</span>,<span style="color:#e6db74">&#39;0001&#39;</span>,<span style="color:#e6db74">&#39;info:age&#39;</span>,<span style="color:#e6db74">&#39;12&#39;</span>
+<span style="color:#ae81ff">0</span> row<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> in 0.3720 seconds
+
+hbase<span style="color:#f92672">(</span>main<span style="color:#f92672">)</span>:005:0&gt; scan <span style="color:#e6db74">&#39;test&#39;</span>
+ROW                     COLUMN+CELL
+ <span style="color:#ae81ff">0001</span>                   column<span style="color:#f92672">=</span>info:age, timestamp<span style="color:#f92672">=</span>1577270880203, value<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>
+ <span style="color:#ae81ff">0001</span>                   column<span style="color:#f92672">=</span>info:username, timestamp<span style="color:#f92672">=</span>1577270839695, value<span style="color:#f92672">=</span>euraxluo   <span style="color:#ae81ff">1</span> row<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> in 0.0240 seconds
+
+hbase<span style="color:#f92672">(</span>main<span style="color:#f92672">)</span>:006:0&gt; describe <span style="color:#e6db74">&#39;test&#39;</span>
+Table test is ENABLED
+test
+COLUMN FAMILIES DESCRIPTION
+<span style="color:#f92672">{</span>NAME <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;info&#39;</span>, BLOOMFILTER <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;ROW&#39;</span>, VERSIONS <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;1&#39;</span>, IN_MEMORY <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;false&#39;</span>, KEEP_DELETED_CELLS <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;FALSE&#39;</span>, DATA_BLOCK_ENCODING <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;NONE&#39;</span>, TTL <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;FOREVER&#39;</span>, COMPRESSION <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;NONE&#39;</span>, MIN_VERSIONS <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;0&#39;</span>, BLOCKCACHE <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;true&#39;</span>, BLOCKSIZE <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;65536&#39;</span>, REPLICATION_SCOPE <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;0&#39;</span><span style="color:#f92672">}</span>
+<span style="color:#ae81ff">1</span> row<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> in 0.3110 seconds
+
+hbase<span style="color:#f92672">(</span>main<span style="color:#f92672">)</span>:007:0&gt; get <span style="color:#e6db74">&#39;test&#39;</span>,<span style="color:#e6db74">&#39;0001&#39;</span>,<span style="color:#e6db74">&#39;info:age&#39;</span>
+COLUMN                  CELL
+ info:age               timestamp<span style="color:#f92672">=</span>1577283627980, value<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>
+ 
+hbase<span style="color:#f92672">(</span>main<span style="color:#f92672">)</span>:008:0&gt; truncate <span style="color:#e6db74">&#39;test&#39;</span>
+Truncating <span style="color:#e6db74">&#39;test&#39;</span> table <span style="color:#f92672">(</span>it may take a <span style="color:#66d9ef">while</span><span style="color:#f92672">)</span>:
+ - Disabling table...
+ - Truncating table...
+<span style="color:#ae81ff">0</span> row<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> in 4.2500 seconds
+
+
+hbase<span style="color:#f92672">(</span>main<span style="color:#f92672">)</span>:009:0&gt; disable <span style="color:#e6db74">&#39;test&#39;</span>
+<span style="color:#ae81ff">0</span> row<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> in 9.8040 seconds
+
+
+hbase<span style="color:#f92672">(</span>main<span style="color:#f92672">)</span>:010:0&gt; is_enabled <span style="color:#e6db74">&#39;test&#39;</span>
+false
+<span style="color:#ae81ff">0</span> row<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> in 0.1060 seconds
+
+
+hbase<span style="color:#f92672">(</span>main<span style="color:#f92672">)</span>:011:0&gt; drop <span style="color:#e6db74">&#39;test&#39;</span>
+<span style="color:#ae81ff">0</span> row<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> in 5.0910 seconds
+</code></pre></div><h2 id="安装hadoopzookeeperhbasekafka-单机伪分布式安装过程及注意事项">安装(Hadoop,ZooKeeper,HBase,Kafka 单机伪分布式安装过程及注意事项)</h2>
+<ul>
+<li><a href="https://blog.csdn.net/pig2guang/article/details/85313410" target="_blank">参考链接1</a>
+</li>
+<li><a href="https://blog.csdn.net/qq_40419698/article/details/82317948" target="_blank">参考链接2</a>
+</li>
+</ul>
+<h3 id="tar包地址">tar包地址</h3>
+<ul>
+<li><a href="https://archive.cloudera.com/cdh5/cdh/5/hadoop-2.6.0-cdh5.7.0.tar.gz" target="_blank">hadoop</a>
+</li>
+<li><a href="https://archive.cloudera.com/cdh5/cdh/5/hbase-1.2.0-cdh5.7.0.tar.gz" target="_blank">hbase</a>
+</li>
+<li><a href="https://archive.apache.org/dist/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz" target="_blank">zookeeper</a>
+</li>
+<li><a href="http://d29vzk4ow07wi7.cloudfront.net/731a49d122fd009679c50222a9a5a4926d1a26b6?response-content-disposition=attachment%3Bfilename%3D%22hadoop-native-64-2.6.0.tar%22&amp;Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHAqOi8vZDI5dnprNG93MDd3aTcuY2xvdWRmcm9udC5uZXQvNzMxYTQ5ZDEyMmZkMDA5Njc5YzUwMjIyYTlhNWE0OTI2ZDFhMjZiNj9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWF0dGFjaG1lbnQlM0JmaWxlbmFtZSUzRCUyMmhhZG9vcC1uYXRpdmUtNjQtMi42LjAudGFyJTIyIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNTc3MjQ4Mjk5fSwiSXBBZGRyZXNzIjp7IkFXUzpTb3VyY2VJcCI6IjAuMC4wLjAvMCJ9fX1dfQ__&amp;Signature=mzwSQ4FLK3oY-gnQgJkU9mgSdImfoUf3jlG5kCzZZl6wGX-ja6fHL3f-S6AFpEc~FdFOM84zNpskbFZdMA1vpGahBHcSUt4LNIRlOsL-t1QT4H3RC00msFFB4izOCXk9jmV6nilPfG1TQdCKHUetuQu~ViTNMNIgSN9HsqKebYLNxeE-TQK7jfO15UohSuccRVGnzuwXawZhj3fKTUMiTrF6jTzbcC2xIfp7VQ6cb8eqiN7wF16sVpFpQIGukeiigKQpyWRWd0uZEeh1IrRRihVIE5mT6avy8GMMjmT~0GXvnXxoWVx1wR3bGBD-8i~bmKfW893MV76nXAbwUHK~7g__&amp;Key-Pair-Id=APKAIFKFWOMXM2UMTSFA" target="_blank">hadoop-native</a>
+</li>
+<li><a href="https://archive.apache.org/dist/kafka/0.10.2.0/kafka_2.12-0.10.2.0.tgz" target="_blank">kafka</a>
+</li>
+</ul>
+<h3 id="etcprofile">/etc/profile</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
+export JAVA_HOME<span style="color:#f92672">=</span>/home/software/app/jdk1.8.0_202
+export CLASSPATH<span style="color:#f92672">=</span>.:<span style="color:#e6db74">${</span>JAVA_HOME<span style="color:#e6db74">}</span>/jre/lib/rt.jar:<span style="color:#e6db74">${</span>JAVA_HOME<span style="color:#e6db74">}</span>/lib/dt.jar:<span style="color:#e6db74">${</span>JAVA_HOME<span style="color:#e6db74">}</span>/lib/tools.jar       export PATH<span style="color:#f92672">=</span>$JAVA_HOME/bin:$PATH
+export SCALA_HOME<span style="color:#f92672">=</span>/home/software/app/scala-2.12.8
+export PATH<span style="color:#f92672">=</span>$SCALA_HOME/bin:$PATH
+export MAVEN_HOME<span style="color:#f92672">=</span>/home/software/app/apache-maven-3.3.9
+export PATH<span style="color:#f92672">=</span>$MAVEN_HOME/bin:$PATH
+export HADOOP_HOME<span style="color:#f92672">=</span>/home/software/app/hadoop-2.6.0-cdh5.7.0
+export CLASSPATH<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>$HADOOP_HOME/bin/hadoop classpath<span style="color:#66d9ef">)</span>:$CLASSPATH
+export HADOOP_COMMON_LIB_NATIVE_DIR<span style="color:#f92672">=</span>$HADOOP_HOME/lib/native
+export PATH<span style="color:#f92672">=</span>$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
+export HADOOP_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-Djava.library.path=</span>$HADOOP_HOME<span style="color:#e6db74">/lib&#34;</span>
+export ZOOKEEPER_HOME<span style="color:#f92672">=</span>/home/software/app/zookeeper-3.4.10
+export PATH<span style="color:#f92672">=</span>$ZOOKEEPER_HOME/bin:$PATH
+export HBASE_HOME<span style="color:#f92672">=</span>/home/software/app/hbase-1.2.0-cdh5.7.0
+export PATH<span style="color:#f92672">=</span>$HBASE_HOME/bin:$PATH
+export KAFKA_HOME<span style="color:#f92672">=</span>/home/software/app/kafka <span style="color:#75715e">#_2.12-0.10.2.0</span>
+export PATH<span style="color:#f92672">=</span>$KAFKA_HOME/bin:$PATH
+export JAVA_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-server -Xms256m -Xmx512m  -XX:PermSize=128m -XX:MaxPermSize=256m&#34;</span>
+</code></pre></div><h3 id="安装jdk">安装JDK</h3>
+<ul>
+<li>略过,就是解压,然后配置环境变量</li>
+</ul>
+<h3 id="hadoop-安装配置过程">Hadoop 安装配置过程:</h3>
+<ul>
+<li>
+<p>选择 app 目录存放这些软件</p>
+</li>
+<li>
+<p>解压缩 <code>tar -zxvf hadoop-2.6.0-cdh5.7.0.tar.gz -C app</code></p>
+</li>
+<li>
+<p>配置环境变量</p>
+</li>
+<li>
+<p>解压缩 native 文件,因为我们的lib文件夹是空的<code>  tar -xvf hadoop-native-64-2.6.0.tar  -C  hadoop-2.6.0-cdh5.7.0.tar.g/lib/native/ ; tar -xvf hadoop-native-64-2.6.0.tar  -C  hadoop-2.6.0-cdh5.7.0.tar.g/lib</code></p>
+</li>
+<li>
+<p>写配置文件:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!-- app/hadoop-2.6.0-cdh5.7.0/etc/hadoop/coite.xml--&gt;</span>
+<span style="color:#f92672">&lt;configuration&gt;</span>
+        <span style="color:#f92672">&lt;property&gt;</span>
+             <span style="color:#f92672">&lt;name&gt;</span>hadoop.tmp.dir<span style="color:#f92672">&lt;/name&gt;</span>
+             <span style="color:#f92672">&lt;value&gt;</span>/home/software/hadoop_tmp<span style="color:#f92672">&lt;/value&gt;</span>
+        <span style="color:#f92672">&lt;/property&gt;</span>
+        <span style="color:#f92672">&lt;property&gt;</span>
+             <span style="color:#f92672">&lt;name&gt;</span>fs.defaultFS<span style="color:#f92672">&lt;/name&gt;</span>
+             <span style="color:#f92672">&lt;value&gt;</span>hdfs://localhost:9001<span style="color:#f92672">&lt;/value&gt;</span>
+        <span style="color:#f92672">&lt;/property&gt;</span>
+<span style="color:#f92672">&lt;/configuration&gt;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!--  app/hadoop-2.6.0-cdh5.7.0/etc/hadoop/hdfs-site.xml--&gt;</span>
+<span style="color:#f92672">&lt;configuration&gt;</span>
+        <span style="color:#f92672">&lt;property&gt;</span>
+             <span style="color:#f92672">&lt;name&gt;</span>dfs.replication<span style="color:#f92672">&lt;/name&gt;</span>
+             <span style="color:#f92672">&lt;value&gt;</span>1<span style="color:#f92672">&lt;/value&gt;</span>
+        <span style="color:#f92672">&lt;/property&gt;</span>
+         <span style="color:#f92672">&lt;property&gt;</span>
+               <span style="color:#f92672">&lt;name&gt;</span>dfs.namenode.name.dir<span style="color:#f92672">&lt;/name&gt;</span>
+               <span style="color:#f92672">&lt;value&gt;</span>file:///home/software/hadoop_tmp/dfs/name<span style="color:#f92672">&lt;/value&gt;</span>
+         <span style="color:#f92672">&lt;/property&gt;</span>
+         <span style="color:#f92672">&lt;property&gt;</span>
+               <span style="color:#f92672">&lt;name&gt;</span>dfs.datanode.data.dir<span style="color:#f92672">&lt;/name&gt;</span>
+               <span style="color:#f92672">&lt;value&gt;</span>file:///home/software/hadoop_tmp/dfs/data<span style="color:#f92672">&lt;/value&gt;</span>
+         <span style="color:#f92672">&lt;/property&gt;</span>
+<span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">         &lt;property&gt;
+</span><span style="color:#75715e">               &lt;name&gt;fs.checkpoint.data.dir&lt;/name&gt;
+</span><span style="color:#75715e">               &lt;value&gt;file:///home/software/hadoop_tmp/dfs/fcd&lt;/value&gt;
+</span><span style="color:#75715e">         &lt;/property&gt;
+</span><span style="color:#75715e">         &lt;property&gt;
+</span><span style="color:#75715e">               &lt;name&gt;fs.checkpoint.edits.dir&lt;/name&gt;
+</span><span style="color:#75715e">               &lt;value&gt;file:///home/software/hadoop_tmp/dfs/fce&lt;/value&gt;
+</span><span style="color:#75715e">         &lt;/property&gt; --&gt;</span>
+         <span style="color:#f92672">&lt;property&gt;</span>
+               <span style="color:#f92672">&lt;name&gt;</span>dfs.permissions.enabled<span style="color:#f92672">&lt;/name&gt;</span>
+               <span style="color:#f92672">&lt;value&gt;</span>false<span style="color:#f92672">&lt;/value&gt;</span>
+         <span style="color:#f92672">&lt;/property&gt;</span>
+<span style="color:#f92672">&lt;/configuration&gt;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>software<span style="color:#f92672">]</span><span style="color:#75715e"># cat app/hadoop-2.6.0-cdh5.7.0/etc/hadoop/slaves</span>
+localhost
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>software<span style="color:#f92672">]</span><span style="color:#75715e"># cat app/hadoop-2.6.0-cdh5.7.0/etc/hadoop/hadoop-env.sh |grep JAVA_HOME</span>
+<span style="color:#75715e"># The only required environment variable is JAVA_HOME.  All others are</span>
+<span style="color:#75715e"># set JAVA_HOME in this file, so that it is correctly defined on</span>
+export JAVA_HOME<span style="color:#f92672">=</span>/home/software/app/jdk1.8.0_202
+</code></pre></div></li>
+<li>
+<p>关闭防火墙</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">firewall-cmd --state
+systemctl stop firewalld.service
+firewall-cmd --state
+</code></pre></div></li>
+<li>
+<p>测试</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hdfs namenode -format&gt;<span style="color:#f92672">{</span>
+查看有无报错
+<span style="color:#f92672">}</span>
+start-dfs.sh&gt;<span style="color:#f92672">{</span>
+查看日志有无报错
+<span style="color:#f92672">}</span>
+jps&gt;<span style="color:#f92672">{</span>
+<span style="color:#ae81ff">21366</span> DataNode
+<span style="color:#ae81ff">7958</span> Jps
+<span style="color:#ae81ff">20888</span> NameNode
+<span style="color:#ae81ff">21869</span> SecondaryNameNode
+<span style="color:#f92672">}</span>
+最后去网页上查看存活节点数
+</code></pre></div></li>
+</ul>
+<h4 id="hadoop-伪分布式问题">Hadoop 伪分布式问题</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> 17/09/22 14:53:21 WARN hdfs.DFSClient: DataStreamer Exception
+  org.apache.hadoop.ipc.RemoteException<span style="color:#f92672">(</span>java.io.IOException<span style="color:#f92672">)</span>: File /input/data.txt._COPYING_ could only be replicated to <span style="color:#ae81ff">0</span> nodes instead of minReplication <span style="color:#f92672">(=</span>1<span style="color:#f92672">)</span>. There are <span style="color:#ae81ff">0</span> datanode<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> running and no node<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> are excluded in this operation.
+
+
+  解决方案:
+  看它的报错信息好像是节点没有启动，但是我的节点都启动起来了，使用jps也能查看到节点信息。
+  使用hadoop dfsadmin -report命令查看磁盘使用情况，发现出现以下问题：
+  Configured Capacity: <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> B<span style="color:#f92672">)</span>Present Capacity: <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> B<span style="color:#f92672">)</span>DFS Remaining: <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> B<span style="color:#f92672">)</span>DFS Used: <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> B<span style="color:#f92672">)</span>DFS Used%: NaN%Under replicated blocks: 0Blocks with corrupt replicas: 0Missing blocks: 0-------------------------------------------------Datanodes available: <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> total, <span style="color:#ae81ff">0</span> dead<span style="color:#f92672">)</span>
+  节点下存储空间都是空的，问题应该就是出现在这了。
+         查阅资料发现造成这个问题的原因可能是使用hadoop namenode -format格式化时格式化了多次造成那么spaceID不一致，解决方案：
+  1、停止集群（切换到/sbin目录下）
+  stop-all.sh
+  2、删除在hdfs中配置的data目录（即在core-site.xml中配置的hadoop.tmp.dir对应文件件）下面的所有数据;
+  rm -rf /root/training/hadoop-2.7.3/tmp
+  3、重新格式化namenode<span style="color:#f92672">(</span>切换到hadoop目录下的bin目录下<span style="color:#f92672">)</span>
+  hdfs namenode -format
+  4、重新启动hadoop集群（切换到hadoop目录下的sbin目录下）
+  start-all.sh
+</code></pre></div><h3 id="zookeeper-安装配置">Zookeeper 安装配置</h3>
+<ul>
+<li>
+<p>解压缩<code>tar -zxvf zookeeper-3.4.10.tar.gz -C app</code></p>
+</li>
+<li>
+<p>写配置 zoo1.cfg,zoo2.cfg,zoo3.cfg</p>
+<p>cat app/zookeeper-3.4.10/conf/zoo1.cfg</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  dataDir<span style="color:#f92672">=</span>/home/software/zookeeper/zoo1
+  clientPort<span style="color:#f92672">=</span><span style="color:#ae81ff">2191</span>
+  server.1<span style="color:#f92672">=</span>127.0.0.1:8801:7701
+  server.2<span style="color:#f92672">=</span>127.0.0.1:8802:7702
+  server.3<span style="color:#f92672">=</span>127.0.0.1:8803:7703
+</code></pre></div><p>cat app/zookeeper-3.4.10/conf/zoo2.cfg</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  dataDir<span style="color:#f92672">=</span>/home/software/zookeeper/zoo2
+  clientPort<span style="color:#f92672">=</span><span style="color:#ae81ff">2192</span>
+  server.1<span style="color:#f92672">=</span>127.0.0.1:8801:7701
+  server.2<span style="color:#f92672">=</span>127.0.0.1:8802:7702
+  server.3<span style="color:#f92672">=</span>127.0.0.1:8803:7703
+</code></pre></div><p>cat app/zookeeper-3.4.10/conf/zoo3.cfg</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  dataDir<span style="color:#f92672">=</span>/home/software/zookeeper/zoo3
+  clientPort<span style="color:#f92672">=</span><span style="color:#ae81ff">2193</span>
+  server.1<span style="color:#f92672">=</span>127.0.0.1:8801:7701
+  server.2<span style="color:#f92672">=</span>127.0.0.1:8802:7702
+  server.3<span style="color:#f92672">=</span>127.0.0.1:8803:7703  
+</code></pre></div></li>
+<li>
+<p>配置myid文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#34;1&#34;</span> &gt; zoo1/myid
+echo <span style="color:#e6db74">&#34;2&#34;</span> &gt; zoo2/myid
+echo <span style="color:#e6db74">&#34;3&#34;</span> &gt; zoo3/myid
+</code></pre></div></li>
+<li>
+<p>启动zookeeper服务</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">zkServer.sh start app/zookeeper-3.4.10/conf/zoo1.cfg
+zkServer.sh start app/zookeeper-3.4.10/conf/zoo2.cfg
+zkServer.sh start app/zookeeper-3.4.10/conf/zoo3.cfg
+</code></pre></div></li>
+<li>
+<p>检查是否启动成功</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ae81ff">10626</span> QuorumPeerMain
+<span style="color:#ae81ff">10568</span> QuorumPeerMain
+<span style="color:#ae81ff">13450</span> Jps
+<span style="color:#ae81ff">10732</span> QuorumPeerMain
+<span style="color:#ae81ff">21366</span> DataNode
+<span style="color:#ae81ff">20888</span> NameNode
+<span style="color:#ae81ff">21869</span> SecondaryNameNode
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">zkCli.sh -server 127.0.0.1:8802
+</code></pre></div></li>
+</ul>
+<h3 id="hbase配置">HBASE配置</h3>
+<ul>
+<li>
+<p>解压缩<code> tar -zxvf hbase-1.2.0-cdh5.7.0.tar.gz -C app</code></p>
+</li>
+<li>
+<p>配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>software<span style="color:#f92672">]</span><span style="color:#75715e"># cat app/hbase-1.2.0-cdh5.7.0/conf/hbase-env.sh | grep ^export</span>
+export JAVA_HOME<span style="color:#f92672">=</span>/home/software/app/jdk1.8.0_202
+export HBASE_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-XX:+UseConcMarkSweepGC&#34;</span>
+export HBASE_MASTER_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HBASE_MASTER_OPTS<span style="color:#e6db74"> -XX:PermSize=128m -XX:MaxPermSize=128m&#34;</span>
+export HBASE_REGIONSERVER_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HBASE_REGIONSERVER_OPTS<span style="color:#e6db74"> -XX:PermSize=128m -XX:MaxPermSize=128m&#34;</span>
+export HBASE_MANAGES_ZK<span style="color:#f92672">=</span>false
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"> <span style="color:#75715e">&lt;!--app/hbase-1.2.0-cdh5.7.0/conf/hbase-site.xml --&gt;</span>
+  <span style="color:#f92672">&lt;configuration&gt;</span>
+  <span style="color:#f92672">&lt;property&gt;</span>
+      <span style="color:#f92672">&lt;name&gt;</span>hbase.rootdir<span style="color:#f92672">&lt;/name&gt;</span>
+      <span style="color:#f92672">&lt;value&gt;</span>hdfs://localhost:9001/hbase<span style="color:#f92672">&lt;/value&gt;</span>
+    <span style="color:#f92672">&lt;/property&gt;</span>
+    <span style="color:#f92672">&lt;property&gt;</span>
+      <span style="color:#f92672">&lt;name&gt;</span>hbase.cluster.distributed<span style="color:#f92672">&lt;/name&gt;</span>
+      <span style="color:#f92672">&lt;value&gt;</span>true<span style="color:#f92672">&lt;/value&gt;</span>
+    <span style="color:#f92672">&lt;/property&gt;</span>
+    <span style="color:#f92672">&lt;property&gt;</span>
+      <span style="color:#f92672">&lt;name&gt;</span>hbase.zookeeper.quorum<span style="color:#f92672">&lt;/name&gt;</span>               
+      <span style="color:#f92672">&lt;value&gt;</span>127.0.0.1:2191,127.0.0.1:2192,127.0.0.1:2193<span style="color:#f92672">&lt;/value&gt;</span>
+    <span style="color:#f92672">&lt;/property&gt;</span>
+    <span style="color:#f92672">&lt;property&gt;</span>
+      <span style="color:#f92672">&lt;name&gt;</span>hbase.tmp.dir<span style="color:#f92672">&lt;/name&gt;</span>
+      <span style="color:#f92672">&lt;value&gt;</span>/home/software/hbase/data<span style="color:#f92672">&lt;/value&gt;</span>
+    <span style="color:#f92672">&lt;/property&gt;</span>
+  <span style="color:#f92672">&lt;/configuration&gt;</span>
+</code></pre></div></li>
+<li>
+<p>启动<code>start-hbase.sh</code></p>
+</li>
+<li>
+<p>检验</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ae81ff">21361</span> HMaster
+<span style="color:#ae81ff">10626</span> QuorumPeerMain
+<span style="color:#ae81ff">21366</span> DataNode
+<span style="color:#ae81ff">20888</span> NameNode
+<span style="color:#ae81ff">10568</span> QuorumPeerMain
+<span style="color:#ae81ff">21512</span> HRegionServer
+<span style="color:#ae81ff">10732</span> QuorumPeerMain
+<span style="color:#ae81ff">21869</span> SecondaryNameNode
+<span style="color:#ae81ff">20638</span> Jps
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#查看网页:</span>
+http://47.107.44.224:60010/master-status
+</code></pre></div></li>
+</ul>
+<h3 id="kafka-安装配置">Kafka 安装配置</h3>
+<p><a href="https://blog.csdn.net/weixin_42207486/article/details/80635246" target="_blank">参考链接</a>
+</p>
+<ul>
+<li>
+<p>解压 <code> tar -zxvf kafka_2.12-0.10.2.0.tgz -C app</code></p>
+</li>
+<li>
+<p>环境变量</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export KAFKA_HOME<span style="color:#f92672">=</span>/home/software/app/kafka <span style="color:#75715e">#_2.11-2.3.1</span>
+export PATH<span style="color:#f92672">=</span>$KAFKA_HOME/bin:$PATH
+<span style="color:#75715e">#export JAVA_OPTS=&#34;-server -Xms256m -Xmx512m  -XX:PermSize=128m -XX:MaxPermSize=256m&#34;</span>
+</code></pre></div></li>
+<li>
+<p>修改配置</p>
+<p>app/kafka/config/server1.properties</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">broker.id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+log.dirs<span style="color:#f92672">=</span>/home/software/kafka/logs1
+zookeeper.connect<span style="color:#f92672">=</span>localhost:2191,localhost:2192,localhost:2193
+advertised.listeners<span style="color:#f92672">=</span>PLAINTEXT://47.107.44.224:9011
+listeners<span style="color:#f92672">=</span>PLAINTEXT://172.17.50.121:9011
+</code></pre></div><p>app/kafka/config/server2.properties</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">broker.id<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+log.dirs<span style="color:#f92672">=</span>/home/software/kafka/logs2
+zookeeper.connect<span style="color:#f92672">=</span>localhost:2191,localhost:2192,localhost:2193
+advertised.listeners<span style="color:#f92672">=</span>PLAINTEXT://47.107.44.224:9012
+listeners<span style="color:#f92672">=</span>PLAINTEXT://172.17.50.121:9012
+</code></pre></div><p>app/kafka/config/server3.properties</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">broker.id<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>
+log.dirs<span style="color:#f92672">=</span>/home/software/kafka/logs3
+zookeeper.connect<span style="color:#f92672">=</span>localhost:2191,localhost:2192,localhost:2193
+advertised.listeners<span style="color:#f92672">=</span>PLAINTEXT://47.107.44.224:9013
+listeners<span style="color:#f92672">=</span>PLAINTEXT://172.17.50.121:9013
+</code></pre></div></li>
+<li>
+<p>启动</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kafka-server-start.sh kafka/config/server1.properties &amp;
+kafka-server-start.sh kafka/config/server2.properties &amp;
+kafka-server-start.sh kafka/config/server3.properties &amp;
+</code></pre></div></li>
+<li>
+<p>检验</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 创建一个topic</span>
+kafka-topics.sh --create --zookeeper localhost:2191,localhost:2192,localhost:2193 --replication-factor <span style="color:#ae81ff">1</span> --partitions <span style="color:#ae81ff">1</span> --topic testing
+<span style="color:#75715e"># 查看topic list</span>
+kafka-topics.sh --list --zookeeper localhost:2192
+<span style="color:#75715e"># 运行生产者</span>
+kafka-console-producer.sh --broker-list localhost:9011,localhost:9012,localhost:9013 --topic testing
+<span style="color:#75715e">#运行消费者</span>
+kafka-console-consumer.sh --bootstrap-server localhost:9011 --topic testing --from-beginning
+</code></pre></div></li>
+</ul>
+</div><div class="post-copyright mb-4">
+  <h3>Copyright</h3><div class="post-cc">This work is licensed under <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY-NC 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i></a>.</div>
+</div>
+<div class="post-reward mb-4 text-center">
+  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
+    <i class="fas fa-fw fa-medal"></i>Reward
+  </button>
+</div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content surface">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>Reward</h5>
+        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+              <i class="fab fa-fw fa-alipay"></i>Alipay
+            </a>
+          </li><li class="nav-item" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+              <i class="fab fa-fw fa-weixin"></i>WeChat
+            </a>
+          </li></ul>
+        <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg" loading="lazy" />
+          </div><div class="tab-pane fade post-reward-content show" id="reward-wechat" role="tabpanel" aria-labelledby="reward-wechat-tab">
+            <img class="img-fluid post-reward-img" src="https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg" loading="lazy" />
+          </div></div>
+      </div>
+    </div>
+  </div>
+</div><div class="post-navs d-flex mb-3 justify-content-between">
+  <div class="post-nav w-50"><div class="prev-post">
+      <a href="https://euraxluo.gitee.io/blog/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Redis API及数据结构</a>
+    </div></div>
+  <div class="post-nav flex-row-reverse"><div class="next-post">
+      <a href="https://euraxluo.gitee.io/blog/posts/tools/typora%E7%94%BB%E5%9B%BE/">Typora画图</a>
+    </div></div>
+</div></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+  repo="Euraxluo/Euraxluo.github.io"
+  issue-term="pathname"
+  label="✨💬✨"
+  theme="github-dark"
+  crossorigin="anonymous"
+  async>
+</script></div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container"><section class="profile surface row">
+  <div class="col-xl-6 d-flex align-items-center justify-content-center">
+    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  </div>
+  <div class="col-xl-6">
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class="profile-about mb-2"><i class="fas fa-fw fa-info-circle"></i><a href="https://euraxluo.gitee.io/blog/about/">About</a></div></div>
+</section><section class="featured-posts row surface">
+  <h4>Featured Posts</h4>
+  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/python/python-socket/">python socket编程</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/slam/">SLAM</a></li></ul>
+</section><section class="recent-posts row surface">
+  <h4>Recent Posts</h4>
+  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/shortcodes/g2plot_charts_test/">echarts shortcode</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 </a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a></li></ul>
+</section>
+<section class="taxonomy-categories row surface">
+  <h4>
+    <a href="https://euraxluo.gitee.io/blog/categories">Categories</a>
+  </h4>
+  <div><a href="https://euraxluo.gitee.io/blog/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">21</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+      java <span class="badge rounded-pill">8</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/architecture-design/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="architecture design">
+      architecture design <span class="badge rounded-pill">3</span>
+    </a></div>
+</section><section class="taxonomy-series row surface">
+  <h4>
+    <a href="https://euraxluo.gitee.io/blog/series">Series</a>
+  </h4>
+  <div><a href="https://euraxluo.gitee.io/blog/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">18</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Python">
+      Python <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">3</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+      JDBC <span class="badge rounded-pill">3</span>
+    </a></div>
+</section><section class="taxonomy-tags row surface">
+  <h4>
+    <a href="https://euraxluo.gitee.io/blog/tags">Tags</a>
+  </h4>
+  <div><a href="https://euraxluo.gitee.io/blog/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">17</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+      redis <span class="badge rounded-pill">10</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Python">
+      Python <span class="badge rounded-pill">7</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+      Java <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+      爬虫 <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/architecture/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="architecture">
+      architecture <span class="badge rounded-pill">3</span>
+    </a></div>
+</section></div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+      <i class="fas fa-fw fa-2x fa-envelope"></i>
+    </a>
+  </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
+        <i class="fab fa-fw fa-2x fa-github"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
+        <i class="fab fa-fw fa-2x fa-qq"></i>
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
+        <i class="fab fa-fw fa-2x fa-zhihu"></i>
+      </a>
+    </li></nav>
+<div class="copyright mb-2">
+  Copyright © 2016-2022 Euraxluo. All Rights Reserved.
+</div>
+<script>
+  window.parent.postMessage(window.location.href, "*");
+</script></footer>
+<a id="btnScrollToTop" class="btn-scroll-to-top">
+  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
+</a>
+</body>
+</html>

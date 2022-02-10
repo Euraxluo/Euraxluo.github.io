@@ -1,18 +1,18 @@
 <!doctype html>
-<html lang="zh-cn">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Servlet2 - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/images/favicons/manifest.json">
-<link rel="icon" href="/images/favicons/favicon.ico">
+    <title>Servlet2 - Euraxluo Blog</title><link rel="apple-touch-icon" href="https://euraxluo.gitee.io/blog/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="https://euraxluo.gitee.io/blog/images/favicons/manifest.json">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon.ico">
 <meta name="description" content="Servlet" /><meta itemprop="name" content="Servlet2">
 <meta itemprop="description" content="Servlet">
 <meta itemprop="datePublished" content="2020-10-22T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-10-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="4762">
+<meta itemprop="wordCount" content="569">
 
 
 
@@ -20,49 +20,49 @@
 <meta property="og:title" content="Servlet2" />
 <meta property="og:description" content="Servlet" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/java/servlet2/" />
+<meta property="og:url" content="https://euraxluo.gitee.io/blog/posts/java/servlet2/" />
 <meta property="article:published_time" content="2020-10-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-10-22T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/posts/java/servlet1/" /><meta property="og:see_also" content="/posts/java/xml/" />
+<meta property="article:modified_time" content="2020-10-22T00:00:00+00:00" /><meta property="og:see_also" content="https://euraxluo.gitee.io/blog/posts/java/servlet1/" /><meta property="og:see_also" content="https://euraxluo.gitee.io/blog/posts/java/xml/" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Servlet2"/>
 <meta name="twitter:description" content="Servlet"/>
-<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="https://euraxluo.gitee.io/blog/css/bundle.min.c499608f8442ace06c5f0f9298ce8f109f7a84d0bc7a2d5cfce2221e20d34177.css" integrity="sha256-xJlgj4RCrOBsXw&#43;SmM6PEJ96hNC8ei1c/OIiHiDTQXc=" crossorigin="anonymous"><script src="https://euraxluo.gitee.io/blog/js/bundle.min.4f0bf0084c93f18baec18d21035f382e8b666d326b7f3a3fddfab7c6e7566bfc.js" integrity="sha256-TwvwCEyT8YuuwY0hA184LotmbTJrfzo/3fq3xudWa/w=" crossorigin="anonymous"></script>
 </head>
   <body><header><nav class="navbar fixed-top navbar-expand-xl">
-  <div class="container">
-    <a class="navbar-brand" href="/">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="https://euraxluo.gitee.io/blog">
       <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/search">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="https://euraxluo.gitee.io/blog/search">
   <div class="input-group input-group-sm">
     <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
     <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
   </div>
-</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
-          <a class="nav-link" href="/archives">
-            <i class="fas fa-fw fa-file-archive"></i>归档
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 mr-auto"><li class="nav-item">
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/archives">
+            <i class="fas fa-fw fa-file-archive"></i>timeline
           </a>
         </li><li class="nav-item">
-          <a class="nav-link" href="/categories">
-            <i class="fas fa-fw fa-folder"></i>分类
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/categories">
+            <i class="fas fa-fw fa-folder"></i>category
           </a>
         </li><li class="nav-item">
-          <a class="nav-link" href="/tags">
-            <i class="fas fa-fw fa-tags"></i>标签
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/tags">
+            <i class="fas fa-fw fa-tags"></i>tags
           </a>
         </li><li class="nav-item">
-          <a class="nav-link" href="/series">
-            <i class="fas fa-fw fa-columns"></i>专栏
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/series">
+            <i class="fas fa-fw fa-columns"></i>series
           </a>
         </li><li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-            Repos
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-repos" role="button" data-toggle="dropdown" aria-expanded="false">
+            <i class="fab fa-fw fa-github"></i>Repos
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-repos"><li>
               <a class="dropdown-item"
                 href="https://github.com/Euraxluo" target="_blank">
                 <i class="fab fa-fw fa-github"></i>Euraxluo
@@ -101,9 +101,7 @@
   </a>
 </li>
 <script type="text/html" id="languagesPopoverBody">
-  <ul class="languages list-group"><li class="language list-group-item">
-      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
-      <a href="/zh-tw/">繁體中文</a></li></ul>
+  <ul class="languages list-group"></ul>
 </script>
 <li class="nav-item mr-2">
   <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
@@ -113,29 +111,29 @@
 </li>
 <script type="text/html" id="palettesPopoverBody">
   <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
-      <a>蓝色</a>
+      <a>Blue</a>
     </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
-      <a>蓝灰色</a>
+      <a>Blue Gray</a>
     </li><li id="palette-brown" class="palette list-group-item bg-brown">
-      <a>棕色</a>
+      <a>Brown</a>
     </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
-      <a>青色</a>
+      <a>Cyan</a>
     </li><li id="palette-green" class="palette list-group-item bg-green">
-      <a>绿色</a>
+      <a>Green</a>
     </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
-      <a>靛青色</a>
+      <a>Indigo</a>
     </li><li id="palette-orange" class="palette list-group-item bg-orange">
-      <a>橙色</a>
+      <a>Orange</a>
     </li><li id="palette-pink" class="palette list-group-item bg-pink">
-      <a>粉色</a>
+      <a>Pink</a>
     </li><li id="palette-purple" class="palette list-group-item bg-purple">
-      <a>紫色</a>
+      <a>Purple</a>
     </li><li id="palette-red" class="palette list-group-item bg-red">
-      <a>红色</a>
+      <a>Red</a>
     </li><li id="palette-teal" class="palette list-group-item bg-teal">
-      <a>蓝绿色</a>
+      <a>Teal</a>
     </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
-      <a>黄色</a>
+      <a>Yellow</a>
     </li></ul>
 </script>
 
@@ -147,7 +145,7 @@
 </li>
 <script type="text/html" id="fontSizesPopoverBody">
   <form class="font-size-switcher-form">
-    <label for="fontSize" class="form-label">字体大小</label>
+    <label for="fontSize" class="form-label">Font Size</label>
     <input type="range" class="form-range" min="-2" max="2" id="fontSize">
   </form>
 </script>
@@ -161,24 +159,24 @@
   </div>
 </nav>
 </header>
-<main role="main" class="container">
+<main role="main" class="container-fluid">
       <div class="row content">
 <div class="col-md-8">
   <div class="container"><nav class="row" aria-label="breadcrumb">
-  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/">主页</a></li><li class="breadcrumb-item"><a href="/posts/">posts</a></li><li class="breadcrumb-item"><a href="/posts/java/">java</a></li><li class="breadcrumb-item active">Servlet2</li></ol>
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/">Home</a></li><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/posts/">posts</a></li><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/posts/java/">java</a></li><li class="breadcrumb-item active">Servlet2</li></ol>
 </nav><article class="post row surface">
   <h1 class="post-title my-3">Servlet2</h1><div class="post-meta mb-3">
   <span class="post-date mr-2">
     <i class="fas fa-fw fa-calendar-alt"></i>2020-10-22
   </span>
   <span class="poost-reading-time mr-2">
-    <i class="fas fa-fw fa-coffee"></i>10 分钟阅读
+    <i class="fas fa-fw fa-coffee"></i>3 min read
   </span>
-<a href="/categories/java/" class="post-taxonomy">#java</a><a href="/series/java/" class="post-taxonomy">#Java</a><a href="/tags/java/" class="post-taxonomy">#Java</a></div>
+<a href="https://euraxluo.gitee.io/blog/categories/java/" class="post-taxonomy">#java</a><a href="https://euraxluo.gitee.io/blog/series/java/" class="post-taxonomy">#Java</a><a href="https://euraxluo.gitee.io/blog/tags/java/" class="post-taxonomy">#Java</a></div>
 <div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
   <div class="accordion-item">
     <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
-      <i class="fas fa-fw fa-bars"></i>目录
+      <i class="fas fa-fw fa-bars"></i>Table Of Contents
     </div>
     <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
       <div class="accordion-body mt-2">
@@ -936,27 +934,27 @@ session<span style="color:#f92672">.</span><span style="color:#a6e22e">invalidat
 <span style="color:#f92672">}</span>
 
 </code></pre></div></div><div class="post-copyright mb-4">
-  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+  <h3>Copyright</h3><div class="post-cc">This work is licensed under <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY-NC 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i></a>.</div>
 </div>
 <div class="post-reward mb-4 text-center">
   <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
-    <i class="fas fa-fw fa-medal"></i>打赏
+    <i class="fas fa-fw fa-medal"></i>Reward
   </button>
 </div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content surface">
       <div class="modal-header">
-        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>Reward</h5>
         <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
       </div>
       <div class="modal-body">
         <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
             <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
-              <i class="fab fa-fw fa-alipay"></i>支付宝
+              <i class="fab fa-fw fa-alipay"></i>Alipay
             </a>
           </li><li class="nav-item" role="presentation">
             <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
-              <i class="fab fa-fw fa-weixin"></i>微信
+              <i class="fab fa-fw fa-weixin"></i>WeChat
             </a>
           </li></ul>
         <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
@@ -969,14 +967,14 @@ session<span style="color:#f92672">.</span><span style="color:#a6e22e">invalidat
   </div>
 </div><div class="post-navs d-flex mb-3 justify-content-between">
   <div class="post-nav w-50"><div class="prev-post">
-      <a href="/posts/shortcodes/g2plot_charts_test/">TestShortcode</a>
+      <a href="https://euraxluo.gitee.io/blog/posts/java/websocket/">WebSocket</a>
     </div></div>
   <div class="post-nav flex-row-reverse"><div class="next-post">
-      <a href="/posts/java/servlet1/">Servlet1</a>
+      <a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a>
     </div></div>
 </div><section class="related-posts">
-  <h3>相关文章</h3>
-  <ul class="related-posts"><li><a href="/posts/java/servlet1/">Servlet1</a></li><li><a href="/posts/java/websocket/">WebSocket</a></li></ul>
+  <h3>Related Posts</h3>
+  <ul class="related-posts"><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/websocket/">WebSocket</a></li></ul>
 </section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
   repo="Euraxluo/Euraxluo.github.io"
   issue-term="pathname"
@@ -991,93 +989,69 @@ session<span style="color:#f92672">.</span><span style="color:#a6e22e">invalidat
     <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
   </div>
   <div class="col-xl-6">
-    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class="profile-about mb-2"><i class="fas fa-fw fa-info-circle"></i><a href="https://euraxluo.gitee.io/blog/about/">About</a></div></div>
 </section><section class="featured-posts row surface">
-  <h4>精选文章</h4>
-  <ul><li><a href="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li><li><a href="/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="/posts/note/slam/">SLAM</a></li></ul>
+  <h4>Featured Posts</h4>
+  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/python/python-socket/">python socket编程</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/slam/">SLAM</a></li></ul>
 </section><section class="recent-posts row surface">
-  <h4>最近文章</h4>
-  <ul><li><a href="/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+  <h4>Recent Posts</h4>
+  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/shortcodes/g2plot_charts_test/">echarts shortcode</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 </a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a></li></ul>
 </section>
 <section class="taxonomy-categories row surface">
   <h4>
-    <a href="/categories">分类</a>
+    <a href="https://euraxluo.gitee.io/blog/categories">Categories</a>
   </h4>
-  <div><a href="/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">23</span>
-    </a><a href="/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+  <div><a href="https://euraxluo.gitee.io/blog/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">21</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
       redis <span class="badge rounded-pill">10</span>
-    </a><a href="/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
-      Shortcode <span class="badge rounded-pill">10</span>
-    </a><a href="/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+    </a><a href="https://euraxluo.gitee.io/blog/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
       java <span class="badge rounded-pill">8</span>
-    </a><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
-      读书笔记 <span class="badge rounded-pill">5</span>
-    </a><a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+    </a><a href="https://euraxluo.gitee.io/blog/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
       爬虫 <span class="badge rounded-pill">4</span>
-    </a><a href="/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
-      NLP <span class="badge rounded-pill">3</span>
-    </a><a href="/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
-      ROS <span class="badge rounded-pill">3</span>
-    </a><a href="/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
-      Shell <span class="badge rounded-pill">2</span>
-    </a><a href="/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
-      TensorFlow <span class="badge rounded-pill">2</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/architecture-design/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="architecture design">
+      architecture design <span class="badge rounded-pill">3</span>
     </a></div>
 </section><section class="taxonomy-series row surface">
   <h4>
-    <a href="/series">专栏</a>
+    <a href="https://euraxluo.gitee.io/blog/series">Series</a>
   </h4>
-  <div><a href="/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">23</span>
-    </a><a href="/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+  <div><a href="https://euraxluo.gitee.io/blog/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">18</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
       redis <span class="badge rounded-pill">10</span>
-    </a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
-      读书笔记 <span class="badge rounded-pill">5</span>
-    </a><a href="/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
-      Pathon <span class="badge rounded-pill">4</span>
-    </a><a href="/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+    </a><a href="https://euraxluo.gitee.io/blog/series/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Python">
+      Python <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
       Java <span class="badge rounded-pill">3</span>
-    </a><a href="/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+    </a><a href="https://euraxluo.gitee.io/blog/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
       JDBC <span class="badge rounded-pill">3</span>
-    </a><a href="/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
-      NLP <span class="badge rounded-pill">3</span>
-    </a><a href="/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
-      ROS <span class="badge rounded-pill">3</span>
-    </a><a href="/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
-      Shell <span class="badge rounded-pill">2</span>
-    </a><a href="/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
-      TensorFlow <span class="badge rounded-pill">2</span>
     </a></div>
 </section><section class="taxonomy-tags row surface">
   <h4>
-    <a href="/tags">标签</a>
+    <a href="https://euraxluo.gitee.io/blog/tags">Tags</a>
   </h4>
-  <div><a href="/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">23</span>
-    </a><a href="/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+  <div><a href="https://euraxluo.gitee.io/blog/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">17</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
       redis <span class="badge rounded-pill">10</span>
-    </a><a href="/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+    </a><a href="https://euraxluo.gitee.io/blog/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Python">
+      Python <span class="badge rounded-pill">7</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
       Java <span class="badge rounded-pill">4</span>
-    </a><a href="/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
-      Pathon <span class="badge rounded-pill">4</span>
-    </a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+    </a><a href="https://euraxluo.gitee.io/blog/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
       爬虫 <span class="badge rounded-pill">4</span>
-    </a><a href="/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
-      JDBC <span class="badge rounded-pill">3</span>
-    </a><a href="/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
-      NLP <span class="badge rounded-pill">3</span>
-    </a><a href="/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
-      ROS <span class="badge rounded-pill">3</span>
-    </a><a href="/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
-      python <span class="badge rounded-pill">2</span>
-    </a><a href="/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
-      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/architecture/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="architecture">
+      architecture <span class="badge rounded-pill">3</span>
     </a></div>
 </section></div>
 </aside>
 </div>
-    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    </main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
     <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
       <i class="fas fa-fw fa-2x fa-envelope"></i>
     </a>
@@ -1095,13 +1069,11 @@ session<span style="color:#f92672">.</span><span style="color:#a6e22e">invalidat
       </a>
     </li></nav>
 <div class="copyright mb-2">
-  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+  Copyright © 2016-2022 Euraxluo. All Rights Reserved.
 </div>
 <script>
   window.parent.postMessage(window.location.href, "*");
-</script><div class="powered-by mb-2">
-  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
-</div></footer>
+</script></footer>
 <a id="btnScrollToTop" class="btn-scroll-to-top">
   <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
 </a>

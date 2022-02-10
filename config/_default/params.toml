@@ -1,47 +1,47 @@
-# mainSections = ["post", "posts"] # Default to ["posts"].
+titleSeparator = "-" # Title separator. Default to "-".
 
-# titleSeparator = "|" # Title separator. Default to "-".
-
-description = "Euraxluo Blog,Some post about python,cpp,go,java."
-# image = ["site-feature-image.jpg"]
+description = "Euraxluo's Blog,Some post about python,cpp,go,java."
+image = ["site-feature-image.jpg"]
 
 logo = "https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" # Logo image. Default to "images/logo.webp".
 brand = "Euraxluo"
-#menusPosition = "left" # Menus position: right(default), left or center.
+menusPosition = "left" # Menus position: right(default), left or center.
 
 palette = "blue" # Default palette. Optional.
-# palettes = ["blue", "blue gray", "brown"] # Available palettes. Default to ALL.
 
-# fullWidth = true # Full width.
+fullWidth = true # Full width.
 
-# dateFormat = "Jan 2, 2006"
+dateFormat = "2006-01-02"
+
 
 # Google Adsense
 googleAdsense = ""
 
-# math = true # Enable math globally.
-# toc = false # Disable TOC globally.
-# breadcrumb = false # Disable breadcrumb
 
-# poweredBy = false # Whether to show powered by.
+toc = true # Disable TOC globally.
+tocWordCount = 50 # TOC is displayed only if the post's word count exceeds this value.
+tocSticky = true # Whether to make TOC stick to top when scrolling. Default to true.
 
-# featuredPostCount = 10 # The number of featured posts shown in sidebar.
-# recentPostCount = 10 # The number of recent posts shown in sidebar.
-# relatedPostCount = 10 # The number of related posts.
-# categoryCount = 10 # The number of categories shown in sidebar.
-# tagCount = 10 # The number of tags shown in sidebar.
-# seriesCount = 10 # The number of series shown in sidebar.
+breadcrumb = false # Disable breadcrumb
+
+poweredBy = false # Whether to show powered by.
+
+featuredPostCount = 5 # The number of featured posts shown in sidebar.
+recentPostCount = 5 # The number of recent posts shown in sidebar.
+relatedPostCount = 6 # The number of related posts.
+categoryCount = 6 # The number of categories shown in sidebar.
+tagCount = 6 # The number of tags shown in sidebar.
+seriesCount = 6 # The number of series shown in sidebar.
+
+ math = true # Enable math globally.
 
 # Custom CSS and JS
 customCSS = []
 customJS = []
 
-# tocWordCount = 280 # TOC is displayed only if the post's word count exceeds this value.
-# tocSticky = true # Whether to make TOC stick to top when scrolling. Default to true.
-
 [archive]
   paginate = 8 # Archive pagination. Default to 100.
-  # dateFormat = "01-02" # Archive date format. Default to "Jan 2".
+  dateFormat = "01-02" # Archive date format. Default to "Jan 2".
 
 [analytics]
   # baidu = "" # Baidu Analytics
@@ -57,10 +57,10 @@ customJS = []
   shenma = ""
 
 [creativeCommons]
-  # by = true # Credit must be given to you, the creator.
-  # nc = true # Only noncommercial use of your work is permitted.
-  # nd = true # No derivatives or adaptations of your work are permitted.
-  # sa = true # Adaptations must be shared under the same terms.
+   by = true # Credit must be given to you, the creator.
+   nc = true # Only noncommercial use of your work is permitted.
+   nd = false # No derivatives or adaptations of your work are permitted.
+   sa = false # Adaptations must be shared under the same terms.
 
 [utterances]
   # https://utteranc.es/
@@ -69,7 +69,7 @@ customJS = []
   issue-term="pathname"
   label="✨💬✨"
   theme="github-dark"
-        
+
 
 
 [search]
@@ -93,7 +93,7 @@ customJS = []
   # addThis = "" # AddThis pubid.
 
 [fontSize]
-  # extraSmall = ".8rem"
-  # small = ".9rem"
-  # large = "1.1rem"
-  # extraLarge = "1.2rem"
+   extraSmall = ".6rem"
+   small = ".7rem"
+   large = ".8rem"
+   extraLarge = "1rem"

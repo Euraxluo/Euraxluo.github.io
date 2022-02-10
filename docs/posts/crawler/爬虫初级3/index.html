@@ -1,68 +1,68 @@
 <!doctype html>
-<html lang="zh-cn">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>爬虫学习3 - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/images/favicons/manifest.json">
-<link rel="icon" href="/images/favicons/favicon.ico">
-<meta name="description" content="爬虫学习" /><meta itemprop="name" content="爬虫学习3">
+    <title>爬虫学习3-网页解析器 - Euraxluo Blog</title><link rel="apple-touch-icon" href="https://euraxluo.gitee.io/blog/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="https://euraxluo.gitee.io/blog/images/favicons/manifest.json">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon.ico">
+<meta name="description" content="爬虫学习" /><meta itemprop="name" content="爬虫学习3-网页解析器">
 <meta itemprop="description" content="爬虫学习">
-<meta itemprop="datePublished" content="2018-10-22T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-10-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="4618">
+<meta itemprop="datePublished" content="2018-10-22T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2018-10-22T00:00:00+08:00" />
+<meta itemprop="wordCount" content="411">
 
 
 
-<meta itemprop="keywords" content="爬虫,Pathon," />
-<meta property="og:title" content="爬虫学习3" />
+<meta itemprop="keywords" content="爬虫,Python," />
+<meta property="og:title" content="爬虫学习3-网页解析器" />
 <meta property="og:description" content="爬虫学习" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/" />
-<meta property="article:published_time" content="2018-10-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-10-22T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/" /><meta property="og:see_also" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/" /><meta property="og:see_also" content="/posts/python/pyquerystudy/" />
+<meta property="og:url" content="https://euraxluo.gitee.io/blog/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/" />
+<meta property="article:published_time" content="2018-10-22T00:00:00+08:00" />
+<meta property="article:modified_time" content="2018-10-22T00:00:00+08:00" /><meta property="og:see_also" content="https://euraxluo.gitee.io/blog/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/" /><meta property="og:see_also" content="https://euraxluo.gitee.io/blog/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/" /><meta property="og:see_also" content="https://euraxluo.gitee.io/blog/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="爬虫学习3"/>
+<meta name="twitter:title" content="爬虫学习3-网页解析器"/>
 <meta name="twitter:description" content="爬虫学习"/>
-<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="https://euraxluo.gitee.io/blog/css/bundle.min.c499608f8442ace06c5f0f9298ce8f109f7a84d0bc7a2d5cfce2221e20d34177.css" integrity="sha256-xJlgj4RCrOBsXw&#43;SmM6PEJ96hNC8ei1c/OIiHiDTQXc=" crossorigin="anonymous"><script src="https://euraxluo.gitee.io/blog/js/bundle.min.4f0bf0084c93f18baec18d21035f382e8b666d326b7f3a3fddfab7c6e7566bfc.js" integrity="sha256-TwvwCEyT8YuuwY0hA184LotmbTJrfzo/3fq3xudWa/w=" crossorigin="anonymous"></script>
 </head>
   <body><header><nav class="navbar fixed-top navbar-expand-xl">
-  <div class="container">
-    <a class="navbar-brand" href="/">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="https://euraxluo.gitee.io/blog">
       <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/search">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="https://euraxluo.gitee.io/blog/search">
   <div class="input-group input-group-sm">
     <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
     <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
   </div>
-</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
-          <a class="nav-link" href="/archives">
-            <i class="fas fa-fw fa-file-archive"></i>归档
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 mr-auto"><li class="nav-item">
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/archives">
+            <i class="fas fa-fw fa-file-archive"></i>timeline
           </a>
         </li><li class="nav-item">
-          <a class="nav-link" href="/categories">
-            <i class="fas fa-fw fa-folder"></i>分类
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/categories">
+            <i class="fas fa-fw fa-folder"></i>category
           </a>
         </li><li class="nav-item">
-          <a class="nav-link" href="/tags">
-            <i class="fas fa-fw fa-tags"></i>标签
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/tags">
+            <i class="fas fa-fw fa-tags"></i>tags
           </a>
         </li><li class="nav-item">
-          <a class="nav-link" href="/series">
-            <i class="fas fa-fw fa-columns"></i>专栏
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/series">
+            <i class="fas fa-fw fa-columns"></i>series
           </a>
         </li><li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-            Repos
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-repos" role="button" data-toggle="dropdown" aria-expanded="false">
+            <i class="fab fa-fw fa-github"></i>Repos
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-repos"><li>
               <a class="dropdown-item"
                 href="https://github.com/Euraxluo" target="_blank">
                 <i class="fab fa-fw fa-github"></i>Euraxluo
@@ -101,9 +101,7 @@
   </a>
 </li>
 <script type="text/html" id="languagesPopoverBody">
-  <ul class="languages list-group"><li class="language list-group-item">
-      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
-      <a href="/zh-tw/">繁體中文</a></li></ul>
+  <ul class="languages list-group"></ul>
 </script>
 <li class="nav-item mr-2">
   <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
@@ -113,29 +111,29 @@
 </li>
 <script type="text/html" id="palettesPopoverBody">
   <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
-      <a>蓝色</a>
+      <a>Blue</a>
     </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
-      <a>蓝灰色</a>
+      <a>Blue Gray</a>
     </li><li id="palette-brown" class="palette list-group-item bg-brown">
-      <a>棕色</a>
+      <a>Brown</a>
     </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
-      <a>青色</a>
+      <a>Cyan</a>
     </li><li id="palette-green" class="palette list-group-item bg-green">
-      <a>绿色</a>
+      <a>Green</a>
     </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
-      <a>靛青色</a>
+      <a>Indigo</a>
     </li><li id="palette-orange" class="palette list-group-item bg-orange">
-      <a>橙色</a>
+      <a>Orange</a>
     </li><li id="palette-pink" class="palette list-group-item bg-pink">
-      <a>粉色</a>
+      <a>Pink</a>
     </li><li id="palette-purple" class="palette list-group-item bg-purple">
-      <a>紫色</a>
+      <a>Purple</a>
     </li><li id="palette-red" class="palette list-group-item bg-red">
-      <a>红色</a>
+      <a>Red</a>
     </li><li id="palette-teal" class="palette list-group-item bg-teal">
-      <a>蓝绿色</a>
+      <a>Teal</a>
     </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
-      <a>黄色</a>
+      <a>Yellow</a>
     </li></ul>
 </script>
 
@@ -147,7 +145,7 @@
 </li>
 <script type="text/html" id="fontSizesPopoverBody">
   <form class="font-size-switcher-form">
-    <label for="fontSize" class="form-label">字体大小</label>
+    <label for="fontSize" class="form-label">Font Size</label>
     <input type="range" class="form-range" min="-2" max="2" id="fontSize">
   </form>
 </script>
@@ -161,61 +159,40 @@
   </div>
 </nav>
 </header>
-<main role="main" class="container">
+<main role="main" class="container-fluid">
       <div class="row content">
 <div class="col-md-8">
   <div class="container"><nav class="row" aria-label="breadcrumb">
-  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/">主页</a></li><li class="breadcrumb-item"><a href="/posts/">posts</a></li><li class="breadcrumb-item"><a href="/posts/crawler/">crawler</a></li><li class="breadcrumb-item active">爬虫学习3</li></ol>
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/">Home</a></li><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/posts/">posts</a></li><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/posts/crawler/">crawler</a></li><li class="breadcrumb-item active">爬虫学习3-网页解析器</li></ol>
 </nav><article class="post row surface">
-  <h1 class="post-title my-3">爬虫学习3</h1><div class="post-meta mb-3">
+  <h1 class="post-title my-3">爬虫学习3-网页解析器</h1><div class="post-meta mb-3">
   <span class="post-date mr-2">
     <i class="fas fa-fw fa-calendar-alt"></i>2018-10-22
   </span>
   <span class="poost-reading-time mr-2">
-    <i class="fas fa-fw fa-coffee"></i>10 分钟阅读
+    <i class="fas fa-fw fa-coffee"></i>2 min read
   </span>
-<a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy">#爬虫</a><a href="/series/pathon/" class="post-taxonomy">#Pathon</a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy">#爬虫</a><a href="/tags/pathon/" class="post-taxonomy">#Pathon</a></div>
+<a href="https://euraxluo.gitee.io/blog/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy">#爬虫</a><a href="https://euraxluo.gitee.io/blog/series/python/" class="post-taxonomy">#Python</a><a href="https://euraxluo.gitee.io/blog/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy">#爬虫</a><a href="https://euraxluo.gitee.io/blog/tags/python/" class="post-taxonomy">#Python</a></div>
 <div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
   <div class="accordion-item">
     <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
-      <i class="fas fa-fw fa-bars"></i>目录
+      <i class="fas fa-fw fa-bars"></i>Table Of Contents
     </div>
     <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
       <div class="accordion-body mt-2">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#代理">代理</a>
+    <li><a href="#beautifulsoup解析器">BeautifulSoup解析器：</a>
       <ul>
-        <li><a href="#获取代理ip">获取代理ip</a></li>
-        <li><a href="#验证能否连接">验证能否连接</a></li>
-      </ul>
-    </li>
-    <li><a href="#网页解析器">网页解析器</a>
-      <ul>
-        <li></li>
-        <li><a href="#网页解析方法">网页解析方法：</a></li>
-      </ul>
-    </li>
-    <li><a href="#beautifulsoup最常用">BeautifulSoup(最常用)</a>
-      <ul>
-        <li><a href="#beautifulsoup解析器">BeautifulSoup解析器：</a></li>
         <li><a href="#基本元素">基本元素</a></li>
         <li><a href="#搜索节点html中的标签">搜索节点(html中的标签)</a></li>
-        <li><a href="#又是实例网上找的">又是实例(网上找的)</a></li>
+        <li><a href="#实例">实例</a></li>
       </ul>
     </li>
     <li><a href="#正则re">正则RE</a>
       <ul>
         <li><a href="#特殊字符使用rstring定义字符">特殊字符：(使用r&rsquo;string&rsquo;定义字符)</a></li>
         <li><a href="#方法">方法：</a></li>
-        <li><a href="#1refindallpatternstring">1<code>re.findall(pattern,string)</code></a></li>
-        <li><a href="#2recompilepatternflag0">2<code>re.compile(pattern,flag=0)</code></a></li>
-        <li><a href="#3rematchpattern-string-flags0">3<code>re.match(pattern, string, flags=0)</code></a></li>
-        <li><a href="#4researchpattern-string-flags0">4<code>re.search(pattern, string, flags=0)</code></a></li>
-        <li><a href="#5resplitpattern-string-maxsplit0-flags0">5<code>re.split(pattern, string, maxsplit=0, flags=0)</code></a></li>
-        <li><a href="#6refindallpattern-string-flags0">6<code>re.findall(pattern, string, flags=0)</code></a></li>
-        <li><a href="#7refinditerpattern-string-flags0">7<code>re.finditer(pattern, string, flags=0)</code></a></li>
-        <li><a href="#8resubpattern-repl-string-count0-flags0">8<code>re.sub(pattern, repl, string, count=0, flags=0)</code></a></li>
       </ul>
     </li>
   </ul>
@@ -223,163 +200,69 @@
       </div>
     </div>
   </div>
-</div><div class="post-content mb-3"><h2 id="代理">代理</h2>
-<h3 id="获取代理ip">获取代理ip</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> requests
-
-<span style="color:#f92672">import</span> bs4
-
-<span style="color:#f92672">from</span> bs4 <span style="color:#f92672">import</span> BeautifulSoup
-
-
-
-User_Agent <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Mozilla/5.0 (Windows NT 6.3; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0&#39;</span>
-
-header <span style="color:#f92672">=</span> {}
-
-header[<span style="color:#e6db74">&#39;User-Agent&#39;</span>] <span style="color:#f92672">=</span> User_Agent
-
-
-
-url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;http://www.xicidaili.com/nn/1&#39;</span>
-
-r <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url,headers<span style="color:#f92672">=</span>header)
-
-res <span style="color:#f92672">=</span> r<span style="color:#f92672">.</span>text
-
-
-
-soup <span style="color:#f92672">=</span> BeautifulSoup(res,<span style="color:#e6db74">&#34;html.parser&#34;</span>)
-
-ips <span style="color:#f92672">=</span> soup<span style="color:#f92672">.</span>findAll(<span style="color:#e6db74">&#39;tr&#39;</span>)
-
-f <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;./ip_proy/ip&#34;</span>,<span style="color:#e6db74">&#34;w&#34;</span>)
-
-
-
-<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>,len(ips)):
-
-    ip <span style="color:#f92672">=</span> ips[x]<span style="color:#75715e">#一行</span>
-
-    tds <span style="color:#f92672">=</span> ip<span style="color:#f92672">.</span>findAll(<span style="color:#e6db74">&#34;td&#34;</span>)
-
-    line <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">:</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> (tds[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>contents[<span style="color:#ae81ff">0</span>],tds[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>contents[<span style="color:#ae81ff">0</span>],tds[<span style="color:#ae81ff">5</span>]<span style="color:#f92672">.</span>contents[<span style="color:#ae81ff">0</span>])<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
-
-    ip_temp <span style="color:#f92672">=</span> tds[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>contents[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">+</span>tds[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">.</span>contents[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
-
-    f<span style="color:#f92672">.</span>write(line)
-
-    <span style="color:#66d9ef">print</span>(line)
-
-</code></pre></div><h3 id="验证能否连接">验证能否连接</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
-<span style="color:#75715e">#Unicode gbk</span>
-
-<span style="color:#f92672">import</span> socket
-
-<span style="color:#f92672">import</span> re
-
-<span style="color:#f92672">import</span> sys
-
-
-
-<span style="color:#f92672">import</span> requests
-
-
-
-<span style="color:#75715e">#socket.setdefaulttimeout(3)#全局延时</span>
-
-
-
-<span style="color:#75715e">#f2 = open(&#34;./ip_proy/run_ip&#34;, &#34;w&#34;)</span>
-
-f <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;./ip_proy/ip&#34;</span>)
-
-lines <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>readlines()
-
-proxys <span style="color:#f92672">=</span> []
-
-
-
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,len(lines)):
-
-    ip <span style="color:#f92672">=</span> lines[i]<span style="color:#f92672">.</span>strip(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span>)
-
-    ip_line <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>split(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;[.:;]&#34;</span>,ip[<span style="color:#ae81ff">0</span>])<span style="color:#75715e">#re.split分割</span>
-
-    proxy_host <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://&#34;</span><span style="color:#f92672">+</span>ip_line[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">+</span>ip_line[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">+</span>ip_line[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">+</span>ip_line[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;:&#34;</span><span style="color:#f92672">+</span>ip_line[<span style="color:#ae81ff">4</span>]
-
-    proxy_temp <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;http&#34;</span>:proxy_host}
-
-    proxys<span style="color:#f92672">.</span>append(proxy_temp)
-
-
-
-url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://ip.chinaz.com/getip.aspx&#34;</span>
-
-<span style="color:#66d9ef">for</span> proxy <span style="color:#f92672">in</span> proxys:
-
-    <span style="color:#66d9ef">try</span>:
-
-        res <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url,proxies<span style="color:#f92672">=</span>proxy,timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>)
-
-        res<span style="color:#f92672">.</span>encoding <span style="color:#f92672">=</span> res<span style="color:#f92672">.</span>apparent_encoding
-
-        res <span style="color:#f92672">=</span> res<span style="color:#f92672">.</span>text
-
-        <span style="color:#66d9ef">print</span>(proxy)
-
-        <span style="color:#66d9ef">print</span>(res<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
-
-        <span style="color:#e6db74">&#39;&#39;&#39;#hava a bug
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">        for values in proxy.values():
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">        print(values)
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">        f2.write(str(values)+&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;)
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">        &#39;&#39;&#39;</span>
-
-    <span style="color:#66d9ef">except</span>:
-
-        <span style="color:#66d9ef">print</span>(proxy)
-
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;times out</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
-
-f<span style="color:#f92672">.</span>close()
-
-<span style="color:#75715e">#f2.close()</span>
-
-sys<span style="color:#f92672">.</span>exit()
-
-</code></pre></div><h2 id="网页解析器">网页解析器</h2>
-<h4 id="正则表达式">正则表达式</h4>
-<h4 id="htmlparser">html.parser</h4>
-<h4 id="beautifulsoup">BeautifulSoup</h4>
-<h4 id="lxml">lxml</h4>
-<h3 id="网页解析方法">网页解析方法：</h3>
-<p>结构化解析-DOM树</p>
-<p><img class="img-fluid" src="../image/dom.jpg" alt="DOM-tree"  loading="lazy" />
-</p>
-<p><img class="img-fluid" src="../image/html_document.bmp" alt="html"  loading="lazy" />
-</p>
-<h2 id="beautifulsoup最常用">BeautifulSoup(最常用)</h2>
-<h3 id="beautifulsoup解析器">BeautifulSoup解析器：</h3>
-<p>|解析器|使用方法|条件|</p>
-<p>|&mdash;|&mdash;|&mdash;|</p>
-<p>|bs4的html解析器|BeautifulSoup(html,&lsquo;html.parser&rsquo;)|安装bs4|</p>
-<p>|lxml的html解析器|BeautifulSoup(html,&lsquo;lxml&rsquo;)|pip install lxml|</p>
-<p>|lxml的xml解析器|BeautifulSoup(html,&lsquo;xml&rsquo;)|pip install lxml|</p>
-<p>|html5lib的解析器|BeautifulSoup(html,&lsquo;html5lib&rsquo;)|pip install html5lib|</p>
+</div><div class="post-content mb-3"><h2 id="beautifulsoup解析器">BeautifulSoup解析器：</h2>
+<table>
+<thead>
+<tr>
+<th>解析器</th>
+<th>使用方法</th>
+<th>条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bs4的html解析器</td>
+<td>BeautifulSoup(html,&lsquo;html.parser&rsquo;)</td>
+<td>安装bs4</td>
+</tr>
+<tr>
+<td>lxml的html解析器</td>
+<td>BeautifulSoup(html,&lsquo;lxml&rsquo;)</td>
+<td>pip install lxml</td>
+</tr>
+<tr>
+<td>lxml的xml解析器</td>
+<td>BeautifulSoup(html,&lsquo;xml&rsquo;)</td>
+<td>pip install lxml</td>
+</tr>
+<tr>
+<td>html5lib的解析器</td>
+<td>BeautifulSoup(html,&lsquo;html5lib&rsquo;)</td>
+<td>pip install html5lib</td>
+</tr>
+</tbody>
+</table>
 <h3 id="基本元素">基本元素</h3>
-<p>|基本元素|说明|</p>
-<p>|&mdash;|&mdash;|</p>
-<p>|tag|标签,&lt;&gt;开头，&lt;/&gt;结尾|</p>
-<p>|name|标签的名字，<!-- raw HTML omitted --><!-- raw HTML omitted -->,<code>&lt;tag&gt;.name</code>|</p>
-<p>|attrs|标签的属性，<code>&lt;tag&gt;.attrs</code>|</p>
-<p>|NavigableString|<!-- raw HTML omitted -->String<!-- raw HTML omitted -->,<code>&lt;tag&gt;.String</code>|</p>
-<p>|Comment|标签内字符串的注释部分，Comment类型|</p>
+<table>
+<thead>
+<tr>
+<th>基本元素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tag</td>
+<td>标签,&lt;&gt;开头，&lt;/&gt;结尾</td>
+</tr>
+<tr>
+<td>name</td>
+<td>标签的名字，<!-- raw HTML omitted --><!-- raw HTML omitted -->,<code>&lt;tag&gt;.name</code></td>
+</tr>
+<tr>
+<td>attrs</td>
+<td>标签的属性，<code>&lt;tag&gt;.attrs</code></td>
+</tr>
+<tr>
+<td>NavigableString</td>
+<td><!-- raw HTML omitted -->String<!-- raw HTML omitted -->,<code>&lt;tag&gt;.String</code></td>
+</tr>
+<tr>
+<td>Comment</td>
+<td>标签内字符串的注释部分，Comment类型</td>
+</tr>
+</tbody>
+</table>
 <h3 id="搜索节点html中的标签">搜索节点(html中的标签)</h3>
 <p><code>find_all(name,attrs,recursive,string)</code></p>
 <p>name:对标签名称的检索字符串</p>
@@ -430,28 +313,75 @@ m <span style="color:#f92672">=</span> soup<span style="color:#f92672">.</span>p
 
 </code></pre></div><p>###标签树的遍历</p>
 <p>上行遍历</p>
-<p>|属性|说明|</p>
-<p>|&mdash;|&mdash;|</p>
-<p>|.parent|节点的父亲标签|</p>
-<p>|.parents|节点父辈的迭代，用来遍历父辈节点|</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.parent</td>
+<td>节点的父亲标签</td>
+</tr>
+<tr>
+<td>.parents</td>
+<td>节点父辈的迭代，用来遍历父辈节点</td>
+</tr>
+</tbody>
+</table>
 <p>下行遍历</p>
-<p>|属性|说明|</p>
-<p>|&mdash;|&mdash;|</p>
-<p>|.contents|tag的子节点列表|</p>
-<p>|.children|子结点的迭代，用于循环儿子节点|</p>
-<p>|.descendants|子孙节点的迭代，循环遍历所有子孙节点|</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.contents</td>
+<td>tag的子节点列表</td>
+</tr>
+<tr>
+<td>.children</td>
+<td>子结点的迭代，用于循环儿子节点</td>
+</tr>
+<tr>
+<td>.descendants</td>
+<td>子孙节点的迭代，循环遍历所有子孙节点</td>
+</tr>
+</tbody>
+</table>
 <p>平行遍历</p>
-<p>|属性|说明|</p>
-<p>|&mdash;|&mdash;|</p>
-<p>|.next_sibling|返回下一个平行节点的tag|</p>
-<p>|.previous_sibling|分返回上一个平行节点|</p>
-<p>|.next_siblings|迭代类型，返回后续所有平行节点|</p>
-<p>|.previous_siblings|迭代类型，返回前序所有平行节点|</p>
-<p>​       总结：<img class="img-fluid" src="../image/%e6%80%bb%e7%bb%93.bmp" alt="总结"  loading="lazy" />
-</p>
-<p>扩展方法：<img class="img-fluid" src="../image/kz.bmp" alt="扩展方法"  loading="lazy" />
-</p>
-<h3 id="又是实例网上找的">又是实例(网上找的)</h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.next_sibling</td>
+<td>返回下一个平行节点的tag</td>
+</tr>
+<tr>
+<td>.previous_sibling</td>
+<td>分返回上一个平行节点</td>
+</tr>
+<tr>
+<td>.next_siblings</td>
+<td>迭代类型，返回后续所有平行节点</td>
+</tr>
+<tr>
+<td>.previous_siblings</td>
+<td>迭代类型，返回前序所有平行节点</td>
+</tr>
+</tbody>
+</table>
+<h3 id="实例">实例</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
 <span style="color:#75715e"># coding:utf-8</span>
 
@@ -655,9 +585,9 @@ soup<span style="color:#f92672">.</span>select(<span style="color:#e6db74">&#39;
  <span style="color:#e6db74">&#39;\Z&#39;</span>,<span style="color:#75715e">#仅匹配字符串结尾，abc\Z,匹配abc</span>
 
 </code></pre></div><h3 id="方法">方法：</h3>
-<h3 id="1refindallpatternstring">1<code>re.findall(pattern,string)</code></h3>
+<h4 id="1-refindallpatternstring">1. <code>re.findall(pattern,string)</code></h4>
 <p>对string中所有符合pattern规则的进行匹配</p>
-<h3 id="2recompilepatternflag0">2<code>re.compile(pattern,flag=0)</code></h3>
+<h4 id="2-recompilepatternflag0">2. <code>re.compile(pattern,flag=0)</code></h4>
 <p>返回一个对象的模式，用法：<code>re.compile(pattern,flag=0).findall(string)</code></p>
 <p>pattern为正则字符串</p>
 <p>flag，匹配模式,以下可选</p>
@@ -674,7 +604,7 @@ re.U
 
 re.X #详细模式，这个模式下正则表达式可以是多行，忽略空白字符，并可以加入注释
 
-</code></pre><h3 id="3rematchpattern-string-flags0">3<code>re.match(pattern, string, flags=0)</code></h3>
+</code></pre><h4 id="3-rematchpattern-string-flags0">3. <code>re.match(pattern, string, flags=0)</code></h4>
 <p>match方法会从要匹配的string的开头开始，尝试匹配pattern，一直向后，如果遇到无法匹配的字符，就返回None，如果匹配未结束已经到达string的末尾也会返回None，表示匹配失败。匹配成功会返回True，以及匹配到的内容的group,非完全匹配，完全匹配需要在表达式末尾加上'$'</p>
 <h5 id="eg-1">eg:</h5>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
@@ -756,7 +686,7 @@ m<span style="color:#f92672">=</span>re<span style="color:#f92672">.</span>match
 
 <span style="color:#66d9ef">print</span>(m<span style="color:#f92672">.</span>span(<span style="color:#ae81ff">2</span>))<span style="color:#75715e">#返回(start(group),end(group))</span>
 
-</code></pre></div><h3 id="4researchpattern-string-flags0">4<code>re.search(pattern, string, flags=0)</code></h3>
+</code></pre></div><h4 id="4-researchpattern-string-flags0">4. <code>re.search(pattern, string, flags=0)</code></h4>
 <p>类似与match方法，但是match会检测re是不是在string的开始位置就能够匹配到，而search会扫描整个string来匹配。match方法只有在0位置匹配成功的话才会返回，如果不是开始i位置，即使后面由匹配，也会返回None。</p>
 <h5 id="eg-2">eg:</h5>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
@@ -768,7 +698,7 @@ match<span style="color:#f92672">=</span>re<span style="color:#f92672">.</span>s
 
     <span style="color:#66d9ef">print</span>(match<span style="color:#f92672">.</span>group()
 
-</code></pre></div><h3 id="5resplitpattern-string-maxsplit0-flags0">5<code>re.split(pattern, string, maxsplit=0, flags=0)</code></h3>
+</code></pre></div><h4 id="5-resplitpattern-string-maxsplit0-flags0">5. <code>re.split(pattern, string, maxsplit=0, flags=0)</code></h4>
 <p>将string按照匹配的子串分割后返回列表，maxsplit参数指定最大分割次数，不指定的话会全部分割。</p>
 <h5 id="eg-3">eg:</h5>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
@@ -778,7 +708,7 @@ split<span style="color:#f92672">=</span>re<span style="color:#f92672">.</span>s
 
 <span style="color:#66d9ef">print</span>(split)
 
-</code></pre></div><h3 id="6refindallpattern-string-flags0">6<code>re.findall(pattern, string, flags=0)</code></h3>
+</code></pre></div><h4 id="6-refindallpattern-string-flags0">6. <code>re.findall(pattern, string, flags=0)</code></h4>
 <p>搜索string，以列表的形式返回全部能匹配的子串。</p>
 <h5 id="eg-4">eg:</h5>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
@@ -786,7 +716,7 @@ pattern <span style="color:#f92672">=</span> re<span style="color:#f92672">.</sp
 
 <span style="color:#66d9ef">print</span>(re<span style="color:#f92672">.</span>findall(pattern,<span style="color:#e6db74">&#39;one1two23three3four4&#39;</span>))
 
-</code></pre></div><h3 id="7refinditerpattern-string-flags0">7<code>re.finditer(pattern, string, flags=0)</code></h3>
+</code></pre></div><h4 id="7-refinditerpattern-string-flags0">7. <code>re.finditer(pattern, string, flags=0)</code></h4>
 <p>搜索string，返回一个顺序访问每一个匹配结果的迭代器</p>
 <h5 id="eg-5">eg:</h5>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
@@ -796,7 +726,7 @@ pattern<span style="color:#f92672">=</span>re<span style="color:#f92672">.</span
 
     <span style="color:#66d9ef">print</span>(m<span style="color:#f92672">.</span>group())
 
-</code></pre></div><h3 id="8resubpattern-repl-string-count0-flags0">8<code>re.sub(pattern, repl, string, count=0, flags=0)</code></h3>
+</code></pre></div><h4 id="8-resubpattern-repl-string-count0-flags0">8. <code>re.sub(pattern, repl, string, count=0, flags=0)</code></h4>
 <p>使用repl替换string中的每一个匹配的子串后返回替换的字符串。</p>
 <p>repl可以是一个方法，这个方法应该只接受一个match对象作为参数，并且返回一个字符串用于替换。</p>
 <p>count可以指定最多替换次数，不指定的话就全部替换。</p>
@@ -817,27 +747,27 @@ string<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;i say
 <span style="color:#66d9ef">print</span>(re<span style="color:#f92672">.</span>sub(pattern,func,string))
 
 </code></pre></div></div><div class="post-copyright mb-4">
-  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+  <h3>Copyright</h3><div class="post-cc">This work is licensed under <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY-NC 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i></a>.</div>
 </div>
 <div class="post-reward mb-4 text-center">
   <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
-    <i class="fas fa-fw fa-medal"></i>打赏
+    <i class="fas fa-fw fa-medal"></i>Reward
   </button>
 </div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content surface">
       <div class="modal-header">
-        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>Reward</h5>
         <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
       </div>
       <div class="modal-body">
         <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
             <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
-              <i class="fab fa-fw fa-alipay"></i>支付宝
+              <i class="fab fa-fw fa-alipay"></i>Alipay
             </a>
           </li><li class="nav-item" role="presentation">
             <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
-              <i class="fab fa-fw fa-weixin"></i>微信
+              <i class="fab fa-fw fa-weixin"></i>WeChat
             </a>
           </li></ul>
         <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
@@ -850,14 +780,14 @@ string<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;i say
   </div>
 </div><div class="post-navs d-flex mb-3 justify-content-between">
   <div class="post-nav w-50"><div class="prev-post">
-      <a href="/posts/python/pyquerystudy/">爬虫学习4</a>
+      <a href="https://euraxluo.gitee.io/blog/posts/algorithm/%E6%95%B0%E7%BB%84/">数组</a>
     </div></div>
   <div class="post-nav flex-row-reverse"><div class="next-post">
-      <a href="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/">爬虫学习2</a>
+      <a href="https://euraxluo.gitee.io/blog/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/">爬虫学习2-Requests库学习</a>
     </div></div>
 </div><section class="related-posts">
-  <h3>相关文章</h3>
-  <ul class="related-posts"><li><a href="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/">爬虫学习1</a></li><li><a href="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/">爬虫学习2</a></li><li><a href="/posts/python/pyquerystudy/">爬虫学习4</a></li></ul>
+  <h3>Related Posts</h3>
+  <ul class="related-posts"><li><a href="https://euraxluo.gitee.io/blog/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/">爬虫学习1-概念及urllib2</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/">爬虫学习2-Requests库学习</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/message_queue/rabbitmq_%E5%85%A5%E9%97%A8/">RabbitMQ-入门</a></li></ul>
 </section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
   repo="Euraxluo/Euraxluo.github.io"
   issue-term="pathname"
@@ -872,93 +802,69 @@ string<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;i say
     <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
   </div>
   <div class="col-xl-6">
-    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class="profile-about mb-2"><i class="fas fa-fw fa-info-circle"></i><a href="https://euraxluo.gitee.io/blog/about/">About</a></div></div>
 </section><section class="featured-posts row surface">
-  <h4>精选文章</h4>
-  <ul><li><a href="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li><li><a href="/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="/posts/note/slam/">SLAM</a></li></ul>
+  <h4>Featured Posts</h4>
+  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/python/python-socket/">python socket编程</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/slam/">SLAM</a></li></ul>
 </section><section class="recent-posts row surface">
-  <h4>最近文章</h4>
-  <ul><li><a href="/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+  <h4>Recent Posts</h4>
+  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/shortcodes/g2plot_charts_test/">echarts shortcode</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 </a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a></li></ul>
 </section>
 <section class="taxonomy-categories row surface">
   <h4>
-    <a href="/categories">分类</a>
+    <a href="https://euraxluo.gitee.io/blog/categories">Categories</a>
   </h4>
-  <div><a href="/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">23</span>
-    </a><a href="/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+  <div><a href="https://euraxluo.gitee.io/blog/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">21</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
       redis <span class="badge rounded-pill">10</span>
-    </a><a href="/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
-      Shortcode <span class="badge rounded-pill">10</span>
-    </a><a href="/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+    </a><a href="https://euraxluo.gitee.io/blog/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
       java <span class="badge rounded-pill">8</span>
-    </a><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
-      读书笔记 <span class="badge rounded-pill">5</span>
-    </a><a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+    </a><a href="https://euraxluo.gitee.io/blog/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
       爬虫 <span class="badge rounded-pill">4</span>
-    </a><a href="/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
-      NLP <span class="badge rounded-pill">3</span>
-    </a><a href="/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
-      ROS <span class="badge rounded-pill">3</span>
-    </a><a href="/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
-      Shell <span class="badge rounded-pill">2</span>
-    </a><a href="/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
-      TensorFlow <span class="badge rounded-pill">2</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/architecture-design/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="architecture design">
+      architecture design <span class="badge rounded-pill">3</span>
     </a></div>
 </section><section class="taxonomy-series row surface">
   <h4>
-    <a href="/series">专栏</a>
+    <a href="https://euraxluo.gitee.io/blog/series">Series</a>
   </h4>
-  <div><a href="/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">23</span>
-    </a><a href="/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+  <div><a href="https://euraxluo.gitee.io/blog/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">18</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
       redis <span class="badge rounded-pill">10</span>
-    </a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
-      读书笔记 <span class="badge rounded-pill">5</span>
-    </a><a href="/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
-      Pathon <span class="badge rounded-pill">4</span>
-    </a><a href="/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+    </a><a href="https://euraxluo.gitee.io/blog/series/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Python">
+      Python <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
       Java <span class="badge rounded-pill">3</span>
-    </a><a href="/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+    </a><a href="https://euraxluo.gitee.io/blog/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
       JDBC <span class="badge rounded-pill">3</span>
-    </a><a href="/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
-      NLP <span class="badge rounded-pill">3</span>
-    </a><a href="/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
-      ROS <span class="badge rounded-pill">3</span>
-    </a><a href="/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
-      Shell <span class="badge rounded-pill">2</span>
-    </a><a href="/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
-      TensorFlow <span class="badge rounded-pill">2</span>
     </a></div>
 </section><section class="taxonomy-tags row surface">
   <h4>
-    <a href="/tags">标签</a>
+    <a href="https://euraxluo.gitee.io/blog/tags">Tags</a>
   </h4>
-  <div><a href="/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">23</span>
-    </a><a href="/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+  <div><a href="https://euraxluo.gitee.io/blog/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">17</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
       redis <span class="badge rounded-pill">10</span>
-    </a><a href="/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+    </a><a href="https://euraxluo.gitee.io/blog/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Python">
+      Python <span class="badge rounded-pill">7</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
       Java <span class="badge rounded-pill">4</span>
-    </a><a href="/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
-      Pathon <span class="badge rounded-pill">4</span>
-    </a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+    </a><a href="https://euraxluo.gitee.io/blog/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
       爬虫 <span class="badge rounded-pill">4</span>
-    </a><a href="/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
-      JDBC <span class="badge rounded-pill">3</span>
-    </a><a href="/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
-      NLP <span class="badge rounded-pill">3</span>
-    </a><a href="/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
-      ROS <span class="badge rounded-pill">3</span>
-    </a><a href="/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
-      python <span class="badge rounded-pill">2</span>
-    </a><a href="/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
-      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/architecture/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="architecture">
+      architecture <span class="badge rounded-pill">3</span>
     </a></div>
 </section></div>
 </aside>
 </div>
-    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    </main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
     <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
       <i class="fas fa-fw fa-2x fa-envelope"></i>
     </a>
@@ -976,13 +882,11 @@ string<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;i say
       </a>
     </li></nav>
 <div class="copyright mb-2">
-  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+  Copyright © 2016-2022 Euraxluo. All Rights Reserved.
 </div>
 <script>
   window.parent.postMessage(window.location.href, "*");
-</script><div class="powered-by mb-2">
-  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
-</div></footer>
+</script></footer>
 <a id="btnScrollToTop" class="btn-scroll-to-top">
   <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
 </a>

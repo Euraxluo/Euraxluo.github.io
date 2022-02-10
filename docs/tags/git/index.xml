@@ -2,19 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>git on Euraxluo Blog</title>
-    <link>/tags/git/</link>
+    <link>https://euraxluo.gitee.io/blog/tags/git/</link>
     <description>Recent content in git on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Wed, 11 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Jul 2018 00:00:00 +0800</lastBuildDate><atom:link href="https://euraxluo.gitee.io/blog/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git学习笔记</title>
-      <link>/posts/reading/git%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
+      <link>https://euraxluo.gitee.io/blog/posts/tools/git%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 11 Jul 2018 00:00:00 +0800</pubDate>
       
-      <guid>/posts/reading/git%E5%AD%A6%E4%B9%A0/</guid>
-      <description>Git 学习笔记 cd相对路径 cd 什么都不加 回到用户的家目录下 cd ~ 回到root目录下 cd .. 进入上一级目录 cd - 返回上一次目录 cd . 当前目录 创建和删除目录 创建</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/tools/git%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Git 学习笔记 cd相对路径 cd 什么都不加 回到用户的家目录下 cd ~ 回到root目录下 cd .. 进入上一级目录
+cd - 返回上一次目录
+cd . 当前目录
+创建和删除目录 创建目录mkdir mkdir=make directory
+mkdir dirname 创建目录
+mkdir -p /etc/dirname/test/ 级联创建目录
+mkdir -pv /etc/dirname/test/ 加上v可以看到创建的过程
+删除目录rmdir rmdir=remove directory
+rmdir dirname 可 删除空目录（下面无目录和文件）
+删除文件 rm = remove命令 rmdir -p 可级联删除一串目录，但是是从最开始的目录删起。比较危险，慎用
+rm /tmp/ww/2/3/1.txt 会提示是否删除1.txt
+rm -f /tmp/ww/2/3/1.txt 强制删除，不给提示
+rm -r 级联删除目录，但是会提示是否删除，直接rm不能删目录
+rm -rf 直接级联强制删除
+rm -rfv 加上v显示删除过程
+更新仓库 //在github上创建项目 $ git clone https://github/xx账号/xx项目.git//克隆到本地 //编辑项目 $ git add .</description>
     </item>
     
   </channel>

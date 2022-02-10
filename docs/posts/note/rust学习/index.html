@@ -1,18 +1,18 @@
 <!doctype html>
-<html lang="zh-cn">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>rust学习 - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/images/favicons/manifest.json">
-<link rel="icon" href="/images/favicons/favicon.ico">
+    <title>rust学习 - Euraxluo Blog</title><link rel="apple-touch-icon" href="https://euraxluo.gitee.io/blog/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="https://euraxluo.gitee.io/blog/images/favicons/manifest.json">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon.ico">
 <meta name="description" content="rust学习" /><meta itemprop="name" content="rust学习">
 <meta itemprop="description" content="rust学习">
 <meta itemprop="datePublished" content="2019-02-21T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-02-21T00:00:00+00:00" />
-<meta itemprop="wordCount" content="4932">
+<meta itemprop="wordCount" content="320">
 
 
 
@@ -20,49 +20,49 @@
 <meta property="og:title" content="rust学习" />
 <meta property="og:description" content="rust学习" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/note/rust%E5%AD%A6%E4%B9%A0/" />
+<meta property="og:url" content="https://euraxluo.gitee.io/blog/posts/note/rust%E5%AD%A6%E4%B9%A0/" />
 <meta property="article:published_time" content="2019-02-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-02-21T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/posts/note/bio%E5%AD%A6%E4%B9%A0/" /><meta property="og:see_also" content="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/" /><meta property="og:see_also" content="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/" /><meta property="og:see_also" content="/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/" /><meta property="og:see_also" content="/posts/note/go-%E8%AF%AD%E8%A8%80/" /><meta property="og:see_also" content="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" />
+<meta property="article:modified_time" content="2019-02-21T00:00:00+00:00" /><meta property="og:see_also" content="https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" /><meta property="og:see_also" content="https://euraxluo.gitee.io/blog/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/" /><meta property="og:see_also" content="https://euraxluo.gitee.io/blog/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/" /><meta property="og:see_also" content="https://euraxluo.gitee.io/blog/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" /><meta property="og:see_also" content="https://euraxluo.gitee.io/blog/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="rust学习"/>
 <meta name="twitter:description" content="rust学习"/>
-<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="https://euraxluo.gitee.io/blog/css/bundle.min.c499608f8442ace06c5f0f9298ce8f109f7a84d0bc7a2d5cfce2221e20d34177.css" integrity="sha256-xJlgj4RCrOBsXw&#43;SmM6PEJ96hNC8ei1c/OIiHiDTQXc=" crossorigin="anonymous"><script src="https://euraxluo.gitee.io/blog/js/bundle.min.4f0bf0084c93f18baec18d21035f382e8b666d326b7f3a3fddfab7c6e7566bfc.js" integrity="sha256-TwvwCEyT8YuuwY0hA184LotmbTJrfzo/3fq3xudWa/w=" crossorigin="anonymous"></script>
 </head>
   <body><header><nav class="navbar fixed-top navbar-expand-xl">
-  <div class="container">
-    <a class="navbar-brand" href="/">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="https://euraxluo.gitee.io/blog">
       <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/search">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="https://euraxluo.gitee.io/blog/search">
   <div class="input-group input-group-sm">
     <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
     <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
   </div>
-</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
-          <a class="nav-link" href="/archives">
-            <i class="fas fa-fw fa-file-archive"></i>归档
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 mr-auto"><li class="nav-item">
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/archives">
+            <i class="fas fa-fw fa-file-archive"></i>timeline
           </a>
         </li><li class="nav-item">
-          <a class="nav-link" href="/categories">
-            <i class="fas fa-fw fa-folder"></i>分类
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/categories">
+            <i class="fas fa-fw fa-folder"></i>category
           </a>
         </li><li class="nav-item">
-          <a class="nav-link" href="/tags">
-            <i class="fas fa-fw fa-tags"></i>标签
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/tags">
+            <i class="fas fa-fw fa-tags"></i>tags
           </a>
         </li><li class="nav-item">
-          <a class="nav-link" href="/series">
-            <i class="fas fa-fw fa-columns"></i>专栏
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/series">
+            <i class="fas fa-fw fa-columns"></i>series
           </a>
         </li><li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-            Repos
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-repos" role="button" data-toggle="dropdown" aria-expanded="false">
+            <i class="fab fa-fw fa-github"></i>Repos
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-repos"><li>
               <a class="dropdown-item"
                 href="https://github.com/Euraxluo" target="_blank">
                 <i class="fab fa-fw fa-github"></i>Euraxluo
@@ -101,9 +101,7 @@
   </a>
 </li>
 <script type="text/html" id="languagesPopoverBody">
-  <ul class="languages list-group"><li class="language list-group-item">
-      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
-      <a href="/zh-tw/">繁體中文</a></li></ul>
+  <ul class="languages list-group"></ul>
 </script>
 <li class="nav-item mr-2">
   <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
@@ -113,29 +111,29 @@
 </li>
 <script type="text/html" id="palettesPopoverBody">
   <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
-      <a>蓝色</a>
+      <a>Blue</a>
     </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
-      <a>蓝灰色</a>
+      <a>Blue Gray</a>
     </li><li id="palette-brown" class="palette list-group-item bg-brown">
-      <a>棕色</a>
+      <a>Brown</a>
     </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
-      <a>青色</a>
+      <a>Cyan</a>
     </li><li id="palette-green" class="palette list-group-item bg-green">
-      <a>绿色</a>
+      <a>Green</a>
     </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
-      <a>靛青色</a>
+      <a>Indigo</a>
     </li><li id="palette-orange" class="palette list-group-item bg-orange">
-      <a>橙色</a>
+      <a>Orange</a>
     </li><li id="palette-pink" class="palette list-group-item bg-pink">
-      <a>粉色</a>
+      <a>Pink</a>
     </li><li id="palette-purple" class="palette list-group-item bg-purple">
-      <a>紫色</a>
+      <a>Purple</a>
     </li><li id="palette-red" class="palette list-group-item bg-red">
-      <a>红色</a>
+      <a>Red</a>
     </li><li id="palette-teal" class="palette list-group-item bg-teal">
-      <a>蓝绿色</a>
+      <a>Teal</a>
     </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
-      <a>黄色</a>
+      <a>Yellow</a>
     </li></ul>
 </script>
 
@@ -147,7 +145,7 @@
 </li>
 <script type="text/html" id="fontSizesPopoverBody">
   <form class="font-size-switcher-form">
-    <label for="fontSize" class="form-label">字体大小</label>
+    <label for="fontSize" class="form-label">Font Size</label>
     <input type="range" class="form-range" min="-2" max="2" id="fontSize">
   </form>
 </script>
@@ -161,24 +159,24 @@
   </div>
 </nav>
 </header>
-<main role="main" class="container">
+<main role="main" class="container-fluid">
       <div class="row content">
 <div class="col-md-8">
   <div class="container"><nav class="row" aria-label="breadcrumb">
-  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/">主页</a></li><li class="breadcrumb-item"><a href="/posts/">posts</a></li><li class="breadcrumb-item"><a href="/posts/note/">note</a></li><li class="breadcrumb-item active">rust学习</li></ol>
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/">Home</a></li><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/posts/">posts</a></li><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/posts/note/">note</a></li><li class="breadcrumb-item active">rust学习</li></ol>
 </nav><article class="post row surface">
   <h1 class="post-title my-3">rust学习</h1><div class="post-meta mb-3">
   <span class="post-date mr-2">
     <i class="fas fa-fw fa-calendar-alt"></i>2019-02-21
   </span>
   <span class="poost-reading-time mr-2">
-    <i class="fas fa-fw fa-coffee"></i>10 分钟阅读
+    <i class="fas fa-fw fa-coffee"></i>2 min read
   </span>
-<a href="/categories/notes/" class="post-taxonomy">#notes</a><a href="/series/notes/" class="post-taxonomy">#notes</a><a href="/tags/notes/" class="post-taxonomy">#notes</a></div>
+<a href="https://euraxluo.gitee.io/blog/categories/notes/" class="post-taxonomy">#notes</a><a href="https://euraxluo.gitee.io/blog/series/notes/" class="post-taxonomy">#notes</a><a href="https://euraxluo.gitee.io/blog/tags/notes/" class="post-taxonomy">#notes</a></div>
 <div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
   <div class="accordion-item">
     <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
-      <i class="fas fa-fw fa-bars"></i>目录
+      <i class="fas fa-fw fa-bars"></i>Table Of Contents
     </div>
     <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
       <div class="accordion-body mt-2">
@@ -210,31 +208,30 @@
 <p>因为所有权对很多程序员来说都是一个新概念，需要一些时间来适应。好消息是随着你对 Rust 和所有权系统的规则越来越有经验，你就越能自然地编写出安全和高效的代码。持之以恒！</p>
 <p>当你理解了所有权，你将有一个坚实的基础来理解那些使 Rust 独特的功能。在本章中，你将通过完成一些示例来学习所有权，这些示例基于一个常用的数据结构：字符串。</p>
 <p>所有权（系统）是 Rust 最独特的功能，其令 Rust 无需垃圾回收（garbage collector）即可保障内存安全。因此，理解 Rust 中所有权如何工作是十分重要的。</p>
-<blockquote>
 <h3 id="栈stack与堆heap">栈（Stack）与堆（Heap）</h3>
-<p>在很多语言中，你并不需要经常考虑到栈与堆。不过在像 Rust 这样的系统编程语言中，值是位于栈上还是堆上在更大程度上影响了语言的行为以及为何必须做出这样的抉择。我们会在本章的稍后部分描述所有权与栈和堆相关的内容，所以这里只是一个用来预热的简要解释。</p>
-<p>栈和堆都是代码在运行时可供使用的内存，但是它们的结构不同。栈以放入值的顺序存储值并以相反顺序取出值。这也被称作 <strong>后进先出</strong>（<em>last in, first out</em>）。想象一下一叠盘子：当增加更多盘子时，把它们放在盘子堆的顶部，当需要盘子时，也从顶部拿走。不能从中间也不能从底部增加或拿走盘子！增加数据叫做 <strong>进栈</strong>（<em>pushing onto the stack</em>），而移出数据叫做 <strong>出栈</strong>（<em>popping off the stack</em>）。</p>
-<p>栈的操作是十分快速的，这主要是得益于它存取数据的方式：因为数据存取的位置总是在栈顶而不需要寻找一个位置存放或读取数据。另一个让操作栈快速的属性是，栈中的所有数据都必须占用已知且固定的大小。</p>
-<p>在编译时大小未知或大小可能变化的数据，要改为存储在堆上。堆是缺乏组织的：当向堆放入数据时，你要请求一定大小的空间。操作系统在堆的某处找到一块足够大的空位，把它标记为已使用，并返回一个表示该位置地址的 <strong>指针</strong>（<em>pointer</em>）。这个过程称作 <strong>在堆上分配内存</strong>（<em>allocating on the heap</em>），有时简称为 “分配”（allocating）。将数据推入栈中并不被认为是分配。因为指针的大小是已知并且固定的，你可以将指针存储在栈上，不过当需要实际数据时，必须访问指针。</p>
-<p>想象一下去餐馆就座吃饭。当进入时，你说明有几个人，餐馆员工会找到一个够大的空桌子并领你们过去。如果有人来迟了，他们也可以通过询问来找到你们坐在哪。</p>
-<p>访问堆上的数据比访问栈上的数据慢，因为必须通过指针来访问。现代处理器在内存中跳转越少就越快（缓存）。继续类比，假设有一个服务员在餐厅里处理多个桌子的点菜。在一个桌子报完所有菜后再移动到下一个桌子是最有效率的。从桌子 A 听一个菜，接着桌子 B 听一个菜，然后再桌子 A，然后再桌子 B 这样的流程会更加缓慢。出于同样原因，处理器在处理的数据彼此较近的时候（比如在栈上）比较远的时候（比如可能在堆上）能更好的工作。在堆上分配大量的空间也可能消耗时间。</p>
+<p>在很多语言中，你并不需要经常考虑到栈与堆。不过在像 Rust 这样的系统编程语言中，值是位于栈上还是堆上在更大程度上影响了语言的行为以及为何必须做出这样的抉择。我们会在本章的稍后部分描述所有权与栈和堆相关的内容，所以这里只是一个用来预热的简要解释。
+栈和堆都是代码在运行时可供使用的内存，但是它们的结构不同。栈以放入值的顺序存储值并以相反顺序取出值。这也被称作 <strong>后进先出</strong>（<em>last in, first out</em>）。想象一下一叠盘子：当增加更多盘子时，把它们放在盘子堆的顶部，当需要盘子时，也从顶部拿走。不能从中间也不能从底部增加或拿走盘子！增加数据叫做 <strong>进栈</strong>（<em>pushing onto the stack</em>），而移出数据叫做 <strong>出栈</strong>（<em>popping off the stack</em>）。
+栈的操作是十分快速的，这主要是得益于它存取数据的方式：因为数据存取的位置总是在栈顶而不需要寻找一个位置存放或读取数据。另一个让操作栈快速的属性是，栈中的所有数据都必须占用已知且固定的大小。
+在编译时大小未知或大小可能变化的数据，要改为存储在堆上。堆是缺乏组织的：当向堆放入数据时，你要请求一定大小的空间。操作系统在堆的某处找到一块足够大的空位，把它标记为已使用，并返回一个表示该位置地址的 <strong>指针</strong>（<em>pointer</em>）。这个过程称作 <strong>在堆上分配内存</strong>（<em>allocating on the heap</em>），有时简称为 “分配”（allocating）。将数据推入栈中并不被认为是分配。因为指针的大小是已知并且固定的，你可以将指针存储在栈上，不过当需要实际数据时，必须访问指针。
+想象一下去餐馆就座吃饭。当进入时，你说明有几个人，餐馆员工会找到一个够大的空桌子并领你们过去。如果有人来迟了，他们也可以通过询问来找到你们坐在哪。
+访问堆上的数据比访问栈上的数据慢，因为必须通过指针来访问。现代处理器在内存中跳转越少就越快（缓存）。继续类比，假设有一个服务员在餐厅里处理多个桌子的点菜。在一个桌子报完所有菜后再移动到下一个桌子是最有效率的。从桌子 A 听一个菜，接着桌子 B 听一个菜，然后再桌子 A，然后再桌子 B 这样的流程会更加缓慢。出于同样原因，处理器在处理的数据彼此较近的时候（比如在栈上）比较远的时候（比如可能在堆上）能更好的工作。在堆上分配大量的空间也可能消耗时间。</p>
 <h4 id="栈">栈：</h4>
-<p>​        执行期间编译器自动分配，编译器用它实现函数调用，调用函数时，栈增长，函数返回时，栈收缩。局部变量、函数参数、返回数据、返回地址等放在栈中</p>
+<p>执行期间编译器自动分配，编译器用它实现函数调用，调用函数时，栈增长，函数返回时，栈收缩。局部变量、函数参数、返回数据、返回地址等放在栈中</p>
 <h5 id="栈的特点">栈的特点</h5>
 <ol>
-<li>内存分配取决于编译器，用户栈在程序运行期间可以动态的扩展和收缩。</li>
-<li>和数据结构中的“栈”本质上是不一样的，但是操作方式类似于栈。</li>
-<li>数据从栈中的进出满足“后进先出”的规律。</li>
-<li>栈向低地址方向增长，esp（栈指针）指向栈顶元素。</li>
+<li>内存分配取决于编译器，用户栈在程序运行期间可以动态的扩展和收缩。
+. 和数据结构中的“栈”本质上是不一样的，但是操作方式类似于栈。</li>
+<li>数据从栈中的进出满足“后进先出”的规律。
+. 栈向低地址方向增长，esp（栈指针）指向栈顶元素。</li>
 </ol>
 <h4 id="堆">堆：</h4>
 <p>​        动态储存器分配器维护着的一个进程的虚拟存储器区域。一般由程序员分配释放（堆在操作系统对进程初始化的时候分配），若程序员不释放，程序结束时可能由OS回收，每个进程，内核都维护着一个变量brk指向堆顶。</p>
 <h5 id="堆的特点">堆的特点</h5>
 <ol>
-<li><strong>内存分配取决于程序员，C/C++可以手动释放该片内存。</strong> 在所有权系统中，会自动完成清理堆的活动</li>
-<li>和<strong>数据结构的”堆“完全两回事</strong>，没有半点关系，在这里堆的结构更像链表。</li>
-<li>所有的对象，包括数组的对象都存在堆上。</li>
-<li>堆内存被所有的线程共享。</li>
+<li><strong>内存分配取决于程序员，C/C++可以手动释放该片内存。</strong> 在所有权系统中，会自动完成清理堆的活动
+. 和<strong>数据结构的”堆“完全两回事</strong>，没有半点关系，在这里堆的结构更像链表。</li>
+<li>所有的对象，包括数组的对象都存在堆上。
+. 堆内存被所有的线程共享。</li>
 <li>引用类型总是放在堆中。</li>
 <li>堆向高地址方向增长，内核都维护的变量brk指向堆顶。</li>
 </ol>
@@ -242,23 +239,22 @@
 当值类型的数据在方法体内被声明时，它们都应该放在栈上。
 如果一个只类型被声明在方法体外且存在于一个引用类型中，那么它将会被堆里的引用类型所取代。</p>
 <h4 id="全局区静态区">全局区/静态区：</h4>
-<p>​        全局变量、静态变量、常量的存储区域，程序终止时系统释放。</p>
+<p>全局变量、静态变量、常量的存储区域，程序终止时系统释放。</p>
 <h4 id="文字常量区">文字常量区：</h4>
-<p>​        存放常量字符串，程序结束后由系统释放。</p>
+<p>存放常量字符串，程序结束后由系统释放。</p>
 <h4 id="程序代码区">程序代码区：</h4>
-<p>​        存放函数体（类成员函数和全局函数）的二进制代码。</p>
+<p>存放函数体（类成员函数和全局函数）的二进制代码。</p>
 <h4 id="栈和堆的区别">栈和堆的区别：</h4>
 <ol>
-<li>栈内存存储的的是局部变量，堆内存存储的是实体。</li>
-<li>栈内存的更新的速度会更快些（局部变量），堆内存的更新速度相对更慢。</li>
-<li>栈内存的访问直接从地址读取数据到寄存器，然后放到目标地址，而堆内存的访问更麻烦，先将分配的地址放到寄存器，在读取地址的值，最后再放到目标文件中，开销更大。</li>
-<li>栈内存是连续的空间，堆内存一般情况不是连续的，频繁地开辟空间，释放空间容易产生内存碎片（外碎片）。</li>
+<li>栈内存存储的的是局部变量，堆内存存储的是实体。
+. 栈内存的更新的速度会更快些（局部变量），堆内存的更新速度相对更慢。</li>
+<li>栈内存的访问直接从地址读取数据到寄存器，然后放到目标地址，而堆内存的访问更麻烦，先将分配的地址放到寄存器，在读取地址的值，最后再放到目标文件中，开销更大。
+. 栈内存是连续的空间，堆内存一般情况不是连续的，频繁地开辟空间，释放空间容易产生内存碎片（外碎片）。</li>
 </ol>
 <h4 id="栈和堆的联系">栈和堆的联系：</h4>
-<p>​        堆中对象是直接由栈中的句柄（引用）管理者，所以堆负责产生真实对象，栈负责管理对象。</p>
-<p>当你的代码调用一个函数时，传递给函数的值（包括可能指向堆上数据的指针）和函数的局部变量被压入栈中。当函数结束时，这些值被移出栈。</p>
-<p><strong>跟踪哪部分代码正在使用堆上的哪些数据，最大限度的减少堆上的重复数据的数量，以及清理堆上不再使用的数据确保不会耗尽空间，这些问题正是所有权系统要处理的。一旦理解了所有权，你就不需要经常考虑栈和堆了，不过明白了所有权的存在就是为了管理堆数据，能够帮助解释为什么所有权要以这种方式工作。</strong></p>
-</blockquote>
+<p>堆中对象是直接由栈中的句柄（引用）管理者，所以堆负责产生真实对象，栈负责管理对象。
+当你的代码调用一个函数时，传递给函数的值（包括可能指向堆上数据的指针）和函数的局部变量被压入栈中。当函数结束时，这些值被移出栈。
+<strong>跟踪哪部分代码正在使用堆上的哪些数据，最大限度的减少堆上的重复数据的数量，以及清理堆上不再使用的数据确保不会耗尽空间，这些问题正是所有权系统要处理的。一旦理解了所有权，你就不需要经常考虑栈和堆了，不过明白了所有权的存在就是为了管理堆数据，能够帮助解释为什么所有权要以这种方式工作。</strong></p>
 <h3 id="所有权规则">所有权规则</h3>
 <blockquote>
 <ol>
@@ -322,27 +318,27 @@ println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;x =
 <h3 id="枚举">枚举</h3>
 <p>枚举是一个很多语言都有的功能，不过不同语言中其功能各不相同。Rust 的枚举与Haskell中的 <strong>代数数据类型</strong>（<em>algebraic data types</em>）最为相似。</p>
 </div><div class="post-copyright mb-4">
-  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+  <h3>Copyright</h3><div class="post-cc">This work is licensed under <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY-NC 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i></a>.</div>
 </div>
 <div class="post-reward mb-4 text-center">
   <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
-    <i class="fas fa-fw fa-medal"></i>打赏
+    <i class="fas fa-fw fa-medal"></i>Reward
   </button>
 </div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content surface">
       <div class="modal-header">
-        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>Reward</h5>
         <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
       </div>
       <div class="modal-body">
         <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
             <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
-              <i class="fab fa-fw fa-alipay"></i>支付宝
+              <i class="fab fa-fw fa-alipay"></i>Alipay
             </a>
           </li><li class="nav-item" role="presentation">
             <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
-              <i class="fab fa-fw fa-weixin"></i>微信
+              <i class="fab fa-fw fa-weixin"></i>WeChat
             </a>
           </li></ul>
         <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
@@ -355,14 +351,14 @@ println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;x =
   </div>
 </div><div class="post-navs d-flex mb-3 justify-content-between">
   <div class="post-nav w-50"><div class="prev-post">
-      <a href="/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a>
+      <a href="https://euraxluo.gitee.io/blog/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a>
     </div></div>
   <div class="post-nav flex-row-reverse"><div class="next-post">
-      <a href="/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/">pattern:斑图</a>
+      <a href="https://euraxluo.gitee.io/blog/posts/python/python-socket/">python socket编程</a>
     </div></div>
 </div><section class="related-posts">
-  <h3>相关文章</h3>
-  <ul class="related-posts"><li><a href="/posts/note/bio%E5%AD%A6%E4%B9%A0/">BIO</a></li><li><a href="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/">C&#43;&#43; 小记</a></li><li><a href="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/">Colab的使用</a></li><li><a href="/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/">C语言小计</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li></ul>
+  <h3>Related Posts</h3>
+  <ul class="related-posts"><li><a href="https://euraxluo.gitee.io/blog/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/">C&#43;&#43; 小记</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/slam/">SLAM</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/vslam/">VSLAM</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/">pattern:斑图</a></li></ul>
 </section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
   repo="Euraxluo/Euraxluo.github.io"
   issue-term="pathname"
@@ -377,93 +373,69 @@ println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;x =
     <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
   </div>
   <div class="col-xl-6">
-    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class="profile-about mb-2"><i class="fas fa-fw fa-info-circle"></i><a href="https://euraxluo.gitee.io/blog/about/">About</a></div></div>
 </section><section class="featured-posts row surface">
-  <h4>精选文章</h4>
-  <ul><li><a href="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li><li><a href="/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="/posts/note/slam/">SLAM</a></li></ul>
+  <h4>Featured Posts</h4>
+  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/python/python-socket/">python socket编程</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/slam/">SLAM</a></li></ul>
 </section><section class="recent-posts row surface">
-  <h4>最近文章</h4>
-  <ul><li><a href="/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+  <h4>Recent Posts</h4>
+  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/shortcodes/g2plot_charts_test/">echarts shortcode</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 </a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a></li></ul>
 </section>
 <section class="taxonomy-categories row surface">
   <h4>
-    <a href="/categories">分类</a>
+    <a href="https://euraxluo.gitee.io/blog/categories">Categories</a>
   </h4>
-  <div><a href="/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">23</span>
-    </a><a href="/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+  <div><a href="https://euraxluo.gitee.io/blog/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">21</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
       redis <span class="badge rounded-pill">10</span>
-    </a><a href="/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
-      Shortcode <span class="badge rounded-pill">10</span>
-    </a><a href="/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+    </a><a href="https://euraxluo.gitee.io/blog/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
       java <span class="badge rounded-pill">8</span>
-    </a><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
-      读书笔记 <span class="badge rounded-pill">5</span>
-    </a><a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+    </a><a href="https://euraxluo.gitee.io/blog/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
       爬虫 <span class="badge rounded-pill">4</span>
-    </a><a href="/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
-      NLP <span class="badge rounded-pill">3</span>
-    </a><a href="/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
-      ROS <span class="badge rounded-pill">3</span>
-    </a><a href="/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
-      Shell <span class="badge rounded-pill">2</span>
-    </a><a href="/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
-      TensorFlow <span class="badge rounded-pill">2</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/architecture-design/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="architecture design">
+      architecture design <span class="badge rounded-pill">3</span>
     </a></div>
 </section><section class="taxonomy-series row surface">
   <h4>
-    <a href="/series">专栏</a>
+    <a href="https://euraxluo.gitee.io/blog/series">Series</a>
   </h4>
-  <div><a href="/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">23</span>
-    </a><a href="/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+  <div><a href="https://euraxluo.gitee.io/blog/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">18</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
       redis <span class="badge rounded-pill">10</span>
-    </a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
-      读书笔记 <span class="badge rounded-pill">5</span>
-    </a><a href="/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
-      Pathon <span class="badge rounded-pill">4</span>
-    </a><a href="/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+    </a><a href="https://euraxluo.gitee.io/blog/series/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Python">
+      Python <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
       Java <span class="badge rounded-pill">3</span>
-    </a><a href="/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+    </a><a href="https://euraxluo.gitee.io/blog/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
       JDBC <span class="badge rounded-pill">3</span>
-    </a><a href="/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
-      NLP <span class="badge rounded-pill">3</span>
-    </a><a href="/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
-      ROS <span class="badge rounded-pill">3</span>
-    </a><a href="/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
-      Shell <span class="badge rounded-pill">2</span>
-    </a><a href="/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
-      TensorFlow <span class="badge rounded-pill">2</span>
     </a></div>
 </section><section class="taxonomy-tags row surface">
   <h4>
-    <a href="/tags">标签</a>
+    <a href="https://euraxluo.gitee.io/blog/tags">Tags</a>
   </h4>
-  <div><a href="/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">23</span>
-    </a><a href="/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+  <div><a href="https://euraxluo.gitee.io/blog/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">17</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
       redis <span class="badge rounded-pill">10</span>
-    </a><a href="/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+    </a><a href="https://euraxluo.gitee.io/blog/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Python">
+      Python <span class="badge rounded-pill">7</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
       Java <span class="badge rounded-pill">4</span>
-    </a><a href="/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
-      Pathon <span class="badge rounded-pill">4</span>
-    </a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+    </a><a href="https://euraxluo.gitee.io/blog/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
       爬虫 <span class="badge rounded-pill">4</span>
-    </a><a href="/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
-      JDBC <span class="badge rounded-pill">3</span>
-    </a><a href="/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
-      NLP <span class="badge rounded-pill">3</span>
-    </a><a href="/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
-      ROS <span class="badge rounded-pill">3</span>
-    </a><a href="/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
-      python <span class="badge rounded-pill">2</span>
-    </a><a href="/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
-      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/architecture/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="architecture">
+      architecture <span class="badge rounded-pill">3</span>
     </a></div>
 </section></div>
 </aside>
 </div>
-    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    </main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
     <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
       <i class="fas fa-fw fa-2x fa-envelope"></i>
     </a>
@@ -481,13 +453,11 @@ println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;x =
       </a>
     </li></nav>
 <div class="copyright mb-2">
-  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+  Copyright © 2016-2022 Euraxluo. All Rights Reserved.
 </div>
 <script>
   window.parent.postMessage(window.location.href, "*");
-</script><div class="powered-by mb-2">
-  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
-</div></footer>
+</script></footer>
 <a id="btnScrollToTop" class="btn-scroll-to-top">
   <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
 </a>

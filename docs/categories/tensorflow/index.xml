@@ -2,28 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TensorFlow on Euraxluo Blog</title>
-    <link>/categories/tensorflow/</link>
+    <link>https://euraxluo.gitee.io/blog/categories/tensorflow/</link>
     <description>Recent content in TensorFlow on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Fri, 22 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="/categories/tensorflow/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/blog/categories/tensorflow/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TensorFlow 基础</title>
-      <link>/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/</guid>
-      <description>TensorFlow 基础 计算密集型(tensorflow) cpu计算 io密集型(Django,Scrapy) http请求 线性回归回顾 准备好特征和lable y =</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/</guid>
+      <description>TensorFlow 基础 计算密集型(tensorflow) cpu计算
+io密集型(Django,Scrapy) http请求
+线性回归回顾  准备好特征和lable  y = x*0.7+0.8
+2.建模.随机初始化一个权重w,一个偏置b
+y_predict = wx+b
+求损失函数  less化损失函数
+(y-y_predict)^2/x.shape[0]
+4.梯度下降优化损失函数,我们需要查阅tensorflowAPI,制定合适的eta
+变量作用域 tf.variable_scope
+让变量显示可观测  收集变量    tf.summary.scalar(name=&#39;&#39;,tensor) #收集单值变量,name是变量名,tensor为值
+  tf.summary.histogram(name=&#39;&#39;,tensor) #收集高纬度的变量参数
+  tf.summary.image(name=&#39;&#39;,tensor) #收集输入的图片张量能显示图片
+  合并变量写入事件文件    merged = tf.summary.merge_all()
+  summary = sess.run(merged) #每次迭代都需要运行
+  FileWriter.add_summary(summary,i) #表示第几次的值
+  模型的保存和加载 tf.train.Save(var_list = None,max_to_keep = 5)
+ var_list:指定将要保存和还原的变量.他可以作为一个dict或一个列表传递
+  max_to_keep:指示要保留的最近检查点文件的最大数量.</description>
     </item>
     
     <item>
       <title>TensorFlow 线性回归</title>
-      <link>/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</link>
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</guid>
-      <description>TensorFlow 线性回归 TensorFlow是一个编程系统,使用图(graphs)来表示计算任务,图(graphs)中的节点称之为op(operation</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</guid>
+      <description>TensorFlow 线性回归 TensorFlow是一个编程系统,使用图(graphs)来表示计算任务,图(graphs)中的节点称之为op(operation),一个op获得0个或者多个Tensor,执行计算,产生0个或者多个Tensor.Tensor看做是一个n维的数组或者列表.图必须在会话Session里被启动
+##基本概念
+  使用图(graphs)来表示计算任务
+  在被称为会话(Session)的上下文(context)中执行图
+  使用张量(tensor)表示数据
+  通过变量(Vatria)维护状态
+  使用feed和fetch可以为任意的操作赋值或者从中获取数据
+  张量(Tensor)
+在TensorFlow中,张量的维度被描述为&amp;quot;阶&amp;quot;,但是,张量的阶和矩阵的阶并不是同一个概念,张量的阶,是张量维度的一个数量的描述
+  x=3	#零阶张量:纯量 v=[1.,2.,3.]	#一阶张量:向量 t=[[1,2,3],[4,5,6]]	#二阶张量:矩阵 m=[[[1],[2],[3]],[[4],[5],[6]],[[7],[8],[9]]]	#三阶张量:立方体   图(Graph)
+代表模型的数据流,由ops和tensor组成.其中op是操作,也就是节点,而tensor是数据流,也就是边
+算法会表示为计算图(computational graphs),也称之为数据流图.我们把计算图看作为一种有向图,张量就是通过各种操作在有向图中流动
+  会话(Session)
+在TensorFlow中,要想启动一个图的前提是要创建一个会话(Session),TensorFlow的所有对图的操作,都必须放在会话中进行
+  基础使用: op和Session import tensorflow as tf #创建两个常量op c1 = tf.constant([[1,2]]) c2 = tf.constant([[2],[1]]) #创建一个矩阵乘法op matmulop = tf.matmul(c1,c2) print(matmulop) Tensor(&amp;quot;MatMul:0&amp;quot;, shape=(1, 1), dtype=int32) #定义一个会话,启动图 sess = tf.</description>
     </item>
     
   </channel>

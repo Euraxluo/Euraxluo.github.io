@@ -1,68 +1,68 @@
 <!doctype html>
-<html lang="zh-cn">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>爬虫学习1 - Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/images/favicons/manifest.json">
-<link rel="icon" href="/images/favicons/favicon.ico">
-<meta name="description" content="爬虫学习" /><meta itemprop="name" content="爬虫学习1">
+    <title>爬虫学习1-概念及urllib2 - Euraxluo Blog</title><link rel="apple-touch-icon" href="https://euraxluo.gitee.io/blog/images/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="https://euraxluo.gitee.io/blog/images/favicons/manifest.json">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon.ico">
+<meta name="description" content="爬虫学习" /><meta itemprop="name" content="爬虫学习1-概念及urllib2">
 <meta itemprop="description" content="爬虫学习">
-<meta itemprop="datePublished" content="2018-10-22T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-10-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="3290">
+<meta itemprop="datePublished" content="2018-10-22T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2018-10-22T00:00:00+08:00" />
+<meta itemprop="wordCount" content="372">
 
 
 
-<meta itemprop="keywords" content="爬虫,Pathon," />
-<meta property="og:title" content="爬虫学习1" />
+<meta itemprop="keywords" content="爬虫,Python," />
+<meta property="og:title" content="爬虫学习1-概念及urllib2" />
 <meta property="og:description" content="爬虫学习" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/" />
-<meta property="article:published_time" content="2018-10-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-10-22T00:00:00+00:00" /><meta property="og:site_name" content="Euraxluo Blog" /><meta property="og:see_also" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/" /><meta property="og:see_also" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/" /><meta property="og:see_also" content="/posts/python/pyquerystudy/" />
+<meta property="og:url" content="https://euraxluo.gitee.io/blog/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/" />
+<meta property="article:published_time" content="2018-10-22T00:00:00+08:00" />
+<meta property="article:modified_time" content="2018-10-22T00:00:00+08:00" /><meta property="og:see_also" content="https://euraxluo.gitee.io/blog/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/" /><meta property="og:see_also" content="https://euraxluo.gitee.io/blog/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/" /><meta property="og:see_also" content="https://euraxluo.gitee.io/blog/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="爬虫学习1"/>
+<meta name="twitter:title" content="爬虫学习1-概念及urllib2"/>
 <meta name="twitter:description" content="爬虫学习"/>
-<meta data-name="palette" content="blue"><link rel=stylesheet href="/css/bundle.min.31ae5fde579e9e77d7cd6ec43c26b9999d493df060fca9a54f9da00676116d7c.css" integrity="sha256-Ma5f3leennfXzW7EPCa5mZ1JPfBg/KmlT52gBnYRbXw=" crossorigin="anonymous"><script src="/js/bundle.min.6fb648ca3b465f463b5da4164d1a0fb5633d57cc6eaa89ef96ea4f622e163686.js" integrity="sha256-b7ZIyjtGX0Y7XaQWTRoPtWM9V8xuqonvlupPYi4WNoY=" crossorigin="anonymous"></script>
+<meta data-name="palette" content="blue"><link rel=stylesheet href="https://euraxluo.gitee.io/blog/css/bundle.min.c499608f8442ace06c5f0f9298ce8f109f7a84d0bc7a2d5cfce2221e20d34177.css" integrity="sha256-xJlgj4RCrOBsXw&#43;SmM6PEJ96hNC8ei1c/OIiHiDTQXc=" crossorigin="anonymous"><script src="https://euraxluo.gitee.io/blog/js/bundle.min.4f0bf0084c93f18baec18d21035f382e8b666d326b7f3a3fddfab7c6e7566bfc.js" integrity="sha256-TwvwCEyT8YuuwY0hA184LotmbTJrfzo/3fq3xudWa/w=" crossorigin="anonymous"></script>
 </head>
   <body><header><nav class="navbar fixed-top navbar-expand-xl">
-  <div class="container">
-    <a class="navbar-brand" href="/">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="https://euraxluo.gitee.io/blog">
       <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="/search">
+      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="https://euraxluo.gitee.io/blog/search">
   <div class="input-group input-group-sm">
     <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
     <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
   </div>
-</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 ml-auto"><li class="nav-item">
-          <a class="nav-link" href="/archives">
-            <i class="fas fa-fw fa-file-archive"></i>归档
+</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 mr-auto"><li class="nav-item">
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/archives">
+            <i class="fas fa-fw fa-file-archive"></i>timeline
           </a>
         </li><li class="nav-item">
-          <a class="nav-link" href="/categories">
-            <i class="fas fa-fw fa-folder"></i>分类
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/categories">
+            <i class="fas fa-fw fa-folder"></i>category
           </a>
         </li><li class="nav-item">
-          <a class="nav-link" href="/tags">
-            <i class="fas fa-fw fa-tags"></i>标签
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/tags">
+            <i class="fas fa-fw fa-tags"></i>tags
           </a>
         </li><li class="nav-item">
-          <a class="nav-link" href="/series">
-            <i class="fas fa-fw fa-columns"></i>专栏
+          <a class="nav-link" href="https://euraxluo.gitee.io/blog/series">
+            <i class="fas fa-fw fa-columns"></i>series
           </a>
         </li><li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown-dropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-            Repos
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-repos" role="button" data-toggle="dropdown" aria-expanded="false">
+            <i class="fab fa-fw fa-github"></i>Repos
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-dropdown"><li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-repos"><li>
               <a class="dropdown-item"
                 href="https://github.com/Euraxluo" target="_blank">
                 <i class="fab fa-fw fa-github"></i>Euraxluo
@@ -101,9 +101,7 @@
   </a>
 </li>
 <script type="text/html" id="languagesPopoverBody">
-  <ul class="languages list-group"><li class="language list-group-item">
-      <a href="/en/">English</a></li><li class="language list-group-item active">简体中文</li><li class="language list-group-item">
-      <a href="/zh-tw/">繁體中文</a></li></ul>
+  <ul class="languages list-group"></ul>
 </script>
 <li class="nav-item mr-2">
   <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
@@ -113,29 +111,29 @@
 </li>
 <script type="text/html" id="palettesPopoverBody">
   <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
-      <a>蓝色</a>
+      <a>Blue</a>
     </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
-      <a>蓝灰色</a>
+      <a>Blue Gray</a>
     </li><li id="palette-brown" class="palette list-group-item bg-brown">
-      <a>棕色</a>
+      <a>Brown</a>
     </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
-      <a>青色</a>
+      <a>Cyan</a>
     </li><li id="palette-green" class="palette list-group-item bg-green">
-      <a>绿色</a>
+      <a>Green</a>
     </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
-      <a>靛青色</a>
+      <a>Indigo</a>
     </li><li id="palette-orange" class="palette list-group-item bg-orange">
-      <a>橙色</a>
+      <a>Orange</a>
     </li><li id="palette-pink" class="palette list-group-item bg-pink">
-      <a>粉色</a>
+      <a>Pink</a>
     </li><li id="palette-purple" class="palette list-group-item bg-purple">
-      <a>紫色</a>
+      <a>Purple</a>
     </li><li id="palette-red" class="palette list-group-item bg-red">
-      <a>红色</a>
+      <a>Red</a>
     </li><li id="palette-teal" class="palette list-group-item bg-teal">
-      <a>蓝绿色</a>
+      <a>Teal</a>
     </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
-      <a>黄色</a>
+      <a>Yellow</a>
     </li></ul>
 </script>
 
@@ -147,7 +145,7 @@
 </li>
 <script type="text/html" id="fontSizesPopoverBody">
   <form class="font-size-switcher-form">
-    <label for="fontSize" class="form-label">字体大小</label>
+    <label for="fontSize" class="form-label">Font Size</label>
     <input type="range" class="form-range" min="-2" max="2" id="fontSize">
   </form>
 </script>
@@ -161,35 +159,37 @@
   </div>
 </nav>
 </header>
-<main role="main" class="container">
+<main role="main" class="container-fluid">
       <div class="row content">
 <div class="col-md-8">
   <div class="container"><nav class="row" aria-label="breadcrumb">
-  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="/">主页</a></li><li class="breadcrumb-item"><a href="/posts/">posts</a></li><li class="breadcrumb-item"><a href="/posts/crawler/">crawler</a></li><li class="breadcrumb-item active">爬虫学习1</li></ol>
+  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/">Home</a></li><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/posts/">posts</a></li><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/posts/crawler/">crawler</a></li><li class="breadcrumb-item active">爬虫学习1-概念及urllib2</li></ol>
 </nav><article class="post row surface">
-  <h1 class="post-title my-3">爬虫学习1</h1><div class="post-meta mb-3">
+  <h1 class="post-title my-3">爬虫学习1-概念及urllib2</h1><div class="post-meta mb-3">
   <span class="post-date mr-2">
     <i class="fas fa-fw fa-calendar-alt"></i>2018-10-22
   </span>
   <span class="poost-reading-time mr-2">
-    <i class="fas fa-fw fa-coffee"></i>7 分钟阅读
+    <i class="fas fa-fw fa-coffee"></i>2 min read
   </span>
-<a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy">#爬虫</a><a href="/series/pathon/" class="post-taxonomy">#Pathon</a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy">#爬虫</a><a href="/tags/pathon/" class="post-taxonomy">#Pathon</a></div>
+<a href="https://euraxluo.gitee.io/blog/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy">#爬虫</a><a href="https://euraxluo.gitee.io/blog/series/python/" class="post-taxonomy">#Python</a><a href="https://euraxluo.gitee.io/blog/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy">#爬虫</a><a href="https://euraxluo.gitee.io/blog/tags/python/" class="post-taxonomy">#Python</a></div>
 <div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
   <div class="accordion-item">
     <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
-      <i class="fas fa-fw fa-bars"></i>目录
+      <i class="fas fa-fw fa-bars"></i>Table Of Contents
     </div>
     <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
       <div class="accordion-body mt-2">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#前记">前记：</a></li>
-    <li><a href="#url-管理器管理待抓取url集合和已抓取url集合">url 管理器：管理待抓取url集合和已抓取url集合</a></li>
-    <li><a href="#网页下载器">网页下载器：</a>
+    <li><a href="#1urllib2python官方基础模块py27">1.urllib2：python官方基础模块（py2.7）</a></li>
+    <li><a href="#2urllibrequestpy3">2.urllib.request:(py3)</a>
       <ul>
-        <li><a href="#1urllib2python官方基础模块py27">1.urllib2：python官方基础模块（py2.7）</a></li>
-        <li><a href="#2urllibrequestpy3">2.urllib.request:(py3)</a></li>
+        <li><a href="#21-requesturlopen方法">2.1 request.urlopen方法：</a></li>
+        <li><a href="#22-urllibrequestreques">2.2 urllib.request.Reques：</a></li>
+        <li><a href="#23-用来包装头部的数据">2.3 用来包装头部的数据：</a></li>
+        <li><a href="#24-post数据">2.4 Post数据</a></li>
+        <li><a href="#25-使用代理">2.5 使用代理</a></li>
       </ul>
     </li>
   </ul>
@@ -197,7 +197,7 @@
       </div>
     </div>
   </div>
-</div><div class="post-content mb-3"><h2 id="前记">前记：</h2>
+</div><div class="post-content mb-3"><h1 id="前记">前记：</h1>
 <ul>
 <li>
 <p>爬虫：使用任何技术手段，批量获取网站信息的一种方式。关键在于批量。</p>
@@ -215,12 +215,12 @@
 <p>资源：机器成本与人力成本的总和。</p>
 </li>
 </ul>
-<h2 id="url-管理器管理待抓取url集合和已抓取url集合">url 管理器：管理待抓取url集合和已抓取url集合</h2>
+<h1 id="url-管理器管理待抓取url集合和已抓取url集合">url 管理器：管理待抓取url集合和已抓取url集合</h1>
 <p>个人：set(),python的set()可以自动去重</p>
 <p>大量带爬取url：关系数据库mysql</p>
 <p>互联网公司：缓存数据库(高性能)</p>
-<h2 id="网页下载器">网页下载器：</h2>
-<h3 id="1urllib2python官方基础模块py27">1.urllib2：python官方基础模块（py2.7）</h3>
+<h1 id="网页下载器">网页下载器：</h1>
+<h2 id="1urllib2python官方基础模块py27">1.urllib2：python官方基础模块（py2.7）</h2>
 <p>下载方法：</p>
 <p>1.直接下载</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
@@ -259,9 +259,9 @@ urllib2<span style="color:#f92672">.</span>intall_opener(opener)<span style="col
 
 response <span style="color:#f92672">=</span> urllib2<span style="color:#f92672">.</span>urlopen(url)<span style="color:#75715e">#使用带有cookie的urllib2爬取网页</span>
 
-</code></pre></div><h3 id="2urllibrequestpy3">2.urllib.request:(py3)</h3>
-<h4 id="21-requesturlopen方法">2.1 request.urlopen方法：</h4>
-<h5 id="urllibrequesturlopenurl-datanone-timeout--cafilenone-capathnone-cadefaultfalse-contextnone-"><code>urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None) </code></h5>
+</code></pre></div><h2 id="2urllibrequestpy3">2.urllib.request:(py3)</h2>
+<h3 id="21-requesturlopen方法">2.1 request.urlopen方法：</h3>
+<h4 id="urllibrequesturlopenurl-datanone-timeout--cafilenone-capathnone-cadefaultfalse-contextnone-"><code>urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None) </code></h4>
 <ul>
 <li>
 <p>urlopen无法判断数据的encoding，所以返回的是bytes对象。一般会对返回的数据进行decode。</p>
@@ -273,7 +273,7 @@ response <span style="color:#f92672">=</span> urllib2<span style="color:#f92672"
 <p>data一定是bytes对象，传递给服务器的数据，或者为None。目前只有HTTP requests会使用data，提供data时会是一个post请求，如若没有data，那就是get请求。data在使用前需要使用urllib.parse.urlencode()函数转换成流数据</p>
 </li>
 </ul>
-<h5 id="urlopen方法">urlopen方法：</h5>
+<h4 id="urlopen方法">urlopen方法：</h4>
 <ul>
 <li>
 <p>read() , readline() ,readlines() , fileno() , close() ：对HTTPResponse类型数据进行操作</p>
@@ -288,7 +288,7 @@ response <span style="color:#f92672">=</span> urllib2<span style="color:#f92672"
 <p>geturl()：返回请求的url</p>
 </li>
 </ul>
-<h5 id="eg">eg:</h5>
+<h4 id="eg">eg:</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
 <span style="color:#f92672">from</span> urllib <span style="color:#f92672">import</span> request
 
@@ -296,9 +296,9 @@ req <span style="color:#f92672">=</span> request<span style="color:#f92672">.</s
 
 <span style="color:#66d9ef">print</span>(req<span style="color:#f92672">.</span>read()<span style="color:#f92672">.</span>decode())<span style="color:#75715e">#read()方法是读取返回数据内容，decode是转换返回数据的bytes格式为str </span>
 
-</code></pre></div><h4 id="22-urllibrequestreques">2.2 urllib.request.Reques：</h4>
+</code></pre></div><h3 id="22-urllibrequestreques">2.2 urllib.request.Reques：</h3>
 <p><code>urllib.request.Request(url, data=None, headers={},origin_req_host=None, unverifiable=False, method=None)</code></p>
-<h5 id="eg-1">eg:</h5>
+<h4 id="eg-1">eg:</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
 <span style="color:#f92672">import</span> urllib.request
 
@@ -310,14 +310,14 @@ req<span style="color:#f92672">=</span>urllib<span style="color:#f92672">.</span
 
 <span style="color:#66d9ef">print</span>(page)
 
-</code></pre></div><h4 id="23-用来包装头部的数据">2.3 用来包装头部的数据：</h4>
+</code></pre></div><h3 id="23-用来包装头部的数据">2.3 用来包装头部的数据：</h3>
 <ul>
 <li>User-Agent ：这个头部可以携带如下几条信息：浏览器名和版本号、操作系统名和版本号、默认语言</li>
 </ul>
-<pre><code class="language-常用爬虫UA" data-lang="常用爬虫UA">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
 百度图片
 
-“Baiduspider-image+(+http://www.baidu.com/search/spider.htm)”
+“Baiduspider-image+<span style="color:#f92672">(</span>+http://www.baidu.com/search/spider.htm<span style="color:#f92672">)</span>”
 
 
 
@@ -325,29 +325,29 @@ req<span style="color:#f92672">=</span>urllib<span style="color:#f92672">.</span
 
 PC：
 
-Mozilla/5.0 (compatible; Baiduspider-render/2.0; +http://www.baidu.com/search/spider.html)
+Mozilla/5.0 <span style="color:#f92672">(</span>compatible; Baiduspider-render/2.0; +http://www.baidu.com/search/spider.html<span style="color:#f92672">)</span>
 
 移动：
 
-Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 (compatible; Baiduspider-render/2.0; +http://www.baidu.com/search/spider.html)
+Mozilla/5.0 <span style="color:#f92672">(</span>iPhone; CPU iPhone OS 9_1 like Mac OS X<span style="color:#f92672">)</span> AppleWebKit/601.1.46 <span style="color:#f92672">(</span>KHTML, like Gecko<span style="color:#f92672">)</span> Version/9.0 Mobile/13B143 Safari/601.1 <span style="color:#f92672">(</span>compatible; Baiduspider-render/2.0; +http://www.baidu.com/search/spider.html<span style="color:#f92672">)</span>
 
 
 
 360搜索
 
-Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0);
+Mozilla/5.0 <span style="color:#f92672">(</span>compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0<span style="color:#f92672">)</span>;
 
 
 
 360网站安全检测
 
-360spider (http://webscan.360.cn)
+360spider <span style="color:#f92672">(</span>http://webscan.360.cn<span style="color:#f92672">)</span>
 
 
 
 Google
 
-“Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)”
+“Mozilla/5.0 <span style="color:#f92672">(</span>compatible; Googlebot/2.1; +http://www.google.com/bot.html<span style="color:#f92672">)</span>”
 
 
 
@@ -359,79 +359,79 @@ Google图片搜索
 
 Adwords移动网络
 
-“AdsBot-Google-Mobile (+http://www.google.com/mobile/adsbot.html) Mozilla (iPhone; U; CPU iPhone OS 3 0 like Mac OS X) AppleWebKit (KHTML, like Gecko) Mobile Safari”
+“AdsBot-Google-Mobile <span style="color:#f92672">(</span>+http://www.google.com/mobile/adsbot.html<span style="color:#f92672">)</span> Mozilla <span style="color:#f92672">(</span>iPhone; U; CPU iPhone OS <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">0</span> like Mac OS X<span style="color:#f92672">)</span> AppleWebKit <span style="color:#f92672">(</span>KHTML, like Gecko<span style="color:#f92672">)</span> Mobile Safari”
 
 
 
 微软 bing，必应
 
-“Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)”
+“Mozilla/5.0 <span style="color:#f92672">(</span>compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm<span style="color:#f92672">)</span>”
 
 
 
 腾讯搜搜
 
-“Sosospider+(+http://help.soso.com/webspider.htm)”
+“Sosospider+<span style="color:#f92672">(</span>+http://help.soso.com/webspider.htm<span style="color:#f92672">)</span>”
 
 
 
 搜搜图片
 
-“Sosoimagespider+(+http://help.soso.com/soso-image-spider.htm)”
+“Sosoimagespider+<span style="color:#f92672">(</span>+http://help.soso.com/soso-image-spider.htm<span style="color:#f92672">)</span>”
 
 
 
 雅虎英文
 
-“Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)”
+“Mozilla/5.0 <span style="color:#f92672">(</span>compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp<span style="color:#f92672">)</span>”
 
 
 
 雅虎中国
 
-“Mozilla/5.0 (compatible; Yahoo! Slurp China; http://misc.yahoo.com.cn/help.html)”
+“Mozilla/5.0 <span style="color:#f92672">(</span>compatible; Yahoo! Slurp China; http://misc.yahoo.com.cn/help.html<span style="color:#f92672">)</span>”
 
 
 
 搜狗图片
 
-“http://pic.sogou.com” “Sogou Pic Spider/3.0(+http://www.sogou.com/docs/help/webmasters.htm#07)”
+“http://pic.sogou.com” “Sogou Pic Spider/3.0<span style="color:#f92672">(</span>+http://www.sogou.com/docs/help/webmasters.htm#07<span style="color:#f92672">)</span>”
 
 
 
 搜狗
 
-“Sogou web spider/4.0(+http://www.sogou.com/docs/help/webmasters.htm#07)”
+“Sogou web spider/4.0<span style="color:#f92672">(</span>+http://www.sogou.com/docs/help/webmasters.htm#07<span style="color:#f92672">)</span>”
 
 
 
 网易有道
 
-“Mozilla/5.0 (compatible; YoudaoBot/1.0; http://www.youdao.com/help/webmaster/spider/; )”
+“Mozilla/5.0 <span style="color:#f92672">(</span>compatible; YoudaoBot/1.0; http://www.youdao.com/help/webmaster/spider/; <span style="color:#f92672">)</span>”
 
 
 
 瑞典 Speedy Spider
 
-“Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) Speedy Spider (http://www.entireweb.com/about/search_tech/speedy_spider/)”
+“Mozilla/5.0 <span style="color:#f92672">(</span>Windows; U; Windows NT 5.1; en-US<span style="color:#f92672">)</span> Speedy Spider <span style="color:#f92672">(</span>http://www.entireweb.com/about/search_tech/speedy_spider/<span style="color:#f92672">)</span>”
 
 
 
 俄罗斯 yandex
 
-“Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)”
+“Mozilla/5.0 <span style="color:#f92672">(</span>compatible; YandexBot/3.0; +http://yandex.com/bots<span style="color:#f92672">)</span>”
 
 
 
 宜搜 EasouSpider
 
-Mozilla/5.0 (compatible; EasouSpider; +http://www.easou.com/search/spider.html)
+Mozilla/5.0 <span style="color:#f92672">(</span>compatible; EasouSpider; +http://www.easou.com/search/spider.html<span style="color:#f92672">)</span>
 
 
 
 华为赛门铁克蜘蛛
 
-“HuaweiSymantecSpider/1.0+DSE-support@huaweisymantec.com+(compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR ; http://www.huaweisymantec.com/cn/IRL/spider)”
+“HuaweiSymantecSpider/1.0+DSE-support@huaweisymantec.com+<span style="color:#f92672">(</span>compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR ; http://www.huaweisymantec.com/cn/IRL/spider<span style="color:#f92672">)</span>”
 
 华为赛门铁克科技有限公司网页信誉分析系统的一个页面爬取程序，其作用是用于爬取互联网网页并进行信誉分析，从而检查该网站上的是否含有恶意代码。
 
@@ -445,7 +445,7 @@ qiniu-imgstg-spider-1.0
 
 监控宝
 
-“Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; JianKongBao Monitor 1.1)”
+“Mozilla/4.0 <span style="color:#f92672">(</span>compatible; MSIE 6.0; Windows NT 5.1; SV1; JianKongBao Monitor 1.1<span style="color:#f92672">)</span>”
 
 
 
@@ -453,7 +453,7 @@ DNSPod监控
 
 DNSPod-Monitor/2.0
 
-</code></pre><ul>
+</code></pre></div><ul>
 <li>
 <p>Referer：可以用来防止盗链，有一些网站图片显示来源http://*.com，就是检查Referer来鉴定的</p>
 </li>
@@ -466,7 +466,7 @@ DNSPod-Monitor/2.0
 
 #使用request（）来包装请求，再通过urlopen（）获取页面。
 
-</code></pre><h4 id="24-post数据">2.4 Post数据</h4>
+</code></pre><h3 id="24-post数据">2.4 Post数据</h3>
 <ul>
 <li>urlopen()的data参数默认为None，当data参数不为空的时候，urlopen（）提交方式为Post</li>
 </ul>
@@ -504,7 +504,7 @@ req <span style="color:#f92672">=</span> ur<span style="color:#f92672">.</span>R
 
 <span style="color:#66d9ef">print</span>(page)
 
-</code></pre></div><h4 id="使用代理">使用代理</h4>
+</code></pre></div><h3 id="25-使用代理">2.5 使用代理</h3>
 <ul>
 <li>当需要抓取的网站设置了访问限制，这时就需要用到代理来抓取数据</li>
 </ul>
@@ -522,27 +522,27 @@ urllib<span style="color:#f92672">.</span>request<span style="color:#f92672">.</
 data <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</span>parse<span style="color:#f92672">.</span>urlencode(data)<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#39;utf-8&#39;</span>)<span style="color:#75715e">#下载</span>
 
 </code></pre></div></div><div class="post-copyright mb-4">
-  <h3>版权</h3><div class="post-cc">本作品采用 <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a> 授权。</div>
+  <h3>Copyright</h3><div class="post-cc">This work is licensed under <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY-NC 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i></a>.</div>
 </div>
 <div class="post-reward mb-4 text-center">
   <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
-    <i class="fas fa-fw fa-medal"></i>打赏
+    <i class="fas fa-fw fa-medal"></i>Reward
   </button>
 </div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content surface">
       <div class="modal-header">
-        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>打赏</h5>
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>Reward</h5>
         <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
       </div>
       <div class="modal-body">
         <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
             <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
-              <i class="fab fa-fw fa-alipay"></i>支付宝
+              <i class="fab fa-fw fa-alipay"></i>Alipay
             </a>
           </li><li class="nav-item" role="presentation">
             <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
-              <i class="fab fa-fw fa-weixin"></i>微信
+              <i class="fab fa-fw fa-weixin"></i>WeChat
             </a>
           </li></ul>
         <div class="tab-content" id="rewardTabContent"><div class="tab-pane fade post-reward-content show active" id="reward-alipay" role="tabpanel" aria-labelledby="reward-alipay-tab">
@@ -555,14 +555,14 @@ data <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</s
   </div>
 </div><div class="post-navs d-flex mb-3 justify-content-between">
   <div class="post-nav w-50"><div class="prev-post">
-      <a href="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/">爬虫学习2</a>
+      <a href="https://euraxluo.gitee.io/blog/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/">爬虫学习2-Requests库学习</a>
     </div></div>
   <div class="post-nav flex-row-reverse"><div class="next-post">
-      <a href="/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/">Unix/Linux编程实践1</a>
+      <a href="https://euraxluo.gitee.io/blog/posts/message_queue/rabbitmq_%E5%85%A5%E9%97%A8/">RabbitMQ-入门</a>
     </div></div>
 </div><section class="related-posts">
-  <h3>相关文章</h3>
-  <ul class="related-posts"><li><a href="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/">爬虫学习2</a></li><li><a href="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/">爬虫学习3</a></li><li><a href="/posts/python/pyquerystudy/">爬虫学习4</a></li></ul>
+  <h3>Related Posts</h3>
+  <ul class="related-posts"><li><a href="https://euraxluo.gitee.io/blog/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/">爬虫学习2-Requests库学习</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/">爬虫学习3-网页解析器</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/message_queue/rabbitmq_%E5%85%A5%E9%97%A8/">RabbitMQ-入门</a></li></ul>
 </section></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
   repo="Euraxluo/Euraxluo.github.io"
   issue-term="pathname"
@@ -577,93 +577,69 @@ data <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</s
     <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
   </div>
   <div class="col-xl-6">
-    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Gopher, Python, Java, IT Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml-express</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div></div>
+    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class="profile-about mb-2"><i class="fas fa-fw fa-info-circle"></i><a href="https://euraxluo.gitee.io/blog/about/">About</a></div></div>
 </section><section class="featured-posts row surface">
-  <h4>精选文章</h4>
-  <ul><li><a href="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="/posts/note/make-lispluo/">Make My LIsp NAME lispluo</a></li><li><a href="/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="/posts/note/slam/">SLAM</a></li></ul>
+  <h4>Featured Posts</h4>
+  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/python/python-socket/">python socket编程</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/slam/">SLAM</a></li></ul>
 </section><section class="recent-posts row surface">
-  <h4>最近文章</h4>
-  <ul><li><a href="/posts/shortcodes/alert/">Alert Shortcode</a></li><li><a href="/posts/shortcodes/bilibili/">Bilibili Shortcode</a></li><li><a href="/posts/reading/cleancode/">CleanCode读书笔记</a></li><li><a href="/posts/shortcodes/codepen/">CodePen Shortcode</a></li><li><a href="/posts/shortcodes/jsfiddle/">JSFiddle Shortcode</a></li></ul>
+  <h4>Recent Posts</h4>
+  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/shortcodes/g2plot_charts_test/">echarts shortcode</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 </a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a></li></ul>
 </section>
 <section class="taxonomy-categories row surface">
   <h4>
-    <a href="/categories">分类</a>
+    <a href="https://euraxluo.gitee.io/blog/categories">Categories</a>
   </h4>
-  <div><a href="/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">23</span>
-    </a><a href="/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+  <div><a href="https://euraxluo.gitee.io/blog/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">21</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
       redis <span class="badge rounded-pill">10</span>
-    </a><a href="/categories/shortcode/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shortcode">
-      Shortcode <span class="badge rounded-pill">10</span>
-    </a><a href="/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
+    </a><a href="https://euraxluo.gitee.io/blog/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
       java <span class="badge rounded-pill">8</span>
-    </a><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
-      读书笔记 <span class="badge rounded-pill">5</span>
-    </a><a href="/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+    </a><a href="https://euraxluo.gitee.io/blog/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
       爬虫 <span class="badge rounded-pill">4</span>
-    </a><a href="/categories/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
-      NLP <span class="badge rounded-pill">3</span>
-    </a><a href="/categories/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
-      ROS <span class="badge rounded-pill">3</span>
-    </a><a href="/categories/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
-      Shell <span class="badge rounded-pill">2</span>
-    </a><a href="/categories/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
-      TensorFlow <span class="badge rounded-pill">2</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/categories/architecture-design/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="architecture design">
+      architecture design <span class="badge rounded-pill">3</span>
     </a></div>
 </section><section class="taxonomy-series row surface">
   <h4>
-    <a href="/series">专栏</a>
+    <a href="https://euraxluo.gitee.io/blog/series">Series</a>
   </h4>
-  <div><a href="/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">23</span>
-    </a><a href="/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+  <div><a href="https://euraxluo.gitee.io/blog/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">18</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
       redis <span class="badge rounded-pill">10</span>
-    </a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
-      读书笔记 <span class="badge rounded-pill">5</span>
-    </a><a href="/series/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
-      Pathon <span class="badge rounded-pill">4</span>
-    </a><a href="/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+    </a><a href="https://euraxluo.gitee.io/blog/series/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Python">
+      Python <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
+      读书笔记 <span class="badge rounded-pill">4</span>
+    </a><a href="https://euraxluo.gitee.io/blog/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
       Java <span class="badge rounded-pill">3</span>
-    </a><a href="/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
+    </a><a href="https://euraxluo.gitee.io/blog/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
       JDBC <span class="badge rounded-pill">3</span>
-    </a><a href="/series/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
-      NLP <span class="badge rounded-pill">3</span>
-    </a><a href="/series/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
-      ROS <span class="badge rounded-pill">3</span>
-    </a><a href="/series/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
-      Shell <span class="badge rounded-pill">2</span>
-    </a><a href="/series/tensorflow/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="TensorFlow">
-      TensorFlow <span class="badge rounded-pill">2</span>
     </a></div>
 </section><section class="taxonomy-tags row surface">
   <h4>
-    <a href="/tags">标签</a>
+    <a href="https://euraxluo.gitee.io/blog/tags">Tags</a>
   </h4>
-  <div><a href="/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">23</span>
-    </a><a href="/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
+  <div><a href="https://euraxluo.gitee.io/blog/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
+      notes <span class="badge rounded-pill">17</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
       redis <span class="badge rounded-pill">10</span>
-    </a><a href="/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
+    </a><a href="https://euraxluo.gitee.io/blog/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Python">
+      Python <span class="badge rounded-pill">7</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
       Java <span class="badge rounded-pill">4</span>
-    </a><a href="/tags/pathon/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Pathon">
-      Pathon <span class="badge rounded-pill">4</span>
-    </a><a href="/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
+    </a><a href="https://euraxluo.gitee.io/blog/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
       爬虫 <span class="badge rounded-pill">4</span>
-    </a><a href="/tags/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
-      JDBC <span class="badge rounded-pill">3</span>
-    </a><a href="/tags/nlp/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="NLP">
-      NLP <span class="badge rounded-pill">3</span>
-    </a><a href="/tags/ros/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="ROS">
-      ROS <span class="badge rounded-pill">3</span>
-    </a><a href="/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="python">
-      python <span class="badge rounded-pill">2</span>
-    </a><a href="/tags/shell/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Shell">
-      Shell <span class="badge rounded-pill">2</span>
+    </a><a href="https://euraxluo.gitee.io/blog/tags/architecture/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="architecture">
+      architecture <span class="badge rounded-pill">3</span>
     </a></div>
 </section></div>
 </aside>
 </div>
-    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
+    </main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
     <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
       <i class="fas fa-fw fa-2x fa-envelope"></i>
     </a>
@@ -681,13 +657,11 @@ data <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</s
       </a>
     </li></nav>
 <div class="copyright mb-2">
-  Copyright © 2016-2021 Euraxluo. All Rights Reserved.
+  Copyright © 2016-2022 Euraxluo. All Rights Reserved.
 </div>
 <script>
   window.parent.postMessage(window.location.href, "*");
-</script><div class="powered-by mb-2">
-  Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank">Bootstrap</a> theme.
-</div></footer>
+</script></footer>
 <a id="btnScrollToTop" class="btn-scroll-to-top">
   <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
 </a>

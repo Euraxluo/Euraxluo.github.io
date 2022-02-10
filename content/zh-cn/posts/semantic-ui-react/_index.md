@@ -1,3 +1,0 @@
-+++
-title = "semantic-ui-react"
-+++

@@ -2,18 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Apollo无人驾驶 on Euraxluo Blog</title>
-    <link>/tags/apollo%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</link>
+    <link>https://euraxluo.gitee.io/blog/tags/apollo%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</link>
     <description>Recent content in Apollo无人驾驶 on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><atom:link href="/tags/apollo%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><atom:link href="https://euraxluo.gitee.io/blog/tags/apollo%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apollo无人车架构</title>
-      <link>/posts/driverless/apollo%E6%9E%B6%E6%9E%84/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/driverless/apollo%E6%9E%B6%E6%9E%84/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/posts/driverless/apollo%E6%9E%B6%E6%9E%84/</guid>
-      <description>Apollo无人车架构 以HD-map为核心 线控车辆，计算机和传感器通过CAN卡进行通信 ROTS(Ubuntu+apollo kernel) 保证实时性 Feameworf(ROS+) 共享内存 减少传输中的数据拷贝，提高传输</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/driverless/apollo%E6%9E%B6%E6%9E%84/</guid>
+      <description>Apollo无人车架构 以HD-map为核心
+线控车辆，计算机和传感器通过CAN卡进行通信 ROTS(Ubuntu+apollo kernel) 保证实时性
+Feameworf(ROS+)  共享内存    减少传输中的数据拷贝，提高传输效率，减少传输延迟
+  有效解决一对多传输
+  共享内存减少CPU资源占用，提高机器计算能力
+  数据兼容    引入了protopuf文件格式
+  可以向后兼容
+  ROS深度兼容protopuf格式
+  去中心化，减小单点故障的影响    使用RTPS服务发现协议
+  以域作为划分，通过rtps相互广播，实现完全P2P
+  sub节点启动，组播registerNode-&amp;gt;节点发现及建立unicast-&amp;gt;向新加节点发送历史消息-&amp;gt;收发双方建立连接，开始通信
+  application   planning
+  control
+  end-to-end driving
+  human-machine
+  map-engine
+  localization
+  preception</description>
     </item>
     
   </channel>

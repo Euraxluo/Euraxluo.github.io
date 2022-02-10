@@ -2,19 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Euraxluo Blog</title>
-    <link>/series/linux/</link>
+    <link>https://euraxluo.gitee.io/blog/series/linux/</link>
     <description>Recent content in Linux on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Mon, 29 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="/series/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/blog/series/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux基础</title>
-      <link>/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
+      <link>https://euraxluo.gitee.io/blog/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
-      <description>Linux基础 文件基本属性 ll/ls -l 显示一个文件的属性以及文件所属的用户组 eg: [root@www /]# ls -l total 64 dr-xr-xr-x 2 root root 4096 Dec 14 2012 bin dr-xr-xr-x 4 root root 4096 Apr 19 2012 boot …… bin 以d开头,表示这</description>
+      <guid>https://euraxluo.gitee.io/blog/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
+      <description>Linux基础 文件基本属性 ll/ls -l 显示一个文件的属性以及文件所属的用户组
+eg: [root@www /]# ls -l total 64 dr-xr-xr-x 2 root root 4096 Dec 14 2012 bin dr-xr-xr-x 4 root root 4096 Apr 19 2012 boot …… bin 以d开头,表示这是一个目录
+当为[-]是文件当为[l]表示为link file当为[b]表示为可以进行存取的接口设备当为[c]表示为串行端口设备接下来以3个为一组,且均为[rwx]的组合,位置次序不变
+[r]表示可读,[w]可写,[x]可执行,如果没有这个权限,就会用[-]代替.
+第0位确定文件类型.第1-3位确定属主（该文件的所有者）拥有该文件的权限第4-6位确定属组（所有者的同组用户）拥有该文件的权限第7-9位确定其他用户拥有该文件的权限属主:对文件具有所有权的用户
+属组:用户按组分类,一个用户属于一个或者多个组
+所以,文件按照[文件所有者|所有者同组用户|所有着不同组用户]来规定访问权限
+对于root用户,权限对他无效
+2. 更改属性 chgrp [-R] 属组名 文件名 更改文件属组
+sudo chgrp name test
+chown [-R] 属主名 : 属组名 文件名 更改文件属主,也可以同时修改文件属组
+sudo chown 770:euraxluo test</description>
     </item>
     
   </channel>
