@@ -155,24 +155,6 @@
       <div class="row content">
 <div class="col-lg-8">
   <div class="container"><div class="posts mb-4"><article class="post row surface"><div class="post-body">
-        <h2 class="post-title mb-4"><a href="https://euraxluo.gitee.io/blog/posts/algorithm/%E6%95%B0%E7%BB%84/">数组</a></h2><div class="post-meta mb-3">
-  <span class="post-date mr-2">
-    <i class="fas fa-fw fa-calendar-alt"></i>2018-10-20
-  </span>
-  <span class="poost-reading-time mr-2">
-    <i class="fas fa-fw fa-coffee"></i>1 min read
-  </span>
-<a href="https://euraxluo.gitee.io/blog/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy">#读书笔记</a><a href="https://euraxluo.gitee.io/blog/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy">#读书笔记</a><a href="https://euraxluo.gitee.io/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-taxonomy">#数据结构</a></div>
-<div class="post-summary mb-3">线性表(每个线性表上的数据最多只有前和后两个方向):数组,链表,队列,栈 非线性表(数据之间并不是简单的前后关系):二叉树,堆,图
-数组的概念 数组( Array )是一种线性表数据结构。它用一组连续的内存空间,来存储一组具有相同类型的数据。
-数组的特点 连续的内存空间和相同类型的数据
-数组的优点   随机访问:利用寻址公式对元素进行访问:
-a[i]_address = base_address + i * data_type_size
-  数组的查找操作时间复杂度不是O(1),即便是排好的数组,用二分查找,时间复杂度也是O(logn);正确的说法
-数组支持随机访问,根据下标随机访问的时间复杂度为O(1)
-  数组的缺点   低效的 …</div>
-      </div>
-    </article><article class="post row surface"><div class="post-body">
         <h2 class="post-title mb-4"><a href="https://euraxluo.gitee.io/blog/posts/algorithm/%E9%93%BE%E8%A1%A8/">链表</a></h2><div class="post-meta mb-3">
   <span class="post-date mr-2">
     <i class="fas fa-fw fa-calendar-alt"></i>2018-10-20
@@ -234,6 +216,27 @@ rmdir dirname 可 删除空目录（下面无目录和文件）
 </div>
 <div class="post-summary mb-3">关于切片和slice的内存共享 package main import ( &#34;bufio&#34; &#34;bytes&#34; &#34;errors&#34; &#34;fmt&#34; _errors &#34;github.com/pkg/errors&#34; &#34;os&#34; &#34;reflect&#34; &#34;regexp&#34; &#34;strconv&#34; &#34;strings&#34; &#34;sync&#34; &#34;sync/atomic&#34; &#34;time&#34; ) func main() { /** * @Description: foo boo …</div>
       </div>
+    </article><article class="post row surface"><div class="post-body">
+        <h2 class="post-title mb-4"><a href="https://euraxluo.gitee.io/blog/posts/driverless/apollo%E6%9E%B6%E6%9E%84/">Apollo无人车架构</a></h2><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>0001-01-01
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>2 min read
+  </span>
+<a href="https://euraxluo.gitee.io/blog/categories/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/" class="post-taxonomy">#无人驾驶</a><a href="https://euraxluo.gitee.io/blog/tags/apollo%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/" class="post-taxonomy">#Apollo无人驾驶</a></div>
+<div class="post-summary mb-3">Apollo无人车架构 以HD-map为核心
+线控车辆，计算机和传感器通过CAN卡进行通信 ROTS(Ubuntu+apollo kernel) 保证实时性
+Feameworf(ROS+)  共享内存    减少传输中的数据拷贝，提高传输效率，减少传输延迟
+  有效解决一对多传输
+  共享内存减少CPU资源占用，提高机器计算能力
+  数据兼容    引入了protopuf文件格式
+  可以向后兼容
+  ROS深度兼容protopuf格式
+  去中心化，减小单点故障的影响    使用RTPS服务发现协议
+  以域作为划分，通过rtps相互广播，实现完全P2P
+  sub节点启动，组播registerNode-&gt;节点发现及建 …</div>
+      </div>
     </article></div><div class="row">
 <ul class="pagination">
   <li class="page-item">
@@ -260,14 +263,11 @@ rmdir dirname 可 删除空目录（下面无目录和文件）
   <li class="page-item active">
     <a class="page-link" href="/blog/page/15/">15</a>
   </li>
-  <li class="page-item">
-    <a class="page-link" href="/blog/page/16/">16</a>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/blog/page/16/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/blog/page/16/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/blog/page/15/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
@@ -286,7 +286,7 @@ rmdir dirname 可 删除空目录（下面无目录和文件）
   <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/python/python-socket/">python socket编程</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/slam/">SLAM</a></li></ul>
 </section><section class="recent-posts row surface">
   <h4>Recent Posts</h4>
-  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/shortcodes/g2plot_charts_test/">echarts shortcode</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 </a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a></li></ul>
+  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 </a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet2/">Servlet2</a></li></ul>
 </section>
 <section class="taxonomy-categories row surface">
   <h4>

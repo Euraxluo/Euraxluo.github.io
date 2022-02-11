@@ -155,24 +155,6 @@
       <div class="row content">
 <div class="col-lg-8">
   <div class="container"><div class="posts mb-4"><article class="post row surface"><div class="post-body">
-        <h2 class="post-title mb-4"><a href="https://euraxluo.gitee.io/blog/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/">C语言小计</a></h2><div class="post-meta mb-3">
-  <span class="post-date mr-2">
-    <i class="fas fa-fw fa-calendar-alt"></i>2019-02-21
-  </span>
-  <span class="poost-reading-time mr-2">
-    <i class="fas fa-fw fa-coffee"></i>2 min read
-  </span>
-<a href="https://euraxluo.gitee.io/blog/categories/notes/" class="post-taxonomy">#notes</a><a href="https://euraxluo.gitee.io/blog/tags/c/" class="post-taxonomy">#C</a></div>
-<div class="post-summary mb-3">C语言小计 Unix C   内核-》系统调用-》shell/共用函数库-》应用程序
-  系统调用和库函数
-  库函数会调用系统调用来实现自己的算法
-  公用函数库构建在系统调用之上，应用程序既可以使公用函数库，也可以使用系统调用
-    口令文件：/etc/passwd 字段结构：
-登录名：加密口令：UID：GID：注释字段：起始目录：sell
-  文件系统：
- /是root目录 /和空字符不能出现在文件名字中，斜线用来分隔开构成路径名的各文件名，空字符用来终止一个路径名 工作目录：每个进程都有一个工作目录，所有的相对路径名都从工作目录开始解释，进程可以使用chdir()更改工作目录,以/开始的路径名是绝对路径名 登陆时工作目录设 …</div>
-      </div>
-    </article><article class="post row surface"><div class="post-body">
         <h2 class="post-title mb-4"><a href="https://euraxluo.gitee.io/blog/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/">IO模型小记</a></h2><div class="post-meta mb-3">
   <span class="post-date mr-2">
     <i class="fas fa-fw fa-calendar-alt"></i>2019-02-21
@@ -244,6 +226,20 @@ book：失控
 如果是两次握手? 当网络阻塞时,客户端会发送两次,第一次请求到达服务器的时间慢于第二次 如果当时通信结束,服务器又收到了第一次阻塞的消息,如果是两次握手,就会分配资源 然而客户端已经完成了通信,不需要再连接了,会造成资源的浪费和安全隐患
 四次挥手: 客户端:我说完了,我想停止发送请求了 服务器:我知道你要停止发送了,我会停止接受消息 ( 服务器停止接受消息,但是 …</div>
       </div>
+    </article><article class="post row surface"><div class="post-body">
+        <h2 class="post-title mb-4"><a href="https://euraxluo.gitee.io/blog/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></h2><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2019-02-21
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>2 min read
+  </span>
+<a href="https://euraxluo.gitee.io/blog/categories/notes/" class="post-taxonomy">#notes</a><a href="https://euraxluo.gitee.io/blog/series/notes/" class="post-taxonomy">#notes</a><a href="https://euraxluo.gitee.io/blog/tags/notes/" class="post-taxonomy">#notes</a></div>
+<div class="post-summary mb-3">rust学习 所有权
+Rust 的核心功能（之一）是 所有权（ownership）。虽然该功能很容易解释，但它对语言的其他部分有着深刻的影响。
+所有运行的程序都必须管理其使用计算机内存的方式。一些语言中具有垃圾回收机制，在程序运行时不断地寻找不再使用的内存；在另一些语言中，程序员必须亲自分配和释放内存。Rust 则选择了第三种方式：通过所有权系统管理内存，编译器在编译时会根据一系列的规则进行检查。在运行时，所有权系统的任何功能都不会减慢程序。（其他的GC会不断运行来寻找垃圾）
+因为所有权对很多程序员来说都是一个新概念，需要一些时间来适应。好消息是随着你对 Rust 和所有权系统的规则越来越有经验，你就越能自然地编写出安全和高效的代 …</div>
+      </div>
     </article></div><div class="row">
 <ul class="pagination">
   <li class="page-item">
@@ -277,13 +273,13 @@ book：失控
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/blog/page/16/">16</a>
+    <a class="page-link" href="/blog/page/15/">15</a>
   </li>
   <li class="page-item">
     <a href="/blog/page/9/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/blog/page/16/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/blog/page/15/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
@@ -302,7 +298,7 @@ book：失控
   <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/python/python-socket/">python socket编程</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/slam/">SLAM</a></li></ul>
 </section><section class="recent-posts row surface">
   <h4>Recent Posts</h4>
-  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/shortcodes/g2plot_charts_test/">echarts shortcode</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 </a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a></li></ul>
+  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 </a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet2/">Servlet2</a></li></ul>
 </section>
 <section class="taxonomy-categories row surface">
   <h4>

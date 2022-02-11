@@ -155,31 +155,6 @@
       <div class="row content">
 <div class="col-lg-8">
   <div class="container"><div class="posts mb-4"><article class="post row surface"><div class="post-body">
-        <h2 class="post-title mb-4"><a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a></h2><div class="post-meta mb-3">
-  <span class="post-date mr-2">
-    <i class="fas fa-fw fa-calendar-alt"></i>2020-10-22
-  </span>
-  <span class="poost-reading-time mr-2">
-    <i class="fas fa-fw fa-coffee"></i>2 min read
-  </span>
-<a href="https://euraxluo.gitee.io/blog/categories/java/" class="post-taxonomy">#java</a><a href="https://euraxluo.gitee.io/blog/series/java/" class="post-taxonomy">#Java</a><a href="https://euraxluo.gitee.io/blog/tags/java/" class="post-taxonomy">#Java</a></div>
-<div class="post-summary mb-3">Servlet HTTP协议 是客户端与服务器通信的一种方式
-参考链接 request: 请求行请求头请求体 response: 响应行响应头响应体 Get: GET用于信息获取，而且应该是安全的和幂等的
-  带上数据,在URL上面拼接
-www.baidu.com
-name = zhanshan
-age = 18
-url:www.baidu.com?name = zhanshan&amp;age = 18
-url可见
-  传输方式
-HTTP header
-  设计目的
-获取数据
-  具有安全隐患,GET方法不会改变服务器端数据，所以不会产生副作用
-  GET请求返回的内容可以被浏览器缓存起来
-  Post:   以流的方 …</div>
-      </div>
-    </article><article class="post row surface"><div class="post-body">
         <h2 class="post-title mb-4"><a href="https://euraxluo.gitee.io/blog/posts/java/servlet2/">Servlet2</a></h2><div class="post-meta mb-3">
   <span class="post-date mr-2">
     <i class="fas fa-fw fa-calendar-alt"></i>2020-10-22
@@ -243,6 +218,25 @@ Cookie 把会话数据保存在浏览器客户端
 <a href="https://euraxluo.gitee.io/blog/categories/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/" class="post-taxonomy">#无人驾驶</a><a href="https://euraxluo.gitee.io/blog/tags/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/" class="post-taxonomy">#无人驾驶</a></div>
 <div class="post-summary mb-3"><p>无人驾驶概述</p></div>
       </div>
+    </article><article class="post row surface"><div class="post-body">
+        <h2 class="post-title mb-4"><a href="https://euraxluo.gitee.io/blog/posts/redis/%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AE%BE%E8%AE%A1/">缓存的使用和设计</a></h2><div class="post-meta mb-3">
+  <span class="post-date mr-2">
+    <i class="fas fa-fw fa-calendar-alt"></i>2020-10-22
+  </span>
+  <span class="poost-reading-time mr-2">
+    <i class="fas fa-fw fa-coffee"></i>2 min read
+  </span>
+<a href="https://euraxluo.gitee.io/blog/categories/%E7%BC%93%E5%AD%98/" class="post-taxonomy">#缓存</a><a href="https://euraxluo.gitee.io/blog/series/%E7%BC%93%E5%AD%98/" class="post-taxonomy">#缓存</a><a href="https://euraxluo.gitee.io/blog/tags/%E7%BC%93%E5%AD%98/" class="post-taxonomy">#缓存</a></div>
+<div class="post-summary mb-3">缓存的使用和设计 缓存的收益与成本 收益   加速读写
+ 通过缓存加速读写：CPU L1/L2/L3 Cache，浏览器缓存，Ehcache缓存数据库结果    降低后端负载
+ 后端服务器通过前端缓存降低负载：业务端使用Redis降低后端MySQL负载    成本   数据不一致
+ 缓存层和数据层有时间窗口不一致，和更新策略有关    代码维护成本：多了一层缓存逻辑
+  运维成本：Redis Cluster
+  使用场景   降低后端负载
+ 用于高消耗的SQL：join结果集/分组统计结果    加速请求响应
+ 利用Redis/Memcache优化IO时间    大量写合并为批量写
+ 计数器线Redis …</div>
+      </div>
     </article></div><div class="row">
 <ul class="pagination">
   <li class="page-item">
@@ -264,13 +258,13 @@ Cookie 把会话数据保存在浏览器客户端
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/blog/page/16/">16</a>
+    <a class="page-link" href="/blog/page/15/">15</a>
   </li>
   <li class="page-item">
     <a href="/blog/page/3/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/blog/page/16/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/blog/page/15/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
@@ -289,7 +283,7 @@ Cookie 把会话数据保存在浏览器客户端
   <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/python/python-socket/">python socket编程</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/slam/">SLAM</a></li></ul>
 </section><section class="recent-posts row surface">
   <h4>Recent Posts</h4>
-  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/shortcodes/g2plot_charts_test/">echarts shortcode</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 </a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a></li></ul>
+  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 </a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet2/">Servlet2</a></li></ul>
 </section>
 <section class="taxonomy-categories row surface">
   <h4>
