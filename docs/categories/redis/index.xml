@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>redis on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/blog/categories/redis/</link>
+    <link>https://euraxluo.github.io/categories/redis/</link>
     <description>Recent content in redis on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Sun, 10 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/blog/categories/redis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.github.io/categories/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Redis API及数据结构</title>
-      <link>https://euraxluo.gitee.io/blog/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <link>https://euraxluo.github.io/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/blog/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <guid>https://euraxluo.github.io/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
       <description>&lt;p&gt;本文介绍了redisApi以及数据结构&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Redis Cluster</title>
-      <link>https://euraxluo.gitee.io/blog/posts/redis/rediscluster-1/</link>
+      <link>https://euraxluo.github.io/posts/redis/rediscluster-1/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/blog/posts/redis/rediscluster-1/</guid>
+      <guid>https://euraxluo.github.io/posts/redis/rediscluster-1/</guid>
       <description>Redis Cluster 背景   并发量 &amp;lt;10万dps
   数据量 单机内存&amp;lt;256G
   带宽 网卡限制
@@ -39,10 +39,10 @@
     
     <item>
       <title>Redis Cluster 2</title>
-      <link>https://euraxluo.gitee.io/blog/posts/redis/rediscluster-2/</link>
+      <link>https://euraxluo.github.io/posts/redis/rediscluster-2/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/blog/posts/redis/rediscluster-2/</guid>
+      <guid>https://euraxluo.github.io/posts/redis/rediscluster-2/</guid>
       <description>集群伸缩 伸缩原理 伸：增加节点 缩：节点下线
 集群伸缩：槽和数据在节点之间的移动
 扩容集群  准备新节点    打开集群模式
@@ -60,10 +60,10 @@
     
     <item>
       <title>Redis Cluster 3</title>
-      <link>https://euraxluo.gitee.io/blog/posts/redis/rediscluster-3/</link>
+      <link>https://euraxluo.github.io/posts/redis/rediscluster-3/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/blog/posts/redis/rediscluster-3/</guid>
+      <guid>https://euraxluo.github.io/posts/redis/rediscluster-3/</guid>
       <description>RedisCluster 客户端使用 moved重定向   对任意节点发送键命令
   节点会计算槽和对应节点确定这个键是否指向自身
   如果指向自身，就执行命令，返回key所在的槽
@@ -87,10 +87,10 @@
     
     <item>
       <title>Redis Sentinel</title>
-      <link>https://euraxluo.gitee.io/blog/posts/redis/redissentinel/</link>
+      <link>https://euraxluo.github.io/posts/redis/redissentinel/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/blog/posts/redis/redissentinel/</guid>
+      <guid>https://euraxluo.github.io/posts/redis/redissentinel/</guid>
       <description>Redis Sentinel 主从复制的问题   手动故障转移
   写能力和存储能力受限
   Redis Sentinel架构   有多个Sentinel节点
@@ -114,10 +114,10 @@ Sentinel配置</description>
     
     <item>
       <title>Redis基础学习</title>
-      <link>https://euraxluo.gitee.io/blog/posts/redis/redis%E5%9F%BA%E7%A1%80/</link>
+      <link>https://euraxluo.github.io/posts/redis/redis%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/blog/posts/redis/redis%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://euraxluo.github.io/posts/redis/redis%E5%9F%BA%E7%A1%80/</guid>
       <description>Redis基础学习 Redis是一个key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)、zset(sorted set &amp;ndash;有序集合)和hash（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。
 Redis 是一个高性能的key-value数据库。 redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部 分场合可以对关系数据库起到很好的补充作用。它提供了Python，Ruby，Erlang，PHP客户端，使用很方便,Redis支持主从同步。数据可以从主服务器向任意数量的从服务器上同步，从服务器可以是关联其他从服务器的主服务器。这使得Redis可执行单层树复制。从盘可以有意无意的对数据进行写操作。由于完全实现了发布/订阅机制，使得从数据库在任何地方同步树时，可订阅一个频道并接收主服务器完整的消息发布记录。
 安装和基本命令 安装： Ubuntu18.04：sudo apt-get install redis-server
@@ -143,10 +143,10 @@ keys xx*</description>
     
     <item>
       <title>Redis的主从复制</title>
-      <link>https://euraxluo.gitee.io/blog/posts/redis/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link>
+      <link>https://euraxluo.github.io/posts/redis/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/blog/posts/redis/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid>
+      <guid>https://euraxluo.github.io/posts/redis/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid>
       <description>Redis的主从复制 单机部署的问题   机器故障（高可用）
   容量瓶颈（分布式）
   QPS瓶颈（分布式）
@@ -166,10 +166,10 @@ slaveof no one
     
     <item>
       <title>Redis的持久化</title>
-      <link>https://euraxluo.gitee.io/blog/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/</link>
+      <link>https://euraxluo.github.io/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/blog/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/</guid>
+      <guid>https://euraxluo.github.io/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/</guid>
       <description>Redis的持久化 Redis持久化作用 什么是持久化 redis的所有数据保存在内存中，对数据的更新回异步的保存在磁盘中
 持久化方式 快照   MySQL Dump
   Redis RDB
@@ -192,10 +192,10 @@ slaveof no one
     
     <item>
       <title>Redis高级特性初识别</title>
-      <link>https://euraxluo.gitee.io/blog/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</link>
+      <link>https://euraxluo.github.io/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/blog/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</guid>
+      <guid>https://euraxluo.github.io/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</guid>
       <description>Redis高级特性初识 慢查询 客户端请求的生命周期   客户端发送命令
   入队列
   执行命令（慢查询在这一阶段）
@@ -213,10 +213,10 @@ slaveof no one
     
     <item>
       <title>Redis基础配置</title>
-      <link>https://euraxluo.gitee.io/blog/posts/redis/redis%E9%85%8D%E7%BD%AE/</link>
+      <link>https://euraxluo.github.io/posts/redis/redis%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/blog/posts/redis/redis%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://euraxluo.github.io/posts/redis/redis%E9%85%8D%E7%BD%AE/</guid>
       <description>Redis的特点 速度快   使用内存
   使用C语言
   单线程

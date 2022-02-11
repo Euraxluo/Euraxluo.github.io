@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NIO on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/blog/tags/nio/</link>
+    <link>https://euraxluo.github.io/tags/nio/</link>
     <description>Recent content in NIO on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/blog/tags/nio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.github.io/tags/nio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IO模型小记</title>
-      <link>https://euraxluo.gitee.io/blog/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</link>
+      <link>https://euraxluo.github.io/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/blog/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</guid>
+      <guid>https://euraxluo.github.io/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</guid>
       <description>BIO (block io) 同步阻塞IO
 线程池:伪异步IO,实际上也是同步阻塞IO
 NIO(同步非阻塞)

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pathon on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/blog/series/pathon/</link>
+    <link>https://euraxluo.github.io/series/pathon/</link>
     <description>Recent content in Pathon on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Mon, 22 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/blog/series/pathon/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.github.io/series/pathon/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>爬虫学习4</title>
-      <link>https://euraxluo.gitee.io/blog/posts/python/pyquerystudy/</link>
+      <link>https://euraxluo.github.io/posts/python/pyquerystudy/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/blog/posts/python/pyquerystudy/</guid>
+      <guid>https://euraxluo.github.io/posts/python/pyquerystudy/</guid>
       <description>PyQuery 初始化 %%html &amp;lt;div id = &amp;#34;container&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;frist item&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link2.html&amp;#34;&amp;gt;second item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link3.html&amp;#34; style=&amp;#34;color:black;&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;bold&amp;#34;&amp;gt;third item&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link4.html&amp;#34;&amp;gt;fourth item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link5.html&amp;#34;&amp;gt;fifth item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/div&amp;gt; 字符串初始化 html = &amp;#39;&amp;#39;&amp;#39; &amp;lt;div id = &amp;#34;container&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;frist item&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link2.html&amp;#34;&amp;gt;second item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link3.</description>
     </item>
     

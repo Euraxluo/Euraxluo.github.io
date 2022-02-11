@@ -1,4 +1,4 @@
-baseURL = "https://euraxluo.gitee.io/blog"
+baseURL = "https://euraxluo.github.io"
 title = "Euraxluo Blog"
 theme = ["hugo-theme-bootstrap"]
 copyright = "Copyright © 2016-{year} Euraxluo. All Rights Reserved."
