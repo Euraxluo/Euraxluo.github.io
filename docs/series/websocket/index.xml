@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WebSocket on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/series/websocket/</link>
+    <link>/series/websocket/</link>
     <description>Recent content in WebSocket on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/series/websocket/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/series/websocket/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>WebSocket</title>
-      <link>https://euraxluo.gitee.io/posts/java/websocket/</link>
+      <link>/posts/java/websocket/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/posts/java/websocket/</guid>
+      <guid>/posts/java/websocket/</guid>
       <description>WebSocket 一、概念 1.WebSocket 是HTTP协议的补充。使用的TCP协议建立连接
 2.HTML5是指一系列新API，新协议，WebSocket也是其中之一
 二、优点 1.WebSocket是持久化协议，每次通信只需要一次连接

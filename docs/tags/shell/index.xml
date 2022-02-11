@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shell on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/tags/shell/</link>
+    <link>/tags/shell/</link>
     <description>Recent content in Shell on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Sun, 10 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shell 基础</title>
-      <link>https://euraxluo.gitee.io/posts/shell/shell%E5%9F%BA%E7%A1%80/</link>
+      <link>/posts/shell/shell%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/posts/shell/shell%E5%9F%BA%E7%A1%80/</guid>
+      <guid>/posts/shell/shell%E5%9F%BA%E7%A1%80/</guid>
       <description>shell 基础 在终端输入:sh进入脚本界面
 helloworld 编辑内容
 #!/bin/bashecho &amp;quot;hello world!&amp;quot;保存退出:
@@ -36,10 +36,10 @@ for skill in Ada Coffe Action java;do echo &amp;#34;I am good at ${skill}Script&
     
     <item>
       <title>Shell 进阶</title>
-      <link>https://euraxluo.gitee.io/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</link>
+      <link>/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</guid>
+      <guid>/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</guid>
       <description>shell进阶  破壳漏洞
 env x=&#39;() { :;}; echo shellshocked&#39; bash –c &amp;quot;echo test&amp;quot;检查,如果输出了两行,那么需要升级bash的版本
   解释器的类型

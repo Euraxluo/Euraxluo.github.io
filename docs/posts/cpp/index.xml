@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cpp on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/posts/cpp/</link>
+    <link>/posts/cpp/</link>
     <description>Recent content in cpp on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><atom:link href="https://euraxluo.gitee.io/posts/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><atom:link href="/posts/cpp/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

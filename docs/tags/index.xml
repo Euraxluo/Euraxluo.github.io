@@ -2,350 +2,350 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tags on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in tags on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>notes</title>
-      <link>https://euraxluo.gitee.io/tags/notes/</link>
+      <link>/tags/notes/</link>
       <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/notes/</guid>
+      <guid>/tags/notes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>TSP</title>
-      <link>https://euraxluo.gitee.io/tags/tsp/</link>
+      <link>/tags/tsp/</link>
       <pubDate>Sun, 21 Mar 2021 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/tsp/</guid>
+      <guid>/tags/tsp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>VRP</title>
-      <link>https://euraxluo.gitee.io/tags/vrp/</link>
+      <link>/tags/vrp/</link>
       <pubDate>Sun, 21 Mar 2021 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/vrp/</guid>
+      <guid>/tags/vrp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Java</title>
-      <link>https://euraxluo.gitee.io/tags/java/</link>
+      <link>/tags/java/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/java/</guid>
+      <guid>/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NLP</title>
-      <link>https://euraxluo.gitee.io/tags/nlp/</link>
+      <link>/tags/nlp/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/nlp/</guid>
+      <guid>/tags/nlp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WebSocket</title>
-      <link>https://euraxluo.gitee.io/tags/websocket/</link>
+      <link>/tags/websocket/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/websocket/</guid>
+      <guid>/tags/websocket/</guid>
       <description></description>
     </item>
     
     <item>
       <title>无人驾驶</title>
-      <link>https://euraxluo.gitee.io/tags/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</link>
+      <link>/tags/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</guid>
+      <guid>/tags/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>缓存</title>
-      <link>https://euraxluo.gitee.io/tags/%E7%BC%93%E5%AD%98/</link>
+      <link>/tags/%E7%BC%93%E5%AD%98/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/%E7%BC%93%E5%AD%98/</guid>
+      <guid>/tags/%E7%BC%93%E5%AD%98/</guid>
       <description></description>
     </item>
     
     <item>
       <title>architecture</title>
-      <link>https://euraxluo.gitee.io/tags/architecture/</link>
+      <link>/tags/architecture/</link>
       <pubDate>Mon, 03 Feb 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/architecture/</guid>
+      <guid>/tags/architecture/</guid>
       <description></description>
     </item>
     
     <item>
       <title>typora</title>
-      <link>https://euraxluo.gitee.io/tags/typora/</link>
+      <link>/tags/typora/</link>
       <pubDate>Fri, 10 Jan 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/typora/</guid>
+      <guid>/tags/typora/</guid>
       <description></description>
     </item>
     
     <item>
       <title>database</title>
-      <link>https://euraxluo.gitee.io/tags/database/</link>
+      <link>/tags/database/</link>
       <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/database/</guid>
+      <guid>/tags/database/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hbase</title>
-      <link>https://euraxluo.gitee.io/tags/hbase/</link>
+      <link>/tags/hbase/</link>
       <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/hbase/</guid>
+      <guid>/tags/hbase/</guid>
       <description></description>
     </item>
     
     <item>
       <title>redis</title>
-      <link>https://euraxluo.gitee.io/tags/redis/</link>
+      <link>/tags/redis/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/redis/</guid>
+      <guid>/tags/redis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ROS</title>
-      <link>https://euraxluo.gitee.io/tags/ros/</link>
+      <link>/tags/ros/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/ros/</guid>
+      <guid>/tags/ros/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Shell</title>
-      <link>https://euraxluo.gitee.io/tags/shell/</link>
+      <link>/tags/shell/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/shell/</guid>
+      <guid>/tags/shell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>TensorFlow</title>
-      <link>https://euraxluo.gitee.io/tags/tensorflow/</link>
+      <link>/tags/tensorflow/</link>
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/tensorflow/</guid>
+      <guid>/tags/tensorflow/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C</title>
-      <link>https://euraxluo.gitee.io/tags/c/</link>
+      <link>/tags/c/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/c/</guid>
+      <guid>/tags/c/</guid>
       <description></description>
     </item>
     
     <item>
       <title>chromedriver</title>
-      <link>https://euraxluo.gitee.io/tags/chromedriver/</link>
+      <link>/tags/chromedriver/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/chromedriver/</guid>
+      <guid>/tags/chromedriver/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Colab</title>
-      <link>https://euraxluo.gitee.io/tags/colab/</link>
+      <link>/tags/colab/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/colab/</guid>
+      <guid>/tags/colab/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NIO</title>
-      <link>https://euraxluo.gitee.io/tags/nio/</link>
+      <link>/tags/nio/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/nio/</guid>
+      <guid>/tags/nio/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://euraxluo.gitee.io/tags/python/</link>
+      <link>/tags/python/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/python/</guid>
+      <guid>/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>socket</title>
-      <link>https://euraxluo.gitee.io/tags/socket/</link>
+      <link>/tags/socket/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/socket/</guid>
+      <guid>/tags/socket/</guid>
       <description></description>
     </item>
     
     <item>
       <title>TCP</title>
-      <link>https://euraxluo.gitee.io/tags/tcp/</link>
+      <link>/tags/tcp/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/tcp/</guid>
+      <guid>/tags/tcp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>{{.Params.x}}</title>
-      <link>https://euraxluo.gitee.io/tags/.params.x/</link>
+      <link>/tags/.params.x/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/.params.x/</guid>
+      <guid>/tags/.params.x/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Flask</title>
-      <link>https://euraxluo.gitee.io/tags/flask/</link>
+      <link>/tags/flask/</link>
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/flask/</guid>
+      <guid>/tags/flask/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JDBC</title>
-      <link>https://euraxluo.gitee.io/tags/jdbc/</link>
+      <link>/tags/jdbc/</link>
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/jdbc/</guid>
+      <guid>/tags/jdbc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mvc</title>
-      <link>https://euraxluo.gitee.io/tags/mvc/</link>
+      <link>/tags/mvc/</link>
       <pubDate>Tue, 20 Nov 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/mvc/</guid>
+      <guid>/tags/mvc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JSP</title>
-      <link>https://euraxluo.gitee.io/tags/jsp/</link>
+      <link>/tags/jsp/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/jsp/</guid>
+      <guid>/tags/jsp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
-      <link>https://euraxluo.gitee.io/tags/linux/</link>
+      <link>/tags/linux/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/linux/</guid>
+      <guid>/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MyBatis</title>
-      <link>https://euraxluo.gitee.io/tags/mybatis/</link>
+      <link>/tags/mybatis/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/mybatis/</guid>
+      <guid>/tags/mybatis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>读书笔记</title>
-      <link>https://euraxluo.gitee.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <link>/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Pathon</title>
-      <link>https://euraxluo.gitee.io/tags/pathon/</link>
+      <link>/tags/pathon/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/pathon/</guid>
+      <guid>/tags/pathon/</guid>
       <description></description>
     </item>
     
     <item>
       <title>爬虫</title>
-      <link>https://euraxluo.gitee.io/tags/%E7%88%AC%E8%99%AB/</link>
+      <link>/tags/%E7%88%AC%E8%99%AB/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/%E7%88%AC%E8%99%AB/</guid>
+      <guid>/tags/%E7%88%AC%E8%99%AB/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RabbitMQ</title>
-      <link>https://euraxluo.gitee.io/tags/rabbitmq/</link>
+      <link>/tags/rabbitmq/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/rabbitmq/</guid>
+      <guid>/tags/rabbitmq/</guid>
       <description></description>
     </item>
     
     <item>
       <title>数据结构</title>
-      <link>https://euraxluo.gitee.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <link>/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <guid>/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
       <description></description>
     </item>
     
     <item>
       <title>git</title>
-      <link>https://euraxluo.gitee.io/tags/git/</link>
+      <link>/tags/git/</link>
       <pubDate>Wed, 11 Jul 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/git/</guid>
+      <guid>/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CleanCode</title>
-      <link>https://euraxluo.gitee.io/tags/cleancode/</link>
+      <link>/tags/cleancode/</link>
       <pubDate>Mon, 22 Jan 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/cleancode/</guid>
+      <guid>/tags/cleancode/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Apollo无人驾驶</title>
-      <link>https://euraxluo.gitee.io/tags/apollo%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</link>
+      <link>/tags/apollo%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/tags/apollo%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</guid>
+      <guid>/tags/apollo%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</guid>
       <description></description>
     </item>
     

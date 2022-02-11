@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Flask on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/categories/flask/</link>
+    <link>/categories/flask/</link>
     <description>Recent content in Flask on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 14 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/categories/flask/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="/categories/flask/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Flask入门</title>
-      <link>https://euraxluo.gitee.io/posts/python/flask%E5%85%A5%E9%97%A8/</link>
+      <link>/posts/python/flask%E5%85%A5%E9%97%A8/</link>
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/posts/python/flask%E5%85%A5%E9%97%A8/</guid>
+      <guid>/posts/python/flask%E5%85%A5%E9%97%A8/</guid>
       <description>Flask 学习 入门： 最小的Flask 程序 from flask import Flask # 导入flask app = Flask(__name__)#使用单一的模块（如本例），你应该使用 __name__ @app.route(&amp;#39;/hello&amp;#39;) #route()装饰器 什么样子的URL能触发我们的函数 def hello_word(): return &amp;#39;Hello Word!&amp;#39;#返回我们想在浏览器中显示的内容 if __name__ == &amp;#39;__main__&amp;#39;: #确保服务器只会在该脚本被 Python 解释器直接执行的时候才会运行，而不是作为模块导入的时候 #app.run()#让app这个应用在本地服务器运行起来 #app.run(host=&amp;#39;0.0.0.0&amp;#39;) #监听所有的公网IP app.debug = True app.run()#q启动调试器 模板渲染 Jinja2模板引擎文档
 from flask import Flask # 导入flask from flask import render_template #使用Jinja2的模版渲染 app = Flask(__name__)#使用单一的模块（如本例），你应该使用 __name__ @app.route(&amp;#39;/hello&amp;#39;) #route()装饰器 什么样子的URL能触发我们的函数 def hello_word(): return render_template(&amp;#34;hello.html&amp;#34;)#返回的模板文件（需要放在当前目录的templates文件夹内） if __name__ == &amp;#39;__main__&amp;#39;: #确保服务器只会在该脚本被 Python 解释器直接执行的时候才会运行，而不是作为模块导入的时候 #app.run()#让app这个应用在本地服务器运行起来 #app.run(host=&amp;#39;0.0.0.0&amp;#39;) #监听所有的公网IP app.</description>
     </item>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JSP on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/series/jsp/</link>
+    <link>/series/jsp/</link>
     <description>Recent content in JSP on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Mon, 29 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/series/jsp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="/series/jsp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JSP</title>
-      <link>https://euraxluo.gitee.io/posts/java/jsp%E5%AD%A6%E4%B9%A0/</link>
+      <link>/posts/java/jsp%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/posts/java/jsp%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>/posts/java/jsp%E5%AD%A6%E4%B9%A0/</guid>
       <description>jsp  Java Server Page
   什么是jsp   从用户角度看待 ，就是是一个网页 ， 从程序员角度看待 ， 其实是一个java类， 它继承了servlet，所以可以直接说jsp 就是一个Servlet.
   为什么会有jsp?   html 多数情况下用来显示静态内容 ， 一成不变的。 但是有时候我们需要在网页上显示一些动态数据， 比如： 查询所有的学生信息， 根据姓名去查询具体某个学生。 这些动作都需要去查询数据库，然后在网页上显示。 html是不支持写java代码 ， jsp里面可以写java代码。

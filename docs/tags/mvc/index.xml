@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mvc on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/tags/mvc/</link>
+    <link>/tags/mvc/</link>
     <description>Recent content in mvc on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Tue, 20 Nov 2018 00:00:00 +0800</lastBuildDate><atom:link href="https://euraxluo.gitee.io/tags/mvc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Nov 2018 00:00:00 +0800</lastBuildDate><atom:link href="/tags/mvc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MVC分层模型</title>
-      <link>https://euraxluo.gitee.io/posts/architecture_design/mvc/</link>
+      <link>/posts/architecture_design/mvc/</link>
       <pubDate>Tue, 20 Nov 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/posts/architecture_design/mvc/</guid>
+      <guid>/posts/architecture_design/mvc/</guid>
       <description>MVC分层模型 DAO 模式初识 PO(persistant object) 持久对象 在o/r映射的时候出现的概念，如果没有o/r映射，没有这个概念存在了。通常对应数据模型(数据库),本身还有部分业务逻辑的处理。可以看成是与数据库中的表相映射的java对象。最简单的PO就是对应数据库中某个表中的一条记录，多个记录可以用PO的集合。PO中应该不包含任何对数据库的操作。
 最形象的理解就是一个PO就是数据库中的一条记录。
 好处是可以把一条记录作为一个对象处理，可以方便的转为其它对象。

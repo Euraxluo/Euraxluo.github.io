@@ -2,188 +2,188 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>category on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in category on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>notes</title>
-      <link>https://euraxluo.gitee.io/categories/notes/</link>
+      <link>/categories/notes/</link>
       <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/notes/</guid>
+      <guid>/categories/notes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>OR</title>
-      <link>https://euraxluo.gitee.io/categories/or/</link>
+      <link>/categories/or/</link>
       <pubDate>Sun, 21 Mar 2021 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/or/</guid>
+      <guid>/categories/or/</guid>
       <description></description>
     </item>
     
     <item>
       <title>java</title>
-      <link>https://euraxluo.gitee.io/categories/java/</link>
+      <link>/categories/java/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/java/</guid>
+      <guid>/categories/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NLP</title>
-      <link>https://euraxluo.gitee.io/categories/nlp/</link>
+      <link>/categories/nlp/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/nlp/</guid>
+      <guid>/categories/nlp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WebSocket</title>
-      <link>https://euraxluo.gitee.io/categories/websocket/</link>
+      <link>/categories/websocket/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/websocket/</guid>
+      <guid>/categories/websocket/</guid>
       <description></description>
     </item>
     
     <item>
       <title>无人驾驶</title>
-      <link>https://euraxluo.gitee.io/categories/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</link>
+      <link>/categories/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</guid>
+      <guid>/categories/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>缓存</title>
-      <link>https://euraxluo.gitee.io/categories/%E7%BC%93%E5%AD%98/</link>
+      <link>/categories/%E7%BC%93%E5%AD%98/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/%E7%BC%93%E5%AD%98/</guid>
+      <guid>/categories/%E7%BC%93%E5%AD%98/</guid>
       <description></description>
     </item>
     
     <item>
       <title>architecture design</title>
-      <link>https://euraxluo.gitee.io/categories/architecture-design/</link>
+      <link>/categories/architecture-design/</link>
       <pubDate>Mon, 03 Feb 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/architecture-design/</guid>
+      <guid>/categories/architecture-design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tools</title>
-      <link>https://euraxluo.gitee.io/categories/tools/</link>
+      <link>/categories/tools/</link>
       <pubDate>Fri, 10 Jan 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/tools/</guid>
+      <guid>/categories/tools/</guid>
       <description></description>
     </item>
     
     <item>
       <title>BigData</title>
-      <link>https://euraxluo.gitee.io/categories/bigdata/</link>
+      <link>/categories/bigdata/</link>
       <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/bigdata/</guid>
+      <guid>/categories/bigdata/</guid>
       <description></description>
     </item>
     
     <item>
       <title>redis</title>
-      <link>https://euraxluo.gitee.io/categories/redis/</link>
+      <link>/categories/redis/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/redis/</guid>
+      <guid>/categories/redis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ROS</title>
-      <link>https://euraxluo.gitee.io/categories/ros/</link>
+      <link>/categories/ros/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/ros/</guid>
+      <guid>/categories/ros/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Shell</title>
-      <link>https://euraxluo.gitee.io/categories/shell/</link>
+      <link>/categories/shell/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/shell/</guid>
+      <guid>/categories/shell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>TensorFlow</title>
-      <link>https://euraxluo.gitee.io/categories/tensorflow/</link>
+      <link>/categories/tensorflow/</link>
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/tensorflow/</guid>
+      <guid>/categories/tensorflow/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://euraxluo.gitee.io/categories/python/</link>
+      <link>/categories/python/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/python/</guid>
+      <guid>/categories/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Flask</title>
-      <link>https://euraxluo.gitee.io/categories/flask/</link>
+      <link>/categories/flask/</link>
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/flask/</guid>
+      <guid>/categories/flask/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
-      <link>https://euraxluo.gitee.io/categories/linux/</link>
+      <link>/categories/linux/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/linux/</guid>
+      <guid>/categories/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>读书笔记</title>
-      <link>https://euraxluo.gitee.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <link>/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <guid>/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>爬虫</title>
-      <link>https://euraxluo.gitee.io/categories/%E7%88%AC%E8%99%AB/</link>
+      <link>/categories/%E7%88%AC%E8%99%AB/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/%E7%88%AC%E8%99%AB/</guid>
+      <guid>/categories/%E7%88%AC%E8%99%AB/</guid>
       <description></description>
     </item>
     
     <item>
       <title>message queue</title>
-      <link>https://euraxluo.gitee.io/categories/message-queue/</link>
+      <link>/categories/message-queue/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/categories/message-queue/</guid>
+      <guid>/categories/message-queue/</guid>
       <description></description>
     </item>
     

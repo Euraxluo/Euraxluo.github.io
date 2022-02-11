@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>algorithm on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/posts/algorithm/</link>
+    <link>/posts/algorithm/</link>
     <description>Recent content in algorithm on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Sat, 20 Oct 2018 00:00:00 +0800</lastBuildDate><atom:link href="https://euraxluo.gitee.io/posts/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Oct 2018 00:00:00 +0800</lastBuildDate><atom:link href="/posts/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>数组</title>
-      <link>https://euraxluo.gitee.io/posts/algorithm/%E6%95%B0%E7%BB%84/</link>
+      <link>/posts/algorithm/%E6%95%B0%E7%BB%84/</link>
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/posts/algorithm/%E6%95%B0%E7%BB%84/</guid>
+      <guid>/posts/algorithm/%E6%95%B0%E7%BB%84/</guid>
       <description>线性表(每个线性表上的数据最多只有前和后两个方向):数组,链表,队列,栈 非线性表(数据之间并不是简单的前后关系):二叉树,堆,图
 数组的概念 数组( Array )是一种线性表数据结构。它用一组连续的内存空间,来存储一组具有相同类型的数据。
 数组的特点 连续的内存空间和相同类型的数据
@@ -34,10 +34,10 @@ a[i]_address = base_address + i * data_type_size
     
     <item>
       <title>链表</title>
-      <link>https://euraxluo.gitee.io/posts/algorithm/%E9%93%BE%E8%A1%A8/</link>
+      <link>/posts/algorithm/%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/posts/algorithm/%E9%93%BE%E8%A1%A8/</guid>
+      <guid>/posts/algorithm/%E9%93%BE%E8%A1%A8/</guid>
       <description>单链表 data.next--&amp;gt;data.next--&amp;gt;NULL
 时间复杂度   插入节点:
 时间复杂度:O1

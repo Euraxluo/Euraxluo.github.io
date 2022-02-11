@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>chromedriver on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/tags/chromedriver/</link>
+    <link>/tags/chromedriver/</link>
     <description>Recent content in chromedriver on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/tags/chromedriver/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/chromedriver/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>chromedriver-安装</title>
-      <link>https://euraxluo.gitee.io/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</link>
+      <link>/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</guid>
+      <guid>/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</guid>
       <description>![reference])(https://blog.csdn.net/shuchuan0409/article/details/101615221)
 第一步：
 执行 sudo apt-get update 更新apt-get，耗时可能会比较久

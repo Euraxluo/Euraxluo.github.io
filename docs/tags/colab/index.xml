@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Colab on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/tags/colab/</link>
+    <link>/tags/colab/</link>
     <description>Recent content in Colab on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/tags/colab/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/colab/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Colab的使用</title>
-      <link>https://euraxluo.gitee.io/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <link>/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <guid>/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
       <description>首先是梯子 校园网改ipv6连接谷歌 1.修改SDN服务器
 在ipv6的sdn中设置这两个记录，也可以只设置一个
 2001:4860:4860::88882001:4860:4860::8844linux:修改/etc/resolv.conf

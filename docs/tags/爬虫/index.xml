@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>爬虫 on Euraxluo Blog</title>
-    <link>https://euraxluo.gitee.io/tags/%E7%88%AC%E8%99%AB/</link>
+    <link>/tags/%E7%88%AC%E8%99%AB/</link>
     <description>Recent content in 爬虫 on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Mon, 22 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/tags/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>爬虫学习4</title>
-      <link>https://euraxluo.gitee.io/posts/python/pyquerystudy/</link>
+      <link>/posts/python/pyquerystudy/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.gitee.io/posts/python/pyquerystudy/</guid>
+      <guid>/posts/python/pyquerystudy/</guid>
       <description>PyQuery 初始化 %%html &amp;lt;div id = &amp;#34;container&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;frist item&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link2.html&amp;#34;&amp;gt;second item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link3.html&amp;#34; style=&amp;#34;color:black;&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;bold&amp;#34;&amp;gt;third item&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link4.html&amp;#34;&amp;gt;fourth item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link5.html&amp;#34;&amp;gt;fifth item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/div&amp;gt; 字符串初始化 html = &amp;#39;&amp;#39;&amp;#39; &amp;lt;div id = &amp;#34;container&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;frist item&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link2.html&amp;#34;&amp;gt;second item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link3.</description>
     </item>
     
     <item>
       <title>爬虫学习1-概念及urllib2</title>
-      <link>https://euraxluo.gitee.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/</link>
+      <link>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/</guid>
+      <guid>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/</guid>
       <description>前记：   爬虫：使用任何技术手段，批量获取网站信息的一种方式。关键在于批量。
   反爬虫：使用任何技术手段，阻止别人批量获取自己网站信息的一种方式。关键也在于批量。
   误伤：在反爬虫的过程中，错误的将普通用户识别为爬虫。误伤率高的反爬虫策略，效果再好也不能用。
@@ -40,20 +40,20 @@ import urllib2,cookielib cj = cookielib.CookieJar()#创建cookie容器 opener = 
     
     <item>
       <title>爬虫学习2-Requests库学习</title>
-      <link>https://euraxluo.gitee.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</link>
+      <link>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</guid>
+      <guid>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</guid>
       <description>请求方法： r=requests.get(&amp;#39;http://httpbin.org/get&amp;#39;)#get r = requests.post(&amp;#34;http://httpbin.org/post&amp;#34;)#post r = requests.put(&amp;#34;http://httpbin.org/put&amp;#34;)#put r = requests.delete(&amp;#34;http://httpbin.org/delete&amp;#34;)#delect r = requests.head(&amp;#34;http://httpbin.org/get&amp;#34;)#head r = requests.options(&amp;#34;http://httpbin.org/get&amp;#34;)#options GET eg import requests r = requests.get(url=&amp;#39;http://www.euraxluo.cn&amp;#39;) # 最基本的GET请求 print(r.status_code) # 内置的状态码查询对象 #状态码非200视为出错 响应状态码 eg:404 r = requests.get(&amp;#39;http://httpbin.org/status/404&amp;#39;) print(r.status_code)#404 error_info = r.raise_for_status()#Response.raise_for_status()抛出异常 带参数的url请求： #向url传递参数 r = requests.get(url=&amp;#39;http://dict.baidu.com/s&amp;#39;, params={&amp;#39;wd&amp;#39;: &amp;#39;python&amp;#39;})#带参数的GET请求 #当你不知道你的编码类型时 r.encoding = r.apparent_encoding#获取编码类型 print(r.text)#返回解码后的数据 tips 若有图片 r.content 返回bytes数据
 eg：r.content r = requests.get(url=&amp;#39;http://music.baidu.com&amp;#39;)#实测，没啥区别 html=r.content #html_doc=str(html,&amp;#39;utf-8&amp;#39;) html_doc=html.decode(&amp;#34;utf-8&amp;#34;,&amp;#34;ignore&amp;#34;) print(html_doc) 响应内容 不同的内容处理方式 Json：request.json() 二进制：一般用于图片 from PIL import Image from io import BytesIO m = request.</description>
     </item>
     
     <item>
       <title>爬虫学习3-网页解析器</title>
-      <link>https://euraxluo.gitee.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/</link>
+      <link>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.gitee.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/</guid>
+      <guid>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/</guid>
       <description>BeautifulSoup解析器：    解析器 使用方法 条件     bs4的html解析器 BeautifulSoup(html,&amp;lsquo;html.parser&amp;rsquo;) 安装bs4   lxml的html解析器 BeautifulSoup(html,&amp;lsquo;lxml&amp;rsquo;) pip install lxml   lxml的xml解析器 BeautifulSoup(html,&amp;lsquo;xml&amp;rsquo;) pip install lxml   html5lib的解析器 BeautifulSoup(html,&amp;lsquo;html5lib&amp;rsquo;) pip install html5lib    基本元素    基本元素 说明     tag 标签,&amp;lt;&amp;gt;开头，&amp;lt;/&amp;gt;结尾   name 标签的名字，,&amp;lt;tag&amp;gt;.name   attrs 标签的属性，&amp;lt;tag&amp;gt;.attrs   NavigableString String,&amp;lt;tag&amp;gt;.String   Comment 标签内字符串的注释部分，Comment类型    搜索节点(html中的标签) find_all(name,attrs,recursive,string)</description>
     </item>
     
