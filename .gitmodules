@@ -1,9 +1,3 @@
 [submodule "themes/hugo-theme-bootstrap"]
 	path = themes/hugo-theme-bootstrap
 	url = https://github.com/razonyang/hugo-theme-bootstrap
-[submodule "themes/hugo-chart"]
-	path = themes/hugo-chart
-	url = https://github.com/Shen-Yu/hugo-chart.git
-[submodule "themes/hugo-g2plot"]
-	path = themes/hugo-g2plot
-	url = https://github.com/Euraxluo/hugo-g2plot.git
