@@ -1,13 +1,14 @@
-<!doctype html>
-<html lang="en">
+<!doctype html><html lang="en"
+  >
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Linux基础 - Euraxluo Blog</title><link rel="apple-touch-icon" href="https://euraxluo.gitee.io/blog/images/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="https://euraxluo.gitee.io/blog/images/favicons/manifest.json">
-<link rel="icon" href="https://euraxluo.gitee.io/blog/images/favicons/favicon.ico">
+    <title>Linux基础 - Euraxluo Blog</title><link rel="apple-touch-icon" href="https://euraxluo.gitee.io/blog/images/icons/icon-180x180.png" sizes="180x180">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="https://euraxluo.gitee.io/blog/images/icons/favicon.ico">
+<link rel="manifest" href="https://euraxluo.gitee.io/blog/manifest.json">
+<meta name="keywords" content="" />
 <meta name="description" content="Linux基础" /><meta itemprop="name" content="Linux基础">
 <meta itemprop="description" content="Linux基础">
 <meta itemprop="datePublished" content="2018-10-29T00:00:00+00:00" />
@@ -27,22 +28,137 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux基础"/>
 <meta name="twitter:description" content="Linux基础"/>
-<meta data-name="palette" content="blue"><link rel=stylesheet href="https://euraxluo.gitee.io/blog/css/bundle.min.c499608f8442ace06c5f0f9298ce8f109f7a84d0bc7a2d5cfce2221e20d34177.css" integrity="sha256-xJlgj4RCrOBsXw&#43;SmM6PEJ96hNC8ei1c/OIiHiDTQXc=" crossorigin="anonymous"><script src="https://euraxluo.gitee.io/blog/js/bundle.min.4f0bf0084c93f18baec18d21035f382e8b666d326b7f3a3fddfab7c6e7566bfc.js" integrity="sha256-TwvwCEyT8YuuwY0hA184LotmbTJrfzo/3fq3xudWa/w=" crossorigin="anonymous"></script>
-</head>
-  <body><header><nav class="navbar fixed-top navbar-expand-xl">
+<link rel="stylesheet" href="https://euraxluo.gitee.io/blog/css/main.min.28a3ca343dd0a7bd1957907fcd87aef64aaaa4ae30eb486ada4e888fd95ae91b.css" integrity="sha256-KKPKND3Qp70ZV5B/zYeu9kqqpK4w60hq2k6Ij9la6Rs=" crossorigin="anonymous"><link rel="stylesheet" href="https://euraxluo.gitee.io/blog/css/katex.min.52bcb5669e86f59157424ba25853a6b20465391634a4ab5d7d42563c713ea165.css" integrity="sha256-Ury1Zp6G9ZFXQkuiWFOmsgRlORY0pKtdfUJWPHE&#43;oWU=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://euraxluo.gitee.io/blog/css/viewer.min.f66ccd366c47e7fdadd4ff99e528f941dfebc6dfa1b7abec38803f94064139c1.css" integrity="sha256-9mzNNmxH5/2t1P&#43;Z5Sj5Qd/rxt&#43;ht6vsOIA/lAZBOcE=" crossorigin="anonymous"></head>
+  <body><script>const items=['mode','palette'];items.forEach(function(key){const value=localStorage.getItem('hbs-'+key);if(value){document.body.parentElement.setAttribute('data-'+key,value);}});</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="https://euraxluo.gitee.io/blog">
-      <img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy">Euraxluo</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button><a class="navbar-brand me-3" href="https://euraxluo.gitee.io/blog"><img class="logo" alt="Logo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy"
+  
+   />
+Euraxluo
+    </a>
+    <button class="navbar-social-share" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
+  aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
+  <i class="fas fa-share-alt"></i>
+</button>
+
+<div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Share</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-2 mb-2 mb-lg-0"><form class="search-bar d-flex mr-2" action="https://euraxluo.gitee.io/blog/search">
-  <div class="input-group input-group-sm">
-    <button class="btn btn-search disabled position-absolute left-0" type="submit"><i class="fas fa-fw fa-search"></i></button>
-    <input class="form-control rounded-pill" id="searchQuery" name="q" type="search" aria-label="Search">
   </div>
-</form></ul><ul class="navbar-nav mb-2 mb-lg-0 mr-2 mr-auto"><li class="nav-item">
+  <div class="offcanvas-body">
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=Linux%e5%9f%ba%e7%a1%80&url=https%3a%2f%2feuraxluo.gitee.io%2fblog%2fposts%2fshell%2flinux%25E5%259F%25BA%25E7%25A1%2580%25E5%2591%25BD%25E4%25BB%25A4%2f">
+      <i class="fab fa-fw fa-twitter"></i> Twitter
+    </a>
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
+      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2feuraxluo.gitee.io%2fblog%2fposts%2fshell%2flinux%25E5%259F%25BA%25E7%25A1%2580%25E5%2591%25BD%25E4%25BB%25A4%2f">
+      <i class="fab fa-fw fa-facebook-f"></i> Facebook
+    </a>
+  </div>
+</div>
+    <button class="navbar-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings"
+  aria-controls="offcanvasSettings" aria-label="Toggle settings">
+  <i class="fas fa-ellipsis-v"></i>
+</button>
+
+<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettings">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Settings</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+
+<section class="setting">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="modeSwitcher">
+      </div>
+    </div>
+  </form>
+</section>
+
+<section class="setting">
+  <form class="font-size-switcher-form row">
+    <div class="col-auto">
+      <label for="fontSize" class="form-label"><i class="fas fa-fw fa-font"></i> Font Size</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <input type="range" class="form-range" min="-2" max="2" id="fontSize">
+    </div>
+  </form>
+</section>
+
+
+<section class="setting palettes">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-palette"></i> Palette</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <a id="btnPalette" class="btn btn-sm btn-outline-primary" role="button" aria-label="palettePicker">
+        <i class="fas fa-eye-dropper"></i>
+      </a>
+    </div>
+  </form>
+  <div class="mt-2 d-flex visually-hidden" id="palettePicker"><button type="button" id="palette-blue" aria-label="Blue"
+        class="btn btn-sm palette" data-palette="blue">
+      </button><button type="button" id="palette-blue-gray" aria-label="Blue Gray"
+        class="btn btn-sm palette" data-palette="blue-gray">
+      </button><button type="button" id="palette-brown" aria-label="Brown"
+        class="btn btn-sm palette" data-palette="brown">
+      </button><button type="button" id="palette-cyan" aria-label="Cyan"
+        class="btn btn-sm palette" data-palette="cyan">
+      </button><button type="button" id="palette-green" aria-label="Green"
+        class="btn btn-sm palette" data-palette="green">
+      </button><button type="button" id="palette-indigo" aria-label="Indigo"
+        class="btn btn-sm palette" data-palette="indigo">
+      </button><button type="button" id="palette-orange" aria-label="Orange"
+        class="btn btn-sm palette" data-palette="orange">
+      </button><button type="button" id="palette-pink" aria-label="Pink"
+        class="btn btn-sm palette" data-palette="pink">
+      </button><button type="button" id="palette-purple" aria-label="Purple"
+        class="btn btn-sm palette" data-palette="purple">
+      </button><button type="button" id="palette-red" aria-label="Red"
+        class="btn btn-sm palette" data-palette="red">
+      </button><button type="button" id="palette-teal" aria-label="Teal"
+        class="btn btn-sm palette" data-palette="teal">
+      </button><button type="button" id="palette-yellow" aria-label="Yellow"
+        class="btn btn-sm palette" data-palette="yellow">
+      </button></div>
+</section>
+<section class="setting actions d-flex justify-content-center mt-auto">
+  <a role="button" class="action action-reload-page">
+    <span class="action-icon"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+  </a>
+  <a role="button" class="action action-copy-url">
+    <span class="action-icon"><i class="fas fa-2x fa-link"></i></span> Copy URL
+  </a>
+</section>
+
+</div>
+</div>
+
+    <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
+      <form class="search-bar my-1" action="https://euraxluo.gitee.io/blog/search">
+  <div class="input-group input-group-sm">
+    <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+    <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
+  </div>
+</form>
+      <ul class="navbar-nav ms-auto"><li class="nav-item">
           <a class="nav-link" href="https://euraxluo.gitee.io/blog/archives">
             <i class="fas fa-fw fa-file-archive"></i>timeline
           </a>
@@ -59,128 +175,92 @@
             <i class="fas fa-fw fa-columns"></i>series
           </a>
         </li><li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown-repos" role="button" data-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link" id="navbarDropdownRepos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fab fa-fw fa-github"></i>Repos
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown-repos"><li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownRepos"><li>
               <a class="dropdown-item"
-                href="https://github.com/Euraxluo" target="_blank">
+                href="https://github.com/Euraxluo" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-fw fa-github"></i>Euraxluo
               </a>
             </li><li>
               <a class="dropdown-item"
-                href="https://github.com/Euraxluo/fastgrpc" target="_blank">
+                href="https://github.com/Euraxluo/fastgrpc" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-fw fa-github"></i>fastgrpc
               </a>
             </li><li>
               <a class="dropdown-item"
-                href="https://github.com/Euraxluo/ProjectPractice" target="_blank">
+                href="https://github.com/Euraxluo/ProjectPractice" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-fw fa-github"></i>ProjectPractice
               </a>
             </li><li>
               <a class="dropdown-item"
-                href="https://github.com/Euraxluo/pyantv" target="_blank">
+                href="https://github.com/Euraxluo/pyantv" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-fw fa-github"></i>pyantv
               </a>
             </li><li>
               <a class="dropdown-item"
-                href="https://github.com/Euraxluo/simple_pyvm" target="_blank">
+                href="https://github.com/Euraxluo/simple_pyvm" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-fw fa-github"></i>simple-pythonvm
               </a>
             </li><li>
               <a class="dropdown-item"
-                href="https://github.com/Euraxluo/verb" target="_blank">
+                href="https://github.com/Euraxluo/verb" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-fw fa-github"></i>verb
               </a>
             </li></ul>
         </li></ul>
-      <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0"><li class="nav-item mr-2">
-  <a class="nav-link" tabindex="0" data-trigger="click" id="languageSwitcher" data-toggle="popover"
-    data-placement="bottom" data-target="#languagesPopoverBody" data-html="true">
-    <i class="fas fa-fw fa-language" ></i>
-  </a>
-</li>
-<script type="text/html" id="languagesPopoverBody">
-  <ul class="languages list-group"></ul>
-</script>
-<li class="nav-item mr-2">
-  <a class="nav-link" tabindex="0" data-trigger="click" id="paletteSwitcher" data-toggle="popover" data-placement="bottom" 
-    data-target="#palettesPopoverBody" data-html="true">
-    <i class="fas fa-fw fa-palette" ></i>
-  </a>
-</li>
-<script type="text/html" id="palettesPopoverBody">
-  <ul class="palettes list-group"><li id="palette-blue" class="palette list-group-item bg-blue">
-      <a>Blue</a>
-    </li><li id="palette-blue-gray" class="palette list-group-item bg-blue-gray">
-      <a>Blue Gray</a>
-    </li><li id="palette-brown" class="palette list-group-item bg-brown">
-      <a>Brown</a>
-    </li><li id="palette-cyan" class="palette list-group-item bg-cyan">
-      <a>Cyan</a>
-    </li><li id="palette-green" class="palette list-group-item bg-green">
-      <a>Green</a>
-    </li><li id="palette-indigo" class="palette list-group-item bg-indigo">
-      <a>Indigo</a>
-    </li><li id="palette-orange" class="palette list-group-item bg-orange">
-      <a>Orange</a>
-    </li><li id="palette-pink" class="palette list-group-item bg-pink">
-      <a>Pink</a>
-    </li><li id="palette-purple" class="palette list-group-item bg-purple">
-      <a>Purple</a>
-    </li><li id="palette-red" class="palette list-group-item bg-red">
-      <a>Red</a>
-    </li><li id="palette-teal" class="palette list-group-item bg-teal">
-      <a>Teal</a>
-    </li><li id="palette-yellow" class="palette list-group-item bg-yellow">
-      <a>Yellow</a>
-    </li></ul>
-</script>
-
-<li class="nav-item mr-2">
-  <a class="nav-link" tabindex="0" data-trigger="click" id="fontSizeSwitcher" data-toggle="popover" data-placement="bottom" 
-    data-target="#fontSizesPopoverBody" data-html="true">
-    <i class="fas fa-fw fa-font" ></i>
-  </a>
-</li>
-<script type="text/html" id="fontSizesPopoverBody">
-  <form class="font-size-switcher-form">
-    <label for="fontSize" class="form-label">Font Size</label>
-    <input type="range" class="form-range" min="-2" max="2" id="fontSize">
-  </form>
-</script>
-<form class="mode-switcher-form d-flex align-items-center">
-  <div class="form-check form-switch">
-    <input class="form-check-input" type="checkbox" id="modeSwitcher">
-  </div>
-</form>
-</ul>
     </div>
   </div>
 </nav>
 </header>
 <main role="main" class="container-fluid">
       <div class="row content">
-<div class="col-md-8">
-  <div class="container"><nav class="row" aria-label="breadcrumb">
-  <ol class="breadcrumb surface"><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/">Home</a></li><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/posts/">posts</a></li><li class="breadcrumb-item"><a href="https://euraxluo.gitee.io/blog/posts/shell/">shell</a></li><li class="breadcrumb-item active">Linux基础</li></ol>
-</nav><article class="post row surface">
-  <h1 class="post-title my-3">Linux基础</h1><div class="post-meta mb-3">
-  <span class="post-date mr-2">
-    <i class="fas fa-fw fa-calendar-alt"></i>2018-10-29
-  </span>
-  <span class="poost-reading-time mr-2">
-    <i class="fas fa-fw fa-coffee"></i>3 min read
-  </span>
-<a href="https://euraxluo.gitee.io/blog/categories/linux/" class="post-taxonomy">#Linux</a><a href="https://euraxluo.gitee.io/blog/series/linux/" class="post-taxonomy">#Linux</a><a href="https://euraxluo.gitee.io/blog/tags/linux/" class="post-taxonomy">#Linux</a></div>
-<div class="accordion accordion-flush surface post-toc position-sticky" id="accordionTOC">
-  <div class="accordion-item">
-    <div class="accordion-header" id="headingTOC" data-toggle="collapse" data-target="#collapseTOC" aria-expanded="true" aria-controls="collapseTOC">
-      <i class="fas fa-fw fa-bars"></i>Table Of Contents
-    </div>
-    <div id="collapseTOC" class="accordion-collapse collapse" aria-labelledby="headingTOC" data-parent="#accordionTOC">
-      <div class="accordion-body mt-2">
-        <nav id="TableOfContents">
+<div class="col-lg-8">
+  <div class="container"><article class="row card component mb-4 post"><div class="post-panel-wrapper">
+  <div class="d-flex flex-column component rounded post-panel">
+    
+    <a id="sidebarToggler" class="action d-none d-lg-block" role="button" title="Sidebar toggler">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+  
+    
+
+    <a class="action btn-reward" role="button" data-bs-toggle="modal" data-bs-target="#rewardModal" title="Buy me a coffee">
+  <i class="fas fa-fw fa-coffee"></i>
+</a>
+    <a class="action" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    <a class="action" data-bs-toggle="offcanvas" href="#offcanvasTOC" aria-controls="offcanvasTOC" role="button" title="Table of contents">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    
+  </div>
+</div>
+<div class="card-header ">
+    <h1 class="card-title post-title">Linux基础
+</h1>
+  </div>
+  <div class="card-body"><div class="post-meta">
+  <span class="post-date" title="created on 2018-10-29 08:00:00 &#43;0800 CST.">
+    2018-10-29
+  </span><span class="post-reading-time">
+    3 min read
+  </span><span class="post-taxonomies"><a href="https://euraxluo.gitee.io/blog/categories/linux/" class="badge rounded-pill post-taxonomy">Linux</a><a href="https://euraxluo.gitee.io/blog/series/linux/" class="badge rounded-pill post-taxonomy">Linux</a><a href="https://euraxluo.gitee.io/blog/tags/linux/" class="badge rounded-pill post-taxonomy">Linux</a></span>
+</div>
+<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasTOC" aria-labelledby="offcanvasTOCLabel">
+  <div class="offcanvas-header">
+    <h2 class="offcanvas-title" id="offcanvasTOCLabel">Table Of Contents</h5>
+      <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+  </div>
+  <div class="offcanvas-body">
+    <nav id="TableOfContents">
   <ul>
     <li><a href="#linux基础">Linux基础</a></li>
     <li><a href="#文件基本属性">文件基本属性</a>
@@ -251,14 +331,12 @@
     <li><a href="#問題">問題：</a></li>
   </ul>
 </nav>
-      </div>
-    </div>
   </div>
-</div><div class="post-content mb-3"><h2 id="linux基础">Linux基础</h2>
-<h2 id="文件基本属性">文件基本属性</h2>
-<h3 id="llls--l">ll/ls -l</h3>
+</div><div class="post-content mb-3"><h2 id="linux基础">Linux基础<a class="anchor ms-1" href="#linux基础"><i class="fas fa-link"></i></a></h2>
+<h2 id="文件基本属性">文件基本属性<a class="anchor ms-1" href="#文件基本属性"><i class="fas fa-link"></i></a></h2>
+<h3 id="llls--l">ll/ls -l<a class="anchor ms-1" href="#llls--l"><i class="fas fa-link"></i></a></h3>
 <p>显示一个文件的属性以及文件所属的用户组</p>
-<h4 id="eg">eg:</h4>
+<h4 id="eg">eg:<a class="anchor ms-1" href="#eg"><i class="fas fa-link"></i></a></h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
 <span style="color:#f92672">[</span>root@www /<span style="color:#f92672">]</span><span style="color:#75715e"># ls -l</span>
 
@@ -295,14 +373,14 @@ dr-xr-xr-x   <span style="color:#ae81ff">4</span> root root <span style="color:#
 <p>属组:用户按组分类,一个用户属于一个或者多个组</p>
 <p>所以,文件按照[文件所有者|所有者同组用户|所有着不同组用户]来规定访问权限</p>
 <p>对于root用户,权限对他无效</p>
-<h3 id="2-更改属性">2. 更改属性</h3>
-<h4 id="chgrp--r-属组名-文件名">chgrp [-R] 属组名 文件名</h4>
+<h3 id="2-更改属性">2. 更改属性<a class="anchor ms-1" href="#2-更改属性"><i class="fas fa-link"></i></a></h3>
+<h4 id="chgrp--r-属组名-文件名">chgrp [-R] 属组名 文件名<a class="anchor ms-1" href="#chgrp--r-属组名-文件名"><i class="fas fa-link"></i></a></h4>
 <p>更改文件属组</p>
 <p><code>sudo chgrp name test</code></p>
-<h4 id="chown--r-属主名--属组名-文件名">chown [-R] 属主名 : 属组名 文件名</h4>
+<h4 id="chown--r-属主名--属组名-文件名">chown [-R] 属主名 : 属组名 文件名<a class="anchor ms-1" href="#chown--r-属主名--属组名-文件名"><i class="fas fa-link"></i></a></h4>
 <p>更改文件属主,也可以同时修改文件属组</p>
 <p><code>sudo chown 770:euraxluo test</code></p>
-<h4 id="chmod--r-xyz-文件或者目录">chmod [-R] xyz 文件或者目录</h4>
+<h4 id="chmod--r-xyz-文件或者目录">chmod [-R] xyz 文件或者目录<a class="anchor ms-1" href="#chmod--r-xyz-文件或者目录"><i class="fas fa-link"></i></a></h4>
 <blockquote>
 <p>r:4</p>
 </blockquote>
@@ -316,7 +394,7 @@ dr-xr-xr-x   <span style="color:#ae81ff">4</span> root root <span style="color:#
 <p>z = others = rwx = 4+2+1</p>
 <p>eg:</p>
 <p><code>sudo chmod 670 test</code></p>
-<h5 id="使用符号类型改变文件权限">使用符号类型改变文件权限</h5>
+<h5 id="使用符号类型改变文件权限">使用符号类型改变文件权限<a class="anchor ms-1" href="#使用符号类型改变文件权限"><i class="fas fa-link"></i></a></h5>
 <p>|       |          |          |      |                |</p>
 <p>| :&mdash;- | &mdash;&mdash;&ndash; | &mdash;&mdash;&ndash; | &mdash;- | &mdash;&mdash;&mdash;&mdash;&ndash; |</p>
 <p>| chmod | u=user   | +(加入)  | r    | 文件或者文件名 |</p>
@@ -325,25 +403,25 @@ dr-xr-xr-x   <span style="color:#ae81ff">4</span> root root <span style="color:#
 <p>|       | a=all    |          |      |                |</p>
 <p>所以刚刚我们的代码也可以是</p>
 <p><code>sudo chmod u=rw,g=rwx,o= test</code></p>
-<h2 id="文件目录的处理">文件目录的处理</h2>
-<h3 id="ls--adl-目录名">ls [-adl] 目录名:</h3>
+<h2 id="文件目录的处理">文件目录的处理<a class="anchor ms-1" href="#文件目录的处理"><i class="fas fa-link"></i></a></h2>
+<h3 id="ls--adl-目录名">ls [-adl] 目录名:<a class="anchor ms-1" href="#ls--adl-目录名"><i class="fas fa-link"></i></a></h3>
 <p>-a:全部文件</p>
 <p>-d:列出目录本身</p>
 <p>-l:详细列出</p>
 <p><code>ls -al ~</code></p>
-<h3 id="cd-切换目录">cd 切换目录</h3>
+<h3 id="cd-切换目录">cd 切换目录<a class="anchor ms-1" href="#cd-切换目录"><i class="fas fa-link"></i></a></h3>
 <p>cd ~ :回到xxx@www的/xxx下(家目录)</p>
 <p>cd .. 返回上一级</p>
 <p>cd ./xxx 使用相对路径切换</p>
-<h3 id="pwd--p-显示当前所在的目录">pwd [-P] (显示当前所在的目录)</h3>
+<h3 id="pwd--p-显示当前所在的目录">pwd [-P] (显示当前所在的目录)<a class="anchor ms-1" href="#pwd--p-显示当前所在的目录"><i class="fas fa-link"></i></a></h3>
 <p>-P:针对联接档,可以显示出真的路径</p>
-<h3 id="mkdir--mp-目录名">mkdir [-mp] 目录名:</h3>
+<h3 id="mkdir--mp-目录名">mkdir [-mp] 目录名:<a class="anchor ms-1" href="#mkdir--mp-目录名"><i class="fas fa-link"></i></a></h3>
 <p>创建新的目录</p>
 <p>-m: 配置文件的权限</p>
 <p>-p:你就可以使用 xxx/xxx/xxx的方式创建目录</p>
 <p>eg:</p>
 <p><code>mkdir -m 440 -p test1/test2</code></p>
-<h3 id="rmdir--p-目录名">rmdir [-p] 目录名</h3>
+<h3 id="rmdir--p-目录名">rmdir [-p] 目录名<a class="anchor ms-1" href="#rmdir--p-目录名"><i class="fas fa-link"></i></a></h3>
 <p>删除<em>空的目录</em></p>
 <p>-p:连同上级的空目录也删除</p>
 <p>eg:</p>
@@ -358,7 +436,7 @@ drwxrwxr-x <span style="color:#ae81ff">5</span> euraxluo euraxluo <span style="c
 
 -r--r--r-- <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">770</span> euraxluo    <span style="color:#ae81ff">0</span> 1月  <span style="color:#ae81ff">17</span> 15:06  test
 
-</code></pre></div><h3 id="cp--adfilprsu-source-destination">cp [-adfilprsu] source destination</h3>
+</code></pre></div><h3 id="cp--adfilprsu-source-destination">cp [-adfilprsu] source destination<a class="anchor ms-1" href="#cp--adfilprsu-source-destination"><i class="fas fa-link"></i></a></h3>
 <p>-i:destination已经存在,先询问</p>
 <p>-r:force ,目标已经存在,强制覆盖</p>
 <p>-p:连同文件的属性一起copy过去</p>
@@ -386,25 +464,25 @@ drwxrwxr-x <span style="color:#ae81ff">5</span> euraxluo euraxluo <span style="c
 
 lrwxrwxrwx <span style="color:#ae81ff">1</span> euraxluo euraxluo    <span style="color:#ae81ff">4</span> 1月  <span style="color:#ae81ff">17</span> 16:17  test1 -&gt; test
 
-</code></pre></div><h3 id="sudo-apt-get-install--f-安装上一个错误">sudo apt-get install -f 安装上一个错误</h3>
-<h3 id="scp-文件名路径-拷贝到远程">scp [文件名][路径] 拷贝到远程</h3>
+</code></pre></div><h3 id="sudo-apt-get-install--f-安装上一个错误">sudo apt-get install -f 安装上一个错误<a class="anchor ms-1" href="#sudo-apt-get-install--f-安装上一个错误"><i class="fas fa-link"></i></a></h3>
+<h3 id="scp-文件名路径-拷贝到远程">scp [文件名][路径] 拷贝到远程<a class="anchor ms-1" href="#scp-文件名路径-拷贝到远程"><i class="fas fa-link"></i></a></h3>
 <p>eg:</p>
 <p><code>scp test xxx@ip:</code>拷贝到home</p>
-<h3 id="rm--fir-文件或目录">rm [-fir] 文件或目录</h3>
+<h3 id="rm--fir-文件或目录">rm [-fir] 文件或目录<a class="anchor ms-1" href="#rm--fir-文件或目录"><i class="fas fa-link"></i></a></h3>
 <p>-f:force 强制删除</p>
 <p>-i:会询问一下</p>
 <p>-r:递归删除</p>
-<h3 id="cat---bnt">cat  [-bnT]</h3>
+<h3 id="cat---bnt">cat  [-bnT]<a class="anchor ms-1" href="#cat---bnt"><i class="fas fa-link"></i></a></h3>
 <p>从第一行开始显示文件内容</p>
 <p>-b:列出行号</p>
 <p>-n:列出列号</p>
 <p>-T:打印tap</p>
-<h3 id="tac--bnt">tac [-bnT]</h3>
+<h3 id="tac--bnt">tac [-bnT]<a class="anchor ms-1" href="#tac--bnt"><i class="fas fa-link"></i></a></h3>
 <p>从最后一行显示</p>
 <p>-b:列出行号</p>
 <p>-n:列出列号</p>
 <p>-T:打印tap</p>
-<h3 id="nl--bnw">nl [-bnw]</h3>
+<h3 id="nl--bnw">nl [-bnw]<a class="anchor ms-1" href="#nl--bnw"><i class="fas fa-link"></i></a></h3>
 <p>显示的时候,输出行号</p>
 <blockquote>
 <p>-b ：指定行号指定的方式，主要有两种：</p>
@@ -420,19 +498,19 @@ lrwxrwxrwx <span style="color:#ae81ff">1</span> euraxluo euraxluo    <span style
 <blockquote>
 <p>-w ：行号栏位的占用的位数。</p>
 </blockquote>
-<h3 id="more">more</h3>
+<h3 id="more">more<a class="anchor ms-1" href="#more"><i class="fas fa-link"></i></a></h3>
 <p>一页一页显示</p>
-<h3 id="less">less</h3>
+<h3 id="less">less<a class="anchor ms-1" href="#less"><i class="fas fa-link"></i></a></h3>
 <p>和more一样,并且可以向前翻页</p>
-<h3 id="head--n">head [-n]</h3>
+<h3 id="head--n">head [-n]<a class="anchor ms-1" href="#head--n"><i class="fas fa-link"></i></a></h3>
 <p>显示头几行</p>
 <p>-n:number</p>
-<h3 id="tail--n">tail [-n]</h3>
+<h3 id="tail--n">tail [-n]<a class="anchor ms-1" href="#tail--n"><i class="fas fa-link"></i></a></h3>
 <p>显示尾行</p>
 <p>-n:number</p>
-<h3 id="man-命令">man {命令}</h3>
+<h3 id="man-命令">man {命令}<a class="anchor ms-1" href="#man-命令"><i class="fas fa-link"></i></a></h3>
 <p>查看命令的文档</p>
-<h3 id="linux--链接">linux  链接</h3>
+<h3 id="linux--链接">linux  链接<a class="anchor ms-1" href="#linux--链接"><i class="fas fa-link"></i></a></h3>
 <p>1.硬连接</p>
 <p>硬连接指通过索引节点来进行连接,两个文件具有完全一样的地位</p>
 <p>删除原始文件,硬链接文件不受影响</p>
@@ -440,10 +518,10 @@ lrwxrwxrwx <span style="color:#ae81ff">1</span> euraxluo euraxluo    <span style
 <p>2.软连接</p>
 <p>软链接文件类似于 Windows 的快捷方式,保存的是原始文件的位置信息.</p>
 <p>删除原始文件,软链接文件无效</p>
-<h3 id="文件系統的索引">文件系統的索引</h3>
+<h3 id="文件系統的索引">文件系統的索引<a class="anchor ms-1" href="#文件系統的索引"><i class="fas fa-link"></i></a></h3>
 <p>在 Linux 的文件系统中，保存在磁盘分区中的文件不管是什么类型都给它分配一个编号，称为索引节点号(Inode Index)。在 Linux 中，多个文件名指向同一索引节点是存在的.硬连接通过索引实现</p>
-<h2 id="用户管理">用户管理</h2>
-<h3 id="useradd--cdgsu-用户名">useradd [-cdgsu] 用户名</h3>
+<h2 id="用户管理">用户管理<a class="anchor ms-1" href="#用户管理"><i class="fas fa-link"></i></a></h2>
+<h3 id="useradd--cdgsu-用户名">useradd [-cdgsu] 用户名<a class="anchor ms-1" href="#useradd--cdgsu-用户名"><i class="fas fa-link"></i></a></h3>
 <p>添加新的用户:</p>
 <p>-c comment</p>
 <p>-d 目录 指定用户主目录，若目录不存在,使用-m选项，来创建。</p>
@@ -453,32 +531,32 @@ lrwxrwxrwx <span style="color:#ae81ff">1</span> euraxluo euraxluo    <span style
 <p>-u 用户号 指定用户号，同时-o，则可以使用其他用户的标识号</p>
 <p>eg:</p>
 <p><code>$ useradd –d /usr/test -m test</code></p>
-<h3 id="userdel--r-用户名">userdel [-r] 用户名</h3>
+<h3 id="userdel--r-用户名">userdel [-r] 用户名<a class="anchor ms-1" href="#userdel--r-用户名"><i class="fas fa-link"></i></a></h3>
 <p>删除账号</p>
 <p>-r:同时删除用户的主目录</p>
-<h3 id="usermod--cdmgusol-用户名">usermod [-cdmGusol] 用户名</h3>
+<h3 id="usermod--cdmgusol-用户名">usermod [-cdmGusol] 用户名<a class="anchor ms-1" href="#usermod--cdmgusol-用户名"><i class="fas fa-link"></i></a></h3>
 <p>参数与useradd一样</p>
 <p>-l:制定新的用户名,就是更改名字</p>
-<h3 id="passwd--ludf-用户名">passwd [-ludf] 用户名</h3>
+<h3 id="passwd--ludf-用户名">passwd [-ludf] 用户名<a class="anchor ms-1" href="#passwd--ludf-用户名"><i class="fas fa-link"></i></a></h3>
 <p>修改用户的pwd</p>
 <p>-l:锁定口令，即禁用账号。</p>
 <p>-u:口令解锁。</p>
 <p>-d: 使账号无口令。</p>
 <p>-f: 强迫用户下次登录时修改口令。</p>
-<h2 id="用户组管理">用户组管理</h2>
-<h3 id="groupadd--go-用户组">groupadd [-go] 用户组</h3>
+<h2 id="用户组管理">用户组管理<a class="anchor ms-1" href="#用户组管理"><i class="fas fa-link"></i></a></h2>
+<h3 id="groupadd--go-用户组">groupadd [-go] 用户组<a class="anchor ms-1" href="#groupadd--go-用户组"><i class="fas fa-link"></i></a></h3>
 <p>-g:指定新用戶組的GID</p>
 <p>-o:一般和-g一起使用，表示新的用戶組可以和別人相同</p>
-<h3 id="groupdel-用户组">groupdel 用户组</h3>
+<h3 id="groupdel-用户组">groupdel 用户组<a class="anchor ms-1" href="#groupdel-用户组"><i class="fas fa-link"></i></a></h3>
 <p>刪除一個用戶組</p>
-<h3 id="groupmod--gon-用戶組">groupmod [-gon] 用戶組</h3>
+<h3 id="groupmod--gon-用戶組">groupmod [-gon] 用戶組<a class="anchor ms-1" href="#groupmod--gon-用戶組"><i class="fas fa-link"></i></a></h3>
 <p>-g:设置GID</p>
 <p>-o:与groupadd相同</p>
 <p>-n:更名</p>
-<h3 id="newgrp-目标用户组名">newgrp [目标用户组名]</h3>
+<h3 id="newgrp-目标用户组名">newgrp [目标用户组名]<a class="anchor ms-1" href="#newgrp-目标用户组名"><i class="fas fa-link"></i></a></h3>
 <p>用户可以在登录后，使用命令newgrp切换到其他用户组</p>
 <p>eg:<code>$ newgrp root</code></p>
-<h3 id="用户标识号">用户标识号</h3>
+<h3 id="用户标识号">用户标识号<a class="anchor ms-1" href="#用户标识号"><i class="fas fa-link"></i></a></h3>
 <blockquote>
 <p>是一个整数，系统内部用它来标识用户。</p>
 </blockquote>
@@ -488,14 +566,14 @@ lrwxrwxrwx <span style="color:#ae81ff">1</span> euraxluo euraxluo    <span style
 <blockquote>
 <p>0是超级用户root的标识号，1～99由系统保留，作为管理账号，普通用户的标识号从100开始。在Linux系统中，这个界限是500。</p>
 </blockquote>
-<h3 id="etcshadow">/etc/shadow</h3>
+<h3 id="etcshadow">/etc/shadow<a class="anchor ms-1" href="#etcshadow"><i class="fas fa-link"></i></a></h3>
 <blockquote>
 <p>/etc/shadow中的记录行与/etc/passwd中的一一对应，它由pwconv命令根据/etc/passwd中的数据自动产生</p>
 </blockquote>
 <p>它的文件格式与/etc/passwd类似，由若干个字段组成，字段之间用&quot;:&ldquo;隔开。这些字段是：</p>
 <p><code>登录名:加密口令:最后一次修改时间:最小时间间隔:最大时间间隔:警告时间:不活动时间:失效时间:标志</code></p>
-<h2 id="磁盘管理">磁盘管理</h2>
-<h3 id="df--ahikhtm-目录或用户名">df [-ahikHTm] 目录或用户名</h3>
+<h2 id="磁盘管理">磁盘管理<a class="anchor ms-1" href="#磁盘管理"><i class="fas fa-link"></i></a></h2>
+<h3 id="df--ahikhtm-目录或用户名">df [-ahikHTm] 目录或用户名<a class="anchor ms-1" href="#df--ahikhtm-目录或用户名"><i class="fas fa-link"></i></a></h3>
 <p>-a:all,列出全部</p>
 <p>-k:用kb显示</p>
 <p>-m:用mb显示</p>
@@ -503,27 +581,27 @@ lrwxrwxrwx <span style="color:#ae81ff">1</span> euraxluo euraxluo    <span style
 <p>-H:用M=1000k来显示</p>
 <p>-T:显示文件系统的分区名</p>
 <p>-i:用inode(索引节点)的数量显示</p>
-<h3 id="du--ahskm-目录或用户名">du [-ahskm] 目录或用户名</h3>
+<h3 id="du--ahskm-目录或用户名">du [-ahskm] 目录或用户名<a class="anchor ms-1" href="#du--ahskm-目录或用户名"><i class="fas fa-link"></i></a></h3>
 <p>参数和df一样</p>
 <p>-s:列出总量,不列出占用容量</p>
 <p>-S:不包括子目录的总计</p>
-<h3 id="fdisk--l-磁盘名">fdisk [-l] 磁盘名</h3>
+<h3 id="fdisk--l-磁盘名">fdisk [-l] 磁盘名<a class="anchor ms-1" href="#fdisk--l-磁盘名"><i class="fas fa-link"></i></a></h3>
 <p>输出各装置的分区</p>
-<h3 id="mkfs--t-装置文件名">mkfs [-t] 装置文件名</h3>
+<h3 id="mkfs--t-装置文件名">mkfs [-t] 装置文件名<a class="anchor ms-1" href="#mkfs--t-装置文件名"><i class="fas fa-link"></i></a></h3>
 <p>格式化这个分区</p>
 <p>eg:格式化为fat32</p>
 <p><code>$ mkfs.fat -F32 /dev/sda1</code></p>
-<h3 id="mount--t-文件系统--l-label名--o-额外选项--n--装置文件名--挂载点">mount [-t 文件系统] [-L Label名] [-o 额外选项] [-n]  装置文件名  挂载点</h3>
+<h3 id="mount--t-文件系统--l-label名--o-额外选项--n--装置文件名--挂载点">mount [-t 文件系统] [-L Label名] [-o 额外选项] [-n]  装置文件名  挂载点<a class="anchor ms-1" href="#mount--t-文件系统--l-label名--o-额外选项--n--装置文件名--挂载点"><i class="fas fa-link"></i></a></h3>
 <p>挂載分區</p>
 <p>eg:<code>mount /dev/sda1 /mnt/boot/EFI</code></p>
-<h3 id="unmount--fn--装置文件名挂载点">unmount [-fn]  装置文件名|挂载点</h3>
+<h3 id="unmount--fn--装置文件名挂载点">unmount [-fn]  装置文件名|挂载点<a class="anchor ms-1" href="#unmount--fn--装置文件名挂载点"><i class="fas fa-link"></i></a></h3>
 <p>卸载分区</p>
 <p>-f:強制卸載</p>
 <p>-n:不升級/etc/mtab的情況下卸载</p>
-<h2 id="vivim">VI/VIM</h2>
-<h3 id="下载">下载:</h3>
+<h2 id="vivim">VI/VIM<a class="anchor ms-1" href="#vivim"><i class="fas fa-link"></i></a></h2>
+<h3 id="下载">下载:<a class="anchor ms-1" href="#下载"><i class="fas fa-link"></i></a></h3>
 <p><code>sudo apt-get install vim</code></p>
-<h3 id="命令模式">命令模式</h3>
+<h3 id="命令模式">命令模式<a class="anchor ms-1" href="#命令模式"><i class="fas fa-link"></i></a></h3>
 <pre><code>
 刚刚启动时,或者在输入模式下`ESC`,进入命令模式.
 
@@ -599,7 +677,7 @@ D:从这字符一直删除到行尾
 
 V:让这一行高亮
 
-</code></pre><h3 id="输入模式">输入模式</h3>
+</code></pre><h3 id="输入模式">输入模式<a class="anchor ms-1" href="#输入模式"><i class="fas fa-link"></i></a></h3>
 <p>iI,aA,sS,RC进入</p>
 <ul>
 <li>
@@ -630,38 +708,34 @@ V:让这一行高亮
 <p><strong>ESC</strong>，退出输入模式，切换到命令模式</p>
 </li>
 </ul>
-<h3 id="底线模式">底线模式</h3>
+<h3 id="底线模式">底线模式<a class="anchor ms-1" href="#底线模式"><i class="fas fa-link"></i></a></h3>
 <p>:w(保存)</p>
 <p>:q(退出)</p>
 <p>:q!(不保存退出)</p>
 <p>:e f(打開文件f)</p>
 <p>:h(幫助)</p>
 <p>:new(新建文件 in vim)</p>
-<p>詳見：<img class="img-fluid" src="http://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" alt=""  loading="lazy" />
+<p>詳見：<img class="img-fluid" alt="" src="http://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" loading="lazy"
+  
+   />
+
 </p>
-<h2 id="問題">問題：</h2>
+<h2 id="問題">問題：<a class="anchor ms-1" href="#問題"><i class="fas fa-link"></i></a></h2>
 <p>vim使用很不熟悉</p>
-</div><div class="post-copyright mb-4">
-  <h3>Copyright</h3><div class="post-cc">This work is licensed under <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY-NC 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i></a>.</div>
-</div>
-<div class="post-reward mb-4 text-center">
-  <button type="button" class="btn btn-reward" data-toggle="modal" data-target="#rewardModal">
-    <i class="fas fa-fw fa-medal"></i>Reward
-  </button>
 </div><div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content surface">
       <div class="modal-header">
-        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-medal"></i>Reward</h5>
-        <a href="#" data-dismiss="modal" aria-label="Close"><i class="fas fa-fw fa-times"></i></a>
+        <h5 class="modal-title" id="rewardModalLabel"><i class="fas fa-fw fa-coffee"></i>Buy me a coffee</h5>
+        <a href="#" data-bs-dismiss="modal" class="btn btn-sm btn-outline-primary" aria-label="Close"><i class="fas fa-times"></i></a>
       </div>
       <div class="modal-body">
-        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation">
-            <a class="nav-link active" id="reward-alipay-tab" data-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
+        <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link active" id="reward-alipay-tab" data-bs-toggle="tab" href="#reward-alipay" role="tab" aria-controls="reward-alipay" aria-selected="true">
               <i class="fab fa-fw fa-alipay"></i>Alipay
             </a>
-          </li><li class="nav-item" role="presentation">
-            <a class="nav-link" id="reward-wechat-tab" data-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
+          </li><li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link" id="reward-wechat-tab" data-bs-toggle="tab" href="#reward-wechat" role="tab" aria-controls="reward-wechat" aria-selected="true">
               <i class="fab fa-fw fa-weixin"></i>WeChat
             </a>
           </li></ul>
@@ -673,114 +747,175 @@ V:让这一行高亮
       </div>
     </div>
   </div>
-</div><div class="post-navs d-flex mb-3 justify-content-between">
-  <div class="post-nav w-50"><div class="prev-post">
-      <a href="https://euraxluo.gitee.io/blog/posts/java/mbatis%E5%9F%BA%E7%A1%80/">MyBatis</a>
-    </div></div>
-  <div class="post-nav flex-row-reverse"><div class="next-post">
-      <a href="https://euraxluo.gitee.io/blog/posts/java/jsp%E5%AD%A6%E4%B9%A0/">JSP</a>
-    </div></div>
-</div></article><div class="post-comments surface row"><script src="https://utteranc.es/client.js"
+</div><hr /><div class="post-copyright" id="post-copyright">
+  <a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">
+    <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i></span>
+    CC BY-NC 4.0 
+  </a>
+</div>
+
+
+<hr /><div class="post-navs d-flex mb-3 justify-content-evenly">
+  <div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+    <a href="https://euraxluo.gitee.io/blog/posts/java/mbatis%E5%9F%BA%E7%A1%80/">MyBatis
+</a>
+  </div><div class="post-nav post-next">
+    <a href="https://euraxluo.gitee.io/blog/posts/java/jsp%E5%AD%A6%E4%B9%A0/">JSP
+</a>
+    <i class="fas fa-fw fa-chevron-right"></i>
+  </div></div></div>
+</article><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title">Comments</h2>
+  </div>
+  <div class="card-body"><script src="https://utteranc.es/client.js"
   repo="Euraxluo/Euraxluo.github.io"
   issue-term="pathname"
   label="✨💬✨"
   theme="github-dark"
   crossorigin="anonymous"
   async>
-</script></div></div>
+</script></div>
+</div></div>
 </div><aside class="col-lg-4 sidebar d-flex">
-  <div class="container"><section class="profile surface row">
-  <div class="col-xl-6 d-flex align-items-center justify-content-center">
-    <img class="profile-avatar img-fluid" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" alt="Euraxluo" loading="lazy">
+  <div class="container">
+    
+    <section class="card row text-center profile component">
+  <div class="card-body">
+    <div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Euraxluo" src="https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" loading="lazy"
+  
+   />
+</div>
+    <div class="col-12 profile-meta"><div class="profile-name">Euraxluo</div><div class="profile-bio">Engineer.</div><div class="profile-company"><i class="fas fa-fw fa-building"></i>dml</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class="profile-about"><i class="fas fa-fw fa-user"></i><a href="https://euraxluo.gitee.io/blog/about/">About</a></div></div>
   </div>
-  <div class="col-xl-6">
-    <h5 class="profile-name my-2">Euraxluo</h5><div class="profile-bio mb-2">Engineer.</div><div class="profile-company mb-2"><i class="fas fa-fw fa-building"></i>dml</div><div class="profile-location mb-2"><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class="profile-about mb-2"><i class="fas fa-fw fa-info-circle"></i><a href="https://euraxluo.gitee.io/blog/about/">About</a></div></div>
-</section><section class="featured-posts row surface">
-  <h4>Featured Posts</h4>
-  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/python/python-socket/">python socket编程</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/note/slam/">SLAM</a></li></ul>
-</section><section class="recent-posts row surface">
-  <h4>Recent Posts</h4>
-  <ul><li><a href="https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 </a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1</a></li><li><a href="https://euraxluo.gitee.io/blog/posts/java/servlet2/">Servlet2</a></li></ul>
 </section>
-<section class="taxonomy-categories row surface">
-  <h4>
-    <a href="https://euraxluo.gitee.io/blog/categories">Categories</a>
-  </h4>
-  <div><a href="https://euraxluo.gitee.io/blog/categories/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">21</span>
-    </a><a href="https://euraxluo.gitee.io/blog/categories/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
-      redis <span class="badge rounded-pill">10</span>
-    </a><a href="https://euraxluo.gitee.io/blog/categories/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="java">
-      java <span class="badge rounded-pill">8</span>
-    </a><a href="https://euraxluo.gitee.io/blog/categories/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
-      爬虫 <span class="badge rounded-pill">4</span>
-    </a><a href="https://euraxluo.gitee.io/blog/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
-      读书笔记 <span class="badge rounded-pill">4</span>
-    </a><a href="https://euraxluo.gitee.io/blog/categories/architecture-design/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="architecture design">
-      architecture design <span class="badge rounded-pill">3</span>
-    </a></div>
-</section><section class="taxonomy-series row surface">
-  <h4>
-    <a href="https://euraxluo.gitee.io/blog/series">Series</a>
-  </h4>
-  <div><a href="https://euraxluo.gitee.io/blog/series/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">18</span>
-    </a><a href="https://euraxluo.gitee.io/blog/series/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
-      redis <span class="badge rounded-pill">10</span>
-    </a><a href="https://euraxluo.gitee.io/blog/series/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Python">
-      Python <span class="badge rounded-pill">4</span>
-    </a><a href="https://euraxluo.gitee.io/blog/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="读书笔记">
-      读书笔记 <span class="badge rounded-pill">4</span>
-    </a><a href="https://euraxluo.gitee.io/blog/series/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
-      Java <span class="badge rounded-pill">3</span>
-    </a><a href="https://euraxluo.gitee.io/blog/series/jdbc/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="JDBC">
-      JDBC <span class="badge rounded-pill">3</span>
-    </a></div>
-</section><section class="taxonomy-tags row surface">
-  <h4>
-    <a href="https://euraxluo.gitee.io/blog/tags">Tags</a>
-  </h4>
-  <div><a href="https://euraxluo.gitee.io/blog/tags/notes/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="notes">
-      notes <span class="badge rounded-pill">17</span>
-    </a><a href="https://euraxluo.gitee.io/blog/tags/redis/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="redis">
-      redis <span class="badge rounded-pill">10</span>
-    </a><a href="https://euraxluo.gitee.io/blog/tags/python/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Python">
-      Python <span class="badge rounded-pill">7</span>
-    </a><a href="https://euraxluo.gitee.io/blog/tags/java/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="Java">
-      Java <span class="badge rounded-pill">4</span>
-    </a><a href="https://euraxluo.gitee.io/blog/tags/%E7%88%AC%E8%99%AB/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="爬虫">
-      爬虫 <span class="badge rounded-pill">4</span>
-    </a><a href="https://euraxluo.gitee.io/blog/tags/architecture/" class="post-taxonomy rounded-pill btn btn-sm mr-2 mb-2" title="architecture">
-      architecture <span class="badge rounded-pill">3</span>
-    </a></div>
-</section></div>
+  <section class="featured-posts row card component">
+    <div class="card-header">
+      <h2 class="card-title">Featured Posts</h2>
+    </div>
+    <div class="card-body">
+      <ul class="post-list"><li>
+          <a href="https://euraxluo.gitee.io/blog/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记
+</a>
+        </li><li>
+          <a href="https://euraxluo.gitee.io/blog/posts/python/python-socket/">python socket编程
+</a>
+        </li><li>
+          <a href="https://euraxluo.gitee.io/blog/posts/note/rust%E5%AD%A6%E4%B9%A0/">rust学习
+</a>
+        </li><li>
+          <a href="https://euraxluo.gitee.io/blog/posts/note/scala%E5%85%A5%E9%97%A8/">Scala入门
+</a>
+        </li><li>
+          <a href="https://euraxluo.gitee.io/blog/posts/note/slam/">SLAM
+</a>
+        </li></ul>
+    </div>
+  </section><section class="recent-posts row card component">
+  <div class="card-header">
+    <h2 class="card-title">Recent Posts</h2>
+  </div>
+  <div class="card-body">
+    <ul class="post-list"><li>
+        <a href="https://euraxluo.gitee.io/blog/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
+</a>
+      </li><li>
+        <a href="https://euraxluo.gitee.io/blog/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+</a>
+      </li><li>
+        <a href="https://euraxluo.gitee.io/blog/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
+</a>
+      </li><li>
+        <a href="https://euraxluo.gitee.io/blog/posts/java/servlet1/">Servlet1
+</a>
+      </li><li>
+        <a href="https://euraxluo.gitee.io/blog/posts/java/servlet2/">Servlet2
+</a>
+      </li></ul>
+  </div>
+</section><section class="taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="https://euraxluo.gitee.io/blog/categories">Categories</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="https://euraxluo.gitee.io/blog/categories/notes/" class="badge rounded post-taxonomy" title="notes">
+            notes
+          </a><a href="https://euraxluo.gitee.io/blog/categories/redis/" class="badge rounded post-taxonomy" title="redis">
+            redis
+          </a><a href="https://euraxluo.gitee.io/blog/categories/java/" class="badge rounded post-taxonomy" title="java">
+            java
+          </a><a href="https://euraxluo.gitee.io/blog/categories/%E7%88%AC%E8%99%AB/" class="badge rounded post-taxonomy" title="爬虫">
+            爬虫
+          </a><a href="https://euraxluo.gitee.io/blog/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="badge rounded post-taxonomy" title="读书笔记">
+            读书笔记
+          </a><a href="https://euraxluo.gitee.io/blog/categories/architecture-design/" class="badge rounded post-taxonomy" title="architecture design">
+            architecture design
+          </a></div>
+      </div>
+    </section><section class="taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="https://euraxluo.gitee.io/blog/series">Series</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="https://euraxluo.gitee.io/blog/series/notes/" class="badge rounded post-taxonomy" title="notes">
+            notes
+          </a><a href="https://euraxluo.gitee.io/blog/series/redis/" class="badge rounded post-taxonomy" title="redis">
+            redis
+          </a><a href="https://euraxluo.gitee.io/blog/series/python/" class="badge rounded post-taxonomy" title="Python">
+            Python
+          </a><a href="https://euraxluo.gitee.io/blog/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="badge rounded post-taxonomy" title="读书笔记">
+            读书笔记
+          </a><a href="https://euraxluo.gitee.io/blog/series/java/" class="badge rounded post-taxonomy" title="Java">
+            Java
+          </a><a href="https://euraxluo.gitee.io/blog/series/jdbc/" class="badge rounded post-taxonomy" title="JDBC">
+            JDBC
+          </a></div>
+      </div>
+    </section><section class="taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="https://euraxluo.gitee.io/blog/tags">Tags</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="https://euraxluo.gitee.io/blog/tags/notes/" class="badge rounded post-taxonomy" title="notes">
+            notes
+          </a><a href="https://euraxluo.gitee.io/blog/tags/redis/" class="badge rounded post-taxonomy" title="redis">
+            redis
+          </a><a href="https://euraxluo.gitee.io/blog/tags/python/" class="badge rounded post-taxonomy" title="Python">
+            Python
+          </a><a href="https://euraxluo.gitee.io/blog/tags/java/" class="badge rounded post-taxonomy" title="Java">
+            Java
+          </a><a href="https://euraxluo.gitee.io/blog/tags/%E7%88%AC%E8%99%AB/" class="badge rounded post-taxonomy" title="爬虫">
+            爬虫
+          </a><a href="https://euraxluo.gitee.io/blog/tags/architecture/" class="badge rounded post-taxonomy" title="architecture">
+            architecture
+          </a></div>
+      </div>
+    </section>
+    
+  </div>
 </aside>
 </div>
-    </main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><li class="nav-item">
-    <a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
+    </main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><a class="nav-link social-link" href="mailto:Euraxluo@outlook.com" title="Email">
       <i class="fas fa-fw fa-2x fa-envelope"></i>
-    </a>
-  </li><li class="nav-item">
-      <a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="Github">
-        <i class="fab fa-fw fa-2x fa-github"></i>
-      </a>
-    </li><li class="nav-item">
-      <a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="Qq">
-        <i class="fab fa-fw fa-2x fa-qq"></i>
-      </a>
-    </li><li class="nav-item">
-      <a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu">
-        <i class="fab fa-fw fa-2x fa-zhihu"></i>
-      </a>
-    </li></nav>
+    </a><a class="nav-link social-link" target="_blank" href="https://github.com/Euraxluo" title="GitHub" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-github"></i>
+      </a><a class="nav-link social-link" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title="QQ" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-qq"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://www.zhihu.com/people/euraxluo" title="Zhihu" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-zhihu"></i>
+      </a></nav>
 <div class="copyright mb-2">
   Copyright © 2016-2022 Euraxluo. All Rights Reserved.
 </div>
-<script>
-  window.parent.postMessage(window.location.href, "*");
-</script></footer>
-<a id="btnScrollToTop" class="btn-scroll-to-top">
-  <i class="fas fa-fw fa-chevron-circle-up fa-2x"></i>
-</a>
+</footer>
+<script src="https://euraxluo.gitee.io/blog/js/main.min.f5f268f204e7613e51f9150bce6d4f2d2189da621a72acfba40e044dec7a4555.js" integrity="sha256-9fJo8gTnYT5R&#43;RULzm1PLSGJ2mIacqz7pA4ETex6RVU=" crossorigin="anonymous" defer></script><script src="https://euraxluo.gitee.io/blog/js/icons.min.826b24319105653072608014fe71c31646df55ab93979d2b425a4058ec850236.js" integrity="sha256-gmskMZEFZTByYIAU/nHDFkbfVauTl50rQlpAWOyFAjY=" crossorigin="anonymous" defer></script>
+<script src="https://euraxluo.gitee.io/blog/js/viewer.min.ab1b33cce3db4c6867de13f5a9e9805215e4129a8096c3dd867ffe5731592320.js" integrity="sha256-qxszzOPbTGhn3hP1qemAUhXkEpqAlsPdhn/&#43;VzFZIyA=" crossorigin="anonymous" defer></script><script defer src="https://euraxluo.gitee.io/blog/js/katex.min.d3d447c86fbb3d49dd3cb98498e5a26ed6b0e182456a454b4de0aa3166089989.js" integrity="sha256-09RHyG&#43;7PUndPLmEmOWibtaw4YJFakVLTeCqMWYImYk=" crossorigin="anonymous"></script>
+
 </body>
 </html>

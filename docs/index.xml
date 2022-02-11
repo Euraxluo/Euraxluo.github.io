@@ -43,12 +43,12 @@ Ask me about Python/Compiler/Operational,Constraint Programming</description>
 　车辆路线问题自1959年提出以来，一直是网络优化问题中最基本的问题之一，由于其应用的广泛性和经济 上的重大价值，一直受到国内外学者的广泛关注。车辆路线问题可以描述如下（如图1）：
 　 　设有一场站（depot），共有M 辆货车，车辆容量为Q，有N位顾客 （customer），每位顾客有其需求量D。车辆从场站 出发对客户进行配送服务最后返回场站，要求所有顾客都被配送，每位顾客一次配送完成，且不能违反车辆容量的限制，目的是所有车辆路线的总距离最小。车辆路线的实际问题包括配送中心配送 、公共汽车路线制定、信件和报纸投递、航空和铁路时间表安排、工业废品收集等。
 [编辑 ]
-车辆路径问题的类型[3]  　一般而言车辆路线问题大致可以分为以下三种类型（Ballou，1992）：
+车辆路径问题的类型[车辆路径问题的类型[3\] 　一般而言车辆路线问题大致可以分为以下三种类型（Ballou，1992）：
 　1、相异的单一起点和单一终点。
 　2、相同的单一起点和终点。
 　3、多个起点和终点。
 [编辑 ]
-车辆路径问题的方法[3]  　关于车辆路线问题之学术研究文献众多，也提出了相当多的求解策略与方法，Bodin and Golden（1981）将众多之求解方法归纳成以下七种：
+车辆路径问题的方法[车辆路径问题的方法[3\] 　关于车辆路线问题之学术研究文献众多，也提出了相当多的求解策略与方法，Bodin and Golden（1981）将众多之求解方法归纳成以下七种：
  数学解析法 （Exact Procedure ）； 人机互动法 （Interactive Optimization ）； 先分群再排路线 （Cluster First–Route Second）； 先排路线再分群 （Route First–Cluster Second）； 节省法 或插入法 （Saving or Insertion）； 改善或交换法 （Improvement or Exchanges）； 数学规划近似法 （Mathematical programming）。  [编辑 ]</description>
     </item>
     
@@ -1374,7 +1374,7 @@ import urllib2,cookielib cj = cookielib.CookieJar()#创建cookie容器 opener = 
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0800</pubDate>
       
       <guid>https://euraxluo.gitee.io/blog/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</guid>
-      <description>请求方法： r=requests.get(&amp;#39;http://httpbin.org/get&amp;#39;)#get r = requests.post(&amp;#34;http://httpbin.org/post&amp;#34;)#post r = requests.put(&amp;#34;http://httpbin.org/put&amp;#34;)#put r = requests.delete(&amp;#34;http://httpbin.org/delete&amp;#34;)#delect r = requests.head(&amp;#34;http://httpbin.org/get&amp;#34;)#head r = requests.options(&amp;#34;http://httpbin.org/get&amp;#34;)#options GET eg import requests r = requests.get(url=&amp;#39;http://www.euraxluo.cn&amp;#39;) # 最基本的GET请求 print(r.status_code) # 内置的状态码查询对象 #状态码非200视为出错 响应状态码  eg:404 r = requests.get(&amp;#39;http://httpbin.org/status/404&amp;#39;) print(r.status_code)#404 error_info = r.raise_for_status()#Response.raise_for_status()抛出异常 带参数的url请求： #向url传递参数 r = requests.get(url=&amp;#39;http://dict.baidu.com/s&amp;#39;, params={&amp;#39;wd&amp;#39;: &amp;#39;python&amp;#39;})#带参数的GET请求 #当你不知道你的编码类型时 r.encoding = r.apparent_encoding#获取编码类型 print(r.text)#返回解码后的数据 tips 若有图片 r.content 返回bytes数据
+      <description>请求方法： r=requests.get(&amp;#39;http://httpbin.org/get&amp;#39;)#get r = requests.post(&amp;#34;http://httpbin.org/post&amp;#34;)#post r = requests.put(&amp;#34;http://httpbin.org/put&amp;#34;)#put r = requests.delete(&amp;#34;http://httpbin.org/delete&amp;#34;)#delect r = requests.head(&amp;#34;http://httpbin.org/get&amp;#34;)#head r = requests.options(&amp;#34;http://httpbin.org/get&amp;#34;)#options GET eg import requests r = requests.get(url=&amp;#39;http://www.euraxluo.cn&amp;#39;) # 最基本的GET请求 print(r.status_code) # 内置的状态码查询对象 #状态码非200视为出错 响应状态码 eg:404 r = requests.get(&amp;#39;http://httpbin.org/status/404&amp;#39;) print(r.status_code)#404 error_info = r.raise_for_status()#Response.raise_for_status()抛出异常 带参数的url请求： #向url传递参数 r = requests.get(url=&amp;#39;http://dict.baidu.com/s&amp;#39;, params={&amp;#39;wd&amp;#39;: &amp;#39;python&amp;#39;})#带参数的GET请求 #当你不知道你的编码类型时 r.encoding = r.apparent_encoding#获取编码类型 print(r.text)#返回解码后的数据 tips 若有图片 r.content 返回bytes数据
 eg：r.content r = requests.get(url=&amp;#39;http://music.baidu.com&amp;#39;)#实测，没啥区别 html=r.content #html_doc=str(html,&amp;#39;utf-8&amp;#39;) html_doc=html.decode(&amp;#34;utf-8&amp;#34;,&amp;#34;ignore&amp;#34;) print(html_doc) 响应内容 不同的内容处理方式 Json：request.json() 二进制：一般用于图片 from PIL import Image from io import BytesIO m = request.</description>
     </item>
     

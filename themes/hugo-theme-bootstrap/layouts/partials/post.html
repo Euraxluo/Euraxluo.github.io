@@ -1,16 +1,23 @@
-<article class="post row surface">
-  <h1 class="post-title my-3">{{ .Title }}</h1>
-  {{- partial "post/meta" . -}}
-  {{- partial "hooks/content-begin" . -}}
-  {{- partial "post/share" . -}}
-  {{- partial "post/toc" . -}}
-  <div class="post-content mb-3">
-    {{- .Content -}}
+<article class="row card component mb-4 post">
+  {{- partial "post/panel" . -}}
+  <div class="card-header ">
+    <h1 class="card-title post-title">{{ partial "helpers/title" . }}</h1>
   </div>
-  {{- partial "post/copyright" . -}}
-  {{- partial "post/reward" . -}}
-  {{- partial "hooks/content-end" . -}}
-  {{- partial "post/nav" . -}}
-  {{- partial "post/related-posts" . -}}
+  <div class="card-body">
+    {{- partial "post/meta" . -}}
+    {{- partial "hooks/content-begin" . -}}
+    {{- partial "post/share" . -}}
+    {{- partial "post/toc" . -}}
+    <div class="post-content mb-3">
+      {{- .Content -}}
+    </div>
+    {{- partial "post/reward" . -}}
+    {{- partial "hooks/content-end" . -}}
+    <hr />
+    {{- partial "post/copyright/index" . -}}
+    <hr />
+    {{- partial "post/nav" . -}}
+  </div>
 </article>
+{{- partial "post/related-posts" . -}}
 {{- partial "post/comments" . -}}

@@ -1,5 +1,5 @@
 import Fuse from 'fuse.js';
-import * as Mustache from 'mustache';
+import Mustache from 'mustache';
 import * as Mark from 'mark.js';
 
 declare global {
@@ -36,6 +36,8 @@ export class Search {
 
   public input: HTMLInputElement;
 
+  public searchBarInput: HTMLInputElement;
+
   public title: string;
 
   public paginate: number = 10;
@@ -53,7 +55,7 @@ export class Search {
   constructor(public form: HTMLFormElement) {
   }
 
-  init() {
+  run() {
     this.title = document.title;
     this.resultsElement = document.getElementById('searchResults');
     this.stat = document.getElementById('searchStat');
@@ -97,17 +99,21 @@ export class Search {
 
   initForm() {
     this.input = this.form.querySelector('input[name="q"]');
+    this.searchBarInput = document.querySelector('.search-bar input[name="q"]');
     if (this.input.value === '') {
       this.input.value = Search.getKeywordFromURL();
     }
+    this.searchBarInput.value = this.input.value;
+    document.querySelector('.search-bar input');
     const instance = this;
     this.form.addEventListener('submit', (event) => {
-      Search.handleSubmit(event, instance);
+      instance.handleSubmit(event);
     });
   }
 
-  static handleSubmit(event, instance: Search) {
-    instance.search(instance.input.value);
+  handleSubmit(event) {
+    this.search(this.input.value);
+    this.searchBarInput.value = this.input.value;
     event.preventDefault();
   }
 
@@ -208,11 +214,13 @@ export class Search {
         title: result.item.title,
         content,
         id,
+        img: result.item.img,
         permalink: result.item.permalink,
         categories: result.item.categories,
         tags: result.item.tags,
         series: result.item.series,
         score: Search.formatScore(result.score),
+        date: result.item.date,
         url() {
           return Search.normalizeTaxonomy;
         },
@@ -230,13 +238,7 @@ export class Search {
   }
 
   static formatScore(value) {
-    const score = 100 * (1 - value);
-    const scoreStr = score.toFixed(2);
-    if (score < 90) {
-      return `${scoreStr}%`;
-    }
-
-    return `<span class="text-accent">${scoreStr}%</span>`;
+    return (100 * (1 - value)).toFixed(1);
   }
 
   highlight(id, titleKeywords, contentKeywords) {
