@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MyBatis on Euraxluo Blog</title>
-    <link>https://euraxluo.github.io/tags/mybatis/</link>
+    <link>https://euraxluo.gitee.io/tags/mybatis/</link>
     <description>Recent content in MyBatis on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Mon, 29 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MyBatis</title>
-      <link>https://euraxluo.github.io/posts/java/mbatis%E5%9F%BA%E7%A1%80/</link>
+      <link>https://euraxluo.gitee.io/posts/java/mbatis%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/mbatis%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/mbatis%E5%9F%BA%E7%A1%80/</guid>
       <description>MyBatis   一个ORM框架,(不直接建立java对象到关系数据库表数据的映射,而是建立对对象的操作方法到SQL的映射)支持自定义SQL,存储过程和高级映射的持久化框架
   使用XML或者注解配置
   能够映射基本数据元素,接口,Java对象到数据库

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Euraxluo Blog</title>
-    <link>https://euraxluo.github.io/</link>
+    <link>https://euraxluo.gitee.io/</link>
     <description>Recent content on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>https://euraxluo.github.io/about/</link>
+      <link>https://euraxluo.gitee.io/about/</link>
       <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/about/</guid>
+      <guid>https://euraxluo.gitee.io/about/</guid>
       <description>I’m currently working for dml-express
 I’m currently learning Compiler Design,Distributed Systems,Architecture Design
 How to reach me: euraxluo@outlook.com
@@ -21,19 +21,19 @@ Ask me about Python/Compiler/Operational,Constraint Programming</description>
     
     <item>
       <title>数据分析</title>
-      <link>https://euraxluo.github.io/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
       <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
       <description></description>
     </item>
     
     <item>
       <title>车辆路径问题</title>
-      <link>https://euraxluo.github.io/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://euraxluo.gitee.io/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sun, 21 Mar 2021 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://euraxluo.gitee.io/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</guid>
       <description>TSP，即Traveling Salesman Problem，也就是旅行商问题 ，又译为旅行推销员问题、货郎担问题 ，简称为TSP问题 ，是最基本的路线问题，该问题是在寻求单一旅行者由起点出发，通过所有给定的需求点之后，最后再回到原点的最小路径成本。最早的旅行商问题的数学规划是由Dantzig（1959）等人提出。
 二、
 有时间窗车辆路径问题（vehicle routing problems with time windows，VRPTW）车辆路线问题（VRP）最早是由Dantzig和Ramser于1959年首次提出，它是指一定数量的客户，各自有不同数量的货物需求，配送中心向客户提供货物，由一个车队负责分送货物，组织适当的行车路线，目标是使得客户的需求得到满足，并能在一定的约束下，达到诸如路程最短、成本最小、耗费时间最少等目的。三、以下内容from：http://wiki.mbalib.com/wiki/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98
@@ -54,10 +54,10 @@ Ask me about Python/Compiler/Operational,Constraint Programming</description>
     
     <item>
       <title>NLP基础 </title>
-      <link>https://euraxluo.github.io/posts/nlp/nlp%E5%9F%BA%E7%A1%80/</link>
+      <link>https://euraxluo.gitee.io/posts/nlp/nlp%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/nlp/nlp%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://euraxluo.gitee.io/posts/nlp/nlp%E5%9F%BA%E7%A1%80/</guid>
       <description>NLP概览 什么是NLP   自然语言处理,是探讨如何处理及运用自然语言
   自然语言认知,是让电脑明白人类的语言
   自然语言处理主要包括:文本分析,信息检索,词性标注,问答系统QA
@@ -80,10 +80,10 @@ Ask me about Python/Compiler/Operational,Constraint Programming</description>
     
     <item>
       <title>Servlet1</title>
-      <link>https://euraxluo.github.io/posts/java/servlet1/</link>
+      <link>https://euraxluo.gitee.io/posts/java/servlet1/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/servlet1/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/servlet1/</guid>
       <description>Servlet HTTP协议 是客户端与服务器通信的一种方式
 参考链接 request: 请求行请求头请求体 response: 响应行响应头响应体 Get: GET用于信息获取，而且应该是安全的和幂等的
   带上数据,在URL上面拼接
@@ -111,10 +111,10 @@ HTTP body
     
     <item>
       <title>Servlet2</title>
-      <link>https://euraxluo.github.io/posts/java/servlet2/</link>
+      <link>https://euraxluo.gitee.io/posts/java/servlet2/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/servlet2/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/servlet2/</guid>
       <description>Cookie和Session 会话：浏览器发出http请求。服务器接受，对请求进行响应，浏览器接受http响应
 Cookie 把会话数据保存在浏览器客户端
 服务器第一次访问时，服务端生成cookie，并且把这个cookie通过响应，发送给客户端，客户端把cookie保存下来，以便在最近的下一次访问中使用
@@ -129,10 +129,10 @@ Cookie 把会话数据保存在浏览器客户端
     
     <item>
       <title>WebSocket</title>
-      <link>https://euraxluo.github.io/posts/java/websocket/</link>
+      <link>https://euraxluo.gitee.io/posts/java/websocket/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/websocket/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/websocket/</guid>
       <description>WebSocket 一、概念 1.WebSocket 是HTTP协议的补充。使用的TCP协议建立连接
 2.HTML5是指一系列新API，新协议，WebSocket也是其中之一
 二、优点 1.WebSocket是持久化协议，每次通信只需要一次连接
@@ -163,10 +163,10 @@ url = 服务器地址，protocol是可接受的子协议
     
     <item>
       <title>XML</title>
-      <link>https://euraxluo.github.io/posts/java/xml/</link>
+      <link>https://euraxluo.gitee.io/posts/java/xml/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/xml/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/xml/</guid>
       <description>Xml Xml  eXtendsible markup language 可扩展的标记语言
  XML 有什么用?   可以用来保存数据
   可以用来做配置文件
@@ -180,19 +180,19 @@ url = 服务器地址，protocol是可接受的子协议
     
     <item>
       <title>无人驾驶概述</title>
-      <link>https://euraxluo.github.io/posts/driverless/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%A6%82%E8%BF%B0/</link>
+      <link>https://euraxluo.gitee.io/posts/driverless/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%A6%82%E8%BF%B0/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/driverless/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%A6%82%E8%BF%B0/</guid>
+      <guid>https://euraxluo.gitee.io/posts/driverless/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%A6%82%E8%BF%B0/</guid>
       <description>&lt;p&gt;无人驾驶概述&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>缓存的使用和设计</title>
-      <link>https://euraxluo.github.io/posts/redis/%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AE%BE%E8%AE%A1/</link>
+      <link>https://euraxluo.gitee.io/posts/redis/%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AE%BE%E8%AE%A1/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/redis/%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AE%BE%E8%AE%A1/</guid>
+      <guid>https://euraxluo.gitee.io/posts/redis/%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AE%BE%E8%AE%A1/</guid>
       <description>缓存的使用和设计 缓存的收益与成本 收益   加速读写
  通过缓存加速读写：CPU L1/L2/L3 Cache，浏览器缓存，Ehcache缓存数据库结果    降低后端负载
  后端服务器通过前端缓存降低负载：业务端使用Redis降低后端MySQL负载    成本   数据不一致
@@ -209,10 +209,10 @@ url = 服务器地址，protocol是可接受的子协议
     
     <item>
       <title>软件架构1-Tier</title>
-      <link>https://euraxluo.github.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%841-tier/</link>
+      <link>https://euraxluo.gitee.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%841-tier/</link>
       <pubDate>Mon, 03 Feb 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%841-tier/</guid>
+      <guid>https://euraxluo.gitee.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%841-tier/</guid>
       <description>软件架构 软件开发过程的概述 在行业中，架构师、开发人员和产品所有者花费大量时间研究和讨论业务需求。在软件工程术语中，这被称为需求收集和分析。
 一旦我们完成了业务需求，我们坐下来讨论我们必须实现的用例。这包括尽早找出角落的情况&amp;amp;将乐高积木组装在一起。
 如果您是文档的爱好者，您可能还想编写高级设计文档。现在，我们已经了解了业务需求、用例、拐角用例等等。现在开始研究如何选择合适的技术堆栈来实现用例。
@@ -251,10 +251,10 @@ Two Tier Applications 两层应用程序包括客户机和服务器。客户端�
     
     <item>
       <title>软件架构2</title>
-      <link>https://euraxluo.github.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%842/</link>
+      <link>https://euraxluo.gitee.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%842/</link>
       <pubDate>Mon, 03 Feb 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%842/</guid>
+      <guid>https://euraxluo.gitee.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%842/</guid>
       <description>软件架构 什么是Web架构 Web架构包括数据库、消息队列、缓存、用户界面等多个组件，它们相互结合，形成在线服务
 在本课程的介绍中，我已经谈到了为什么网络架构知识对软件工程师很重要。现在我们将进一步探讨它。
 这是web应用程序的典型架构，在大多数在线运行的应用程序中使用。
@@ -285,19 +285,19 @@ Server web服务器的主要任务是接收来自客户端的请求，并根据�
     
     <item>
       <title>Typora画图</title>
-      <link>https://euraxluo.github.io/posts/tools/typora%E7%94%BB%E5%9B%BE/</link>
+      <link>https://euraxluo.gitee.io/posts/tools/typora%E7%94%BB%E5%9B%BE/</link>
       <pubDate>Fri, 10 Jan 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/tools/typora%E7%94%BB%E5%9B%BE/</guid>
+      <guid>https://euraxluo.gitee.io/posts/tools/typora%E7%94%BB%E5%9B%BE/</guid>
       <description>标准流程图源码格式： st=&amp;gt;start: 开始框op=&amp;gt;operation: 处理框cond=&amp;gt;condition: 判断框sub1=&amp;gt;subroutine: 子流程io=&amp;gt;inputoutput: 输入输出框e=&amp;gt;end: 结束框st-&amp;gt;op-&amp;gt;condcond(yes)-&amp;gt;io-&amp;gt;econd(no)-&amp;gt;sub1(right)-&amp;gt;op标准流程图源码格式（横向）： st=&amp;gt;start: 开始框op=&amp;gt;operation: 处理框cond=&amp;gt;condition: 判断框(是或否?)sub1=&amp;gt;subroutine: 子流程io=&amp;gt;inputoutput: 输入输出框e=&amp;gt;end: 结束框st(right)-&amp;gt;op(right)-&amp;gt;condcond(yes)-&amp;gt;io(bottom)-&amp;gt;econd(no)-&amp;gt;sub1(right)-&amp;gt;op流程圖 graph TDA[方形] --&amp;gt;B(圆角)B --&amp;gt; C{条件a}C --&amp;gt;|a=1| D[结果1]C --&amp;gt;|a=2| E[结果2]F[竖向流程图]graph LRA[方形] --&amp;gt;B(圆角)B --&amp;gt; C{条件a}C --&amp;gt;|a=1| D[结果1]C --&amp;gt;|a=2| E[结果2]F[横向流程图]UML时序图源码样例： 对象A-&amp;gt;对象B: 对象B你好吗?（请求）Note right of 对象B: 对象B的描述Note left of 对象A: 对象A的描述(提示)对象B--&amp;gt;对象A: 我很好(响应)对象A-&amp;gt;对象B: 你真的好吗？UML时序图源码复杂样例： Title: 标题：复杂使用对象A-&amp;gt;对象B: 对象B你好吗?</description>
     </item>
     
     <item>
       <title>Hbase基础-概念和安装</title>
-      <link>https://euraxluo.github.io/posts/database/hbase%E5%9F%BA%E7%A1%80/</link>
+      <link>https://euraxluo.gitee.io/posts/database/hbase%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/database/hbase%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://euraxluo.gitee.io/posts/database/hbase%E5%9F%BA%E7%A1%80/</guid>
       <description>Hbase 基本概念 Hbase 能做什么
  海量数据存储 准实时查询  HBase在实际业务场景中的应用
  交通:gps,摄像头信息 金融:交易信息 电商:交易信息,浏览信息,物流信息  HBase特点
@@ -308,19 +308,19 @@ hbase(main):001:0&amp;gt; create &amp;#39;test&amp;#39;,&amp;#39;info&amp;#39; 0
     
     <item>
       <title>Redis API及数据结构</title>
-      <link>https://euraxluo.github.io/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <link>https://euraxluo.gitee.io/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <guid>https://euraxluo.gitee.io/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
       <description>&lt;p&gt;本文介绍了redisApi以及数据结构&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Redis Cluster</title>
-      <link>https://euraxluo.github.io/posts/redis/rediscluster-1/</link>
+      <link>https://euraxluo.gitee.io/posts/redis/rediscluster-1/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/redis/rediscluster-1/</guid>
+      <guid>https://euraxluo.gitee.io/posts/redis/rediscluster-1/</guid>
       <description>Redis Cluster 背景   并发量 &amp;lt;10万dps
   数据量 单机内存&amp;lt;256G
   带宽 网卡限制
@@ -338,10 +338,10 @@ hbase(main):001:0&amp;gt; create &amp;#39;test&amp;#39;,&amp;#39;info&amp;#39; 0
     
     <item>
       <title>Redis Cluster 2</title>
-      <link>https://euraxluo.github.io/posts/redis/rediscluster-2/</link>
+      <link>https://euraxluo.gitee.io/posts/redis/rediscluster-2/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/redis/rediscluster-2/</guid>
+      <guid>https://euraxluo.gitee.io/posts/redis/rediscluster-2/</guid>
       <description>集群伸缩 伸缩原理 伸：增加节点 缩：节点下线
 集群伸缩：槽和数据在节点之间的移动
 扩容集群  准备新节点    打开集群模式
@@ -359,10 +359,10 @@ hbase(main):001:0&amp;gt; create &amp;#39;test&amp;#39;,&amp;#39;info&amp;#39; 0
     
     <item>
       <title>Redis Cluster 3</title>
-      <link>https://euraxluo.github.io/posts/redis/rediscluster-3/</link>
+      <link>https://euraxluo.gitee.io/posts/redis/rediscluster-3/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/redis/rediscluster-3/</guid>
+      <guid>https://euraxluo.gitee.io/posts/redis/rediscluster-3/</guid>
       <description>RedisCluster 客户端使用 moved重定向   对任意节点发送键命令
   节点会计算槽和对应节点确定这个键是否指向自身
   如果指向自身，就执行命令，返回key所在的槽
@@ -386,10 +386,10 @@ hbase(main):001:0&amp;gt; create &amp;#39;test&amp;#39;,&amp;#39;info&amp;#39; 0
     
     <item>
       <title>Redis Sentinel</title>
-      <link>https://euraxluo.github.io/posts/redis/redissentinel/</link>
+      <link>https://euraxluo.gitee.io/posts/redis/redissentinel/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/redis/redissentinel/</guid>
+      <guid>https://euraxluo.gitee.io/posts/redis/redissentinel/</guid>
       <description>Redis Sentinel 主从复制的问题   手动故障转移
   写能力和存储能力受限
   Redis Sentinel架构   有多个Sentinel节点
@@ -413,10 +413,10 @@ Sentinel配置</description>
     
     <item>
       <title>Redis基础学习</title>
-      <link>https://euraxluo.github.io/posts/redis/redis%E5%9F%BA%E7%A1%80/</link>
+      <link>https://euraxluo.gitee.io/posts/redis/redis%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/redis/redis%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://euraxluo.gitee.io/posts/redis/redis%E5%9F%BA%E7%A1%80/</guid>
       <description>Redis基础学习 Redis是一个key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)、zset(sorted set &amp;ndash;有序集合)和hash（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。
 Redis 是一个高性能的key-value数据库。 redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部 分场合可以对关系数据库起到很好的补充作用。它提供了Python，Ruby，Erlang，PHP客户端，使用很方便,Redis支持主从同步。数据可以从主服务器向任意数量的从服务器上同步，从服务器可以是关联其他从服务器的主服务器。这使得Redis可执行单层树复制。从盘可以有意无意的对数据进行写操作。由于完全实现了发布/订阅机制，使得从数据库在任何地方同步树时，可订阅一个频道并接收主服务器完整的消息发布记录。
 安装和基本命令 安装： Ubuntu18.04：sudo apt-get install redis-server
@@ -442,10 +442,10 @@ keys xx*</description>
     
     <item>
       <title>Redis的主从复制</title>
-      <link>https://euraxluo.github.io/posts/redis/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link>
+      <link>https://euraxluo.gitee.io/posts/redis/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/redis/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid>
+      <guid>https://euraxluo.gitee.io/posts/redis/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid>
       <description>Redis的主从复制 单机部署的问题   机器故障（高可用）
   容量瓶颈（分布式）
   QPS瓶颈（分布式）
@@ -465,10 +465,10 @@ slaveof no one
     
     <item>
       <title>Redis的持久化</title>
-      <link>https://euraxluo.github.io/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/</link>
+      <link>https://euraxluo.gitee.io/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/</guid>
+      <guid>https://euraxluo.gitee.io/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/</guid>
       <description>Redis的持久化 Redis持久化作用 什么是持久化 redis的所有数据保存在内存中，对数据的更新回异步的保存在磁盘中
 持久化方式 快照   MySQL Dump
   Redis RDB
@@ -491,10 +491,10 @@ slaveof no one
     
     <item>
       <title>Redis高级特性初识别</title>
-      <link>https://euraxluo.github.io/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</link>
+      <link>https://euraxluo.gitee.io/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</guid>
+      <guid>https://euraxluo.gitee.io/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</guid>
       <description>Redis高级特性初识 慢查询 客户端请求的生命周期   客户端发送命令
   入队列
   执行命令（慢查询在这一阶段）
@@ -512,10 +512,10 @@ slaveof no one
     
     <item>
       <title>ROS基础学习1</title>
-      <link>https://euraxluo.github.io/posts/ros/ros%E5%9F%BA%E7%A1%80/</link>
+      <link>https://euraxluo.gitee.io/posts/ros/ros%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/ros/ros%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://euraxluo.gitee.io/posts/ros/ros%E5%9F%BA%E7%A1%80/</guid>
       <description>利用enve使用在ros中使用python3 因为ros的python有很多依赖需要使用C，python3的支持不太好。我们可以让当前的环境变量依然是python2，为ros创建一个py3的enve来给它使用
 查看版本： pip -V pip3 -V python -V python3 -V 我的pip和python都是py2.7的
 接下来在你的工作空间中创建enve
@@ -539,10 +539,10 @@ Navigation matepkg </description>
     
     <item>
       <title>ROS基础学习2</title>
-      <link>https://euraxluo.github.io/posts/ros/ros%E5%85%A5%E9%97%A8/</link>
+      <link>https://euraxluo.gitee.io/posts/ros/ros%E5%85%A5%E9%97%A8/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/ros/ros%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://euraxluo.gitee.io/posts/ros/ros%E5%85%A5%E9%97%A8/</guid>
       <description>ROS 工作空间:组织和管理功能包的文件夹 catkin workspace
  build (cmake,catkin缓存中间件)
   src(package 源代码)
@@ -564,10 +564,10 @@ catkin_make:  初始化,建立工作空间</description>
     
     <item>
       <title>Shell 基础</title>
-      <link>https://euraxluo.github.io/posts/shell/shell%E5%9F%BA%E7%A1%80/</link>
+      <link>https://euraxluo.gitee.io/posts/shell/shell%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/shell/shell%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://euraxluo.gitee.io/posts/shell/shell%E5%9F%BA%E7%A1%80/</guid>
       <description>shell 基础 在终端输入:sh进入脚本界面
 helloworld 编辑内容
 #!/bin/bashecho &amp;quot;hello world!&amp;quot;保存退出:
@@ -591,10 +591,10 @@ for skill in Ada Coffe Action java;do echo &amp;#34;I am good at ${skill}Script&
     
     <item>
       <title>Shell 进阶</title>
-      <link>https://euraxluo.github.io/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</link>
+      <link>https://euraxluo.gitee.io/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</guid>
+      <guid>https://euraxluo.gitee.io/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</guid>
       <description>shell进阶  破壳漏洞
 env x=&#39;() { :;}; echo shellshocked&#39; bash –c &amp;quot;echo test&amp;quot;检查,如果输出了两行,那么需要升级bash的版本
   解释器的类型
@@ -606,10 +606,10 @@ env x=&#39;() { :;}; echo shellshocked&#39; bash –c &amp;quot;echo test&amp;qu
     
     <item>
       <title>Redis基础配置</title>
-      <link>https://euraxluo.github.io/posts/redis/redis%E9%85%8D%E7%BD%AE/</link>
+      <link>https://euraxluo.gitee.io/posts/redis/redis%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/redis/redis%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://euraxluo.gitee.io/posts/redis/redis%E9%85%8D%E7%BD%AE/</guid>
       <description>Redis的特点 速度快   使用内存
   使用C语言
   单线程
@@ -631,10 +631,10 @@ env x=&#39;() { :;}; echo shellshocked&#39; bash –c &amp;quot;echo test&amp;qu
     
     <item>
       <title>TensorFlow 基础</title>
-      <link>https://euraxluo.github.io/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/</link>
+      <link>https://euraxluo.gitee.io/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://euraxluo.gitee.io/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/</guid>
       <description>TensorFlow 基础 计算密集型(tensorflow) cpu计算
 io密集型(Django,Scrapy) http请求
 线性回归回顾  准备好特征和lable  y = x*0.7+0.8
@@ -657,10 +657,10 @@ y_predict = wx+b
     
     <item>
       <title>TensorFlow 线性回归</title>
-      <link>https://euraxluo.github.io/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</link>
+      <link>https://euraxluo.gitee.io/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</link>
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</guid>
+      <guid>https://euraxluo.gitee.io/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</guid>
       <description>TensorFlow 线性回归 TensorFlow是一个编程系统,使用图(graphs)来表示计算任务,图(graphs)中的节点称之为op(operation),一个op获得0个或者多个Tensor,执行计算,产生0个或者多个Tensor.Tensor看做是一个n维的数组或者列表.图必须在会话Session里被启动
 ##基本概念
   使用图(graphs)来表示计算任务
@@ -680,19 +680,19 @@ y_predict = wx+b
     
     <item>
       <title>C&#43;&#43; 小记</title>
-      <link>https://euraxluo.github.io/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</link>
+      <link>https://euraxluo.gitee.io/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</guid>
       <description>C++ 小记 CMAKE  工程构建工具  简单的使用  文件名大小写敏感 语法  cmake_minimum_required(VERSION 2.8)#设置cmake的版本 set(CMAKE_BUILD_TYPE Debug )#设置为debug模式 #项目名 PROJECT(HELLO)#设置某文件夹为头文件 include_directories(&amp;#34;include&amp;#34;)#设置一个头文件，把hello.cpp编译为libfile add_library(libfile src/hello.cpp)SET(SRC_LIST “fu nc.c”)#设置可执行二进制文件的输出路径和库的输出路径 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin) SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)ADD_EXECUTABLE(hello main.c;func.c;$\{RC_LIST\}) target_link_libraries(hello libfile)#链接一个lib #设置编译的源文件在编译当前目录的bin下 ADD_SUBDIRECTORY (src bin)#修改为 SUBDIRS(src) 结果放在src中 #安装 DESTDIR= 	install: mkdir -p $(DESTDIR)/usr/bin 	install -m 755 hello $(DESTDIR)/usr/bin 更像一个工程 Hello- src- CMakeLists.txt- build #进去此目录进行外部编译 =》 cmake .. &amp;amp; make - CMakeLists.txtproject(hello)add_executable(hello hello.c)set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)map和set 底层使用的是红黑树</description>
     </item>
     
     <item>
       <title>ChatBot模型基础</title>
-      <link>https://euraxluo.github.io/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/</link>
+      <link>https://euraxluo.gitee.io/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/</guid>
+      <guid>https://euraxluo.gitee.io/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/</guid>
       <description>word2vec !(http://www.cnblogs.com/neopenx/p/4571996.html)(是个巨佬) !(https://blog.csdn.net/itplus/article/details/37969817)
 概率语言模型 概率语言模型 预测字符串概率,考虑动机,考虑计算方式
   Unigram models(一元文法统计模型)
@@ -720,10 +720,10 @@ Negative Sampling 为了解决,树空间过大</description>
     
     <item>
       <title>chromedriver-安装</title>
-      <link>https://euraxluo.github.io/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</link>
+      <link>https://euraxluo.gitee.io/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</guid>
       <description>![reference])(https://blog.csdn.net/shuchuan0409/article/details/101615221)
 第一步：
 执行 sudo apt-get update 更新apt-get，耗时可能会比较久
@@ -751,10 +751,10 @@ ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
     
     <item>
       <title>Colab的使用</title>
-      <link>https://euraxluo.github.io/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <link>https://euraxluo.gitee.io/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
       <description>首先是梯子 校园网改ipv6连接谷歌 1.修改SDN服务器
 在ipv6的sdn中设置这两个记录，也可以只设置一个
 2001:4860:4860::88882001:4860:4860::8844linux:修改/etc/resolv.conf
@@ -767,10 +767,10 @@ ipv6 hosts 入门： 进入colab 因为我有基础，所以直接跳过了机�
     
     <item>
       <title>C语言小计</title>
-      <link>https://euraxluo.github.io/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</link>
+      <link>https://euraxluo.gitee.io/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</guid>
       <description>C语言小计 Unix C   内核-》系统调用-》shell/共用函数库-》应用程序
   系统调用和库函数
   库函数会调用系统调用来实现自己的算法
@@ -792,10 +792,10 @@ ipv6 hosts 入门： 进入colab 因为我有基础，所以直接跳过了机�
     
     <item>
       <title>IO模型小记</title>
-      <link>https://euraxluo.github.io/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</link>
+      <link>https://euraxluo.gitee.io/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</guid>
       <description>BIO (block io) 同步阻塞IO
 线程池:伪异步IO,实际上也是同步阻塞IO
 NIO(同步非阻塞)
@@ -810,10 +810,10 @@ AIO(异步非阻塞)
     
     <item>
       <title>java面试笔记</title>
-      <link>https://euraxluo.github.io/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</link>
+      <link>https://euraxluo.gitee.io/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</guid>
       <description>java跨平台 实现java跨平台只需要在相应的平台安装对应的虚拟机，我们就可以使用统一的接口进行开发。
 java通过不同的系统，不同的版本，不同的位数，来屏蔽不同的系统指令集的差异，对外提供统一的接口
 java中int数据占几个字节   java中有几种基本数据类型？8种
@@ -826,10 +826,10 @@ java中int数据占几个字节   java中有几种基本数据类型？8种
     
     <item>
       <title>pattern:斑图</title>
-      <link>https://euraxluo.github.io/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</guid>
       <description>pattern:斑图
 是一种构型，是一种系统，不关心是使用的什么物质去实现
 把各种方法论抽取出来
@@ -846,10 +846,10 @@ book：失控
     
     <item>
       <title>python socket编程</title>
-      <link>https://euraxluo.github.io/posts/python/python-socket/</link>
+      <link>https://euraxluo.gitee.io/posts/python/python-socket/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/python/python-socket/</guid>
+      <guid>https://euraxluo.gitee.io/posts/python/python-socket/</guid>
       <description>TCP的三次握手和四次挥手
 三次握手: 为什么需要三次握手? 客户端:我可以发东西给你(确保客户端的发送能力) 服务器:我可以收到,你能收到么?(确保服务器的接受和发送) 客户端:我能收到!(确保能收到)
 连接建立!
@@ -867,10 +867,10 @@ import socket ##創建socket s = socket.socket(socket.af_inet,socket.sock_stream
     
     <item>
       <title>rust学习</title>
-      <link>https://euraxluo.github.io/posts/note/rust%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://euraxluo.gitee.io/posts/note/rust%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/rust%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/rust%E5%AD%A6%E4%B9%A0/</guid>
       <description>rust学习 所有权
 Rust 的核心功能（之一）是 所有权（ownership）。虽然该功能很容易解释，但它对语言的其他部分有着深刻的影响。
 所有运行的程序都必须管理其使用计算机内存的方式。一些语言中具有垃圾回收机制，在程序运行时不断地寻找不再使用的内存；在另一些语言中，程序员必须亲自分配和释放内存。Rust 则选择了第三种方式：通过所有权系统管理内存，编译器在编译时会根据一系列的规则进行检查。在运行时，所有权系统的任何功能都不会减慢程序。（其他的GC会不断运行来寻找垃圾）
@@ -885,20 +885,20 @@ Rust 的核心功能（之一）是 所有权（ownership）。虽然该功能�
     
     <item>
       <title>Scala入门</title>
-      <link>https://euraxluo.github.io/posts/note/scala%E5%85%A5%E9%97%A8/</link>
+      <link>https://euraxluo.gitee.io/posts/note/scala%E5%85%A5%E9%97%A8/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/scala%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/scala%E5%85%A5%E9%97%A8/</guid>
       <description>Scala 入门之随便写写
 import scala.util.control._ object HelloWorld{ def hello(name:String) = { s&amp;#34;Hello ,${name}&amp;#34; } def add(x: Int,y:Int) = x+y def main(args:Array[String]):Unit = { /** * 违反引用透明的例子: * 怎么样获得引用透明性:{ * 需要具有不变性,即为了获得引用透明性,任何值都不能改变 * } */ var x = new StringBuilder(&amp;#34;Hello &amp;#34;); println(x); var y = x.append(&amp;#34; world&amp;#34;); println(y); var z = x.append(&amp;#34; world&amp;#34;); println(z); /** * 递归函数: * 使用递归实现循环 * 尾递归函数 */ /** * 变量: * val 定义immutable variable:常量 * var 定义mutable variable:变量 * lazy val:惰性求值常量 * 可以再定义时不指定变量的类型,Scala会自动进行类型推导 */ println(hello(&amp;#34;Euraxluo&amp;#34;)) println(add(1,2)) /** * for循环 */ val list = List(&amp;#34;Euraxluo&amp;#34;,&amp;#34;xiaoli&amp;#34;,&amp;#34;xiaoxiong&amp;#34;) //循环1  for ( s &amp;lt;- list//generator  )println(s) println(&amp;#34;&amp;#34;) //循环2  for { s&amp;lt;-list if (s.</description>
     </item>
     
     <item>
       <title>SLAM</title>
-      <link>https://euraxluo.github.io/posts/note/slam/</link>
+      <link>https://euraxluo.gitee.io/posts/note/slam/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/slam/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/slam/</guid>
       <description>SLAM 相机
  以一定的速率采集图像，形成视频  各类相机的区别  单目：无深度，需要其他手段估计 双目：通过视差计算深度 RGB-D：通过物理方法测量深度  相机的特点  以二维投影的形式记录了三维世界的信息 该过程丢掉了一个维度：距离 深度即第三维信息，对SLAM来说至关重要  VSLAM框架   前端：Visual Odometry 通过传感器数据计算，估计临近时刻的相机运动 方法：特征点法和直接法
   后端：Optimization 从带有噪声的数据中估计最优轨迹与地图 滤波器，图优化，最大后验概率估计 非线性优化
@@ -911,20 +911,20 @@ import scala.util.control._ object HelloWorld{ def hello(name:String) = { s&amp;
     
     <item>
       <title>stream编程</title>
-      <link>https://euraxluo.github.io/posts/note/stream%E7%BC%96%E7%A8%8B/</link>
+      <link>https://euraxluo.gitee.io/posts/note/stream%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/stream%E7%BC%96%E7%A8%8B/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/stream%E7%BC%96%E7%A8%8B/</guid>
       <description>stream 编程
 import java.util.function.Consumer; import java.util.stream.Collectors; import java.util.stream.IntStream; import java.util.stream.Stream; Consumer&amp;lt;String&amp;gt; P = System.out::println;//消费者 // P.andThen(P.andThen(P)).accept(2);  /** * 流的创建 */ List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); //从集合创建流  list.stream(); list.parallelStream(); //从数组创建  Arrays.stream(new int[]{2,3,5}); // P.accept(Arrays.stream(new int[]{2,3,5}).map(x-&amp;gt;x+1).sum());  //创建数字流  IntStream.of(1,2,3); IntStream.rangeClosed(1,10); //从random创建一个无限流  new Random().ints().limit(10); //自己产生流  Stream.generate(()-&amp;gt;new Random().nextInt()).limit(20); // P.accept(Stream.generate(()-&amp;gt;new Random().nextInt()).limit(20).findAny().toString());  /** * 中间操作 */ //filter操作  Stream.of(msg.split(&amp;#34; &amp;#34;)).filter(s-&amp;gt;s.length()&amp;gt;1).forEach(P); //flatMap :将流中的属性提取出来作为流  //这里需要装箱,s.chars()返回IntStream,不是Stream的子类  Stream.of(msg.split(&amp;#34; &amp;#34;)).flatMap(s-&amp;gt;s.chars().boxed()).forEach(i-&amp;gt;System.out.println((char)i.intValue())); //limit  new Random().</description>
     </item>
     
     <item>
       <title>VSLAM</title>
-      <link>https://euraxluo.github.io/posts/note/vslam/</link>
+      <link>https://euraxluo.gitee.io/posts/note/vslam/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/vslam/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/vslam/</guid>
       <description>VSLAM ## project1 熟悉Linux   sudo apt-get install 安装软件，apt-get 下载后软件的路径一般为/var/cache/apt/archives
 具体的安装目录是由包维护者决定
   可以通过echo $PATH查看当前的PATH，通过export PATH=$PATH:/XXX/XXX将需要的配置路径加入$PATH等号两边不能有空格
@@ -943,20 +943,20 @@ VSLAM系统在以下条件下会失败：外部环境，动态环境，显著特
     
     <item>
       <title>关于musicplayer</title>
-      <link>https://euraxluo.github.io/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</guid>
       <description>关于musicplayer 首先给权限 &amp;lt;!-- 网络权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.INTERNET&amp;#34;/&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.READ_EXTERNAL_STORAGE&amp;#34;/&amp;gt; &amp;lt;!-- 向SD卡写入数据权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.WRITE_EXTERNAL_STORAGE&amp;#34;/&amp;gt; &amp;lt;!-- 在SD卡中创建与删除文件权限 --&amp;gt; &amp;lt;!-- 扫描数据库的权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.MOUNT_UNMOUNT_FILESYSTEMS&amp;#34; tools:ignore=&amp;#34;ProtectedPermissions&amp;#34;/&amp;gt; 包含ListView的布局文件
 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;LinearLayout xmlns:android=&amp;#34;http://schemas.android.com/apk/res/android&amp;#34; xmlns:tools=&amp;#34;http://schemas.android.com/tools&amp;#34; xmlns:app=&amp;#34;http://schemas.android.com/apk/res-auto&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:orientation=&amp;#34;vertical&amp;#34; android:layout_gravity=&amp;#34;center&amp;#34; tools:context=&amp;#34;.MainActivity&amp;#34;&amp;gt; &amp;lt;LinearLayout android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;400dp&amp;#34; android:orientation=&amp;#34;vertical&amp;#34;&amp;gt; &amp;lt;ListView android:id=&amp;#34;@+id/lv1&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34;&amp;gt;&amp;lt;/ListView&amp;gt; &amp;lt;/LinearLayout&amp;gt; &amp;lt;SeekBar android:id=&amp;#34;@+id/sb&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;30dp&amp;#34; android:maxHeight=&amp;#34;2dp&amp;#34; android:minHeight=&amp;#34;2dp&amp;#34; android:paddingBottom=&amp;#34;3dp&amp;#34; android:paddingLeft=&amp;#34;12dp&amp;#34; android:max=&amp;#34;200&amp;#34; android:paddingRight=&amp;#34;12dp&amp;#34; android:paddingTop=&amp;#34;3dp&amp;#34; /&amp;gt; &amp;lt;TextView android:id=&amp;#34;@+id/tv1&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; /&amp;gt; &amp;lt;LinearLayout android:orientation=&amp;#34;horizontal&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34;&amp;gt; &amp;lt;cn.study.euraxluo.androidtup.CircleImageView android:id=&amp;#34;@+id/imageView&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;70dp&amp;#34; android:scaleType=&amp;#34;centerCrop&amp;#34; /&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_last&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_last&amp;#34;/&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_star&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_star&amp;#34;/&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_next&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_next&amp;#34;/&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_stop&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_stop&amp;#34;/&amp;gt; &amp;lt;/LinearLayout&amp;gt; &amp;lt;/LinearLayout&amp;gt; MainActivity.</description>
     </item>
     
     <item>
       <title>关于ViewPager</title>
-      <link>https://euraxluo.github.io/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</guid>
       <description>关于ViewPager 使用方法：先在xml中定义
 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;android.support.design.widget.CoordinatorLayout xmlns:android=&amp;#34;http://schemas.android.com/apk/res/android&amp;#34; xmlns:tools=&amp;#34;http://schemas.android.com/tools&amp;#34; xmlns:app=&amp;#34;http://schemas.android.com/apk/res-auto&amp;#34; android:id=&amp;#34;@+id/main_content&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;match_parent&amp;#34; android:fitsSystemWindows=&amp;#34;true&amp;#34; tools:context=&amp;#34;.MainActivity&amp;#34;&amp;gt; &amp;lt;android.support.v4.view.ViewPager android:background=&amp;#34;@drawable/img5&amp;#34; android:id=&amp;#34;@+id/view_pager&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;match_parent&amp;#34; app:layout_behavior=&amp;#34;@string/appbar_scrolling_view_behavior&amp;#34;/&amp;gt; &amp;lt;/android.support.design.widget.CoordinatorLayout&amp;gt; 再到Activity中写
 package cn.euraxluo.myapplication; import android.support.annotation.NonNull; import android.support.v4.view.PagerAdapter; import android.support.v7.app.AppCompatActivity; import android.support.v4.view.ViewPager; import android.os.Bundle; import android.util.Log; import android.view.*; import android.widget.ImageView; import cn.euraxluo.myapplication.transform.ZoomOutPageTransformer; import java.util.ArrayList; import java.util.List; public class MainActivity extends AppCompatActivity { private static final String TAG = &amp;#34;MainActivity&amp;#34;; private ViewPager mViewPager;//viewpager  private textViewAdapter mViewAdapter; private pictureViewAdapter mpViewAdapter;//图片的adapter  private int[] mImage = new int[10]; private View view1, view2, view3; private List&amp;lt;View&amp;gt; viewList = new ArrayList&amp;lt;View&amp;gt;(3);//view数组  private LayoutInflater inflater; @Override protected void onCreate(Bundle savedInstanceState) { super.</description>
@@ -964,10 +964,10 @@ package cn.euraxluo.myapplication; import android.support.annotation.NonNull; im
     
     <item>
       <title>前端</title>
-      <link>https://euraxluo.github.io/posts/note/%E5%89%8D%E7%AB%AF/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E5%89%8D%E7%AB%AF/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E5%89%8D%E7%AB%AF/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E5%89%8D%E7%AB%AF/</guid>
       <description>前端 CSS 网格布局
 table标签（具有性能问题）=&amp;gt;
 hack
@@ -981,10 +981,10 @@ Backbone.js提供了一套web开发的框架，通过Models进行key-value绑定
     
     <item>
       <title>卡包开发步骤</title>
-      <link>https://euraxluo.github.io/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</guid>
       <description>卡包开发步骤 开发步骤
  需求规划,需求拆解,需求辩论 技术选型:为什么是HBase or MySQL 工程设计:工程图各个模块设计的功能点,各个功能点涉及的技术 编码 测试:功能测试,压力测试 部署:自动化上线  开发技术
  kafka 消息队列 Mysql存储商户信息 HBase存储用户信息 Spring-boot 搭建项目 Redis存储Token信息  测试用例
@@ -1000,19 +1000,19 @@ Backbone.js提供了一套web开发的框架，通过Models进行key-value绑定
     
     <item>
       <title>操作系统小记</title>
-      <link>https://euraxluo.github.io/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</guid>
       <description>&lt;p&gt;操作系统小记&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>数学杂谈</title>
-      <link>https://euraxluo.github.io/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</guid>
       <description>数学杂谈 欧氏空间：在实数域上的有限的内积向量空间对加法和数乘封闭
 意思是。在“向量空间”V这个向量集合中：
 ①。任意取V的两个向量α，β。则α+β∈V，[这叫V对加法封闭]
@@ -1024,10 +1024,10 @@ Backbone.js提供了一套web开发的框架，通过Models进行key-value绑定
     
     <item>
       <title>简易服务器</title>
-      <link>https://euraxluo.github.io/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>简易服务器  创建套接字 填充数据结构 绑定端口 监听，accept 获得accept的句柄并处理 封装resp字符串 写回到accept的句柄中  2.C标准函数
 1.int2float to string/array:
 C语言提供了几个标准库函数，可以将任意类型(整型、长整型、浮点型等)的数字转换为字符串，下面列举了各函数的方法及其说明。 ● itoa()：将整型值转换为字符串。 ● ltoa()：将长整型值转换为字符串。 ● ultoa()：将无符号长整型值转换为字符串。 ● gcvt()：将浮点型数转换为字符串，取四舍五入。 ● ecvt()：将双精度浮点型值转换为字符串，转换结果中不包含十进制小数点。 ● fcvt()：指定位数为转换精度，其余同ecvt()。
@@ -1037,10 +1037,10 @@ string/array to int/float C/C++语言提供了几个标准库函数，可以将�
     
     <item>
       <title>语料处理基础</title>
-      <link>https://euraxluo.github.io/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/</link>
+      <link>https://euraxluo.gitee.io/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/</guid>
+      <guid>https://euraxluo.gitee.io/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/</guid>
       <description>语料处理流程 语料收集 &amp;gt; 语料清洗 &amp;gt; 句子向量编码化 &amp;gt; 语料问答对构建 &amp;gt; 语料的模型保存 &amp;gt; 结束 语料收集   聊天记录
   电影对话
   台词片断
@@ -1060,10 +1060,10 @@ string/array to int/float C/C++语言提供了几个标准库函数，可以将�
     
     <item>
       <title>逆波兰式</title>
-      <link>https://euraxluo.github.io/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</guid>
       <description>逆波兰式 定义 一个表达式E的后缀形式可以如下定义：
 （1）如果E是一个变量或常量，则E的后缀式是E本身。
 （2）如果E是E1 op E2形式的表达式，这里op是如何二元操作符，则E的后缀式为E1&amp;rsquo;E2&#39; op，这里E1&amp;rsquo;和E2&amp;rsquo;分别为E1和E2的后缀式。
@@ -1090,20 +1090,20 @@ class TransformReversePolishNotation { private: stack&amp;lt;char&amp;gt; temp; 
     
     <item>
       <title>Flask入门</title>
-      <link>https://euraxluo.github.io/posts/python/flask%E5%85%A5%E9%97%A8/</link>
+      <link>https://euraxluo.gitee.io/posts/python/flask%E5%85%A5%E9%97%A8/</link>
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/python/flask%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://euraxluo.gitee.io/posts/python/flask%E5%85%A5%E9%97%A8/</guid>
       <description>Flask 学习 入门： 最小的Flask 程序 from flask import Flask # 导入flask app = Flask(__name__)#使用单一的模块（如本例），你应该使用 __name__ @app.route(&amp;#39;/hello&amp;#39;) #route()装饰器 什么样子的URL能触发我们的函数 def hello_word(): return &amp;#39;Hello Word!&amp;#39;#返回我们想在浏览器中显示的内容 if __name__ == &amp;#39;__main__&amp;#39;: #确保服务器只会在该脚本被 Python 解释器直接执行的时候才会运行，而不是作为模块导入的时候 #app.run()#让app这个应用在本地服务器运行起来 #app.run(host=&amp;#39;0.0.0.0&amp;#39;) #监听所有的公网IP app.debug = True app.run()#q启动调试器 模板渲染 Jinja2模板引擎文档
 from flask import Flask # 导入flask from flask import render_template #使用Jinja2的模版渲染 app = Flask(__name__)#使用单一的模块（如本例），你应该使用 __name__ @app.route(&amp;#39;/hello&amp;#39;) #route()装饰器 什么样子的URL能触发我们的函数 def hello_word(): return render_template(&amp;#34;hello.html&amp;#34;)#返回的模板文件（需要放在当前目录的templates文件夹内） if __name__ == &amp;#39;__main__&amp;#39;: #确保服务器只会在该脚本被 Python 解释器直接执行的时候才会运行，而不是作为模块导入的时候 #app.run()#让app这个应用在本地服务器运行起来 #app.run(host=&amp;#39;0.0.0.0&amp;#39;) #监听所有的公网IP app.</description>
     </item>
     
     <item>
       <title>Ubuntu18.04安装ROS</title>
-      <link>https://euraxluo.github.io/posts/ros/ros%E5%AE%89%E8%A3%85/</link>
+      <link>https://euraxluo.gitee.io/posts/ros/ros%E5%AE%89%E8%A3%85/</link>
       <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/ros/ros%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://euraxluo.gitee.io/posts/ros/ros%E5%AE%89%E8%A3%85/</guid>
       <description>Ubuntu18.04安装ROS 源配置: sudo sh -c &#39;. /etc/lsb-release &amp;amp;&amp;amp; echo &amp;quot;deb &amp;lt;http://mirrors.ustc.edu.cn/ros/ubuntu/&amp;gt; $DISTRIB_CODENAME main&amp;quot; &amp;gt; /etc/apt/sources.list.d/ros-latest.list&#39;更新: sudo apt-get update
 添加密匙: sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 和官网步骤一样: sudo apt-get install ros-melodic-desktop-full
@@ -1115,10 +1115,10 @@ sudo rosdep init
     
     <item>
       <title>JDBC1</title>
-      <link>https://euraxluo.github.io/posts/java/jdbc1/</link>
+      <link>https://euraxluo.gitee.io/posts/java/jdbc1/</link>
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/jdbc1/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/jdbc1/</guid>
       <description>jdbc  JAVA Database Connectivity java 数据库连接
   为什么会出现JDBC   SUN公司提供的一种数据库访问规则、规范, 由于数据库种类较多，并且java语言使用比较广泛，sun公司就提供了一种规范，让其他的数据库提供商去实现底层的访问规则。 我们的java程序只要使用sun公司提供的jdbc驱动即可。
  jdbc是一种接口规范
@@ -1140,10 +1140,10 @@ Connection 常用方法   Statement对象</description>
     
     <item>
       <title>JDBC2</title>
-      <link>https://euraxluo.github.io/posts/java/jdbc2/</link>
+      <link>https://euraxluo.gitee.io/posts/java/jdbc2/</link>
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/jdbc2/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/jdbc2/</guid>
       <description>业务场景1  过滤条件比较弱,一次读出多条记录 读取数据库表中的所有记录 海量数据读取  这些都容易产生内存溢出,为了不使得内存溢出,我们采用游标的方式
 游标:提供一种客户端读取部分服务器端结果集的机制 一个批次的大小为:Fetch Size
 游标的使用  开启游标,DB_URL的处理(加上useCursorFetch=true)  eg:
@@ -1162,10 +1162,10 @@ while(rs2.next()){ //5.获取对象流  InputStream in = rs1.getBinaryStream(&am
     
     <item>
       <title>JDBC3</title>
-      <link>https://euraxluo.github.io/posts/java/jdbc3/</link>
+      <link>https://euraxluo.gitee.io/posts/java/jdbc3/</link>
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/jdbc3/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/jdbc3/</guid>
       <description>1. execute,executeQuery,executeUdate的区别 JDBCTM中Statement接口提供的execute,executeQuery,executeUdate之间的区别:
   executeQuery:
 用于产生单个结果集的语句,例如SELECT语句,使用最多的方法
@@ -1195,10 +1195,10 @@ try{ conn = JDCBUtil.</description>
     
     <item>
       <title>MVC分层模型</title>
-      <link>https://euraxluo.github.io/posts/architecture_design/mvc/</link>
+      <link>https://euraxluo.gitee.io/posts/architecture_design/mvc/</link>
       <pubDate>Tue, 20 Nov 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/architecture_design/mvc/</guid>
+      <guid>https://euraxluo.gitee.io/posts/architecture_design/mvc/</guid>
       <description>MVC分层模型 DAO 模式初识 PO(persistant object) 持久对象 在o/r映射的时候出现的概念，如果没有o/r映射，没有这个概念存在了。通常对应数据模型(数据库),本身还有部分业务逻辑的处理。可以看成是与数据库中的表相映射的java对象。最简单的PO就是对应数据库中某个表中的一条记录，多个记录可以用PO的集合。PO中应该不包含任何对数据库的操作。
 最形象的理解就是一个PO就是数据库中的一条记录。
 好处是可以把一条记录作为一个对象处理，可以方便的转为其它对象。
@@ -1224,10 +1224,10 @@ EMF Eclipse Model Framework Eclipse建模框架</description>
     
     <item>
       <title>JSP</title>
-      <link>https://euraxluo.github.io/posts/java/jsp%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://euraxluo.gitee.io/posts/java/jsp%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/jsp%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/jsp%E5%AD%A6%E4%B9%A0/</guid>
       <description>jsp  Java Server Page
   什么是jsp   从用户角度看待 ，就是是一个网页 ， 从程序员角度看待 ， 其实是一个java类， 它继承了servlet，所以可以直接说jsp 就是一个Servlet.
   为什么会有jsp?   html 多数情况下用来显示静态内容 ， 一成不变的。 但是有时候我们需要在网页上显示一些动态数据， 比如： 查询所有的学生信息， 根据姓名去查询具体某个学生。 这些动作都需要去查询数据库，然后在网页上显示。 html是不支持写java代码 ， jsp里面可以写java代码。
@@ -1246,10 +1246,10 @@ jsp表达式(表达式元素中可以包含任何符合java语言规范的表达
     
     <item>
       <title>Linux基础</title>
-      <link>https://euraxluo.github.io/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
+      <link>https://euraxluo.gitee.io/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://euraxluo.gitee.io/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
       <description>Linux基础 文件基本属性 ll/ls -l 显示一个文件的属性以及文件所属的用户组
 eg: [root@www /]# ls -l total 64 dr-xr-xr-x 2 root root 4096 Dec 14 2012 bin dr-xr-xr-x 4 root root 4096 Apr 19 2012 boot …… bin 以d开头,表示这是一个目录
 当为[-]是文件当为[l]表示为link file当为[b]表示为可以进行存取的接口设备当为[c]表示为串行端口设备接下来以3个为一组,且均为[rwx]的组合,位置次序不变
@@ -1266,10 +1266,10 @@ sudo chown 770:euraxluo test</description>
     
     <item>
       <title>MyBatis</title>
-      <link>https://euraxluo.github.io/posts/java/mbatis%E5%9F%BA%E7%A1%80/</link>
+      <link>https://euraxluo.gitee.io/posts/java/mbatis%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/mbatis%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/mbatis%E5%9F%BA%E7%A1%80/</guid>
       <description>MyBatis   一个ORM框架,(不直接建立java对象到关系数据库表数据的映射,而是建立对对象的操作方法到SQL的映射)支持自定义SQL,存储过程和高级映射的持久化框架
   使用XML或者注解配置
   能够映射基本数据元素,接口,Java对象到数据库
@@ -1292,10 +1292,10 @@ sudo chown 770:euraxluo test</description>
     
     <item>
       <title>Python构建开源项目</title>
-      <link>https://euraxluo.github.io/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</link>
+      <link>https://euraxluo.gitee.io/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</guid>
+      <guid>https://euraxluo.gitee.io/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</guid>
       <description>Python构建开源软件 python的构建工具setup.py的应用场景 一般在安装python模块的时候,我们会使用pip install 模块名进行在线安装,会安装依赖包,或者python setup.py install通过源码在本地安装,不会安装依赖包
 在做一个开源项目的时候遇到了一些问题: 我的程序需要用到python的Redis等模块,以及自己写的入口文件run.py,怎么实现可以在服务器上方便的发布,也就是说,可以让依赖和自己写的程序一起安装,同时将自己写的模块变成一个可执行文件
 ###　setup.py
@@ -1305,10 +1305,10 @@ from setuptools import setup, find_packages setup( name = &amp;#34;proxy-pool&am
     
     <item>
       <title>Unix/Linux编程实践1</title>
-      <link>https://euraxluo.github.io/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</link>
+      <link>https://euraxluo.gitee.io/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>https://euraxluo.gitee.io/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</guid>
       <description>Unix/Linux 编程實踐教程 ##　什麼是系統編程
 系统资源  处理器  程序由指令构成,处理器是执行指令的硬件设备,一个系统中可能有多个处理器,内核可以安排一个程序何时开始开始执行,暂时停止,恢复执行,终止执行
 输入输出  程序中所有的输入输出都必须流经内核,集中处理,保证了系统的正确性,安全性,有效性
@@ -1329,29 +1329,29 @@ more &amp;lt; filename:分页+重定向
     
     <item>
       <title>爬虫学习4</title>
-      <link>https://euraxluo.github.io/posts/python/pyquerystudy/</link>
+      <link>https://euraxluo.gitee.io/posts/python/pyquerystudy/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/python/pyquerystudy/</guid>
+      <guid>https://euraxluo.gitee.io/posts/python/pyquerystudy/</guid>
       <description>PyQuery 初始化 %%html &amp;lt;div id = &amp;#34;container&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;frist item&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link2.html&amp;#34;&amp;gt;second item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link3.html&amp;#34; style=&amp;#34;color:black;&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;bold&amp;#34;&amp;gt;third item&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link4.html&amp;#34;&amp;gt;fourth item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link5.html&amp;#34;&amp;gt;fifth item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/div&amp;gt; 字符串初始化 html = &amp;#39;&amp;#39;&amp;#39; &amp;lt;div id = &amp;#34;container&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;frist item&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link2.html&amp;#34;&amp;gt;second item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link3.</description>
     </item>
     
     <item>
       <title>RabbitMQ-入门</title>
-      <link>https://euraxluo.github.io/posts/message_queue/rabbitmq_%E5%85%A5%E9%97%A8/</link>
+      <link>https://euraxluo.gitee.io/posts/message_queue/rabbitmq_%E5%85%A5%E9%97%A8/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/message_queue/rabbitmq_%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://euraxluo.gitee.io/posts/message_queue/rabbitmq_%E5%85%A5%E9%97%A8/</guid>
       <description>RbbitMQ 学习笔记 AMQP协议组成部分
  Module layer：协议最高层，定义了供客户端使用的命令 Session layer：中间层，负责将客户端的命令发送给服务端，再将服务端的命令返回给客户端，为客户端和服务端之间提供可靠的通信 Transport layer：最底层，包括二进制流的传输，帧处理，信道复用，错误检测  生产者使用AMQP的过程  Producter   建立连接 开启通道 发送消息 释放资源  消费者使用AMQP的过程  Consumer   建立连接 开启通道 准备接受消息 发送确认 释放资源  AMQP命令和javaAPI的对应 Connection.Start : factory.newConnection 新建连接 Connection.close : connection.close 关闭连接 Channel.Open : channel.openChannel 开启信道 Channel.close : channel.close 关闭信道 Exchange.Declare : channel.exchangeDeclare 声明交换器 Exchange.Delete : channel.exchangeDelete删除交换器 Exchange.Bind : channel.exchangeBind 交换器和交换器绑定 Exchange.Unbind : channel.exchangeUnbind 交换器和交换器解绑 Queue.Declare : channel.queueDeclare 声明队列 Queue.Bind : channel.</description>
     </item>
     
     <item>
       <title>爬虫学习1-概念及urllib2</title>
-      <link>https://euraxluo.github.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/</link>
+      <link>https://euraxluo.gitee.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/</guid>
+      <guid>https://euraxluo.gitee.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/</guid>
       <description>前记：   爬虫：使用任何技术手段，批量获取网站信息的一种方式。关键在于批量。
   反爬虫：使用任何技术手段，阻止别人批量获取自己网站信息的一种方式。关键也在于批量。
   误伤：在反爬虫的过程中，错误的将普通用户识别为爬虫。误伤率高的反爬虫策略，效果再好也不能用。
@@ -1370,29 +1370,29 @@ import urllib2,cookielib cj = cookielib.CookieJar()#创建cookie容器 opener = 
     
     <item>
       <title>爬虫学习2-Requests库学习</title>
-      <link>https://euraxluo.github.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</link>
+      <link>https://euraxluo.gitee.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</guid>
+      <guid>https://euraxluo.gitee.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</guid>
       <description>请求方法： r=requests.get(&amp;#39;http://httpbin.org/get&amp;#39;)#get r = requests.post(&amp;#34;http://httpbin.org/post&amp;#34;)#post r = requests.put(&amp;#34;http://httpbin.org/put&amp;#34;)#put r = requests.delete(&amp;#34;http://httpbin.org/delete&amp;#34;)#delect r = requests.head(&amp;#34;http://httpbin.org/get&amp;#34;)#head r = requests.options(&amp;#34;http://httpbin.org/get&amp;#34;)#options GET eg import requests r = requests.get(url=&amp;#39;http://www.euraxluo.cn&amp;#39;) # 最基本的GET请求 print(r.status_code) # 内置的状态码查询对象 #状态码非200视为出错 响应状态码 eg:404 r = requests.get(&amp;#39;http://httpbin.org/status/404&amp;#39;) print(r.status_code)#404 error_info = r.raise_for_status()#Response.raise_for_status()抛出异常 带参数的url请求： #向url传递参数 r = requests.get(url=&amp;#39;http://dict.baidu.com/s&amp;#39;, params={&amp;#39;wd&amp;#39;: &amp;#39;python&amp;#39;})#带参数的GET请求 #当你不知道你的编码类型时 r.encoding = r.apparent_encoding#获取编码类型 print(r.text)#返回解码后的数据 tips 若有图片 r.content 返回bytes数据
 eg：r.content r = requests.get(url=&amp;#39;http://music.baidu.com&amp;#39;)#实测，没啥区别 html=r.content #html_doc=str(html,&amp;#39;utf-8&amp;#39;) html_doc=html.decode(&amp;#34;utf-8&amp;#34;,&amp;#34;ignore&amp;#34;) print(html_doc) 响应内容 不同的内容处理方式 Json：request.json() 二进制：一般用于图片 from PIL import Image from io import BytesIO m = request.</description>
     </item>
     
     <item>
       <title>爬虫学习3-网页解析器</title>
-      <link>https://euraxluo.github.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/</link>
+      <link>https://euraxluo.gitee.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/</guid>
+      <guid>https://euraxluo.gitee.io/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/</guid>
       <description>BeautifulSoup解析器：    解析器 使用方法 条件     bs4的html解析器 BeautifulSoup(html,&amp;lsquo;html.parser&amp;rsquo;) 安装bs4   lxml的html解析器 BeautifulSoup(html,&amp;lsquo;lxml&amp;rsquo;) pip install lxml   lxml的xml解析器 BeautifulSoup(html,&amp;lsquo;xml&amp;rsquo;) pip install lxml   html5lib的解析器 BeautifulSoup(html,&amp;lsquo;html5lib&amp;rsquo;) pip install html5lib    基本元素    基本元素 说明     tag 标签,&amp;lt;&amp;gt;开头，&amp;lt;/&amp;gt;结尾   name 标签的名字，,&amp;lt;tag&amp;gt;.name   attrs 标签的属性，&amp;lt;tag&amp;gt;.attrs   NavigableString String,&amp;lt;tag&amp;gt;.String   Comment 标签内字符串的注释部分，Comment类型    搜索节点(html中的标签) find_all(name,attrs,recursive,string)</description>
     </item>
     
     <item>
       <title>数组</title>
-      <link>https://euraxluo.github.io/posts/algorithm/%E6%95%B0%E7%BB%84/</link>
+      <link>https://euraxluo.gitee.io/posts/algorithm/%E6%95%B0%E7%BB%84/</link>
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/algorithm/%E6%95%B0%E7%BB%84/</guid>
+      <guid>https://euraxluo.gitee.io/posts/algorithm/%E6%95%B0%E7%BB%84/</guid>
       <description>线性表(每个线性表上的数据最多只有前和后两个方向):数组,链表,队列,栈 非线性表(数据之间并不是简单的前后关系):二叉树,堆,图
 数组的概念 数组( Array )是一种线性表数据结构。它用一组连续的内存空间,来存储一组具有相同类型的数据。
 数组的特点 连续的内存空间和相同类型的数据
@@ -1414,10 +1414,10 @@ a[i]_address = base_address + i * data_type_size
     
     <item>
       <title>链表</title>
-      <link>https://euraxluo.github.io/posts/algorithm/%E9%93%BE%E8%A1%A8/</link>
+      <link>https://euraxluo.gitee.io/posts/algorithm/%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/algorithm/%E9%93%BE%E8%A1%A8/</guid>
+      <guid>https://euraxluo.gitee.io/posts/algorithm/%E9%93%BE%E8%A1%A8/</guid>
       <description>单链表 data.next--&amp;gt;data.next--&amp;gt;NULL
 时间复杂度   插入节点:
 时间复杂度:O1
@@ -1448,10 +1448,10 @@ a[i]_address = base_address + i * data_type_size
     
     <item>
       <title>Git学习笔记</title>
-      <link>https://euraxluo.github.io/posts/tools/git%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://euraxluo.gitee.io/posts/tools/git%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Wed, 11 Jul 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/tools/git%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://euraxluo.gitee.io/posts/tools/git%E5%AD%A6%E4%B9%A0/</guid>
       <description>Git 学习笔记 cd相对路径 cd 什么都不加 回到用户的家目录下 cd ~ 回到root目录下 cd .. 进入上一级目录
 cd - 返回上一次目录
 cd . 当前目录
@@ -1472,28 +1472,28 @@ rm -rfv 加上v显示删除过程
     
     <item>
       <title>CleanCode-读书笔记</title>
-      <link>https://euraxluo.github.io/posts/reading/cleancode/</link>
+      <link>https://euraxluo.gitee.io/posts/reading/cleancode/</link>
       <pubDate>Mon, 22 Jan 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/reading/cleancode/</guid>
+      <guid>https://euraxluo.gitee.io/posts/reading/cleancode/</guid>
       <description>CleanCode读书笔记 最小惊异原则 1.从一而终，便于修改 2.遵守大家的约定 有意义的命名 1.名副其实 1.命名需要注释来补充，那就不算名副其实 2.在命名时尽量采用有意义的名称，代码的简洁不会改变（运算符和常量的数量，嵌套数量） 2.避免误导 1.避免使用与本意相驳的词 2.提防使用不同之处较小的词 3.不要使用小写l和大写O作为变量名 4.命名有区分，应当有明显的区分，应使读者可以鉴别 3.使用读得出来的名称 4.使用可搜索的名称 1.长名称胜于短名称，搜得到的名称胜于自造的名称 2.单字母仅用于短方法中的本地变量 3.名称长短应与其作用域大小相对应 4.若变量或常量可能在代码中多次使用，则应赋予其便于搜索的名称 5.避免使用编码和前缀 6.避免思维映射 不应当让读者在脑中把你的名称翻译为他们熟知的名称 7.类名和方法名 1.类名和对象名应该是名词 2.类名不应是动词 3.方法名应当是动词或动词短语 4.属性访问器，修改器和断言应该根据其值命名 8.宁可明确，勿为好玩 9.每个概念对应一个词 10.避免将同一单词用于不同目的 11.使用解决方案领域名称 12.使用源自所涉问题领域的名称 13.添加有意义的语境 2.函数 1.短小 1.if,else,while 语句，其中的代码块应该只有一行 并且应该大抵是一个函数调用语句 2.函数不应该大到足以容纳嵌套语句 3.永不调用的函数应该丢弃 2.只做一件事 要判断函数是否不止做了一件事，就是看能否再拆出一个函数 3.使用描述性的名称 1.函数越短小，功能越集中，就便于取个好名字 2.长而具有描述性的名称要比短的名称或者注释好 4.函数参数应少，并且不要使用输出参数 1.如果函数需要很多参数，说明需要封装为类 2.函数名称为动词可以明确函数是做什么的 3.函数参数自然而然的视为输入参数 4.将代码集中到基类i，避免冗余和重复 3.注释 1.注释不能美化糟糕的代码 2.注释的内容 1.版权及著作权声明 2.提供基本信息 3.对意图解释（提供某个决定的意图） 4.阐释（如果参数或者返回值是某个标准库的一部分，或者不能修改，帮助其阐释含义） 5.警告其他程序员会出现某种后果 6.//TODO注释（放置工作列表：程序员认为应该做，但由于某些原因还没有做的工作）  7.不要留下注释代码 格式 1.纵向格式 1.封包声明，导入声明，每个函数之间，用空白行隔开 2.关系密切或概念相关的代码应该互相靠近 3.变量声明应尽可能的靠近使用位置 4.实体变量应该在类的顶部声明 5.循环中的控制变量应该在循环语中声明 6.相关函数（相互靠近，调用者应该在被调用者的上面） 2.横向格式 1.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://euraxluo.github.io/posts/go/%E5%85%B3%E4%BA%8E%E5%88%87%E7%89%87%E5%92%8Cslice%E7%9A%84%E5%86%85%E5%AD%98%E5%85%B1%E4%BA%AB/</link>
+      <link>https://euraxluo.gitee.io/posts/go/%E5%85%B3%E4%BA%8E%E5%88%87%E7%89%87%E5%92%8Cslice%E7%9A%84%E5%86%85%E5%AD%98%E5%85%B1%E4%BA%AB/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/go/%E5%85%B3%E4%BA%8E%E5%88%87%E7%89%87%E5%92%8Cslice%E7%9A%84%E5%86%85%E5%AD%98%E5%85%B1%E4%BA%AB/</guid>
+      <guid>https://euraxluo.gitee.io/posts/go/%E5%85%B3%E4%BA%8E%E5%88%87%E7%89%87%E5%92%8Cslice%E7%9A%84%E5%86%85%E5%AD%98%E5%85%B1%E4%BA%AB/</guid>
       <description>关于切片和slice的内存共享 package main import ( &amp;#34;bufio&amp;#34; &amp;#34;bytes&amp;#34; &amp;#34;errors&amp;#34; &amp;#34;fmt&amp;#34; _errors &amp;#34;github.com/pkg/errors&amp;#34; &amp;#34;os&amp;#34; &amp;#34;reflect&amp;#34; &amp;#34;regexp&amp;#34; &amp;#34;strconv&amp;#34; &amp;#34;strings&amp;#34; &amp;#34;sync&amp;#34; &amp;#34;sync/atomic&amp;#34; &amp;#34;time&amp;#34; ) func main() { /** * @Description: foo boo内存共享 * @param []int * @param 5 */ foo := make([]int, 5) foo[3] = 3 foo[4] = 4 boo := foo[1:4] boo[1] = 2 for i := 0; i &amp;lt; 5; i++ { println(foo[i]) } /** * @Description: 当capcity够的时候，那么就不会重新分配内存 * @param []int * @param 8 */ a := make([]int, 8) b := a[1:8] b[1] = 1 //[01.</description>
     </item>
     
     <item>
       <title>Apollo无人车架构</title>
-      <link>https://euraxluo.github.io/posts/driverless/apollo%E6%9E%B6%E6%9E%84/</link>
+      <link>https://euraxluo.gitee.io/posts/driverless/apollo%E6%9E%B6%E6%9E%84/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/driverless/apollo%E6%9E%B6%E6%9E%84/</guid>
+      <guid>https://euraxluo.gitee.io/posts/driverless/apollo%E6%9E%B6%E6%9E%84/</guid>
       <description>Apollo无人车架构 以HD-map为核心
 线控车辆，计算机和传感器通过CAN卡进行通信 ROTS(Ubuntu+apollo kernel) 保证实时性
 Feameworf(ROS+)  共享内存    减少传输中的数据拷贝，提高传输效率，减少传输延迟

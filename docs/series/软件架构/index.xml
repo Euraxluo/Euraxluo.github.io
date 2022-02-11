@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>软件架构 on Euraxluo Blog</title>
-    <link>https://euraxluo.github.io/series/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/</link>
+    <link>https://euraxluo.gitee.io/series/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/</link>
     <description>Recent content in 软件架构 on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0800</lastBuildDate><atom:link href="https://euraxluo.github.io/series/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0800</lastBuildDate><atom:link href="https://euraxluo.gitee.io/series/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>软件架构1-Tier</title>
-      <link>https://euraxluo.github.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%841-tier/</link>
+      <link>https://euraxluo.gitee.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%841-tier/</link>
       <pubDate>Mon, 03 Feb 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%841-tier/</guid>
+      <guid>https://euraxluo.gitee.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%841-tier/</guid>
       <description>软件架构 软件开发过程的概述 在行业中，架构师、开发人员和产品所有者花费大量时间研究和讨论业务需求。在软件工程术语中，这被称为需求收集和分析。
 一旦我们完成了业务需求，我们坐下来讨论我们必须实现的用例。这包括尽早找出角落的情况&amp;amp;将乐高积木组装在一起。
 如果您是文档的爱好者，您可能还想编写高级设计文档。现在，我们已经了解了业务需求、用例、拐角用例等等。现在开始研究如何选择合适的技术堆栈来实现用例。
@@ -51,10 +51,10 @@ Two Tier Applications 两层应用程序包括客户机和服务器。客户端�
     
     <item>
       <title>软件架构2</title>
-      <link>https://euraxluo.github.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%842/</link>
+      <link>https://euraxluo.gitee.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%842/</link>
       <pubDate>Mon, 03 Feb 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%842/</guid>
+      <guid>https://euraxluo.gitee.io/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%842/</guid>
       <description>软件架构 什么是Web架构 Web架构包括数据库、消息队列、缓存、用户界面等多个组件，它们相互结合，形成在线服务
 在本课程的介绍中，我已经谈到了为什么网络架构知识对软件工程师很重要。现在我们将进一步探讨它。
 这是web应用程序的典型架构，在大多数在线运行的应用程序中使用。

@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>note on Euraxluo Blog</title>
-    <link>https://euraxluo.github.io/posts/note/</link>
+    <link>https://euraxluo.gitee.io/posts/note/</link>
     <description>Recent content in note on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.github.io/posts/note/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/posts/note/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>数据分析</title>
-      <link>https://euraxluo.github.io/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
       <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C&#43;&#43; 小记</title>
-      <link>https://euraxluo.github.io/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</link>
+      <link>https://euraxluo.gitee.io/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</guid>
       <description>C++ 小记 CMAKE  工程构建工具  简单的使用  文件名大小写敏感 语法  cmake_minimum_required(VERSION 2.8)#设置cmake的版本 set(CMAKE_BUILD_TYPE Debug )#设置为debug模式 #项目名 PROJECT(HELLO)#设置某文件夹为头文件 include_directories(&amp;#34;include&amp;#34;)#设置一个头文件，把hello.cpp编译为libfile add_library(libfile src/hello.cpp)SET(SRC_LIST “fu nc.c”)#设置可执行二进制文件的输出路径和库的输出路径 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin) SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)ADD_EXECUTABLE(hello main.c;func.c;$\{RC_LIST\}) target_link_libraries(hello libfile)#链接一个lib #设置编译的源文件在编译当前目录的bin下 ADD_SUBDIRECTORY (src bin)#修改为 SUBDIRS(src) 结果放在src中 #安装 DESTDIR= 	install: mkdir -p $(DESTDIR)/usr/bin 	install -m 755 hello $(DESTDIR)/usr/bin 更像一个工程 Hello- src- CMakeLists.txt- build #进去此目录进行外部编译 =》 cmake .. &amp;amp; make - CMakeLists.txtproject(hello)add_executable(hello hello.c)set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)map和set 底层使用的是红黑树</description>
     </item>
     
     <item>
       <title>chromedriver-安装</title>
-      <link>https://euraxluo.github.io/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</link>
+      <link>https://euraxluo.gitee.io/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</guid>
       <description>![reference])(https://blog.csdn.net/shuchuan0409/article/details/101615221)
 第一步：
 执行 sudo apt-get update 更新apt-get，耗时可能会比较久
@@ -58,10 +58,10 @@ ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
     
     <item>
       <title>Colab的使用</title>
-      <link>https://euraxluo.github.io/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <link>https://euraxluo.gitee.io/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
       <description>首先是梯子 校园网改ipv6连接谷歌 1.修改SDN服务器
 在ipv6的sdn中设置这两个记录，也可以只设置一个
 2001:4860:4860::88882001:4860:4860::8844linux:修改/etc/resolv.conf
@@ -74,10 +74,10 @@ ipv6 hosts 入门： 进入colab 因为我有基础，所以直接跳过了机�
     
     <item>
       <title>C语言小计</title>
-      <link>https://euraxluo.github.io/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</link>
+      <link>https://euraxluo.gitee.io/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</guid>
       <description>C语言小计 Unix C   内核-》系统调用-》shell/共用函数库-》应用程序
   系统调用和库函数
   库函数会调用系统调用来实现自己的算法
@@ -99,10 +99,10 @@ ipv6 hosts 入门： 进入colab 因为我有基础，所以直接跳过了机�
     
     <item>
       <title>IO模型小记</title>
-      <link>https://euraxluo.github.io/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</link>
+      <link>https://euraxluo.gitee.io/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</guid>
       <description>BIO (block io) 同步阻塞IO
 线程池:伪异步IO,实际上也是同步阻塞IO
 NIO(同步非阻塞)
@@ -117,10 +117,10 @@ AIO(异步非阻塞)
     
     <item>
       <title>java面试笔记</title>
-      <link>https://euraxluo.github.io/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</link>
+      <link>https://euraxluo.gitee.io/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</guid>
       <description>java跨平台 实现java跨平台只需要在相应的平台安装对应的虚拟机，我们就可以使用统一的接口进行开发。
 java通过不同的系统，不同的版本，不同的位数，来屏蔽不同的系统指令集的差异，对外提供统一的接口
 java中int数据占几个字节   java中有几种基本数据类型？8种
@@ -133,10 +133,10 @@ java中int数据占几个字节   java中有几种基本数据类型？8种
     
     <item>
       <title>pattern:斑图</title>
-      <link>https://euraxluo.github.io/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</guid>
       <description>pattern:斑图
 是一种构型，是一种系统，不关心是使用的什么物质去实现
 把各种方法论抽取出来
@@ -153,10 +153,10 @@ book：失控
     
     <item>
       <title>rust学习</title>
-      <link>https://euraxluo.github.io/posts/note/rust%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://euraxluo.gitee.io/posts/note/rust%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/rust%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/rust%E5%AD%A6%E4%B9%A0/</guid>
       <description>rust学习 所有权
 Rust 的核心功能（之一）是 所有权（ownership）。虽然该功能很容易解释，但它对语言的其他部分有着深刻的影响。
 所有运行的程序都必须管理其使用计算机内存的方式。一些语言中具有垃圾回收机制，在程序运行时不断地寻找不再使用的内存；在另一些语言中，程序员必须亲自分配和释放内存。Rust 则选择了第三种方式：通过所有权系统管理内存，编译器在编译时会根据一系列的规则进行检查。在运行时，所有权系统的任何功能都不会减慢程序。（其他的GC会不断运行来寻找垃圾）
@@ -171,20 +171,20 @@ Rust 的核心功能（之一）是 所有权（ownership）。虽然该功能�
     
     <item>
       <title>Scala入门</title>
-      <link>https://euraxluo.github.io/posts/note/scala%E5%85%A5%E9%97%A8/</link>
+      <link>https://euraxluo.gitee.io/posts/note/scala%E5%85%A5%E9%97%A8/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/scala%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/scala%E5%85%A5%E9%97%A8/</guid>
       <description>Scala 入门之随便写写
 import scala.util.control._ object HelloWorld{ def hello(name:String) = { s&amp;#34;Hello ,${name}&amp;#34; } def add(x: Int,y:Int) = x+y def main(args:Array[String]):Unit = { /** * 违反引用透明的例子: * 怎么样获得引用透明性:{ * 需要具有不变性,即为了获得引用透明性,任何值都不能改变 * } */ var x = new StringBuilder(&amp;#34;Hello &amp;#34;); println(x); var y = x.append(&amp;#34; world&amp;#34;); println(y); var z = x.append(&amp;#34; world&amp;#34;); println(z); /** * 递归函数: * 使用递归实现循环 * 尾递归函数 */ /** * 变量: * val 定义immutable variable:常量 * var 定义mutable variable:变量 * lazy val:惰性求值常量 * 可以再定义时不指定变量的类型,Scala会自动进行类型推导 */ println(hello(&amp;#34;Euraxluo&amp;#34;)) println(add(1,2)) /** * for循环 */ val list = List(&amp;#34;Euraxluo&amp;#34;,&amp;#34;xiaoli&amp;#34;,&amp;#34;xiaoxiong&amp;#34;) //循环1  for ( s &amp;lt;- list//generator  )println(s) println(&amp;#34;&amp;#34;) //循环2  for { s&amp;lt;-list if (s.</description>
     </item>
     
     <item>
       <title>SLAM</title>
-      <link>https://euraxluo.github.io/posts/note/slam/</link>
+      <link>https://euraxluo.gitee.io/posts/note/slam/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/slam/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/slam/</guid>
       <description>SLAM 相机
  以一定的速率采集图像，形成视频  各类相机的区别  单目：无深度，需要其他手段估计 双目：通过视差计算深度 RGB-D：通过物理方法测量深度  相机的特点  以二维投影的形式记录了三维世界的信息 该过程丢掉了一个维度：距离 深度即第三维信息，对SLAM来说至关重要  VSLAM框架   前端：Visual Odometry 通过传感器数据计算，估计临近时刻的相机运动 方法：特征点法和直接法
   后端：Optimization 从带有噪声的数据中估计最优轨迹与地图 滤波器，图优化，最大后验概率估计 非线性优化
@@ -197,20 +197,20 @@ import scala.util.control._ object HelloWorld{ def hello(name:String) = { s&amp;
     
     <item>
       <title>stream编程</title>
-      <link>https://euraxluo.github.io/posts/note/stream%E7%BC%96%E7%A8%8B/</link>
+      <link>https://euraxluo.gitee.io/posts/note/stream%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/stream%E7%BC%96%E7%A8%8B/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/stream%E7%BC%96%E7%A8%8B/</guid>
       <description>stream 编程
 import java.util.function.Consumer; import java.util.stream.Collectors; import java.util.stream.IntStream; import java.util.stream.Stream; Consumer&amp;lt;String&amp;gt; P = System.out::println;//消费者 // P.andThen(P.andThen(P)).accept(2);  /** * 流的创建 */ List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); //从集合创建流  list.stream(); list.parallelStream(); //从数组创建  Arrays.stream(new int[]{2,3,5}); // P.accept(Arrays.stream(new int[]{2,3,5}).map(x-&amp;gt;x+1).sum());  //创建数字流  IntStream.of(1,2,3); IntStream.rangeClosed(1,10); //从random创建一个无限流  new Random().ints().limit(10); //自己产生流  Stream.generate(()-&amp;gt;new Random().nextInt()).limit(20); // P.accept(Stream.generate(()-&amp;gt;new Random().nextInt()).limit(20).findAny().toString());  /** * 中间操作 */ //filter操作  Stream.of(msg.split(&amp;#34; &amp;#34;)).filter(s-&amp;gt;s.length()&amp;gt;1).forEach(P); //flatMap :将流中的属性提取出来作为流  //这里需要装箱,s.chars()返回IntStream,不是Stream的子类  Stream.of(msg.split(&amp;#34; &amp;#34;)).flatMap(s-&amp;gt;s.chars().boxed()).forEach(i-&amp;gt;System.out.println((char)i.intValue())); //limit  new Random().</description>
     </item>
     
     <item>
       <title>VSLAM</title>
-      <link>https://euraxluo.github.io/posts/note/vslam/</link>
+      <link>https://euraxluo.gitee.io/posts/note/vslam/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/vslam/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/vslam/</guid>
       <description>VSLAM ## project1 熟悉Linux   sudo apt-get install 安装软件，apt-get 下载后软件的路径一般为/var/cache/apt/archives
 具体的安装目录是由包维护者决定
   可以通过echo $PATH查看当前的PATH，通过export PATH=$PATH:/XXX/XXX将需要的配置路径加入$PATH等号两边不能有空格
@@ -229,20 +229,20 @@ VSLAM系统在以下条件下会失败：外部环境，动态环境，显著特
     
     <item>
       <title>关于musicplayer</title>
-      <link>https://euraxluo.github.io/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</guid>
       <description>关于musicplayer 首先给权限 &amp;lt;!-- 网络权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.INTERNET&amp;#34;/&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.READ_EXTERNAL_STORAGE&amp;#34;/&amp;gt; &amp;lt;!-- 向SD卡写入数据权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.WRITE_EXTERNAL_STORAGE&amp;#34;/&amp;gt; &amp;lt;!-- 在SD卡中创建与删除文件权限 --&amp;gt; &amp;lt;!-- 扫描数据库的权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.MOUNT_UNMOUNT_FILESYSTEMS&amp;#34; tools:ignore=&amp;#34;ProtectedPermissions&amp;#34;/&amp;gt; 包含ListView的布局文件
 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;LinearLayout xmlns:android=&amp;#34;http://schemas.android.com/apk/res/android&amp;#34; xmlns:tools=&amp;#34;http://schemas.android.com/tools&amp;#34; xmlns:app=&amp;#34;http://schemas.android.com/apk/res-auto&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:orientation=&amp;#34;vertical&amp;#34; android:layout_gravity=&amp;#34;center&amp;#34; tools:context=&amp;#34;.MainActivity&amp;#34;&amp;gt; &amp;lt;LinearLayout android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;400dp&amp;#34; android:orientation=&amp;#34;vertical&amp;#34;&amp;gt; &amp;lt;ListView android:id=&amp;#34;@+id/lv1&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34;&amp;gt;&amp;lt;/ListView&amp;gt; &amp;lt;/LinearLayout&amp;gt; &amp;lt;SeekBar android:id=&amp;#34;@+id/sb&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;30dp&amp;#34; android:maxHeight=&amp;#34;2dp&amp;#34; android:minHeight=&amp;#34;2dp&amp;#34; android:paddingBottom=&amp;#34;3dp&amp;#34; android:paddingLeft=&amp;#34;12dp&amp;#34; android:max=&amp;#34;200&amp;#34; android:paddingRight=&amp;#34;12dp&amp;#34; android:paddingTop=&amp;#34;3dp&amp;#34; /&amp;gt; &amp;lt;TextView android:id=&amp;#34;@+id/tv1&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; /&amp;gt; &amp;lt;LinearLayout android:orientation=&amp;#34;horizontal&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34;&amp;gt; &amp;lt;cn.study.euraxluo.androidtup.CircleImageView android:id=&amp;#34;@+id/imageView&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;70dp&amp;#34; android:scaleType=&amp;#34;centerCrop&amp;#34; /&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_last&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_last&amp;#34;/&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_star&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_star&amp;#34;/&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_next&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_next&amp;#34;/&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_stop&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_stop&amp;#34;/&amp;gt; &amp;lt;/LinearLayout&amp;gt; &amp;lt;/LinearLayout&amp;gt; MainActivity.</description>
     </item>
     
     <item>
       <title>关于ViewPager</title>
-      <link>https://euraxluo.github.io/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</guid>
       <description>关于ViewPager 使用方法：先在xml中定义
 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;android.support.design.widget.CoordinatorLayout xmlns:android=&amp;#34;http://schemas.android.com/apk/res/android&amp;#34; xmlns:tools=&amp;#34;http://schemas.android.com/tools&amp;#34; xmlns:app=&amp;#34;http://schemas.android.com/apk/res-auto&amp;#34; android:id=&amp;#34;@+id/main_content&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;match_parent&amp;#34; android:fitsSystemWindows=&amp;#34;true&amp;#34; tools:context=&amp;#34;.MainActivity&amp;#34;&amp;gt; &amp;lt;android.support.v4.view.ViewPager android:background=&amp;#34;@drawable/img5&amp;#34; android:id=&amp;#34;@+id/view_pager&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;match_parent&amp;#34; app:layout_behavior=&amp;#34;@string/appbar_scrolling_view_behavior&amp;#34;/&amp;gt; &amp;lt;/android.support.design.widget.CoordinatorLayout&amp;gt; 再到Activity中写
 package cn.euraxluo.myapplication; import android.support.annotation.NonNull; import android.support.v4.view.PagerAdapter; import android.support.v7.app.AppCompatActivity; import android.support.v4.view.ViewPager; import android.os.Bundle; import android.util.Log; import android.view.*; import android.widget.ImageView; import cn.euraxluo.myapplication.transform.ZoomOutPageTransformer; import java.util.ArrayList; import java.util.List; public class MainActivity extends AppCompatActivity { private static final String TAG = &amp;#34;MainActivity&amp;#34;; private ViewPager mViewPager;//viewpager  private textViewAdapter mViewAdapter; private pictureViewAdapter mpViewAdapter;//图片的adapter  private int[] mImage = new int[10]; private View view1, view2, view3; private List&amp;lt;View&amp;gt; viewList = new ArrayList&amp;lt;View&amp;gt;(3);//view数组  private LayoutInflater inflater; @Override protected void onCreate(Bundle savedInstanceState) { super.</description>
@@ -250,10 +250,10 @@ package cn.euraxluo.myapplication; import android.support.annotation.NonNull; im
     
     <item>
       <title>前端</title>
-      <link>https://euraxluo.github.io/posts/note/%E5%89%8D%E7%AB%AF/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E5%89%8D%E7%AB%AF/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E5%89%8D%E7%AB%AF/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E5%89%8D%E7%AB%AF/</guid>
       <description>前端 CSS 网格布局
 table标签（具有性能问题）=&amp;gt;
 hack
@@ -267,10 +267,10 @@ Backbone.js提供了一套web开发的框架，通过Models进行key-value绑定
     
     <item>
       <title>卡包开发步骤</title>
-      <link>https://euraxluo.github.io/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</guid>
       <description>卡包开发步骤 开发步骤
  需求规划,需求拆解,需求辩论 技术选型:为什么是HBase or MySQL 工程设计:工程图各个模块设计的功能点,各个功能点涉及的技术 编码 测试:功能测试,压力测试 部署:自动化上线  开发技术
  kafka 消息队列 Mysql存储商户信息 HBase存储用户信息 Spring-boot 搭建项目 Redis存储Token信息  测试用例
@@ -286,19 +286,19 @@ Backbone.js提供了一套web开发的框架，通过Models进行key-value绑定
     
     <item>
       <title>操作系统小记</title>
-      <link>https://euraxluo.github.io/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</guid>
       <description>&lt;p&gt;操作系统小记&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>数学杂谈</title>
-      <link>https://euraxluo.github.io/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</guid>
       <description>数学杂谈 欧氏空间：在实数域上的有限的内积向量空间对加法和数乘封闭
 意思是。在“向量空间”V这个向量集合中：
 ①。任意取V的两个向量α，β。则α+β∈V，[这叫V对加法封闭]
@@ -310,10 +310,10 @@ Backbone.js提供了一套web开发的框架，通过Models进行key-value绑定
     
     <item>
       <title>简易服务器</title>
-      <link>https://euraxluo.github.io/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>简易服务器  创建套接字 填充数据结构 绑定端口 监听，accept 获得accept的句柄并处理 封装resp字符串 写回到accept的句柄中  2.C标准函数
 1.int2float to string/array:
 C语言提供了几个标准库函数，可以将任意类型(整型、长整型、浮点型等)的数字转换为字符串，下面列举了各函数的方法及其说明。 ● itoa()：将整型值转换为字符串。 ● ltoa()：将长整型值转换为字符串。 ● ultoa()：将无符号长整型值转换为字符串。 ● gcvt()：将浮点型数转换为字符串，取四舍五入。 ● ecvt()：将双精度浮点型值转换为字符串，转换结果中不包含十进制小数点。 ● fcvt()：指定位数为转换精度，其余同ecvt()。
@@ -323,10 +323,10 @@ string/array to int/float C/C++语言提供了几个标准库函数，可以将�
     
     <item>
       <title>逆波兰式</title>
-      <link>https://euraxluo.github.io/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</link>
+      <link>https://euraxluo.gitee.io/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</guid>
+      <guid>https://euraxluo.gitee.io/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</guid>
       <description>逆波兰式 定义 一个表达式E的后缀形式可以如下定义：
 （1）如果E是一个变量或常量，则E的后缀式是E本身。
 （2）如果E是E1 op E2形式的表达式，这里op是如何二元操作符，则E的后缀式为E1&amp;rsquo;E2&#39; op，这里E1&amp;rsquo;和E2&amp;rsquo;分别为E1和E2的后缀式。

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>socket on Euraxluo Blog</title>
-    <link>https://euraxluo.github.io/tags/socket/</link>
+    <link>https://euraxluo.gitee.io/tags/socket/</link>
     <description>Recent content in socket on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>python socket编程</title>
-      <link>https://euraxluo.github.io/posts/python/python-socket/</link>
+      <link>https://euraxluo.gitee.io/posts/python/python-socket/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/python/python-socket/</guid>
+      <guid>https://euraxluo.gitee.io/posts/python/python-socket/</guid>
       <description>TCP的三次握手和四次挥手
 三次握手: 为什么需要三次握手? 客户端:我可以发东西给你(确保客户端的发送能力) 服务器:我可以收到,你能收到么?(确保服务器的接受和发送) 客户端:我能收到!(确保能收到)
 连接建立!

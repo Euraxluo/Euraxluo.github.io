@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on Euraxluo Blog</title>
-    <link>https://euraxluo.github.io/posts/python/</link>
+    <link>https://euraxluo.gitee.io/posts/python/</link>
     <description>Recent content in python on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.github.io/posts/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/posts/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>python socket编程</title>
-      <link>https://euraxluo.github.io/posts/python/python-socket/</link>
+      <link>https://euraxluo.gitee.io/posts/python/python-socket/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/python/python-socket/</guid>
+      <guid>https://euraxluo.gitee.io/posts/python/python-socket/</guid>
       <description>TCP的三次握手和四次挥手
 三次握手: 为什么需要三次握手? 客户端:我可以发东西给你(确保客户端的发送能力) 服务器:我可以收到,你能收到么?(确保服务器的接受和发送) 客户端:我能收到!(确保能收到)
 连接建立!
@@ -30,20 +30,20 @@ import socket ##創建socket s = socket.socket(socket.af_inet,socket.sock_stream
     
     <item>
       <title>Flask入门</title>
-      <link>https://euraxluo.github.io/posts/python/flask%E5%85%A5%E9%97%A8/</link>
+      <link>https://euraxluo.gitee.io/posts/python/flask%E5%85%A5%E9%97%A8/</link>
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/python/flask%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://euraxluo.gitee.io/posts/python/flask%E5%85%A5%E9%97%A8/</guid>
       <description>Flask 学习 入门： 最小的Flask 程序 from flask import Flask # 导入flask app = Flask(__name__)#使用单一的模块（如本例），你应该使用 __name__ @app.route(&amp;#39;/hello&amp;#39;) #route()装饰器 什么样子的URL能触发我们的函数 def hello_word(): return &amp;#39;Hello Word!&amp;#39;#返回我们想在浏览器中显示的内容 if __name__ == &amp;#39;__main__&amp;#39;: #确保服务器只会在该脚本被 Python 解释器直接执行的时候才会运行，而不是作为模块导入的时候 #app.run()#让app这个应用在本地服务器运行起来 #app.run(host=&amp;#39;0.0.0.0&amp;#39;) #监听所有的公网IP app.debug = True app.run()#q启动调试器 模板渲染 Jinja2模板引擎文档
 from flask import Flask # 导入flask from flask import render_template #使用Jinja2的模版渲染 app = Flask(__name__)#使用单一的模块（如本例），你应该使用 __name__ @app.route(&amp;#39;/hello&amp;#39;) #route()装饰器 什么样子的URL能触发我们的函数 def hello_word(): return render_template(&amp;#34;hello.html&amp;#34;)#返回的模板文件（需要放在当前目录的templates文件夹内） if __name__ == &amp;#39;__main__&amp;#39;: #确保服务器只会在该脚本被 Python 解释器直接执行的时候才会运行，而不是作为模块导入的时候 #app.run()#让app这个应用在本地服务器运行起来 #app.run(host=&amp;#39;0.0.0.0&amp;#39;) #监听所有的公网IP app.</description>
     </item>
     
     <item>
       <title>Python构建开源项目</title>
-      <link>https://euraxluo.github.io/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</link>
+      <link>https://euraxluo.gitee.io/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</guid>
+      <guid>https://euraxluo.gitee.io/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</guid>
       <description>Python构建开源软件 python的构建工具setup.py的应用场景 一般在安装python模块的时候,我们会使用pip install 模块名进行在线安装,会安装依赖包,或者python setup.py install通过源码在本地安装,不会安装依赖包
 在做一个开源项目的时候遇到了一些问题: 我的程序需要用到python的Redis等模块,以及自己写的入口文件run.py,怎么实现可以在服务器上方便的发布,也就是说,可以让依赖和自己写的程序一起安装,同时将自己写的模块变成一个可执行文件
 ###　setup.py
@@ -53,10 +53,10 @@ from setuptools import setup, find_packages setup( name = &amp;#34;proxy-pool&am
     
     <item>
       <title>爬虫学习4</title>
-      <link>https://euraxluo.github.io/posts/python/pyquerystudy/</link>
+      <link>https://euraxluo.gitee.io/posts/python/pyquerystudy/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/python/pyquerystudy/</guid>
+      <guid>https://euraxluo.gitee.io/posts/python/pyquerystudy/</guid>
       <description>PyQuery 初始化 %%html &amp;lt;div id = &amp;#34;container&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;frist item&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link2.html&amp;#34;&amp;gt;second item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link3.html&amp;#34; style=&amp;#34;color:black;&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;bold&amp;#34;&amp;gt;third item&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link4.html&amp;#34;&amp;gt;fourth item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link5.html&amp;#34;&amp;gt;fifth item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/div&amp;gt; 字符串初始化 html = &amp;#39;&amp;#39;&amp;#39; &amp;lt;div id = &amp;#34;container&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;frist item&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link2.html&amp;#34;&amp;gt;second item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link3.</description>
     </item>
     

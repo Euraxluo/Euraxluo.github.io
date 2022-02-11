@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>java on Euraxluo Blog</title>
-    <link>https://euraxluo.github.io/posts/java/</link>
+    <link>https://euraxluo.gitee.io/posts/java/</link>
     <description>Recent content in java on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.github.io/posts/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/posts/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Servlet1</title>
-      <link>https://euraxluo.github.io/posts/java/servlet1/</link>
+      <link>https://euraxluo.gitee.io/posts/java/servlet1/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/servlet1/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/servlet1/</guid>
       <description>Servlet HTTP协议 是客户端与服务器通信的一种方式
 参考链接 request: 请求行请求头请求体 response: 响应行响应头响应体 Get: GET用于信息获取，而且应该是安全的和幂等的
   带上数据,在URL上面拼接
@@ -40,10 +40,10 @@ HTTP body
     
     <item>
       <title>Servlet2</title>
-      <link>https://euraxluo.github.io/posts/java/servlet2/</link>
+      <link>https://euraxluo.gitee.io/posts/java/servlet2/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/servlet2/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/servlet2/</guid>
       <description>Cookie和Session 会话：浏览器发出http请求。服务器接受，对请求进行响应，浏览器接受http响应
 Cookie 把会话数据保存在浏览器客户端
 服务器第一次访问时，服务端生成cookie，并且把这个cookie通过响应，发送给客户端，客户端把cookie保存下来，以便在最近的下一次访问中使用
@@ -58,10 +58,10 @@ Cookie 把会话数据保存在浏览器客户端
     
     <item>
       <title>WebSocket</title>
-      <link>https://euraxluo.github.io/posts/java/websocket/</link>
+      <link>https://euraxluo.gitee.io/posts/java/websocket/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/websocket/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/websocket/</guid>
       <description>WebSocket 一、概念 1.WebSocket 是HTTP协议的补充。使用的TCP协议建立连接
 2.HTML5是指一系列新API，新协议，WebSocket也是其中之一
 二、优点 1.WebSocket是持久化协议，每次通信只需要一次连接
@@ -92,10 +92,10 @@ url = 服务器地址，protocol是可接受的子协议
     
     <item>
       <title>XML</title>
-      <link>https://euraxluo.github.io/posts/java/xml/</link>
+      <link>https://euraxluo.gitee.io/posts/java/xml/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/xml/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/xml/</guid>
       <description>Xml Xml  eXtendsible markup language 可扩展的标记语言
  XML 有什么用?   可以用来保存数据
   可以用来做配置文件
@@ -109,10 +109,10 @@ url = 服务器地址，protocol是可接受的子协议
     
     <item>
       <title>JDBC1</title>
-      <link>https://euraxluo.github.io/posts/java/jdbc1/</link>
+      <link>https://euraxluo.gitee.io/posts/java/jdbc1/</link>
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/jdbc1/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/jdbc1/</guid>
       <description>jdbc  JAVA Database Connectivity java 数据库连接
   为什么会出现JDBC   SUN公司提供的一种数据库访问规则、规范, 由于数据库种类较多，并且java语言使用比较广泛，sun公司就提供了一种规范，让其他的数据库提供商去实现底层的访问规则。 我们的java程序只要使用sun公司提供的jdbc驱动即可。
  jdbc是一种接口规范
@@ -134,10 +134,10 @@ Connection 常用方法   Statement对象</description>
     
     <item>
       <title>JDBC2</title>
-      <link>https://euraxluo.github.io/posts/java/jdbc2/</link>
+      <link>https://euraxluo.gitee.io/posts/java/jdbc2/</link>
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/jdbc2/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/jdbc2/</guid>
       <description>业务场景1  过滤条件比较弱,一次读出多条记录 读取数据库表中的所有记录 海量数据读取  这些都容易产生内存溢出,为了不使得内存溢出,我们采用游标的方式
 游标:提供一种客户端读取部分服务器端结果集的机制 一个批次的大小为:Fetch Size
 游标的使用  开启游标,DB_URL的处理(加上useCursorFetch=true)  eg:
@@ -156,10 +156,10 @@ while(rs2.next()){ //5.获取对象流  InputStream in = rs1.getBinaryStream(&am
     
     <item>
       <title>JDBC3</title>
-      <link>https://euraxluo.github.io/posts/java/jdbc3/</link>
+      <link>https://euraxluo.gitee.io/posts/java/jdbc3/</link>
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/jdbc3/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/jdbc3/</guid>
       <description>1. execute,executeQuery,executeUdate的区别 JDBCTM中Statement接口提供的execute,executeQuery,executeUdate之间的区别:
   executeQuery:
 用于产生单个结果集的语句,例如SELECT语句,使用最多的方法
@@ -189,10 +189,10 @@ try{ conn = JDCBUtil.</description>
     
     <item>
       <title>JSP</title>
-      <link>https://euraxluo.github.io/posts/java/jsp%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://euraxluo.gitee.io/posts/java/jsp%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/jsp%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/jsp%E5%AD%A6%E4%B9%A0/</guid>
       <description>jsp  Java Server Page
   什么是jsp   从用户角度看待 ，就是是一个网页 ， 从程序员角度看待 ， 其实是一个java类， 它继承了servlet，所以可以直接说jsp 就是一个Servlet.
   为什么会有jsp?   html 多数情况下用来显示静态内容 ， 一成不变的。 但是有时候我们需要在网页上显示一些动态数据， 比如： 查询所有的学生信息， 根据姓名去查询具体某个学生。 这些动作都需要去查询数据库，然后在网页上显示。 html是不支持写java代码 ， jsp里面可以写java代码。
@@ -211,10 +211,10 @@ jsp表达式(表达式元素中可以包含任何符合java语言规范的表达
     
     <item>
       <title>MyBatis</title>
-      <link>https://euraxluo.github.io/posts/java/mbatis%E5%9F%BA%E7%A1%80/</link>
+      <link>https://euraxluo.gitee.io/posts/java/mbatis%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/mbatis%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/mbatis%E5%9F%BA%E7%A1%80/</guid>
       <description>MyBatis   一个ORM框架,(不直接建立java对象到关系数据库表数据的映射,而是建立对对象的操作方法到SQL的映射)支持自定义SQL,存储过程和高级映射的持久化框架
   使用XML或者注解配置
   能够映射基本数据元素,接口,Java对象到数据库

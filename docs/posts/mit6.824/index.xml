@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mit6.824 on Euraxluo Blog</title>
-    <link>https://euraxluo.github.io/posts/mit6.824/</link>
+    <link>https://euraxluo.gitee.io/posts/mit6.824/</link>
     <description>Recent content in mit6.824 on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><atom:link href="https://euraxluo.github.io/posts/mit6.824/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><atom:link href="https://euraxluo.gitee.io/posts/mit6.824/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

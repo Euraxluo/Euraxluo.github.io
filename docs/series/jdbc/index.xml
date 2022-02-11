@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JDBC on Euraxluo Blog</title>
-    <link>https://euraxluo.github.io/series/jdbc/</link>
+    <link>https://euraxluo.gitee.io/series/jdbc/</link>
     <description>Recent content in JDBC on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 20 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.github.io/series/jdbc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/series/jdbc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JDBC1</title>
-      <link>https://euraxluo.github.io/posts/java/jdbc1/</link>
+      <link>https://euraxluo.gitee.io/posts/java/jdbc1/</link>
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/jdbc1/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/jdbc1/</guid>
       <description>jdbc  JAVA Database Connectivity java 数据库连接
   为什么会出现JDBC   SUN公司提供的一种数据库访问规则、规范, 由于数据库种类较多，并且java语言使用比较广泛，sun公司就提供了一种规范，让其他的数据库提供商去实现底层的访问规则。 我们的java程序只要使用sun公司提供的jdbc驱动即可。
  jdbc是一种接口规范
@@ -34,10 +34,10 @@ Connection 常用方法   Statement对象</description>
     
     <item>
       <title>JDBC2</title>
-      <link>https://euraxluo.github.io/posts/java/jdbc2/</link>
+      <link>https://euraxluo.gitee.io/posts/java/jdbc2/</link>
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/jdbc2/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/jdbc2/</guid>
       <description>业务场景1  过滤条件比较弱,一次读出多条记录 读取数据库表中的所有记录 海量数据读取  这些都容易产生内存溢出,为了不使得内存溢出,我们采用游标的方式
 游标:提供一种客户端读取部分服务器端结果集的机制 一个批次的大小为:Fetch Size
 游标的使用  开启游标,DB_URL的处理(加上useCursorFetch=true)  eg:
@@ -56,10 +56,10 @@ while(rs2.next()){ //5.获取对象流  InputStream in = rs1.getBinaryStream(&am
     
     <item>
       <title>JDBC3</title>
-      <link>https://euraxluo.github.io/posts/java/jdbc3/</link>
+      <link>https://euraxluo.gitee.io/posts/java/jdbc3/</link>
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/java/jdbc3/</guid>
+      <guid>https://euraxluo.gitee.io/posts/java/jdbc3/</guid>
       <description>1. execute,executeQuery,executeUdate的区别 JDBCTM中Statement接口提供的execute,executeQuery,executeUdate之间的区别:
   executeQuery:
 用于产生单个结果集的语句,例如SELECT语句,使用最多的方法

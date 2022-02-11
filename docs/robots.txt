@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://euraxluo.github.io/sitemap.xml
+Sitemap: https://euraxluo.gitee.io/sitemap.xml

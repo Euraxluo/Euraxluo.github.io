@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>database on Euraxluo Blog</title>
-    <link>https://euraxluo.github.io/tags/database/</link>
+    <link>https://euraxluo.gitee.io/tags/database/</link>
     <description>Recent content in database on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Fri, 20 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.github.io/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/tags/database/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hbase基础-概念和安装</title>
-      <link>https://euraxluo.github.io/posts/database/hbase%E5%9F%BA%E7%A1%80/</link>
+      <link>https://euraxluo.gitee.io/posts/database/hbase%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/database/hbase%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://euraxluo.gitee.io/posts/database/hbase%E5%9F%BA%E7%A1%80/</guid>
       <description>Hbase 基本概念 Hbase 能做什么
  海量数据存储 准实时查询  HBase在实际业务场景中的应用
  交通:gps,摄像头信息 金融:交易信息 电商:交易信息,浏览信息,物流信息  HBase特点

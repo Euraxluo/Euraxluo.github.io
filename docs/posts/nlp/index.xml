@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nlp on Euraxluo Blog</title>
-    <link>https://euraxluo.github.io/posts/nlp/</link>
+    <link>https://euraxluo.gitee.io/posts/nlp/</link>
     <description>Recent content in nlp on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.github.io/posts/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://euraxluo.gitee.io/posts/nlp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NLP基础 </title>
-      <link>https://euraxluo.github.io/posts/nlp/nlp%E5%9F%BA%E7%A1%80/</link>
+      <link>https://euraxluo.gitee.io/posts/nlp/nlp%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/nlp/nlp%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://euraxluo.gitee.io/posts/nlp/nlp%E5%9F%BA%E7%A1%80/</guid>
       <description>NLP概览 什么是NLP   自然语言处理,是探讨如何处理及运用自然语言
   自然语言认知,是让电脑明白人类的语言
   自然语言处理主要包括:文本分析,信息检索,词性标注,问答系统QA
@@ -35,10 +35,10 @@
     
     <item>
       <title>ChatBot模型基础</title>
-      <link>https://euraxluo.github.io/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/</link>
+      <link>https://euraxluo.gitee.io/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/</guid>
+      <guid>https://euraxluo.gitee.io/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/</guid>
       <description>word2vec !(http://www.cnblogs.com/neopenx/p/4571996.html)(是个巨佬) !(https://blog.csdn.net/itplus/article/details/37969817)
 概率语言模型 概率语言模型 预测字符串概率,考虑动机,考虑计算方式
   Unigram models(一元文法统计模型)
@@ -66,10 +66,10 @@ Negative Sampling 为了解决,树空间过大</description>
     
     <item>
       <title>语料处理基础</title>
-      <link>https://euraxluo.github.io/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/</link>
+      <link>https://euraxluo.gitee.io/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://euraxluo.github.io/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/</guid>
+      <guid>https://euraxluo.gitee.io/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/</guid>
       <description>语料处理流程 语料收集 &amp;gt; 语料清洗 &amp;gt; 句子向量编码化 &amp;gt; 语料问答对构建 &amp;gt; 语料的模型保存 &amp;gt; 结束 语料收集   聊天记录
   电影对话
   台词片断
