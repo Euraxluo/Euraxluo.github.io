@@ -15,7 +15,7 @@
 <meta property="og:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/posts/" />
-<meta property="og:updated_time" content="2022-01-04T00:00:00+00:00" />
+<meta property="og:updated_time" content="2022-02-10T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="posts"/>
 <meta name="twitter:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java."/>
@@ -218,6 +218,8 @@ Euraxluo
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/database/">database</a>
     </li><li class="nav-item post-section">
+      <a class="nav-link" href="/posts/distributed/">distributed</a>
+    </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/driverless/">driverless</a>
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/go/">go</a>
@@ -240,6 +242,8 @@ Euraxluo
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/ros/">ros</a>
     </li><li class="nav-item post-section">
+      <a class="nav-link" href="/posts/rpc/">rpc</a>
+    </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/shell/">shell</a>
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/tensorflow/">tensorflow</a>
@@ -248,110 +252,130 @@ Euraxluo
     </li></ul>
 </div><div class="posts mb-4"><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%842/">软件架构2
+          <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2020-02-03 00:00:00 &#43;0800 CST.">
-    2020-02-03
-  </span><span class="post-reading-time">
-    9 min read
-  </span><span class="post-taxonomies"><a href="/categories/architecture-design/" class="badge rounded-pill post-taxonomy">architecture design</a><a href="/series/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/" class="badge rounded-pill post-taxonomy">软件架构</a><a href="/tags/architecture/" class="badge rounded-pill post-taxonomy">architecture</a></span>
-</div>
-<div class="post-summary">
-          软件架构 什么是Web架构 Web架构包括数据库、消息队列、缓存、用户界面等多个组件，它们相互结合，形成在线服务
-在本课程的介绍中，我已经谈到了为什么网络架构知识对软件工程师很重要。现在我们将进一步探讨它。
-这是web应用程序的典型架构，在大多数在线运行的应用程序中使用。
-如果我们对图中所涉及的组件有一个了解，那么我们总是可以在这个体系结构的基础上构建更复杂的需求。
-我将从客户机-服务器体系结构开始，一步一步地介绍每个组件。
-Client Server Architecture客户服务器结构 在讨论两层、三层和n层架构时，我们已经对客户端-服务器架构有了一些了解。现在我们来详细看看。
-  客户端-服务器架构是web的基本构件。
-   …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/tools/typora%E7%94%BB%E5%9B%BE/">Typora画图
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2020-01-10 00:00:00 &#43;0800 CST.">
-    2020-01-10
+  <span class="post-date" title="created on 2020-10-22 08:00:00 &#43;0800 CST.">
+    2020-10-22
   </span><span class="post-reading-time">
     1 min read
-  </span><span class="post-taxonomies"><a href="/categories/tools/" class="badge rounded-pill post-taxonomy">tools</a><a href="/tags/typora/" class="badge rounded-pill post-taxonomy">typora</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/nlp/" class="badge rounded-pill post-taxonomy">NLP</a><a href="/series/nlp/" class="badge rounded-pill post-taxonomy">NLP</a><a href="/tags/nlp/" class="badge rounded-pill post-taxonomy">NLP</a></span>
 </div>
 <div class="post-summary">
-          标准流程图源码格式： st=&gt;start: 开始框op=&gt;operation: 处理框cond=&gt;condition: 判断框sub1=&gt;subroutine: 子流程io=&gt;inputoutput: 输入输出框e=&gt;end: 结束框st-&gt;op-&gt;condcond(yes)-&gt;io-&gt;econd(no)-&gt;sub1(right)-&gt;op标准流程图源码格式（横向）： st=&gt;start: 开始框op=&gt;operation: 处理框cond=&gt;condition: 判断框(是或否?)sub1=&gt;subroutine: …
+          NLP概览 什么是NLP   自然语言处理,是探讨如何处理及运用自然语言
+  自然语言认知,是让电脑明白人类的语言
+  自然语言处理主要包括:文本分析,信息检索,词性标注,问答系统QA
+  NLP技术  词法分析
+ - 分词技术- 词性标注part-of-speech tagging- 命名实体识别NER(识别出3大类和7小类主要用于信息提取,QA,句法分析,机翻元数据标注)实体边界识别基于规则和词典进行识别(字典大小,新词?)基于统计的方法&gt;隐马尔科夫模型HMM&gt;较大熵ME&gt;支持向量机SVM&gt;条件随机场CRF确定实体类别(英文,中文需要先分词)- …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/database/hbase%E5%9F%BA%E7%A1%80/">Hbase基础-概念和安装
+          <a href="/posts/java/servlet1/">Servlet1
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2019-12-20 08:00:00 &#43;0800 CST.">
-    2019-12-20
-  </span><span class="post-reading-time">
-    4 min read
-  </span><span class="post-taxonomies"><a href="/categories/bigdata/" class="badge rounded-pill post-taxonomy">BigData</a><a href="/tags/hbase/" class="badge rounded-pill post-taxonomy">Hbase</a><a href="/tags/database/" class="badge rounded-pill post-taxonomy">database</a></span>
-</div>
-<div class="post-summary">
-          Hbase 基本概念 Hbase 能做什么
- 海量数据存储 准实时查询  HBase在实际业务场景中的应用
- 交通:gps,摄像头信息 金融:交易信息 电商:交易信息,浏览信息,物流信息  HBase特点
- 容量大:Hbase单表可以有百亿行,百万列,数据矩阵的横纵维度所支持的数据量级都十分具有弹性 面向列:HBase是面向列的存储和权限控制,并支持独立检索.列式存储,其数据在表中是按照某列存储的,这样在查询只需要少数几个字段的时候,能大大减少读取的数据量.并且 可以动态增加列 多版本:HBase每一列的数据存储有多个Version 稀疏性:为空的列并不占用存储空间,表可以设计的很稀疏 扩展性:底层依赖于HDFS(只需要增加机器就可 …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Redis API及数据结构
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
-    2019-03-10
-  </span><span class="post-reading-time">
-    3 min read
-  </span><span class="post-taxonomies"><a href="/categories/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/series/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/tags/redis/" class="badge rounded-pill post-taxonomy">redis</a></span>
-</div>
-<div class="post-summary">
-          <p>本文介绍了redisApi以及数据结构</p>
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/redis/rediscluster-1/">Redis Cluster
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
-    2019-03-10
+  <span class="post-date" title="created on 2020-10-22 08:00:00 &#43;0800 CST.">
+    2020-10-22
   </span><span class="post-reading-time">
     2 min read
-  </span><span class="post-taxonomies"><a href="/categories/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/series/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/tags/redis/" class="badge rounded-pill post-taxonomy">redis</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/java/" class="badge rounded-pill post-taxonomy">Java</a><a href="/tags/java/" class="badge rounded-pill post-taxonomy">Java</a></span>
 </div>
 <div class="post-summary">
-          Redis Cluster 背景   并发量 &lt;10万dps
-  数据量 单机内存&lt;256G
-  带宽 网卡限制
-  解决方式   提高机器配置
-  分布式
-  数据分布 | 分布方式 | 特点 | 典型产品 |
-| &mdash;&mdash;&ndash; | &mdash;&mdash;&mdash;&mdash;&mdash;&ndash; | &mdash;&mdash;&ndash; |
-| 哈希分布 | 数据分散度高数据分布业务无关无法顺序访问支持批量操作 | 一致性哈希MemcacheRedis Cluster缓存产品 |
-| 顺序分布 | 数据分散度易倾斜键值业务相关可顺序访问支持批量操作 | …
+          Servlet HTTP协议 是客户端与服务器通信的一种方式
+参考链接 request: 请求行请求头请求体 response: 响应行响应头响应体 Get: GET用于信息获取，而且应该是安全的和幂等的
+  带上数据,在URL上面拼接
+www.baidu.com
+name = zhanshan
+age = 18
+url:www.baidu.com?name = zhanshan&amp;age = 18
+url可见
+  传输方式
+HTTP header
+  设计目的
+获取数据
+  具有安全隐患,GET方法不会改变服务器端数据，所以不会产生副作用
+  GET请求返回的内容可以被浏览器缓存起来
+  Post:   以流的方 …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/java/servlet2/">Servlet2
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2020-10-22 08:00:00 &#43;0800 CST.">
+    2020-10-22
+  </span><span class="post-reading-time">
+    3 min read
+  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/java/" class="badge rounded-pill post-taxonomy">Java</a><a href="/tags/java/" class="badge rounded-pill post-taxonomy">Java</a></span>
+</div>
+<div class="post-summary">
+          Cookie和Session 会话：浏览器发出http请求。服务器接受，对请求进行响应，浏览器接受http响应
+Cookie 把会话数据保存在浏览器客户端
+服务器第一次访问时，服务端生成cookie，并且把这个cookie通过响应，发送给客户端，客户端把cookie保存下来，以便在最近的下一次访问中使用
+缺点
+  Cookie有大小和数量的限制
+  明文传递有风险
+  //创建Cookie对象  Cookie userNameCookie = new Cookie(&#34;userName&#34;,userName); Cookie userPasswordCookie = new …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/java/websocket/">WebSocket
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2020-10-22 08:00:00 &#43;0800 CST.">
+    2020-10-22
+  </span><span class="post-reading-time">
+    5 min read
+  </span><span class="post-taxonomies"><a href="/categories/websocket/" class="badge rounded-pill post-taxonomy">WebSocket</a><a href="/series/websocket/" class="badge rounded-pill post-taxonomy">WebSocket</a><a href="/tags/java/" class="badge rounded-pill post-taxonomy">Java</a><a href="/tags/websocket/" class="badge rounded-pill post-taxonomy">WebSocket</a></span>
+</div>
+<div class="post-summary">
+          WebSocket 一、概念 1.WebSocket 是HTTP协议的补充。使用的TCP协议建立连接
+2.HTML5是指一系列新API，新协议，WebSocket也是其中之一
+二、优点 1.WebSocket是持久化协议，每次通信只需要一次连接
+2.HTTP中一个request只能有一个response
+3.连接过程：进行握手时，使用http协议对服务器发起连接请求，并且升级为websocket协议，确定后服务器建立连接，并且继续使用Websocket
+三、作用 1.实现实时信息传递的其他方式
+​	(1).ajax轮询：让浏览器隔个几秒就发送一次请求，询问服务器是否有新信息
+​	(2).HTTP long poll：客户端发起连接 …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/java/xml/">XML
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2020-10-22 08:00:00 &#43;0800 CST.">
+    2020-10-22
+  </span><span class="post-reading-time">
+    3 min read
+  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/java/" class="badge rounded-pill post-taxonomy">Java</a><a href="/tags/java/" class="badge rounded-pill post-taxonomy">Java</a></span>
+</div>
+<div class="post-summary">
+          Xml Xml  eXtendsible markup language 可扩展的标记语言
+ XML 有什么用?   可以用来保存数据
+  可以用来做配置文件
+  数据传输载体
+  定义xml  其实就是一个文件，文件的后缀为 .xml
+ 文档声明   简单声明， version : 解析这个xml的时候，使用什么版本的解析器解析
+ `&lt;?xml version=&quot;1.0&quot; ?&gt;`   encoding : 解析xml中的文字的时候，使用什么编码来翻译
+ `&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot; ?&gt;` …
         </div>
       </div>
     </article></div><div class="row table-responsive mb-3">
@@ -378,13 +402,13 @@ Client Server Architecture客户服务器结构 在讨论两层、三层和n层�
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/15/">15</a>
+    <a class="page-link" href="/posts/page/17/">17</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/15/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/17/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
@@ -431,19 +455,19 @@ Client Server Architecture客户服务器结构 在讨论两层、三层和n层�
   </div>
   <div class="card-body">
     <ul class="post-list"><li>
+        <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+      </li><li>
+        <a href="/posts/note/gorm/">GORM学习
+</a>
+      </li><li>
         <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
       </li><li>
-        <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+        <a href="/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/">分布式互斥
 </a>
       </li><li>
-        <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
-</a>
-      </li><li>
-        <a href="/posts/java/servlet1/">Servlet1
-</a>
-      </li><li>
-        <a href="/posts/java/servlet2/">Servlet2
+        <a href="/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/">gRPC学习
 </a>
       </li></ul>
   </div>

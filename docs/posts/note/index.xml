@@ -6,7 +6,31 @@
     <description>Recent content in note on Euraxluo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/posts/note/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="/posts/note/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>etcd 基本使用</title>
+      <link>/posts/note/etcd-%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/etcd-%E5%85%A5%E9%97%A8/</guid>
+      <description>连接客户端 config = clientv3.Config{ Endpoints: []string{&amp;#34;127.0.0.1:2379&amp;#34;}, // 集群列表  DialTimeout: 5 * time.Second, } // 建立一个客户端 if client, err = clientv3.New(config); err != nil { fmt.Println(err) return } put //PUT if putResp, err = kv.Put(context.TODO(), &amp;#34;/prefix/keys/k1&amp;#34;, &amp;#34;v1&amp;#34;, clientv3.WithPrevKV(), //请求 prev KV  ); err != nil { fmt.Println(err) } else { fmt.Println(&amp;#34;Revision:&amp;#34;, putResp.Header.Revision) // 操作 版本号  fmt.Println(&amp;#34;ClusterId:&amp;#34;, putResp.Header.ClusterId) // 交互集群id  fmt.Println(&amp;#34;MemberId:&amp;#34;, putResp.Header.MemberId) // 交互节点  fmt.Println(&amp;#34;RaftTerm:&amp;#34;, putResp.Header.RaftTerm) //raft 任期  if putResp.</description>
+    </item>
+    
+    <item>
+      <title>GORM学习</title>
+      <link>/posts/note/gorm/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/gorm/</guid>
+      <description>GORM 模型定义   模型实现了Scanner和Valuer接口
+  模型约定：
+  GORM 使用ID作为主键
+  如果不默认使用ID作为主键，应该使用标签primaryKey 指定
+  // 将 `UUID` 设为主键  type Animal struct { ID int64 UUID string `gorm:&amp;#34;primaryKey&amp;#34;` Name string Age int64 }     复合主键
+  type Product struct { ID string `gorm:&amp;#34;primaryKey&amp;#34;` LanguageCode string `gorm:&amp;#34;primaryKey&amp;#34;` Code string Name string }     关闭整形主键的自增，显示关闭 autoIncrement
+  type Product struct { CategoryID uint64 `gorm:&amp;#34;primaryKey;autoIncrement:false&amp;#34;` TypeID uint64 `gorm:&amp;#34;primaryKey;autoIncrement:false&amp;#34;` }       使用结构体名的下划线表示的复数作为表名</description>
+    </item>
+    
     <item>
       <title>数据分析</title>
       <link>/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
@@ -14,6 +38,29 @@
       
       <guid>/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>安装flower</title>
+      <link>/posts/note/%E5%AE%89%E8%A3%85flower/</link>
+      <pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/%E5%AE%89%E8%A3%85flower/</guid>
+      <description>1.安装flower: pip install flower 1 2. 启动flower 例如启动项目工程下面celery_tasks目录的main.py 异步任务启动函数
+flower -A celery_tasks.main --port=5555 1.安装Celery
+pip install celery
+2.编写task
+from celery import Celery app = Celery(&#39;tasks&#39;, broker=&#39;amqp://guest@localhost//&#39;) @app.task def add(x, y): return x + y 3.运行
+$ celery -A tasks worker --loglevel=info</description>
+    </item>
+    
+    <item>
+      <title>go语言小记</title>
+      <link>/posts/note/golang%E5%B0%8F%E8%AE%B0/</link>
+      <pubDate>Fri, 19 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/golang%E5%B0%8F%E8%AE%B0/</guid>
+      <description>关于切片和slice的内存共享 package main import ( &amp;#34;bufio&amp;#34; &amp;#34;bytes&amp;#34; &amp;#34;errors&amp;#34; &amp;#34;fmt&amp;#34; _errors &amp;#34;github.com/pkg/errors&amp;#34; &amp;#34;os&amp;#34; &amp;#34;reflect&amp;#34; &amp;#34;regexp&amp;#34; &amp;#34;strconv&amp;#34; &amp;#34;strings&amp;#34; &amp;#34;sync&amp;#34; &amp;#34;sync/atomic&amp;#34; &amp;#34;time&amp;#34; ) func main() { /** * @Description: foo boo内存共享 * @param []int * @param 5 */ foo := make([]int, 5) foo[3] = 3 foo[4] = 4 boo := foo[1:4] boo[1] = 2 for i := 0; i &amp;lt; 5; i++ { println(foo[i]) } /** * @Description: 当capcity够的时候，那么就不会重新分配内存 * @param []int * @param 8 */ a := make([]int, 8) b := a[1:8] b[1] = 1 //[01.</description>
     </item>
     
     <item>

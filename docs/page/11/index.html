@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"
   >
   <head>
-	<meta name="generator" content="Hugo 0.81.0-DEV" />
+	<meta name="generator" content="Hugo 0.80.0" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Euraxluo Blog Page 11</title><link rel="apple-touch-icon" href="/images/icons/icon-180x180.png" sizes="180x180">
@@ -16,7 +16,7 @@
 <meta property="og:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/" />
-<meta property="og:updated_time" content="2022-01-04T00:00:00+00:00" />
+<meta property="og:updated_time" content="2022-02-10T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Euraxluo Blog"/>
 <meta name="twitter:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java."/>
@@ -211,7 +211,7 @@ Euraxluo
 <div class="col-lg-8">
   <div class="container"><div class="posts mb-4"><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/">语料处理基础
+          <a href="/posts/note/vslam/">VSLAM
 </a>
         </h2>
       </div>
@@ -220,116 +220,104 @@ Euraxluo
   <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
     2019-02-21
   </span><span class="post-reading-time">
-    4 min read
-  </span><span class="post-taxonomies"><a href="/categories/nlp/" class="badge rounded-pill post-taxonomy">NLP</a><a href="/series/nlp/" class="badge rounded-pill post-taxonomy">NLP</a><a href="/tags/nlp/" class="badge rounded-pill post-taxonomy">NLP</a></span>
-</div>
-<div class="post-summary">
-          语料处理流程 语料收集 &gt; 语料清洗 &gt; 句子向量编码化 &gt; 语料问答对构建 &gt; 语料的模型保存 &gt; 结束 语料收集   聊天记录
-  电影对话
-  台词片断
-  语料清洗  要清洗的内容
-   多余的空格
-  不正规的符号
-  多余的字符,英文
-   清洗的方法
-   正则化
-  切分
-  好坏语句判断
-  语料问答对的构建  问答对的处理和拆分  句子向量的编码化   原始文本不能直接训练
-  将句子转化为向量
-  将向量转换为句子
-  语料模型的保存   使用pickle来保存模型
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/">逆波兰式
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
-    2019-02-21
-  </span><span class="post-reading-time">
-    2 min read
+    1 min read
   </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
 </div>
 <div class="post-summary">
-          逆波兰式 定义 一个表达式E的后缀形式可以如下定义：
-（1）如果E是一个变量或常量，则E的后缀式是E本身。
-（2）如果E是E1 op E2形式的表达式，这里op是如何二元操作符，则E的后缀式为E1&rsquo;E2' op，这里E1&rsquo;和E2&rsquo;分别为E1和E2的后缀式。
-（3)如果E是（E1）形式的表达式，则E1的后缀式就是E的后缀式。
-如：我们平时写a+b，这是中缀表达式，写成后缀表达式就是：ab+
-(a+b)*c-(a+b)/e的后缀表达式为：
-(a+b)*c-(a+b)/e
-→((a+b)*c)((a+b)/e)-
-→((a+b)c*)((a+b)e/)-
-→(ab+c*)(ab+e/)- …
+          VSLAM ## project1 熟悉Linux   sudo apt-get install 安装软件，apt-get 下载后软件的路径一般为/var/cache/apt/archives
+具体的安装目录是由包维护者决定
+  可以通过echo $PATH查看当前的PATH，通过export PATH=$PATH:/XXX/XXX将需要的配置路径加入$PATH等号两边不能有空格
+  /usr/bin可执行文件 ，/usr/share文档的路径， /usr/liblib文件， /etc配置文件
+  chmod +x 文件名 为文件增加可执行权限
+  chown root filename 更改文件的所有者
+  SLAM …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/python/flask%E5%85%A5%E9%97%A8/">Flask入门
+          <a href="/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/">关于musicplayer
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-14 08:00:00 &#43;0800 CST.">
-    2019-02-14
+  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
+    2019-02-21
+  </span><span class="post-reading-time">
+    10 min read
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
+</div>
+<div class="post-summary">
+          关于musicplayer 首先给权限 &lt;!-- 网络权限 --&gt; &lt;uses-permission android:name=&#34;android.permission.INTERNET&#34;/&gt; &lt;uses-permission android:name=&#34;android.permission.READ_EXTERNAL_STORAGE&#34;/&gt; &lt;!-- 向SD卡写入数据权限 --&gt; &lt;uses-permission android:name=&#34;android.permission.WRITE_EXTERNAL_STORAGE&#34;/&gt; …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/note/%E5%85%B3%E4%BA%8Eviewpager/">关于ViewPager
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
+    2019-02-21
   </span><span class="post-reading-time">
     4 min read
-  </span><span class="post-taxonomies"><a href="/categories/flask/" class="badge rounded-pill post-taxonomy">Flask</a><a href="/series/flask/" class="badge rounded-pill post-taxonomy">Flask</a><a href="/tags/python/" class="badge rounded-pill post-taxonomy">Python</a><a href="/tags/flask/" class="badge rounded-pill post-taxonomy">Flask</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
 </div>
 <div class="post-summary">
-          Flask 学习 入门： 最小的Flask 程序 from flask import Flask # 导入flask app = Flask(__name__)#使用单一的模块（如本例），你应该使用 __name__ @app.route(&#39;/hello&#39;) #route()装饰器 什么样子的URL能触发我们的函数 def hello_word(): return &#39;Hello Word!&#39;#返回我们想在浏览器中显示的内容 if __name__ == &#39;__main__&#39;: #确保服务器只会在该脚本被 Python 解释器直接执行的时候才会运行， …
+          关于ViewPager 使用方法：先在xml中定义
+&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt; &lt;android.support.design.widget.CoordinatorLayout xmlns:android=&#34;http://schemas.android.com/apk/res/android&#34; xmlns:tools=&#34;http://schemas.android.com/tools&#34; xmlns:app=&#34;http://schemas.android.com/apk/res-auto&#34; …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/ros/ros%E5%AE%89%E8%A3%85/">Ubuntu18.04安装ROS
+          <a href="/posts/note/%E5%89%8D%E7%AB%AF/">前端
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-10 08:00:00 &#43;0800 CST.">
-    2019-02-10
+  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
+    2019-02-21
   </span><span class="post-reading-time">
     1 min read
-  </span><span class="post-taxonomies"><a href="/categories/ros/" class="badge rounded-pill post-taxonomy">ROS</a><a href="/series/ros/" class="badge rounded-pill post-taxonomy">ROS</a><a href="/tags/ros/" class="badge rounded-pill post-taxonomy">ROS</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
 </div>
 <div class="post-summary">
-          Ubuntu18.04安装ROS 源配置: sudo sh -c '. /etc/lsb-release &amp;&amp; echo &quot;deb &lt;http://mirrors.ustc.edu.cn/ros/ubuntu/&gt; $DISTRIB_CODENAME main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list'更新: sudo apt-get update
-添加密匙: sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key …
+          前端 CSS 网格布局
+table标签（具有性能问题）=&gt;
+hack
+float流式布局=&gt;position绝对定位（不利于使用响应式）-&gt;inline(块级放在同一行)
+flexBox(正对某一维度进行自适应)
+=》grid布局
+Backbone.js提供了一套web开发的框架，通过Models进行key-value绑定及自定义事件处理，通过Collections提供一套丰富的API用于枚举功能，通过Views来进行事件处理及与现有的Application通过RESTful JSON接口进行交互.它是基于jQuery和underscore的一个前端js框架。
+在Backbonejs有几个重要的概念，先介绍一 …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/java/jdbc1/">JDBC1
+          <a href="/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/">卡包开发步骤
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2018-12-20 08:00:00 &#43;0800 CST.">
-    2018-12-20
+  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
+    2019-02-21
   </span><span class="post-reading-time">
-    3 min read
-  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/jdbc/" class="badge rounded-pill post-taxonomy">JDBC</a><a href="/tags/jdbc/" class="badge rounded-pill post-taxonomy">JDBC</a></span>
+    1 min read
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
 </div>
 <div class="post-summary">
-          jdbc  JAVA Database Connectivity java 数据库连接
-  为什么会出现JDBC   SUN公司提供的一种数据库访问规则、规范, 由于数据库种类较多，并且java语言使用比较广泛，sun公司就提供了一种规范，让其他的数据库提供商去实现底层的访问规则。 我们的java程序只要使用sun公司提供的jdbc驱动即可。
- jdbc是一种接口规范
-优势:
-  简单
-  快捷
-  移植性
-  框架(在jdbc的基础上开发更好的框架)
-  jdbc Manager的上层JDBC API负责与java Application通信,JDBC Driver API 负责与具体的数据库通信(由数据库厂商开发和提供)
-API …
+          卡包开发步骤 开发步骤
+ 需求规划,需求拆解,需求辩论 技术选型:为什么是HBase or MySQL 工程设计:工程图各个模块设计的功能点,各个功能点涉及的技术 编码 测试:功能测试,压力测试 部署:自动化上线  开发技术
+ kafka 消息队列 Mysql存储商户信息 HBase存储用户信息 Spring-boot 搭建项目 Redis存储Token信息  测试用例
+测试上线
+应用技术分层
+ 框架层:Spring-boot 存储层:MySql,HBase,Redis 消息队列:Kafka  基础工具介绍:
+ Maven PostMan/RestAPI  需求分析: 功能需求解析:
+ 什么是卡包应用:卡券收集聚合类应用 包含哪些子 …
         </div>
       </div>
     </article></div><div class="row table-responsive mb-3">
@@ -365,13 +353,13 @@ API …
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/page/15/">15</a>
+    <a class="page-link" href="/page/17/">17</a>
   </li>
   <li class="page-item">
     <a href="/page/12/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/page/15/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/page/17/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
@@ -418,19 +406,19 @@ API …
   </div>
   <div class="card-body">
     <ul class="post-list"><li>
+        <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+      </li><li>
+        <a href="/posts/note/gorm/">GORM学习
+</a>
+      </li><li>
         <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
       </li><li>
-        <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+        <a href="/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/">分布式互斥
 </a>
       </li><li>
-        <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
-</a>
-      </li><li>
-        <a href="/posts/java/servlet1/">Servlet1
-</a>
-      </li><li>
-        <a href="/posts/java/servlet2/">Servlet2
+        <a href="/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/">gRPC学习
 </a>
       </li></ul>
   </div>

@@ -228,6 +228,29 @@ Euraxluo
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
+          <a href="/posts/note/%E5%AE%89%E8%A3%85flower/">安装flower
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2021-02-21 08:00:00 &#43;0800 CST.">
+    2021-02-21
+  </span><span class="post-reading-time">
+    1 min read
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
+</div>
+<div class="post-summary">
+          1.安装flower: pip install flower 1 2. 启动flower 例如启动项目工程下面celery_tasks目录的main.py 异步任务启动函数
+flower -A celery_tasks.main --port=5555 1.安装Celery
+pip install celery
+2.编写task
+from celery import Celery app = Celery('tasks', broker='amqp://guest@localhost//') @app.task def add(x, y): return x + y 3.运行
+$ celery -A tasks worker …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
           <a href="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/">C&#43;&#43; 小记
 </a>
         </h2>
@@ -290,35 +313,6 @@ AIO(异步非阻塞)
 java通过不同的系统，不同的版本，不同的位数，来屏蔽不同的系统指令集的差异，对外提供统一的接口
 java中int数据占几个字节   java中有几种基本数据类型？8种
 基本类型：byte 二进制位数：8 包装类：java.lang.Byte 最小值：Byte.MIN_VALUE=-128 最大值：Byte.MAX_VALUE=127 基本类型：short 二进制位数：16 包装类：java.lang.Short 最小值：Short.MIN_VALUE=-32768 最大值：Short.MAX_VALUE=32767 基本类 …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/">pattern:斑图
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
-    2019-02-21
-  </span><span class="post-reading-time">
-    1 min read
-  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
-</div>
-<div class="post-summary">
-          pattern:斑图
-是一种构型，是一种系统，不关心是使用的什么物质去实现
-把各种方法论抽取出来
-complexity:复杂性科学
-按照复杂性思维去设计虚拟世界
- 仿真 层次 初始条件的影响 时间之箭？ 因果箭头  movie：黑客帝国，盗梦空间，时间之箭，超体，蝴蝶效应，前目的地
-book：失控
-我们需要对抗的是复杂系统
-根据用户去决定复杂系统
-设计的系统？ 涌现的系统？
-区块链：ai，算法管理社会
-奇点，技术奇点
         </div>
       </div>
     </article></div><div class="row table-responsive mb-3">
@@ -392,19 +386,19 @@ book：失控
   </div>
   <div class="card-body">
     <ul class="post-list"><li>
+        <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+      </li><li>
+        <a href="/posts/note/gorm/">GORM学习
+</a>
+      </li><li>
         <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
       </li><li>
-        <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+        <a href="/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/">分布式互斥
 </a>
       </li><li>
-        <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
-</a>
-      </li><li>
-        <a href="/posts/java/servlet1/">Servlet1
-</a>
-      </li><li>
-        <a href="/posts/java/servlet2/">Servlet2
+        <a href="/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/">gRPC学习
 </a>
       </li></ul>
   </div>

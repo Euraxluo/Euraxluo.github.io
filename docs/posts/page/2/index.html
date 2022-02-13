@@ -15,7 +15,7 @@
 <meta property="og:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/posts/" />
-<meta property="og:updated_time" content="2022-01-04T00:00:00+00:00" />
+<meta property="og:updated_time" content="2022-02-10T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="posts"/>
 <meta name="twitter:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java."/>
@@ -218,6 +218,8 @@ Euraxluo
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/database/">database</a>
     </li><li class="nav-item post-section">
+      <a class="nav-link" href="/posts/distributed/">distributed</a>
+    </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/driverless/">driverless</a>
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/go/">go</a>
@@ -240,6 +242,8 @@ Euraxluo
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/ros/">ros</a>
     </li><li class="nav-item post-section">
+      <a class="nav-link" href="/posts/rpc/">rpc</a>
+    </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/shell/">shell</a>
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/tensorflow/">tensorflow</a>
@@ -248,119 +252,103 @@ Euraxluo
     </li></ul>
 </div><div class="posts mb-4"><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/java/websocket/">WebSocket
+          <a href="/posts/rpc/net_rpc%E5%AD%A6%E4%B9%A0/">net/rpc学习
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2020-10-22 08:00:00 &#43;0800 CST.">
-    2020-10-22
-  </span><span class="post-reading-time">
-    5 min read
-  </span><span class="post-taxonomies"><a href="/categories/websocket/" class="badge rounded-pill post-taxonomy">WebSocket</a><a href="/series/websocket/" class="badge rounded-pill post-taxonomy">WebSocket</a><a href="/tags/java/" class="badge rounded-pill post-taxonomy">Java</a><a href="/tags/websocket/" class="badge rounded-pill post-taxonomy">WebSocket</a></span>
-</div>
-<div class="post-summary">
-          WebSocket 一、概念 1.WebSocket 是HTTP协议的补充。使用的TCP协议建立连接
-2.HTML5是指一系列新API，新协议，WebSocket也是其中之一
-二、优点 1.WebSocket是持久化协议，每次通信只需要一次连接
-2.HTTP中一个request只能有一个response
-3.连接过程：进行握手时，使用http协议对服务器发起连接请求，并且升级为websocket协议，确定后服务器建立连接，并且继续使用Websocket
-三、作用 1.实现实时信息传递的其他方式
-​	(1).ajax轮询：让浏览器隔个几秒就发送一次请求，询问服务器是否有新信息
-​	(2).HTTP long poll：客户端发起连接 …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/java/xml/">XML
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2020-10-22 08:00:00 &#43;0800 CST.">
-    2020-10-22
+  <span class="post-date" title="created on 2021-11-22 08:00:00 &#43;0800 CST.">
+    2021-11-22
   </span><span class="post-reading-time">
     3 min read
-  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/java/" class="badge rounded-pill post-taxonomy">Java</a><a href="/tags/java/" class="badge rounded-pill post-taxonomy">Java</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/rpc/" class="badge rounded-pill post-taxonomy">rpc</a><a href="/series/rpc/" class="badge rounded-pill post-taxonomy">rpc</a><a href="/tags/rpc/" class="badge rounded-pill post-taxonomy">rpc</a></span>
 </div>
 <div class="post-summary">
-          Xml Xml  eXtendsible markup language 可扩展的标记语言
- XML 有什么用?   可以用来保存数据
-  可以用来做配置文件
-  数据传输载体
-  定义xml  其实就是一个文件，文件的后缀为 .xml
- 文档声明   简单声明， version : 解析这个xml的时候，使用什么版本的解析器解析
- `&lt;?xml version=&quot;1.0&quot; ?&gt;`   encoding : 解析xml中的文字的时候，使用什么编码来翻译
- `&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot; ?&gt;` …
+          server 学习 服务注册: 在进行rpc方法调用前,需要先进行方法注册
+func (server *Server) register(rcvr interface{}, name string, useName bool) error { //整个工作就是构造service对象,填充属性  //最后调用`sync.Map.LoadOrStore(sname,s)`方法完成服务注册 	s := new(service) s.typ = reflect.TypeOf(rcvr) s.rcvr = reflect.ValueOf(rcvr) sname := reflect.Indirect(s.rcvr).Type().Name() …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/driverless/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%A6%82%E8%BF%B0/">无人驾驶概述
+          <a href="/posts/rpc/rpc%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/">RPC原理学习
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2020-10-22 08:00:00 &#43;0800 CST.">
-    2020-10-22
+  <span class="post-date" title="created on 2021-11-22 08:00:00 &#43;0800 CST.">
+    2021-11-22
+  </span><span class="post-reading-time">
+    7 min read
+  </span><span class="post-taxonomies"><a href="/categories/rpc/" class="badge rounded-pill post-taxonomy">rpc</a><a href="/series/rpc/" class="badge rounded-pill post-taxonomy">rpc</a><a href="/tags/rpc/" class="badge rounded-pill post-taxonomy">rpc</a></span>
+</div>
+<div class="post-summary">
+          RPC原理解析 简介： RPC 的全称是 Remote Procedure Call，即远程过程调用
+具有以下作用：
+ 屏蔽远程调用跟本地调用的区别，让我们感觉就是调用项目内的方法； 隐藏底层网络通信的复杂性，让我们更专注于业务逻辑。  TIPs:
+ 使用rpc的场景是否合适， 什么是否需要开启压缩，根据配置，根据部署机器配置，根据网络环境，根据传输数据大小 调用过程超时处理，以及失败重试机制，例如dubbo的failfast，failover等 服务集群注意点  服务注册，发现，服务注册中心 服务治理，服务分组，服务别名，服务限流，服务降级，服务调用链，链路跟踪 服务监控，调用链监控，方法监控，数据指标监控（TPS，调用量，可用 …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2021-03-21 00:00:00 &#43;0800 CST.">
+    2021-03-21
   </span><span class="post-reading-time">
     1 min read
-  </span><span class="post-taxonomies"><a href="/categories/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/" class="badge rounded-pill post-taxonomy">无人驾驶</a><a href="/tags/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/" class="badge rounded-pill post-taxonomy">无人驾驶</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/or/" class="badge rounded-pill post-taxonomy">OR</a><a href="/tags/vrp/" class="badge rounded-pill post-taxonomy">VRP</a><a href="/tags/tsp/" class="badge rounded-pill post-taxonomy">TSP</a></span>
 </div>
 <div class="post-summary">
-          <p>无人驾驶概述</p>
+          TSP，即Traveling Salesman Problem，也就是旅行商问题 ，又译为旅行推销员问题、货郎担问题 ，简称为TSP问题 ，是最基本的路线问题，该问题是在寻求单一旅行者由起点出发，通过所有给定的需求点之后，最后再回到原点的最小路径成本。最早的旅行商问题的数学规划是由Dantzig（1959）等人提出。
+二、
+有时间窗车辆路径问题（vehicle routing problems with time windows，VRPTW）车辆路线问题（VRP）最早是由Dantzig和Ramser于1959年首次提出，它是指一定数量的客户，各自有不同数量的货物需求，配送中心向客户提供货物，由一个车队负责分送货物，组织适当的行车路 …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/redis/%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AE%BE%E8%AE%A1/">缓存的使用和设计
+          <a href="/posts/note/%E5%AE%89%E8%A3%85flower/">安装flower
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2020-10-22 08:00:00 &#43;0800 CST.">
-    2020-10-22
-  </span><span class="post-reading-time">
-    2 min read
-  </span><span class="post-taxonomies"><a href="/categories/%E7%BC%93%E5%AD%98/" class="badge rounded-pill post-taxonomy">缓存</a><a href="/series/%E7%BC%93%E5%AD%98/" class="badge rounded-pill post-taxonomy">缓存</a><a href="/tags/%E7%BC%93%E5%AD%98/" class="badge rounded-pill post-taxonomy">缓存</a></span>
-</div>
-<div class="post-summary">
-          缓存的使用和设计 缓存的收益与成本 收益   加速读写
- 通过缓存加速读写：CPU L1/L2/L3 Cache，浏览器缓存，Ehcache缓存数据库结果    降低后端负载
- 后端服务器通过前端缓存降低负载：业务端使用Redis降低后端MySQL负载    成本   数据不一致
- 缓存层和数据层有时间窗口不一致，和更新策略有关    代码维护成本：多了一层缓存逻辑
-  运维成本：Redis Cluster
-  使用场景   降低后端负载
- 用于高消耗的SQL：join结果集/分组统计结果    加速请求响应
- 利用Redis/Memcache优化IO时间    大量写合并为批量写
- 计数器线Redis …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%841-tier/">软件架构1-Tier
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2020-02-03 00:00:00 &#43;0800 CST.">
-    2020-02-03
+  <span class="post-date" title="created on 2021-02-21 08:00:00 &#43;0800 CST.">
+    2021-02-21
   </span><span class="post-reading-time">
     1 min read
-  </span><span class="post-taxonomies"><a href="/categories/architecture-design/" class="badge rounded-pill post-taxonomy">architecture design</a><a href="/series/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/" class="badge rounded-pill post-taxonomy">软件架构</a><a href="/tags/architecture/" class="badge rounded-pill post-taxonomy">architecture</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
 </div>
 <div class="post-summary">
-          软件架构 软件开发过程的概述 在行业中，架构师、开发人员和产品所有者花费大量时间研究和讨论业务需求。在软件工程术语中，这被称为需求收集和分析。
-一旦我们完成了业务需求，我们坐下来讨论我们必须实现的用例。这包括尽早找出角落的情况&amp;将乐高积木组装在一起。
-如果您是文档的爱好者，您可能还想编写高级设计文档。现在，我们已经了解了业务需求、用例、拐角用例等等。现在开始研究如何选择合适的技术堆栈来实现用例。
-####　概念证明 POC
-POC帮助我们对技术和基本用例实现有一个更近、更实际的了解。我们将深入了解技术、性能或其他技术限制的利弊。
-如果我们使用的是全新的技术，那么学习曲线就会有所帮助，产品所有者、利益相关者等非技术人员也会有一 …
+          1.安装flower: pip install flower 1 2. 启动flower 例如启动项目工程下面celery_tasks目录的main.py 异步任务启动函数
+flower -A celery_tasks.main --port=5555 1.安装Celery
+pip install celery
+2.编写task
+from celery import Celery app = Celery('tasks', broker='amqp://guest@localhost//') @app.task def add(x, y): return x + y 3.运行
+$ celery -A tasks worker …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/note/golang%E5%B0%8F%E8%AE%B0/">go语言小记
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2021-02-19 08:00:00 &#43;0800 CST.">
+    2021-02-19
+  </span><span class="post-reading-time">
+    12 min read
+  </span><span class="post-taxonomies"><a href="/categories/note/" class="badge rounded-pill post-taxonomy">note</a><a href="/tags/go/" class="badge rounded-pill post-taxonomy">go</a></span>
+</div>
+<div class="post-summary">
+          关于切片和slice的内存共享 package main import ( &#34;bufio&#34; &#34;bytes&#34; &#34;errors&#34; &#34;fmt&#34; _errors &#34;github.com/pkg/errors&#34; &#34;os&#34; &#34;reflect&#34; &#34;regexp&#34; &#34;strconv&#34; &#34;strings&#34; &#34;sync&#34; &#34;sync/atomic&#34; &#34;time&#34; ) func main() { /** * @Description: foo boo …
         </div>
       </div>
     </article></div><div class="row table-responsive mb-3">
@@ -384,13 +372,13 @@ POC帮助我们对技术和基本用例实现有一个更近、更实际的了�
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/15/">15</a>
+    <a class="page-link" href="/posts/page/17/">17</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/3/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/15/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/17/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
@@ -437,19 +425,19 @@ POC帮助我们对技术和基本用例实现有一个更近、更实际的了�
   </div>
   <div class="card-body">
     <ul class="post-list"><li>
+        <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+      </li><li>
+        <a href="/posts/note/gorm/">GORM学习
+</a>
+      </li><li>
         <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
       </li><li>
-        <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+        <a href="/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/">分布式互斥
 </a>
       </li><li>
-        <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
-</a>
-      </li><li>
-        <a href="/posts/java/servlet1/">Servlet1
-</a>
-      </li><li>
-        <a href="/posts/java/servlet2/">Servlet2
+        <a href="/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/">gRPC学习
 </a>
       </li></ul>
   </div>

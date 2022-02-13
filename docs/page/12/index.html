@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"
   >
   <head>
-	<meta name="generator" content="Hugo 0.81.0-DEV" />
+	<meta name="generator" content="Hugo 0.80.0" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Euraxluo Blog Page 12</title><link rel="apple-touch-icon" href="/images/icons/icon-180x180.png" sizes="180x180">
@@ -16,7 +16,7 @@
 <meta property="og:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/" />
-<meta property="og:updated_time" content="2022-01-04T00:00:00+00:00" />
+<meta property="og:updated_time" content="2022-02-10T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Euraxluo Blog"/>
 <meta name="twitter:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java."/>
@@ -211,116 +211,123 @@ Euraxluo
 <div class="col-lg-8">
   <div class="container"><div class="posts mb-4"><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/java/jdbc2/">JDBC2
+          <a href="/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/">操作系统小记
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2018-12-20 08:00:00 &#43;0800 CST.">
-    2018-12-20
+  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
+    2019-02-21
   </span><span class="post-reading-time">
     1 min read
-  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/jdbc/" class="badge rounded-pill post-taxonomy">JDBC</a><a href="/tags/jdbc/" class="badge rounded-pill post-taxonomy">JDBC</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
 </div>
 <div class="post-summary">
-          业务场景1  过滤条件比较弱,一次读出多条记录 读取数据库表中的所有记录 海量数据读取  这些都容易产生内存溢出,为了不使得内存溢出,我们采用游标的方式
-游标:提供一种客户端读取部分服务器端结果集的机制 一个批次的大小为:Fetch Size
-游标的使用  开启游标,DB_URL的处理(加上useCursorFetch=true)  eg:
-jdbc:mysql://&lt;ip&gt;:&lt;port&gt;/&lt;database&gt;?useCursorFetch=true
- 使用PreparedStatement接口
-PreparedStatement接口继承自Statement接口,我们可以使 …
+          <p>操作系统小记</p>
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/java/jdbc3/">JDBC3
+          <a href="/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/">数学杂谈
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2018-12-20 08:00:00 &#43;0800 CST.">
-    2018-12-20
+  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
+    2019-02-21
   </span><span class="post-reading-time">
     1 min read
-  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/jdbc/" class="badge rounded-pill post-taxonomy">JDBC</a><a href="/tags/jdbc/" class="badge rounded-pill post-taxonomy">JDBC</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
 </div>
 <div class="post-summary">
-          1. execute,executeQuery,executeUdate的区别 JDBCTM中Statement接口提供的execute,executeQuery,executeUdate之间的区别:
-  executeQuery:
-用于产生单个结果集的语句,例如SELECT语句,使用最多的方法
-  executeUpdate:
-用于执行INSERT,UPDATE,DELETE语句以及DDL语言,返回值是一个整数,指示受影响的行
-  execute:
-用于执行返回多个结果集,多个更新技术或者两者皆有的语句
-  2. SQL注入 防范措施:
-  使用动态封装的方式会导致SQL注入的风险,我们应该使用prepareStatement提供 …
+          数学杂谈 欧氏空间：在实数域上的有限的内积向量空间对加法和数乘封闭
+意思是。在“向量空间”V这个向量集合中：
+①。任意取V的两个向量α，β。则α+β∈V，[这叫V对加法封闭]
+②，任意取V的一个向量α，及一个实数k.则kα∈V，[这叫V对数乘封闭]
+** 距离和空间 **
+傅里叶分析之掐死教程（完整版）更新于2014.06.06 
+欧拉公式 
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/architecture_design/mvc/">MVC分层模型
+          <a href="/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/">简易服务器
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2018-11-20 00:00:00 &#43;0800 CST.">
-    2018-11-20
+  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
+    2019-02-21
   </span><span class="post-reading-time">
     1 min read
-  </span><span class="post-taxonomies"><a href="/categories/architecture-design/" class="badge rounded-pill post-taxonomy">architecture design</a><a href="/tags/mvc/" class="badge rounded-pill post-taxonomy">mvc</a><a href="/tags/architecture/" class="badge rounded-pill post-taxonomy">architecture</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/.params.x/" class="badge rounded-pill post-taxonomy">{{.Params.x}}</a></span>
 </div>
 <div class="post-summary">
-          MVC分层模型 DAO 模式初识 PO(persistant object) 持久对象 在o/r映射的时候出现的概念，如果没有o/r映射，没有这个概念存在了。通常对应数据模型(数据库),本身还有部分业务逻辑的处理。可以看成是与数据库中的表相映射的java对象。最简单的PO就是对应数据库中某个表中的一条记录，多个记录可以用PO的集合。PO中应该不包含任何对数据库的操作。
-最形象的理解就是一个PO就是数据库中的一条记录。
-好处是可以把一条记录作为一个对象处理，可以方便的转为其它对象。
-VO(value object) 值对象 通常用于业务层之间的数据传递，和PO一样也是仅仅包含数据而已。但应是抽象出的业务对象,可以和表对应,也可以不,这 …
+          简易服务器  创建套接字 填充数据结构 绑定端口 监听，accept 获得accept的句柄并处理 封装resp字符串 写回到accept的句柄中  2.C标准函数
+1.int2float to string/array:
+C语言提供了几个标准库函数，可以将任意类型(整型、长整型、浮点型等)的数字转换为字符串，下面列举了各函数的方法及其说明。 ● itoa()：将整型值转换为字符串。 ● ltoa()：将长整型值转换为字符串。 ● ultoa()：将无符号长整型值转换为字符串。 ● gcvt()：将浮点型数转换为字符串，取四舍五入。 ● ecvt()：将双精度浮点型值转换为字符串，转换结果中不包含十进制小数点。 ● fcvt()：指 …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/java/jsp%E5%AD%A6%E4%B9%A0/">JSP
+          <a href="/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/">语料处理基础
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2018-10-29 08:00:00 &#43;0800 CST.">
-    2018-10-29
+  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
+    2019-02-21
   </span><span class="post-reading-time">
-    6 min read
-  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/jsp/" class="badge rounded-pill post-taxonomy">JSP</a><a href="/tags/jsp/" class="badge rounded-pill post-taxonomy">JSP</a></span>
+    4 min read
+  </span><span class="post-taxonomies"><a href="/categories/nlp/" class="badge rounded-pill post-taxonomy">NLP</a><a href="/series/nlp/" class="badge rounded-pill post-taxonomy">NLP</a><a href="/tags/nlp/" class="badge rounded-pill post-taxonomy">NLP</a></span>
 </div>
 <div class="post-summary">
-          jsp  Java Server Page
-  什么是jsp   从用户角度看待 ，就是是一个网页 ， 从程序员角度看待 ， 其实是一个java类， 它继承了servlet，所以可以直接说jsp 就是一个Servlet.
-  为什么会有jsp?   html 多数情况下用来显示静态内容 ， 一成不变的。 但是有时候我们需要在网页上显示一些动态数据， 比如： 查询所有的学生信息， 根据姓名去查询具体某个学生。 这些动作都需要去查询数据库，然后在网页上显示。 html是不支持写java代码 ， jsp里面可以写java代码。
- java服务器页面
- jsp = html+java+JSP tag   处理流程：浏览器客户端向服务器发起请 …
+          语料处理流程 语料收集 &gt; 语料清洗 &gt; 句子向量编码化 &gt; 语料问答对构建 &gt; 语料的模型保存 &gt; 结束 语料收集   聊天记录
+  电影对话
+  台词片断
+  语料清洗  要清洗的内容
+   多余的空格
+  不正规的符号
+  多余的字符,英文
+   清洗的方法
+   正则化
+  切分
+  好坏语句判断
+  语料问答对的构建  问答对的处理和拆分  句子向量的编码化   原始文本不能直接训练
+  将句子转化为向量
+  将向量转换为句子
+  语料模型的保存   使用pickle来保存模型
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">Linux基础
+          <a href="/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/">逆波兰式
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2018-10-29 08:00:00 &#43;0800 CST.">
-    2018-10-29
+  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
+    2019-02-21
   </span><span class="post-reading-time">
-    3 min read
-  </span><span class="post-taxonomies"><a href="/categories/linux/" class="badge rounded-pill post-taxonomy">Linux</a><a href="/series/linux/" class="badge rounded-pill post-taxonomy">Linux</a><a href="/tags/linux/" class="badge rounded-pill post-taxonomy">Linux</a></span>
+    2 min read
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
 </div>
 <div class="post-summary">
-          Linux基础 文件基本属性 ll/ls -l 显示一个文件的属性以及文件所属的用户组
-eg: [root@www /]# ls -l total 64 dr-xr-xr-x 2 root root 4096 Dec 14 2012 bin dr-xr-xr-x 4 root root 4096 Apr 19 2012 boot …… bin 以d开头,表示这是一个目录
-当为[-]是文件当为[l]表示为link file当为[b]表示为可以进行存取的接口设备当为[c]表示为串行端口设备接下来以3个为一组,且均为[rwx]的组合,位置次序不变
-[r]表示可读,[w]可写,[x]可执行,如果没有这个权限,就会用[-]代替.
- …
+          逆波兰式 定义 一个表达式E的后缀形式可以如下定义：
+（1）如果E是一个变量或常量，则E的后缀式是E本身。
+（2）如果E是E1 op E2形式的表达式，这里op是如何二元操作符，则E的后缀式为E1&rsquo;E2' op，这里E1&rsquo;和E2&rsquo;分别为E1和E2的后缀式。
+（3)如果E是（E1）形式的表达式，则E1的后缀式就是E的后缀式。
+如：我们平时写a+b，这是中缀表达式，写成后缀表达式就是：ab+
+(a+b)*c-(a+b)/e的后缀表达式为：
+(a+b)*c-(a+b)/e
+→((a+b)*c)((a+b)/e)-
+→((a+b)c*)((a+b)e/)-
+→(ab+c*)(ab+e/)- …
         </div>
       </div>
     </article></div><div class="row table-responsive mb-3">
@@ -356,13 +363,13 @@ eg: [root@www /]# ls -l total 64 dr-xr-xr-x 2 root root 4096 Dec 14 2012 bin dr-
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/page/15/">15</a>
+    <a class="page-link" href="/page/17/">17</a>
   </li>
   <li class="page-item">
     <a href="/page/13/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/page/15/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/page/17/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
@@ -409,19 +416,19 @@ eg: [root@www /]# ls -l total 64 dr-xr-xr-x 2 root root 4096 Dec 14 2012 bin dr-
   </div>
   <div class="card-body">
     <ul class="post-list"><li>
+        <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+      </li><li>
+        <a href="/posts/note/gorm/">GORM学习
+</a>
+      </li><li>
         <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
       </li><li>
-        <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+        <a href="/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/">分布式互斥
 </a>
       </li><li>
-        <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
-</a>
-      </li><li>
-        <a href="/posts/java/servlet1/">Servlet1
-</a>
-      </li><li>
-        <a href="/posts/java/servlet2/">Servlet2
+        <a href="/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/">gRPC学习
 </a>
       </li></ul>
   </div>

@@ -15,7 +15,7 @@
 <meta property="og:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/posts/" />
-<meta property="og:updated_time" content="2022-01-04T00:00:00+00:00" />
+<meta property="og:updated_time" content="2022-02-10T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="posts"/>
 <meta name="twitter:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java."/>
@@ -218,6 +218,8 @@ Euraxluo
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/database/">database</a>
     </li><li class="nav-item post-section">
+      <a class="nav-link" href="/posts/distributed/">distributed</a>
+    </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/driverless/">driverless</a>
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/go/">go</a>
@@ -240,6 +242,8 @@ Euraxluo
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/ros/">ros</a>
     </li><li class="nav-item post-section">
+      <a class="nav-link" href="/posts/rpc/">rpc</a>
+    </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/shell/">shell</a>
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/tensorflow/">tensorflow</a>
@@ -248,7 +252,35 @@ Euraxluo
     </li></ul>
 </div><div class="posts mb-4"><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/">Shell 进阶
+          <a href="/posts/redis/redissentinel/">Redis Sentinel
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
+    2019-03-10
+  </span><span class="post-reading-time">
+    2 min read
+  </span><span class="post-taxonomies"><a href="/categories/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/series/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/tags/redis/" class="badge rounded-pill post-taxonomy">redis</a></span>
+</div>
+<div class="post-summary">
+          Redis Sentinel 主从复制的问题   手动故障转移
+  写能力和存储能力受限
+  Redis Sentinel架构   有多个Sentinel节点
+  不用来存储数据
+  多个节点判断master节点的故障，进行故障转移
+  保证高可用，即便一个Sentinel节点挂点也没事
+  客户端只会记录sentinel的地址（因为sentinel会进行故障转移，master节点地址不固定）
+  一套sentinel可以监控多套master-slave，利用master-name作为标识
+  Sentinel的故障转移   多个sentinel发现并确认master有问题
+  选举出一个sentinel作为领导
+  选出一 …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/redis/redis%E5%9F%BA%E7%A1%80/">Redis基础学习
 </a>
         </h2>
       </div>
@@ -258,120 +290,97 @@ Euraxluo
     2019-03-10
   </span><span class="post-reading-time">
     5 min read
-  </span><span class="post-taxonomies"><a href="/categories/shell/" class="badge rounded-pill post-taxonomy">Shell</a><a href="/series/shell/" class="badge rounded-pill post-taxonomy">Shell</a><a href="/tags/shell/" class="badge rounded-pill post-taxonomy">Shell</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/series/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/tags/redis/" class="badge rounded-pill post-taxonomy">redis</a></span>
 </div>
 <div class="post-summary">
-          shell进阶  破壳漏洞
-env x='() { :;}; echo shellshocked' bash –c &quot;echo test&quot;检查,如果输出了两行,那么需要升级bash的版本
-  解释器的类型
-    系统中的shells使用cat /etc/shells查看:
-/bin/sh /bin/dash /bin/bash /bin/rbash /usr/bin/tmux /usr/bin/screen /bin/zsh /usr/bin/zsh   设置解释器的类型 #!/bin/bash在文件的开头使用,内核会根据&quot;#!&ldquo;后的解释器来确定该用那个程序解释这个脚本中的内容
-  脚本的 …
+          Redis基础学习 Redis是一个key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)、zset(sorted set &ndash;有序集合)和hash（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。 …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/redis/redis%E9%85%8D%E7%BD%AE/">Redis基础配置
+          <a href="/posts/redis/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">Redis的主从复制
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2019-03-08 08:00:00 &#43;0800 CST.">
-    2019-03-08
+  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
+    2019-03-10
   </span><span class="post-reading-time">
     2 min read
   </span><span class="post-taxonomies"><a href="/categories/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/series/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/tags/redis/" class="badge rounded-pill post-taxonomy">redis</a></span>
 </div>
 <div class="post-summary">
-          Redis的特点 速度快   使用内存
-  使用C语言
-  单线程
-  持久化  对数据的更新，异步保存到磁盘上  多种数据结构   strings/Blobs/Bitmaps
-  Hash Tables
-  Linked Lists
-  Sets
-  Sorted Sets
-  BitMaps
-  HyperLogLog(超小内存唯一值计数)
-  GEO
-  多语言支持 功能丰富   发布topic
-  支持lua脚本
-  支持简单的事务
-  支持pipeline
-  高可用，分布式 Redis初识   缓存
-  计数器
+          Redis的主从复制 单机部署的问题   机器故障（高可用）
+  容量瓶颈（分布式）
+  QPS瓶颈（分布式）
+  主从复制的作用   为一个数据提供了副本
+  slave从master复制一个备份库
+  master可以有多个slave
+  一个slave只能有一个master
+  数据流向是单向的，由master&ndash;&gt;slave
+  扩展读性能，可以实现读写分离
+  主从复制实现 slaveof slaveof 127.1 6380
+取消复制
+slaveof no one
+配置 #配置这个redis服务复制ip:port这个redis作为他的slave slaveof ip port #只读,必须保证从和主的内容 …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/">TensorFlow 基础
+          <a href="/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/">Redis的持久化
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-22 08:00:00 &#43;0800 CST.">
-    2019-02-22
-  </span><span class="post-reading-time">
-    3 min read
-  </span><span class="post-taxonomies"><a href="/categories/tensorflow/" class="badge rounded-pill post-taxonomy">TensorFlow</a><a href="/series/tensorflow/" class="badge rounded-pill post-taxonomy">TensorFlow</a><a href="/tags/tensorflow/" class="badge rounded-pill post-taxonomy">TensorFlow</a></span>
-</div>
-<div class="post-summary">
-          TensorFlow 基础 计算密集型(tensorflow) cpu计算
-io密集型(Django,Scrapy) http请求
-线性回归回顾  准备好特征和lable  y = x*0.7+0.8
-2.建模.随机初始化一个权重w,一个偏置b
-y_predict = wx+b
-求损失函数  less化损失函数
-(y-y_predict)^2/x.shape[0]
-4.梯度下降优化损失函数,我们需要查阅tensorflowAPI,制定合适的eta
-变量作用域 tf.variable_scope
-让变量显示可观测  收集变量    tf.summary.scalar(name='',tensor) #收集单值变量,name是变量 …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">TensorFlow 线性回归
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-22 08:00:00 &#43;0800 CST.">
-    2019-02-22
+  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
+    2019-03-10
   </span><span class="post-reading-time">
     2 min read
-  </span><span class="post-taxonomies"><a href="/categories/tensorflow/" class="badge rounded-pill post-taxonomy">TensorFlow</a><a href="/series/tensorflow/" class="badge rounded-pill post-taxonomy">TensorFlow</a><a href="/tags/tensorflow/" class="badge rounded-pill post-taxonomy">TensorFlow</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/series/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/tags/redis/" class="badge rounded-pill post-taxonomy">redis</a></span>
 </div>
 <div class="post-summary">
-          TensorFlow 线性回归 TensorFlow是一个编程系统,使用图(graphs)来表示计算任务,图(graphs)中的节点称之为op(operation),一个op获得0个或者多个Tensor,执行计算,产生0个或者多个Tensor.Tensor看做是一个n维的数组或者列表.图必须在会话Session里被启动
-##基本概念
-  使用图(graphs)来表示计算任务
-  在被称为会话(Session)的上下文(context)中执行图
-  使用张量(tensor)表示数据
-  通过变量(Vatria)维护状态
-  使用feed和fetch可以为任意的操作赋值或者从中获取数据
-  张量(Tensor)
-在TensorFlow …
+          Redis的持久化 Redis持久化作用 什么是持久化 redis的所有数据保存在内存中，对数据的更新回异步的保存在磁盘中
+持久化方式 快照   MySQL Dump
+  Redis RDB
+  日志   MySQL Binlog
+  Hbase HLog
+  Redis AOF
+  RDB持久化 什么是RDB redis可以通过命令，把当前数据库的状态保为一个RDB文件（二进制）
+也可以通过命令把硬盘上的RDB载入到redis中
+同时RDB文件也是一个复制的媒介
+触发机制 save   通过save命令让redis生成rdb文件，生成成功返回‘OK’
+  同步命令，阻塞命令，会导致服务器阻塞
+  会替换老的rdb文件
+  复杂 …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/">C&#43;&#43; 小记
+          <a href="/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/">Redis高级特性初识别
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
-    2019-02-21
+  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
+    2019-03-10
   </span><span class="post-reading-time">
-    1 min read
-  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
+    2 min read
+  </span><span class="post-taxonomies"><a href="/categories/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/series/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/tags/redis/" class="badge rounded-pill post-taxonomy">redis</a></span>
 </div>
 <div class="post-summary">
-          C++ 小记 CMAKE  工程构建工具  简单的使用  文件名大小写敏感 语法  cmake_minimum_required(VERSION 2.8)#设置cmake的版本 set(CMAKE_BUILD_TYPE Debug )#设置为debug模式 #项目名 PROJECT(HELLO)#设置某文件夹为头文件 include_directories(&#34;include&#34;)#设置一个头文件，把hello.cpp编译为libfile add_library(libfile src/hello.cpp)SET(SRC_LIST “fu nc.c”)# …
+          Redis高级特性初识 慢查询 客户端请求的生命周期   客户端发送命令
+  入队列
+  执行命令（慢查询在这一阶段）
+  返回客户端
+  （客户端超时，不一定是慢查询，慢查询只是客户端超时的一个可能）
+配置   slowlog-max-len，固定长度
+  slowlog-log-slower-than，慢查询阈值（单位微秒）
+=0，记录所有命令
+&lt;0，不记录任何命令
+  #1. 第一次开启配置 config get slowlog-max-len = 128 config get slowlog-log-slower-than = 10000 #2. 修改默认配置重启 #3. 动态配置 config set …
         </div>
       </div>
     </article></div><div class="row table-responsive mb-3">
@@ -407,13 +416,13 @@ y_predict = wx+b
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/15/">15</a>
+    <a class="page-link" href="/posts/page/17/">17</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/7/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/15/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/17/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
@@ -460,19 +469,19 @@ y_predict = wx+b
   </div>
   <div class="card-body">
     <ul class="post-list"><li>
+        <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+      </li><li>
+        <a href="/posts/note/gorm/">GORM学习
+</a>
+      </li><li>
         <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
       </li><li>
-        <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+        <a href="/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/">分布式互斥
 </a>
       </li><li>
-        <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
-</a>
-      </li><li>
-        <a href="/posts/java/servlet1/">Servlet1
-</a>
-      </li><li>
-        <a href="/posts/java/servlet2/">Servlet2
+        <a href="/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/">gRPC学习
 </a>
       </li></ul>
   </div>

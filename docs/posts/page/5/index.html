@@ -15,7 +15,7 @@
 <meta property="og:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/posts/" />
-<meta property="og:updated_time" content="2022-01-04T00:00:00+00:00" />
+<meta property="og:updated_time" content="2022-02-10T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="posts"/>
 <meta name="twitter:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java."/>
@@ -218,6 +218,8 @@ Euraxluo
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/database/">database</a>
     </li><li class="nav-item post-section">
+      <a class="nav-link" href="/posts/distributed/">distributed</a>
+    </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/driverless/">driverless</a>
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/go/">go</a>
@@ -240,6 +242,8 @@ Euraxluo
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/ros/">ros</a>
     </li><li class="nav-item post-section">
+      <a class="nav-link" href="/posts/rpc/">rpc</a>
+    </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/shell/">shell</a>
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/tensorflow/">tensorflow</a>
@@ -248,85 +252,28 @@ Euraxluo
     </li></ul>
 </div><div class="posts mb-4"><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/">Redis的持久化
+          <a href="/posts/database/hbase%E5%9F%BA%E7%A1%80/">Hbase基础-概念和安装
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
-    2019-03-10
+  <span class="post-date" title="created on 2019-12-20 08:00:00 &#43;0800 CST.">
+    2019-12-20
   </span><span class="post-reading-time">
-    2 min read
-  </span><span class="post-taxonomies"><a href="/categories/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/series/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/tags/redis/" class="badge rounded-pill post-taxonomy">redis</a></span>
+    4 min read
+  </span><span class="post-taxonomies"><a href="/categories/bigdata/" class="badge rounded-pill post-taxonomy">BigData</a><a href="/tags/hbase/" class="badge rounded-pill post-taxonomy">Hbase</a><a href="/tags/database/" class="badge rounded-pill post-taxonomy">database</a></span>
 </div>
 <div class="post-summary">
-          Redis的持久化 Redis持久化作用 什么是持久化 redis的所有数据保存在内存中，对数据的更新回异步的保存在磁盘中
-持久化方式 快照   MySQL Dump
-  Redis RDB
-  日志   MySQL Binlog
-  Hbase HLog
-  Redis AOF
-  RDB持久化 什么是RDB redis可以通过命令，把当前数据库的状态保为一个RDB文件（二进制）
-也可以通过命令把硬盘上的RDB载入到redis中
-同时RDB文件也是一个复制的媒介
-触发机制 save   通过save命令让redis生成rdb文件，生成成功返回‘OK’
-  同步命令，阻塞命令，会导致服务器阻塞
-  会替换老的rdb文件
-  复杂 …
+          Hbase 基本概念 Hbase 能做什么
+ 海量数据存储 准实时查询  HBase在实际业务场景中的应用
+ 交通:gps,摄像头信息 金融:交易信息 电商:交易信息,浏览信息,物流信息  HBase特点
+ 容量大:Hbase单表可以有百亿行,百万列,数据矩阵的横纵维度所支持的数据量级都十分具有弹性 面向列:HBase是面向列的存储和权限控制,并支持独立检索.列式存储,其数据在表中是按照某列存储的,这样在查询只需要少数几个字段的时候,能大大减少读取的数据量.并且 可以动态增加列 多版本:HBase每一列的数据存储有多个Version 稀疏性:为空的列并不占用存储空间,表可以设计的很稀疏 扩展性:底层依赖于HDFS(只需要增加机器就可 …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/">Redis高级特性初识别
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
-    2019-03-10
-  </span><span class="post-reading-time">
-    2 min read
-  </span><span class="post-taxonomies"><a href="/categories/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/series/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/tags/redis/" class="badge rounded-pill post-taxonomy">redis</a></span>
-</div>
-<div class="post-summary">
-          Redis高级特性初识 慢查询 客户端请求的生命周期   客户端发送命令
-  入队列
-  执行命令（慢查询在这一阶段）
-  返回客户端
-  （客户端超时，不一定是慢查询，慢查询只是客户端超时的一个可能）
-配置   slowlog-max-len，固定长度
-  slowlog-log-slower-than，慢查询阈值（单位微秒）
-=0，记录所有命令
-&lt;0，不记录任何命令
-  #1. 第一次开启配置 config get slowlog-max-len = 128 config get slowlog-log-slower-than = 10000 #2. 修改默认配置重启 #3. 动态配置 config set …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/ros/ros%E5%9F%BA%E7%A1%80/">ROS基础学习1
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
-    2019-03-10
-  </span><span class="post-reading-time">
-    1 min read
-  </span><span class="post-taxonomies"><a href="/categories/ros/" class="badge rounded-pill post-taxonomy">ROS</a><a href="/series/ros/" class="badge rounded-pill post-taxonomy">ROS</a><a href="/tags/ros/" class="badge rounded-pill post-taxonomy">ROS</a></span>
-</div>
-<div class="post-summary">
-          利用enve使用在ros中使用python3 因为ros的python有很多依赖需要使用C，python3的支持不太好。我们可以让当前的环境变量依然是python2，为ros创建一个py3的enve来给它使用
-查看版本： pip -V pip3 -V python -V python3 -V 我的pip和python都是py2.7的
-接下来在你的工作空间中创建enve
-mkdir -p catkin_ws/src cd catkin_ws pip3 install virtualenv #先安装 virtualenv -p /usr/bin/python3 venv#创建一个名为enve的python3环境 source …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/ros/ros%E5%85%A5%E9%97%A8/">ROS基础学习2
+          <a href="/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Redis API及数据结构
 </a>
         </h2>
       </div>
@@ -336,31 +283,15 @@ mkdir -p catkin_ws/src cd catkin_ws pip3 install virtualenv #先安装 virtualen
     2019-03-10
   </span><span class="post-reading-time">
     3 min read
-  </span><span class="post-taxonomies"><a href="/categories/ros/" class="badge rounded-pill post-taxonomy">ROS</a><a href="/series/ros/" class="badge rounded-pill post-taxonomy">ROS</a><a href="/tags/ros/" class="badge rounded-pill post-taxonomy">ROS</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/series/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/tags/redis/" class="badge rounded-pill post-taxonomy">redis</a></span>
 </div>
 <div class="post-summary">
-          ROS 工作空间:组织和管理功能包的文件夹 catkin workspace
- build (cmake,catkin缓存中间件)
-  src(package 源代码)
-   package1(是catkin编译的基本单元)
-    package2
-    folder
-     package3
-      package3
-    devel(目标文件)
-   头文件
-    动态连接库
-    静态连接库
-    可执行文件
-  catkin(编译工具) catkin ROS定制的编译构建系统
-是对CMake的扩展
-常用命令:
-catkin_make:  初始化,建立工作空间
+          <p>本文介绍了redisApi以及数据结构</p>
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/shell/shell%E5%9F%BA%E7%A1%80/">Shell 基础
+          <a href="/posts/redis/rediscluster-1/">Redis Cluster
 </a>
         </h2>
       </div>
@@ -370,21 +301,77 @@ catkin_make:  初始化,建立工作空间
     2019-03-10
   </span><span class="post-reading-time">
     2 min read
-  </span><span class="post-taxonomies"><a href="/categories/shell/" class="badge rounded-pill post-taxonomy">Shell</a><a href="/series/shell/" class="badge rounded-pill post-taxonomy">Shell</a><a href="/tags/shell/" class="badge rounded-pill post-taxonomy">Shell</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/series/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/tags/redis/" class="badge rounded-pill post-taxonomy">redis</a></span>
 </div>
 <div class="post-summary">
-          shell 基础 在终端输入:sh进入脚本界面
-helloworld 编辑内容
-#!/bin/bashecho &quot;hello world!&quot;保存退出:
-w ~/helloworld.sh
-运行:
-chmod +x ~/helloworld.shcd ~./helloworld.sh执行结果:
-hello world!
-分析: 第一行中#!是一个约定的标记,告诉系统脚本需要使用什么解释器来执行,即使用哪一种shell
-这种在第一行指定了解释器信息的方式,需要让脚本作为可执行程序执行
-还有第二种运行方式,即作为解释器参数,这时,第一行的解释器信息,失效
-eg:python test.py
-shell 变 …
+          Redis Cluster 背景   并发量 &lt;10万dps
+  数据量 单机内存&lt;256G
+  带宽 网卡限制
+  解决方式   提高机器配置
+  分布式
+  数据分布 | 分布方式 | 特点 | 典型产品 |
+| &mdash;&mdash;&ndash; | &mdash;&mdash;&mdash;&mdash;&mdash;&ndash; | &mdash;&mdash;&ndash; |
+| 哈希分布 | 数据分散度高数据分布业务无关无法顺序访问支持批量操作 | 一致性哈希MemcacheRedis Cluster缓存产品 |
+| 顺序分布 | 数据分散度易倾斜键值业务相关可顺序访问支持批量操作 | …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/redis/rediscluster-2/">Redis Cluster 2
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
+    2019-03-10
+  </span><span class="post-reading-time">
+    1 min read
+  </span><span class="post-taxonomies"><a href="/categories/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/series/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/tags/redis/" class="badge rounded-pill post-taxonomy">redis</a></span>
+</div>
+<div class="post-summary">
+          集群伸缩 伸缩原理 伸：增加节点 缩：节点下线
+集群伸缩：槽和数据在节点之间的移动
+扩容集群  准备新节点    打开集群模式
+  配置和其他节点统一
+  启动后是孤立的节点
+  加入集群meet    在集群节点中配置：cluster meet 127.1 &lt;newnodeport&gt;
+  使用redis-trib.rb：
+  redis-trib.rb ad-node new_host:new_port existing_host:existing_port --slave --master_id &lt;arg&gt;{扩展参数是配置为从节点}
+  为它迁移槽和数据可以实现扩容
+  可以作为从节点负责故障转移
+  迁 …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/redis/rediscluster-3/">Redis Cluster 3
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
+    2019-03-10
+  </span><span class="post-reading-time">
+    2 min read
+  </span><span class="post-taxonomies"><a href="/categories/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/series/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/tags/redis/" class="badge rounded-pill post-taxonomy">redis</a></span>
+</div>
+<div class="post-summary">
+          RedisCluster 客户端使用 moved重定向   对任意节点发送键命令
+  节点会计算槽和对应节点确定这个键是否指向自身
+  如果指向自身，就执行命令，返回key所在的槽
+  否则就回复moved异常，客户端拿到这个moved后，重定向节点，重新发送命令
+  ASK重定向 解决槽迁移时客户端的查询问题
+  对源节点发送键命令
+  节点发现正在进行槽迁移，回复客户端ask转向
+  客户端对目标节点Asking，发送命令
+  目标节点返回响应结果
+  两者的区别   两者都是客户端重定向
+  moved：槽已经确定迁移
+  ask：槽还在迁移中
+  smart客户端 目标：追求性能（不能使用代理模式）
+  从集群中选取一个可运 …
         </div>
       </div>
     </article></div><div class="row table-responsive mb-3">
@@ -417,13 +404,13 @@ shell 变 …
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/15/">15</a>
+    <a class="page-link" href="/posts/page/17/">17</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/6/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/15/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/17/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
@@ -470,19 +457,19 @@ shell 变 …
   </div>
   <div class="card-body">
     <ul class="post-list"><li>
+        <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+      </li><li>
+        <a href="/posts/note/gorm/">GORM学习
+</a>
+      </li><li>
         <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
       </li><li>
-        <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+        <a href="/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/">分布式互斥
 </a>
       </li><li>
-        <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
-</a>
-      </li><li>
-        <a href="/posts/java/servlet1/">Servlet1
-</a>
-      </li><li>
-        <a href="/posts/java/servlet2/">Servlet2
+        <a href="/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/">gRPC学习
 </a>
       </li></ul>
   </div>

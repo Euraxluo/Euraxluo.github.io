@@ -15,7 +15,7 @@
 <meta property="og:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/posts/" />
-<meta property="og:updated_time" content="2022-01-04T00:00:00+00:00" />
+<meta property="og:updated_time" content="2022-02-10T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="posts"/>
 <meta name="twitter:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java."/>
@@ -218,6 +218,8 @@ Euraxluo
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/database/">database</a>
     </li><li class="nav-item post-section">
+      <a class="nav-link" href="/posts/distributed/">distributed</a>
+    </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/driverless/">driverless</a>
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/go/">go</a>
@@ -240,6 +242,8 @@ Euraxluo
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/ros/">ros</a>
     </li><li class="nav-item post-section">
+      <a class="nav-link" href="/posts/rpc/">rpc</a>
+    </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/shell/">shell</a>
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/tensorflow/">tensorflow</a>
@@ -248,109 +252,115 @@ Euraxluo
     </li></ul>
 </div><div class="posts mb-4"><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/java/mbatis%E5%9F%BA%E7%A1%80/">MyBatis
+          <a href="/posts/python/flask%E5%85%A5%E9%97%A8/">Flask入门
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2018-10-29 08:00:00 &#43;0800 CST.">
-    2018-10-29
+  <span class="post-date" title="created on 2019-02-14 08:00:00 &#43;0800 CST.">
+    2019-02-14
+  </span><span class="post-reading-time">
+    4 min read
+  </span><span class="post-taxonomies"><a href="/categories/flask/" class="badge rounded-pill post-taxonomy">Flask</a><a href="/series/flask/" class="badge rounded-pill post-taxonomy">Flask</a><a href="/tags/python/" class="badge rounded-pill post-taxonomy">Python</a><a href="/tags/flask/" class="badge rounded-pill post-taxonomy">Flask</a></span>
+</div>
+<div class="post-summary">
+          Flask 学习 入门： 最小的Flask 程序 from flask import Flask # 导入flask app = Flask(__name__)#使用单一的模块（如本例），你应该使用 __name__ @app.route(&#39;/hello&#39;) #route()装饰器 什么样子的URL能触发我们的函数 def hello_word(): return &#39;Hello Word!&#39;#返回我们想在浏览器中显示的内容 if __name__ == &#39;__main__&#39;: #确保服务器只会在该脚本被 Python 解释器直接执行的时候才会运行， …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/ros/ros%E5%AE%89%E8%A3%85/">Ubuntu18.04安装ROS
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2019-02-10 08:00:00 &#43;0800 CST.">
+    2019-02-10
   </span><span class="post-reading-time">
     1 min read
-  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/mybatis/" class="badge rounded-pill post-taxonomy">MyBatis</a><a href="/tags/mybatis/" class="badge rounded-pill post-taxonomy">MyBatis</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/ros/" class="badge rounded-pill post-taxonomy">ROS</a><a href="/series/ros/" class="badge rounded-pill post-taxonomy">ROS</a><a href="/tags/ros/" class="badge rounded-pill post-taxonomy">ROS</a></span>
 </div>
 <div class="post-summary">
-          MyBatis   一个ORM框架,(不直接建立java对象到关系数据库表数据的映射,而是建立对对象的操作方法到SQL的映射)支持自定义SQL,存储过程和高级映射的持久化框架
-  使用XML或者注解配置
-  能够映射基本数据元素,接口,Java对象到数据库
-  ORM(Object/Relation Mapping) 作用:持久化类与数据库表之间的映射关系,让我们对持久化对象的操作自动转换成对关系数据库操作
-通过映射,我们把关系数据库中的每一行都映射为对象,数据库的每一列就映射成了对象的属性
-##　三层架构：
-１.	接口层(数据查询接口,数据新增接口,数据更新接口,数据删除接口,获取配置接口)
-２.	数据处理层(参数映射,SQL解 …
+          Ubuntu18.04安装ROS 源配置: sudo sh -c '. /etc/lsb-release &amp;&amp; echo &quot;deb &lt;http://mirrors.ustc.edu.cn/ros/ubuntu/&gt; $DISTRIB_CODENAME main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list'更新: sudo apt-get update
+添加密匙: sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/">Python构建开源项目
+          <a href="/posts/java/jdbc1/">JDBC1
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2018-10-29 08:00:00 &#43;0800 CST.">
-    2018-10-29
-  </span><span class="post-reading-time">
-    2 min read
-  </span><span class="post-taxonomies"><a href="/categories/python/" class="badge rounded-pill post-taxonomy">Python</a><a href="/series/python/" class="badge rounded-pill post-taxonomy">Python</a><a href="/tags/python/" class="badge rounded-pill post-taxonomy">Python</a></span>
-</div>
-<div class="post-summary">
-          Python构建开源软件 python的构建工具setup.py的应用场景 一般在安装python模块的时候,我们会使用pip install 模块名进行在线安装,会安装依赖包,或者python setup.py install通过源码在本地安装,不会安装依赖包
-在做一个开源项目的时候遇到了一些问题: 我的程序需要用到python的Redis等模块,以及自己写的入口文件run.py,怎么实现可以在服务器上方便的发布,也就是说,可以让依赖和自己写的程序一起安装,同时将自己写的模块变成一个可执行文件
-###　setup.py
-示例以及注释:
-from setuptools import setup, find_packages …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/">Unix/Linux编程实践1
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2018-10-29 08:00:00 &#43;0800 CST.">
-    2018-10-29
+  <span class="post-date" title="created on 2018-12-20 08:00:00 &#43;0800 CST.">
+    2018-12-20
   </span><span class="post-reading-time">
     3 min read
-  </span><span class="post-taxonomies"><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="badge rounded-pill post-taxonomy">读书笔记</a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="badge rounded-pill post-taxonomy">读书笔记</a><a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="badge rounded-pill post-taxonomy">读书笔记</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/jdbc/" class="badge rounded-pill post-taxonomy">JDBC</a><a href="/tags/jdbc/" class="badge rounded-pill post-taxonomy">JDBC</a></span>
 </div>
 <div class="post-summary">
-          Unix/Linux 编程實踐教程 ##　什麼是系統編程
-系统资源  处理器  程序由指令构成,处理器是执行指令的硬件设备,一个系统中可能有多个处理器,内核可以安排一个程序何时开始开始执行,暂时停止,恢复执行,终止执行
-输入输出  程序中所有的输入输出都必须流经内核,集中处理,保证了系统的正确性,安全性,有效性
-进程管理  每个程序执行都必须有自己的资源,内核可以新建进程,中止进程,进程调度
-内存  程序必须被装载到内存中才能运行,内核可以对进程进行管理,在程序需要的时候给程序分配内存,当程序不需要时,回收内存,还可以保证内存不被其他进程非法访问.
-设备  各种设备的操作方式不相同,通过内核,可以屏蔽這種差异,使我们对设备的操作简单 …
+          jdbc  JAVA Database Connectivity java 数据库连接
+  为什么会出现JDBC   SUN公司提供的一种数据库访问规则、规范, 由于数据库种类较多，并且java语言使用比较广泛，sun公司就提供了一种规范，让其他的数据库提供商去实现底层的访问规则。 我们的java程序只要使用sun公司提供的jdbc驱动即可。
+ jdbc是一种接口规范
+优势:
+  简单
+  快捷
+  移植性
+  框架(在jdbc的基础上开发更好的框架)
+  jdbc Manager的上层JDBC API负责与java Application通信,JDBC Driver API 负责与具体的数据库通信(由数据库厂商开发和提供)
+API …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/python/pyquerystudy/">爬虫学习4
+          <a href="/posts/java/jdbc2/">JDBC2
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2018-10-22 08:00:00 &#43;0800 CST.">
-    2018-10-22
+  <span class="post-date" title="created on 2018-12-20 08:00:00 &#43;0800 CST.">
+    2018-12-20
   </span><span class="post-reading-time">
-    4 min read
-  </span><span class="post-taxonomies"><a href="/categories/%E7%88%AC%E8%99%AB/" class="badge rounded-pill post-taxonomy">爬虫</a><a href="/series/pathon/" class="badge rounded-pill post-taxonomy">Pathon</a><a href="/tags/%E7%88%AC%E8%99%AB/" class="badge rounded-pill post-taxonomy">爬虫</a><a href="/tags/pathon/" class="badge rounded-pill post-taxonomy">Pathon</a></span>
+    1 min read
+  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/jdbc/" class="badge rounded-pill post-taxonomy">JDBC</a><a href="/tags/jdbc/" class="badge rounded-pill post-taxonomy">JDBC</a></span>
 </div>
 <div class="post-summary">
-          PyQuery 初始化 %%html &lt;div id = &#34;container&#34;&gt; &lt;ul class=&#34;list&#34;&gt; &lt;li class = &#34;item-0&#34;&gt;frist item&lt;/li&gt; &lt;li class = &#34;item-1&#34;&gt;&lt;a href=&#34;link2.html&#34;&gt;second item&lt;/a&gt;&lt;/li&gt; &lt;li class = &#34;item-0 active&#34;&gt;&lt;a …
+          业务场景1  过滤条件比较弱,一次读出多条记录 读取数据库表中的所有记录 海量数据读取  这些都容易产生内存溢出,为了不使得内存溢出,我们采用游标的方式
+游标:提供一种客户端读取部分服务器端结果集的机制 一个批次的大小为:Fetch Size
+游标的使用  开启游标,DB_URL的处理(加上useCursorFetch=true)  eg:
+jdbc:mysql://&lt;ip&gt;:&lt;port&gt;/&lt;database&gt;?useCursorFetch=true
+ 使用PreparedStatement接口
+PreparedStatement接口继承自Statement接口,我们可以使 …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/message_queue/rabbitmq_%E5%85%A5%E9%97%A8/">RabbitMQ-入门
+          <a href="/posts/java/jdbc3/">JDBC3
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2018-10-22 00:00:00 &#43;0800 CST.">
-    2018-10-22
+  <span class="post-date" title="created on 2018-12-20 08:00:00 &#43;0800 CST.">
+    2018-12-20
   </span><span class="post-reading-time">
-    4 min read
-  </span><span class="post-taxonomies"><a href="/categories/message-queue/" class="badge rounded-pill post-taxonomy">message queue</a><a href="/series/message-queue/" class="badge rounded-pill post-taxonomy">message queue</a><a href="/tags/rabbitmq/" class="badge rounded-pill post-taxonomy">RabbitMQ</a><a href="/tags/python/" class="badge rounded-pill post-taxonomy">Python</a></span>
+    1 min read
+  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/jdbc/" class="badge rounded-pill post-taxonomy">JDBC</a><a href="/tags/jdbc/" class="badge rounded-pill post-taxonomy">JDBC</a></span>
 </div>
 <div class="post-summary">
-          RbbitMQ 学习笔记 AMQP协议组成部分
- Module layer：协议最高层，定义了供客户端使用的命令 Session layer：中间层，负责将客户端的命令发送给服务端，再将服务端的命令返回给客户端，为客户端和服务端之间提供可靠的通信 Transport layer：最底层，包括二进制流的传输，帧处理，信道复用，错误检测  生产者使用AMQP的过程  Producter   建立连接 开启通道 发送消息 释放资源  消费者使用AMQP的过程  Consumer   建立连接 开启通道 准备接受消息 发送确认 释放资源  AMQP命令和javaAPI的对应 Connection.Start : …
+          1. execute,executeQuery,executeUdate的区别 JDBCTM中Statement接口提供的execute,executeQuery,executeUdate之间的区别:
+  executeQuery:
+用于产生单个结果集的语句,例如SELECT语句,使用最多的方法
+  executeUpdate:
+用于执行INSERT,UPDATE,DELETE语句以及DDL语言,返回值是一个整数,指示受影响的行
+  execute:
+用于执行返回多个结果集,多个更新技术或者两者皆有的语句
+  2. SQL注入 防范措施:
+  使用动态封装的方式会导致SQL注入的风险,我们应该使用prepareStatement提供 …
         </div>
       </div>
     </article></div><div class="row table-responsive mb-3">
@@ -382,14 +392,17 @@ from setuptools import setup, find_packages …
   <li class="page-item">
     <a class="page-link" href="/posts/page/14/">14</a>
   </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/15/">15</a>
+    <a class="page-link" href="/posts/page/17/">17</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/14/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/15/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/17/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
@@ -436,19 +449,19 @@ from setuptools import setup, find_packages …
   </div>
   <div class="card-body">
     <ul class="post-list"><li>
+        <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+      </li><li>
+        <a href="/posts/note/gorm/">GORM学习
+</a>
+      </li><li>
         <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
       </li><li>
-        <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+        <a href="/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/">分布式互斥
 </a>
       </li><li>
-        <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
-</a>
-      </li><li>
-        <a href="/posts/java/servlet1/">Servlet1
-</a>
-      </li><li>
-        <a href="/posts/java/servlet2/">Servlet2
+        <a href="/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/">gRPC学习
 </a>
       </li></ul>
   </div>

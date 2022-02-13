@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"
   >
   <head>
-	<meta name="generator" content="Hugo 0.81.0-DEV" />
+	<meta name="generator" content="Hugo 0.80.0" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Euraxluo Blog</title><link rel="apple-touch-icon" href="/images/icons/icon-180x180.png" sizes="180x180">
@@ -16,7 +16,7 @@
 <meta property="og:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/" />
-<meta property="og:updated_time" content="2022-01-04T00:00:00+00:00" />
+<meta property="og:updated_time" content="2022-02-10T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Euraxluo Blog"/>
 <meta name="twitter:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java."/>
@@ -211,6 +211,47 @@ Euraxluo
 <div class="col-lg-8">
   <div class="container"><div class="posts mb-4"><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
+          <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2022-02-10 08:00:00 &#43;0800 CST.">
+    2022-02-10
+  </span><span class="post-reading-time">
+    5 min read
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/etcd/" class="badge rounded-pill post-taxonomy">etcd</a></span>
+</div>
+<div class="post-summary">
+          连接客户端 config = clientv3.Config{ Endpoints: []string{&#34;127.0.0.1:2379&#34;}, // 集群列表  DialTimeout: 5 * time.Second, } // 建立一个客户端 if client, err = clientv3.New(config); err != nil { fmt.Println(err) return } put //PUT if putResp, err = kv.Put(context.TODO(), &#34;/prefix/keys/k1&#34;, &#34;v1&#34;, …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/note/gorm/">GORM学习
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2022-02-10 08:00:00 &#43;0800 CST.">
+    2022-02-10
+  </span><span class="post-reading-time">
+    17 min read
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/gorm/" class="badge rounded-pill post-taxonomy">gorm</a></span>
+</div>
+<div class="post-summary">
+          GORM 模型定义   模型实现了Scanner和Valuer接口
+  模型约定：
+  GORM 使用ID作为主键
+  如果不默认使用ID作为主键，应该使用标签primaryKey 指定
+  // 将 `UUID` 设为主键  type Animal struct { ID int64 UUID string `gorm:&#34;primaryKey&#34;` Name string Age int64 }     复合主键
+  type Product struct { ID string `gorm:&#34;primaryKey&#34;` LanguageCode string …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
           <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
         </h2>
@@ -229,100 +270,45 @@ Euraxluo
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+          <a href="/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/">分布式互斥
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2021-03-21 00:00:00 &#43;0800 CST.">
-    2021-03-21
+  <span class="post-date" title="created on 2021-11-23 08:00:00 &#43;0800 CST.">
+    2021-11-23
   </span><span class="post-reading-time">
     1 min read
-  </span><span class="post-taxonomies"><a href="/categories/or/" class="badge rounded-pill post-taxonomy">OR</a><a href="/tags/vrp/" class="badge rounded-pill post-taxonomy">VRP</a><a href="/tags/tsp/" class="badge rounded-pill post-taxonomy">TSP</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86/" class="badge rounded-pill post-taxonomy">分布式技术原理</a><a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86/" class="badge rounded-pill post-taxonomy">分布式技术原理</a></span>
 </div>
 <div class="post-summary">
-          TSP，即Traveling Salesman Problem，也就是旅行商问题 ，又译为旅行推销员问题、货郎担问题 ，简称为TSP问题 ，是最基本的路线问题，该问题是在寻求单一旅行者由起点出发，通过所有给定的需求点之后，最后再回到原点的最小路径成本。最早的旅行商问题的数学规划是由Dantzig（1959）等人提出。
-二、
-有时间窗车辆路径问题（vehicle routing problems with time windows，VRPTW）车辆路线问题（VRP）最早是由Dantzig和Ramser于1959年首次提出，它是指一定数量的客户，各自有不同数量的货物需求，配送中心向客户提供货物，由一个车队负责分送货物，组织适当的行车路 …
+          在分布式系统中，排他性的资源访问方式,就叫做分布式互斥（Distributed Mutual Exclusion）,而这种被互斥访问的共享资源，就叫做临界资源
+分布式系统中解决分布式互斥主要有以下几种方式
+集中式算法/中央服务器算法 我们引入一个协调者程序，得到一个分布式互斥算法。每个程序在需要访问临界资源时，先给协调者发送一个请求。 如果当前没有程序使用这个资源，协调者直接授权请求程序访问；否则，按照先来后到的顺序为请求程序“排一个号”。 如果有程序使用完资源，则通知协调者，协调者从“排号”的队列里取出排在最前面的请求，并给它发送授权消息。 拿到授权消息的程序，可以直接去访问临界资源。
+集中式算法示意图：
+如上图所示，协调者程序根 …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
+          <a href="/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/">gRPC学习
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2020-10-22 08:00:00 &#43;0800 CST.">
-    2020-10-22
-  </span><span class="post-reading-time">
-    1 min read
-  </span><span class="post-taxonomies"><a href="/categories/nlp/" class="badge rounded-pill post-taxonomy">NLP</a><a href="/series/nlp/" class="badge rounded-pill post-taxonomy">NLP</a><a href="/tags/nlp/" class="badge rounded-pill post-taxonomy">NLP</a></span>
-</div>
-<div class="post-summary">
-          NLP概览 什么是NLP   自然语言处理,是探讨如何处理及运用自然语言
-  自然语言认知,是让电脑明白人类的语言
-  自然语言处理主要包括:文本分析,信息检索,词性标注,问答系统QA
-  NLP技术  词法分析
- - 分词技术- 词性标注part-of-speech tagging- 命名实体识别NER(识别出3大类和7小类主要用于信息提取,QA,句法分析,机翻元数据标注)实体边界识别基于规则和词典进行识别(字典大小,新词?)基于统计的方法&gt;隐马尔科夫模型HMM&gt;较大熵ME&gt;支持向量机SVM&gt;条件随机场CRF确定实体类别(英文,中文需要先分词)- …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/java/servlet1/">Servlet1
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2020-10-22 08:00:00 &#43;0800 CST.">
-    2020-10-22
-  </span><span class="post-reading-time">
-    2 min read
-  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/java/" class="badge rounded-pill post-taxonomy">Java</a><a href="/tags/java/" class="badge rounded-pill post-taxonomy">Java</a></span>
-</div>
-<div class="post-summary">
-          Servlet HTTP协议 是客户端与服务器通信的一种方式
-参考链接 request: 请求行请求头请求体 response: 响应行响应头响应体 Get: GET用于信息获取，而且应该是安全的和幂等的
-  带上数据,在URL上面拼接
-www.baidu.com
-name = zhanshan
-age = 18
-url:www.baidu.com?name = zhanshan&amp;age = 18
-url可见
-  传输方式
-HTTP header
-  设计目的
-获取数据
-  具有安全隐患,GET方法不会改变服务器端数据，所以不会产生副作用
-  GET请求返回的内容可以被浏览器缓存起来
-  Post:   以流的方 …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/java/servlet2/">Servlet2
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2020-10-22 08:00:00 &#43;0800 CST.">
-    2020-10-22
+  <span class="post-date" title="created on 2021-11-22 08:00:00 &#43;0800 CST.">
+    2021-11-22
   </span><span class="post-reading-time">
     3 min read
-  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/java/" class="badge rounded-pill post-taxonomy">Java</a><a href="/tags/java/" class="badge rounded-pill post-taxonomy">Java</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/rpc/" class="badge rounded-pill post-taxonomy">rpc</a><a href="/series/rpc/" class="badge rounded-pill post-taxonomy">rpc</a><a href="/tags/rpc/" class="badge rounded-pill post-taxonomy">rpc</a><a href="/tags/grpc/" class="badge rounded-pill post-taxonomy">gRPC</a></span>
 </div>
 <div class="post-summary">
-          Cookie和Session 会话：浏览器发出http请求。服务器接受，对请求进行响应，浏览器接受http响应
-Cookie 把会话数据保存在浏览器客户端
-服务器第一次访问时，服务端生成cookie，并且把这个cookie通过响应，发送给客户端，客户端把cookie保存下来，以便在最近的下一次访问中使用
-缺点
-  Cookie有大小和数量的限制
-  明文传递有风险
-  //创建Cookie对象  Cookie userNameCookie = new Cookie(&#34;userName&#34;,userName); Cookie userPasswordCookie = new …
+          gRPC概述   概览
+gRPC是Google开发并开源的一套语言中立的RPC框架
+  特点
+ 语言中立 基于IDL文件定义服务，通过proto3工具生成指定语言的数据结构，服务端接口以及客户端Stub 通信协议基于标准的HTTP/2设计，支持双向流，消息头压缩，单TCP的多路复用，服务端推送等特性，可以在移动端设备上更加省电和节省流量 序列化支持Protocol Buffer 和JSON协议，该协议是一种语言无关的高性能序列化框架    服务端创建流程 gRPC服务端java版本的实现使用了Build模式，对底层服务绑定，transportServer和NettyServer的创建和实例化都做了封装和屏蔽，让服务调用者不用关 …
         </div>
       </div>
     </article></div><div class="row table-responsive mb-3">
@@ -346,13 +332,13 @@ Cookie 把会话数据保存在浏览器客户端
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/page/15/">15</a>
+    <a class="page-link" href="/page/17/">17</a>
   </li>
   <li class="page-item">
     <a href="/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/page/15/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/page/17/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
@@ -399,19 +385,19 @@ Cookie 把会话数据保存在浏览器客户端
   </div>
   <div class="card-body">
     <ul class="post-list"><li>
+        <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+      </li><li>
+        <a href="/posts/note/gorm/">GORM学习
+</a>
+      </li><li>
         <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
       </li><li>
-        <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+        <a href="/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/">分布式互斥
 </a>
       </li><li>
-        <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
-</a>
-      </li><li>
-        <a href="/posts/java/servlet1/">Servlet1
-</a>
-      </li><li>
-        <a href="/posts/java/servlet2/">Servlet2
+        <a href="/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/">gRPC学习
 </a>
       </li></ul>
   </div>

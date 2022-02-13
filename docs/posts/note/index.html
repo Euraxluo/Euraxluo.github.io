@@ -15,7 +15,7 @@
 <meta property="og:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/posts/note/" />
-<meta property="og:updated_time" content="2022-01-04T00:00:00+00:00" />
+<meta property="og:updated_time" content="2022-02-10T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="note"/>
 <meta name="twitter:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java."/>
@@ -210,6 +210,47 @@ Euraxluo
 <div class="col-lg-8">
   <div class="container"><div class="posts mb-4"><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
+          <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2022-02-10 08:00:00 &#43;0800 CST.">
+    2022-02-10
+  </span><span class="post-reading-time">
+    5 min read
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/etcd/" class="badge rounded-pill post-taxonomy">etcd</a></span>
+</div>
+<div class="post-summary">
+          连接客户端 config = clientv3.Config{ Endpoints: []string{&#34;127.0.0.1:2379&#34;}, // 集群列表  DialTimeout: 5 * time.Second, } // 建立一个客户端 if client, err = clientv3.New(config); err != nil { fmt.Println(err) return } put //PUT if putResp, err = kv.Put(context.TODO(), &#34;/prefix/keys/k1&#34;, &#34;v1&#34;, …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/note/gorm/">GORM学习
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2022-02-10 08:00:00 &#43;0800 CST.">
+    2022-02-10
+  </span><span class="post-reading-time">
+    17 min read
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/gorm/" class="badge rounded-pill post-taxonomy">gorm</a></span>
+</div>
+<div class="post-summary">
+          GORM 模型定义   模型实现了Scanner和Valuer接口
+  模型约定：
+  GORM 使用ID作为主键
+  如果不默认使用ID作为主键，应该使用标签primaryKey 指定
+  // 将 `UUID` 设为主键  type Animal struct { ID int64 UUID string `gorm:&#34;primaryKey&#34;` Name string Age int64 }     复合主键
+  type Product struct { ID string `gorm:&#34;primaryKey&#34;` LanguageCode string …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
           <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
         </h2>
@@ -228,94 +269,43 @@ Euraxluo
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/">C&#43;&#43; 小记
+          <a href="/posts/note/%E5%AE%89%E8%A3%85flower/">安装flower
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
-    2019-02-21
+  <span class="post-date" title="created on 2021-02-21 08:00:00 &#43;0800 CST.">
+    2021-02-21
   </span><span class="post-reading-time">
     1 min read
   </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
 </div>
 <div class="post-summary">
-          C++ 小记 CMAKE  工程构建工具  简单的使用  文件名大小写敏感 语法  cmake_minimum_required(VERSION 2.8)#设置cmake的版本 set(CMAKE_BUILD_TYPE Debug )#设置为debug模式 #项目名 PROJECT(HELLO)#设置某文件夹为头文件 include_directories(&#34;include&#34;)#设置一个头文件，把hello.cpp编译为libfile add_library(libfile src/hello.cpp)SET(SRC_LIST “fu nc.c”)# …
+          1.安装flower: pip install flower 1 2. 启动flower 例如启动项目工程下面celery_tasks目录的main.py 异步任务启动函数
+flower -A celery_tasks.main --port=5555 1.安装Celery
+pip install celery
+2.编写task
+from celery import Celery app = Celery('tasks', broker='amqp://guest@localhost//') @app.task def add(x, y): return x + y 3.运行
+$ celery -A tasks worker …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/note/chromedriver-%E5%AE%89%E8%A3%85/">chromedriver-安装
+          <a href="/posts/note/golang%E5%B0%8F%E8%AE%B0/">go语言小记
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
-    2019-02-21
+  <span class="post-date" title="created on 2021-02-19 08:00:00 &#43;0800 CST.">
+    2021-02-19
   </span><span class="post-reading-time">
-    1 min read
-  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/chromedriver/" class="badge rounded-pill post-taxonomy">chromedriver</a></span>
+    12 min read
+  </span><span class="post-taxonomies"><a href="/categories/note/" class="badge rounded-pill post-taxonomy">note</a><a href="/tags/go/" class="badge rounded-pill post-taxonomy">go</a></span>
 </div>
 <div class="post-summary">
-          ![reference])(https://blog.csdn.net/shuchuan0409/article/details/101615221)
-第一步：
-执行 sudo apt-get update 更新apt-get，耗时可能会比较久
-第二步：安装谷歌浏览器
-直接下载谷歌浏览器最新版：wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-安装：dpkg -i google-chrome-stable_current_amd64.deb
-如果不出意外，上面这一步一般都不会安装成功（但是也要执行）， …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/">Colab的使用
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
-    2019-02-21
-  </span><span class="post-reading-time">
-    1 min read
-  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/colab/" class="badge rounded-pill post-taxonomy">Colab</a></span>
-</div>
-<div class="post-summary">
-          首先是梯子 校园网改ipv6连接谷歌 1.修改SDN服务器
-在ipv6的sdn中设置这两个记录，也可以只设置一个
-2001:4860:4860::88882001:4860:4860::8844linux:修改/etc/resolv.conf
-2.修改hosts
-windows路径：%SystemRoot%\system32\drivers\etc\hosts
-linux:/etc/hosts
-ipv6 hosts 入门： 进入colab 因为我有基础，所以直接跳过了机器学习速成课部分，做了我在calab的第一个实验: 图像风格转换
-连接Colab和google drive !apt-get install -y -qq …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/">C语言小计
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
-    2019-02-21
-  </span><span class="post-reading-time">
-    2 min read
-  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/c/" class="badge rounded-pill post-taxonomy">C</a></span>
-</div>
-<div class="post-summary">
-          C语言小计 Unix C   内核-》系统调用-》shell/共用函数库-》应用程序
-  系统调用和库函数
-  库函数会调用系统调用来实现自己的算法
-  公用函数库构建在系统调用之上，应用程序既可以使公用函数库，也可以使用系统调用
-    口令文件：/etc/passwd 字段结构：
-登录名：加密口令：UID：GID：注释字段：起始目录：sell
-  文件系统：
- /是root目录 /和空字符不能出现在文件名字中，斜线用来分隔开构成路径名的各文件名，空字符用来终止一个路径名 工作目录：每个进程都有一个工作目录，所有的相对路径名都从工作目录开始解释，进程可以使用chdir()更改工作目录,以/开始的路径名是绝对路径名 登陆时工作目录设 …
+          关于切片和slice的内存共享 package main import ( &#34;bufio&#34; &#34;bytes&#34; &#34;errors&#34; &#34;fmt&#34; _errors &#34;github.com/pkg/errors&#34; &#34;os&#34; &#34;reflect&#34; &#34;regexp&#34; &#34;strconv&#34; &#34;strings&#34; &#34;sync&#34; &#34;sync/atomic&#34; &#34;time&#34; ) func main() { /** * @Description: foo boo …
         </div>
       </div>
     </article></div><div class="row table-responsive mb-3">
@@ -392,19 +382,19 @@ ipv6 hosts 入门： 进入colab 因为我有基础，所以直接跳过了机�
   </div>
   <div class="card-body">
     <ul class="post-list"><li>
+        <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+      </li><li>
+        <a href="/posts/note/gorm/">GORM学习
+</a>
+      </li><li>
         <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
       </li><li>
-        <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+        <a href="/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/">分布式互斥
 </a>
       </li><li>
-        <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
-</a>
-      </li><li>
-        <a href="/posts/java/servlet1/">Servlet1
-</a>
-      </li><li>
-        <a href="/posts/java/servlet2/">Servlet2
+        <a href="/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/">gRPC学习
 </a>
       </li></ul>
   </div>

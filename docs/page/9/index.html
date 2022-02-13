@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"
   >
   <head>
-	<meta name="generator" content="Hugo 0.81.0-DEV" />
+	<meta name="generator" content="Hugo 0.80.0" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Euraxluo Blog Page 9</title><link rel="apple-touch-icon" href="/images/icons/icon-180x180.png" sizes="180x180">
@@ -16,7 +16,7 @@
 <meta property="og:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/" />
-<meta property="og:updated_time" content="2022-01-04T00:00:00+00:00" />
+<meta property="og:updated_time" content="2022-02-10T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Euraxluo Blog"/>
 <meta name="twitter:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java."/>
@@ -211,7 +211,7 @@ Euraxluo
 <div class="col-lg-8">
   <div class="container"><div class="posts mb-4"><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/note/slam/">SLAM
+          <a href="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/">Colab的使用
 </a>
         </h2>
       </div>
@@ -221,18 +221,22 @@ Euraxluo
     2019-02-21
   </span><span class="post-reading-time">
     1 min read
-  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/colab/" class="badge rounded-pill post-taxonomy">Colab</a></span>
 </div>
 <div class="post-summary">
-          SLAM 相机
- 以一定的速率采集图像，形成视频  各类相机的区别  单目：无深度，需要其他手段估计 双目：通过视差计算深度 RGB-D：通过物理方法测量深度  相机的特点  以二维投影的形式记录了三维世界的信息 该过程丢掉了一个维度：距离 深度即第三维信息，对SLAM来说至关重要  VSLAM框架   前端：Visual Odometry 通过传感器数据计算，估计临近时刻的相机运动 方法：特征点法和直接法
-  后端：Optimization 从带有噪声的数据中估计最优轨迹与地图 滤波器，图优化，最大后验概率估计 非线性优化
-  回环：Loop Closing …
+          首先是梯子 校园网改ipv6连接谷歌 1.修改SDN服务器
+在ipv6的sdn中设置这两个记录，也可以只设置一个
+2001:4860:4860::88882001:4860:4860::8844linux:修改/etc/resolv.conf
+2.修改hosts
+windows路径：%SystemRoot%\system32\drivers\etc\hosts
+linux:/etc/hosts
+ipv6 hosts 入门： 进入colab 因为我有基础，所以直接跳过了机器学习速成课部分，做了我在calab的第一个实验: 图像风格转换
+连接Colab和google drive !apt-get install -y -qq …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/note/stream%E7%BC%96%E7%A8%8B/">stream编程
+          <a href="/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/">C语言小计
 </a>
         </h2>
       </div>
@@ -242,16 +246,49 @@ Euraxluo
     2019-02-21
   </span><span class="post-reading-time">
     2 min read
-  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/c/" class="badge rounded-pill post-taxonomy">C</a></span>
 </div>
 <div class="post-summary">
-          stream 编程
-import java.util.function.Consumer; import java.util.stream.Collectors; import java.util.stream.IntStream; import java.util.stream.Stream; Consumer&lt;String&gt; P = System.out::println;//消费者 // P.andThen(P.andThen(P)).accept(2);  /** * 流的创建 */ List&lt;String&gt; list = new ArrayList&lt;&gt;(); // …
+          C语言小计 Unix C   内核-》系统调用-》shell/共用函数库-》应用程序
+  系统调用和库函数
+  库函数会调用系统调用来实现自己的算法
+  公用函数库构建在系统调用之上，应用程序既可以使公用函数库，也可以使用系统调用
+    口令文件：/etc/passwd 字段结构：
+登录名：加密口令：UID：GID：注释字段：起始目录：sell
+  文件系统：
+ /是root目录 /和空字符不能出现在文件名字中，斜线用来分隔开构成路径名的各文件名，空字符用来终止一个路径名 工作目录：每个进程都有一个工作目录，所有的相对路径名都从工作目录开始解释，进程可以使用chdir()更改工作目录,以/开始的路径名是绝对路径名 登陆时工作目录设 …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/note/vslam/">VSLAM
+          <a href="/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/">IO模型小记
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
+    2019-02-21
+  </span><span class="post-reading-time">
+    1 min read
+  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/nio/" class="badge rounded-pill post-taxonomy">NIO</a></span>
+</div>
+<div class="post-summary">
+          BIO (block io) 同步阻塞IO
+线程池:伪异步IO,实际上也是同步阻塞IO
+NIO(同步非阻塞)
+selector会主动轮询,与客户端建立通信(channel)
+每一个server会有一个selector
+AIO(异步非阻塞)
+当客户端通知我(回调),我再去连接
+单线程模式:所有的IO操作都由同一个NIO线程处理
+主线程组,从单线程模型
+主从线程组模型,具有一个主线程族和从线程组,主线程组去建立channel,从线程组会去进行处理
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">java面试笔记
 </a>
         </h2>
       </div>
@@ -264,18 +301,15 @@ import java.util.function.Consumer; import java.util.stream.Collectors; import j
   </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
 </div>
 <div class="post-summary">
-          VSLAM ## project1 熟悉Linux   sudo apt-get install 安装软件，apt-get 下载后软件的路径一般为/var/cache/apt/archives
-具体的安装目录是由包维护者决定
-  可以通过echo $PATH查看当前的PATH，通过export PATH=$PATH:/XXX/XXX将需要的配置路径加入$PATH等号两边不能有空格
-  /usr/bin可执行文件 ，/usr/share文档的路径， /usr/liblib文件， /etc配置文件
-  chmod +x 文件名 为文件增加可执行权限
-  chown root filename 更改文件的所有者
-  SLAM …
+          java跨平台 实现java跨平台只需要在相应的平台安装对应的虚拟机，我们就可以使用统一的接口进行开发。
+java通过不同的系统，不同的版本，不同的位数，来屏蔽不同的系统指令集的差异，对外提供统一的接口
+java中int数据占几个字节   java中有几种基本数据类型？8种
+基本类型：byte 二进制位数：8 包装类：java.lang.Byte 最小值：Byte.MIN_VALUE=-128 最大值：Byte.MAX_VALUE=127 基本类型：short 二进制位数：16 包装类：java.lang.Short 最小值：Short.MIN_VALUE=-32768 最大值：Short.MAX_VALUE=32767 基本类 …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/">关于musicplayer
+          <a href="/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/">pattern:斑图
 </a>
         </h2>
       </div>
@@ -284,30 +318,22 @@ import java.util.function.Consumer; import java.util.stream.Collectors; import j
   <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
     2019-02-21
   </span><span class="post-reading-time">
-    10 min read
+    1 min read
   </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
 </div>
 <div class="post-summary">
-          关于musicplayer 首先给权限 &lt;!-- 网络权限 --&gt; &lt;uses-permission android:name=&#34;android.permission.INTERNET&#34;/&gt; &lt;uses-permission android:name=&#34;android.permission.READ_EXTERNAL_STORAGE&#34;/&gt; &lt;!-- 向SD卡写入数据权限 --&gt; &lt;uses-permission android:name=&#34;android.permission.WRITE_EXTERNAL_STORAGE&#34;/&gt; …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/note/%E5%85%B3%E4%BA%8Eviewpager/">关于ViewPager
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
-    2019-02-21
-  </span><span class="post-reading-time">
-    4 min read
-  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/notes/" class="badge rounded-pill post-taxonomy">notes</a></span>
-</div>
-<div class="post-summary">
-          关于ViewPager 使用方法：先在xml中定义
-&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt; &lt;android.support.design.widget.CoordinatorLayout xmlns:android=&#34;http://schemas.android.com/apk/res/android&#34; xmlns:tools=&#34;http://schemas.android.com/tools&#34; xmlns:app=&#34;http://schemas.android.com/apk/res-auto&#34; …
+          pattern:斑图
+是一种构型，是一种系统，不关心是使用的什么物质去实现
+把各种方法论抽取出来
+complexity:复杂性科学
+按照复杂性思维去设计虚拟世界
+ 仿真 层次 初始条件的影响 时间之箭？ 因果箭头  movie：黑客帝国，盗梦空间，时间之箭，超体，蝴蝶效应，前目的地
+book：失控
+我们需要对抗的是复杂系统
+根据用户去决定复杂系统
+设计的系统？ 涌现的系统？
+区块链：ai，算法管理社会
+奇点，技术奇点
         </div>
       </div>
     </article></div><div class="row table-responsive mb-3">
@@ -343,13 +369,13 @@ import java.util.function.Consumer; import java.util.stream.Collectors; import j
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/page/15/">15</a>
+    <a class="page-link" href="/page/17/">17</a>
   </li>
   <li class="page-item">
     <a href="/page/10/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/page/15/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/page/17/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
@@ -396,19 +422,19 @@ import java.util.function.Consumer; import java.util.stream.Collectors; import j
   </div>
   <div class="card-body">
     <ul class="post-list"><li>
+        <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+      </li><li>
+        <a href="/posts/note/gorm/">GORM学习
+</a>
+      </li><li>
         <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
       </li><li>
-        <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+        <a href="/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/">分布式互斥
 </a>
       </li><li>
-        <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
-</a>
-      </li><li>
-        <a href="/posts/java/servlet1/">Servlet1
-</a>
-      </li><li>
-        <a href="/posts/java/servlet2/">Servlet2
+        <a href="/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/">gRPC学习
 </a>
       </li></ul>
   </div>

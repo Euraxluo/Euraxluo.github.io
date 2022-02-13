@@ -17,6 +17,20 @@
     </item>
     
     <item>
+      <title>安装flower</title>
+      <link>/posts/note/%E5%AE%89%E8%A3%85flower/</link>
+      <pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/note/%E5%AE%89%E8%A3%85flower/</guid>
+      <description>1.安装flower: pip install flower 1 2. 启动flower 例如启动项目工程下面celery_tasks目录的main.py 异步任务启动函数
+flower -A celery_tasks.main --port=5555 1.安装Celery
+pip install celery
+2.编写task
+from celery import Celery app = Celery(&#39;tasks&#39;, broker=&#39;amqp://guest@localhost//&#39;) @app.task def add(x, y): return x + y 3.运行
+$ celery -A tasks worker --loglevel=info</description>
+    </item>
+    
+    <item>
       <title>C&#43;&#43; 小记</title>
       <link>/posts/note/c&#43;&#43;-%E5%B0%8F%E8%AE%B0/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>

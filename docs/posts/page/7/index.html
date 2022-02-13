@@ -15,7 +15,7 @@
 <meta property="og:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/posts/" />
-<meta property="og:updated_time" content="2022-01-04T00:00:00+00:00" />
+<meta property="og:updated_time" content="2022-02-10T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="posts"/>
 <meta name="twitter:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java."/>
@@ -218,6 +218,8 @@ Euraxluo
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/database/">database</a>
     </li><li class="nav-item post-section">
+      <a class="nav-link" href="/posts/distributed/">distributed</a>
+    </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/driverless/">driverless</a>
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/go/">go</a>
@@ -240,6 +242,8 @@ Euraxluo
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/ros/">ros</a>
     </li><li class="nav-item post-section">
+      <a class="nav-link" href="/posts/rpc/">rpc</a>
+    </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/shell/">shell</a>
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/tensorflow/">tensorflow</a>
@@ -248,125 +252,143 @@ Euraxluo
     </li></ul>
 </div><div class="posts mb-4"><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/">ChatBot模型基础
+          <a href="/posts/ros/ros%E5%9F%BA%E7%A1%80/">ROS基础学习1
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
-    2019-02-21
+  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
+    2019-03-10
   </span><span class="post-reading-time">
     1 min read
-  </span><span class="post-taxonomies"><a href="/categories/nlp/" class="badge rounded-pill post-taxonomy">NLP</a><a href="/series/nlp/" class="badge rounded-pill post-taxonomy">NLP</a><a href="/tags/nlp/" class="badge rounded-pill post-taxonomy">NLP</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/ros/" class="badge rounded-pill post-taxonomy">ROS</a><a href="/series/ros/" class="badge rounded-pill post-taxonomy">ROS</a><a href="/tags/ros/" class="badge rounded-pill post-taxonomy">ROS</a></span>
 </div>
 <div class="post-summary">
-          word2vec !(http://www.cnblogs.com/neopenx/p/4571996.html)(是个巨佬) !(https://blog.csdn.net/itplus/article/details/37969817)
-概率语言模型 概率语言模型 预测字符串概率,考虑动机,考虑计算方式
-  Unigram models(一元文法统计模型)
-  N-gram 语言模型(N元模型
-  N元模型 $P( w1,w2,&hellip;,w_m) = i&hellip;m(*) P(w_i|w1,&hellip;,w_(i-1)) = i&hellip;m(*) …
+          利用enve使用在ros中使用python3 因为ros的python有很多依赖需要使用C，python3的支持不太好。我们可以让当前的环境变量依然是python2，为ros创建一个py3的enve来给它使用
+查看版本： pip -V pip3 -V python -V python3 -V 我的pip和python都是py2.7的
+接下来在你的工作空间中创建enve
+mkdir -p catkin_ws/src cd catkin_ws pip3 install virtualenv #先安装 virtualenv -p /usr/bin/python3 venv#创建一个名为enve的python3环境 source …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/note/chromedriver-%E5%AE%89%E8%A3%85/">chromedriver-安装
+          <a href="/posts/ros/ros%E5%85%A5%E9%97%A8/">ROS基础学习2
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
-    2019-02-21
+  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
+    2019-03-10
   </span><span class="post-reading-time">
-    1 min read
-  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/chromedriver/" class="badge rounded-pill post-taxonomy">chromedriver</a></span>
+    3 min read
+  </span><span class="post-taxonomies"><a href="/categories/ros/" class="badge rounded-pill post-taxonomy">ROS</a><a href="/series/ros/" class="badge rounded-pill post-taxonomy">ROS</a><a href="/tags/ros/" class="badge rounded-pill post-taxonomy">ROS</a></span>
 </div>
 <div class="post-summary">
-          ![reference])(https://blog.csdn.net/shuchuan0409/article/details/101615221)
-第一步：
-执行 sudo apt-get update 更新apt-get，耗时可能会比较久
-第二步：安装谷歌浏览器
-直接下载谷歌浏览器最新版：wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-安装：dpkg -i google-chrome-stable_current_amd64.deb
-如果不出意外，上面这一步一般都不会安装成功（但是也要执行）， …
+          ROS 工作空间:组织和管理功能包的文件夹 catkin workspace
+ build (cmake,catkin缓存中间件)
+  src(package 源代码)
+   package1(是catkin编译的基本单元)
+    package2
+    folder
+     package3
+      package3
+    devel(目标文件)
+   头文件
+    动态连接库
+    静态连接库
+    可执行文件
+  catkin(编译工具) catkin ROS定制的编译构建系统
+是对CMake的扩展
+常用命令:
+catkin_make:  初始化,建立工作空间
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/">Colab的使用
+          <a href="/posts/shell/shell%E5%9F%BA%E7%A1%80/">Shell 基础
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
-    2019-02-21
-  </span><span class="post-reading-time">
-    1 min read
-  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/colab/" class="badge rounded-pill post-taxonomy">Colab</a></span>
-</div>
-<div class="post-summary">
-          首先是梯子 校园网改ipv6连接谷歌 1.修改SDN服务器
-在ipv6的sdn中设置这两个记录，也可以只设置一个
-2001:4860:4860::88882001:4860:4860::8844linux:修改/etc/resolv.conf
-2.修改hosts
-windows路径：%SystemRoot%\system32\drivers\etc\hosts
-linux:/etc/hosts
-ipv6 hosts 入门： 进入colab 因为我有基础，所以直接跳过了机器学习速成课部分，做了我在calab的第一个实验: 图像风格转换
-连接Colab和google drive !apt-get install -y -qq …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/">C语言小计
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
-    2019-02-21
+  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
+    2019-03-10
   </span><span class="post-reading-time">
     2 min read
-  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/c/" class="badge rounded-pill post-taxonomy">C</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/shell/" class="badge rounded-pill post-taxonomy">Shell</a><a href="/series/shell/" class="badge rounded-pill post-taxonomy">Shell</a><a href="/tags/shell/" class="badge rounded-pill post-taxonomy">Shell</a></span>
 </div>
 <div class="post-summary">
-          C语言小计 Unix C   内核-》系统调用-》shell/共用函数库-》应用程序
-  系统调用和库函数
-  库函数会调用系统调用来实现自己的算法
-  公用函数库构建在系统调用之上，应用程序既可以使公用函数库，也可以使用系统调用
-    口令文件：/etc/passwd 字段结构：
-登录名：加密口令：UID：GID：注释字段：起始目录：sell
-  文件系统：
- /是root目录 /和空字符不能出现在文件名字中，斜线用来分隔开构成路径名的各文件名，空字符用来终止一个路径名 工作目录：每个进程都有一个工作目录，所有的相对路径名都从工作目录开始解释，进程可以使用chdir()更改工作目录,以/开始的路径名是绝对路径名 登陆时工作目录设 …
+          shell 基础 在终端输入:sh进入脚本界面
+helloworld 编辑内容
+#!/bin/bashecho &quot;hello world!&quot;保存退出:
+w ~/helloworld.sh
+运行:
+chmod +x ~/helloworld.shcd ~./helloworld.sh执行结果:
+hello world!
+分析: 第一行中#!是一个约定的标记,告诉系统脚本需要使用什么解释器来执行,即使用哪一种shell
+这种在第一行指定了解释器信息的方式,需要让脚本作为可执行程序执行
+还有第二种运行方式,即作为解释器参数,这时,第一行的解释器信息,失效
+eg:python test.py
+shell 变 …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/">IO模型小记
+          <a href="/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/">Shell 进阶
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2019-02-21 08:00:00 &#43;0800 CST.">
-    2019-02-21
+  <span class="post-date" title="created on 2019-03-10 08:00:00 &#43;0800 CST.">
+    2019-03-10
   </span><span class="post-reading-time">
-    1 min read
-  </span><span class="post-taxonomies"><a href="/categories/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/series/notes/" class="badge rounded-pill post-taxonomy">notes</a><a href="/tags/nio/" class="badge rounded-pill post-taxonomy">NIO</a></span>
+    5 min read
+  </span><span class="post-taxonomies"><a href="/categories/shell/" class="badge rounded-pill post-taxonomy">Shell</a><a href="/series/shell/" class="badge rounded-pill post-taxonomy">Shell</a><a href="/tags/shell/" class="badge rounded-pill post-taxonomy">Shell</a></span>
 </div>
 <div class="post-summary">
-          BIO (block io) 同步阻塞IO
-线程池:伪异步IO,实际上也是同步阻塞IO
-NIO(同步非阻塞)
-selector会主动轮询,与客户端建立通信(channel)
-每一个server会有一个selector
-AIO(异步非阻塞)
-当客户端通知我(回调),我再去连接
-单线程模式:所有的IO操作都由同一个NIO线程处理
-主线程组,从单线程模型
-主从线程组模型,具有一个主线程族和从线程组,主线程组去建立channel,从线程组会去进行处理
+          shell进阶  破壳漏洞
+env x='() { :;}; echo shellshocked' bash –c &quot;echo test&quot;检查,如果输出了两行,那么需要升级bash的版本
+  解释器的类型
+    系统中的shells使用cat /etc/shells查看:
+/bin/sh /bin/dash /bin/bash /bin/rbash /usr/bin/tmux /usr/bin/screen /bin/zsh /usr/bin/zsh   设置解释器的类型 #!/bin/bash在文件的开头使用,内核会根据&quot;#!&ldquo;后的解释器来确定该用那个程序解释这个脚本中的内容
+  脚本的 …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/redis/redis%E9%85%8D%E7%BD%AE/">Redis基础配置
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2019-03-08 08:00:00 &#43;0800 CST.">
+    2019-03-08
+  </span><span class="post-reading-time">
+    2 min read
+  </span><span class="post-taxonomies"><a href="/categories/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/series/redis/" class="badge rounded-pill post-taxonomy">redis</a><a href="/tags/redis/" class="badge rounded-pill post-taxonomy">redis</a></span>
+</div>
+<div class="post-summary">
+          Redis的特点 速度快   使用内存
+  使用C语言
+  单线程
+  持久化  对数据的更新，异步保存到磁盘上  多种数据结构   strings/Blobs/Bitmaps
+  Hash Tables
+  Linked Lists
+  Sets
+  Sorted Sets
+  BitMaps
+  HyperLogLog(超小内存唯一值计数)
+  GEO
+  多语言支持 功能丰富   发布topic
+  支持lua脚本
+  支持简单的事务
+  支持pipeline
+  高可用，分布式 Redis初识   缓存
+  计数器
         </div>
       </div>
     </article></div><div class="row table-responsive mb-3">
@@ -402,13 +424,13 @@ AIO(异步非阻塞)
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/15/">15</a>
+    <a class="page-link" href="/posts/page/17/">17</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/8/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/15/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/17/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
@@ -455,19 +477,19 @@ AIO(异步非阻塞)
   </div>
   <div class="card-body">
     <ul class="post-list"><li>
+        <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+      </li><li>
+        <a href="/posts/note/gorm/">GORM学习
+</a>
+      </li><li>
         <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
       </li><li>
-        <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+        <a href="/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/">分布式互斥
 </a>
       </li><li>
-        <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
-</a>
-      </li><li>
-        <a href="/posts/java/servlet1/">Servlet1
-</a>
-      </li><li>
-        <a href="/posts/java/servlet2/">Servlet2
+        <a href="/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/">gRPC学习
 </a>
       </li></ul>
   </div>

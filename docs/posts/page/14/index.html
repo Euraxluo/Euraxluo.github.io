@@ -15,7 +15,7 @@
 <meta property="og:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/posts/" />
-<meta property="og:updated_time" content="2022-01-04T00:00:00+00:00" />
+<meta property="og:updated_time" content="2022-02-10T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="posts"/>
 <meta name="twitter:description" content="Euraxluo&#39;s Blog,Some post about python,cpp,go,java."/>
@@ -218,6 +218,8 @@ Euraxluo
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/database/">database</a>
     </li><li class="nav-item post-section">
+      <a class="nav-link" href="/posts/distributed/">distributed</a>
+    </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/driverless/">driverless</a>
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/go/">go</a>
@@ -240,6 +242,8 @@ Euraxluo
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/ros/">ros</a>
     </li><li class="nav-item post-section">
+      <a class="nav-link" href="/posts/rpc/">rpc</a>
+    </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/shell/">shell</a>
     </li><li class="nav-item post-section">
       <a class="nav-link" href="/posts/tensorflow/">tensorflow</a>
@@ -248,116 +252,114 @@ Euraxluo
     </li></ul>
 </div><div class="posts mb-4"><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/">爬虫学习1-概念及urllib2
+          <a href="/posts/architecture_design/mvc/">MVC分层模型
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2018-10-22 00:00:00 &#43;0800 CST.">
-    2018-10-22
-  </span><span class="post-reading-time">
-    2 min read
-  </span><span class="post-taxonomies"><a href="/categories/%E7%88%AC%E8%99%AB/" class="badge rounded-pill post-taxonomy">爬虫</a><a href="/series/python/" class="badge rounded-pill post-taxonomy">Python</a><a href="/tags/%E7%88%AC%E8%99%AB/" class="badge rounded-pill post-taxonomy">爬虫</a><a href="/tags/python/" class="badge rounded-pill post-taxonomy">Python</a></span>
-</div>
-<div class="post-summary">
-          前记：   爬虫：使用任何技术手段，批量获取网站信息的一种方式。关键在于批量。
-  反爬虫：使用任何技术手段，阻止别人批量获取自己网站信息的一种方式。关键也在于批量。
-  误伤：在反爬虫的过程中，错误的将普通用户识别为爬虫。误伤率高的反爬虫策略，效果再好也不能用。
-  拦截：成功地阻止爬虫访问。这里会有拦截率的概念。通常来说，拦截率越高的反爬虫策略，误伤的可能性就越高。因此需要做个权衡。
-  资源：机器成本与人力成本的总和。
-  url 管理器：管理待抓取url集合和已抓取url集合 个人：set(),python的set()可以自动去重
-大量带爬取url：关系数据库mysql
-互联网公司：缓存数据库(高性能)
-网页下载器： …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/">爬虫学习2-Requests库学习
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2018-10-22 00:00:00 &#43;0800 CST.">
-    2018-10-22
-  </span><span class="post-reading-time">
-    2 min read
-  </span><span class="post-taxonomies"><a href="/categories/%E7%88%AC%E8%99%AB/" class="badge rounded-pill post-taxonomy">爬虫</a><a href="/series/python/" class="badge rounded-pill post-taxonomy">Python</a><a href="/tags/%E7%88%AC%E8%99%AB/" class="badge rounded-pill post-taxonomy">爬虫</a><a href="/tags/python/" class="badge rounded-pill post-taxonomy">Python</a></span>
-</div>
-<div class="post-summary">
-          请求方法： r=requests.get(&#39;http://httpbin.org/get&#39;)#get r = requests.post(&#34;http://httpbin.org/post&#34;)#post r = requests.put(&#34;http://httpbin.org/put&#34;)#put r = requests.delete(&#34;http://httpbin.org/delete&#34;)#delect r = requests.head(&#34;http://httpbin.org/get&#34;)#head r = …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/">爬虫学习3-网页解析器
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2018-10-22 00:00:00 &#43;0800 CST.">
-    2018-10-22
-  </span><span class="post-reading-time">
-    2 min read
-  </span><span class="post-taxonomies"><a href="/categories/%E7%88%AC%E8%99%AB/" class="badge rounded-pill post-taxonomy">爬虫</a><a href="/series/python/" class="badge rounded-pill post-taxonomy">Python</a><a href="/tags/%E7%88%AC%E8%99%AB/" class="badge rounded-pill post-taxonomy">爬虫</a><a href="/tags/python/" class="badge rounded-pill post-taxonomy">Python</a></span>
-</div>
-<div class="post-summary">
-          BeautifulSoup解析器：    解析器 使用方法 条件     bs4的html解析器 BeautifulSoup(html,&lsquo;html.parser&rsquo;) 安装bs4   lxml的html解析器 BeautifulSoup(html,&lsquo;lxml&rsquo;) pip install lxml   lxml的xml解析器 BeautifulSoup(html,&lsquo;xml&rsquo;) pip install lxml   html5lib的解析器 BeautifulSoup(html,&lsquo;html5lib&rsquo;) pip install html5lib …
-        </div>
-      </div>
-    </article><article class="row card post component"><div class="card-header">
-        <h2 class="card-title post-title">
-          <a href="/posts/algorithm/%E6%95%B0%E7%BB%84/">数组
-</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-  <span class="post-date" title="created on 2018-10-20 00:00:00 &#43;0800 CST.">
-    2018-10-20
+  <span class="post-date" title="created on 2018-11-20 00:00:00 &#43;0800 CST.">
+    2018-11-20
   </span><span class="post-reading-time">
     1 min read
-  </span><span class="post-taxonomies"><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="badge rounded-pill post-taxonomy">读书笔记</a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="badge rounded-pill post-taxonomy">读书笔记</a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="badge rounded-pill post-taxonomy">数据结构</a></span>
+  </span><span class="post-taxonomies"><a href="/categories/architecture-design/" class="badge rounded-pill post-taxonomy">architecture design</a><a href="/tags/mvc/" class="badge rounded-pill post-taxonomy">mvc</a><a href="/tags/architecture/" class="badge rounded-pill post-taxonomy">architecture</a></span>
 </div>
 <div class="post-summary">
-          线性表(每个线性表上的数据最多只有前和后两个方向):数组,链表,队列,栈 非线性表(数据之间并不是简单的前后关系):二叉树,堆,图
-数组的概念 数组( Array )是一种线性表数据结构。它用一组连续的内存空间,来存储一组具有相同类型的数据。
-数组的特点 连续的内存空间和相同类型的数据
-数组的优点   随机访问:利用寻址公式对元素进行访问:
-a[i]_address = base_address + i * data_type_size
-  数组的查找操作时间复杂度不是O(1),即便是排好的数组,用二分查找,时间复杂度也是O(logn);正确的说法
-数组支持随机访问,根据下标随机访问的时间复杂度为O(1)
-  数组的缺点   低效的 …
+          MVC分层模型 DAO 模式初识 PO(persistant object) 持久对象 在o/r映射的时候出现的概念，如果没有o/r映射，没有这个概念存在了。通常对应数据模型(数据库),本身还有部分业务逻辑的处理。可以看成是与数据库中的表相映射的java对象。最简单的PO就是对应数据库中某个表中的一条记录，多个记录可以用PO的集合。PO中应该不包含任何对数据库的操作。
+最形象的理解就是一个PO就是数据库中的一条记录。
+好处是可以把一条记录作为一个对象处理，可以方便的转为其它对象。
+VO(value object) 值对象 通常用于业务层之间的数据传递，和PO一样也是仅仅包含数据而已。但应是抽象出的业务对象,可以和表对应,也可以不,这 …
         </div>
       </div>
     </article><article class="row card post component"><div class="card-header">
         <h2 class="card-title post-title">
-          <a href="/posts/algorithm/%E9%93%BE%E8%A1%A8/">链表
+          <a href="/posts/java/jsp%E5%AD%A6%E4%B9%A0/">JSP
 </a>
         </h2>
       </div>
       <div class="card-body">
         <div class="post-meta">
-  <span class="post-date" title="created on 2018-10-20 00:00:00 &#43;0800 CST.">
-    2018-10-20
+  <span class="post-date" title="created on 2018-10-29 08:00:00 &#43;0800 CST.">
+    2018-10-29
   </span><span class="post-reading-time">
-    2 min read
-  </span><span class="post-taxonomies"><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="badge rounded-pill post-taxonomy">读书笔记</a><a href="/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="badge rounded-pill post-taxonomy">读书笔记</a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="badge rounded-pill post-taxonomy">数据结构</a></span>
+    6 min read
+  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/jsp/" class="badge rounded-pill post-taxonomy">JSP</a><a href="/tags/jsp/" class="badge rounded-pill post-taxonomy">JSP</a></span>
 </div>
 <div class="post-summary">
-          单链表 data.next--&gt;data.next--&gt;NULL
-时间复杂度   插入节点:
-时间复杂度:O1
-  删除节点
-时间复杂度:O1
-  查找节点
-时间复杂度:O(n)
-链表想要随机访问第K个元素arr[k],需要根据指针一个一个找
-  双向链表 --&gt;prev.data.next&lt;==&gt;prev.data.next&lt;==&gt;prev.data.next 即支持两个方向,每个节点不知有一个后继指针next,还有一个前驱指针prev指向前面的结点
-空间复杂度 双向链表需要额外的两个空间来存储后继结点和其前驱结点的地址.所以,如果存储同样多的数据,双向链表要比单链表占用更多的内存空间.虽 …
+          jsp  Java Server Page
+  什么是jsp   从用户角度看待 ，就是是一个网页 ， 从程序员角度看待 ， 其实是一个java类， 它继承了servlet，所以可以直接说jsp 就是一个Servlet.
+  为什么会有jsp?   html 多数情况下用来显示静态内容 ， 一成不变的。 但是有时候我们需要在网页上显示一些动态数据， 比如： 查询所有的学生信息， 根据姓名去查询具体某个学生。 这些动作都需要去查询数据库，然后在网页上显示。 html是不支持写java代码 ， jsp里面可以写java代码。
+ java服务器页面
+ jsp = html+java+JSP tag   处理流程：浏览器客户端向服务器发起请 …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">Linux基础
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2018-10-29 08:00:00 &#43;0800 CST.">
+    2018-10-29
+  </span><span class="post-reading-time">
+    3 min read
+  </span><span class="post-taxonomies"><a href="/categories/linux/" class="badge rounded-pill post-taxonomy">Linux</a><a href="/series/linux/" class="badge rounded-pill post-taxonomy">Linux</a><a href="/tags/linux/" class="badge rounded-pill post-taxonomy">Linux</a></span>
+</div>
+<div class="post-summary">
+          Linux基础 文件基本属性 ll/ls -l 显示一个文件的属性以及文件所属的用户组
+eg: [root@www /]# ls -l total 64 dr-xr-xr-x 2 root root 4096 Dec 14 2012 bin dr-xr-xr-x 4 root root 4096 Apr 19 2012 boot …… bin 以d开头,表示这是一个目录
+当为[-]是文件当为[l]表示为link file当为[b]表示为可以进行存取的接口设备当为[c]表示为串行端口设备接下来以3个为一组,且均为[rwx]的组合,位置次序不变
+[r]表示可读,[w]可写,[x]可执行,如果没有这个权限,就会用[-]代替.
+ …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/java/mbatis%E5%9F%BA%E7%A1%80/">MyBatis
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2018-10-29 08:00:00 &#43;0800 CST.">
+    2018-10-29
+  </span><span class="post-reading-time">
+    1 min read
+  </span><span class="post-taxonomies"><a href="/categories/java/" class="badge rounded-pill post-taxonomy">java</a><a href="/series/mybatis/" class="badge rounded-pill post-taxonomy">MyBatis</a><a href="/tags/mybatis/" class="badge rounded-pill post-taxonomy">MyBatis</a></span>
+</div>
+<div class="post-summary">
+          MyBatis   一个ORM框架,(不直接建立java对象到关系数据库表数据的映射,而是建立对对象的操作方法到SQL的映射)支持自定义SQL,存储过程和高级映射的持久化框架
+  使用XML或者注解配置
+  能够映射基本数据元素,接口,Java对象到数据库
+  ORM(Object/Relation Mapping) 作用:持久化类与数据库表之间的映射关系,让我们对持久化对象的操作自动转换成对关系数据库操作
+通过映射,我们把关系数据库中的每一行都映射为对象,数据库的每一列就映射成了对象的属性
+##　三层架构：
+１.	接口层(数据查询接口,数据新增接口,数据更新接口,数据删除接口,获取配置接口)
+２.	数据处理层(参数映射,SQL解 …
+        </div>
+      </div>
+    </article><article class="row card post component"><div class="card-header">
+        <h2 class="card-title post-title">
+          <a href="/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/">Python构建开源项目
+</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+  <span class="post-date" title="created on 2018-10-29 08:00:00 &#43;0800 CST.">
+    2018-10-29
+  </span><span class="post-reading-time">
+    2 min read
+  </span><span class="post-taxonomies"><a href="/categories/python/" class="badge rounded-pill post-taxonomy">Python</a><a href="/series/python/" class="badge rounded-pill post-taxonomy">Python</a><a href="/tags/python/" class="badge rounded-pill post-taxonomy">Python</a></span>
+</div>
+<div class="post-summary">
+          Python构建开源软件 python的构建工具setup.py的应用场景 一般在安装python模块的时候,我们会使用pip install 模块名进行在线安装,会安装依赖包,或者python setup.py install通过源码在本地安装,不会安装依赖包
+在做一个开源项目的时候遇到了一些问题: 我的程序需要用到python的Redis等模块,以及自己写的入口文件run.py,怎么实现可以在服务器上方便的发布,也就是说,可以让依赖和自己写的程序一起安装,同时将自己写的模块变成一个可执行文件
+###　setup.py
+示例以及注释:
+from setuptools import setup, find_packages …
         </div>
       </div>
     </article></div><div class="row table-responsive mb-3">
@@ -389,11 +391,17 @@ a[i]_address = base_address + i * data_type_size
   <li class="page-item">
     <a class="page-link" href="/posts/page/15/">15</a>
   </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/17/">17</a>
+  </li>
   <li class="page-item">
     <a href="/posts/page/15/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/15/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/17/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
@@ -440,19 +448,19 @@ a[i]_address = base_address + i * data_type_size
   </div>
   <div class="card-body">
     <ul class="post-list"><li>
+        <a href="/posts/note/etcd-%E5%85%A5%E9%97%A8/">etcd 基本使用
+</a>
+      </li><li>
+        <a href="/posts/note/gorm/">GORM学习
+</a>
+      </li><li>
         <a href="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析
 </a>
       </li><li>
-        <a href="/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">车辆路径问题
+        <a href="/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/">分布式互斥
 </a>
       </li><li>
-        <a href="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/">NLP基础 
-</a>
-      </li><li>
-        <a href="/posts/java/servlet1/">Servlet1
-</a>
-      </li><li>
-        <a href="/posts/java/servlet2/">Servlet2
+        <a href="/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/">gRPC学习
 </a>
       </li></ul>
   </div>
