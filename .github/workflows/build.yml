@@ -18,3 +18,5 @@ jobs:
         DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
         TZ: Asia/Shanghai
+    - name: '4everland hook'
+      run : wget https://api.4everland.org//integrations/deploy/6144757509e0010001e2fd8f/VraZezmb
