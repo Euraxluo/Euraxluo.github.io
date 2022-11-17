@@ -65,7 +65,7 @@ Tx.Select : channel.txSelect 事务开启
 Tx.Commit : channel.txCommit 事务提交
 Tx.Rollback : channel.txRollback,事务回滚
 
-![rabbitmq_arc1.jpg](https://gitee.com/Euraxluo/images/raw/master/picgo/rabbitmq_arc1.jpg)
+![rabbitmq_arc1.jpg](https://euraxluo.github.io/images/picgo/rabbitmq_arc1.jpg)
 
 在rabbitMQ的使用中分为
 
@@ -75,7 +75,7 @@ Tx.Rollback : channel.txRollback,事务回滚
 
 **Routing Key、Binding Key、Exchange Type** 的关系
 
-![rabbitmq_arc2.png](https://gitee.com/Euraxluo/images/raw/master/picgo/rabbitmq_arc2.png)
+![rabbitmq_arc2.png](https://euraxluo.github.io/images/picgo/rabbitmq_arc2.png)
 
 ### 客户端连接过程:
 1. 客户端连接到消息服务器，打开一个channel

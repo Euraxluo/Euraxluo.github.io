@@ -55,7 +55,7 @@ TIPs:
 
 7. 简化调用链，利用反射或者其他方法让调用方在调用远程方法时，能够像调用本地接口一样
 
-    ![image-20210522164901880](https://gitee.com/Euraxluo/images/raw/master/picgo/image-20210522164901880.png)
+    ![image-20210522164901880](https://euraxluo.github.io/images/picgo/image-20210522164901880.png)
 
 ### RPC协议
 
@@ -69,17 +69,17 @@ TIPs:
 
 - 消息边界语义：利用一个定长数据来保存整个请求协议体的大小；先读取固定长度的位置里面的值，得到协议体长度，再去读取整个协议体的数据
 
-    ![image-20210522162421147](https://gitee.com/Euraxluo/images/raw/master/picgo/image-20210522162421147.png)
+    ![image-20210522162421147](https://euraxluo.github.io/images/picgo/image-20210522162421147.png)
 
 - 协议数据序列化方法信息：利用定长的位置存储协议数据的序列化方式
 
 - 将整个协议分为协议头和协议体，得到定长协议头，该协议头是不可扩展的
 
-    ![image-20210522162430292](https://gitee.com/Euraxluo/images/raw/master/picgo/image-20210522162430292.png)
+    ![image-20210522162430292](https://euraxluo.github.io/images/picgo/image-20210522162430292.png)
 
 - 可扩展协议，将协议头改为可扩展的。将协议分为三部分：固定部分，协议头内容，协议体内容；前两部分统称为协议头
 
-    ![image-20210522162827231](https://gitee.com/Euraxluo/images/raw/master/picgo/image-20210522162827231.png)
+    ![image-20210522162827231](https://euraxluo.github.io/images/picgo/image-20210522162827231.png)
 
 - RPC为了吞吐量，都是异步并发发送的请求，等待服务应答，因此需要消息ID，来判断应答对应哪个请求
 ~~~~
@@ -91,7 +91,7 @@ TIPs:
 - 同步阻塞 IO（BIO）
     - 在 Linux 中，默认情况下所有的 socket 都是 blocking 的
     - 应用进程发起 IO 系统调用后，应用进程被阻塞，转到内核空间处理。之后，内核开始等待数据，等待到数据之后，再将内核中的数据拷贝到用户内存中，整个 IO 处理完毕后返回进程。最后应用的进程解除阻塞状态，运行业务逻辑。
-    - ![image-20210522185621450](https://gitee.com/Euraxluo/images/raw/master/picgo/image-20210522185621450.png)
+    - ![image-20210522185621450](https://euraxluo.github.io/images/picgo/image-20210522185621450.png)
     - 系统内核处理 IO 操作分为两个阶段——等待数据和拷贝数据。而在这两个阶段中，应用进程中 IO 操作的线程会一直都处于阻塞状态，如果是基于 Java 多线程开发，那么每一个 IO 操作都要占用线程，直至 IO 操作结束。
     - 阻塞 IO 每处理一个 socket 的 IO 请求都会阻塞进程（线程），但使用难度较低。在并发量较低、业务逻辑只需要同步进行 IO 操作的场景下，阻塞 IO 已经满足了需求，并且不需要发起 select 调用，开销上还要比 IO 多路复用低。
 - 同步非阻塞 IO（NIO）
@@ -121,7 +121,7 @@ RPC 调用在大多数的情况下，是一个高并发调用的场景
 
 应用进程的每一次写操作，都会把数据写到用户空间的缓冲区中，再由 CPU 将数据拷贝到系统内核的缓冲区中，之后再由 DMA 将这份数据拷贝到网卡中，最后由网卡发送出去。一次写操作数据要拷贝两次才能通过网卡发送出去
 
-![image-20210522192234064](https://gitee.com/Euraxluo/images/raw/master/picgo/image-20210522192234064.png)
+![image-20210522192234064](https://euraxluo.github.io/images/picgo/image-20210522192234064.png)
 
 - 零拷贝技术
     - 零拷贝，就是取消用户空间与内核空间之间的数据拷贝操作，应用进程每一次的读写操作，都可以通过一种方式，让应用进程向用户空间写入或者读取数据，就如同直接向内核空间写入或者读取数据一样，再通过 DMA 将内核中的数据拷贝到网卡，或将网卡中的数据 copy 到内核。
@@ -165,7 +165,7 @@ RPC 调用在大多数的情况下，是一个高并发调用的场景
 
 架构图如下：
 
-![](https://gitee.com/Euraxluo/images/raw/master/picgo/30f52b433aa5f103114a8420c6f829fb.jpg)
+![](https://euraxluo.github.io/images/picgo/30f52b433aa5f103114a8420c6f829fb.jpg)
 
 ##### 利用微内核架构，将组件插件化
 
@@ -173,7 +173,7 @@ RPC 调用在大多数的情况下，是一个高并发调用的场景
 
 提升了RPC框架的可扩展性，实现了开闭原则，用户可以非常方便地通过插件扩展实现自己的功能，而且不需要修改核心功能的本身；其次保持了核心包的精简，依赖外部包少，这样可以有效减少开发人员引入 RPC 导致的包版本冲突问题。
 
-![](https://gitee.com/Euraxluo/images/raw/master/picgo/a3688580dccd3053fac8c0178cef4ba6.jpg)
+![](https://euraxluo.github.io/images/picgo/a3688580dccd3053fac8c0178cef4ba6.jpg)
 
 
 
@@ -512,7 +512,7 @@ etcd 使用raft协议来维护集群内各个节点状态的一致性。etcd集�
 
 最后，流程图如下：
 
-![](https://gitee.com/Euraxluo/images/raw/master/picgo/b78964a2db3adc8080364e9cfc79ca68.jpg)
+![](https://euraxluo.github.io/images/picgo/b78964a2db3adc8080364e9cfc79ca68.jpg)
 
 ##### IP路由
 
@@ -604,7 +604,7 @@ address2 weight 2
 
 最后得到每个节点的分数后，根据最终的指标分数修改服务节点的最终权重，然后再使用随机权重法来进行流量调度
 
-![](https://gitee.com/Euraxluo/images/raw/master/picgo/00065674063f30c98caaa58bb4cd7baf.jpg)
+![](https://euraxluo.github.io/images/picgo/00065674063f30c98caaa58bb4cd7baf.jpg)
 
 **步骤**
 
@@ -648,7 +648,7 @@ RPC的重试机制：当服务调用端发起RPC调用时，会经过负载均�
 
 dubbo的集群容错功能由多个组件共同完成：包括Cluster，Cluster Invoker，Directory，Router，LoadBalance
 
-![](https://gitee.com/Euraxluo/images/raw/master/picgo/830731-20200502203856324-835993574.jpg)
+![](https://euraxluo.github.io/images/picgo/830731-20200502203856324-835993574.jpg)
 
 - Failover Cluster:失败自动恢复
 
@@ -731,7 +731,7 @@ dubbo的集群容错功能由多个组件共同完成：包括Cluster，Cluster 
 - 将注册上线时间推迟到对象初始化之后
 - 添加注册前hook，使得用户可以预加载缓存，并且对应用进行预热
 
-![](https://gitee.com/Euraxluo/images/raw/master/picgo/3c84f9cf6745f2d50e34bd8431c84abd.jpg)
+![](https://euraxluo.github.io/images/picgo/3c84f9cf6745f2d50e34bd8431c84abd.jpg)
 
 **大批量重启启动tips**
 
@@ -886,7 +886,7 @@ dubbo的集群容错功能由多个组件共同完成：包括Cluster，Cluster 
 
 这样我们的RPC就可以把注册的服务提供方的所有实例分为若干组，每一个分组就可以给单个或者多个不同的调用方调用。
 
-![](https://gitee.com/Euraxluo/images/raw/master/picgo/128923fefc27a36d056393f9e9f25f69.jpg)
+![](https://euraxluo.github.io/images/picgo/128923fefc27a36d056393f9e9f25f69.jpg)
 
 **分组逻辑**
 
@@ -1016,7 +1016,7 @@ RPC中，很多场景都会使用到定时任务，我们有以下几种方案�
 
 ##### 单表时间轮
 
-![img](https://gitee.com/Euraxluo/images/raw/master/picgo/20180619115045d49ed7cf-54e2-47e0-bde2-61ba30259daa.jpg)
+![img](https://euraxluo.github.io/images/picgo/20180619115045d49ed7cf-54e2-47e0-bde2-61ba30259daa.jpg)
 
 以上图为例，假设一个格子是1秒，则整个时间轮能表示的时间段为8s， 如果当前指针指向2，此时需要调度一个3s后执行的任务，需要放到第5个格子(2+3)中，指针再转3次就可以执行了。
 
@@ -1024,7 +1024,7 @@ RPC中，很多场景都会使用到定时任务，我们有以下几种方案�
 格子的数量有限,所能代表的时间有限,当要存放一个10s后到期的任务怎么办？这会引起时间轮溢出。
 有个办法是把轮次信息也保存到时间格链表的任务上。
 
-![img](https://gitee.com/Euraxluo/images/raw/master/picgo/201806191150588df84d64-ffd2-4170-b5f8-bdefe5e56384.jpg)
+![img](https://euraxluo.github.io/images/picgo/201806191150588df84d64-ffd2-4170-b5f8-bdefe5e56384.jpg)
 
 
 
@@ -1137,7 +1137,7 @@ RPC中，很多场景都会使用到定时任务，我们有以下几种方案�
 
 调用方将服务端需要知道的信息，接口名，业务分组名，方法名，参数信息等封装为请求消息发送给服务端，服务端就能解析这条消息
 
-![](https://gitee.com/Euraxluo/images/raw/master/picgo/a3c5ddba4960645b77d73e503da34b89.jpg)
+![](https://euraxluo.github.io/images/picgo/a3c5ddba4960645b77d73e503da34b89.jpg)
 
 因此我们使用一个统一的接口GenericService接口类生成动态代理，实现无接口的情况下进行RPC调用。
 
@@ -1163,6 +1163,6 @@ RPC中，很多场景都会使用到定时任务，我们有以下几种方案�
 
 **流程**：
 
-![](https://gitee.com/Euraxluo/images/raw/master/picgo/43451aea86fef673c3928230191fac37.jpg)
+![](https://euraxluo.github.io/images/picgo/43451aea86fef673c3928230191fac37.jpg)
 
 如图：协议1和协议2和RPC内部逻辑进行完全脱离，使用协议无关的对象进行交流。

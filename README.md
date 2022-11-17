@@ -10,3 +10,5 @@ Euraxluo Blog
 [Euraxluo Blog](https://github.com/Euraxluo/Euraxluo.github.io) by [Euraxluo](https://github.com/Euraxluo)
 
 [reference](hugo-theme-bootstrap-0.59.0)
+
+https://euraxluo.github.io/images/picgo/20221117151734.png

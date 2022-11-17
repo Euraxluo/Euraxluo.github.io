@@ -3,7 +3,7 @@ titleSeparator = "-" # Title separator. Default to "-".
 description = "Euraxluo's Blog,Some post about python,cpp,go,java."
 image = ["site-feature-image.jpg"]
 
-logo = "static/image/profile.png" # Logo image. Default to "images/logo.webp".
+logo = "https://euraxluo.github.io/images/picgo/profile.png" # Logo image. Default to "images/logo.webp".
 brand = "Euraxluo"
 menusPosition = "left" # Menus position: right(default), left or center.
 
@@ -86,8 +86,8 @@ customJS = []
     # useExtendedSearch = true
 
 [reward]
-  alipay = "https://gitee.com/Euraxluo/images/raw/master/picgo/_alipay.jpg"
-  wechat = "https://gitee.com/Euraxluo/images/raw/master/picgo/_wechatpay.jpg"
+  alipay = "https://euraxluo.github.io/images/picgo/_alipay.jpg"
+  wechat = "https://euraxluo.github.io/images/picgo/_wechatpay.jpg"
 
 [share]
   # addThis = "" # AddThis pubid.
