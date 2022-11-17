@@ -1,0 +1,19 @@
+name: build
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: hugo-deploy
+      uses: reuixiy/hugo-deploy@v1
+      env:
+        DEPLOY_REPO: Euraxluo/Euraxluo.github.io
+        DEPLOY_BRANCH: build
+        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        TZ: Asia/Shanghai

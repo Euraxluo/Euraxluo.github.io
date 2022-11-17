@@ -1,53 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Shell on Euraxluo Blog</title>
-    <link>/categories/shell/</link>
-    <description>Recent content in Shell on Euraxluo Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Sun, 10 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="/categories/shell/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Shell 基础</title>
-      <link>/posts/shell/shell%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/shell/shell%E5%9F%BA%E7%A1%80/</guid>
-      <description>shell 基础 在终端输入:sh进入脚本界面
-helloworld 编辑内容
-#!/bin/bashecho &amp;quot;hello world!&amp;quot;保存退出:
-w ~/helloworld.sh
-运行:
-chmod +x ~/helloworld.shcd ~./helloworld.sh执行结果:
-hello world!
-分析: 第一行中#!是一个约定的标记,告诉系统脚本需要使用什么解释器来执行,即使用哪一种shell
-这种在第一行指定了解释器信息的方式,需要让脚本作为可执行程序执行
-还有第二种运行方式,即作为解释器参数,这时,第一行的解释器信息,失效
-eg:python test.py
-shell 变量 显式赋值:
-a=&amp;quot;abc&amp;quot;
-用语句:
-for file in `ls /etc/` 或者
-for file in $(ls /etc)
-使用变量: 使用一个定义过的变量:
-file=&amp;#34;test&amp;#34; echo $file echo ${file} 花括弧是为了帮助解释器识别变量的边界:
-for skill in Ada Coffe Action java;do echo &amp;#34;I am good at ${skill}Script&amp;#34; done 只读变量 使用readonly :</description>
-    </item>
-    
-    <item>
-      <title>Shell 进阶</title>
-      <link>/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</guid>
-      <description>shell进阶  破壳漏洞
-env x=&#39;() { :;}; echo shellshocked&#39; bash –c &amp;quot;echo test&amp;quot;检查,如果输出了两行,那么需要升级bash的版本
-  解释器的类型
-    系统中的shells使用cat /etc/shells查看:
-/bin/sh /bin/dash /bin/bash /bin/rbash /usr/bin/tmux /usr/bin/screen /bin/zsh /usr/bin/zsh   设置解释器的类型 #!/bin/bash在文件的开头使用,内核会根据&amp;quot;#!&amp;ldquo;后的解释器来确定该用那个程序解释这个脚本中的内容
-  脚本的编辑   vim帮助我们编辑脚本  我的vimrc内容
-1 set tabstop=4 2 set shiftwidth=4 3 set expandtab 4 set number 5 autocmd BufNewFile *.py,*.cc,*.sh,*.java exec &amp;#34;:call SetTitle()&amp;#34; 6 func SetTitle() 7 if expand(&amp;#34;%:e&amp;#34;) == &amp;#39;sh&amp;#39; 8 call setline(1,&amp;#34;#!</description>
-    </item>
-    
-  </channel>
-</rss>

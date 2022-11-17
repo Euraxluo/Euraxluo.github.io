@@ -1,77 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Java on Euraxluo Blog</title>
-    <link>/series/java/</link>
-    <description>Recent content in Java on Euraxluo Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/series/java/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Servlet1</title>
-      <link>/posts/java/servlet1/</link>
-      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/java/servlet1/</guid>
-      <description>Servlet HTTP协议 是客户端与服务器通信的一种方式
-参考链接 request: 请求行请求头请求体 response: 响应行响应头响应体 Get: GET用于信息获取，而且应该是安全的和幂等的
-  带上数据,在URL上面拼接
-www.baidu.com
-name = zhanshan
-age = 18
-url:www.baidu.com?name = zhanshan&amp;amp;age = 18
-url可见
-  传输方式
-HTTP header
-  设计目的
-获取数据
-  具有安全隐患,GET方法不会改变服务器端数据，所以不会产生副作用
-  GET请求返回的内容可以被浏览器缓存起来
-  Post:   以流的方式传输,数据无限制
-url不可见
-  传输方式
-HTTP body
-  设计目的
-发送数据
-  用户可能会提交一些错误的数据
-  浏览器不会缓存POST请求返回的内容
-  ####　幂等（idempotent、idempotence）是一个数学或计算机学概念，常见于抽象代数中。</description>
-    </item>
-    
-    <item>
-      <title>Servlet2</title>
-      <link>/posts/java/servlet2/</link>
-      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/java/servlet2/</guid>
-      <description>Cookie和Session 会话：浏览器发出http请求。服务器接受，对请求进行响应，浏览器接受http响应
-Cookie 把会话数据保存在浏览器客户端
-服务器第一次访问时，服务端生成cookie，并且把这个cookie通过响应，发送给客户端，客户端把cookie保存下来，以便在最近的下一次访问中使用
-缺点
-  Cookie有大小和数量的限制
-  明文传递有风险
-  //创建Cookie对象  Cookie userNameCookie = new Cookie(&amp;#34;userName&amp;#34;,userName); Cookie userPasswordCookie = new Cookie(&amp;#34;userPassword&amp;#34;,userPassword); //返回给访问对象  resp.addCookie(userNameCookie); resp.addCookie(userPasswordCookie); /、对外部浏览器返回的响应头进行处理 Cookie[] cookies = req.getCookies(); if(cookies != null){ for(Cookie cookie:cookies){ if (cookie.getName().equals(&amp;#34;userName&amp;#34;)) { userName = cookie.getValue(); }else if (cookie.getName().equals(&amp;#34;userPassword&amp;#34;)) { userPassword = cookie.getValue(); } } } 例子一 显示最近访问的时间。   判断账号是否正确
-  如果正确，则获取cookie。 但是得到的cookie是一个数组， 我们要从数组里面找到我们想要的对象。
-  如果找到的对象为空，表明是第一次登录。那么要添加cookie
-  如果找到的对象不为空， 表明不是第一次登录。</description>
-    </item>
-    
-    <item>
-      <title>XML</title>
-      <link>/posts/java/xml/</link>
-      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/java/xml/</guid>
-      <description>Xml Xml  eXtendsible markup language 可扩展的标记语言
- XML 有什么用?   可以用来保存数据
-  可以用来做配置文件
-  数据传输载体
-  定义xml  其实就是一个文件，文件的后缀为 .xml
- 文档声明   简单声明， version : 解析这个xml的时候，使用什么版本的解析器解析
- `&amp;lt;?xml version=&amp;quot;1.0&amp;quot; ?&amp;gt;`   encoding : 解析xml中的文字的时候，使用什么编码来翻译
- `&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;gbk&amp;quot; ?&amp;gt;`   standalone : no - 该文档会依赖关联其他文档 ， yes&amp;ndash; 这是一个独立的文档
- `&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;gbk&amp;quot; standalone=&amp;quot;no&amp;quot; ?&amp;gt;`   encoding详解 在解析这个xml的时候，使用什么编码去解析。 ---解码。  文本存储时不直接存储文字， 而是存储这些文字对应的二进制 。 那么这些文字对应的二进制到底是多少呢？ 根据文件使用的编码 来得到。</description>
-    </item>
-    
-  </channel>
-</rss>
