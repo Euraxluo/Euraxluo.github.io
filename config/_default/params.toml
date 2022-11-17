@@ -3,7 +3,7 @@ titleSeparator = "-" # Title separator. Default to "-".
 description = "Euraxluo's Blog,Some post about python,cpp,go,java."
 image = ["site-feature-image.jpg"]
 
-logo = "https://gitee.com/Euraxluo/images/raw/master/picgo/profile.png" # Logo image. Default to "images/logo.webp".
+logo = "static/image/profile.png" # Logo image. Default to "images/logo.webp".
 brand = "Euraxluo"
 menusPosition = "left" # Menus position: right(default), left or center.
 
