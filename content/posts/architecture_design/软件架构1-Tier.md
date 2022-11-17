@@ -60,13 +60,13 @@ POC帮助我们对技术和基本用例实现有一个更近、更实际的了�
 
 - 缓存
 
-![image.LN3YG1](https://gitee.com/Euraxluo/images/raw/master/picgo/image.LN3YG1.png)
+![image.LN3YG1](https://euraxluo.github.io/images/picgo/image.LN3YG1.png)
 
 ### Single Tier Applications
 
 单层应用程序是指用户界面、后端业务逻辑和数据库都驻留在同一台机器中的应用程序。
 
-![image.YG1QG1](https://gitee.com/Euraxluo/images/raw/master/picgo/image.YG1QG1.png)
+![image.YG1QG1](https://euraxluo.github.io/images/picgo/image.YG1QG1.png)
 
 单层应用程序的典型例子是桌面应用程序，如moffice、PC游戏或图像编辑软件，如Gimp。
 
@@ -94,7 +94,7 @@ POC帮助我们对技术和基本用例实现有一个更近、更实际的了�
 
 两层应用程序包括客户机和服务器。客户端将在一台机器中包含用户界面和业务逻辑。后端服务器将是运行在不同机器上的数据库。数据库服务器由企业托管并对其进行控制。
 
-![image.STXSG1](https://gitee.com/Euraxluo/images/raw/master/picgo/image.STXSG1.png)
+![image.STXSG1](https://euraxluo.github.io/images/picgo/image.STXSG1.png)
 
 为什么需要两层应用程序?为什么不将业务逻辑驻留在另一台机器上并对其进行控制呢?
 
@@ -113,7 +113,7 @@ POC帮助我们对技术和基本用例实现有一个更近、更实际的了�
 
 在一个三层的应用程序中，用户界面、应用程序逻辑和数据库都位于不同的机器上，因此有不同的层。他们是分开的。
 
-![image.FVHPG1](https://gitee.com/Euraxluo/images/raw/master/picgo/image.FVHPG1.png)
+![image.FVHPG1](https://euraxluo.github.io/images/picgo/image.FVHPG1.png)
 
 因此，如果我们以一个简单的博客为例，用户界面将使用Html, JavaScript, CSS编写，后端应用程序逻辑将运行在服务器上，如Apache &数据库将是MySQL。三层架构最适合简单的用例。
 
@@ -171,6 +171,6 @@ n层应用程序是指包含三个以上组件的应用程序。
 
 #### Difference Between Layers & Tiers
 
-注意:不要将层(tiers)与应用程序的层混淆。有些人喜欢交替使用。但在应用程序的行业层中，通常指的是用户界面层(layer)、业务层、服务层或数据访问层。![image.VG7YG1](https://gitee.com/Euraxluo/images/raw/master/picgo/image.VG7YG1.png)
+注意:不要将层(tiers)与应用程序的层混淆。有些人喜欢交替使用。但在应用程序的行业层中，通常指的是用户界面层(layer)、业务层、服务层或数据访问层。![image.VG7YG1](https://euraxluo.github.io/images/picgo/image.VG7YG1.png)
 
 图中提到的层位于代码级别。层和层之间的区别是，层表示代码的组织，并将其分解为组件。然而，层(tier)涉及组件的物理分离。

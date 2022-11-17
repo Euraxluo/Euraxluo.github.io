@@ -18,7 +18,7 @@ images = [
 +++
 ### server 学习
 
-![net_rpc包 (1)](https://gitee.com/Euraxluo/images/raw/master/picgo/net_rpc%E5%8C%85%20(1).jpg)
+![net_rpc包 (1)](https://euraxluo.github.io/images/picgo/net_rpc%E5%8C%85%20(1).jpg)
 #### 服务注册:
 在进行rpc方法调用前,需要先进行方法注册
 

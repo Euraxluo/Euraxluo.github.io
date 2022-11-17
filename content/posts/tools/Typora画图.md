@@ -34,7 +34,7 @@ cond(no)->sub1(right)->op
 
 ```
 
-![image-20220210215212488](https://gitee.com/Euraxluo/images/raw/master/picgo/image-20220210215212488.png)
+![image-20220210215212488](https://euraxluo.github.io/images/picgo/image-20220210215212488.png)
 
 ## 标准流程图源码格式（横向）：
 
@@ -57,7 +57,7 @@ cond(yes)->io(bottom)->e
 cond(no)->sub1(right)->op
 
 ```
-![image-20220210215232079](https://gitee.com/Euraxluo/images/raw/master/picgo/image-20220210215232079.png)
+![image-20220210215232079](https://euraxluo.github.io/images/picgo/image-20220210215232079.png)
 ## 流程圖
 ```mermaid
 graph TD
@@ -67,7 +67,7 @@ C -->|a=1| D[结果1]
 C -->|a=2| E[结果2]
 F[竖向流程图]
 ```
-![image-20220210215243792](https://gitee.com/Euraxluo/images/raw/master/picgo/image-20220210215243792.png)
+![image-20220210215243792](https://euraxluo.github.io/images/picgo/image-20220210215243792.png)
 
 ```mermaid
 graph LR
@@ -78,7 +78,7 @@ C -->|a=2| E[结果2]
 F[横向流程图]
 ```
 
-![image-20220210215255793](https://gitee.com/Euraxluo/images/raw/master/picgo/image-20220210215255793.png)
+![image-20220210215255793](https://euraxluo.github.io/images/picgo/image-20220210215255793.png)
 
 ## UML时序图源码样例：
 
@@ -106,7 +106,7 @@ participant C
 Note right of C: 没人陪我玩
 ```
 
-![image-20220210215314474](https://gitee.com/Euraxluo/images/raw/master/picgo/image-20220210215314474.png)
+![image-20220210215314474](https://euraxluo.github.io/images/picgo/image-20220210215314474.png)
 ## UML标准时序图样例：
 
 ```mermaid
@@ -124,7 +124,7 @@ Note right of 王五: 合理 食物 <br/>看医生...
 李四-->王五: 很好!
 ```
 
-![image-20220210215333064](https://gitee.com/Euraxluo/images/raw/master/picgo/image-20220210215333064.png)
+![image-20220210215333064](https://euraxluo.github.io/images/picgo/image-20220210215333064.png)
 
 ## 甘特图样例：
 ```mermaid
@@ -148,4 +148,4 @@ section 测试
 测试报告                               : 48h
 ```
 
-![image-20220210215344530](https://gitee.com/Euraxluo/images/raw/master/picgo/image-20220210215344530.png)
+![image-20220210215344530](https://euraxluo.github.io/images/picgo/image-20220210215344530.png)
