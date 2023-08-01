@@ -9,13 +9,38 @@
   pre = '<i class="fab fa-fw fa-github"></i>'
 [[main]]
   parent = "repos"
-  name = "ProjectPractice"
-  url = "https://github.com/Euraxluo/ProjectPractice"
+  name = "cache"
+  url = "https://github.com/BreezeTeam/cache"
   pre = '<i class="fab fa-fw fa-github"></i>'
 [[main]]
   parent = "repos"
-  name = "simple-pythonvm"
-  url = "https://github.com/Euraxluo/simple_pyvm"
+  name = "scheduler"
+  url = "https://github.com/BreezeTeam/scheduler"
+  pre = '<i class="fab fa-fw fa-github"></i>'
+[[main]]
+  parent = "repos"
+  name = "web"
+  url = "https://github.com/BreezeTeam/web"
+  pre = '<i class="fab fa-fw fa-github"></i>'
+[[main]]
+  parent = "repos"
+  name = "lang"
+  url = "https://github.com/BreezeTeam/lang"
+  pre = '<i class="fab fa-fw fa-github"></i>'
+[[main]]
+  parent = "repos"
+  name = "distance_matrix"
+  url = "https://github.com/BreezeTeam/distance_matrix"
+  pre = '<i class="fab fa-fw fa-github"></i>'
+[[main]]
+  parent = "repos"
+  name = "IMOMD-RRTStar-rs"
+  url = "https://github.com/Euraxluo/IMOMD-RRTStar-rs"
+  pre = '<i class="fab fa-fw fa-github"></i>'
+[[main]]
+  parent = "repos"
+  name = "simplegrad"
+  url = "https://github.com/Euraxluo/simplegrad"
   pre = '<i class="fab fa-fw fa-github"></i>'
 [[main]]
   parent = "repos"
@@ -24,11 +49,6 @@
   pre = '<i class="fab fa-fw fa-github"></i>'
 [[main]]
   parent = "repos"
-  name = "fastgrpc"
-  url = "https://github.com/Euraxluo/fastgrpc"
-  pre = '<i class="fab fa-fw fa-github"></i>'
-[[main]]
-  parent = "repos"
-  name = "pyantv"
-  url = "https://github.com/Euraxluo/pyantv"
+  name = "LKH-rs"
+  url = "https://github.com/Euraxluo/LKH-rs"
   pre = '<i class="fab fa-fw fa-github"></i>'
