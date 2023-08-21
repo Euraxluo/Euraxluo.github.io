@@ -17,7 +17,7 @@ images: []
 
 
 ## 1. 安装环境
-![安装环境截图](image.png)
+![安装环境截图](/image/k8s_install.png)
 
 ## 2. 修改节点的hosts
 最后得到节点：
