@@ -8,6 +8,13 @@ tags: [ "notes" ]
 series: [ "notes" ]
 images: []
 ---
+- [1. caddy 简介](#1-caddy-简介)
+- [2. caddy VS. nginx](#2-caddy-vs-nginx)
+- [3. caddy 简单使用](#3-caddy-简单使用)
+  - [1. 安装](#1-安装)
+- [4. Run the daemon](#4-run-the-daemon)
+- [5. 创建一个配置](#5-创建一个配置)
+- [6. 使用caddy file](#6-使用caddy-file)
 
 ## 1. caddy 简介
 官方文档：https://caddyserver.com/docs/
