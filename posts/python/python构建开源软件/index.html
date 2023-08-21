@@ -1,0 +1,200 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Python构建开源项目 - Euraxluo Blog</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180><link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png><link rel=icon href=/images/icons/favicon.ico><link rel=manifest href=/manifest.json><meta name=keywords content><meta name=description content="Python构建开源项目"><meta itemprop=name content="Python构建开源项目"><meta itemprop=description content="Python构建开源项目"><meta itemprop=datePublished content="2018-10-29T00:00:00+00:00"><meta itemprop=dateModified content="2018-10-29T00:00:00+00:00"><meta itemprop=wordCount content="311"><meta itemprop=keywords content="Python,"><meta property="og:title" content="Python构建开源项目"><meta property="og:description" content="Python构建开源项目"><meta property="og:type" content="article"><meta property="og:url" content="/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2018-10-29T00:00:00+00:00"><meta property="article:modified_time" content="2018-10-29T00:00:00+00:00"><meta property="og:see_also" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/"><meta property="og:see_also" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/"><meta property="og:see_also" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/"><meta name=twitter:card content="summary"><meta name=twitter:title content="Python构建开源项目"><meta name=twitter:description content="Python构建开源项目"><link rel=stylesheet href=/css/main.min.29f9b537bf546fdc11e6e11f92ddd52ea0bd1eefa2228b828bc3b750c66763b0.css integrity="sha256-Kfm1N79Ub9wR5uEfkt3VLqC9Hu+iIouCi8O3UMZnY7A=" crossorigin=anonymous><link rel=stylesheet href=/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head><body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top"><div class=container-fluid><button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/><img class=logo alt=Logo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy>
+Euraxluo</a>
+<button class=navbar-social-share type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<i class="fas fa-share-alt"></i></button><div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare><div class=offcanvas-header><h3 class=offcanvas-title>Share</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=Python%e6%9e%84%e5%bb%ba%e5%bc%80%e6%ba%90%e9%a1%b9%e7%9b%ae&url=%2fposts%2fpython%2fpython%25E6%259E%2584%25E5%25BB%25BA%25E5%25BC%2580%25E6%25BA%2590%25E8%25BD%25AF%25E4%25BB%25B6%2f"><i class="fab fa-fw fa-twitter"></i> Twitter</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fposts%2fpython%2fpython%25E6%259E%2584%25E5%25BB%25BA%25E5%25BC%2580%25E6%25BA%2590%25E8%25BD%25AF%25E4%25BB%25B6%2f"><i class="fab fa-fw fa-facebook-f"></i> Facebook</a></div></div><button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i></button><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings><div class=offcanvas-header><h3 class=offcanvas-title>Settings</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class="offcanvas-body d-flex flex-column"><section class=setting><form class=row><div class=col-auto><label><i class="fas fa-fw fa-adjust"></i> Mode</label></div><div class="col-auto ms-auto"><div class="form-check form-switch"><input class=form-check-input type=checkbox id=modeSwitcher></div></div></form></section><section class=setting><form class="font-size-switcher-form row"><div class=col-auto><label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Font Size</label></div><div class="col-auto ms-auto"><input type=range class=form-range min=-2 max=2 id=fontSize></div></form></section><section class="setting palettes"><form class=row><div class=col-auto><label><i class="fas fa-fw fa-palette"></i> Palette</label></div><div class="col-auto ms-auto"><a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker><i class="fas fa-eye-dropper"></i></a></div></form><div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Blue class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gray" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Brown class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Green class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Pink class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Purple class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Red class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label=Teal class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Yellow class="btn btn-sm palette" data-palette=yellow></button></div></section><section class="setting actions d-flex justify-content-center mt-auto"><a role=button class="action action-reload-page"><span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload</a>
+<a role=button class="action action-copy-url"><span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copy URL</a></section></div></div><div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent><form class="search-bar my-1" action=/search><div class="input-group input-group-sm"><span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search></div></form><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/archives/><i class="fas fa-fw fa-file-archive"></i>timeline</a></li><li class=nav-item><a class=nav-link href=/categories/><i class="fas fa-fw fa-folder"></i>category</a></li><li class=nav-item><a class=nav-link href=/tags/><i class="fas fa-fw fa-tags"></i>tags</a></li><li class=nav-item><a class=nav-link href=/series/><i class="fas fa-fw fa-columns"></i>series</a></li><li class="nav-item dropdown"><a class=nav-link id=navbarDropdownRepos role=button data-bs-toggle=dropdown aria-expanded=false><i class="fab fa-fw fa-github"></i>Repos</a><ul class=dropdown-menu aria-labelledby=navbarDropdownRepos><li><a class=dropdown-item href=https://github.com/BreezeTeam/cache target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>cache</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/distance_matrix target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>distance_matrix</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>Euraxluo</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/IMOMD-RRTStar-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>IMOMD-RRTStar-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/lang target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>lang</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/LKH-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>LKH-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/scheduler target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>scheduler</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/simplegrad target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>simplegrad</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/verb target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>verb</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/web target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>web</a></li></ul></li></ul></div></div></nav></header><main role=main class=container-fluid><div class="row content"><div class=col-lg-8><div class=container><article class="row card component mb-4 post"><div class=post-panel-wrapper><div class="d-flex flex-column component rounded post-panel"><a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler"><i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i></a>
+<a class="action btn-reward" role=button data-bs-toggle=modal data-bs-target=#rewardModal title="Buy me a coffee"><i class="fas fa-fw fa-coffee"></i></a>
+<a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright><i class="fas fa-fw fa-copyright"></i></a>
+<a class=action href=#post-comments role=button aria-label=Comments title=Comments><i class="fas fa-fw fa-comments"></i></a>
+<a class=action data-bs-toggle=offcanvas href=#offcanvasTOC aria-controls=offcanvasTOC role=button title="Table of contents"><i class="fas fa-fw fa-list-alt"></i></a></div></div><div class=card-header><h1 class="card-title post-title">Python构建开源项目</h1></div><div class=card-body><div class=post-meta><span class=post-date title="created on 2018-10-29 08:00:00 +0800 CST.">2018-10-29
+</span><span class=post-reading-time>2 min read
+</span><span class=post-taxonomies><a href=/categories/python/ class="badge rounded-pill post-taxonomy">Python</a><a href=/series/python/ class="badge rounded-pill post-taxonomy">Python</a><a href=/tags/python/ class="badge rounded-pill post-taxonomy">Python</a></span></div><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasTOC aria-labelledby=offcanvasTOCLabel><div class=offcanvas-header><h2 class=offcanvas-title id=offcanvasTOCLabel>Table Of Contents</h5><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><nav id=TableOfContents><ul><li><a href=#python的构建工具setuppy的应用场景>python的构建工具setup.py的应用场景</a><ul><li><a href=#在做一个开源项目的时候遇到了一些问题>在做一个开源项目的时候遇到了一些问题:</a></li></ul></li><li><a href=#requirement>requirement</a></li><li><a href=#license文件的生成>LICENSE文件的生成</a></li><li><a href=#travisyml>.travis.yml</a></li><li><a href=#python-命名规范>python 命名规范</a><ul><li><a href=#文件名>文件名</a></li><li><a href=#包>包</a></li><li><a href=#模块>模块</a></li><li><a href=#类>类</a></li><li><a href=#函数方法>函数&方法</a></li><li><a href=#全局变量>全局变量</a></li><li><a href=#变量>变量</a></li><li><a href=#常量>常量</a></li><li><a href=#异常>异常</a></li><li><a href=#缩写>缩写</a></li><li><a href=#特定命名方式>特定命名方式</a></li></ul></li></ul></nav></div></div><div class="post-content mb-3"><h1 id=python构建开源软件>Python构建开源软件<a class="anchor ms-1" href=#python构建开源软件><i class="fas fa-link"></i></a></h1><h2 id=python的构建工具setuppy的应用场景>python的构建工具setup.py的应用场景<a class="anchor ms-1" href=#python的构建工具setuppy的应用场景><i class="fas fa-link"></i></a></h2><p>一般在安装python模块的时候,我们会使用<code>pip install 模块名</code>进行在线安装,会安装依赖包,或者<code>python setup.py install</code>通过源码在本地安装,不会安装依赖包</p><h3 id=在做一个开源项目的时候遇到了一些问题>在做一个开源项目的时候遇到了一些问题:<a class="anchor ms-1" href=#在做一个开源项目的时候遇到了一些问题><i class="fas fa-link"></i></a></h3><p>我的程序需要用到python的Redis等模块,以及自己写的入口文件run.py,怎么实现可以在服务器上方便的发布,也就是说,可以让依赖和自己写的程序一起安装,同时将自己写的模块变成一个可执行文件</p><p>###　setup.py</p><p>示例以及注释:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> setuptools <span style=color:#f92672>import</span> setup, find_packages
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>setup(  
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;proxy-pool&#34;</span>,  <span style=color:#75715e>#包名</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    version <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;1.0.0&#34;</span>,  <span style=color:#75715e>#版本</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    keywords <span style=color:#f92672>=</span> (<span style=color:#e6db74>&#34;poxypool&#34;</span>, <span style=color:#e6db74>&#34;redis&#34;</span>),<span style=color:#75715e>#关键词列表</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;test version proxy pool&#34;</span>,  <span style=color:#75715e>#程序的简单介绍</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    long_description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;A proxy pool project modified from Germey/ProxyPool&#34;</span>,  <span style=color:#75715e>#程序的详细介绍</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;https://github.com/Euraxluo/ProxyPool&#34;</span>, <span style=color:#75715e>#程序的官网 </span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    download_url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;https://github.com/Euraxluo/ProxyPool.git&#34;</span> <span style=color:#75715e>#程序的下载地址</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    author <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Euraxluo&#34;</span>,  <span style=color:#75715e>#作者</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    author_email <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;euraxluo@qq.com&#34;</span>,  <span style=color:#75715e>#程序作者的邮箱</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  	<span style=color:#75715e>#maintainer 维护者</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#75715e>#maintainer_email 维护者的邮箱地址</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	packages<span style=color:#f92672>=</span>[
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    	<span style=color:#e6db74>&#39;proxy-pool&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	],
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    py_modules <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;run&#39;</span>],<span style=color:#75715e>#需要打包的python文件列表</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    include_package_data <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>,  
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    platforms <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;any&#34;</span>,  <span style=color:#75715e>#程序适用的软件平台列表</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    install_requires <span style=color:#f92672>=</span> [<span style=color:#75715e>#需要安装的依赖包</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;aiohttp&#39;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;requests&#39;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;flask&#39;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;redis&#39;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;pyquery&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ],
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    entry_points <span style=color:#f92672>=</span> {  <span style=color:#75715e>#动态发现服务和插件</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;console_scripts&#39;</span>: [  <span style=color:#75715e>#指定命令行工具的名称</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;test = test.help:main&#39;</span>  <span style=color:#75715e>#工具包名=程序入口</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        ]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    license <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;apache 2.0&#34;</span>,  <span style=color:#75715e>#程序的授权信息</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    zip_safe<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>,<span style=color:#75715e>#安装为文件夹还时打包为egg文件</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    classifiers <span style=color:#f92672>=</span> [<span style=color:#75715e>#程序所属的分类列表</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;Environment :: Console&#39;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;Programming Language :: Python :: 3.6&#39;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;Programming Language :: Python :: Implementation :: CPython&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#data_files 打包时需要打包的数据文件,如图片,配置文件等</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#package_dir = {&#39;&#39;:&#39;lib&#39;},#表示root pkg的模块都在lib目录中</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># requires 定义依赖哪些模块</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># provides定义可以为哪些模块提供依赖</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#scripts = [],#安装时需要执行的脚本列表</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#packages = find_packages(exclude=[&#39;*.tests&#39;]),  #需要处理的包目录,可以手动增加手动增加packages参数很容易，刚刚我们用到了这个函数，它默认在和setup.py同一目录下搜索各个含有 __init__.py的包。其实我们可以将包统一放在一个src目录中，另外，这个包内可能还有aaa.txt文件和data数据文件夹,也可以使用exclude排除一些特定的包</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><h2 id=requirement>requirement<a class="anchor ms-1" href=#requirement><i class="fas fa-link"></i></a></h2><p>python项目中必须包含一个 requirements.txt 文件，用于记录所有依赖包及其精确的版本号。以便新环境部署</p><p>示例:</p><pre tabindex=0><code>
+aiohttp&gt;=1.3.3
+
+Flask&gt;=0.11.1
+
+redis&gt;=2.10.5
+
+requests&gt;=2.13.0
+
+pyquery&gt;=1.2.17
+</code></pre><p>生成:</p><p><code>pip freeze > requirements.txt</code></p><p>也可以直接<code>pip freeze</code>查看列表</p><p>安装:</p><p>可以使用pip安装requeirments.txt的依赖:</p><p><code>pip install -r requirements.txt</code></p><h2 id=license文件的生成>LICENSE文件的生成<a class="anchor ms-1" href=#license文件的生成><i class="fas fa-link"></i></a></h2><p>在开源仓库中选择create files,取名为LICENSE,会让你选择开源协议,最后选好后创建文件即可</p><p>lisence文件也可以用来对项目进行限制和控制</p><p>##　.gitignore</p><p>一般来说每个Git项目中都需要一个“.gitignore”文件，这个文件的作用就是告诉Git哪些文件不需要添加到版本管理中</p><p>添加规则</p><p>例子：</p><pre tabindex=0><code class=language-gitinore data-lang=gitinore>
+*.vscode
+
+*.pyc
+
+*.db
+
+venv
+
+build/ #忽略build/目录下的所有文件
+
+/.idea #仅仅忽略项目根目录下的.idea文件
+</code></pre><p>如果我们要排除某些文件呢？</p><p>过滤规则</p><p>加一个｀!｀，比如我们需要排除掉<code>/mtk/</code>文件夹中的<code>/mtk/test.txt</code></p><pre tabindex=0><code>
+/mtk/
+
+!/mtk/test.txt
+</code></pre><h2 id=travisyml>.travis.yml<a class="anchor ms-1" href=#travisyml><i class="fas fa-link"></i></a></h2><p>yaml语法的写出来的配置文件，用来描述如何持续构建，支持各种语言，各种系统环境</p><p>示例:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>language</span>: <span style=color:#ae81ff>python</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>python</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  - <span style=color:#e6db74>&#34;3.6&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>services</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  - <span style=color:#ae81ff>redis-server</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>script</span>: 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  - <span style=color:#ae81ff>python3 setup.py install</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  - <span style=color:#ae81ff>cd tests</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  - <span style=color:#ae81ff>python3 test_api.py</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  - <span style=color:#ae81ff>python3 test_db.py</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  - <span style=color:#ae81ff>python3 test_schedule.py</span>
+</span></span></code></pre></div><h2 id=python-命名规范>python 命名规范<a class="anchor ms-1" href=#python-命名规范><i class="fas fa-link"></i></a></h2><h3 id=文件名>文件名<a class="anchor ms-1" href=#文件名><i class="fas fa-link"></i></a></h3><p>全小写,可使用下划线</p><h3 id=包>包<a class="anchor ms-1" href=#包><i class="fas fa-link"></i></a></h3><p>应该是简短的、小写的名字。如果下划线可以改善可读性可以加入。如mypackage。</p><h3 id=模块>模块<a class="anchor ms-1" href=#模块><i class="fas fa-link"></i></a></h3><p>与包的规范同。如mymodule。</p><h3 id=类>类<a class="anchor ms-1" href=#类><i class="fas fa-link"></i></a></h3><p>总是使用首字母大写单词串。如MyClass。内部类可以使用额外的前导下划线。</p><h3 id=函数方法>函数&方法<a class="anchor ms-1" href=#函数方法><i class="fas fa-link"></i></a></h3><p>函数名应该为小写，可以用下划线风格单词以增加可读性。如：myfunction，my_example_function。</p><p><em>注意</em>：混合大小写仅被允许用于这种风格已经占据优势的时候，以便保持向后兼容。</p><p>函数和方法的参数</p><p>总使用“self”作为实例方法的第一个参数。总使用“cls”作为类方法的第一个参数。</p><p>如果一个函数的参数名称和保留的关键字冲突，通常使用一个后缀下划线好于使用缩写或奇怪的拼写。</p><h3 id=全局变量>全局变量<a class="anchor ms-1" href=#全局变量><i class="fas fa-link"></i></a></h3><p>对于from M import *导入语句，如果想阻止导入模块内的全局变量可以使用旧有的规范，在全局变量上加一个前导的下划线。</p><p><em>注意</em>:应避免使用全局变量</p><h3 id=变量>变量<a class="anchor ms-1" href=#变量><i class="fas fa-link"></i></a></h3><p>变量名全部小写，由下划线连接各个单词。如color = WHITE，this_is_a_variable = 1</p><p><em>注意</em>：</p><p>1.不论是类成员变量还是全局变量，均不使用 m 或 g 前缀。</p><p>2.私有类成员使用单一下划线前缀标识，多定义公开成员，少定义私有成员。</p><p>3.变量名不应带有类型信息，因为Python是动态类型语言。如 iValue、names_list、dict_obj 等都是不好的命名。</p><h3 id=常量>常量<a class="anchor ms-1" href=#常量><i class="fas fa-link"></i></a></h3><p>常量名所有字母大写，由下划线连接各个单词如MAX_OVERFLOW，TOTAL。</p><h3 id=异常>异常<a class="anchor ms-1" href=#异常><i class="fas fa-link"></i></a></h3><p>以“Error”作为后缀。</p><h3 id=缩写>缩写<a class="anchor ms-1" href=#缩写><i class="fas fa-link"></i></a></h3><p>命名应当尽量使用全拼写的单词，缩写的情况有如下两种：</p><p>1.常用的缩写，如XML、ID等，在命名时也应只大写首字母，如XmlParser。</p><p>2.命名中含有长单词，对某个单词进行缩写。这时应使用约定成俗的缩写方式。</p><p>例如：</p><p>function 缩写为 fn</p><p>text 缩写为 txt</p><p>object 缩写为 obj</p><p>count 缩写为 cnt</p><p>number 缩写为 num，等。</p><p>前导后缀下划线</p><p>一个前导下划线：表示非公有。</p><p>一个后缀下划线：避免关键字冲突。</p><p>两个前导下划线：当命名一个类属性引起名称冲突时使用。</p><p>两个前导和后缀下划线：“魔”（有特殊用图）对象或者属性，例如__init__或者__file__。绝对不要创造这样的名字，而只是使用它们。</p><p><em>注意</em>：关于下划线的使用存在一些争议。</p><h3 id=特定命名方式>特定命名方式<a class="anchor ms-1" href=#特定命名方式><i class="fas fa-link"></i></a></h3><p>主要是指 <strong>xxx</strong> 形式的系统保留字命名法。项目中也可以使用这种命名，它的意义在于这种形式的变量是只读的，这种形式的类成员函数尽量不要重载。如</p><p>class Base(object):</p><p>def <strong>init</strong>(self, id, parent = None):</p><p>self.<strong>id</strong> = id</p><p>self.<strong>parent</strong> = parent</p><p>def <strong>message</strong>(self, msgid):</p></div><div class="modal fade" id=rewardModal tabindex=-1 aria-labelledby=rewardModalLabel aria-hidden=true><div class=modal-dialog><div class="modal-content surface"><div class=modal-header><h5 class=modal-title id=rewardModalLabel><i class="fas fa-fw fa-coffee"></i>Buy me a coffee</h5><a href=# data-bs-dismiss=modal class="btn btn-sm btn-outline-primary" aria-label=Close><i class="fas fa-times"></i></a></div><div class=modal-body><ul class="nav nav-tabs mb-3" role=tablist><li class="nav-item text-nowrap" role=presentation><a class="nav-link active" id=reward-alipay-tab data-bs-toggle=tab href=#reward-alipay role=tab aria-controls=reward-alipay aria-selected=true><i class="fab fa-fw fa-alipay"></i>Alipay</a></li><li class="nav-item text-nowrap" role=presentation><a class=nav-link id=reward-wechat-tab data-bs-toggle=tab href=#reward-wechat role=tab aria-controls=reward-wechat aria-selected=true><i class="fab fa-fw fa-weixin"></i>WeChat</a></li></ul><div class=tab-content id=rewardTabContent><div class="tab-pane fade post-reward-content show active" id=reward-alipay role=tabpanel aria-labelledby=reward-alipay-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_alipay.jpg loading=lazy></div><div class="tab-pane fade post-reward-content show" id=reward-wechat role=tabpanel aria-labelledby=reward-wechat-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_wechatpay.jpg loading=lazy></div></div></div></div></div></div><hr><div class=post-copyright id=post-copyright><a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc/4.0/deed.en><span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i></span>
+CC BY-NC 4.0</a></div><hr><div class="post-navs d-flex mb-3 justify-content-evenly"><div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/>Unix/Linux编程实践1</a></div><div class="post-nav post-next"><a href=/posts/java/mbatis%E5%9F%BA%E7%A1%80/>MyBatis</a>
+<i class="fas fa-fw fa-chevron-right"></i></div></div></div></article><section class="related-posts row card component"><div class=card-header><h2 class=card-title>Related Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/message_queue/rabbitmq_%E5%85%A5%E9%97%A8/>RabbitMQ-入门</a>
+<span class="float-end post-date">2018-10-22</span></li><li><a href=/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/>爬虫学习1-概念及urllib2</a>
+<span class="float-end post-date">2018-10-22</span></li><li><a href=/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/>爬虫学习2-Requests库学习</a>
+<span class="float-end post-date">2018-10-22</span></li><li><a href=/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/>爬虫学习3-网页解析器</a>
+<span class="float-end post-date">2018-10-22</span></li></ul></div></section><div class="card component row post-comments" id=post-comments><div class=card-header><h2 class=card-title>Comments</h2></div><div class=card-body><script src=https://utteranc.es/client.js repo=Euraxluo/Euraxluo.github.io issue-term=pathname label=✨💬✨ theme=github-dark crossorigin=anonymous async></script></div></div></div></div><aside class="col-lg-4 sidebar d-flex"><div class=container><section class="card row text-center profile component"><div class=card-body><div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt=Euraxluo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy></div><div class="col-12 profile-meta"><div class=profile-name>Euraxluo</div><div class=profile-bio>R&amp;D Engineer.</div><div class=profile-company><i class="fas fa-fw fa-building"></i>headingdata.com</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/about/>About</a></div></div></div></section><section class="featured-posts row card component"><div class=card-header><h2 class=card-title>Featured Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/>java面试笔记</a></li><li><a href=/posts/python/python-socket/>python socket编程</a></li><li><a href=/posts/note/rust%E5%AD%A6%E4%B9%A0/>rust学习</a></li><li><a href=/posts/note/scala%E5%85%A5%E9%97%A8/>Scala入门</a></li><li><a href=/posts/note/slam/>SLAM</a></li></ul></div></section><section class="recent-posts row card component"><div class=card-header><h2 class=card-title>Recent Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/>caddy简单使用</a></li><li><a href=/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/>安装K8S集群</a></li><li><a href=/posts/redis/redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/>Redis 实现分布式锁</a></li><li><a href=/posts/note/etcd%E5%85%A5%E9%97%A8/>etcd 基本使用</a></li><li><a href=/posts/note/gorm/>GORM学习</a></li></ul></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/categories>Categories</a></h2></div><div class=card-body><div class=py-2><a href=/categories/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/categories/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/categories/java/ class="badge rounded post-taxonomy" title=java>java
+</a><a href=/categories/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/categories/architecture-design/ class="badge rounded post-taxonomy" title="architecture design">architecture design</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/series>Series</a></h2></div><div class=card-body><div class=py-2><a href=/series/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/series/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/series/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/series/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/series/jdbc/ class="badge rounded post-taxonomy" title=JDBC>JDBC</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/tags>Tags</a></h2></div><div class=card-body><div class=py-2><a href=/tags/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/tags/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/tags/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/tags/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/tags/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/tags/architecture/ class="badge rounded post-taxonomy" title=architecture>architecture</a></div></div></section></div></aside></div></main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><a class="nav-link social-link" href=mailto:Euraxluo@outlook.com title=Email><i class="fas fa-fw fa-2x fa-envelope"></i>
+</a><a class="nav-link social-link" target=_blank href=https://github.com/Euraxluo title=GitHub rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-github"></i>
+</a><a class="nav-link social-link" target=_blank href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title=QQ rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-qq"></i>
+</a><a class="nav-link social-link" target=_blank href=https://www.zhihu.com/people/euraxluo title=Zhihu rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-zhihu"></i></a></nav><div class="copyright mb-2">Copyright © 2016-2023 Euraxluo. All Rights Reserved.</div></footer><script src=/js/main.min.353ac7952bbb8bdb7925c48cfcafede449a2253dd2610b49feb566a306011232.js integrity="sha256-NTrHlSu7i9t5JcSM/K/t5EmiJT3SYQtJ/rVmowYBEjI=" crossorigin=anonymous defer></script><script src=/js/icons.min.fb1b77be9bd37807602ec542d150423ad89114834c2e76ca7c004309310d64b0.js integrity="sha256-+xt3vpvTeAdgLsVC0VBCOtiRFINMLnbKfABDCTENZLA=" crossorigin=anonymous defer></script>
+<script src=/js/viewer.min.4f0b78319199ad080a1331f64e868866ccf303199b8144d80003d6ba8a4e5feb.js integrity="sha256-Twt4MZGZrQgKEzH2ToaIZszzAxmbgUTYAAPWuopOX+s=" crossorigin=anonymous defer></script><script defer src=/js/katex.min.3e41bd190b6187a4854d279cbde0b8d47fd0b6aae6341bdee804717abe8f6d51.js integrity="sha256-PkG9GQthh6SFTSecveC41H/QtqrmNBve6ARxer6PbVE=" crossorigin=anonymous></script></body></html>

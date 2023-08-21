@@ -1,0 +1,388 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>XML - Euraxluo Blog</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180><link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png><link rel=icon href=/images/icons/favicon.ico><link rel=manifest href=/manifest.json><meta name=keywords content><meta name=description content="java解析XML"><meta itemprop=name content="XML"><meta itemprop=description content="java解析XML"><meta itemprop=datePublished content="2020-10-22T00:00:00+00:00"><meta itemprop=dateModified content="2020-10-22T00:00:00+00:00"><meta itemprop=wordCount content="593"><meta itemprop=keywords content="java,"><meta property="og:title" content="XML"><meta property="og:description" content="java解析XML"><meta property="og:type" content="article"><meta property="og:url" content="/posts/java/xml/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-10-22T00:00:00+00:00"><meta property="article:modified_time" content="2020-10-22T00:00:00+00:00"><meta property="og:see_also" content="/posts/java/servlet1/"><meta property="og:see_also" content="/posts/java/servlet2/"><meta name=twitter:card content="summary"><meta name=twitter:title content="XML"><meta name=twitter:description content="java解析XML"><link rel=stylesheet href=/css/main.min.29f9b537bf546fdc11e6e11f92ddd52ea0bd1eefa2228b828bc3b750c66763b0.css integrity="sha256-Kfm1N79Ub9wR5uEfkt3VLqC9Hu+iIouCi8O3UMZnY7A=" crossorigin=anonymous><link rel=stylesheet href=/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head><body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top"><div class=container-fluid><button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/><img class=logo alt=Logo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy>
+Euraxluo</a>
+<button class=navbar-social-share type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<i class="fas fa-share-alt"></i></button><div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare><div class=offcanvas-header><h3 class=offcanvas-title>Share</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=XML&url=%2fposts%2fjava%2fxml%2f"><i class="fab fa-fw fa-twitter"></i> Twitter</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fposts%2fjava%2fxml%2f"><i class="fab fa-fw fa-facebook-f"></i> Facebook</a></div></div><button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i></button><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings><div class=offcanvas-header><h3 class=offcanvas-title>Settings</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class="offcanvas-body d-flex flex-column"><section class=setting><form class=row><div class=col-auto><label><i class="fas fa-fw fa-adjust"></i> Mode</label></div><div class="col-auto ms-auto"><div class="form-check form-switch"><input class=form-check-input type=checkbox id=modeSwitcher></div></div></form></section><section class=setting><form class="font-size-switcher-form row"><div class=col-auto><label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Font Size</label></div><div class="col-auto ms-auto"><input type=range class=form-range min=-2 max=2 id=fontSize></div></form></section><section class="setting palettes"><form class=row><div class=col-auto><label><i class="fas fa-fw fa-palette"></i> Palette</label></div><div class="col-auto ms-auto"><a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker><i class="fas fa-eye-dropper"></i></a></div></form><div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Blue class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gray" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Brown class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Green class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Pink class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Purple class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Red class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label=Teal class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Yellow class="btn btn-sm palette" data-palette=yellow></button></div></section><section class="setting actions d-flex justify-content-center mt-auto"><a role=button class="action action-reload-page"><span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload</a>
+<a role=button class="action action-copy-url"><span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copy URL</a></section></div></div><div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent><form class="search-bar my-1" action=/search><div class="input-group input-group-sm"><span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search></div></form><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/archives/><i class="fas fa-fw fa-file-archive"></i>timeline</a></li><li class=nav-item><a class=nav-link href=/categories/><i class="fas fa-fw fa-folder"></i>category</a></li><li class=nav-item><a class=nav-link href=/tags/><i class="fas fa-fw fa-tags"></i>tags</a></li><li class=nav-item><a class=nav-link href=/series/><i class="fas fa-fw fa-columns"></i>series</a></li><li class="nav-item dropdown"><a class=nav-link id=navbarDropdownRepos role=button data-bs-toggle=dropdown aria-expanded=false><i class="fab fa-fw fa-github"></i>Repos</a><ul class=dropdown-menu aria-labelledby=navbarDropdownRepos><li><a class=dropdown-item href=https://github.com/BreezeTeam/cache target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>cache</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/distance_matrix target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>distance_matrix</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>Euraxluo</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/IMOMD-RRTStar-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>IMOMD-RRTStar-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/lang target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>lang</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/LKH-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>LKH-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/scheduler target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>scheduler</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/simplegrad target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>simplegrad</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/verb target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>verb</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/web target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>web</a></li></ul></li></ul></div></div></nav></header><main role=main class=container-fluid><div class="row content"><div class=col-lg-8><div class=container><article class="row card component mb-4 post"><div class=post-panel-wrapper><div class="d-flex flex-column component rounded post-panel"><a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler"><i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i></a>
+<a class="action btn-reward" role=button data-bs-toggle=modal data-bs-target=#rewardModal title="Buy me a coffee"><i class="fas fa-fw fa-coffee"></i></a>
+<a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright><i class="fas fa-fw fa-copyright"></i></a>
+<a class=action href=#post-comments role=button aria-label=Comments title=Comments><i class="fas fa-fw fa-comments"></i></a>
+<a class=action data-bs-toggle=offcanvas href=#offcanvasTOC aria-controls=offcanvasTOC role=button title="Table of contents"><i class="fas fa-fw fa-list-alt"></i></a></div></div><div class=card-header><h1 class="card-title post-title">XML</h1></div><div class=card-body><div class=post-meta><span class=post-date title="created on 2020-10-22 08:00:00 +0800 CST.">2020-10-22
+</span><span class=post-reading-time>3 min read
+</span><span class=post-taxonomies><a href=/categories/java/ class="badge rounded-pill post-taxonomy">java</a><a href=/series/java/ class="badge rounded-pill post-taxonomy">Java</a><a href=/tags/java/ class="badge rounded-pill post-taxonomy">Java</a></span></div><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasTOC aria-labelledby=offcanvasTOCLabel><div class=offcanvas-header><h2 class=offcanvas-title id=offcanvasTOCLabel>Table Of Contents</h5><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><nav id=TableOfContents><ul><li><a href=#xml-1>Xml</a><ul><li><a href=#xml-有什么用>XML 有什么用?</a></li></ul></li><li><a href=#定义xml>定义xml</a><ul><li><a href=#文档声明>文档声明</a></li><li><a href=#encoding详解>encoding详解</a></li><li><a href=#元素定义标签>元素定义（标签）</a></li><li><a href=#简单元素---复杂元素>简单元素 & 复杂元素</a></li><li><a href=#属性的定义>属性的定义</a></li></ul></li><li><a href=#xml注释>xml注释：</a></li><li><a href=#cdata区>CDATA区</a></li><li><a href=#xml-解析>XML 解析</a><ul><li><a href=#xml解析方式面试常问>XML解析方式(面试常问)</a></li><li><a href=#针对这两种解析方式的api>针对这两种解析方式的API</a></li><li><a href=#dom4j-基本用法>Dom4j 基本用法</a></li><li><a href=#dom4j-的-xpath使用>Dom4j 的 Xpath使用</a></li></ul></li><li><a href=#xml-约束>XML 约束</a><ul><li><a href=#dtd>DTD</a></li><li><a href=#schema>Schema</a></li></ul></li><li><a href=#名称空间的作用>名称空间的作用</a></li></ul></nav></div></div><div class="post-content mb-3"><h1 id=xml>Xml<a class="anchor ms-1" href=#xml><i class="fas fa-link"></i></a></h1><h2 id=xml-1>Xml<a class="anchor ms-1" href=#xml-1><i class="fas fa-link"></i></a></h2><blockquote><p>eXtendsible markup language 可扩展的标记语言</p></blockquote><h3 id=xml-有什么用>XML 有什么用?<a class="anchor ms-1" href=#xml-有什么用><i class="fas fa-link"></i></a></h3><ol><li><p>可以用来保存数据</p></li><li><p>可以用来做配置文件</p></li><li><p>数据传输载体</p></li></ol><h2 id=定义xml>定义xml<a class="anchor ms-1" href=#定义xml><i class="fas fa-link"></i></a></h2><blockquote><p>其实就是一个文件，文件的后缀为 .xml</p></blockquote><h3 id=文档声明>文档声明<a class="anchor ms-1" href=#文档声明><i class="fas fa-link"></i></a></h3><ol><li><p>简单声明， version : 解析这个xml的时候，使用什么版本的解析器解析</p><pre><code> `&lt;?xml version=&quot;1.0&quot; ?&gt;`
+</code></pre></li><li><p>encoding : 解析xml中的文字的时候，使用什么编码来翻译</p><pre><code> `&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot; ?&gt;`
+</code></pre></li><li><p>standalone : no - 该文档会依赖关联其他文档 ， yes&ndash; 这是一个独立的文档</p><pre><code> `&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot; standalone=&quot;no&quot; ?&gt;`
+</code></pre></li></ol><h3 id=encoding详解>encoding详解<a class="anchor ms-1" href=#encoding详解><i class="fas fa-link"></i></a></h3><pre><code>在解析这个xml的时候，使用什么编码去解析。   ---解码。 
+</code></pre><p>文本存储时不直接存储文字， 而是存储这些文字对应的二进制 。 那么这些文字对应的二进制到底是多少呢？ 根据文件使用的编码 来得到。</p><blockquote><p>默认文件保存的时候，使用的是GBK的编码保存。</p></blockquote><p>所以要想让我们的xml能够正常的显示中文,解决方法:</p><ol><li><p>让encoding也是GBK 或者 gb2312 .</p></li><li><p>如果encoding是 utf-8 ， 那么保存文件的时候也必须使用utf-8</p></li><li><p>保存的时候见到的ANSI 对应的其实是我们的本地编码 GBK。</p></li></ol><p>为了通用，建议使用UTF-8编码保存，以及encoding 都是 utf-8</p><h3 id=元素定义标签>元素定义（标签）<a class="anchor ms-1" href=#元素定义标签><i class="fas fa-link"></i></a></h3><ol><li>其实就是里面的标签， &lt;> 括起来的都叫元素 。 成对出现。 如下：</li></ol><p><code>&lt;stu> &lt;/stu></code></p><ol start=2><li><p>文档声明下来的第一个元素叫做根元素 (根标签)</p></li><li><p>标签里面可以嵌套标签</p></li><li><p>空标签:既是开始也是结束。 一般配合属性来用。</p></li></ol><p><code>&lt;age/></code></p><p>eg:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>&lt;stu&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>&lt;name&gt;</span>张三<span style=color:#f92672>&lt;/name&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>&lt;age/&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>&lt;/stu&gt;</span>
+</span></span></code></pre></div><ol start=5><li>标签可以自定义。</li></ol><p>XML 元素必须遵循以下命名规则：</p><p>​ 1. 名称可以含字母、数字以及其他的字符</p><p>​ 2. 名称不能以数字或者标点符号开始</p><p>​ 3. 名称不能以字符 “xml”（或者 XML、Xml）开始</p><p>​ 4. 名称不能包含空格</p><p>​ 5. 命名尽量简单，做到见名知义</p><h3 id=简单元素---复杂元素>简单元素 & 复杂元素<a class="anchor ms-1" href=#简单元素---复杂元素><i class="fas fa-link"></i></a></h3><ul><li>简单元素</li></ul><blockquote><p>元素里面包含了普通的文字</p></blockquote><ul><li>复杂元素</li></ul><blockquote><p>元素里面还可以嵌套其他的元素</p></blockquote><h3 id=属性的定义>属性的定义<a class="anchor ms-1" href=#属性的定义><i class="fas fa-link"></i></a></h3><blockquote><p>定义在元素里面， &lt;元素名称 属性名称=&ldquo;属性的值&rdquo;>&lt;/元素名称></p></blockquote><pre tabindex=0><code class=language-xmlxml data-lang=xmlxml>
+		&lt;stus&gt;
+
+			&lt;stu id=&#34;10086&#34;&gt;
+
+				&lt;name&gt;张三&lt;/name&gt;
+
+				&lt;age&gt;18&lt;/age&gt;
+
+			&lt;/stu&gt;
+
+			&lt;stu id=&#34;10087&#34;&gt;
+
+				&lt;name&gt;李四&lt;/name&gt;
+
+				&lt;age&gt;28&lt;/age&gt;
+
+			&lt;/stu&gt;
+
+		&lt;/stus&gt;
+</code></pre><h2 id=xml注释>xml注释：<a class="anchor ms-1" href=#xml注释><i class="fas fa-link"></i></a></h2><blockquote><p>与html的注释一样。</p></blockquote><p>｀ ｀</p><p>如：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#75715e>&lt;!-- 
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>			//这里有两个学生
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>			//一个学生，名字叫张三， 年龄18岁， 学号：10086
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>			//另外一个学生叫李四  。。。
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>		 --&gt;</span>
+</span></span></code></pre></div><blockquote><p>xml的注释，不允许放置在文档的第一行。 必须在文档声明的下面。</p></blockquote><h2 id=cdata区>CDATA区<a class="anchor ms-1" href=#cdata区><i class="fas fa-link"></i></a></h2><p>####　非法字符</p><p>严格地讲，在 XML 中仅有字符 &ldquo;&lt;&ldquo;和&rdquo;&&rdquo; 是非法的。省略号、引号和大于号是合法的，但是把它们替换为实体引用是个好的习惯。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#960050;background-color:#1e0010>&lt;</span>   &amp;lt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#960050;background-color:#1e0010>&amp;</span>   &amp;amp;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  &#34;   &amp;quot;
+</span></span></code></pre></div><p>如果某段字符串里面有过多的字符， 并且里面包含了类似标签或者关键字的这种文字，不想让xml的解析器去解析。 那么可以使用CDATA来包装。 不过这个CDATA 一般比较少看到。 通常在服务器给客户端返回数据的时候。</p><p><code>&lt;des>&lt;![CDATA[&lt;a href="http://www.baidu.com">我爱黑马训练营&lt;/a>]]>&lt;/des></code></p><h2 id=xml-解析>XML 解析<a class="anchor ms-1" href=#xml-解析><i class="fas fa-link"></i></a></h2><blockquote><p>其实就是获取元素里面的字符数据或者属性数据。</p></blockquote><h3 id=xml解析方式面试常问>XML解析方式(面试常问)<a class="anchor ms-1" href=#xml解析方式面试常问><i class="fas fa-link"></i></a></h3><blockquote><p>有很多种，但是常用的有两种。</p></blockquote><ul><li><p>DOM:把所有的文件全部读取到内存中,形成树状结构.整个文档称为document对象.,属性对应Attribute对象,所有的元素节点对应Element对象,文本也可以称为Text对象 ,以上所有对象都可以称为Node节点,如果xml特别大,就会造成内存溢出.优点:可以对文档进行增删操作</p></li><li><p>SAX:Simple API for XML 基于事件驱动,读取一行,解析一行,不会造成内存泄漏,不可以增删,只能查询</p></li></ul><p><img class=img-fluid alt=icon src loading=lazy></p><h3 id=针对这两种解析方式的api>针对这两种解析方式的API<a class="anchor ms-1" href=#针对这两种解析方式的api><i class="fas fa-link"></i></a></h3><blockquote><p>一些组织或者公司， 针对以上两种解析方式， 给出的解决方案有哪些？</p></blockquote><blockquote></blockquote><blockquote><ol><li>jaxp sun公司。 比较繁琐</li></ol></blockquote><ol start=2><li><p>jdom</p></li><li><p>dom4j 使用比较广泛,对SAX进行了增强,也可以完成增删操作</p></li></ol><h3 id=dom4j-基本用法>Dom4j 基本用法<a class="anchor ms-1" href=#dom4j-基本用法><i class="fas fa-link"></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span>		element.element(&#34;stu&#34;) ;// 返回该元素下的第一个stu元素
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		element.elements();// 返回该元素下的所有子元素。 
+</span></span></code></pre></div><ol><li><p>创建SaxReader对象</p><p><code>SAXReader reader= newSAXReader();</code></p></li><li><p>指定解析的xml</p><p><code>Document document = reader.read(path|file|inputStream);</code></p></li><li><p>获取根元素。</p><p><code>Elemennt rootElement = document.getRootElement();</code></p></li><li><p>根据根元素获取子元素或者下面的子孙元素</p><p><code>rootElement.element("age")</code></p><p><code>rootElement.element("stu").element("age").getText();</code></p></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span>		try {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			//1. 创建sax读取对象
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			SAXReader reader = new SAXReader(); //jdbc -- classloader
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			//2. 指定解析的xml源
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			Document  document  = reader.read(new File(&#34;src/xml/stus.xml&#34;));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			//3. 得到元素、
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			//得到根元素
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			Element rootElement= document.getRootElement();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			//获取根元素下面的子元素 age
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		//rootElement.element(&#34;age&#34;) 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			//System.out.println(rootElement.element(&#34;stu&#34;).element(&#34;age&#34;).getText());
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			//获取根元素下面的所有子元素 。 stu元素
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			List<span style=color:#f92672>&lt;Element&gt;</span> elements = rootElement.elements();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			//遍历所有的stu元素
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			for (Element element : elements) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				//获取stu元素下面的name元素
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				String name = element.element(&#34;name&#34;).getText();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				String age = element.element(&#34;age&#34;).getText();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				String address = element.element(&#34;address&#34;).getText();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				System.out.println(&#34;name=&#34;+name+&#34;==age+&#34;+age+&#34;==address=&#34;+address);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		} catch (Exception e) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			e.printStackTrace();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		}
+</span></span></code></pre></div><p>SaxReader 创建好对象 。</p><p>DocumentElement</p><ol><li><p>看文档</p></li><li><p>记住关键字 。</p></li><li><p>有对象先点一下。</p></li><li><p>看一下方法的返回值。</p></li><li><p>根据平时的积累。 getXXX setXXX</p></li></ol><h3 id=dom4j-的-xpath使用>Dom4j 的 Xpath使用<a class="anchor ms-1" href=#dom4j-的-xpath使用><i class="fas fa-link"></i></a></h3><blockquote><p>dom4j里面支持Xpath的写法。 xpath其实是xml的路径语言，支持我们在解析xml的时候，能够快速的定位到具体的某一个元素。在爬虫中经常使用.</p></blockquote><ol><li><p>添加jar包依赖</p><p>jaxen-1.1-beta-6.jar</p></li><li><p>在查找指定节点的时候，根据XPath语法规则来查找</p></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span>			//要想使用Xpath， 还得添加支持的jar 获取的是第一个 只返回一个。 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			Element nameElement = (Element) rootElement.selectSingleNode(&#34;//name&#34;);//双斜杠不能少
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	　
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			//获取文档里面的所有name元素 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			List<span style=color:#f92672>&lt;Element&gt;</span> list = rootElement.selectNodes(&#34;//name&#34;);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			for (Element element : list) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				System.out.println(element.getText());
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			}
+</span></span></code></pre></div><h2 id=xml-约束>XML 约束<a class="anchor ms-1" href=#xml-约束><i class="fas fa-link"></i></a></h2><p>如下的文档， 属性的ID值是一样的。 这在生活中是不可能出现的。 并且第二个学生的姓名有好几个。 一般也很少。那么怎么规定ID的值唯一， 或者是元素只能出现一次，不能出现多次？ 甚至是规定里面只能出现具体的元素名字。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>&lt;stus&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>&lt;stu</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;10086&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&lt;name&gt;</span>张三<span style=color:#f92672>&lt;/name&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&lt;age&gt;</span>18<span style=color:#f92672>&lt;/age&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&lt;address&gt;</span>深圳<span style=color:#f92672>&lt;/address&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>&lt;/stu&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>&lt;stu</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;10086&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&lt;name&gt;</span>李四<span style=color:#f92672>&lt;/name&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&lt;name&gt;</span>李五<span style=color:#f92672>&lt;/name&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&lt;name&gt;</span>李六<span style=color:#f92672>&lt;/name&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&lt;age&gt;</span>28<span style=color:#f92672>&lt;/age&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&lt;address&gt;</span>北京<span style=color:#f92672>&lt;/address&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>&lt;/stu&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>&lt;/stus&gt;</span>
+</span></span></code></pre></div><h3 id=dtd>DTD<a class="anchor ms-1" href=#dtd><i class="fas fa-link"></i></a></h3><p>文档类型定义，可以定义合法的ＸＭＬ文档构建模块.</p><p>可以成行的声明于XML文档中,也可以作为外部引用</p><p>可读性比较差。</p><ol><li>引入网络上的DTD</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span>   	<span style=color:#75715e>&lt;!-- 引入dtd 来约束这个xml --&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   	<span style=color:#75715e>&lt;!--文档类型  根标签名字 网络上的dtd   dtd的名称    dtd的路径 --&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   	<span style=color:#75715e>&lt;!  DOCTYPE stus      PUBLIC    &#34;//UNKNOWN/&#34;  &#34;unknown.dtd&#34;&gt;</span>
+</span></span></code></pre></div><ol start=2><li>引入本地的DTD</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#75715e>&lt;!-- 引入本地的DTD  忽略dtd的路径--&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e>&lt;!-- 		根标签名字 引入本地的DTD  dtd的位置 --&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>     <span style=color:#75715e>&lt;!DOCTYPE stus 		SYSTEM 	 &#34;stus.dtd&#34;&gt;</span> 
+</span></span></code></pre></div><ol start=3><li>直接在XML里面嵌入DTD的约束规则</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span>   	<span style=color:#75715e>&lt;!-- xml文档里面直接嵌入DTD的约束法则 --&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   	<span style=color:#75715e>&lt;!DOCTYPE stus [
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>   		&lt;!ELEMENT stus (stu)+&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   		<span style=color:#75715e>&lt;!ELEMENT stu (name,age)&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   		<span style=color:#75715e>&lt;!ELEMENT name (#PCDATA)&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   		<span style=color:#75715e>&lt;!ELEMENT age (#PCDATA)&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   		<span style=color:#75715e>&lt;!ATTLIST stu id CDATA #IMPLIED&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   	]&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   	<span style=color:#f92672>&lt;stus&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   		<span style=color:#f92672>&lt;stu</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;10086&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   			<span style=color:#f92672>&lt;name&gt;</span>张三<span style=color:#f92672>&lt;/name&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   			<span style=color:#f92672>&lt;age&gt;</span>18<span style=color:#f92672>&lt;/age&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   		<span style=color:#f92672>&lt;/stu&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;stu</span> <span style=color:#a6e22e>id=</span><span style=color:#e6db74>&#34;10ds&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   			<span style=color:#f92672>&lt;name&gt;</span>李四<span style=color:#f92672>&lt;/name&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   			<span style=color:#f92672>&lt;age&gt;</span>18<span style=color:#f92672>&lt;/age&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   		<span style=color:#f92672>&lt;/stu&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   	<span style=color:#f92672>&lt;/stus&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&lt;!--
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>   		&lt;!ELEMENT stus (stu)&gt;:stus 下面有一个元素 stu  ， 但是只有一个
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>   		&lt;!ELEMENT stu (name,age)&gt;:stu下面有两个元素 name,age顺序必须name-age
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>   		&lt;!ELEMENT name (#PCDATA)&gt;:name 只有PCDATA
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>   		&lt;!ELEMENT age (#PCDATA)&gt;:age 只有PCDATA
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>   		&lt;!ATTLIST stu id CDATA #IMPLIED&gt;:stu有一个属性名为id,字符数据CDATA,该属性可有可无
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>		&lt;!ELEMENT br EMPTY&gt;:空元素,例子;&lt;br /&gt;
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>--&gt;</span>
+</span></span></code></pre></div><ol start=4><li>元素的个数：</li></ol><pre tabindex=0><code>
++ 一个或多个
+
+* 零个或多个
+
+? 零个或一个
+</code></pre><ol start=5><li>属性的类型定义</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span>CDATA : 属性是普通文字
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ID : 属性的值必须唯一
+</span></span></code></pre></div><ol start=6><li>元素的选择</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&lt;!ELEMENT stu (name , age)&gt;</span>	<span style=color:#75715e>&lt;!--按照顺序来--&gt;</span> 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&lt;!ELEMENT stu (name | age)&gt;</span> <span style=color:#75715e>&lt;!--两个中只能包含一个子元素--&gt;</span>
+</span></span></code></pre></div><h3 id=schema>Schema<a class="anchor ms-1" href=#schema><i class="fas fa-link"></i></a></h3><p>其实就是一个xml ， 使用xml的语法规则， xml解析器解析起来比较方便 ， 是为了替代DTD 。</p><p>但是Schema 约束文本内容比DTD的内容还要多。 所以目前也没有真正意义上的替代DTD</p><p>约束文档：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&lt;!-- xmlns  :  xml namespace : 名称空间 /  命名空间
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>targetNamespace :  目标名称空间 。 下面定义的那些元素都与这个名称空间绑定上。 
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>elementFormDefault ： 元素的格式化情况。  --&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;schema</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema&#34;</span> 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>argetNamespace=</span><span style=color:#e6db74>&#34;http://www.itheima.com/teacher&#34;</span> 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>elementFormDefault=</span><span style=color:#e6db74>&#34;qualified&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#f92672>&lt;element</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;teachers&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>&lt;complexType&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;sequence</span> <span style=color:#a6e22e>maxOccurs=</span><span style=color:#e6db74>&#34;unbounded&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>&lt;!-- 这是一个复杂元素 --&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&lt;element</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;teacher&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>&lt;complexType&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                        <span style=color:#f92672>&lt;sequence&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                            <span style=color:#75715e>&lt;!-- 以下两个是简单元素 --&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                            <span style=color:#f92672>&lt;element</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;name&#34;</span> <span style=color:#a6e22e>type=</span><span style=color:#e6db74>&#34;string&#34;</span><span style=color:#f92672>&gt;&lt;/element&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                            <span style=color:#f92672>&lt;element</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;age&#34;</span> <span style=color:#a6e22e>type=</span><span style=color:#e6db74>&#34;int&#34;</span><span style=color:#f92672>&gt;&lt;/element&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                        <span style=color:#f92672>&lt;/sequence&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>&lt;/complexType&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&lt;/element&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;/sequence&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>&lt;/complexType&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#f92672>&lt;/element&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;/schema&gt;</span>
+</span></span></code></pre></div><p>实例文档：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#75715e>&lt;!-- xmlns:xsi : 这里必须是这样的写法，也就是这个值已经固定了。
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>		xmlns : 这里是名称空间，也固定了，写的是schema里面的顶部目标名称空间
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>		xsi:schemaLocation : 有两段： 前半段是名称空间，也是目标空间的值 ， 后面是约束文档的路径。
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>		 --&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>&lt;teachers</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>xmlns:xsi=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.itheima.com/teacher&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>xsi:schemaLocation=</span><span style=color:#e6db74>&#34;http://www.itheima.com/teacher teacher.xsd&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>&lt;teacher&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&lt;name&gt;</span>zhangsan<span style=color:#f92672>&lt;/name&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&lt;age&gt;</span>19<span style=color:#f92672>&lt;/age&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>&lt;/teacher&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>&lt;teacher&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&lt;name&gt;</span>lisi<span style=color:#f92672>&lt;/name&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&lt;age&gt;</span>29<span style=color:#f92672>&lt;/age&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>&lt;/teacher&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>&lt;teacher&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&lt;name&gt;</span>lisi<span style=color:#f92672>&lt;/name&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&lt;age&gt;</span>29<span style=color:#f92672>&lt;/age&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>&lt;/teacher&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>&lt;/teachers&gt;</span>
+</span></span></code></pre></div><h2 id=名称空间的作用>名称空间的作用<a class="anchor ms-1" href=#名称空间的作用><i class="fas fa-link"></i></a></h2><p>一个xml如果想指定它的约束规则， 假设使用的是DTD ，那么这个xml只能指定一个DTD ， 不能指定多个DTD 。 但是如果一个xml的约束是定义在schema里面，并且是多个schema，那么是可以的。简单的说： 一个xml 可以引用多个schema约束。 但是只能引用一个DTD约束。</p><p>名称空间的作用就是在 写元素的时候，可以指定该元素使用的是哪一套约束规则默认情况下 ，如果只有一套规则，那么都可以这么写</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#f92672>&lt;name&gt;</span>张三<span style=color:#f92672>&lt;/name&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#f92672>&lt;aa:name&gt;&lt;/aa:name&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#f92672>&lt;bb:name&gt;&lt;/bb:name&gt;</span>
+</span></span></code></pre></div></div><div class="modal fade" id=rewardModal tabindex=-1 aria-labelledby=rewardModalLabel aria-hidden=true><div class=modal-dialog><div class="modal-content surface"><div class=modal-header><h5 class=modal-title id=rewardModalLabel><i class="fas fa-fw fa-coffee"></i>Buy me a coffee</h5><a href=# data-bs-dismiss=modal class="btn btn-sm btn-outline-primary" aria-label=Close><i class="fas fa-times"></i></a></div><div class=modal-body><ul class="nav nav-tabs mb-3" role=tablist><li class="nav-item text-nowrap" role=presentation><a class="nav-link active" id=reward-alipay-tab data-bs-toggle=tab href=#reward-alipay role=tab aria-controls=reward-alipay aria-selected=true><i class="fab fa-fw fa-alipay"></i>Alipay</a></li><li class="nav-item text-nowrap" role=presentation><a class=nav-link id=reward-wechat-tab data-bs-toggle=tab href=#reward-wechat role=tab aria-controls=reward-wechat aria-selected=true><i class="fab fa-fw fa-weixin"></i>WeChat</a></li></ul><div class=tab-content id=rewardTabContent><div class="tab-pane fade post-reward-content show active" id=reward-alipay role=tabpanel aria-labelledby=reward-alipay-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_alipay.jpg loading=lazy></div><div class="tab-pane fade post-reward-content show" id=reward-wechat role=tabpanel aria-labelledby=reward-wechat-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_wechatpay.jpg loading=lazy></div></div></div></div></div></div><hr><div class=post-copyright id=post-copyright><a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc/4.0/deed.en><span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i></span>
+CC BY-NC 4.0</a></div><hr><div class="post-navs d-flex mb-3 justify-content-evenly"><div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/posts/driverless/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%A6%82%E8%BF%B0/>无人驾驶概述</a></div><div class="post-nav post-next"><a href=/posts/java/websocket/>WebSocket</a>
+<i class="fas fa-fw fa-chevron-right"></i></div></div></div></article><div class="card component row post-comments" id=post-comments><div class=card-header><h2 class=card-title>Comments</h2></div><div class=card-body><script src=https://utteranc.es/client.js repo=Euraxluo/Euraxluo.github.io issue-term=pathname label=✨💬✨ theme=github-dark crossorigin=anonymous async></script></div></div></div></div><aside class="col-lg-4 sidebar d-flex"><div class=container><section class="card row text-center profile component"><div class=card-body><div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt=Euraxluo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy></div><div class="col-12 profile-meta"><div class=profile-name>Euraxluo</div><div class=profile-bio>R&amp;D Engineer.</div><div class=profile-company><i class="fas fa-fw fa-building"></i>headingdata.com</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/about/>About</a></div></div></div></section><section class="featured-posts row card component"><div class=card-header><h2 class=card-title>Featured Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/>java面试笔记</a></li><li><a href=/posts/python/python-socket/>python socket编程</a></li><li><a href=/posts/note/rust%E5%AD%A6%E4%B9%A0/>rust学习</a></li><li><a href=/posts/note/scala%E5%85%A5%E9%97%A8/>Scala入门</a></li><li><a href=/posts/note/slam/>SLAM</a></li></ul></div></section><section class="recent-posts row card component"><div class=card-header><h2 class=card-title>Recent Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/>caddy简单使用</a></li><li><a href=/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/>安装K8S集群</a></li><li><a href=/posts/redis/redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/>Redis 实现分布式锁</a></li><li><a href=/posts/note/etcd%E5%85%A5%E9%97%A8/>etcd 基本使用</a></li><li><a href=/posts/note/gorm/>GORM学习</a></li></ul></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/categories>Categories</a></h2></div><div class=card-body><div class=py-2><a href=/categories/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/categories/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/categories/java/ class="badge rounded post-taxonomy" title=java>java
+</a><a href=/categories/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/categories/architecture-design/ class="badge rounded post-taxonomy" title="architecture design">architecture design</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/series>Series</a></h2></div><div class=card-body><div class=py-2><a href=/series/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/series/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/series/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/series/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/series/jdbc/ class="badge rounded post-taxonomy" title=JDBC>JDBC</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/tags>Tags</a></h2></div><div class=card-body><div class=py-2><a href=/tags/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/tags/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/tags/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/tags/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/tags/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/tags/architecture/ class="badge rounded post-taxonomy" title=architecture>architecture</a></div></div></section></div></aside></div></main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><a class="nav-link social-link" href=mailto:Euraxluo@outlook.com title=Email><i class="fas fa-fw fa-2x fa-envelope"></i>
+</a><a class="nav-link social-link" target=_blank href=https://github.com/Euraxluo title=GitHub rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-github"></i>
+</a><a class="nav-link social-link" target=_blank href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title=QQ rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-qq"></i>
+</a><a class="nav-link social-link" target=_blank href=https://www.zhihu.com/people/euraxluo title=Zhihu rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-zhihu"></i></a></nav><div class="copyright mb-2">Copyright © 2016-2023 Euraxluo. All Rights Reserved.</div></footer><script src=/js/main.min.353ac7952bbb8bdb7925c48cfcafede449a2253dd2610b49feb566a306011232.js integrity="sha256-NTrHlSu7i9t5JcSM/K/t5EmiJT3SYQtJ/rVmowYBEjI=" crossorigin=anonymous defer></script><script src=/js/icons.min.fb1b77be9bd37807602ec542d150423ad89114834c2e76ca7c004309310d64b0.js integrity="sha256-+xt3vpvTeAdgLsVC0VBCOtiRFINMLnbKfABDCTENZLA=" crossorigin=anonymous defer></script>
+<script src=/js/viewer.min.4f0b78319199ad080a1331f64e868866ccf303199b8144d80003d6ba8a4e5feb.js integrity="sha256-Twt4MZGZrQgKEzH2ToaIZszzAxmbgUTYAAPWuopOX+s=" crossorigin=anonymous defer></script><script defer src=/js/katex.min.3e41bd190b6187a4854d279cbde0b8d47fd0b6aae6341bdee804717abe8f6d51.js integrity="sha256-PkG9GQthh6SFTSecveC41H/QtqrmNBve6ARxer6PbVE=" crossorigin=anonymous></script></body></html>

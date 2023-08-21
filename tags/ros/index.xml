@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ROS on Euraxluo Blog</title><link>/tags/ros/</link><description>Recent content in ROS on Euraxluo Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><lastBuildDate>Sun, 10 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ros/index.xml" rel="self" type="application/rss+xml"/><item><title>ROS基础学习1</title><link>/posts/ros/ros%E5%9F%BA%E7%A1%80/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/ros/ros%E5%9F%BA%E7%A1%80/</guid><description>利用enve使用在ros中使用python3 因为ros的python有很多依赖需要使用C，python3的支持不太好。我们可以让当前的环境变量依然是python2，为ros创建一个py3的enve来给它使用
+查看版本： pip -V pip3 -V python -V python3 -V 我的pip和python都是py2.7的
+接下来在你的工作空间中创建enve
+mkdir -p catkin_ws/src cd catkin_ws pip3 install virtualenv #先安装 virtualenv -p /usr/bin/python3 venv#创建一个名为enve的python3环境 source venv/bin/activate #激活enve #创建成功，你应该会看到shell的变化，你可以在这里试一下pip和python，会发现已经变成python3了。 deactivate #关闭enve SLAM 同时定位建模 移动机器人的主要任务：定位，建模，路径规划
+slam 建模工具包： Gmapping，Karto，Heotor，Gartographer
+ROS支持的定位工具包： 自适应蒙特卡罗定位：AMCL
+导航工具包集 Navigation：Local，Global
+Global：Dijkstra，A×
+Local;DWA
+SLAM中的MAP： 本质也是一个msg
+Topic：/map
+Type：nav_msgs/OccupancyGrid(栅格地图)
+Gmapping Topic 输入：base到odom的tf， /scan
+输出：
+定位信息：map_frame&amp;gt;odom的tf消息
+mapping:topic -/map _msg
+Karto topic 输入和Gmapping一样
+输出：map_frame -&amp;gt;odom
+Navigation matepkg</description></item><item><title>ROS基础学习2</title><link>/posts/ros/ros%E5%85%A5%E9%97%A8/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/ros/ros%E5%85%A5%E9%97%A8/</guid><description>ROS 工作空间:组织和管理功能包的文件夹 catkin workspace
+build (cmake,catkin缓存中间件)
+src(package 源代码)
+package1(是catkin编译的基本单元)
+package2
+folder
+package3
+package3
+devel(目标文件)
+头文件
+动态连接库
+静态连接库
+可执行文件
+catkin(编译工具) catkin ROS定制的编译构建系统
+是对CMake的扩展
+常用命令:
+catkin_make: 初始化,建立工作空间
+eg:
+mkdir -p ~/catkin_ws/src cd ~/catkin_ws/ catkin_make 编译
+eg:
+cd ~/catkin_ws #回到工作空间 catkin_make source ~/catkin/devel/setup.bash #编译完成后需要使用source进行刷新 package 功能包 是ROS软件的基本组织形式(一个个package)
+catkin编译的基本单元
+一个package可以包含多个节点(可执行文件),但是至少必须含有CMakeLists.txt和package.XML才能认为这是一个pkg
+CMakeLists.txt 规定了catkin编译的规则(源文件,依賴項，目標文件)
+eg:
+cmake_mininum_required() #指定catkin的最低版本 project() #指定軟件包的name find_package() #指定編譯時需要的依賴項 add_message_files()/add_service_files()/add_action_files()#添加消息文件/服務文件/動作文件 generate_message() #指定catkin信息給編譯系統生成cmake文件 add_library()/add_executable() #指定生成庫文件，可執行文件 target_link_libraries() #指定可執行文件鏈接那些庫 catkin_add_gtest() #添加單元測試 install() #生成可安裝目標 如果編譯過程中出現問題，一般都是這個文件的原因
+package.XML 包的自我描述：定义了package的属性,包名,版本号,作者,依賴等
+&amp;lt;package&amp;gt;&amp;lt;!--root--&amp;gt; &amp;lt;name&amp;gt;&amp;lt;!</description></item><item><title>Ubuntu18.04安装ROS</title><link>/posts/ros/ros%E5%AE%89%E8%A3%85/</link><pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/ros/ros%E5%AE%89%E8%A3%85/</guid><description>Ubuntu18.04安装ROS 源配置: sudo sh -c &amp;#39;. /etc/lsb-release &amp;amp;&amp;amp; echo &amp;#34;deb &amp;lt;http://mirrors.ustc.edu.cn/ros/ubuntu/&amp;gt; $DISTRIB_CODENAME main&amp;#34; &amp;gt; /etc/apt/sources.list.d/ros-latest.list&amp;#39; 更新: sudo apt-get update
+添加密匙: sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+和官网步骤一样: sudo apt-get install ros-melodic-desktop-full
+sudo rosdep init
+报错: 由于py版本导致,网上说切换为python2.7,我失败了
+Traceback (most recent call last): File &amp;#34;/usr/bin/rosdep&amp;#34;, line 3, in &amp;lt;module&amp;gt; from rosdep2.main import rosdep_mainModuleNotFoundError: No module named &amp;#39;rosdep2&amp;#39; 重头戏来了: sudo apt-get install python3-catkin-pkg
+sudo apt-get install python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+再次运行: sudo rosdep init</description></item></channel></rss>

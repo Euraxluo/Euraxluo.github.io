@@ -1,0 +1,284 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>安装K8S集群 - Euraxluo Blog</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180><link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png><link rel=icon href=/images/icons/favicon.ico><link rel=manifest href=/manifest.json><meta name=keywords content><meta name=description content="安装K8S集群"><meta itemprop=name content="安装K8S集群"><meta itemprop=description content="安装K8S集群"><meta itemprop=datePublished content="2023-08-01T00:00:00+00:00"><meta itemprop=dateModified content="2023-08-01T00:00:00+00:00"><meta itemprop=wordCount content="521"><meta itemprop=keywords content="notes,"><meta property="og:title" content="安装K8S集群"><meta property="og:description" content="安装K8S集群"><meta property="og:type" content="article"><meta property="og:url" content="/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-08-01T00:00:00+00:00"><meta property="article:modified_time" content="2023-08-01T00:00:00+00:00"><meta property="og:see_also" content="/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"><meta property="og:see_also" content="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><meta property="og:see_also" content="/posts/note/%E5%AE%89%E8%A3%85flower/"><meta property="og:see_also" content="/posts/note/c++%E5%B0%8F%E8%AE%B0/"><meta property="og:see_also" content="/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/"><meta name=twitter:card content="summary"><meta name=twitter:title content="安装K8S集群"><meta name=twitter:description content="安装K8S集群"><link rel=stylesheet href=/css/main.min.29f9b537bf546fdc11e6e11f92ddd52ea0bd1eefa2228b828bc3b750c66763b0.css integrity="sha256-Kfm1N79Ub9wR5uEfkt3VLqC9Hu+iIouCi8O3UMZnY7A=" crossorigin=anonymous><link rel=stylesheet href=/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head><body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top"><div class=container-fluid><button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/><img class=logo alt=Logo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy>
+Euraxluo</a>
+<button class=navbar-social-share type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<i class="fas fa-share-alt"></i></button><div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare><div class=offcanvas-header><h3 class=offcanvas-title>Share</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=%e5%ae%89%e8%a3%85K8S%e9%9b%86%e7%be%a4&url=%2fposts%2fnote%2f%25E5%25AE%2589%25E8%25A3%2585k8s%25E9%259B%2586%25E7%25BE%25A4%2f"><i class="fab fa-fw fa-twitter"></i> Twitter</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fposts%2fnote%2f%25E5%25AE%2589%25E8%25A3%2585k8s%25E9%259B%2586%25E7%25BE%25A4%2f"><i class="fab fa-fw fa-facebook-f"></i> Facebook</a></div></div><button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i></button><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings><div class=offcanvas-header><h3 class=offcanvas-title>Settings</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class="offcanvas-body d-flex flex-column"><section class=setting><form class=row><div class=col-auto><label><i class="fas fa-fw fa-adjust"></i> Mode</label></div><div class="col-auto ms-auto"><div class="form-check form-switch"><input class=form-check-input type=checkbox id=modeSwitcher></div></div></form></section><section class=setting><form class="font-size-switcher-form row"><div class=col-auto><label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Font Size</label></div><div class="col-auto ms-auto"><input type=range class=form-range min=-2 max=2 id=fontSize></div></form></section><section class="setting palettes"><form class=row><div class=col-auto><label><i class="fas fa-fw fa-palette"></i> Palette</label></div><div class="col-auto ms-auto"><a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker><i class="fas fa-eye-dropper"></i></a></div></form><div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Blue class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gray" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Brown class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Green class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Pink class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Purple class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Red class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label=Teal class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Yellow class="btn btn-sm palette" data-palette=yellow></button></div></section><section class="setting actions d-flex justify-content-center mt-auto"><a role=button class="action action-reload-page"><span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload</a>
+<a role=button class="action action-copy-url"><span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copy URL</a></section></div></div><div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent><form class="search-bar my-1" action=/search><div class="input-group input-group-sm"><span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search></div></form><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/archives/><i class="fas fa-fw fa-file-archive"></i>timeline</a></li><li class=nav-item><a class=nav-link href=/categories/><i class="fas fa-fw fa-folder"></i>category</a></li><li class=nav-item><a class=nav-link href=/tags/><i class="fas fa-fw fa-tags"></i>tags</a></li><li class=nav-item><a class=nav-link href=/series/><i class="fas fa-fw fa-columns"></i>series</a></li><li class="nav-item dropdown"><a class=nav-link id=navbarDropdownRepos role=button data-bs-toggle=dropdown aria-expanded=false><i class="fab fa-fw fa-github"></i>Repos</a><ul class=dropdown-menu aria-labelledby=navbarDropdownRepos><li><a class=dropdown-item href=https://github.com/BreezeTeam/cache target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>cache</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/distance_matrix target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>distance_matrix</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>Euraxluo</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/IMOMD-RRTStar-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>IMOMD-RRTStar-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/lang target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>lang</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/LKH-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>LKH-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/scheduler target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>scheduler</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/simplegrad target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>simplegrad</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/verb target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>verb</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/web target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>web</a></li></ul></li></ul></div></div></nav></header><main role=main class=container-fluid><div class="row content"><div class=col-lg-8><div class=container><article class="row card component mb-4 post"><div class=post-panel-wrapper><div class="d-flex flex-column component rounded post-panel"><a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler"><i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i></a>
+<a class="action btn-reward" role=button data-bs-toggle=modal data-bs-target=#rewardModal title="Buy me a coffee"><i class="fas fa-fw fa-coffee"></i></a>
+<a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright><i class="fas fa-fw fa-copyright"></i></a>
+<a class=action href=#post-comments role=button aria-label=Comments title=Comments><i class="fas fa-fw fa-comments"></i></a>
+<a class=action data-bs-toggle=offcanvas href=#offcanvasTOC aria-controls=offcanvasTOC role=button title="Table of contents"><i class="fas fa-fw fa-list-alt"></i></a></div></div><div class=card-header><h1 class="card-title post-title">安装K8S集群</h1></div><div class=card-body><div class=post-meta><span class=post-date title="created on 2023-08-01 08:00:00 +0800 CST.">2023-08-01
+</span><span class=post-reading-time>3 min read
+</span><span class=post-taxonomies><a href=/categories/notes/ class="badge rounded-pill post-taxonomy">notes</a><a href=/series/notes/ class="badge rounded-pill post-taxonomy">notes</a><a href=/tags/notes/ class="badge rounded-pill post-taxonomy">notes</a></span></div><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasTOC aria-labelledby=offcanvasTOCLabel><div class=offcanvas-header><h2 class=offcanvas-title id=offcanvasTOCLabel>Table Of Contents</h5><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><nav id=TableOfContents><ul><li><a href=#1-安装环境>1. 安装环境</a></li><li><a href=#2-修改节点的hosts>2. 修改节点的hosts</a></li><li><a href=#3-安装依赖并且下载kk>3. 安装依赖，并且下载kk</a></li><li><a href=#4创建配置>4.创建配置</a></li><li><a href=#5进行安装>5.进行安装</a></li></ul></nav></div></div><div class="post-content mb-3"><ul><li><a href=#1-%e5%ae%89%e8%a3%85%e7%8e%af%e5%a2%83>1. 安装环境</a></li><li><a href=#2-%e4%bf%ae%e6%94%b9%e8%8a%82%e7%82%b9%e7%9a%84hosts>2. 修改节点的hosts</a></li><li><a href=#3-%e5%ae%89%e8%a3%85%e4%be%9d%e8%b5%96%e5%b9%b6%e4%b8%94%e4%b8%8b%e8%bd%bdkk>3. 安装依赖，并且下载kk</a></li><li><a href=#4%e5%88%9b%e5%bb%ba%e9%85%8d%e7%bd%ae>4.创建配置</a></li><li><a href=#5%e8%bf%9b%e8%a1%8c%e5%ae%89%e8%a3%85>5.进行安装</a></li></ul><h2 id=1-安装环境>1. 安装环境<a class="anchor ms-1" href=#1-安装环境><i class="fas fa-link"></i></a></h2><p><img class=img-fluid alt=安装环境截图 src=/image/k8s_install.png loading=lazy width=1729 height=934></p><h2 id=2-修改节点的hosts>2. 修改节点的hosts<a class="anchor ms-1" href=#2-修改节点的hosts><i class="fas fa-link"></i></a></h2><p>最后得到节点：
+192.168.110.21 paas-node1
+192.168.110.22 paas-node2
+192.168.110.23 paas-node3</p><table><thead><tr><th style=text-align:left>主机 IP</th><th style=text-align:right>主机名</th><th style=text-align:center>角色</th></tr></thead><tbody><tr><td style=text-align:left>192.168.110.21</td><td style=text-align:right>paas-node1</td><td style=text-align:center>control plane, etcd</td></tr><tr><td style=text-align:left>192.168.110.22</td><td style=text-align:right>paas-node2</td><td style=text-align:center>worker</td></tr><tr><td style=text-align:left>192.168.110.23</td><td style=text-align:right>paas-node2</td><td style=text-align:center>worker</td></tr></tbody></table><p>配置ssh三个节点互相免密
+在每一个节点运行以下命令：</p><ul><li>ssh-keygen 三次回车，生成rsa 公钥和私钥</li><li>ssh-copy-id user@ip 将公钥分发给所有的机器</li><li>可以上别的机器，查看 cat ~/.ssh/authorized_keys</li><li>可以本机直接ssh ip，登录别的机器</li></ul><h2 id=3-安装依赖并且下载kk>3. 安装依赖，并且下载kk<a class="anchor ms-1" href=#3-安装依赖并且下载kk><i class="fas fa-link"></i></a></h2><p>sudo apt install socat conntrack ebtables ipset curl openssl tar -y</p><p>然后我们在node1 上安装kk</p><p>curl -sfL <a href=https://get-kk.kubesphere.io target=_blank rel="noopener noreferrer">https://get-kk.kubesphere.io</a>
+| VERSION=v3.0.7 sh -</p><h2 id=4创建配置>4.创建配置<a class="anchor ms-1" href=#4创建配置><i class="fas fa-link"></i></a></h2><p>./kk create config &ndash;with-kubesphere v3.3.2 &ndash;with-kubernetes v1.22.12</p><p>集群配置如下</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>kubekey.kubesphere.io/v1alpha2</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Cluster</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>sample</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>hosts</span>:
+</span></span><span style=display:flex><span>  - {<span style=color:#f92672>name: paas-node1, address: 192.168.110.21, internalAddress: 192.168.110.21, privateKeyPath</span>: <span style=color:#e6db74>&#34;~/.ssh/id_rsa&#34;</span>}
+</span></span><span style=display:flex><span>  - {<span style=color:#f92672>name: paas-node2, address: 192.168.110.22, internalAddress: 192.168.110.22, privateKeyPath</span>: <span style=color:#e6db74>&#34;~/.ssh/id_rsa&#34;</span>}
+</span></span><span style=display:flex><span>  - {<span style=color:#f92672>name: paas-node3, address: 192.168.110.23, internalAddress: 192.168.110.23, privateKeyPath</span>: <span style=color:#e6db74>&#34;~/.ssh/id_rsa&#34;</span>}
+</span></span><span style=display:flex><span>  <span style=color:#f92672>roleGroups</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>etcd</span>:
+</span></span><span style=display:flex><span>    - <span style=color:#ae81ff>paas-node[1:3]</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>control-plane</span>: 
+</span></span><span style=display:flex><span>    - <span style=color:#ae81ff>paas-node[1:3]</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>worker</span>:
+</span></span><span style=display:flex><span>    - <span style=color:#ae81ff>paas-node[1:3]</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>controlPlaneEndpoint</span>:
+</span></span><span style=display:flex><span>    <span style=color:#75715e>## Internal loadbalancer for apiservers </span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>internalLoadbalancer</span>: <span style=color:#ae81ff>haproxy</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>domain</span>: <span style=color:#ae81ff>lb.kubesphere.local</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>address</span>: <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>port</span>: <span style=color:#ae81ff>6443</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>kubernetes</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>version</span>: <span style=color:#ae81ff>v1.22.12</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>clusterName</span>: <span style=color:#ae81ff>cluster.local</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>autoRenewCerts</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>containerManager</span>: <span style=color:#ae81ff>docker</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>etcd</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>type</span>: <span style=color:#ae81ff>kubekey</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>network</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>plugin</span>: <span style=color:#ae81ff>calico</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>kubePodsCIDR</span>: <span style=color:#ae81ff>10.233.64.0</span><span style=color:#ae81ff>/18</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>kubeServiceCIDR</span>: <span style=color:#ae81ff>10.233.0.0</span><span style=color:#ae81ff>/18</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>## multus support. https://github.com/k8snetworkplumbingwg/multus-cni</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>multusCNI</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>registry</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>privateRegistry</span>: <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>namespaceOverride</span>: <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>registryMirrors</span>: []
+</span></span><span style=display:flex><span>    <span style=color:#f92672>insecureRegistries</span>: []
+</span></span><span style=display:flex><span>  <span style=color:#f92672>addons</span>: []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>installer.kubesphere.io/v1alpha1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>ClusterConfiguration</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>ks-installer</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>kubesphere-system</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>labels</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>version</span>: <span style=color:#ae81ff>v3.3.2</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>persistence</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>storageClass</span>: <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>authentication</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>jwtSecret</span>: <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>zone</span>: <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>local_registry</span>: <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>namespace_override</span>: <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e># dev_tag: &#34;&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>etcd</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>monitoring</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>endpointIps</span>: <span style=color:#ae81ff>localhost</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>port</span>: <span style=color:#ae81ff>2379</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>tlsEnable</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>common</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>core</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>console</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>enableMultiLogin</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>port</span>: <span style=color:#ae81ff>30880</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>type</span>: <span style=color:#ae81ff>NodePort</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># apiserver:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#  resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># controllerManager:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#  resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>redis</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>volumeSize</span>: <span style=color:#ae81ff>2Gi</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>openldap</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>volumeSize</span>: <span style=color:#ae81ff>2Gi</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>minio</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>volumeSize</span>: <span style=color:#ae81ff>20Gi</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>monitoring</span>:
+</span></span><span style=display:flex><span>      <span style=color:#75715e># type: external</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>endpoint</span>: <span style=color:#ae81ff>http://prometheus-operated.kubesphere-monitoring-system.svc:9090</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>GPUMonitoring</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>gpu</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>kinds</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>resourceName</span>: <span style=color:#e6db74>&#34;nvidia.com/gpu&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>resourceType</span>: <span style=color:#e6db74>&#34;GPU&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>default</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>es</span>:
+</span></span><span style=display:flex><span>      <span style=color:#75715e># master:</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e>#   volumeSize: 4Gi</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e>#   replicas: 1</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e>#   resources: {}</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e># data:</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e>#   volumeSize: 20Gi</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e>#   replicas: 1</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e>#   resources: {}</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>logMaxAge</span>: <span style=color:#ae81ff>7</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>elkPrefix</span>: <span style=color:#ae81ff>logstash</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>basicAuth</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>username</span>: <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>password</span>: <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>externalElasticsearchHost</span>: <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>externalElasticsearchPort</span>: <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>alerting</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># thanosruler:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   replicas: 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   resources: {}</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>auditing</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># operator:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># webhook:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   resources: {}</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>devops</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>jenkinsMemoryLim</span>: <span style=color:#ae81ff>8Gi</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>jenkinsMemoryReq</span>: <span style=color:#ae81ff>4Gi</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>jenkinsVolumeSize</span>: <span style=color:#ae81ff>8Gi</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>events</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># operator:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># exporter:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># ruler:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   enabled: true</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   replicas: 2</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   resources: {}</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>logging</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>logsidecar</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>replicas</span>: <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e># resources: {}</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>metrics_server</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>monitoring</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>storageClass</span>: <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>node_exporter</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>port</span>: <span style=color:#ae81ff>9100</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e># resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># kube_rbac_proxy:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># kube_state_metrics:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># prometheus:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   replicas: 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   volumeSize: 20Gi</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   operator:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#     resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># alertmanager:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   replicas: 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># notification_manager:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   operator:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#     resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   proxy:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#     resources: {}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>gpu</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>nvidia_dcgm_exporter</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># resources: {}</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>multicluster</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>clusterRole</span>: <span style=color:#ae81ff>none</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>network</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>networkpolicy</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ippool</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>type</span>: <span style=color:#ae81ff>none</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>topology</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>type</span>: <span style=color:#ae81ff>weave-scope</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>openpitrix</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>store</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>servicemesh</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>istio</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>components</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>ingressGateways</span>:
+</span></span><span style=display:flex><span>        - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>istio-ingressgateway</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>cni</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>edgeruntime</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>kubeedge</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cloudCore</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>cloudHub</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>advertiseAddress</span>:
+</span></span><span style=display:flex><span>            - <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>service</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>cloudhubNodePort</span>: <span style=color:#e6db74>&#34;30000&#34;</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>cloudhubQuicNodePort</span>: <span style=color:#e6db74>&#34;30001&#34;</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>cloudhubHttpsNodePort</span>: <span style=color:#e6db74>&#34;30002&#34;</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>cloudstreamNodePort</span>: <span style=color:#e6db74>&#34;30003&#34;</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>tunnelNodePort</span>: <span style=color:#e6db74>&#34;30004&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># resources: {}</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># hostNetWork: false</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>iptables-manager</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>mode</span>: <span style=color:#e6db74>&#34;external&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># resources: {}</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e># edgeService:</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e>#   resources: {}</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>terminal</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>timeout</span>: <span style=color:#ae81ff>600</span>
+</span></span></code></pre></div><h2 id=5进行安装>5.进行安装<a class="anchor ms-1" href=#5进行安装><i class="fas fa-link"></i></a></h2><p>./kk create cluster -f config-sample.yaml</p></div><div class="modal fade" id=rewardModal tabindex=-1 aria-labelledby=rewardModalLabel aria-hidden=true><div class=modal-dialog><div class="modal-content surface"><div class=modal-header><h5 class=modal-title id=rewardModalLabel><i class="fas fa-fw fa-coffee"></i>Buy me a coffee</h5><a href=# data-bs-dismiss=modal class="btn btn-sm btn-outline-primary" aria-label=Close><i class="fas fa-times"></i></a></div><div class=modal-body><ul class="nav nav-tabs mb-3" role=tablist><li class="nav-item text-nowrap" role=presentation><a class="nav-link active" id=reward-alipay-tab data-bs-toggle=tab href=#reward-alipay role=tab aria-controls=reward-alipay aria-selected=true><i class="fab fa-fw fa-alipay"></i>Alipay</a></li><li class="nav-item text-nowrap" role=presentation><a class=nav-link id=reward-wechat-tab data-bs-toggle=tab href=#reward-wechat role=tab aria-controls=reward-wechat aria-selected=true><i class="fab fa-fw fa-weixin"></i>WeChat</a></li></ul><div class=tab-content id=rewardTabContent><div class="tab-pane fade post-reward-content show active" id=reward-alipay role=tabpanel aria-labelledby=reward-alipay-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_alipay.jpg loading=lazy></div><div class="tab-pane fade post-reward-content show" id=reward-wechat role=tabpanel aria-labelledby=reward-wechat-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_wechatpay.jpg loading=lazy></div></div></div></div></div></div><hr><div class=post-copyright id=post-copyright><a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc/4.0/deed.en><span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i></span>
+CC BY-NC 4.0</a></div><hr><div class="post-navs d-flex mb-3 justify-content-evenly"><div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/posts/redis/redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/>Redis 实现分布式锁</a></div><div class="post-nav post-next"><a href=/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/>caddy简单使用</a>
+<i class="fas fa-fw fa-chevron-right"></i></div></div></div></article><section class="related-posts row card component"><div class=card-header><h2 class=card-title>Related Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/>数据分析</a>
+<span class="float-end post-date">2022-01-04</span></li><li><a href=/posts/note/%E5%AE%89%E8%A3%85flower/>安装flower</a>
+<span class="float-end post-date">2021-02-21</span></li><li><a href=/posts/note/c++%E5%B0%8F%E8%AE%B0/>C++ 小记</a>
+<span class="float-end post-date">2019-02-21</span></li><li><a href=/posts/note/slam/>SLAM</a>
+<span class="float-end post-date">2019-02-21</span></li><li><a href=/posts/note/scala%E5%85%A5%E9%97%A8/>Scala入门</a>
+<span class="float-end post-date">2019-02-21</span></li><li><a href=/posts/note/vslam/>VSLAM</a>
+<span class="float-end post-date">2019-02-21</span></li></ul></div></section><div class="card component row post-comments" id=post-comments><div class=card-header><h2 class=card-title>Comments</h2></div><div class=card-body><script src=https://utteranc.es/client.js repo=Euraxluo/Euraxluo.github.io issue-term=pathname label=✨💬✨ theme=github-dark crossorigin=anonymous async></script></div></div></div></div><aside class="col-lg-4 sidebar d-flex"><div class=container><section class="card row text-center profile component"><div class=card-body><div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt=Euraxluo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy></div><div class="col-12 profile-meta"><div class=profile-name>Euraxluo</div><div class=profile-bio>R&amp;D Engineer.</div><div class=profile-company><i class="fas fa-fw fa-building"></i>headingdata.com</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/about/>About</a></div></div></div></section><section class="featured-posts row card component"><div class=card-header><h2 class=card-title>Featured Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/>java面试笔记</a></li><li><a href=/posts/python/python-socket/>python socket编程</a></li><li><a href=/posts/note/rust%E5%AD%A6%E4%B9%A0/>rust学习</a></li><li><a href=/posts/note/scala%E5%85%A5%E9%97%A8/>Scala入门</a></li><li><a href=/posts/note/slam/>SLAM</a></li></ul></div></section><section class="recent-posts row card component"><div class=card-header><h2 class=card-title>Recent Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/>caddy简单使用</a></li><li><a href=/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/>安装K8S集群</a></li><li><a href=/posts/redis/redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/>Redis 实现分布式锁</a></li><li><a href=/posts/note/etcd%E5%85%A5%E9%97%A8/>etcd 基本使用</a></li><li><a href=/posts/note/gorm/>GORM学习</a></li></ul></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/categories>Categories</a></h2></div><div class=card-body><div class=py-2><a href=/categories/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/categories/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/categories/java/ class="badge rounded post-taxonomy" title=java>java
+</a><a href=/categories/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/categories/architecture-design/ class="badge rounded post-taxonomy" title="architecture design">architecture design</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/series>Series</a></h2></div><div class=card-body><div class=py-2><a href=/series/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/series/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/series/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/series/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/series/jdbc/ class="badge rounded post-taxonomy" title=JDBC>JDBC</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/tags>Tags</a></h2></div><div class=card-body><div class=py-2><a href=/tags/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/tags/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/tags/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/tags/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/tags/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/tags/architecture/ class="badge rounded post-taxonomy" title=architecture>architecture</a></div></div></section></div></aside></div></main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><a class="nav-link social-link" href=mailto:Euraxluo@outlook.com title=Email><i class="fas fa-fw fa-2x fa-envelope"></i>
+</a><a class="nav-link social-link" target=_blank href=https://github.com/Euraxluo title=GitHub rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-github"></i>
+</a><a class="nav-link social-link" target=_blank href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title=QQ rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-qq"></i>
+</a><a class="nav-link social-link" target=_blank href=https://www.zhihu.com/people/euraxluo title=Zhihu rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-zhihu"></i></a></nav><div class="copyright mb-2">Copyright © 2016-2023 Euraxluo. All Rights Reserved.</div></footer><script src=/js/main.min.353ac7952bbb8bdb7925c48cfcafede449a2253dd2610b49feb566a306011232.js integrity="sha256-NTrHlSu7i9t5JcSM/K/t5EmiJT3SYQtJ/rVmowYBEjI=" crossorigin=anonymous defer></script><script src=/js/icons.min.fb1b77be9bd37807602ec542d150423ad89114834c2e76ca7c004309310d64b0.js integrity="sha256-+xt3vpvTeAdgLsVC0VBCOtiRFINMLnbKfABDCTENZLA=" crossorigin=anonymous defer></script>
+<script src=/js/viewer.min.4f0b78319199ad080a1331f64e868866ccf303199b8144d80003d6ba8a4e5feb.js integrity="sha256-Twt4MZGZrQgKEzH2ToaIZszzAxmbgUTYAAPWuopOX+s=" crossorigin=anonymous defer></script><script defer src=/js/katex.min.3e41bd190b6187a4854d279cbde0b8d47fd0b6aae6341bdee804717abe8f6d51.js integrity="sha256-PkG9GQthh6SFTSecveC41H/QtqrmNBve6ARxer6PbVE=" crossorigin=anonymous></script></body></html>

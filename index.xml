@@ -1,0 +1,1133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Euraxluo Blog</title><link>/</link><description>Recent content on Euraxluo Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><lastBuildDate>Mon, 21 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>caddy简单使用</title><link>/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link><pubDate>Mon, 21 Aug 2023 00:00:00 +0000</pubDate><guid>/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid><description>1. caddy 简介 2. caddy VS. nginx 3. caddy 简单使用 1. 安装 4. Run the daemon 5. 创建一个配置 6. 使用caddy file 1. caddy 简介 官方文档：https://caddyserver.com/docs/
+我认为caddy 就是类似于nginx 的角色，并且其没有依赖，丰富的平台支持性，简洁的使用方式，完全可以用于在某些场景替换nginx
+nginx VS. caddy：https://cloudinfrastructureservices.co.uk/caddy-vs-nginx-which-web-server-is-better/
+2. caddy VS. nginx GPT: 比较Caddy和Nginx的方面：
+配置简单性： Caddy以其简洁的配置语法而闻名，通过Caddyfile配置文件，用户可以轻松地完成各种任务，包括自动配置HTTPS、反向代理、静态文件服务等。相比之下，Nginx的配置文件语法可能相对复杂一些。
+自动HTTPS： Caddy内置了自动获取和管理SSL证书的功能，可以在几乎不需要额外配置的情况下实现自动化的HTTPS支持。而Nginx需要手动设置和配置SSL证书。
+插件生态系统： Caddy具有丰富的插件生态系统，可以通过插件扩展功能。Nginx也有很多模块和插件，但配置和管理可能需要更多的技术知识。
+性能： 在性能方面，Nginx通常被认为是高性能的Web服务器，适用于处理大量的并发连接。Caddy也具备良好的性能，但在处理大规模负载时，Nginx可能会稍微更有优势。
+学习曲线： 由于Caddy的简单配置和自动化特性，对于初学者来说，上手和学习可能会更容易。而Nginx的配置可能需要一些时间来理解和掌握。
+需要注意的是，选择Caddy还是Nginx取决于你的需求和经验水平。如果你需要更高级的配置选项、对性能要求很高，或者已经熟悉Nginx，那么Nginx可能更适合你。如果你想要一个简单、自动化的解决方案，并且不需要太多复杂的配置，Caddy可能是一个更好的选择。
+3. caddy 简单使用 1. 安装 caddy 支持很多平台，文档：https://caddyserver.com/docs/install
+Official:
+Static binaries Debian, Ubuntu, Raspbian packages Fedora, RedHat, CentOS packages Arch Linux, Manjaro, Parabola packages Docker image Our official packages come only with the standard modules.</description></item><item><title>安装K8S集群</title><link>/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/</link><pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate><guid>/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/</guid><description>1. 安装环境 2. 修改节点的hosts 3. 安装依赖，并且下载kk 4.创建配置 5.进行安装 1. 安装环境 2. 修改节点的hosts 最后得到节点： 192.168.110.21 paas-node1 192.168.110.22 paas-node2 192.168.110.23 paas-node3
+主机 IP 主机名 角色 192.168.110.21 paas-node1 control plane, etcd 192.168.110.22 paas-node2 worker 192.168.110.23 paas-node2 worker 配置ssh三个节点互相免密 在每一个节点运行以下命令：
+ssh-keygen 三次回车，生成rsa 公钥和私钥 ssh-copy-id user@ip 将公钥分发给所有的机器 可以上别的机器，查看 cat ~/.ssh/authorized_keys 可以本机直接ssh ip，登录别的机器 3. 安装依赖，并且下载kk sudo apt install socat conntrack ebtables ipset curl openssl tar -y
+然后我们在node1 上安装kk
+curl -sfL https://get-kk.kubesphere.io | VERSION=v3.0.7 sh -</description></item><item><title>Redis 实现分布式锁</title><link>/posts/redis/redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</link><pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate><guid>/posts/redis/redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</guid><description>import redis import time import math import threading import typing from redis import Redis class _WatchThread(threading.Thread): def __init__(self, target, args=(), kwargs={}): super(_WatchThread, self).__init__() self.func = target self.args = args self.kwargs = kwargs self.result = None def run(self): # 接受返回值 self.result = self.func(*self.args, **self.kwargs) def get_result(self, default=None, transform=lambda x: x): # 线程不结束,返回值为None try: return transform(self.result) except Exception as e: return transform(default) # 加载脚本并执行的函数 def _script_load(script): sha = [None] def call(conn: Redis, keys=None, args=None, force_eval=False): if args is None: args = [] if keys is None: keys = [] if not force_eval: # 加载并缓存校验和 if not sha[0]: sha[0] = conn.</description></item><item><title>About</title><link>/about/</link><pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate><guid>/about/</guid><description>I’m currently working for headingdata
+I’m currently learning Compiler Design,Distributed Systems,Architecture Design
+How to reach me: euraxluo@outlook.com Ask me about Python/Compiler/Operational,Constraint Programming</description></item><item><title>etcd 基本使用</title><link>/posts/note/etcd%E5%85%A5%E9%97%A8/</link><pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate><guid>/posts/note/etcd%E5%85%A5%E9%97%A8/</guid><description>连接客户端 config = clientv3.Config{ Endpoints: []string{&amp;#34;127.0.0.1:2379&amp;#34;}, // 集群列表 DialTimeout: 5 * time.Second, } // 建立一个客户端 if client, err = clientv3.New(config); err != nil { fmt.Println(err) return } put //PUT if putResp, err = kv.Put(context.TODO(), &amp;#34;/prefix/keys/k1&amp;#34;, &amp;#34;v1&amp;#34;, clientv3.WithPrevKV(), //请求 prev KV ); err != nil { fmt.Println(err) } else { fmt.Println(&amp;#34;Revision:&amp;#34;, putResp.Header.Revision) // 操作 版本号 fmt.Println(&amp;#34;ClusterId:&amp;#34;, putResp.Header.ClusterId) // 交互集群id fmt.Println(&amp;#34;MemberId:&amp;#34;, putResp.Header.MemberId) // 交互节点 fmt.Println(&amp;#34;RaftTerm:&amp;#34;, putResp.Header.RaftTerm) //raft 任期 if putResp.PrevKv != nil { // 打印value fmt.</description></item><item><title>GORM学习</title><link>/posts/note/gorm/</link><pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate><guid>/posts/note/gorm/</guid><description>GORM 模型定义 模型实现了Scanner和Valuer接口
+模型约定：
+GORM 使用ID作为主键
+如果不默认使用ID作为主键，应该使用标签primaryKey 指定
+// 将 `UUID` 设为主键 type Animal struct { ID int64 UUID string `gorm:&amp;#34;primaryKey&amp;#34;` Name string Age int64 } 复合主键
+type Product struct { ID string `gorm:&amp;#34;primaryKey&amp;#34;` LanguageCode string `gorm:&amp;#34;primaryKey&amp;#34;` Code string Name string } 关闭整形主键的自增，显示关闭 autoIncrement
+type Product struct { CategoryID uint64 `gorm:&amp;#34;primaryKey;autoIncrement:false&amp;#34;` TypeID uint64 `gorm:&amp;#34;primaryKey;autoIncrement:false&amp;#34;` } 使用结构体名的下划线表示的复数作为表名
+更改默认表名,为结构体实现TableName方法
+type Tabler interface { TableName() string } // TableName 会将 User 的表名重写为 `profiles` func (User) TableName() string { return &amp;#34;profiles&amp;#34; } 动态修改表名：使用Scopes</description></item><item><title>数据分析</title><link>/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link><pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate><guid>/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid><description/></item><item><title>分布式互斥</title><link>/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/</link><pubDate>Tue, 23 Nov 2021 00:00:00 +0000</pubDate><guid>/posts/distributed/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86_%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%92%E6%96%A5/</guid><description>在分布式系统中，排他性的资源访问方式,就叫做分布式互斥（Distributed Mutual Exclusion）,而这种被互斥访问的共享资源，就叫做临界资源
+分布式系统中解决分布式互斥主要有以下几种方式
+集中式算法/中央服务器算法 我们引入一个协调者程序，得到一个分布式互斥算法。每个程序在需要访问临界资源时，先给协调者发送一个请求。 如果当前没有程序使用这个资源，协调者直接授权请求程序访问；否则，按照先来后到的顺序为请求程序“排一个号”。 如果有程序使用完资源，则通知协调者，协调者从“排号”的队列里取出排在最前面的请求，并给它发送授权消息。 拿到授权消息的程序，可以直接去访问临界资源。
+集中式算法示意图：
+如上图所示，协调者程序根据普通程序请求临界资源的顺序，将其放入请求队列中，依次发放授权，每个程序完成临界资源请求后，通知协调者释放授权，排队的下一次程序继续获得授权。
+交互次数 向协调者发送请求授权信息 协调者向程序发放授权 程序使用完临界资源后，向协调者发送释放授权信息 优点 直观，简单，信息交互量少，易于实现
+缺点 协调者会成为性能瓶颈，当普通程序很多时，协调者需要处理的消息数量会随着需要访问临界资源的程序数量线性增加 容易引发单点故障，当协调者故障时，会导致所有的程序都无法访问临界资源，导致整个系统不可用。 可改进点 通过将master节点集群化，来降低协调者单点故障时，系统的可用性
+总结 集中式算法具有简单、易于实现的特点，但可用性、性能易受协调者影响。在可靠性和性能有一定保障的情况下，比如中央服务器计算能力强、性能高、故障率低，或者中央服务器进行了主备，主故障后备可以立马升为主，且数据可恢复的情况下，集中式算法可以适用于比较广泛的应用场景。
+分布式算法/使用组播和逻辑时钟的算法 如何不引入协调者的情况下，实现对于临界资源的互斥访问呢。当一个程序要访问临界资源时，先向系统中的其他程序发送一条请求消息，在接收到所有程序返回的同意消息后，就可以访问临界资源。其中，请求消息需要包含所请求的资源，请求者id，发起请求的时间。
+如图所示，程序 1、2、3 需要访问共享资源 A。在时间戳为 8 的时刻，程序 1 想要使用资源 A，于是向程序 2 和 3 发起使用资源 A 的申请，希望得到它们的同意。在时间戳为 12 的时刻，程序 3 想要使用资源 A，于是向程序 1 和 2 发起访问资源 A 的请求。
+此时程序 2 暂时不访问资源 A，因此同意了程序 1 和 3 的资源访问请求。对于程序 3 来说，由于程序 1 提出请求的时间更早，因此同意程序 1 先使用资源，并等待程序 1 返回同意消息。
+程序 1 接收到其他所有程序的同意消息之后，开始使用资源 A。当程序 1 使用完资源 A 后，释放使用权限，向请求队列中需要使用资源 A 的程序 3 发送同意使用资源的消息，并将程序 3 从请求队列中删除。此时，程序 3 收到了其他所有程序的同意消息，获得了使用资源 A 的权限，开始使用临界资源 A 的旅程。</description></item><item><title>gRPC学习</title><link>/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/</link><pubDate>Mon, 22 Nov 2021 00:00:00 +0000</pubDate><guid>/posts/rpc/grpc%E5%AD%A6%E4%B9%A0/</guid><description>gRPC概述 概览
+gRPC是Google开发并开源的一套语言中立的RPC框架
+特点
+语言中立 基于IDL文件定义服务，通过proto3工具生成指定语言的数据结构，服务端接口以及客户端Stub 通信协议基于标准的HTTP/2设计，支持双向流，消息头压缩，单TCP的多路复用，服务端推送等特性，可以在移动端设备上更加省电和节省流量 序列化支持Protocol Buffer 和JSON协议，该协议是一种语言无关的高性能序列化框架 服务端创建流程 gRPC服务端java版本的实现使用了Build模式，对底层服务绑定，transportServer和NettyServer的创建和实例化都做了封装和屏蔽，让服务调用者不用关心gRPC的调用细节
+整体流程分为3步：
+创建Netty HTTP/2服务端 将需要的服务端接口实现类注册到内容的Registy中，RPC调用时，可以根据RPC请求消息中的服务定义信息查询到服务接口实现类 创建gRPC Server，它是gRPC服务端的抽象，聚合了各种Listener，用于RPC消息的统一调度和处理 关键流程分析：
+NettyServer 实例创建：
+首先需要初始化NettyServer，它是gRPC基于Netty4.1 HTTP/2协议栈上封装的HTTP/2 服务端。NettyServer构建完成后，监听指定的Socket地址，即可实现基于HTTP/2协议的消息头接入
+绑定IDL定义的服务接口实现类:
+gRPC与其他很多RPC框架不同的是，服务接口实现类的调用并不是通过动态代理和反射机制，而是通过proto工具生成代码，在服务端启动时，将服务接口实现类实例注册到gRPC的内部服务注册中心上。当请求消息接入后，可以根据服务名和方法名，直接调用启动时注册的服务实例，而不需要通过反射的方式进行调用，性能更好
+gRPC服务实例（ServerImpl构建）:
+ServerImpl负责整个gRPC服务端消息的调度和处理，创建ServerImpl实例过程中，会对服务端依赖的对象进行初始化，例如Netty的线程池资源，gRPC的线程池，内部的服务注册类（InternalHandlerRegitry）等，ServerImpl初始化完成后，就可以调用NettyServer的start方法启动HTTP/2服务端，接收gRPC客户端的服务调用请求
+服务端service调用流程 gRPC的客户端请求消息由Netty Http2ConnectionHandler接入，由gRPC负责将PB或者JSON消息反序列化为POJO对象，然后通过服务定义查询到该消息对应的接口实力，发起本地java接口调用。调用完成后，将响应消息序列化为对应和格式，通过HTTP2 Frame发送回客户端
+整体流程分为4步：
+gRPC请求消息接入 gRPC消息头和消息体处理 内部的服务路由和调用 响应消息发送 关键流程分析
+gRPC请求消息接入
+Netty通过底层的HTTP/2协议栈，通过Http2ConnectionHandler，实现了HTTP/2消息的统一接入和处理。gRPC通过注册Http2FrameListener监听器，回调接收HTTP2协议的消息数据。gRPC 通过 FrameListener 重载 Http2FrameListener 的 onDataRead、onHeadersRead 等方法，将Netty的HTTP/2消息转发到gRPC的NettyServerHandler中，实现基于HTTP/2的RPC请求消息接入
+gRPC 消息头处理
+通过NettyServerHandler的onHeadersRead()方法，实现对gRPC消息头和消息体的处理，流程如下
+1.对HTTP Header的Content-Type校验，此处必须是&amp;quot;application/grpc&amp;quot;
+2.从HTTP Header的URL中提取接口名和方法名
+3.将Netty的HTTP Header转换为gRPC内部的Metadata，Metadata内部维护了一个键值对的二维数组namesAndValues
+4.创建NettyServerStream对象，它持有了Sink和TransportState类，负责将消息封装为GrpcFrameCommand，与底层Netty进行交互，实现协议消息的处理
+5.创建NettyServerStreatm之后，触发erverTransportListener的streamCreated方法，完成消息上下文和gRPC业务监听器的创建
+6.gRPC上下文的创建，CancellableContext.CancellationListener的cancel方法，发送CancelServerStreamCommand指令
+7.JumpToApplicationThreadServerStreamListener 的创建，从 ServerStream 跳转到应用线程中进行服务调用，gRPC 服务端的接口调用主要通过 JumpToApplicationThreadServerStreamListener 的 messageRead 和 halfClosed 方法完成</description></item><item><title>net/rpc学习</title><link>/posts/rpc/net_rpc%E5%AD%A6%E4%B9%A0/</link><pubDate>Mon, 22 Nov 2021 00:00:00 +0000</pubDate><guid>/posts/rpc/net_rpc%E5%AD%A6%E4%B9%A0/</guid><description>server 学习 服务注册: 在进行rpc方法调用前,需要先进行方法注册
+func (server *Server) register(rcvr interface{}, name string, useName bool) error { //整个工作就是构造service对象,填充属性 //最后调用`sync.Map.LoadOrStore(sname,s)`方法完成服务注册 s := new(service) s.typ = reflect.TypeOf(rcvr) s.rcvr = reflect.ValueOf(rcvr) sname := reflect.Indirect(s.rcvr).Type().Name() if useName { sname = name } if sname == &amp;#34;&amp;#34; { s := &amp;#34;rpc.Register: no service name for type &amp;#34; + s.typ.String() log.Print(s) return errors.New(s) } if !token.IsExported(sname) &amp;amp;&amp;amp; !useName { s := &amp;#34;rpc.Register: type &amp;#34; + sname + &amp;#34; is not exported&amp;#34; log.</description></item><item><title>RPC原理学习</title><link>/posts/rpc/rpc%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/</link><pubDate>Mon, 22 Nov 2021 00:00:00 +0000</pubDate><guid>/posts/rpc/rpc%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/</guid><description>RPC原理解析 简介： RPC 的全称是 Remote Procedure Call，即远程过程调用
+具有以下作用：
+屏蔽远程调用跟本地调用的区别，让我们感觉就是调用项目内的方法； 隐藏底层网络通信的复杂性，让我们更专注于业务逻辑。 TIPs:
+使用rpc的场景是否合适， 什么是否需要开启压缩，根据配置，根据部署机器配置，根据网络环境，根据传输数据大小 调用过程超时处理，以及失败重试机制，例如dubbo的failfast，failover等 服务集群注意点 服务注册，发现，服务注册中心 服务治理，服务分组，服务别名，服务限流，服务降级，服务调用链，链路跟踪 服务监控，调用链监控，方法监控，数据指标监控（TPS，调用量，可用率，调用返回时间，服务网络响应时间） 服务日志，聚合查询，整理，告警 服务集群化，分组化的在线配置中心。支持日志等级控制，服务控制 RPC通信流程： 步骤如下：
+RPC是远程调用，需要网络传输数据，并且由于常用于业务系统之间进行远程调用，所以需要使用TCP来进行传输
+网络传输的数据必须是二进制数据，但是调用方请求的出入参数都是对象，所以需要使用可逆的算法，来将对象转化为二进制数据，这一步叫做序列化
+调用方持续的将请求序列化为二进制数据，经过TCP后传输给了服务提供方。服务提供方如何知道请求的数据的大小，以及请求的是哪个接口类型；因此需要约定数据包的格式，这个步骤就是协议的约定
+根据协议格式，服务提供者可以正确的从二进制数据中分割出不同的请求，同事根据请求类型和序列化类型，把二进制的消息体逆向还原成请求对象，这一步就叫反序列化
+服务提供方根据反序列化出来的请求对象，找到对象的实现类，完成方法调用
+将执行结果序列化后，回写到TCP通道中。调用方获取到应答数据后，再进行反序列化得到Reponse数据，完成RPC调用
+简化调用链，利用反射或者其他方法让调用方在调用远程方法时，能够像调用本地接口一样
+RPC协议 RPC协议简介
+RPC请求在发送到网络中之前，需要将请求转为二进制数据，基于TCP连接和服务方通信，TCP链接会根据系统配置和TCP窗口大小，在同一个TCP链接中，对数据包进行拆分，合并。服务方需要正确处理TCP通道中的二进制数据。
+RPC协议是一种应用层协议，主要负责应用间的通信，相对于HTTP协议，需要的性能更高，并且RPC是有状态的协议，请求和响应一一对应。RPC一般会设计更加紧凑的私有协议
+RPC协议的设计
+消息边界语义：利用一个定长数据来保存整个请求协议体的大小；先读取固定长度的位置里面的值，得到协议体长度，再去读取整个协议体的数据
+协议数据序列化方法信息：利用定长的位置存储协议数据的序列化方式
+将整个协议分为协议头和协议体，得到定长协议头，该协议头是不可扩展的
+可扩展协议，将协议头改为可扩展的。将协议分为三部分：固定部分，协议头内容，协议体内容；前两部分统称为协议头
+RPC为了吞吐量，都是异步并发发送的请求，等待服务应答，因此需要消息ID，来判断应答对应哪个请求
+### RPC网络通信 **常见的网络IO模型** - 同步阻塞 IO（BIO） - 在 Linux 中，默认情况下所有的 socket 都是 blocking 的 - 应用进程发起 IO 系统调用后，应用进程被阻塞，转到内核空间处理。之后，内核开始等待数据，等待到数据之后，再将内核中的数据拷贝到用户内存中，整个 IO 处理完毕后返回进程。最后应用的进程解除阻塞状态，运行业务逻辑。 - ![image-20210522185621450](https://euraxluo.github.io/images/picgo/image-20210522185621450.png) - 系统内核处理 IO 操作分为两个阶段——等待数据和拷贝数据。而在这两个阶段中，应用进程中 IO 操作的线程会一直都处于阻塞状态，如果是基于 Java 多线程开发，那么每一个 IO 操作都要占用线程，直至 IO 操作结束。 - 阻塞 IO 每处理一个 socket 的 IO 请求都会阻塞进程（线程），但使用难度较低。在并发量较低、业务逻辑只需要同步进行 IO 操作的场景下，阻塞 IO 已经满足了需求，并且不需要发起 select 调用，开销上还要比 IO 多路复用低。 - 同步非阻塞 IO（NIO） - 同步IO 多路复用（select，poll，epoll） - 多路复用 IO 是在高并发场景中使用最为广泛的一种 IO 模型 - linux总的多个网络连接的 IO 可以注册到一个复用器（select）上，当用户进程调用了 select，那么整个进程会被阻塞。同时，内核会“监视”所有 select 负责的 socket，当任何一个 socket 中的数据准备好了，select 就会返回。这个时候用户进程再调用 read 操作，将数据从内核中拷贝到用户进程。 - 优势在于，用户可以在一个线程内同时处理多个 socket 的 IO 请求。用户可以注册多个 socket，然后不断地调用 select 读取被激活的 socket，即可达到在同一个线程内同时处理多个 IO 请求的目的。而在同步阻塞模型中，必须通过多线程的方式才能达到这个目的。 - IO 多路复用更适合高并发的场景，可以用较少的进程（线程）处理较多的 socket 的 IO 请求。 - 异步非阻塞 IO（AIO） **RPC网络io模型** RPC 调用在大多数的情况下，是一个高并发调用的场景 - 在 RPC 框架的实现中，在网络通信的处理上，我们会选择 IO 多路复用的方式。 - 选择基于 Reactor 模式实现的io框架来实现IO多路复用 - 在 Linux 环境下，也要开启 epoll 来提升系统性能（Windows 环境下是无法开启 epoll 的，因为系统内核不支持）。 **网络io中的零拷贝** 系统内核处理 IO 操作分为两个阶段——等待数据和拷贝数据。 - 等待数据，就是系统内核在等待网卡接收到数据后，把数据写到内核中 - 拷贝数据，就是系统内核在获取到数据后，将数据拷贝到用户进程的空间中。 应用进程的每一次写操作，都会把数据写到用户空间的缓冲区中，再由 CPU 将数据拷贝到系统内核的缓冲区中，之后再由 DMA 将这份数据拷贝到网卡中，最后由网卡发送出去。一次写操作数据要拷贝两次才能通过网卡发送出去 !</description></item><item><title>车辆路径问题</title><link>/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</link><pubDate>Sun, 21 Mar 2021 00:00:00 +0000</pubDate><guid>/posts/or/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</guid><description>TSP，即Traveling Salesman Problem，也就是旅行商问题 ，又译为旅行推销员问题、货郎担问题 ，简称为TSP问题 ，是最基本的路线问题，该问题是在寻求单一旅行者由起点出发，通过所有给定的需求点之后，最后再回到原点的最小路径成本。最早的旅行商问题的数学规划是由Dantzig（1959）等人提出。
+二、
+有时间窗车辆路径问题（vehicle routing problems with time windows，VRPTW）车辆路线问题（VRP）最早是由Dantzig和Ramser于1959年首次提出，它是指一定数量的客户，各自有不同数量的货物需求，配送中心向客户提供货物，由一个车队负责分送货物，组织适当的行车路线，目标是使得客户的需求得到满足，并能在一定的约束下，达到诸如路程最短、成本最小、耗费时间最少等目的。 三、以下内容from：http://wiki.mbalib.com/wiki/%E8%BD%A6%E8%BE%86%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98
+车辆路径问题 车辆路径问题（Vehicle Routing Problem,VRP）
+什么是车辆路径问题 车辆路线问题（VRP）最早是由Dantzig 和Ramser 于1959年首次提出，它是指一定数量的客户，各自有不同数量的货物需求，配送中心 向客户提供货物，由一个车队负责分送货物，组织 适当的行车路线，目标是使得客户的需求 得到满足，并能在一定的约束下，达到诸如路程最短、成本 最小、耗费时间最少等目的[1] 。
+由此定义不难看出，旅行商问题 （Traveling Saleman Problem ,TSP）是VRP的特例，由于Gaery [2] 已证明TSP问题 是NP难题 ，因此，VRP也属于NP难题。
+车辆路线问题自1959年提出以来，一直是网络优化问题中最基本的问题之一，由于其应用的广泛性和经济 上的重大价值，一直受到国内外学者的广泛关注。车辆路线问题可以描述如下（如图1）：
+设有一场站（depot），共有M 辆货车，车辆容量为Q，有N位顾客 （customer），每位顾客有其需求量D。车辆从场站 出发对客户进行配送服务最后返回场站，要求所有顾客都被配送，每位顾客一次配送完成，且不能违反车辆容量的限制，目的是所有车辆路线的总距离最小。车辆路线的实际问题包括配送中心配送 、公共汽车路线制定、信件和报纸投递、航空和铁路时间表安排、工业废品收集等。
+[编辑 ]
+车辆路径问题的类型[3\] 一般而言车辆路线问题大致可以分为以下三种类型（Ballou，1992）：
+1、相异的单一起点和单一终点。
+2、相同的单一起点和终点。
+3、多个起点和终点。
+[编辑 ]
+车辆路径问题的方法[3\] 关于车辆路线问题之学术研究文献众多，也提出了相当多的求解策略与方法，Bodin and Golden（1981）将众多之求解方法归纳成以下七种：
+数学解析法 （Exact Procedure ）； 人机互动法 （Interactive Optimization ）； 先分群再排路线 （Cluster First–Route Second）； 先排路线再分群 （Route First–Cluster Second）； 节省法 或插入法 （Saving or Insertion）； 改善或交换法 （Improvement or Exchanges）； 数学规划近似法 （Mathematical programming）。 [编辑 ]</description></item><item><title>安装flower</title><link>/posts/note/%E5%AE%89%E8%A3%85flower/</link><pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate><guid>/posts/note/%E5%AE%89%E8%A3%85flower/</guid><description>1.安装flower: pip install flower 1 2. 启动flower 例如启动项目工程下面celery_tasks目录的main.py 异步任务启动函数
+flower -A celery_tasks.main --port=5555 1.安装Celery
+pip install celery
+2.编写task
+from celery import Celery app = Celery(&amp;#39;tasks&amp;#39;, broker=&amp;#39;amqp://guest@localhost//&amp;#39;) @app.task def add(x, y): return x + y 3.运行
+$ celery -A tasks worker --loglevel=info</description></item><item><title>go语言小记</title><link>/posts/note/golang%E5%B0%8F%E8%AE%B0/</link><pubDate>Fri, 19 Feb 2021 00:00:00 +0000</pubDate><guid>/posts/note/golang%E5%B0%8F%E8%AE%B0/</guid><description>关于切片和slice的内存共享 package main import ( &amp;#34;bufio&amp;#34; &amp;#34;bytes&amp;#34; &amp;#34;errors&amp;#34; &amp;#34;fmt&amp;#34; _errors &amp;#34;github.com/pkg/errors&amp;#34; &amp;#34;os&amp;#34; &amp;#34;reflect&amp;#34; &amp;#34;regexp&amp;#34; &amp;#34;strconv&amp;#34; &amp;#34;strings&amp;#34; &amp;#34;sync&amp;#34; &amp;#34;sync/atomic&amp;#34; &amp;#34;time&amp;#34; ) func main() { /** * @Description: foo boo内存共享 * @param []int * @param 5 */ foo := make([]int, 5) foo[3] = 3 foo[4] = 4 boo := foo[1:4] boo[1] = 2 for i := 0; i &amp;lt; 5; i++ { println(foo[i]) } /** * @Description: 当capcity够的时候，那么就不会重新分配内存 * @param []int * @param 8 */ a := make([]int, 8) b := a[1:8] b[1] = 1 //[01.</description></item><item><title>NLP基础</title><link>/posts/nlp/nlp%E5%9F%BA%E7%A1%80/</link><pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate><guid>/posts/nlp/nlp%E5%9F%BA%E7%A1%80/</guid><description>NLP概览 什么是NLP 自然语言处理,是探讨如何处理及运用自然语言
+自然语言认知,是让电脑明白人类的语言
+自然语言处理主要包括:文本分析,信息检索,词性标注,问答系统QA
+NLP技术 词法分析
+- 分词技术 - 词性标注part-of-speech tagging - 命名实体识别NER(识别出3大类和7小类主要用于信息提取,QA,句法分析,机翻元数据标注) 实体边界识别 基于规则和词典进行识别(字典大小,新词?) 基于统计的方法 &amp;gt;隐马尔科夫模型HMM &amp;gt;较大熵ME &amp;gt;支持向量机SVM &amp;gt;条件随机场CRF 确定实体类别(英文,中文需要先分词) - 词义消歧 句法分析
+语义分析
+常见模型 传统感知机模型
+BP神经网络:前馈神经网络(反向传播算法),是现代神经网络的基础
+输入层:数据模型的输入,也就是说我们要传入到模型中的数据
+隐藏层:用于处理数据,并将处理的结果传递给输出层
+输出层:经过隐藏层的计算过后输出的模型内容,分类信息,或者是模型的最终参数
+训练过程概述:
+正向传播:网络初始化(定义网络参数),隐藏层的输出,输出层的输出
+误差计算:通过误差计算的公式,计算出误差
+反向传播:通过计算的误差,从输出层向后传播,并在过程中更新权重参数
+偏置更新:通过计算的误差,更新隐藏层到输出层,输入层到隐藏层的权重参数
+特点:
+可以通过逐层信息传递到最后的输出
+沿着一条直线计算,直到最后一层,求出计算结果
+包含输入层,输出层和隐藏层,目的是实现输入到输出的映射
+一般包含多层,并且层与层之间是全链接的不会出现同层和跨层连接
+CNN:是一种前馈神经网络,包括卷积层(convolutional)和池化层(pooling layer)
+RNN:循环神经网络是一种节点定向连接成环的人工神经网络,这种网络的内部状态可以动态的展示时序行为(短文本)
+特点:记忆特性;接受两个参数W和当前时间的特征;参数共享(确保每一步都在做相同的事)
+网络结构和BP神经网络的对比:
+RNN的类型:
+one to one:适合用于分类任务
+one to many:文本生成,音乐生成
+many to one:多分类任务
+many to many(不同维度):翻译任务
+many to many(同维度):命名实体识别
+LSTM:长短期记忆网络,是一种时间递归神经网络.适合于处理和预测时间序列中间隔和延迟相对较长的重要事件(长文本)
+在普通的RNN中增加了一种由门控制的保存单元状态的结构:c
+通过遗忘门,输出门,输入门
+GRU
+只要更新门和重置门,没有隐藏层(可能不太关注时序的各种关系???我不太懂)
+双向循环神经网络:
+特点:</description></item><item><title>Servlet1</title><link>/posts/java/servlet1/</link><pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate><guid>/posts/java/servlet1/</guid><description>Servlet HTTP协议 是客户端与服务器通信的一种方式
+参考链接 request: 请求行 请求头 请求体 response: 响应行 响应头 响应体 Get: GET用于信息获取，而且应该是安全的和幂等的
+带上数据,在URL上面拼接
+www.baidu.com name = zhanshan
+age = 18
+url:www.baidu.com?name = zhanshan&amp;amp;age = 18
+url可见
+传输方式
+HTTP header
+设计目的
+获取数据
+具有安全隐患,GET方法不会改变服务器端数据，所以不会产生副作用
+GET请求返回的内容可以被浏览器缓存起来
+Post: 以流的方式传输,数据无限制
+url不可见
+传输方式
+HTTP body
+设计目的
+发送数据
+用户可能会提交一些错误的数据
+浏览器不会缓存POST请求返回的内容
+####　幂等（idempotent、idempotence）是一个数学或计算机学概念，常见于抽象代数中。
+幂等有以下几种定义：
+​ 对于单目运算，如果一个运算对于在范围内的所有的一个数多次进行该运算所得的结果和进行一次该运算所得的结果是一样的，那么我们就称该运算是幂等的。 比如绝对值运算就是一个例子，在实数集中，有abs(a) = abs(abs(a)) 。
+​ 对于双目运算，则要求当参与运算的两个值是等值的情况下，如果满足运算结果与参与运算的两个值相等，则称该运算幂等，如求两个数的最大值的函数，有在实数集中幂等，即max(x,x) = x 。
+看完上述解释后，应该可以理解GET幂等的含义了。
+幂等：如果目标是当用户打开一个链接时，他可以确信从自身的角度来看没有改变资源即可。
+非幂等：以新闻网站为例，读者对新闻发表自己的评论应该通过POST实现，因为在评论提交后站点的资源已经不同了，或者说资源被修改了。
+ServletConfig 写在xml文件中,一个servlet可以有多个配置信息{以servlet为单位}，同时也可以设置全局配置信息，因为可能会部署很多个servlet容器。
+&amp;lt;servlet&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;data4&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;value4&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;!--配置信息--&amp;gt; &amp;lt;servlet-name&amp;gt;demo&amp;lt;/servlet-name&amp;gt; &amp;lt;servlet-class&amp;gt;main.</description></item><item><title>Servlet2</title><link>/posts/java/servlet2/</link><pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate><guid>/posts/java/servlet2/</guid><description>Cookie和Session 会话：浏览器发出http请求。服务器接受，对请求进行响应，浏览器接受http响应
+Cookie 把会话数据保存在浏览器客户端
+服务器第一次访问时，服务端生成cookie，并且把这个cookie通过响应，发送给客户端，客户端把cookie保存下来，以便在最近的下一次访问中使用
+缺点
+Cookie有大小和数量的限制
+明文传递有风险
+//创建Cookie对象 Cookie userNameCookie = new Cookie(&amp;#34;userName&amp;#34;,userName); Cookie userPasswordCookie = new Cookie(&amp;#34;userPassword&amp;#34;,userPassword); //返回给访问对象 resp.addCookie(userNameCookie); resp.addCookie(userPasswordCookie); /、对外部浏览器返回的响应头进行处理 Cookie[] cookies = req.getCookies(); if(cookies != null){ for(Cookie cookie:cookies){ if (cookie.getName().equals(&amp;#34;userName&amp;#34;)) { userName = cookie.getValue(); }else if (cookie.getName().equals(&amp;#34;userPassword&amp;#34;)) { userPassword = cookie.getValue(); } } } 例子一 显示最近访问的时间。 判断账号是否正确
+如果正确，则获取cookie。 但是得到的cookie是一个数组， 我们要从数组里面找到我们想要的对象。
+如果找到的对象为空，表明是第一次登录。那么要添加cookie
+如果找到的对象不为空， 表明不是第一次登录。
+if(&amp;#34;admin&amp;#34;.equals(userName) &amp;amp;&amp;amp; &amp;#34;123&amp;#34;.equals(password)){ //获取cookie last-name --- &amp;gt; Cookie [] cookies = request.getCookies(); //从数组里面找出我们想要的cookie Cookie cookie = CookieUtil.</description></item><item><title>WebSocket</title><link>/posts/java/websocket/</link><pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate><guid>/posts/java/websocket/</guid><description>WebSocket 一、概念 1.WebSocket 是HTTP协议的补充。使用的TCP协议建立连接
+2.HTML5是指一系列新API，新协议，WebSocket也是其中之一
+二、优点 1.WebSocket是持久化协议，每次通信只需要一次连接
+2.HTTP中一个request只能有一个response
+3.连接过程：进行握手时，使用http协议对服务器发起连接请求，并且升级为websocket协议，确定后服务器建立连接，并且继续使用Websocket
+三、作用 1.实现实时信息传递的其他方式
+​ (1).ajax轮询：让浏览器隔个几秒就发送一次请求，询问服务器是否有新信息
+​ (2).HTTP long poll：客户端发起连接后，如果没消息，就一直不返回Response给客户端。直到有消息才返回，返回完之后，客户端再次建立连接，周而复始。
+​ (3).缺点：
+​ ajax轮询：需要服务器有很快的处理速度和资源。（速度）
+​ long poll：需要有很高的并发，也就是说同时接待客户的能力。（资源大小）
+2.服务器完成协议升级后（HTTP-&amp;gt;Websocket），服务端就可以主动推送信息给客户端啦
+3.整个通讯过程是建立在一次连接/状态中，避免了HTTP的非状态性，服务端会一直知道你的信息，直到你关闭请求
+四、特点 1.建立在 TCP 协议之上，服务器端的实现比较容易。
+2.与 HTTP 协议有着良好的兼容性。默认端口也是80和443，并且握手阶段采用 HTTP 协议，因此握手时不容易屏蔽，能通过各种 HTTP 代理服务器。
+3.数据格式比较轻量，性能开销小，通信高效。
+4.可以发送文本，也可以发送二进制数据。
+5.没有同源限制，客户端可以与任意服务器通信。
+6.协议标识符是ws（如果加密，则为wss），服务器网址就是 URL。
+五、客户端 1.创建WebSocket对象： var Socket = new WebSocket(url,[protocol])
+url = 服务器地址，protocol是可接受的子协议
+2.属性： (1)Socket.readyState//表示连接状态：0：尚未连接，1：已经连接，2：连接正在关闭，3：连接已经关闭，或不能打开。
+(2)Socket.buffererdAmount//表示send()放在队列正在队列中等待传输
+3.事件： | 对象触发的程序 | 描述 |
+| &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash; |
+| Socket.onopen | 连接建立时触发 |</description></item><item><title>XML</title><link>/posts/java/xml/</link><pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate><guid>/posts/java/xml/</guid><description>Xml Xml eXtendsible markup language 可扩展的标记语言
+XML 有什么用? 可以用来保存数据
+可以用来做配置文件
+数据传输载体
+定义xml 其实就是一个文件，文件的后缀为 .xml
+文档声明 简单声明， version : 解析这个xml的时候，使用什么版本的解析器解析
+`&amp;lt;?xml version=&amp;quot;1.0&amp;quot; ?&amp;gt;` encoding : 解析xml中的文字的时候，使用什么编码来翻译
+`&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;gbk&amp;quot; ?&amp;gt;` standalone : no - 该文档会依赖关联其他文档 ， yes&amp;ndash; 这是一个独立的文档
+`&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;gbk&amp;quot; standalone=&amp;quot;no&amp;quot; ?&amp;gt;` encoding详解 在解析这个xml的时候，使用什么编码去解析。 ---解码。 文本存储时不直接存储文字， 而是存储这些文字对应的二进制 。 那么这些文字对应的二进制到底是多少呢？ 根据文件使用的编码 来得到。
+默认文件保存的时候，使用的是GBK的编码保存。
+所以要想让我们的xml能够正常的显示中文,解决方法:
+让encoding也是GBK 或者 gb2312 .
+如果encoding是 utf-8 ， 那么保存文件的时候也必须使用utf-8
+保存的时候见到的ANSI 对应的其实是我们的本地编码 GBK。
+为了通用，建议使用UTF-8编码保存，以及encoding 都是 utf-8
+元素定义（标签） 其实就是里面的标签， &amp;lt;&amp;gt; 括起来的都叫元素 。 成对出现。 如下： &amp;lt;stu&amp;gt; &amp;lt;/stu&amp;gt;</description></item><item><title>无人驾驶概述</title><link>/posts/driverless/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%A6%82%E8%BF%B0/</link><pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate><guid>/posts/driverless/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%A6%82%E8%BF%B0/</guid><description>&lt;p>无人驾驶概述&lt;/p></description></item><item><title>缓存的使用和设计</title><link>/posts/redis/%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AE%BE%E8%AE%A1/</link><pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate><guid>/posts/redis/%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%AE%BE%E8%AE%A1/</guid><description>缓存的使用和设计 缓存的收益与成本 收益 加速读写
+通过缓存加速读写：CPU L1/L2/L3 Cache，浏览器缓存，Ehcache缓存数据库结果 降低后端负载
+后端服务器通过前端缓存降低负载：业务端使用Redis降低后端MySQL负载 成本 数据不一致
+缓存层和数据层有时间窗口不一致，和更新策略有关 代码维护成本：多了一层缓存逻辑
+运维成本：Redis Cluster
+使用场景 降低后端负载
+用于高消耗的SQL：join结果集/分组统计结果 加速请求响应
+利用Redis/Memcache优化IO时间 大量写合并为批量写
+计数器线Redis累加再批量更新到后端数据库 缓存更新策略 LRU/LFU/FIFO算法剔除：例如maxmemory-policy
+超时剔除：例如expire
+主动更新：开发控制生命周期
+推荐结合剔除，超时，主动更新三种方案完成 三种策略比较 | 策略 | 一致性 | 维护成本 |
+| &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- | &amp;mdash;&amp;mdash; | &amp;mdash;&amp;mdash;&amp;ndash; |
+| LRU/LIRS算法剔除 | 最差 | 底 |
+| 超时剔除 | 较差 | 低 |
+| 主动更新 | 强 | 高 |
+TIPS 低一致性：最大内存和淘汰策略
+高一致性：超时剔除和主动更新结合，最大内存和淘汰策略兜底
+缓存粒度控制 什么是缓存粒度 从MySQL获取用户信息
+select * from usr where id={id} 设置用户信息缓存</description></item><item><title>软件架构1-Tier</title><link>/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%841-tier/</link><pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate><guid>/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%841-tier/</guid><description>软件架构 软件开发过程的概述 在行业中，架构师、开发人员和产品所有者花费大量时间研究和讨论业务需求。在软件工程术语中，这被称为需求收集和分析。
+一旦我们完成了业务需求，我们坐下来讨论我们必须实现的用例。这包括尽早找出角落的情况&amp;amp;将乐高积木组装在一起。
+如果您是文档的爱好者，您可能还想编写高级设计文档。现在，我们已经了解了业务需求、用例、拐角用例等等。现在开始研究如何选择合适的技术堆栈来实现用例。
+####　概念证明 POC
+POC帮助我们对技术和基本用例实现有一个更近、更实际的了解。我们将深入了解技术、性能或其他技术限制的利弊。
+如果我们使用的是全新的技术，那么学习曲线就会有所帮助，产品所有者、利益相关者等非技术人员也会有一些具体的东西可以使用，并以此为基础做出进一步的决定。
+现在，这只是一个工业规模的产品。如果你是一个独立开发者或一个小团队，你可以跳过POC部分，从主代码开始。
+所以，我们向利益相关者展示POC，如果每个人都满意，我们最终在GitHub上创建主回购和我们的第一个开发分支，或任何其他类似的业务喜欢的代码托管服务。
+所以，到现在为止，你应该已经意识到在第一时间获得正确的架构和web架构知识对开发人员是多么的重要。
+Tier 我将从讨论软件架构中涉及的不同层次开始课程。这就像是对软件架构领域的鸟瞰，很重要的一点是要很好地理解。
+什么是一层？ 可以将层看作应用程序或服务中组件的逻辑分离。当我说分离时，我指的是组件级的物理分离，而不是代码级。
+组件的意思是什么？ 数据库
+后端应用服务器
+用户界面
+消息传递
+缓存
+Single Tier Applications 单层应用程序是指用户界面、后端业务逻辑和数据库都驻留在同一台机器中的应用程序。
+单层应用程序的典型例子是桌面应用程序，如moffice、PC游戏或图像编辑软件，如Gimp。
+单层应用的优点 单层应用程序的主要优点是它们没有网络延迟，因为每个组件都位于同一台机器上。这就提高了软件的性能。
+没有数据请求到后端服务器不时，这将使用户体验缓慢。在单层应用中，由于数据位于同一台机器上，所以数据是很容易和快速获得的。
+尽管这在很大程度上取决于机器的功能有多强大&amp;amp;软件的硬件要求，但要衡量单层应用程序的真正性能
+此外，用户的数据保存在他的机器&amp;amp;不需要通过网络传输。这在最大程度上保证了数据安全。
+单层应用的缺点 单层应用程序的一个大缺点是业务无法控制应用程序。一旦软件交付，除非客户通过连接到远程服务器或下载并安装补丁手动更新软件，否则不可能对代码或功能进行更改。
+因此，在90年代，如果一款游戏带有漏洞代码，那么工作室便无能为力。由于软件的缺陷，他们最终不得不面对相当大的压力。产品的测试必须彻底，不能有任何差错。
+单层应用程序中的代码也很容易被修改和反向工程。对企业来说，安全性是最低限度的。
+此外，应用程序的性能和外观可能会不一致，因为它在很大程度上取决于用户机器的配置。
+Two Tier Applications 两层应用程序包括客户机和服务器。客户端将在一台机器中包含用户界面和业务逻辑。后端服务器将是运行在不同机器上的数据库。数据库服务器由企业托管并对其进行控制。
+为什么需要两层应用程序?为什么不将业务逻辑驻留在另一台机器上并对其进行控制呢?
+优点:
+应用程序代码也不容易被第三方访问
+在某些情况下，两层应用程序会派上用场，例如，待办事项列表应用程序或类似的计划表或生产力应用程序。在这些场景中，即使代码被第三方访问，也不会对业务造成重大损害。相反，好处是由于代码和用户界面驻留在同一台机器上，因此对后端服务器的网络调用更少，从而降低了应用程序的延迟。只有当用户创建完待办事项列表并希望持久化更改时，应用程序才会调用数据库服务器。
+另一个例子便是基于浏览器和应用的在线游戏。游戏文件非常重，当用户第一次使用应用时，他们只需要在客户端下载一次。此外，它们进行网络调用只是为了保持游戏状态持久。
+经济，更少的服务器调用意味着在服务器上花费更少的钱，这自然是经济的。
+不过，这在很大程度上取决于我们的业务需求和用例，如果我们想在编写服务时选择这种类型的层。我们可以将用户界面和业务逻辑保留在客户机上，也可以将业务逻辑移动到专用的后端服务器上，这将使其成为一个三层应用程序。这是我接下来要讨论的
+Tree Tier Applications 三层应用程序非常流行，并在行业中广泛使用。几乎所有的简单网站，如博客，新闻网站等都属于这一类。
+在一个三层的应用程序中，用户界面、应用程序逻辑和数据库都位于不同的机器上，因此有不同的层。他们是分开的。
+因此，如果我们以一个简单的博客为例，用户界面将使用Html, JavaScript, CSS编写，后端应用程序逻辑将运行在服务器上，如Apache &amp;amp;数据库将是MySQL。三层架构最适合简单的用例。
+N Tier Applications n层应用程序是指包含三个以上组件的应用程序。
+这些组成部分是什么?
+缓存 异步行为的消息队列 负载均衡器 用于搜索大量数据的服务器 处理大量数据的组件 运行异构技术(通常称为web服务)的组件等。 所有像Instagram, Facebook这样的社交应用，像Uber, Airbnb这样的大型行业服务，像Pokemon Go这样的在线大型多人游戏，具有奇特功能的应用都是n层应用。</description></item><item><title>软件架构2</title><link>/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%842/</link><pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate><guid>/posts/architecture_design/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%842/</guid><description>软件架构 什么是Web架构 Web架构包括数据库、消息队列、缓存、用户界面等多个组件，它们相互结合，形成在线服务
+这是web应用程序的典型架构，在大多数在线运行的应用程序中使用。
+如果我们对图中所涉及的组件有一个了解，那么我们总是可以在这个体系结构的基础上构建更复杂的需求。
+Client Server Architecture客户服务器结构 在讨论两层、三层和n层架构时，我们已经对客户端-服务器架构有了一些了解。现在我们来详细看看。
+客户端-服务器架构是web的基本构件。
+该体系结构在请求-响应模型上工作。客户端向服务器发送请求以获取信息&amp;amp;服务器响应它。
+你浏览的每个网站，无论是Wordpress博客还是Facebook、Twitter或银行应用程序，都是建立在客户-服务器架构上的。
+只有非常小的比例的业务网站和应用程序使用peer to peer体系结构，这与客户机-服务器不同。
+client 客户端保存我们的用户界面。用户界面是应用程序的表示部分。它是用Html, JavaScript, CSS编写的，并负责应用程序的外观和感觉。
+用户界面在客户机上运行。客户端可以是移动应用程序、台式机或像iPad这样的平板电脑。它也可以是基于web的控制台，运行命令与后端服务器交互。
+简单地说，客户端就是我们应用程序的窗口。在业界，编写基于web的用户界面的开源技术有ReactJS、AngularJS、VueJS、Jquery等。所有这些库都使用JavaScript。
+编写前端也有很多其他的技术，我只是列出了目前最流行的几种。
+不同的平台需要不同的框架和库来编写前端。例如，运行Android的手机将需要一套不同的工具，运行苹果或Windows操作系统的手机将需要一套不同的工具
+Types of Client Thin Client 瘦客户机是仅持有应用程序用户界面的客户机。它没有任何形式的商业逻辑。对于每个操作，客户端都向后端服务器发送一个请求。就像在三层应用程序中一样。 Thick Client( Fat client) 胖客户机持有全部或部分业务逻辑。这些是两层应用程序。我们已经讲过了，如果你还记得的话。胖客户端的典型例子是实用程序、在线游戏等
+Server web服务器的主要任务是接收来自客户端的请求，并根据从客户端收到的请求参数执行业务逻辑后提供响应。
+每一个在线运行的服务都需要一个服务器来运行。运行web应用程序的服务器通常被称为应用服务器。
+除了应用程序服务器之外，还有其他类型的服务器，它们被分配特定的任务，例如
+代理服务器
+邮件服务器
+文件服务器
+虚拟服务器
+服务器配置和类型可以根据用例的不同而不同。
+例如，如果我们运行用Java编写的后端应用程序代码，我们会选择Apache Tomcat或Jetty
+对于简单的用例，比如托管网站，我们会选择Apache HTTP服务器。
+一个web应用程序的所有组件都需要一个服务器来运行。可以是数据库、消息队列、缓存或任何其他组件。在现代应用程序开发中，甚至用户界面也单独驻留在专用服务器上
+Server-Side Rendering SSR 后端渲染技术，开发人员使用服务器在后台呈现用户界面，然后将呈现的数据发送给客户端。这种技术被称为服务器端渲染。我将在后面的课程中讨论客户端和服务器端渲染的优缺点。
+客户端渲染Vs服务器端渲染(Client-Side Vs Server-Side Rendering) 当用户从服务器请求一个网页&amp;amp;浏览器收到响应。它必须以HTML页面的形式在窗口上呈现响应
+为此，浏览器有几个组件，例如:
+浏览器引擎 渲染引擎 JavaScript解释器 网络和UI后端 数据存储等 渲染引擎构建DOM树，渲染并绘制结构。
+Server-Side Rendering
+为了避免客户端的渲染时间，开发人员经常在服务器端渲染UI，在那里生成HTML，然后直接将HTML页面发送给UI。这种技术称为服务器端呈现。它确保更快的UI渲染，避免UI加载时间在浏览器窗口，因为页面已经创建&amp;amp;浏览器不需要做很多组装和渲染工作。
+服务器端呈现方法非常适合交付静态内容，比如WordPress博客。这也有利于搜索引擎优化，因为爬虫可以很容易地阅读生成的内容。
+然而，现代网站高度依赖于Ajax。在这样的网站中，特定模块或页面部分的内容必须在运行中获取和呈现
+因此，服务器端呈现并没有多大帮助。对于每一个ajax请求，该方法不只是向客户机发送所需的内容，而是在服务器上生成整个页面。这个过程会消耗不必要的带宽，也不能提供流畅的用户体验</description></item><item><title>Typora画图</title><link>/posts/tools/typora%E7%94%BB%E5%9B%BE/</link><pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate><guid>/posts/tools/typora%E7%94%BB%E5%9B%BE/</guid><description>标准流程图源码格式： st=&amp;gt;start: 开始框 op=&amp;gt;operation: 处理框 cond=&amp;gt;condition: 判断框 sub1=&amp;gt;subroutine: 子流程 io=&amp;gt;inputoutput: 输入输出框 e=&amp;gt;end: 结束框 st-&amp;gt;op-&amp;gt;cond cond(yes)-&amp;gt;io-&amp;gt;e cond(no)-&amp;gt;sub1(right)-&amp;gt;op 标准流程图源码格式（横向）： st=&amp;gt;start: 开始框 op=&amp;gt;operation: 处理框 cond=&amp;gt;condition: 判断框(是或否?) sub1=&amp;gt;subroutine: 子流程 io=&amp;gt;inputoutput: 输入输出框 e=&amp;gt;end: 结束框 st(right)-&amp;gt;op(right)-&amp;gt;cond cond(yes)-&amp;gt;io(bottom)-&amp;gt;e cond(no)-&amp;gt;sub1(right)-&amp;gt;op 流程圖 graph TD A[方形] --&amp;gt;B(圆角) B --&amp;gt; C{条件a} C --&amp;gt;|a=1| D[结果1] C --&amp;gt;|a=2| E[结果2] F[竖向流程图] graph LR A[方形] --&amp;gt;B(圆角) B --&amp;gt; C{条件a} C --&amp;gt;|a=1| D[结果1] C --&amp;gt;|a=2| E[结果2] F[横向流程图] UML时序图源码样例： 对象A-&amp;gt;对象B: 对象B你好吗?（请求） Note right of 对象B: 对象B的描述 Note left of 对象A: 对象A的描述(提示) 对象B--&amp;gt;对象A: 我很好(响应) 对象A-&amp;gt;对象B: 你真的好吗？ UML时序图源码复杂样例： Title: 标题：复杂使用 对象A-&amp;gt;对象B: 对象B你好吗?</description></item><item><title>Hbase基础-概念和安装</title><link>/posts/database/hbase%E5%9F%BA%E7%A1%80/</link><pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate><guid>/posts/database/hbase%E5%9F%BA%E7%A1%80/</guid><description>Hbase 基本概念 Hbase 能做什么
+海量数据存储 准实时查询 HBase在实际业务场景中的应用
+交通:gps,摄像头信息 金融:交易信息 电商:交易信息,浏览信息,物流信息 HBase特点
+容量大:Hbase单表可以有百亿行,百万列,数据矩阵的横纵维度所支持的数据量级都十分具有弹性 面向列:HBase是面向列的存储和权限控制,并支持独立检索.列式存储,其数据在表中是按照某列存储的,这样在查询只需要少数几个字段的时候,能大大减少读取的数据量.并且 可以动态增加列 多版本:HBase每一列的数据存储有多个Version 稀疏性:为空的列并不占用存储空间,表可以设计的很稀疏 扩展性:底层依赖于HDFS(只需要增加机器就可以扩大容量) 高可靠性:WAL机制保证了数据写入时不会因集群异常而导致写入数据丢失;HBase底层使用的HDFS,会有备份 高性能:底层的LSM数据结构和Rowkey有序排列等架构的独特设计,使得HBase具有非常高的写入性能.region切分,主键索引和缓存机制使得HBase在海量数据下具备-定的随机读取性能,该性能针对Rowkey的查询能够达到毫秒级别 HBase数据模型 列簇:
+一张表列簇不会超过5个,多个会增加磁盘交互,降低性能 每个列簇中的列数没有限制 列只有插入数据后存在 列在列簇中是有序的 基本操作
+hbase(main):001:0&amp;gt; create &amp;#39;test&amp;#39;,&amp;#39;info&amp;#39; 0 row(s) in 11.7610 seconds =&amp;gt; Hbase::Table - test hbase(main):002:0&amp;gt; put &amp;#39;test&amp;#39;,&amp;#39;0001&amp;#39;,&amp;#39;info:username&amp;#39;,&amp;#39;euraxluo&amp;#39; 0 row(s) in 6.6130 seconds hbase(main):003:0&amp;gt; scan &amp;#39;test&amp;#39; ROW COLUMN+CELL 0001 column=info:username, timestamp=1577270839695, value=euraxluo 1 row(s) in 0.6160 seconds hbase(main):004:0&amp;gt; put &amp;#39;test&amp;#39;,&amp;#39;0001&amp;#39;,&amp;#39;info:age&amp;#39;,&amp;#39;12&amp;#39; 0 row(s) in 0.3720 seconds hbase(main):005:0&amp;gt; scan &amp;#39;test&amp;#39; ROW COLUMN+CELL 0001 column=info:age, timestamp=1577270880203, value=12 0001 column=info:username, timestamp=1577270839695, value=euraxluo 1 row(s) in 0.</description></item><item><title>Redis API及数据结构</title><link>/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/redis/redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid><description>&lt;p>本文介绍了redisApi以及数据结构&lt;/p></description></item><item><title>Redis Cluster</title><link>/posts/redis/rediscluster-1/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/redis/rediscluster-1/</guid><description>Redis Cluster 背景 并发量 &amp;lt;10万dps
+数据量 单机内存&amp;lt;256G
+带宽 网卡限制
+解决方式 提高机器配置
+分布式
+数据分布 | 分布方式 | 特点 | 典型产品 |
+| &amp;mdash;&amp;mdash;&amp;ndash; | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash; | &amp;mdash;&amp;mdash;&amp;ndash; |
+| 哈希分布 | 数据分散度高数据分布业务无关无法顺序访问支持批量操作 | 一致性哈希MemcacheRedis Cluster缓存产品 |
+| 顺序分布 | 数据分散度易倾斜键值业务相关可顺序访问支持批量操作 | BigTableHBase |
+哈希分布 节点取余：hash(key)%nodes 客户端分片：哈希+取余
+节点扩容：扩容时需要数据迁移
+翻倍扩容：扩容时最好多倍扩容
+一致性哈希 有一个token环，节点在token环上，会为每个key分配一个token，在依据token在环上顺时针寻找最近的节点
+客户端分片：哈希+顺时针选择节点
+节点伸缩：扩容时减少影响的范围
+翻倍伸缩：保证最小迁移数据和保证负载均衡
+虚拟槽分区 预设虚拟槽：每个槽映射一个数据子集，一般比节点数大
+良好的哈希函数：CRC16
+服务端管理节点，槽，数据：例如Redis Cluster
+搭建集群 Redis Cluster架构 节点，很多节点，都负责读写
+meet，使用raft协议，是互相通信的基础
+指派槽，把节点指派槽，才能正常读写
+复制，保证高可用
+安装 配置安装 节点配置 port ${port} daemonize yes dir &amp;#34;path/to/run&amp;#34; dbdilename &amp;#34;dump-${port}.</description></item><item><title>Redis Cluster 2</title><link>/posts/redis/rediscluster-2/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/redis/rediscluster-2/</guid><description>集群伸缩 伸缩原理 伸：增加节点 缩：节点下线
+集群伸缩：槽和数据在节点之间的移动
+扩容集群 准备新节点 打开集群模式
+配置和其他节点统一
+启动后是孤立的节点
+加入集群meet 在集群节点中配置：cluster meet 127.1 &amp;lt;newnodeport&amp;gt;
+使用redis-trib.rb：
+redis-trib.rb ad-node new_host:new_port existing_host:existing_port --slave --master_id &amp;lt;arg&amp;gt;{扩展参数是配置为从节点}
+为它迁移槽和数据可以实现扩容
+可以作为从节点负责故障转移
+迁移槽和数据 1). 对目标节点发送cluster setslot &amp;lt;slot&amp;gt; importing &amp;lt;sourceNodeId&amp;gt;,让目标节点准备导入槽的数据
+2). 对源节点发送cluster setslot &amp;lt;slot&amp;gt; migrating &amp;lt;targetNodeId&amp;gt;,让源节点准备迁出槽
+3). 源节点循环执行cluster getkeysinslot &amp;lt;slot&amp;gt; &amp;lt;count&amp;gt;,每次获取count个属于槽的键
+4). 在源节点上执行migrate &amp;lt;targetIp&amp;gt; &amp;lt;targetPort&amp;gt; key 0{对应数据库，master只有db0} &amp;lt;timeout&amp;gt;,死循环，知道所有的key迁移完成
+5). 重复执行3)~4)知道槽下所有的key迁移到目标节点
+6). 向集群中的所有主节点发送cluster setslot &amp;lt;slot&amp;gt; node &amp;lt;targetNode Id&amp;gt;,通知槽已经重新分配给目标节点
+伪代码：
+def move_slot(source,target,slot): #目标节点准备导入槽 target.cluster(&amp;#34;setslot&amp;#34;,slot,&amp;#34;importing&amp;#34;,source,nodeID); #源节点准备导出槽 source.cluster(&amp;#34;setslot&amp;#34;,slot,&amp;#34;migrating&amp;#34;,target,nodeId); while true: #批量从源节点获取key keys = source.</description></item><item><title>Redis Cluster 3</title><link>/posts/redis/rediscluster-3/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/redis/rediscluster-3/</guid><description>RedisCluster 客户端使用 moved重定向 对任意节点发送键命令
+节点会计算槽和对应节点确定这个键是否指向自身
+如果指向自身，就执行命令，返回key所在的槽
+否则就回复moved异常，客户端拿到这个moved后，重定向节点，重新发送命令
+ASK重定向 解决槽迁移时客户端的查询问题
+对源节点发送键命令
+节点发现正在进行槽迁移，回复客户端ask转向
+客户端对目标节点Asking，发送命令
+目标节点返回响应结果
+两者的区别 两者都是客户端重定向
+moved：槽已经确定迁移
+ask：槽还在迁移中
+smart客户端 目标：追求性能（不能使用代理模式）
+从集群中选取一个可运行节点，使用cluster slots 初始化槽和节点映射
+将cluster slots的结果映射到本地，为每个节点都创建一个连接池
+准备执行命令
+执行命令 通过key哈希模16383，得到slot，通过本地映射得到节点，再通过连接池去连接
+如果连接出错，可能槽迁移，也可能是连接异常，如果槽迁移，那么
+我们随机访问一个活跃节点，节点会返回moved异常
+我们得到槽迁移的结果，更新我们的slot和nodes的映射（确定槽迁移）
+然后再去连接目标节点
+如果命令发送多次未成功，显示异常Too many cluster redirection
+jiedisCluster使用 Set&amp;lt;HostAndPort&amp;gt; nodeList = new HashSet&amp;lt;HostAndPort&amp;gt;(); nodeList.add(new HostAndPort(HOST1,PORT1)); nodeList.add(new HostAndPort(HOST2,PORT2)); nodeList.add(new HostAndPort(HOST3,PORT3)); nodeList.add(new HostAndPort(HOST4,PORT4)); nodeList.add(new HostAndPort(HOST5,PORT5)); nodeList.add(new HostAndPort(HOST6,PORT6)); JedisCluster redisCluster = new JedisCluster(nodeList,timeout,poolConfig); TIPS 单例：内置了所有节点的连接池，并可以用来做故障转移
+无需手动借还连接池
+合理设置commons-pool
+整合spring //工厂 import redis.client.jedis.JedisCluster; public class JedisClusterFactory{ private JedisCluster jedisCluster; private List&amp;lt;String&amp;gt; hostPoetList; private int timeout; private Logger logger = LoggerFactory.</description></item><item><title>Redis Sentinel</title><link>/posts/redis/redissentinel/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/redis/redissentinel/</guid><description>Redis Sentinel 主从复制的问题 手动故障转移
+写能力和存储能力受限
+Redis Sentinel架构 有多个Sentinel节点
+不用来存储数据
+多个节点判断master节点的故障，进行故障转移
+保证高可用，即便一个Sentinel节点挂点也没事
+客户端只会记录sentinel的地址（因为sentinel会进行故障转移，master节点地址不固定）
+一套sentinel可以监控多套master-slave，利用master-name作为标识
+Sentinel的故障转移 多个sentinel发现并确认master有问题
+选举出一个sentinel作为领导
+选出一个slave作为新的master
+通知其余slave成为新的master的slave
+通知客户端主从变化
+等待老的master复活成为新的master的slave
+安装与配置 主从配置：
+sed &amp;quot;s/6380/6381/g&amp;quot; redis-6380.conf &amp;gt; redis-6381.conf
+查看：
+cat redis-6381.conf|grep -v &amp;quot;#&amp;quot; |grep -v &amp;quot;^$&amp;quot;
+Sentinel配置
+port ${port} dir &amp;#34;&amp;#34; logfile &amp;#34;${port}.log&amp;#34; sentinel monitor mastername 127.1 port{主节点端口} 2{故障发现个数} #判断失败时间 30000毫秒 sentinel down-after-milliseconds mastername 30000 #并发度 sentinel parallel-syncs mastername 1 sentinel failover-timeout mastername 180000 客户端与sentinel连接 高可用 服务端高可用
+客户端高可用
+实现原理 获取全部的sentinel节点
+我需要给sentinel我想连接的mastername</description></item><item><title>Redis基础学习</title><link>/posts/redis/redis%E5%9F%BA%E7%A1%80/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/redis/redis%E5%9F%BA%E7%A1%80/</guid><description>Redis基础学习 Redis是一个key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)、zset(sorted set &amp;ndash;有序集合)和hash（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。
+Redis 是一个高性能的key-value数据库。 redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部 分场合可以对关系数据库起到很好的补充作用。它提供了Python，Ruby，Erlang，PHP客户端，使用很方便,Redis支持主从同步。数据可以从主服务器向任意数量的从服务器上同步，从服务器可以是关联其他从服务器的主服务器。这使得Redis可执行单层树复制。从盘可以有意无意的对数据进行写操作。由于完全实现了发布/订阅机制，使得从数据库在任何地方同步树时，可订阅一个频道并接收主服务器完整的消息发布记录。
+安装和基本命令 安装： Ubuntu18.04：sudo apt-get install redis-server
+安装redis后会自动安装redis-cli
+也可以安装图形工具
+sudo snap install redis-desktop-manager
+基本操作 检查Redis服务器系统进程 ps -aux |grep redis
+通过启动命令检查Redis服务器状态 netstat -nlt|grep 6379
+访问Redis 最简启动
+redis-server
+指定配置文件启动
+redis-server config/redis-6380.conf
+验证
+ps -ef|grep redis
+netstat -antpl | grep redis
+redis-cli -h ip -p port ping
+访问
+redis-cli -a euraxluo -h 127.1 -p 6379
+基本命令 0.keys* 时间复杂度是On
+keys xx?
+keys xx*
+keys xx[x-x]*
+1.判断一个key是否存在 O1 exists key</description></item><item><title>Redis的主从复制</title><link>/posts/redis/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/redis/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid><description>Redis的主从复制 单机部署的问题 机器故障（高可用）
+容量瓶颈（分布式）
+QPS瓶颈（分布式）
+主从复制的作用 为一个数据提供了副本
+slave从master复制一个备份库
+master可以有多个slave
+一个slave只能有一个master
+数据流向是单向的，由master&amp;ndash;&amp;gt;slave
+扩展读性能，可以实现读写分离
+主从复制实现 slaveof slaveof 127.1 6380
+取消复制
+slaveof no one
+配置 #配置这个redis服务复制ip:port这个redis作为他的slave slaveof ip port #只读,必须保证从和主的内容一致 slave-read-only yes 两种方式的比较 | 方式 | 命令 | 配置 |
+| &amp;mdash;- | &amp;mdash;&amp;mdash;&amp;mdash;- | &amp;mdash;&amp;mdash;&amp;ndash; |
+| 优点 | 无需重启 | 统一配置 |
+| 缺点 | 不便于管理 | 需要重启 |
+使用配置的方式实现主从复制，需要重启原来的redis服务器 config redis-cli -h 127.1 -p 6379 shutdown
+config ps -ef |grep redis-server</description></item><item><title>Redis的持久化</title><link>/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/redis/redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5/</guid><description>Redis的持久化 Redis持久化作用 什么是持久化 redis的所有数据保存在内存中，对数据的更新回异步的保存在磁盘中
+持久化方式 快照 MySQL Dump
+Redis RDB
+日志 MySQL Binlog
+Hbase HLog
+Redis AOF
+RDB持久化 什么是RDB redis可以通过命令，把当前数据库的状态保为一个RDB文件（二进制）
+也可以通过命令把硬盘上的RDB载入到redis中
+同时RDB文件也是一个复制的媒介
+触发机制 save 通过save命令让redis生成rdb文件，生成成功返回‘OK’
+同步命令，阻塞命令，会导致服务器阻塞
+会替换老的rdb文件
+复杂度On
+bgsave 接收到bgsave后，redis利用linux的fork()命令产生一个子进程，让产生的子进程去生成RDB文件，返回‘Backgroud saving started’
+fork()函数也是一阻塞命令，一般情况下很快
+会替换老的rdb文件
+复杂度On
+save与bgsave比较 | 命令 | save | bgsave |
+| &amp;mdash;- | &amp;mdash;- | &amp;mdash;- |
+| io类型 |同步 | 异步 |
+| 是否阻塞 | 是 | 是 |
+| 时间复杂度 | On | On |</description></item><item><title>Redis高级特性初识别</title><link>/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/redis/redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/</guid><description>Redis高级特性初识 慢查询 客户端请求的生命周期 客户端发送命令
+入队列
+执行命令（慢查询在这一阶段）
+返回客户端
+（客户端超时，不一定是慢查询，慢查询只是客户端超时的一个可能）
+配置 slowlog-max-len，固定长度
+slowlog-log-slower-than，慢查询阈值（单位微秒）
+=0，记录所有命令
+&amp;lt;0，不记录任何命令
+#1. 第一次开启配置 config get slowlog-max-len = 128 config get slowlog-log-slower-than = 10000 #2. 修改默认配置重启 #3. 动态配置 config set slowlog-max-len = 128 config set slowlog-log-slower-than = 10000 API 慢查询会把命令放在内存中
+slowlog get [n]：获取慢查询队列
+slowlog len ：获取慢查询队列长度
+slowlog reset：清空慢查询队列
+定期持久化查询
+TIPS slowlog-max-len 不要设置的过大，默认为10ms，通常设置为1ms
+slowlog-log-slower-than 不要设置过小，通常设置为1000左右
+理解命令生命周期
+pipeline 流水线 n次通信时间=n次命令时间+n次网络时间
+使用pipeline：1次网络+n次命令
+客户端实现 maven:
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;redis.clients&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;jedis&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.9.0&amp;lt;/version&amp;gt; &amp;lt;type&amp;gt;jar&amp;lt;/type&amp;gt; &amp;lt;scope&amp;gt;compile&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; 没有使用pipeline</description></item><item><title>ROS基础学习1</title><link>/posts/ros/ros%E5%9F%BA%E7%A1%80/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/ros/ros%E5%9F%BA%E7%A1%80/</guid><description>利用enve使用在ros中使用python3 因为ros的python有很多依赖需要使用C，python3的支持不太好。我们可以让当前的环境变量依然是python2，为ros创建一个py3的enve来给它使用
+查看版本： pip -V pip3 -V python -V python3 -V 我的pip和python都是py2.7的
+接下来在你的工作空间中创建enve
+mkdir -p catkin_ws/src cd catkin_ws pip3 install virtualenv #先安装 virtualenv -p /usr/bin/python3 venv#创建一个名为enve的python3环境 source venv/bin/activate #激活enve #创建成功，你应该会看到shell的变化，你可以在这里试一下pip和python，会发现已经变成python3了。 deactivate #关闭enve SLAM 同时定位建模 移动机器人的主要任务：定位，建模，路径规划
+slam 建模工具包： Gmapping，Karto，Heotor，Gartographer
+ROS支持的定位工具包： 自适应蒙特卡罗定位：AMCL
+导航工具包集 Navigation：Local，Global
+Global：Dijkstra，A×
+Local;DWA
+SLAM中的MAP： 本质也是一个msg
+Topic：/map
+Type：nav_msgs/OccupancyGrid(栅格地图)
+Gmapping Topic 输入：base到odom的tf， /scan
+输出：
+定位信息：map_frame&amp;gt;odom的tf消息
+mapping:topic -/map _msg
+Karto topic 输入和Gmapping一样
+输出：map_frame -&amp;gt;odom
+Navigation matepkg</description></item><item><title>ROS基础学习2</title><link>/posts/ros/ros%E5%85%A5%E9%97%A8/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/ros/ros%E5%85%A5%E9%97%A8/</guid><description>ROS 工作空间:组织和管理功能包的文件夹 catkin workspace
+build (cmake,catkin缓存中间件)
+src(package 源代码)
+package1(是catkin编译的基本单元)
+package2
+folder
+package3
+package3
+devel(目标文件)
+头文件
+动态连接库
+静态连接库
+可执行文件
+catkin(编译工具) catkin ROS定制的编译构建系统
+是对CMake的扩展
+常用命令:
+catkin_make: 初始化,建立工作空间
+eg:
+mkdir -p ~/catkin_ws/src cd ~/catkin_ws/ catkin_make 编译
+eg:
+cd ~/catkin_ws #回到工作空间 catkin_make source ~/catkin/devel/setup.bash #编译完成后需要使用source进行刷新 package 功能包 是ROS软件的基本组织形式(一个个package)
+catkin编译的基本单元
+一个package可以包含多个节点(可执行文件),但是至少必须含有CMakeLists.txt和package.XML才能认为这是一个pkg
+CMakeLists.txt 规定了catkin编译的规则(源文件,依賴項，目標文件)
+eg:
+cmake_mininum_required() #指定catkin的最低版本 project() #指定軟件包的name find_package() #指定編譯時需要的依賴項 add_message_files()/add_service_files()/add_action_files()#添加消息文件/服務文件/動作文件 generate_message() #指定catkin信息給編譯系統生成cmake文件 add_library()/add_executable() #指定生成庫文件，可執行文件 target_link_libraries() #指定可執行文件鏈接那些庫 catkin_add_gtest() #添加單元測試 install() #生成可安裝目標 如果編譯過程中出現問題，一般都是這個文件的原因
+package.XML 包的自我描述：定义了package的属性,包名,版本号,作者,依賴等
+&amp;lt;package&amp;gt;&amp;lt;!--root--&amp;gt; &amp;lt;name&amp;gt;&amp;lt;!</description></item><item><title>Shell 基础</title><link>/posts/shell/shell%E5%9F%BA%E7%A1%80/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/shell/shell%E5%9F%BA%E7%A1%80/</guid><description>shell 基础 在终端输入:sh进入脚本界面
+helloworld 编辑内容
+#!/bin/bash echo &amp;#34;hello world!&amp;#34; 保存退出:
+w ~/helloworld.sh
+运行:
+chmod +x ~/helloworld.sh cd ~ ./helloworld.sh 执行结果:
+hello world!
+分析: 第一行中#!是一个约定的标记,告诉系统脚本需要使用什么解释器来执行,即使用哪一种shell
+这种在第一行指定了解释器信息的方式,需要让脚本作为可执行程序执行
+还有第二种运行方式,即作为解释器参数,这时,第一行的解释器信息,失效
+eg:python test.py
+shell 变量 显式赋值:
+a=&amp;quot;abc&amp;quot;
+用语句:
+for file in `ls /etc/` 或者
+for file in $(ls /etc)
+使用变量: 使用一个定义过的变量:
+file=&amp;#34;test&amp;#34; echo $file echo ${file} 花括弧是为了帮助解释器识别变量的边界:
+for skill in Ada Coffe Action java;do echo &amp;#34;I am good at ${skill}Script&amp;#34; done 只读变量 使用readonly :
+#!/bin/bash myUrl=&amp;#39;http://euraxluo.</description></item><item><title>Shell 进阶</title><link>/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</guid><description>shell进阶 破壳漏洞
+env x='() { :;}; echo shellshocked' bash –c &amp;quot;echo test&amp;quot;检查,如果输出了两行,那么需要升级bash的版本
+解释器的类型
+系统中的shells使用cat /etc/shells查看:
+/bin/sh /bin/dash /bin/bash /bin/rbash /usr/bin/tmux /usr/bin/screen /bin/zsh /usr/bin/zsh 设置解释器的类型 #!/bin/bash在文件的开头使用,内核会根据&amp;quot;#!&amp;ldquo;后的解释器来确定该用那个程序解释这个脚本中的内容
+脚本的编辑 vim帮助我们编辑脚本 我的vimrc内容
+1 set tabstop=4 2 set shiftwidth=4 3 set expandtab 4 set number 5 autocmd BufNewFile *.py,*.cc,*.sh,*.java exec &amp;#34;:call SetTitle()&amp;#34; 6 func SetTitle() 7 if expand(&amp;#34;%:e&amp;#34;) == &amp;#39;sh&amp;#39; 8 call setline(1,&amp;#34;#!/bin/bash&amp;#34;) 9 call setline(2,&amp;#34;# Author: Euraxluo&amp;#34;) 10 call setline(3,&amp;#34;# Email: Euraxluo@outlook.com&amp;#34;) 11 call setline(4,&amp;#34;# Time:&amp;#34; .</description></item><item><title>Redis基础配置</title><link>/posts/redis/redis%E9%85%8D%E7%BD%AE/</link><pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/redis/redis%E9%85%8D%E7%BD%AE/</guid><description>Redis的特点 速度快 使用内存
+使用C语言
+单线程
+持久化 对数据的更新，异步保存到磁盘上 多种数据结构 strings/Blobs/Bitmaps
+Hash Tables
+Linked Lists
+Sets
+Sorted Sets
+BitMaps
+HyperLogLog(超小内存唯一值计数)
+GEO
+多语言支持 功能丰富 发布topic
+支持lua脚本
+支持简单的事务
+支持pipeline
+高可用，分布式 Redis初识 缓存
+计数器
+消息队列系统
+排行榜
+实时系统
+社交队列
+Redis 可执行文件介绍 redis-server：redis服务器
+redis-cli：rdis命令行服务端
+redis-benchmark：性能测试
+redis-check-aof： aof修复工具
+redis-check-dump：rdb文件检查工具
+redis-sentinel：sentinel服务器
+启动方式 最简启动 启动
+redis-server
+验证
+ps -ef|grep redis
+netstat -antpl | grep redis
+redis-cli -h ip -p port ping
+配置启动 daemonsize:是否以守护进程的方式启动
+port:redis对外端口号
+logfile:redis系统日志
+dir:redis工作目录
+#redis是单进程，但是一般电脑是多线程的，所以我们可以开多个redis进程，通过不同的端口来访问 mkdir -p /home/redis/config cp /etc/redis/redis.</description></item><item><title>TensorFlow 基础</title><link>/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/</link><pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/</guid><description>TensorFlow 基础 计算密集型(tensorflow) cpu计算
+io密集型(Django,Scrapy) http请求
+线性回归回顾 准备好特征和lable y = x*0.7+0.8
+2.建模.随机初始化一个权重w,一个偏置b
+y_predict = wx+b
+求损失函数 less化损失函数
+(y-y_predict)^2/x.shape[0]
+4.梯度下降优化损失函数,我们需要查阅tensorflowAPI,制定合适的eta
+变量作用域 tf.variable_scope
+让变量显示可观测 收集变量 tf.summary.scalar(name=&amp;rsquo;&amp;rsquo;,tensor) #收集单值变量,name是变量名,tensor为值
+tf.summary.histogram(name=&amp;rsquo;&amp;rsquo;,tensor) #收集高纬度的变量参数
+tf.summary.image(name=&amp;rsquo;&amp;rsquo;,tensor) #收集输入的图片张量能显示图片
+合并变量写入事件文件 merged = tf.summary.merge_all()
+summary = sess.run(merged) #每次迭代都需要运行
+FileWriter.add_summary(summary,i) #表示第几次的值
+模型的保存和加载 tf.train.Save(var_list = None,max_to_keep = 5)
+var_list:指定将要保存和还原的变量.他可以作为一个dict或一个列表传递
+max_to_keep:指示要保留的最近检查点文件的最大数量.创建新文件时,会删除较旧文件,默认为5,即保留最近的5个检查点文件
+定义命令行参数 先定义有哪些参数需要在运行时指定
+程序中获取定义命令行参数
+使用时 python *.py --name=参数 [--DEFINE_name=参数]
+import os import tensorflow as tf #定义参数的名字,默认值,说明 tf.app.flags.DEFINE_integer(&amp;#34;max_step&amp;#34;,100,&amp;#34;模型的训练步数&amp;#34;) tf.app.flags.DEFINE_string(&amp;#34;model_dir&amp;#34;,&amp;#34;&amp;#34;,&amp;#34;模型文件的加载路径&amp;#34;) #定义获取命令行参数的名字 FLAGS = tf.app.flags.FLAGS def mylg(): g3 = tf.</description></item><item><title>TensorFlow 线性回归</title><link>/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</link><pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</guid><description>TensorFlow 线性回归 TensorFlow是一个编程系统,使用图(graphs)来表示计算任务,图(graphs)中的节点称之为op(operation),一个op获得0个或者多个Tensor,执行计算,产生0个或者多个Tensor.Tensor看做是一个n维的数组或者列表.图必须在会话Session里被启动
+##基本概念
+使用图(graphs)来表示计算任务
+在被称为会话(Session)的上下文(context)中执行图
+使用张量(tensor)表示数据
+通过变量(Vatria)维护状态
+使用feed和fetch可以为任意的操作赋值或者从中获取数据
+张量(Tensor)
+在TensorFlow中,张量的维度被描述为&amp;quot;阶&amp;quot;,但是,张量的阶和矩阵的阶并不是同一个概念,张量的阶,是张量维度的一个数量的描述
+x=3 #零阶张量:纯量 v=[1.,2.,3.] #一阶张量:向量 t=[[1,2,3],[4,5,6]] #二阶张量:矩阵 m=[[[1],[2],[3]],[[4],[5],[6]],[[7],[8],[9]]] #三阶张量:立方体 图(Graph)
+代表模型的数据流,由ops和tensor组成.其中op是操作,也就是节点,而tensor是数据流,也就是边
+算法会表示为计算图(computational graphs),也称之为数据流图.我们把计算图看作为一种有向图,张量就是通过各种操作在有向图中流动
+会话(Session)
+在TensorFlow中,要想启动一个图的前提是要创建一个会话(Session),TensorFlow的所有对图的操作,都必须放在会话中进行
+基础使用: op和Session import tensorflow as tf #创建两个常量op c1 = tf.constant([[1,2]]) c2 = tf.constant([[2],[1]]) #创建一个矩阵乘法op matmulop = tf.matmul(c1,c2) print(matmulop) Tensor(&amp;quot;MatMul:0&amp;quot;, shape=(1, 1), dtype=int32) #定义一个会话,启动图 sess = tf.Session() #调用sess的run方法来运行矩阵乘法op #run(matmulop)触发了图中的3个op result = sess.run(matmulop) print(result) sess.close() [[4]] #利用with省去这个麻烦 with tf.Session() as sess: #调用sess的run方法执行矩阵乘法op result = sess.run(matmulop) print(result) [[4]] 变量 #添加一个变量op x = tf.</description></item><item><title>C++ 小记</title><link>/posts/note/c++%E5%B0%8F%E8%AE%B0/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/c++%E5%B0%8F%E8%AE%B0/</guid><description>C++ 小记 CMAKE 工程构建工具 简单的使用 文件名大小写敏感 语法 cmake_minimum_required(VERSION 2.8)#设置cmake的版本 set(CMAKE_BUILD_TYPE Debug )#设置为debug模式 #项目名 PROJECT(HELLO) #设置某文件夹为头文件 include_directories(&amp;#34;include&amp;#34;) #设置一个头文件，把hello.cpp编译为libfile add_library(libfile src/hello.cpp) SET(SRC_LIST “fu nc.c”) #设置可执行二进制文件的输出路径和库的输出路径 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin) SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib) ADD_EXECUTABLE(hello main.c;func.c;$\{RC_LIST\}) target_link_libraries(hello libfile)#链接一个lib #设置编译的源文件在编译当前目录的bin下 ADD_SUBDIRECTORY (src bin)#修改为 SUBDIRS(src) 结果放在src中 #安装 DESTDIR= install: mkdir -p $(DESTDIR)/usr/bin install -m 755 hello $(DESTDIR)/usr/bin 更像一个工程 Hello - src - CMakeLists.txt - build #进去此目录进行外部编译 =》 cmake .. &amp;amp; make - CMakeLists.txt project(hello) add_executable(hello hello.c) set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin) set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib) map和set 底层使用的是红黑树</description></item><item><title>ChatBot模型基础</title><link>/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/</guid><description>word2vec !(http://www.cnblogs.com/neopenx/p/4571996.html)( 是个巨佬) !(https://blog.csdn.net/itplus/article/details/37969817 )
+概率语言模型 概率语言模型 预测字符串概率,考虑动机,考虑计算方式
+Unigram models(一元文法统计模型)
+N-gram 语言模型(N元模型
+N元模型 $P( w1,w2,&amp;hellip;,w_m) = i&amp;hellip;m() P(w_i|w1,&amp;hellip;,w_(i-1)) = i&amp;hellip;m() P(w_i|w_(i-n+1),&amp;hellip;,w_(i-1))$
+注: n大于3时基本无法处理,参数空间太大.另外它不能表示词与词之间的关联性
+神经概率语言模型 在论文《A neural probabilistic language model》中提出的一种模型.该模型的重要工具是词向量
+词向量: 对词典D中的任意词w,指定一个固定长度的实值向量$v(w)\in R^m$v(w)就称为w的词向量,m为词向量的长度
+概述 训练样本: (Context(w),w) 包括前n-1个词分别的向量,假定每个词向量大小m
+投影层： (n-1)*m 首尾拼接起来的大向量
+输出: 输出是一棵二叉树,它以语料中出现过的词当做叶子节点.以各词在语料中的出现次数当做权值垢找出来的Huffman树
+y_w = (y_w1,y_w2,y_w3,&amp;hellip;y_wN,)
+表示上下文为Context(w)时,下一个词恰好为词典中的第i个词的概率
+归一化: $$p(w|Context(w)) = \frac{e^{yw,iw}}{\sum^{N}_{i=1}e^{yw,iw} }$$
+哈弗曼树 最优二叉树,节点会有权重,指示词的常用频次
+使用哈弗曼树
+把高频词放在距离根节点近的地方,在测试时,我们每次预测每一层的正概率和负概率
+CBOW 根据上下文的词语预测当前词语的出现概率的模型
+$$L = \sum_{w\in c}logp(w|Context(w))$$
+词向量=哈弗曼编码,经过不断地训练,哈弗曼编码不断改变
+权重参数=通过每层的概率计算,最终指向这个词会有一个似然函数,其中的某个参数,就是sigmod函数中的theta
+对最终的似然函数求最大==&amp;gt;最大化问题&amp;ndash;&amp;gt;梯度上升
+Negative Sampling 为了解决,树空间过大
+思想:
+保证频次越高的词,越容易被采样出来
+不使用哈弗曼树进行预测,使用负采样,降低计算复杂度
+Skip-gram seq2seq seq2seq是一个Encoder-Decoder结构的网络,它的输入是一个序列,输出也是一个序列</description></item><item><title>chromedriver-安装</title><link>/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/chromedriver-%E5%AE%89%E8%A3%85/</guid><description>![reference])(https://blog.csdn.net/shuchuan0409/article/details/101615221 )
+第一步：
+执行 sudo apt-get update 更新apt-get，耗时可能会比较久
+第二步：安装谷歌浏览器
+直接下载谷歌浏览器最新版：wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 安装：dpkg -i google-chrome-stable_current_amd64.deb
+如果不出意外，上面这一步一般都不会安装成功（但是也要执行），这个时候我们需要执行 ：apt-get install -f 用来下载兼容或者必须的一些软件包
+等下载完成以后再重新安装谷歌浏览器，这个时候要记下谷歌浏览器的版本号，这是个很重要的信息，下面安装chromedriver的时候需要使用
+Unpacking google-chrome-stable (77.0.3865.90-1) 里面的77.0.3865.90-1就是谷歌浏览器的版本号
+第三步：
+安装xvfb 安装这个工具是为了让我们可以无界面运行谷歌浏览器，直接apt-get安装即可
+sudo apt-get install xvfb
+第四步：安装chromedriver
+下载chromedriver的安装包，直接访问地址：http://chromedriver.storage.googleapis.com/index.html 去下载自己浏览区对应的版本，如果找不到自己浏览器对应的版本，就找个比较接近的版本就行了，比如我这边的谷歌版本号是77.0.3865.90，但是网站上并没有找个版本对应的驱动
+我这边就下载了77.0.3865.40这个版本，点击去找到linux对应的下载地址，直接使用wget进行下载
+wget http://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip 下载后解压到当前目录下,如果没有安装unzip，就使用apt-get install unzip 安装解压工具
+unzip 你下载的zip文件
+移动文件夹到usr文件夹下面，并创建软链接，升级为全局变量
+mv -f chromedriver /usr/local/share/chromedriver
+ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
+到此安装结束，我们执行 chromedriver &amp;ndash;version 可以查看安装的版本号</description></item><item><title>Colab的使用</title><link>/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/colab%E7%9A%84%E4%BD%BF%E7%94%A8/</guid><description>首先是梯子 校园网改ipv6连接谷歌 1.修改SDN服务器
+在ipv6的sdn中设置这两个记录，也可以只设置一个
+2001:4860:4860::8888 2001:4860:4860::8844 linux:修改/etc/resolv.conf
+2.修改hosts
+windows路径：%SystemRoot%\system32\drivers\etc\hosts
+linux:/etc/hosts
+ipv6 hosts 入门： 进入colab 因为我有基础，所以直接跳过了机器学习速成课部分，做了我在calab的第一个实验: 图像风格转换
+连接Colab和google drive !apt-get install -y -qq software-properties-common python-software-properties module-init-tools !add-apt-repository -y ppa:alessandro-strada/ppa 2&amp;gt;&amp;amp;1 &amp;gt; /dev/null !apt-get update -qq 2&amp;gt;&amp;amp;1 &amp;gt; /dev/null !apt-get -y install -qq google-drive-ocamlfuse fuse from google.colab import auth auth.authenticate_user() from oauth2client.client import GoogleCredentials creds = GoogleCredentials.get_application_default() import getpass !google-drive-ocamlfuse -headless -id={creds.client_id} -secret={creds.client_secret} &amp;lt; /dev/null 2&amp;gt;&amp;amp;1 | grep URL vcode = getpass.getpass() !</description></item><item><title>C语言小计</title><link>/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/c%E8%AF%AD%E8%A8%80%E5%B0%8F%E8%AE%A1/</guid><description>C语言小计 Unix C 内核-》系统调用-》shell/共用函数库-》应用程序
+系统调用和库函数
+库函数会调用系统调用来实现自己的算法
+公用函数库构建在系统调用之上，应用程序既可以使公用函数库，也可以使用系统调用
+口令文件：/etc/passwd 字段结构：
+登录名：加密口令：UID：GID：注释字段：起始目录：sell
+文件系统：
+/是root目录 /和空字符不能出现在文件名字中，斜线用来分隔开构成路径名的各文件名，空字符用来终止一个路径名 工作目录：每个进程都有一个工作目录，所有的相对路径名都从工作目录开始解释，进程可以使用chdir()更改工作目录,以/开始的路径名是绝对路径名 登陆时工作目录设置为起始目录，从口令文件中取得 输入输出
+不带缓冲区的io：open,read,write,lseek,close stdout &amp;gt; file可以把标准输出或者符号左边的字符重定向到文件 进程
+每个进程都有一个pid，pid_t保证可以用long保存
+进程控制：fork,waitpid,exec(exec函数有很多变体)
+signal，用于通知进程发生了某种情况；进程会：
+忽略信号
+按系统默认方式处理
+提供一个函数，信号捕捉（类似错误处理？）
+时间值
+用户cpu时间：执行用户指令所用的时间 系统cpu时间：该进程执行内核程序经历的时间 时钟时间：进程运行的时间总量 CPU时间 = time_t + clock_t 问题：若日历时间放在带符号的32位int中，哪一年会溢出？怎么扩展 文件IO（不带缓冲的IO） 不带缓冲：指的是每个read和write都调用系统调用，这些函数不是ISO C的组成部分
+幻数：没来由的，不利于维护的数字，最好define
+define STDIN_FILENO 0 define STDOUT_FILENO 1 define STDERR_FILENO 3 open(path，oflag),oflag常量很多，说明了文件的打开描述
+openat(path，oflag),oflag常量很多，说明了文件的打开描述
+creat(path,mode)mode指示文件访问权限
+close(int fd)关闭一个文件的同时还会释放该进程加在这个文件上的所有记录锁
+off_t/-1 = lseek(int fd,off_t offset,int whence)偏移量设置函数
+whence == SEEK_SET,off_t = begin()+offset,文首绝对偏移量 whence == SEEK_CUR,off_t = off_t + offset,相对当前位置偏移 whence == SEEK_END,off_t = end() + offset,文尾相对位置偏移 od -c file查看文件的实际内容,-c以字符方式</description></item><item><title>IO模型小记</title><link>/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</guid><description>BIO (block io) 同步阻塞IO
+线程池:伪异步IO,实际上也是同步阻塞IO
+NIO(同步非阻塞)
+selector会主动轮询,与客户端建立通信(channel)
+每一个server会有一个selector
+AIO(异步非阻塞)
+当客户端通知我(回调),我再去连接
+单线程模式:所有的IO操作都由同一个NIO线程处理
+主线程组,从单线程模型
+主从线程组模型,具有一个主线程族和从线程组,主线程组去建立channel,从线程组会去进行处理</description></item><item><title>java面试笔记</title><link>/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</guid><description>java跨平台 实现java跨平台只需要在相应的平台安装对应的虚拟机，我们就可以使用统一的接口进行开发。
+java通过不同的系统，不同的版本，不同的位数，来屏蔽不同的系统指令集的差异，对外提供统一的接口
+java中int数据占几个字节 java中有几种基本数据类型？8种
+基本类型：byte 二进制位数：8 包装类：java.lang.Byte 最小值：Byte.MIN_VALUE=-128 最大值：Byte.MAX_VALUE=127 基本类型：short 二进制位数：16 包装类：java.lang.Short 最小值：Short.MIN_VALUE=-32768 最大值：Short.MAX_VALUE=32767 基本类型：int 二进制位数：32 包装类：java.lang.Integer 最小值：Integer.MIN_VALUE=-2147483648 最大值：Integer.MAX_VALUE=2147483647 基本类型：long 二进制位数：64 包装类：java.lang.Long 最小值：Long.MIN_VALUE=-9223372036854775808 最大值：Long.MAX_VALUE=9223372036854775807 基本类型：float 二进制位数：32 包装类：java.lang.Float 最小值：Float.MIN_VALUE=1.4E-45 最大值：Float.MAX_VALUE=3.4028235E38 基本类型：double 二进制位数：64 包装类：java.lang.Double 最小值：Double.MIN_VALUE=4.9E-324 最大值：Double.MAX_VALUE=1.7976931348623157E308 基本类型：char 二进制位数：16 包装类：java.lang.Character 最小值：Character.MIN_VALUE=0 最大值：Character.MAX_VALUE=65535 面向对象的特征 封装 将对象封装成一个高度自洽相对封闭的个体，对象状态(属性)由这个对象自己的行为(方法)来读取和改变
+抽象 抽象就是找出一些事物的相似和共性之处，然后把他们抽象为类
+继承 把这个已经存在的类所定义的内容作为自己的内容，并可以加入若干新的内容，或修改原来的方法使之更适合特殊的需要
+多态 指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用只有在程序运行时才确定</description></item><item><title>pattern:斑图</title><link>/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/</guid><description>pattern:斑图
+是一种构型，是一种系统，不关心是使用的什么物质去实现
+把各种方法论抽取出来
+complexity:复杂性科学
+按照复杂性思维去设计虚拟世界
+仿真 层次 初始条件的影响 时间之箭？ 因果箭头 movie：黑客帝国，盗梦空间，时间之箭，超体，蝴蝶效应，前目的地
+book：失控
+我们需要对抗的是复杂系统
+根据用户去决定复杂系统
+设计的系统？ 涌现的系统？
+区块链：ai，算法管理社会
+奇点，技术奇点</description></item><item><title>python socket编程</title><link>/posts/python/python-socket/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/python/python-socket/</guid><description>TCP的三次握手和四次挥手
+三次握手: 为什么需要三次握手? 客户端:我可以发东西给你(确保客户端的发送能力) 服务器:我可以收到,你能收到么?(确保服务器的接受和发送) 客户端:我能收到!(确保能收到)
+连接建立!
+如果是四次握手? 没必要啊,第三次已经确认可以收到消息了
+如果是两次握手? 当网络阻塞时,客户端会发送两次,第一次请求到达服务器的时间慢于第二次 如果当时通信结束,服务器又收到了第一次阻塞的消息,如果是两次握手,就会分配资源 然而客户端已经完成了通信,不需要再连接了,会造成资源的浪费和安全隐患
+四次挥手: 客户端:我说完了,我想停止发送请求了 服务器:我知道你要停止发送了,我会停止接受消息 ( 服务器停止接受消息,但是可能还有很多待发送的消息
+客户端:收到服务器的确认信息,于是默不作声,等待服务器发送完他的消息
+) 服务器:我的东西全发完啦!,我想要停止发送消息啦! 客户端:我知道你也要停止发送了,我也要停止接收消息(实际上还等了两个最大周期才真正停止接收消息) ( 服务器:收到了客户端的确认消息,于是停止发送消息 )
+关于tcp的博客 使用tcp和udp让进程之间进行通信
+ip地址：用來標記網絡上的主機 動態端口：1024-65535的端口，用完就回收
+tcp socket client的基本流程
+import socket ##創建socket s = socket.socket(socket.af_inet,socket.sock_stream) ##使用 ipaddr = (&amp;#34;ip&amp;#34;,port)#服务器的ip addr s.connect(ipaddr)#连接服务器 ### 发送数据 send_msg = &amp;#34;sasa&amp;#34; s.send(send_msg.encode(&amp;#34;utf-8&amp;#34;)) ### 接受数据 recvData = s.rec(1024)#一次接收的字符数 print(&amp;#34;recved msg:&amp;#34;,recvData.decode(&amp;#34;&amp;#34;utf-8)) ##關閉 s.close() tcp server的基本过程
+# socket创建套接字 tcp = socket.socket(socket.AF_INET,socket.SOCK_STREAM) # 绑定端口 tcp.bind((&amp;#34;127.1&amp;#34;,7788)) # 设置为被动监听 tcp.</description></item><item><title>rust学习</title><link>/posts/note/rust%E5%AD%A6%E4%B9%A0/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/rust%E5%AD%A6%E4%B9%A0/</guid><description>rust学习 所有权
+Rust 的核心功能（之一）是 所有权（ownership）。虽然该功能很容易解释，但它对语言的其他部分有着深刻的影响。
+所有运行的程序都必须管理其使用计算机内存的方式。一些语言中具有垃圾回收机制，在程序运行时不断地寻找不再使用的内存；在另一些语言中，程序员必须亲自分配和释放内存。Rust 则选择了第三种方式：通过所有权系统管理内存，编译器在编译时会根据一系列的规则进行检查。在运行时，所有权系统的任何功能都不会减慢程序。（其他的GC会不断运行来寻找垃圾）
+因为所有权对很多程序员来说都是一个新概念，需要一些时间来适应。好消息是随着你对 Rust 和所有权系统的规则越来越有经验，你就越能自然地编写出安全和高效的代码。持之以恒！
+当你理解了所有权，你将有一个坚实的基础来理解那些使 Rust 独特的功能。在本章中，你将通过完成一些示例来学习所有权，这些示例基于一个常用的数据结构：字符串。
+所有权（系统）是 Rust 最独特的功能，其令 Rust 无需垃圾回收（garbage collector）即可保障内存安全。因此，理解 Rust 中所有权如何工作是十分重要的。
+栈（Stack）与堆（Heap） 在很多语言中，你并不需要经常考虑到栈与堆。不过在像 Rust 这样的系统编程语言中，值是位于栈上还是堆上在更大程度上影响了语言的行为以及为何必须做出这样的抉择。我们会在本章的稍后部分描述所有权与栈和堆相关的内容，所以这里只是一个用来预热的简要解释。 栈和堆都是代码在运行时可供使用的内存，但是它们的结构不同。栈以放入值的顺序存储值并以相反顺序取出值。这也被称作 后进先出（last in, first out）。想象一下一叠盘子：当增加更多盘子时，把它们放在盘子堆的顶部，当需要盘子时，也从顶部拿走。不能从中间也不能从底部增加或拿走盘子！增加数据叫做 进栈（pushing onto the stack），而移出数据叫做 出栈（popping off the stack）。 栈的操作是十分快速的，这主要是得益于它存取数据的方式：因为数据存取的位置总是在栈顶而不需要寻找一个位置存放或读取数据。另一个让操作栈快速的属性是，栈中的所有数据都必须占用已知且固定的大小。 在编译时大小未知或大小可能变化的数据，要改为存储在堆上。堆是缺乏组织的：当向堆放入数据时，你要请求一定大小的空间。操作系统在堆的某处找到一块足够大的空位，把它标记为已使用，并返回一个表示该位置地址的 指针（pointer）。这个过程称作 在堆上分配内存（allocating on the heap），有时简称为 “分配”（allocating）。将数据推入栈中并不被认为是分配。因为指针的大小是已知并且固定的，你可以将指针存储在栈上，不过当需要实际数据时，必须访问指针。 想象一下去餐馆就座吃饭。当进入时，你说明有几个人，餐馆员工会找到一个够大的空桌子并领你们过去。如果有人来迟了，他们也可以通过询问来找到你们坐在哪。 访问堆上的数据比访问栈上的数据慢，因为必须通过指针来访问。现代处理器在内存中跳转越少就越快（缓存）。继续类比，假设有一个服务员在餐厅里处理多个桌子的点菜。在一个桌子报完所有菜后再移动到下一个桌子是最有效率的。从桌子 A 听一个菜，接着桌子 B 听一个菜，然后再桌子 A，然后再桌子 B 这样的流程会更加缓慢。出于同样原因，处理器在处理的数据彼此较近的时候（比如在栈上）比较远的时候（比如可能在堆上）能更好的工作。在堆上分配大量的空间也可能消耗时间。
+栈： 执行期间编译器自动分配，编译器用它实现函数调用，调用函数时，栈增长，函数返回时，栈收缩。局部变量、函数参数、返回数据、返回地址等放在栈中
+栈的特点 内存分配取决于编译器，用户栈在程序运行期间可以动态的扩展和收缩。 . 和数据结构中的“栈”本质上是不一样的，但是操作方式类似于栈。 数据从栈中的进出满足“后进先出”的规律。 . 栈向低地址方向增长，esp（栈指针）指向栈顶元素。 堆： ​ 动态储存器分配器维护着的一个进程的虚拟存储器区域。一般由程序员分配释放（堆在操作系统对进程初始化的时候分配），若程序员不释放，程序结束时可能由OS回收，每个进程，内核都维护着一个变量brk指向堆顶。
+堆的特点 内存分配取决于程序员，C/C++可以手动释放该片内存。 在所有权系统中，会自动完成清理堆的活动 .</description></item><item><title>Scala入门</title><link>/posts/note/scala%E5%85%A5%E9%97%A8/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/scala%E5%85%A5%E9%97%A8/</guid><description>Scala 入门之随便写写
+import scala.util.control._ object HelloWorld{ def hello(name:String) = { s&amp;#34;Hello ,${name}&amp;#34; } def add(x: Int,y:Int) = x+y def main(args:Array[String]):Unit = { /** * 违反引用透明的例子: * 怎么样获得引用透明性:{ * 需要具有不变性,即为了获得引用透明性,任何值都不能改变 * } */ var x = new StringBuilder(&amp;#34;Hello &amp;#34;); println(x); var y = x.append(&amp;#34; world&amp;#34;); println(y); var z = x.append(&amp;#34; world&amp;#34;); println(z); /** * 递归函数: * 使用递归实现循环 * 尾递归函数 */ /** * 变量: * val 定义immutable variable:常量 * var 定义mutable variable:变量 * lazy val:惰性求值常量 * 可以再定义时不指定变量的类型,Scala会自动进行类型推导 */ println(hello(&amp;#34;Euraxluo&amp;#34;)) println(add(1,2)) /** * for循环 */ val list = List(&amp;#34;Euraxluo&amp;#34;,&amp;#34;xiaoli&amp;#34;,&amp;#34;xiaoxiong&amp;#34;) //循环1 for ( s &amp;lt;- list//generator )println(s) println(&amp;#34;&amp;#34;) //循环2 for { s&amp;lt;-list if (s.</description></item><item><title>SLAM</title><link>/posts/note/slam/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/slam/</guid><description>SLAM 相机
+以一定的速率采集图像，形成视频 各类相机的区别 单目：无深度，需要其他手段估计 双目：通过视差计算深度 RGB-D：通过物理方法测量深度 相机的特点 以二维投影的形式记录了三维世界的信息 该过程丢掉了一个维度：距离 深度即第三维信息，对SLAM来说至关重要 VSLAM框架 前端：Visual Odometry 通过传感器数据计算，估计临近时刻的相机运动 方法：特征点法和直接法
+后端：Optimization 从带有噪声的数据中估计最优轨迹与地图 滤波器，图优化，最大后验概率估计 非线性优化
+回环：Loop Closing 检测相机是否到达过之间的位置 判断与之前位置的差异 计算图像之间的差异性 词袋模型
+建图：Mapping 导航，规划，通讯，交互，可视化 类型:度量地图，拓扑地图，稀疏地图，稠密地图
+SLAM的数学描述 把连续的时间离散化，避免使用随机场
+状态估计模型：
+运动方程 $$ X_{K+1}=f(x_k,u_k )+w_k $$ 观测方程 $$ Z_{k,j} = h(X_k,y_j)+W_{k,j} $$</description></item><item><title>stream编程</title><link>/posts/note/stream%E7%BC%96%E7%A8%8B/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/stream%E7%BC%96%E7%A8%8B/</guid><description>stream 编程
+import java.util.function.Consumer; import java.util.stream.Collectors; import java.util.stream.IntStream; import java.util.stream.Stream; Consumer&amp;lt;String&amp;gt; P = System.out::println;//消费者 // P.andThen(P.andThen(P)).accept(2); /** * 流的创建 */ List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); //从集合创建流 list.stream(); list.parallelStream(); //从数组创建 Arrays.stream(new int[]{2,3,5}); // P.accept(Arrays.stream(new int[]{2,3,5}).map(x-&amp;gt;x+1).sum()); //创建数字流 IntStream.of(1,2,3); IntStream.rangeClosed(1,10); //从random创建一个无限流 new Random().ints().limit(10); //自己产生流 Stream.generate(()-&amp;gt;new Random().nextInt()).limit(20); // P.accept(Stream.generate(()-&amp;gt;new Random().nextInt()).limit(20).findAny().toString()); /** * 中间操作 */ //filter操作 Stream.of(msg.split(&amp;#34; &amp;#34;)).filter(s-&amp;gt;s.length()&amp;gt;1).forEach(P); //flatMap :将流中的属性提取出来作为流 //这里需要装箱,s.chars()返回IntStream,不是Stream的子类 Stream.of(msg.split(&amp;#34; &amp;#34;)).flatMap(s-&amp;gt;s.chars().boxed()).forEach(i-&amp;gt;System.out.println((char)i.intValue())); //limit new Random().ints().filter(x-&amp;gt;x&amp;gt;10&amp;amp;&amp;amp;x&amp;lt;1000).limit(10).forEach(System.out::println); //peek,用于debug Stream.of(msg.split(&amp;#34; &amp;#34;)).peek(System.out::println).forEach(P); /** * 终止操作 */ P.accept(&amp;#34;----终止操作----&amp;#34;); //foreach Order 用于在并行流中排序 Stream.</description></item><item><title>VSLAM</title><link>/posts/note/vslam/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/vslam/</guid><description>VSLAM ## project1 熟悉Linux sudo apt-get install 安装软件，apt-get 下载后软件的路径一般为/var/cache/apt/archives
+具体的安装目录是由包维护者决定
+可以通过echo $PATH查看当前的PATH，通过export PATH=$PATH:/XXX/XXX将需要的配置路径加入$PATH等号两边不能有空格
+/usr/bin可执行文件 ，/usr/share文档的路径， /usr/liblib文件， /etc配置文件
+chmod +x 文件名 为文件增加可执行权限
+chown root filename 更改文件的所有者
+SLAM综述文献阅读 Visual Simultaneous Localization and Mapping:A Survey 最初，定位与建图是独立的。但是要在一个环境中精确的定位，必须有一个正确的地图；但是为了构造一个好的地图，必须在构造地图是，添加合适的定位信息
+VSLAM系统在以下条件下会失败：外部环境，动态环境，显著特征太多或者太少的环境，大规模环境，相机不稳定运动以及传感器发生部分或全部遮挡。一个成功的VSLAM系统的关键是可以在以下环境中任然能够正确操作。
+为了从环境中构建地图，物体必须拥有传感器。使其能够感知并获得周围环境中元素的测量值。这些传感器分为外部感受和本体感受。在外部传感器中有可能找到声纳、距离激光器，gps。所有的这戏传感器都是有噪声的，而且范围有限。此外，使用这些传感器只能获得环境的局部视图。
+同时他们有以下问题：
+1.在高度杂乱的环境中或在识别对象时，没有用处。者两种机器人都很昂贵，笨重，而且由大型设备组成，是的他们难以用于机载，而GPS传感器在狭窄的街道，水下，其他星球不能很好的工作。
+本体传感器可以获得位姿信息，速度，位置变化，加速度等测量值，但是这些方法不足以始终准确的估计实体位置，因为误差会累计
+使用相机作为唯一的外部传感器。
+基于摄像头的系统能够获取距离信息，同时也能获取环境的外观，颜色和纹理，这使得机器人可以集成其他高级任务，如对人和地点的检测和识别。并且相机更便宜更轻。</description></item><item><title>关于musicplayer</title><link>/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/%E5%85%B3%E4%BA%8Emusicplayer/</guid><description>关于musicplayer 首先给权限 &amp;lt;!-- 网络权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.INTERNET&amp;#34;/&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.READ_EXTERNAL_STORAGE&amp;#34;/&amp;gt; &amp;lt;!-- 向SD卡写入数据权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.WRITE_EXTERNAL_STORAGE&amp;#34;/&amp;gt; &amp;lt;!-- 在SD卡中创建与删除文件权限 --&amp;gt; &amp;lt;!-- 扫描数据库的权限 --&amp;gt; &amp;lt;uses-permission android:name=&amp;#34;android.permission.MOUNT_UNMOUNT_FILESYSTEMS&amp;#34; tools:ignore=&amp;#34;ProtectedPermissions&amp;#34;/&amp;gt; 包含ListView的布局文件
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;LinearLayout xmlns:android=&amp;#34;http://schemas.android.com/apk/res/android&amp;#34; xmlns:tools=&amp;#34;http://schemas.android.com/tools&amp;#34; xmlns:app=&amp;#34;http://schemas.android.com/apk/res-auto&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:orientation=&amp;#34;vertical&amp;#34; android:layout_gravity=&amp;#34;center&amp;#34; tools:context=&amp;#34;.MainActivity&amp;#34;&amp;gt; &amp;lt;LinearLayout android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;400dp&amp;#34; android:orientation=&amp;#34;vertical&amp;#34;&amp;gt; &amp;lt;ListView android:id=&amp;#34;@+id/lv1&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34;&amp;gt;&amp;lt;/ListView&amp;gt; &amp;lt;/LinearLayout&amp;gt; &amp;lt;SeekBar android:id=&amp;#34;@+id/sb&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;30dp&amp;#34; android:maxHeight=&amp;#34;2dp&amp;#34; android:minHeight=&amp;#34;2dp&amp;#34; android:paddingBottom=&amp;#34;3dp&amp;#34; android:paddingLeft=&amp;#34;12dp&amp;#34; android:max=&amp;#34;200&amp;#34; android:paddingRight=&amp;#34;12dp&amp;#34; android:paddingTop=&amp;#34;3dp&amp;#34; /&amp;gt; &amp;lt;TextView android:id=&amp;#34;@+id/tv1&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; /&amp;gt; &amp;lt;LinearLayout android:orientation=&amp;#34;horizontal&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34;&amp;gt; &amp;lt;cn.study.euraxluo.androidtup.CircleImageView android:id=&amp;#34;@+id/imageView&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;70dp&amp;#34; android:scaleType=&amp;#34;centerCrop&amp;#34; /&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_last&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_last&amp;#34;/&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_star&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_star&amp;#34;/&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_next&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_next&amp;#34;/&amp;gt; &amp;lt;Button android:id=&amp;#34;@+id/btn_stop&amp;#34; android:layout_width=&amp;#34;70dp&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;@string/btn_stop&amp;#34;/&amp;gt; &amp;lt;/LinearLayout&amp;gt; &amp;lt;/LinearLayout&amp;gt; MainActivity.</description></item><item><title>关于ViewPager</title><link>/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/%E5%85%B3%E4%BA%8Eviewpager/</guid><description>关于ViewPager 使用方法：先在xml中定义
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;android.support.design.widget.CoordinatorLayout xmlns:android=&amp;#34;http://schemas.android.com/apk/res/android&amp;#34; xmlns:tools=&amp;#34;http://schemas.android.com/tools&amp;#34; xmlns:app=&amp;#34;http://schemas.android.com/apk/res-auto&amp;#34; android:id=&amp;#34;@+id/main_content&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;match_parent&amp;#34; android:fitsSystemWindows=&amp;#34;true&amp;#34; tools:context=&amp;#34;.MainActivity&amp;#34;&amp;gt; &amp;lt;android.support.v4.view.ViewPager android:background=&amp;#34;@drawable/img5&amp;#34; android:id=&amp;#34;@+id/view_pager&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;match_parent&amp;#34; app:layout_behavior=&amp;#34;@string/appbar_scrolling_view_behavior&amp;#34;/&amp;gt; &amp;lt;/android.support.design.widget.CoordinatorLayout&amp;gt; 再到Activity中写
+package cn.euraxluo.myapplication; import android.support.annotation.NonNull; import android.support.v4.view.PagerAdapter; import android.support.v7.app.AppCompatActivity; import android.support.v4.view.ViewPager; import android.os.Bundle; import android.util.Log; import android.view.*; import android.widget.ImageView; import cn.euraxluo.myapplication.transform.ZoomOutPageTransformer; import java.util.ArrayList; import java.util.List; public class MainActivity extends AppCompatActivity { private static final String TAG = &amp;#34;MainActivity&amp;#34;; private ViewPager mViewPager;//viewpager private textViewAdapter mViewAdapter; private pictureViewAdapter mpViewAdapter;//图片的adapter private int[] mImage = new int[10]; private View view1, view2, view3; private List&amp;lt;View&amp;gt; viewList = new ArrayList&amp;lt;View&amp;gt;(3);//view数组 private LayoutInflater inflater; @Override protected void onCreate(Bundle savedInstanceState) { super.</description></item><item><title>前端</title><link>/posts/note/%E5%89%8D%E7%AB%AF/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/%E5%89%8D%E7%AB%AF/</guid><description>前端 CSS 网格布局
+table标签（具有性能问题）=&amp;gt;
+hack
+float流式布局=&amp;gt;position绝对定位（不利于使用响应式）-&amp;gt;inline(块级放在同一行)
+flexBox(正对某一维度进行自适应)
+=》grid布局
+Backbone.js提供了一套web开发的框架，通过Models进行key-value绑定及自定义事件处理，通过Collections提供一套丰富的API用于枚举功能，通过Views来进行事件处理及与现有的Application通过RESTful JSON接口进行交互.它是基于jQuery和underscore的一个前端js框架。
+在Backbonejs有几个重要的概念，先介绍一下:Model，Collection，View，Router。其中Model是根据现实数据建立的抽象，比如人（People）；Collection是Model的一个集合，比如一群人；View是对Model和Collection中数据的展示，把数据渲染（Render）到页面上；Router是对路由的处理，就像传统网站通过url现实不同的页面，在单页面应用（SPA）中通过Router来控制前面说的View的展示。
+通过Backbone，你可以把你的数据当作Models，通过Models你可以创建数据，进行数据验证，销毁或者保存到服务器上。当界面上的操作引起model中属性的变化时，model会触发change的事件。那些用来显示model状态的views会接受到model触发change的消息，进而发出对应的响应，并且重新渲染新的数据到界面。在一个完整的Backbone应用中，你不需要写那些胶水代码来从DOM中通过特殊的id来获取节点，或者手工的更新HTML页面，因为在model发生变化时，views会很简单的进行自我更新。</description></item><item><title>卡包开发步骤</title><link>/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4/</guid><description>卡包开发步骤 开发步骤
+需求规划,需求拆解,需求辩论 技术选型:为什么是HBase or MySQL 工程设计:工程图各个模块设计的功能点,各个功能点涉及的技术 编码 测试:功能测试,压力测试 部署:自动化上线 开发技术
+kafka 消息队列 Mysql存储商户信息 HBase存储用户信息 Spring-boot 搭建项目 Redis存储Token信息 测试用例
+测试上线
+应用技术分层
+框架层:Spring-boot 存储层:MySql,HBase,Redis 消息队列:Kafka 基础工具介绍:
+Maven PostMan/RestAPI 需求分析: 功能需求解析:
+什么是卡包应用:卡券收集聚合类应用 包含哪些子系统:商户投放子系统,用户使用子系统 优惠卷使用方法:展示型,兑换型,token核销型 扩展:存储纪念性卡券,身份证件信息,银行卡 我的卡包:
+我的卡包(显示我领取的优惠券,临近过期时需要提醒) 过期优惠券(显示过期优惠券) 优惠券库存:可以领取商家投放的优惠券,每个优惠券只能领取一张(可以改一下?) 用户反馈:分为卡包应用反馈和优惠券反馈 商户投放系统
+商户接口字段:
+name 商户名 logo_url 商户logo business_license_url 商户营业执照 phone 商户联系电话 address 商户地址 is_audit 商户是否通过审核 优惠券接口字段:
+id 所属商户Id title 优惠卷标题 summary 优惠卷摘要 desc 优惠卷详细信息 limit 最大发放总数个数限制 has_token 是否具有token background 优惠卷背景颜色 start/end 优惠卷 开始/结束 时间 应用架构 表结构设计 Mysql name 商户名 logo_url 商户logo business_license_url 商户营业执照 phone 商户联系电话 address 商户地址 is_audit 商户是否通过审核 HBase passtemplate</description></item><item><title>操作系统小记</title><link>/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%A1/</guid><description>&lt;p>操作系统小记&lt;/p></description></item><item><title>数学杂谈</title><link>/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/%E6%95%B0%E5%AD%A6%E6%9D%82%E8%B0%88/</guid><description>数学杂谈 欧氏空间：在实数域上的有限的内积向量空间 对加法和数乘封闭
+意思是。在“向量空间”V这个向量集合中：
+①。任意取V的两个向量α，β。则α+β∈V，[这叫V对加法封闭]
+②，任意取V的一个向量α，及一个实数k.则kα∈V，[这叫V对数乘封闭]
+** 距离和空间 **
+傅里叶分析之掐死教程（完整版）更新于2014.06.06 欧拉公式</description></item><item><title>简易服务器</title><link>/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid><description>简易服务器 创建套接字 填充数据结构 绑定端口 监听，accept 获得accept的句柄并处理 封装resp字符串 写回到accept的句柄中 2.C标准函数
+1.int2float to string/array:
+C语言提供了几个标准库函数，可以将任意类型(整型、长整型、浮点型等)的数字转换为字符串，下面列举了各函数的方法及其说明。 ● itoa()：将整型值转换为字符串。 ● ltoa()：将长整型值转换为字符串。 ● ultoa()：将无符号长整型值转换为字符串。 ● gcvt()：将浮点型数转换为字符串，取四舍五入。 ● ecvt()：将双精度浮点型值转换为字符串，转换结果中不包含十进制小数点。 ● fcvt()：指定位数为转换精度，其余同ecvt()。
+除此外，还可以使用sprintf系列函数把数字转换成字符串，其比itoa()系列函数运行速度慢
+string/array to int/float C/C++语言提供了几个标准库函数，可以将字符串转换为任意类型(整型、长整型、浮点型等)。 ● atof()：将字符串转换为双精度浮点型值。 ● atoi()：将字符串转换为整型值。 ● atol()：将字符串转换为长整型值。 ● strtod()：将字符串转换为双精度浮点型值，并报告不能被转换的所有剩余数字。 ● strtol()：将字符串转换为长整值，并报告不能被转换的所有剩余数字。 ● strtoul()：将字符串转换为无符号长整型值，并报告不能被转换的所有剩余数字。 itoa(num,str,10); int port = atoi(str); 创建套接字，绑定端口，监听 socket() setsockopt()//设置重启后可以重新使用端口 bzero()，将结构体的其他字段设置为空 int setsockopt(int sockfd, int level, int optname,const void *optval, socklen_t optlen); sockfd：标识一个套接口的描述字。 level：选项定义的层次；支持SOL_SOCKET、IPPROTO_TCP、IPPROTO_IP和IPPROTO_IPV6。 optname：需设置的选项。 optval：指针，指向存放选项待设置的新值的缓冲区。 optlen：optval缓冲区长度。</description></item><item><title>语料处理基础</title><link>/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/</guid><description>语料处理流程 语料收集 &amp;gt; 语料清洗 &amp;gt; 句子向量编码化 &amp;gt; 语料问答对构建 &amp;gt; 语料的模型保存 &amp;gt; 结束 语料收集 聊天记录
+电影对话
+台词片断
+语料清洗 要清洗的内容
+多余的空格
+不正规的符号
+多余的字符,英文
+清洗的方法
+正则化
+切分
+好坏语句判断
+语料问答对的构建 问答对的处理和拆分 句子向量的编码化 原始文本不能直接训练
+将句子转化为向量
+将向量转换为句子
+语料模型的保存 使用pickle来保存模型
+生成pkl格式
+利用pkl格式进行语料的训练
+最后通过深度模型过后打包成restful
+实操 收集语料: 收集了200M的电影台词作为语料
+M 你/没/事/吧/？/ M 是/的/，/我/没/事/ M 来/吧/，/我/在/做/早/餐/ M 好/的/ E M C/h/l/o/e/./ M J/a/c/k/!/ M 没/事/吧/?/ M 发/生/什/么/了/?/ M 杀/死/知/道/你/还/活/着/的/人/?/ M 我/不/知/道/,/ M 现/在/,/ /我/要/进/入/C/T/U/的/档/案/ M 秘/密/的 M 我/没/电/脑/不/行/ M 在/加/州/工/学/院/有/个/研/究/处/ M 我/们/能/进/去/ M 那/是/谁/?</description></item><item><title>逆波兰式</title><link>/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/</guid><description>逆波兰式 定义 一个表达式E的后缀形式可以如下定义：
+（1）如果E是一个变量或常量，则E的后缀式是E本身。
+（2）如果E是E1 op E2形式的表达式，这里op是如何二元操作符，则E的后缀式为E1&amp;rsquo;E2&amp;rsquo; op，这里E1&amp;rsquo;和E2&amp;rsquo;分别为E1和E2的后缀式。
+（3)如果E是（E1）形式的表达式，则E1的后缀式就是E的后缀式。
+如：我们平时写a+b，这是中缀表达式，写成后缀表达式就是：ab+
+(a+b)*c-(a+b)/e的后缀表达式为：
+(a+b)*c-(a+b)/e
+→((a+b)*c)((a+b)/e)-
+→((a+b)c*)((a+b)e/)-
+→(ab+c*)(ab+e/)-
+→ab+c*ab+e/-
+作用: 实现逆波兰式的算法，难度并不大，但为什么要将看似简单的中序表达式 转换为复杂的逆波兰式？原因就在于这个简单是相对人类的思维结构来说的，对计算机而言中序表达式是非常复杂的结构。相对的，逆波兰式在计算机看来却是比较简单易懂的结构。因为计算机普遍采用的内存结构是栈式结构，它执行先进后出的顺序。
+算法实现 将一个普通的中序表达式转换为逆波兰表达式的一般算法是：
+首先需要分配2个栈，一个作为临时存储运算符的栈S1（含一个结束符号），一个作为输入逆波兰式的栈S2（空栈），S1栈可先放入优先级最低的运算符#，注意，中缀式应以此最低优先级的运算符结束。可指定其他字符，不一定非#不可。从中缀式的左端开始取字符，逐序进行如下步骤：
+（1）若取出的字符是操作数，则分析出完整的运算数，该操作数直接送入S2栈
+（2）若取出的字符是运算符，则将该运算符与S1栈栈顶元素比较，如果该运算符优先级(不包括括号运算符)大于S1栈栈顶运算符优先级，则将该运算符进S1栈，否则，将S1栈的栈顶运算符弹出，送入S2栈中，直至S1栈栈顶运算符低于（不包括等于）该运算符优先级，最后将该运算符送入S1栈。
+（3）若取出的字符是“（”，则直接送入S1栈顶。
+（4）若取出的字符是“）”，则将距离S1栈栈顶最近的“（”之间的运算符，逐个出栈，依次送入S2栈，此时抛弃“（”。
+（5）重复上面的1~4步，直至处理完所有的输入字符
+（6）若取出的字符是“#”，则将S1栈内所有运算符（不包括“#”），逐个出栈，依次送入S2栈。
+完成以上步骤，S2栈便为逆波兰式输出结果。不过S2应做一下逆序处理。便可以按照逆波兰式的计算方法计算了！
+class TransformReversePolishNotation { private: stack&amp;lt;char&amp;gt; temp; stack&amp;lt;char&amp;gt; rpn; unordered_map&amp;lt;char, int&amp;gt; dict; void init() { //初始化字典 dict[&amp;#39;#&amp;#39;] = -1; dict[&amp;#39;+&amp;#39;] = 1; dict[&amp;#39;-&amp;#39;] = 1; dict[&amp;#39;*&amp;#39;] = 2; dict[&amp;#39;/&amp;#39;] = 2; dict[&amp;#39;(&amp;#39;] = 0; dict[&amp;#39;)&amp;#39;] = 0; } public: stack&amp;lt;char&amp;gt; pn2rpn(string s) { stack&amp;lt;char&amp;gt; result; init(); temp.</description></item><item><title>Flask入门</title><link>/posts/python/flask%E5%85%A5%E9%97%A8/</link><pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/python/flask%E5%85%A5%E9%97%A8/</guid><description>Flask 学习 入门： 最小的Flask 程序 from flask import Flask # 导入flask app = Flask(__name__)#使用单一的模块（如本例），你应该使用 __name__ @app.route(&amp;#39;/hello&amp;#39;) #route()装饰器 什么样子的URL能触发我们的函数 def hello_word(): return &amp;#39;Hello Word!&amp;#39;#返回我们想在浏览器中显示的内容 if __name__ == &amp;#39;__main__&amp;#39;: #确保服务器只会在该脚本被 Python 解释器直接执行的时候才会运行，而不是作为模块导入的时候 #app.run()#让app这个应用在本地服务器运行起来 #app.run(host=&amp;#39;0.0.0.0&amp;#39;) #监听所有的公网IP app.debug = True app.run()#q启动调试器 模板渲染 Jinja2模板引擎文档
+from flask import Flask # 导入flask from flask import render_template #使用Jinja2的模版渲染 app = Flask(__name__)#使用单一的模块（如本例），你应该使用 __name__ @app.route(&amp;#39;/hello&amp;#39;) #route()装饰器 什么样子的URL能触发我们的函数 def hello_word(): return render_template(&amp;#34;hello.html&amp;#34;)#返回的模板文件（需要放在当前目录的templates文件夹内） if __name__ == &amp;#39;__main__&amp;#39;: #确保服务器只会在该脚本被 Python 解释器直接执行的时候才会运行，而不是作为模块导入的时候 #app.run()#让app这个应用在本地服务器运行起来 #app.run(host=&amp;#39;0.0.0.0&amp;#39;) #监听所有的公网IP app.</description></item><item><title>Ubuntu18.04安装ROS</title><link>/posts/ros/ros%E5%AE%89%E8%A3%85/</link><pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/ros/ros%E5%AE%89%E8%A3%85/</guid><description>Ubuntu18.04安装ROS 源配置: sudo sh -c &amp;#39;. /etc/lsb-release &amp;amp;&amp;amp; echo &amp;#34;deb &amp;lt;http://mirrors.ustc.edu.cn/ros/ubuntu/&amp;gt; $DISTRIB_CODENAME main&amp;#34; &amp;gt; /etc/apt/sources.list.d/ros-latest.list&amp;#39; 更新: sudo apt-get update
+添加密匙: sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+和官网步骤一样: sudo apt-get install ros-melodic-desktop-full
+sudo rosdep init
+报错: 由于py版本导致,网上说切换为python2.7,我失败了
+Traceback (most recent call last): File &amp;#34;/usr/bin/rosdep&amp;#34;, line 3, in &amp;lt;module&amp;gt; from rosdep2.main import rosdep_mainModuleNotFoundError: No module named &amp;#39;rosdep2&amp;#39; 重头戏来了: sudo apt-get install python3-catkin-pkg
+sudo apt-get install python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+再次运行: sudo rosdep init</description></item><item><title>JDBC1</title><link>/posts/java/jdbc1/</link><pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate><guid>/posts/java/jdbc1/</guid><description>jdbc JAVA Database Connectivity java 数据库连接
+为什么会出现JDBC SUN公司提供的一种数据库访问规则、规范, 由于数据库种类较多，并且java语言使用比较广泛，sun公司就提供了一种规范，让其他的数据库提供商去实现底层的访问规则。 我们的java程序只要使用sun公司提供的jdbc驱动即可。
+jdbc是一种接口规范
+优势:
+简单
+快捷
+移植性
+框架(在jdbc的基础上开发更好的框架)
+jdbc Manager的上层JDBC API负责与java Application通信,JDBC Driver API 负责与具体的数据库通信(由数据库厂商开发和提供)
+API介绍: Driver:接口,定义了各个驱动程序都必须要实现的功能
+DriverManager:Driver的管理类
+用户通过Class.forname(DriverName)可以向DriverManager注册一个驱动程序,然后使用getConnection来建立物理连接,基于物理连接没使用SQL语句
+eg:
+Class.forName(JDBC_DRIVER); conn= DriverManager.getConnection(DB_URL,USER,PASS); //DB_URL:链接,USER:用户名,PASS:密码 //例如 conn= DriverManager.getConnection(&amp;#34;jdbc:mysql://127.0.0.1:3306/test&amp;#34; ,USER,PASS); //jdbc:mysql://ip:端口/数据库名;协议:子协议:主机ip:端口/数据库 常用的3种格式 mysql jdbc:mysql://&amp;lt;ip&amp;gt;:&amp;lt;port&amp;gt;/database
+oracle jdbc:oracle:thin:@&amp;lt;ip&amp;gt;:&amp;lt;port&amp;gt;:database
+sqlserver jdbc:microsoft:sqlserver://&amp;lt;ip&amp;gt;:&amp;lt;port&amp;gt;;DatabaseName=database
+Connection 常用方法 Statement对象
+创建(其实是一个sql语句的容器 ​ Statement stmt = conn.createStatement();
+使用(使用Statement对象执行sql语句,返回结果为ResultSet/int): ​ ResultSet rs = stmt.executeQuery(&amp;quot;select userName from user&amp;quot;)
+​ 查询结果是一个ResultSet对象
+ResultSet对象(Statement对象的查询结果)
+rs.next():将光标移动到下一行(默认在第一行)
+rs.previous():将光标移动到上一行
+rs.absolute():将光标定位到某一行
+rs.beforeFirst():直接将光标定位到第一行的前一行
+rs.afterLast():直接将光标移动到最后一行</description></item><item><title>JDBC2</title><link>/posts/java/jdbc2/</link><pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate><guid>/posts/java/jdbc2/</guid><description>业务场景1 过滤条件比较弱,一次读出多条记录 读取数据库表中的所有记录 海量数据读取 这些都容易产生内存溢出,为了不使得内存溢出,我们采用游标的方式
+游标:提供一种客户端读取部分服务器端结果集的机制 一个批次的大小为:Fetch Size
+游标的使用 开启游标,DB_URL的处理(加上useCursorFetch=true) eg:
+jdbc:mysql://&amp;lt;ip&amp;gt;:&amp;lt;port&amp;gt;/&amp;lt;database&amp;gt;?useCursorFetch=true
+使用PreparedStatement接口
+PreparedStatement接口继承自Statement接口,我们可以使用PreparedStatement替代Statement
+这个接口要求创建时就要传入sql语句,但是这个sql语句,参数格式化.即过滤条件用问号表示,后续再用PreparedStatement.setString()和PreparedStatement.setInt()来设置过滤条件.还可以使用PreparedStatement.setFetchSize()设置游标的大小.即每次从数据库服务端取回记录的数量
+eg:
+//使用prepareStatement()接口 ptmt = conn.prepareStatement(&amp;#34;select * from user&amp;#34;); ptmt.setFetchSize(1); rs = ptmt.executeQuery(); 业务场景2 读取的记录字段太大(例如博文) 也是会造成内存溢出,即使读取的记录很少
+流方式 把大字段按照二进制流的方式,分成多个区间,每次只读取一个区间的内容
+流方式的使用 利用ResultSet.getBinaryStream();获取对象流
+生成一个外部文件,把对象流采用边读边写的方式写入文件
+eg:
+while(rs2.next()){ //5.获取对象流 InputStream in = rs1.getBinaryStream(&amp;#34;userName&amp;#34;); //6.将对象流写入文件 File f = new File(FTLE_URL); OutputStream out = null; try { out = new FileOutputStream(f); int temp = 0; while((temp = in.read()) != -1){//边读边写 out.write(temp); System.out.println(rs2.getString(&amp;#34;id&amp;#34;)+&amp;#34;:&amp;#34;+rs2.getString(&amp;#34;userName&amp;#34;)); System.out.println(&amp;#34;---rs2--&amp;#34;); } in.</description></item><item><title>JDBC3</title><link>/posts/java/jdbc3/</link><pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate><guid>/posts/java/jdbc3/</guid><description>1. execute,executeQuery,executeUdate的区别 JDBCTM中Statement接口提供的execute,executeQuery,executeUdate之间的区别:
+executeQuery:
+用于产生单个结果集的语句,例如SELECT语句,使用最多的方法
+executeUpdate:
+用于执行INSERT,UPDATE,DELETE语句以及DDL语言,返回值是一个整数,指示受影响的行
+execute:
+用于执行返回多个结果集,多个更新技术或者两者皆有的语句
+2. SQL注入 防范措施:
+使用动态封装的方式会导致SQL注入的风险,我们应该使用prepareStatement提供的参数化SQL
+严格的数据库权限管理
+仅给web应用访问数据库的最小权限
+避免Drop table等权限
+封装数据库错误
+不要直接将后端数据库异常信息暴露给用户
+对后端遗产信息进行必要的封装,避免用户直接看到后端异常
+机密信息禁止明文存储
+涉密信息需要加密处理
+使用AES_ENCRYPT/AES_DECRYPT加密和解密
+事务:{是并发控制的基本单位,指作为单个逻辑工作单位执行的一系列操作,而这些逻辑工作单元需要满足ACID特性} ACID:原子性,一致性,隔离性,持久性
+jdbc事务控制 connection:
+.setAutoCommit('false')开启事务
+.commit()事务执行结束提交事务
+.rollback()回滚到事务开始之前的状态
+eg:
+try{ conn = JDCBUtil.getConnection; conn.setAutoCommit(false); /** *sql语句 * conn.commit(); }catch(){ //如果出错,事务回滚 conn.rollback(); } 事务并发执行 脏读:读取一个事务未提交的更新
+不可重复读:一个失误读取到另一个事务的更新,两次读取的结果包含的行记录的值不一样
+幻读:两次读取的结果包含的行记录不一样
+事务隔离级别 读未提交{允许脏读}
+读提交{不允许脏读,允许重复读}
+重复读{不允许不可重复读,可以幻读}
+串行化{严格的并发控制}{如果有一个连接的隔离级别设置为了串行化 ，那么谁先打开了事务， 谁就有了先执行的权利， 谁后打开事务，谁就只能得着，等前面的那个事务，提交或者回滚后，才能执行。 但是这种隔离级别一般比较少用。 容易造成性能上的问题。 效率比较低。}
+例子 查看隔离级别:select @@tx_isolation
+设置隔离级别为读未更新:set session transaction isolation level read uncommitted;
+开启事务:start transaction</description></item><item><title>MVC分层模型</title><link>/posts/architecture_design/mvc/</link><pubDate>Tue, 20 Nov 2018 00:00:00 +0000</pubDate><guid>/posts/architecture_design/mvc/</guid><description>MVC分层模型 DAO 模式初识 PO(persistant object) 持久对象 在o/r映射的时候出现的概念，如果没有o/r映射，没有这个概念存在了。通常对应数据模型(数据库),本身还有部分业务逻辑的处理。可以看成是与数据库中的表相映射的java对象。最简单的PO就是对应数据库中某个表中的一条记录，多个记录可以用PO的集合。PO中应该不包含任何对数据库的操作。
+最形象的理解就是一个PO就是数据库中的一条记录。
+好处是可以把一条记录作为一个对象处理，可以方便的转为其它对象。
+VO(value object) 值对象 通常用于业务层之间的数据传递，和PO一样也是仅仅包含数据而已。但应是抽象出的业务对象,可以和表对应,也可以不,这根据业务的需要.个人觉得同TO(数据传输对象),在web上传递。
+主要对应界面显示的数据对象。对于一个WEB页面，或者SWT、SWING的一个界面，用一个VO对象对应整个界面的值。
+TO(Transfer Object)，数据传输对象 在应用程序不同tie(关系)之间传输的对象
+BO(business object) 业务对象 从业务模型的角度看,见UML元件领域模型中的领域对象。封装业务逻辑的java对象,通过调用DAO方法,结合PO,VO进行业务操作。
+POJO(plain ordinary java object) 简单无规则java对象 纯的传统意义的java对象。就是说在一些Object/Relation Mapping工具中，能够做到维护数据库表记录的persisent object完全是一个符合Java Bean规范的纯Java对象，没有增加别的属性和方法。我的理解就是最基本的Java Bean，只有属性字段及setter和getter方法！。
+DTO（Data Transfer Object）：数据传输对象 这个概念来源于J2EE的设计模式，原来的目的是为了EJB的分布式应用提供粗粒度的数据实体，以减少分布式调用的次数，从而提高分布式调用的性能和降低网络负载，但在这里，我泛指用于展示层与服务层之间的数据传输对象。
+DAO(data access object) 数据访问对象 是一个sun的一个标准j2ee设计模式，这个模式中有个接口就是DAO，它负持久层的操作。为业务层提供接口。此对象用于访问数据库。通常和PO结合使用，DAO中包含了各种数据库的操作方法。通过它的方法,结合PO对数据库进行相关的操作。夹在业务逻辑与数据库资源中间。配合VO, 提供数据库的CRUD操作&amp;hellip;
+这个大家最熟悉，和上面几个O区别最大，基本没有互相转化的可能性和必要.
+主要用来封装对数据库的访问。通过它可以把POJO持久化为PO，用PO组装出来VO、DTO
+O/R Mapper 对象/关系 映射 定义好所有的mapping之后，这个O/R Mapper可以帮我们做很多的工作。通过这些mappings,这个O/R Mapper可以生成所有的关于对象保存，删除，读取的SQL语句，我们不再需要写那么多行的DAL代码了。
+实体Model(实体模式)
+DAL(数据访问层)
+IDAL(接口层)
+DALFactory(类工厂)
+BLL(业务逻辑层)
+BOF Business Object Framework 业务对象框架
+SOA Service Orient Architecture 面向服务的设计
+EMF Eclipse Model Framework Eclipse建模框架</description></item><item><title>JSP</title><link>/posts/java/jsp%E5%AD%A6%E4%B9%A0/</link><pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/java/jsp%E5%AD%A6%E4%B9%A0/</guid><description>jsp Java Server Page
+什么是jsp 从用户角度看待 ，就是是一个网页 ， 从程序员角度看待 ， 其实是一个java类， 它继承了servlet，所以可以直接说jsp 就是一个Servlet.
+为什么会有jsp? html 多数情况下用来显示静态内容 ， 一成不变的。 但是有时候我们需要在网页上显示一些动态数据， 比如： 查询所有的学生信息， 根据姓名去查询具体某个学生。 这些动作都需要去查询数据库，然后在网页上显示。 html是不支持写java代码 ， jsp里面可以写java代码。
+java服务器页面
+jsp = html+java+JSP tag 处理流程：浏览器客户端向服务器发起请求，请求对应的jsp文件。然后jsp容器载入jsp文件，并且把jsp文件转化为Servlet(只是简单的把jsp文件改写为servlet语句)，然后jsp容器把servlet编译为可执行的class，然后把请求交给servlet容器，然后web组件就会调用servlet容器，载入对应的servlet实例。在执行时，会产生html页面，嵌入到response中返回给浏览器
+###　jsp与servlet比较
+１. 侧重点
+​ jsp侧重于视图
+​ servlet侧重于逻辑
+２. jsp有一些内置对象
+３. 本质jsp其实是servlet的一种简化
+###　jsp基本语法
+jsp声明 &amp;lt;%! int a,b,c; %&amp;gt;
+jsp表达式(表达式元素中可以包含任何符合java语言规范的表达式，但是不能使用分号来结束) &amp;lt;%= 表达式%&amp;gt;
+eg：输出日期&amp;lt;p&amp;gt;Today's date:&amp;lt;% = (new java.util.Date()).toLocaleString()%&amp;gt;&amp;lt;/p&amp;gt;
+jsp脚本(可以包含任意量的java语句,变量,方法或者表达式) &amp;lt;% 代码片段 %&amp;gt;
+eg:打印ip&amp;lt;% out.println(&amp;quot;Your IP:&amp;quot;+request.getRemoteAddr()); %&amp;gt;
+jsp注释 &amp;lt;-- 这部分是jsp注释 --&amp;gt;</description></item><item><title>Linux基础</title><link>/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link><pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid><description>Linux基础 文件基本属性 ll/ls -l 显示一个文件的属性以及文件所属的用户组
+eg: [root@www /]# ls -l total 64 dr-xr-xr-x 2 root root 4096 Dec 14 2012 bin dr-xr-xr-x 4 root root 4096 Apr 19 2012 boot …… bin 以d开头,表示这是一个目录
+当为[-]是文件 当为[l]表示为link file 当为[b]表示为可以进行存取的接口设备 当为[c]表示为串行端口设备 接下来以3个为一组,且均为[rwx]的组合,位置次序不变
+[r]表示可读,[w]可写,[x]可执行,如果没有这个权限,就会用[-]代替.
+第0位确定文件类型. 第1-3位确定属主（该文件的所有者）拥有该文件的权限 第4-6位确定属组（所有者的同组用户）拥有该文件的权限 第7-9位确定其他用户拥有该文件的权限 属主:对文件具有所有权的用户
+属组:用户按组分类,一个用户属于一个或者多个组
+所以,文件按照[文件所有者|所有者同组用户|所有着不同组用户]来规定访问权限
+对于root用户,权限对他无效
+2. 更改属性 chgrp [-R] 属组名 文件名 更改文件属组
+sudo chgrp name test
+chown [-R] 属主名 : 属组名 文件名 更改文件属主,也可以同时修改文件属组
+sudo chown 770:euraxluo test</description></item><item><title>MyBatis</title><link>/posts/java/mbatis%E5%9F%BA%E7%A1%80/</link><pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/java/mbatis%E5%9F%BA%E7%A1%80/</guid><description>MyBatis 一个ORM框架,(不直接建立java对象到关系数据库表数据的映射,而是建立对对象的操作方法到SQL的映射)支持自定义SQL,存储过程和高级映射的持久化框架
+使用XML或者注解配置
+能够映射基本数据元素,接口,Java对象到数据库
+ORM(Object/Relation Mapping) 作用:持久化类与数据库表之间的映射关系,让我们对持久化对象的操作自动转换成对关系数据库操作
+通过映射,我们把关系数据库中的每一行都映射为对象,数据库的每一列就映射成了对象的属性
+##　三层架构：
+１. 接口层(数据查询接口,数据新增接口,数据更新接口,数据删除接口,获取配置接口)
+２. 数据处理层(参数映射,SQL解析,SQL执行,结果映射)
+３. 基础支撑层(连接管理，事务管理，配置加载，缓存处理)
+工作流机制: 根据XM(xml中定义了连接的地址,以及对象和SQL的映射和关系)L或者注解加载SQL语句,参数映射,结果映射到内存
+应用程序调用API传入参数和SQL ID
+MyBatis 自动生成SQL语句完成数据库访问,转换执行结构返回应用程序
+例如,完成一个数据库查询 加载配置文件 应用配置文件
+关联映射文件
+sqlSession 生成SqlSessionFactory
+获取SqlSession
+执行查询 Session 执行SQL</description></item><item><title>Python构建开源项目</title><link>/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</link><pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</guid><description>Python构建开源软件 python的构建工具setup.py的应用场景 一般在安装python模块的时候,我们会使用pip install 模块名进行在线安装,会安装依赖包,或者python setup.py install通过源码在本地安装,不会安装依赖包
+在做一个开源项目的时候遇到了一些问题: 我的程序需要用到python的Redis等模块,以及自己写的入口文件run.py,怎么实现可以在服务器上方便的发布,也就是说,可以让依赖和自己写的程序一起安装,同时将自己写的模块变成一个可执行文件
+###　setup.py
+示例以及注释:
+from setuptools import setup, find_packages setup( name = &amp;#34;proxy-pool&amp;#34;, #包名 version = &amp;#34;1.0.0&amp;#34;, #版本 keywords = (&amp;#34;poxypool&amp;#34;, &amp;#34;redis&amp;#34;),#关键词列表 description = &amp;#34;test version proxy pool&amp;#34;, #程序的简单介绍 long_description = &amp;#34;A proxy pool project modified from Germey/ProxyPool&amp;#34;, #程序的详细介绍 url = &amp;#34;https://github.com/Euraxluo/ProxyPool&amp;#34;, #程序的官网 download_url = &amp;#34;https://github.com/Euraxluo/ProxyPool.git&amp;#34; #程序的下载地址 author = &amp;#34;Euraxluo&amp;#34;, #作者 author_email = &amp;#34;euraxluo@qq.com&amp;#34;, #程序作者的邮箱 #maintainer 维护者 #maintainer_email 维护者的邮箱地址 packages=[ &amp;#39;proxy-pool&amp;#39; ], py_modules = [&amp;#39;run&amp;#39;],#需要打包的python文件列表 include_package_data = True, platforms = &amp;#34;any&amp;#34;, #程序适用的软件平台列表 install_requires = [#需要安装的依赖包 &amp;#39;aiohttp&amp;#39;, &amp;#39;requests&amp;#39;, &amp;#39;flask&amp;#39;, &amp;#39;redis&amp;#39;, &amp;#39;pyquery&amp;#39; ], entry_points = { #动态发现服务和插件 &amp;#39;console_scripts&amp;#39;: [ #指定命令行工具的名称 &amp;#39;test = test.</description></item><item><title>Unix/Linux编程实践1</title><link>/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</link><pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</guid><description>Unix/Linux 编程實踐教程 ##　什麼是系統編程
+系统资源 处理器 程序由指令构成,处理器是执行指令的硬件设备,一个系统中可能有多个处理器,内核可以安排一个程序何时开始开始执行,暂时停止,恢复执行,终止执行
+输入输出 程序中所有的输入输出都必须流经内核,集中处理,保证了系统的正确性,安全性,有效性
+进程管理 每个程序执行都必须有自己的资源,内核可以新建进程,中止进程,进程调度
+内存 程序必须被装载到内存中才能运行,内核可以对进程进行管理,在程序需要的时候给程序分配内存,当程序不需要时,回收内存,还可以保证内存不被其他进程非法访问.
+设备 各种设备的操作方式不相同,通过内核,可以屏蔽這種差异,使我们对设备的操作简单统一
+计时器 程序的工作和时间有关,内核可以通过系统调用向应用程序提供计时器服务
+进程间通信 内核可以让进程之间进行通信
+网络 内核可以让不同主机上的不同进程进行通信
+bc:Unix计算器,可以接受逆波兰表达式 通过他的与处理器dc,转换为逆波兰表达式,通过pip给dc
+和web服务类似,web服务器作为預处理器,浏览器作为前端显示
+more: more filename,分页显示file内容
+command | more:分页显示command命令
+more &amp;lt; filename:分页+重定向
+自己写一个more
+//more command #include&amp;lt;stdio.h&amp;gt; #include&amp;lt;stdlib.h&amp;gt; #define PAGELEN 24 #define LINELEN 512 void do_more(FILE* ); int see_more(FILE*,int ); int sum_size = 0; int main(int ac,char *av[]) { FILE* fp; if(ac == 1) do_more(stdin); else while(--ac) { if((fp = fopen(*++av,&amp;#34;r&amp;#34;)) !</description></item><item><title>RabbitMQ-入门</title><link>/posts/message_queue/rabbitmq_%E5%85%A5%E9%97%A8/</link><pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/message_queue/rabbitmq_%E5%85%A5%E9%97%A8/</guid><description>RbbitMQ 学习笔记 AMQP协议组成部分
+Module layer：协议最高层，定义了供客户端使用的命令 Session layer：中间层，负责将客户端的命令发送给服务端，再将服务端的命令返回给客户端，为客户端和服务端之间提供可靠的通信 Transport layer：最底层，包括二进制流的传输，帧处理，信道复用，错误检测 生产者使用AMQP的过程 Producter 建立连接 开启通道 发送消息 释放资源 消费者使用AMQP的过程 Consumer 建立连接 开启通道 准备接受消息 发送确认 释放资源 AMQP命令和javaAPI的对应 Connection.Start : factory.newConnection 新建连接 Connection.close : connection.close 关闭连接 Channel.Open : channel.openChannel 开启信道 Channel.close : channel.close 关闭信道 Exchange.Declare : channel.exchangeDeclare 声明交换器 Exchange.Delete : channel.exchangeDelete删除交换器 Exchange.Bind : channel.exchangeBind 交换器和交换器绑定 Exchange.Unbind : channel.exchangeUnbind 交换器和交换器解绑 Queue.Declare : channel.queueDeclare 声明队列 Queue.Bind : channel.queueBind 队列和交换机绑定 Queue.Purge : channel.queuePurge 清除队列 Queue.Delete : channel.queueDelect 删除队列 Queue.</description></item><item><title>爬虫学习1-概念及urllib2</title><link>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/</link><pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/</guid><description>前记： 爬虫：使用任何技术手段，批量获取网站信息的一种方式。关键在于批量。
+反爬虫：使用任何技术手段，阻止别人批量获取自己网站信息的一种方式。关键也在于批量。
+误伤：在反爬虫的过程中，错误的将普通用户识别为爬虫。误伤率高的反爬虫策略，效果再好也不能用。
+拦截：成功地阻止爬虫访问。这里会有拦截率的概念。通常来说，拦截率越高的反爬虫策略，误伤的可能性就越高。因此需要做个权衡。
+资源：机器成本与人力成本的总和。
+url 管理器：管理待抓取url集合和已抓取url集合 个人：set(),python的set()可以自动去重
+大量带爬取url：关系数据库mysql
+互联网公司：缓存数据库(高性能)
+网页下载器： 1.urllib2：python官方基础模块（py2.7） 下载方法：
+1.直接下载
+import urllib2 response = urllib2.urlopen(url)#直接下载 print response.getcode()#获取状态码 cont = response.read()#读取内容 2.伪装和密码
+import urllib2 request = urllib2.Request(url)#创建request对象 request.add_data(&amp;#39;a&amp;#39;,&amp;#39;l&amp;#39;)#添加数据，a-l,诸如账号密码 request.add_header(&amp;#39;User-Agent&amp;#39;,&amp;#39;Mozilla/5.0&amp;#39;)#添加http的header，用于伪装 response = urllib2.urlopen(request)#发送请求获取结果 cont = response.read()#读取内容 3.复杂情景（加套子）
+HTTPCookie用户登录情景/Proxy代理信息/HTTPS加密信息/Readirect防止URL互相跳转
+import urllib2,cookielib cj = cookielib.CookieJar()#创建cookie容器 opener = urllib2.builb_opener(urllib2.HTTPCookieProcessor(cj))#httpcookie用户登陆 urllib2.intall_opener(opener)#给urllib2安装opener response = urllib2.urlopen(url)#使用带有cookie的urllib2爬取网页 2.urllib.request:(py3) 2.1 request.urlopen方法： urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None) urlopen无法判断数据的encoding，所以返回的是bytes对象。一般会对返回的数据进行decode。
+url参数，可以是一个string，或者一个Request对象。
+data一定是bytes对象，传递给服务器的数据，或者为None。目前只有HTTP requests会使用data，提供data时会是一个post请求，如若没有data，那就是get请求。data在使用前需要使用urllib.parse.urlencode()函数转换成流数据
+urlopen方法： read() , readline() ,readlines() , fileno() , close() ：对HTTPResponse类型数据进行操作</description></item><item><title>爬虫学习2-Requests库学习</title><link>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</link><pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/</guid><description>请求方法： r=requests.get(&amp;#39;http://httpbin.org/get&amp;#39;)#get r = requests.post(&amp;#34;http://httpbin.org/post&amp;#34;)#post r = requests.put(&amp;#34;http://httpbin.org/put&amp;#34;)#put r = requests.delete(&amp;#34;http://httpbin.org/delete&amp;#34;)#delect r = requests.head(&amp;#34;http://httpbin.org/get&amp;#34;)#head r = requests.options(&amp;#34;http://httpbin.org/get&amp;#34;)#options GET eg import requests r = requests.get(url=&amp;#39;http://www.euraxluo.cn&amp;#39;) # 最基本的GET请求 print(r.status_code) # 内置的状态码查询对象 #状态码非200视为出错 响应状态码 eg:404 r = requests.get(&amp;#39;http://httpbin.org/status/404&amp;#39;) print(r.status_code)#404 error_info = r.raise_for_status()#Response.raise_for_status()抛出异常 带参数的url请求： #向url传递参数 r = requests.get(url=&amp;#39;http://dict.baidu.com/s&amp;#39;, params={&amp;#39;wd&amp;#39;: &amp;#39;python&amp;#39;})#带参数的GET请求 #当你不知道你的编码类型时 r.encoding = r.apparent_encoding#获取编码类型 print(r.text)#返回解码后的数据 tips 若有图片 r.content 返回bytes数据
+eg：r.content r = requests.get(url=&amp;#39;http://music.baidu.com&amp;#39;)#实测，没啥区别 html=r.content #html_doc=str(html,&amp;#39;utf-8&amp;#39;) html_doc=html.decode(&amp;#34;utf-8&amp;#34;,&amp;#34;ignore&amp;#34;) print(html_doc) 响应内容 不同的内容处理方式 Json：request.json() 二进制：一般用于图片 from PIL import Image from io import BytesIO m = request.</description></item><item><title>爬虫学习3-网页解析器</title><link>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/</link><pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/</guid><description>BeautifulSoup解析器： 解析器 使用方法 条件 bs4的html解析器 BeautifulSoup(html,&amp;lsquo;html.parser&amp;rsquo;) 安装bs4 lxml的html解析器 BeautifulSoup(html,&amp;rsquo;lxml') pip install lxml lxml的xml解析器 BeautifulSoup(html,&amp;lsquo;xml&amp;rsquo;) pip install lxml html5lib的解析器 BeautifulSoup(html,&amp;lsquo;html5lib&amp;rsquo;) pip install html5lib 基本元素 基本元素 说明 tag 标签,&amp;lt;&amp;gt;开头，&amp;lt;/&amp;gt;结尾 name 标签的名字，,&amp;lt;tag&amp;gt;.name attrs 标签的属性，&amp;lt;tag&amp;gt;.attrs NavigableString String,&amp;lt;tag&amp;gt;.String Comment 标签内字符串的注释部分，Comment类型 搜索节点(html中的标签) find_all(name,attrs,recursive,string)
+name:对标签名称的检索字符串
+attrs:对标签属性值的检索字符串,可棕注属性栓索
+recursive:是否对子孙全部检索,默以True
+string:&amp;lt;&amp;gt;..&amp;lt;/&amp;gt;中字符串区域的检索字符串
+eg: import bs4 from bs4 import BeautifulSoup import re html = &amp;#34;&amp;lt;body&amp;gt;&amp;lt;a href=&amp;#39;./test/123.txt&amp;#39;&amp;gt;hjhkj&amp;lt;/a&amp;gt; &amp;lt;div class=&amp;#39;test&amp;#39;&amp;gt;fdfdfd&amp;lt;div class=&amp;#39;test&amp;#39;&amp;gt;fdfdfd&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt;&amp;#34; soup = BeautifulSoup(html,&amp;#34;html.parser&amp;#34;) #查找所有标签为a，链接为./test/123.txt形式的节点 m = soup.find_all(&amp;#39;a&amp;#39;,href=re.compile(r&amp;#39;./test/(.*).txt&amp;#39;))# (另一种写法\d+\) #查找所有标签为div，class为test，文字为fdfdfd的节点 m=soup.find_all(&amp;#39;div&amp;#39;,class_=&amp;#39;test&amp;#39;,string = &amp;#39;fdfdfd&amp;#39;) m = soup.</description></item><item><title>爬虫学习4</title><link>/posts/python/pyquerystudy/</link><pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/python/pyquerystudy/</guid><description>PyQuery 初始化 %%html &amp;lt;div id = &amp;#34;container&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;frist item&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link2.html&amp;#34;&amp;gt;second item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link3.html&amp;#34; style=&amp;#34;color:black;&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;bold&amp;#34;&amp;gt;third item&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link4.html&amp;#34;&amp;gt;fourth item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link5.html&amp;#34;&amp;gt;fifth item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/div&amp;gt; 字符串初始化 html = &amp;#39;&amp;#39;&amp;#39; &amp;lt;div id = &amp;#34;container&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;li class = &amp;#34;item-0&amp;#34;&amp;gt;frist item&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-1&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link2.html&amp;#34;&amp;gt;second item&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class = &amp;#34;item-0 active&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;link3.</description></item><item><title>数组</title><link>/posts/algorithm/%E6%95%B0%E7%BB%84/</link><pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/algorithm/%E6%95%B0%E7%BB%84/</guid><description>线性表(每个线性表上的数据最多只有前和后两个方向):数组,链表,队列,栈 非线性表(数据之间并不是简单的前后关系):二叉树,堆,图
+数组的概念 数组( Array )是一种线性表数据结构。它用一组连续的内存空间,来存储一组具有相同类型的数据。
+数组的特点 连续的内存空间和相同类型的数据
+数组的优点 随机访问:利用寻址公式对元素进行访问:
+a[i]_address = base_address + i * data_type_size
+数组的查找操作时间复杂度不是O(1),即便是排好的数组,用二分查找,时间复杂度也是O(logn);正确的说法
+数组支持随机访问,根据下标随机访问的时间复杂度为O(1)
+数组的缺点 低效的插入和删除
+插入:最好O(1),最坏O(n) 数组若无序,插入新的元素时,可以将第 K 个位置元素移动到数组末尾,把新的元素,插入到第 k 个位置,此处复杂度为O(1)
+删除:最好O(1),最坏O(n) 多次删除集中在一起,提高删除效率,记录下已经被删除的数据,每次的删除操作并不是搬移数据,只是记录数据已经被删除,当数组没有更多的存储空间时,再触发一次真正的删除操作。即 JVM 标记清除垃圾回收算法。
+标记 - 清除算法
+标记 - 清除算法在垃圾收集时会先标记出需要回收的对象,标记完成后统一回收所有被标记的对象。清除之后会产生大量不连续的内存碎片。标记 - 整理垃圾回收算法在标记完成之后让所有存活的对象都向一端移动,然后直接清理掉边界以外的内存
+访问越界
+数组越界在 C 语言中是一种未决行为,并没有规定数组访问越界时编译器应该如何处理。因为,访问数组的本质就是访问一段连续内存,只要数组通过偏移计算得到的内存地址是可用的,那么程序就可能不会报任何错误
+数组和容器 容器能否完全替代数组(ArrayList,vector)
+相比于数组, java 中的 ArrayList 封装了数组的很多细节(插入删除时数据的迁移工作),并支持动态扩容。一旦超过存储容量,扩容时比较耗时,因为涉及到内存申请和数据搬移。
+Java ArrayList 无法存储基本类型,比如 int 、 long ,需要封装为 Integer 、 Long 类,而Autoboxing 、 Unboxing 则有一定的性能消耗,所以如果特别关注性能,或者希望使用基本类型,就可以选用数组。
+如果数据大小事先已知,并且对数据的操作非常简单,用不到 ArrayList 提供的大部分方法,也可以直接使用数组。
+当要表示多维数组时,用数组往往会更加直观。比如 Object[][]array ;而用容器的话则需要这样定义: ArrayList&amp;lt;ArrayList &amp;gt; array 。</description></item><item><title>链表</title><link>/posts/algorithm/%E9%93%BE%E8%A1%A8/</link><pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/algorithm/%E9%93%BE%E8%A1%A8/</guid><description>单链表 data.next--&amp;gt;data.next--&amp;gt;NULL
+时间复杂度 插入节点:
+时间复杂度:O1
+删除节点
+时间复杂度:O1
+查找节点
+时间复杂度:O(n)
+链表想要随机访问第K个元素arr[k],需要根据指针一个一个找
+双向链表 --&amp;gt;prev.data.next&amp;lt;==&amp;gt;prev.data.next&amp;lt;==&amp;gt;prev.data.next 即支持两个方向,每个节点不知有一个后继指针next,还有一个前驱指针prev指向前面的结点
+空间复杂度 双向链表需要额外的两个空间来存储后继结点和其前驱结点的地址.所以,如果存储同样多的数据,双向链表要比单链表占用更多的内存空间.虽然两个指针比较浪费存储空间,但是可以支持双向遍历.这样也带来了双向链表操作的灵活性
+特点 双向链表可以支持O1时间复杂度的情况下找到前驱结点,这样,双向链表在某些情况的插入,删除操作都要比单链表简单高校.
+循环链表 单链表的尾节点指针指向空地址
+循环链表的尾节点指针指向链表的头结点
+优点:从链尾到链头比较方便.当要处理的数据具有环型结构特点时,就特别适合采用循环链表 把约瑟夫问题降低到O(n)时间复杂度
+具体的复杂度分析: 删除操作,有两种情况 删除结点中 “ 值等于某个给定值 ” 的结点; 删除给定指针指向的结点。 第一种情况,为了找到节点的值等于给定值的结点,单链表和双向链表都要从头结点一个一个一次遍历比较,直到找到这个节点,才利用指正操作进行删除.
+主要的时间复杂度在于遍历结点,时间复杂度为On
+第二种情况,我们知道要删除哪一个结点,可是删除这个结点的操作需要其前驱结点的参与,因此我们还要知道指向前驱结点的指正.这时双向链表和单链表的区别就体现出来了.
+单链表依然需要从头结点开始遍历链表.因此,单链表删除的时间复杂度为On
+双向链表的结点中有prev,可以直接删除,因此,双向链表删除的时间复杂度为O1
+查找 除了插入和删除操作以外,双向链表的按值查询效率也比单链表快
+记录上次查找的位置P,每次查询时,根据要查找的值与P的大小关系,决定是往前还是往后查找,平均下来只需要查找一般的数据
+范例 LinkedHashMap,采用了双向链表的数据结构
+链表与数组 数组 实现上使用的是连续的内存空间,可以借助CPU的缓存机制,预读数组中的数据,所以访问效率高
+缺点:大小固定,如果内存不够,只能重新再申请一个更大的内存空间,把原数组拷贝进去,费时
+链表 在内存中并不是连续存储,对于CPU缓存不友好,没有办法有效预读.
+与数组相比,天然支持动态扩容
+缺点:需要消耗额外的存储空间去存储一份指向下一个结点的指正,所以内存消耗会翻倍.并且,对链表进行频繁的插入,删除操作,还会导致频繁的内存申请和释放,容易造成内存碎片.比如java:会导致频繁的GC(垃圾回收)
+基于链表实现LRU缓存淘汰法 思路:
+我们维护一个有序单链表,越靠近链表尾部的结点是越早之前访问的,当有一个新的数据被访问时,我们从链表头开始顺序遍历链表.
+如果此数据之前已经被缓存在链表中了,我们遍历得到这个数据对应的结点,并将其从原来的位置删除,然后插入到链表的头部
+如果这数据没有在缓存链表中,又可以分为两种情况:
+如果此时缓存未满,则将此节点直接插入到链表的头部
+如果此时缓存已满,则链表尾结点删除,将新的数据结点插入到链表的头部
+时间复杂度:O(n)
+优化:引入散列表,来记录每个数据的位置,将缓存访问的时间复杂度降到O1
+代码: 查找key:
+//在数组中a中,查找key,返回key所在的位置 int find(char* a, int n, char key) { //边界条件处理,如果 a 为空,或者n&amp;lt;=0,说明数组中没有数据,就不用while循环比较了 if(a == null || n &amp;lt;= 0) { return -1; } int i = 0; //这里有两个比较操作: i&amp;lt;n 和 a[i]==key.</description></item><item><title>Git学习笔记</title><link>/posts/tools/git%E5%AD%A6%E4%B9%A0/</link><pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate><guid>/posts/tools/git%E5%AD%A6%E4%B9%A0/</guid><description>Git 学习笔记 cd相对路径 cd 什么都不加 回到用户的家目录下 cd ~ 回到root目录下 cd .. 进入上一级目录
+cd - 返回上一次目录
+cd . 当前目录
+创建和删除目录 创建目录mkdir mkdir=make directory
+mkdir dirname 创建目录
+mkdir -p /etc/dirname/test/ 级联创建目录
+mkdir -pv /etc/dirname/test/ 加上v可以看到创建的过程
+删除目录rmdir rmdir=remove directory
+rmdir dirname 可 删除空目录（下面无目录和文件）
+删除文件 rm = remove命令 rmdir -p 可级联删除一串目录，但是是从最开始的目录删起。比较危险，慎用
+rm /tmp/ww/2/3/1.txt 会提示是否删除1.txt
+rm -f /tmp/ww/2/3/1.txt 强制删除，不给提示
+rm -r 级联删除目录，但是会提示是否删除，直接rm不能删目录
+rm -rf 直接级联强制删除
+rm -rfv 加上v显示删除过程
+更新仓库 //在github上创建项目 $ git clone https://github/xx账号/xx项目.git//克隆到本地 //编辑项目 $ git add .</description></item><item><title>CleanCode-读书笔记</title><link>/posts/reading/cleancode/</link><pubDate>Mon, 22 Jan 2018 00:00:00 +0000</pubDate><guid>/posts/reading/cleancode/</guid><description>CleanCode读书笔记 最小惊异原则 1.从一而终，便于修改 2.遵守大家的约定 有意义的命名 1.名副其实 1.命名需要注释来补充，那就不算名副其实 2.在命名时尽量采用有意义的名称，代码的简洁不会改变（运算符和常量的数量，嵌套数量） 2.避免误导 1.避免使用与本意相驳的词 2.提防使用不同之处较小的词 3.不要使用小写l和大写O作为变量名 4.命名有区分，应当有明显的区分，应使读者可以鉴别 3.使用读得出来的名称 4.使用可搜索的名称 1.长名称胜于短名称，搜得到的名称胜于自造的名称 2.单字母仅用于短方法中的本地变量 3.名称长短应与其作用域大小相对应 4.若变量或常量可能在代码中多次使用，则应赋予其便于搜索的名称 5.避免使用编码和前缀 6.避免思维映射 不应当让读者在脑中把你的名称翻译为他们熟知的名称 7.类名和方法名 1.类名和对象名应该是名词 2.类名不应是动词 3.方法名应当是动词或动词短语 4.属性访问器，修改器和断言应该根据其值命名 8.宁可明确，勿为好玩 9.每个概念对应一个词 10.避免将同一单词用于不同目的 11.使用解决方案领域名称 12.使用源自所涉问题领域的名称 13.添加有意义的语境 2.函数 1.短小 1.if,else,while 语句，其中的代码块应该只有一行 并且应该大抵是一个函数调用语句 2.函数不应该大到足以容纳嵌套语句 3.永不调用的函数应该丢弃 2.只做一件事 要判断函数是否不止做了一件事，就是看能否再拆出一个函数 3.使用描述性的名称 1.函数越短小，功能越集中，就便于取个好名字 2.长而具有描述性的名称要比短的名称或者注释好 4.函数参数应少，并且不要使用输出参数 1.如果函数需要很多参数，说明需要封装为类 2.函数名称为动词可以明确函数是做什么的 3.函数参数自然而然的视为输入参数 4.将代码集中到基类i，避免冗余和重复 3.注释 1.注释不能美化糟糕的代码 2.注释的内容 1.版权及著作权声明 2.提供基本信息 3.对意图解释（提供某个决定的意图） 4.阐释（如果参数或者返回值是某个标准库的一部分，或者不能修改，帮助其阐释含义） 5.警告其他程序员会出现某种后果 6.//TODO注释（放置工作列表：程序员认为应该做，但由于某些原因还没有做的工作） 7.不要留下注释代码 格式 1.纵向格式 1.封包声明，导入声明，每个函数之间，用空白行隔开 2.关系密切或概念相关的代码应该互相靠近 3.变量声明应尽可能的靠近使用位置 4.实体变量应该在类的顶部声明 5.循环中的控制变量应该在循环语中声明 6.相关函数（相互靠近，调用者应该在被调用者的上面） 2.横向格式 1.赋值操作符周围加空格 2.</description></item><item><title/><link>/posts/go/%E5%85%B3%E4%BA%8E%E5%88%87%E7%89%87%E5%92%8Cslice%E7%9A%84%E5%86%85%E5%AD%98%E5%85%B1%E4%BA%AB/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/posts/go/%E5%85%B3%E4%BA%8E%E5%88%87%E7%89%87%E5%92%8Cslice%E7%9A%84%E5%86%85%E5%AD%98%E5%85%B1%E4%BA%AB/</guid><description>关于切片和slice的内存共享 package main import ( &amp;#34;bufio&amp;#34; &amp;#34;bytes&amp;#34; &amp;#34;errors&amp;#34; &amp;#34;fmt&amp;#34; _errors &amp;#34;github.com/pkg/errors&amp;#34; &amp;#34;os&amp;#34; &amp;#34;reflect&amp;#34; &amp;#34;regexp&amp;#34; &amp;#34;strconv&amp;#34; &amp;#34;strings&amp;#34; &amp;#34;sync&amp;#34; &amp;#34;sync/atomic&amp;#34; &amp;#34;time&amp;#34; ) func main() { /** * @Description: foo boo内存共享 * @param []int * @param 5 */ foo := make([]int, 5) foo[3] = 3 foo[4] = 4 boo := foo[1:4] boo[1] = 2 for i := 0; i &amp;lt; 5; i++ { println(foo[i]) } /** * @Description: 当capcity够的时候，那么就不会重新分配内存 * @param []int * @param 8 */ a := make([]int, 8) b := a[1:8] b[1] = 1 //[01.</description></item><item><title>Apollo无人车架构</title><link>/posts/driverless/apollo%E6%9E%B6%E6%9E%84/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/posts/driverless/apollo%E6%9E%B6%E6%9E%84/</guid><description>Apollo无人车架构 以HD-map为核心
+线控车辆，计算机和传感器通过CAN卡进行通信 ROTS(Ubuntu+apollo kernel) 保证实时性
+Feameworf(ROS+) 共享内存 减少传输中的数据拷贝，提高传输效率，减少传输延迟
+有效解决一对多传输
+共享内存减少CPU资源占用，提高机器计算能力
+数据兼容 引入了protopuf文件格式
+可以向后兼容
+ROS深度兼容protopuf格式
+去中心化，减小单点故障的影响 使用RTPS服务发现协议
+以域作为划分，通过rtps相互广播，实现完全P2P
+sub节点启动，组播registerNode-&amp;gt;节点发现及建立unicast-&amp;gt;向新加节点发送历史消息-&amp;gt;收发双方建立连接，开始通信
+application planning
+control
+end-to-end driving
+human-machine
+map-engine
+localization
+preception
+REDME： 定位 GPS+IMU -&amp;gt; Real Time Kine
+GPS+IMU+激光雷达（光探测，测距传感器）-&amp;gt;多传感器融合
+预测 从感知模块接受障碍物信息（位置，方向速度，加速度）
+生成不同概率的预测轨迹
+容器 存储订阅通道的输入数据（障碍物，车辆定位，车辆规划）
+评估器 对任何给定的障碍物分别预测路径和速度，通过模型给出的路径概率来进行评估
+1).成本评估器:概率是由成本函数给出
+2).MLP评估器:用MLP模型计算概率
+3).RNN评估器:用RNN模型计算
+预测器 生成障碍物的预测轨迹，预测规则有很多：
+1). 单行道：在公路导航模式下障碍物沿着单条车道移动。不在车道上的障碍物将被忽略。
+2). 车道顺序：障碍物沿车道移动
+3). 移动序列：障碍物沿其运动模式沿车道移动
+4). 自由运动：障碍物自由移动
+5). 区域运动：障碍物在可能的区域中移动
+路由 根据路由请求(开始和结束位置)以及地图数据生成高级导航信息
+依赖路由拓扑文件 规划 通过配置和参数规划不同的场景
+apollo是车道保持，通过障碍物，通过十字路有
+planning
+1). FSM，有限状态机
+2). Planning Dispatcher,根据车辆状态和其他信息，调用合适的planner</description></item></channel></rss>

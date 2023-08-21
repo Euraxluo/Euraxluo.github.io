@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>shell on Euraxluo Blog</title><link>/posts/shell/</link><description>Recent content in shell on Euraxluo Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><lastBuildDate>Sun, 10 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="/posts/shell/index.xml" rel="self" type="application/rss+xml"/><item><title>Shell 基础</title><link>/posts/shell/shell%E5%9F%BA%E7%A1%80/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/shell/shell%E5%9F%BA%E7%A1%80/</guid><description>shell 基础 在终端输入:sh进入脚本界面
+helloworld 编辑内容
+#!/bin/bash echo &amp;#34;hello world!&amp;#34; 保存退出:
+w ~/helloworld.sh
+运行:
+chmod +x ~/helloworld.sh cd ~ ./helloworld.sh 执行结果:
+hello world!
+分析: 第一行中#!是一个约定的标记,告诉系统脚本需要使用什么解释器来执行,即使用哪一种shell
+这种在第一行指定了解释器信息的方式,需要让脚本作为可执行程序执行
+还有第二种运行方式,即作为解释器参数,这时,第一行的解释器信息,失效
+eg:python test.py
+shell 变量 显式赋值:
+a=&amp;quot;abc&amp;quot;
+用语句:
+for file in `ls /etc/` 或者
+for file in $(ls /etc)
+使用变量: 使用一个定义过的变量:
+file=&amp;#34;test&amp;#34; echo $file echo ${file} 花括弧是为了帮助解释器识别变量的边界:
+for skill in Ada Coffe Action java;do echo &amp;#34;I am good at ${skill}Script&amp;#34; done 只读变量 使用readonly :
+#!/bin/bash myUrl=&amp;#39;http://euraxluo.</description></item><item><title>Shell 进阶</title><link>/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>/posts/shell/shell%E8%BF%9B%E9%98%B6%E4%B8%8E%E6%80%BB%E7%BB%93/</guid><description>shell进阶 破壳漏洞
+env x='() { :;}; echo shellshocked' bash –c &amp;quot;echo test&amp;quot;检查,如果输出了两行,那么需要升级bash的版本
+解释器的类型
+系统中的shells使用cat /etc/shells查看:
+/bin/sh /bin/dash /bin/bash /bin/rbash /usr/bin/tmux /usr/bin/screen /bin/zsh /usr/bin/zsh 设置解释器的类型 #!/bin/bash在文件的开头使用,内核会根据&amp;quot;#!&amp;ldquo;后的解释器来确定该用那个程序解释这个脚本中的内容
+脚本的编辑 vim帮助我们编辑脚本 我的vimrc内容
+1 set tabstop=4 2 set shiftwidth=4 3 set expandtab 4 set number 5 autocmd BufNewFile *.py,*.cc,*.sh,*.java exec &amp;#34;:call SetTitle()&amp;#34; 6 func SetTitle() 7 if expand(&amp;#34;%:e&amp;#34;) == &amp;#39;sh&amp;#39; 8 call setline(1,&amp;#34;#!/bin/bash&amp;#34;) 9 call setline(2,&amp;#34;# Author: Euraxluo&amp;#34;) 10 call setline(3,&amp;#34;# Email: Euraxluo@outlook.com&amp;#34;) 11 call setline(4,&amp;#34;# Time:&amp;#34; .</description></item><item><title>Linux基础</title><link>/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link><pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/shell/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid><description>Linux基础 文件基本属性 ll/ls -l 显示一个文件的属性以及文件所属的用户组
+eg: [root@www /]# ls -l total 64 dr-xr-xr-x 2 root root 4096 Dec 14 2012 bin dr-xr-xr-x 4 root root 4096 Apr 19 2012 boot …… bin 以d开头,表示这是一个目录
+当为[-]是文件 当为[l]表示为link file 当为[b]表示为可以进行存取的接口设备 当为[c]表示为串行端口设备 接下来以3个为一组,且均为[rwx]的组合,位置次序不变
+[r]表示可读,[w]可写,[x]可执行,如果没有这个权限,就会用[-]代替.
+第0位确定文件类型. 第1-3位确定属主（该文件的所有者）拥有该文件的权限 第4-6位确定属组（所有者的同组用户）拥有该文件的权限 第7-9位确定其他用户拥有该文件的权限 属主:对文件具有所有权的用户
+属组:用户按组分类,一个用户属于一个或者多个组
+所以,文件按照[文件所有者|所有者同组用户|所有着不同组用户]来规定访问权限
+对于root用户,权限对他无效
+2. 更改属性 chgrp [-R] 属组名 文件名 更改文件属组
+sudo chgrp name test
+chown [-R] 属主名 : 属组名 文件名 更改文件属主,也可以同时修改文件属组
+sudo chown 770:euraxluo test</description></item><item><title>Unix/Linux编程实践1</title><link>/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</link><pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</guid><description>Unix/Linux 编程實踐教程 ##　什麼是系統編程
+系统资源 处理器 程序由指令构成,处理器是执行指令的硬件设备,一个系统中可能有多个处理器,内核可以安排一个程序何时开始开始执行,暂时停止,恢复执行,终止执行
+输入输出 程序中所有的输入输出都必须流经内核,集中处理,保证了系统的正确性,安全性,有效性
+进程管理 每个程序执行都必须有自己的资源,内核可以新建进程,中止进程,进程调度
+内存 程序必须被装载到内存中才能运行,内核可以对进程进行管理,在程序需要的时候给程序分配内存,当程序不需要时,回收内存,还可以保证内存不被其他进程非法访问.
+设备 各种设备的操作方式不相同,通过内核,可以屏蔽這種差异,使我们对设备的操作简单统一
+计时器 程序的工作和时间有关,内核可以通过系统调用向应用程序提供计时器服务
+进程间通信 内核可以让进程之间进行通信
+网络 内核可以让不同主机上的不同进程进行通信
+bc:Unix计算器,可以接受逆波兰表达式 通过他的与处理器dc,转换为逆波兰表达式,通过pip给dc
+和web服务类似,web服务器作为預处理器,浏览器作为前端显示
+more: more filename,分页显示file内容
+command | more:分页显示command命令
+more &amp;lt; filename:分页+重定向
+自己写一个more
+//more command #include&amp;lt;stdio.h&amp;gt; #include&amp;lt;stdlib.h&amp;gt; #define PAGELEN 24 #define LINELEN 512 void do_more(FILE* ); int see_more(FILE*,int ); int sum_size = 0; int main(int ac,char *av[]) { FILE* fp; if(ac == 1) do_more(stdin); else while(--ac) { if((fp = fopen(*++av,&amp;#34;r&amp;#34;)) !</description></item></channel></rss>

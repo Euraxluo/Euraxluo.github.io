@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>JSP on Euraxluo Blog</title><link>/series/jsp/</link><description>Recent content in JSP on Euraxluo Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><lastBuildDate>Mon, 29 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="/series/jsp/index.xml" rel="self" type="application/rss+xml"/><item><title>JSP</title><link>/posts/java/jsp%E5%AD%A6%E4%B9%A0/</link><pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/java/jsp%E5%AD%A6%E4%B9%A0/</guid><description>jsp Java Server Page
+什么是jsp 从用户角度看待 ，就是是一个网页 ， 从程序员角度看待 ， 其实是一个java类， 它继承了servlet，所以可以直接说jsp 就是一个Servlet.
+为什么会有jsp? html 多数情况下用来显示静态内容 ， 一成不变的。 但是有时候我们需要在网页上显示一些动态数据， 比如： 查询所有的学生信息， 根据姓名去查询具体某个学生。 这些动作都需要去查询数据库，然后在网页上显示。 html是不支持写java代码 ， jsp里面可以写java代码。
+java服务器页面
+jsp = html+java+JSP tag 处理流程：浏览器客户端向服务器发起请求，请求对应的jsp文件。然后jsp容器载入jsp文件，并且把jsp文件转化为Servlet(只是简单的把jsp文件改写为servlet语句)，然后jsp容器把servlet编译为可执行的class，然后把请求交给servlet容器，然后web组件就会调用servlet容器，载入对应的servlet实例。在执行时，会产生html页面，嵌入到response中返回给浏览器
+###　jsp与servlet比较
+１. 侧重点
+​ jsp侧重于视图
+​ servlet侧重于逻辑
+２. jsp有一些内置对象
+３. 本质jsp其实是servlet的一种简化
+###　jsp基本语法
+jsp声明 &amp;lt;%! int a,b,c; %&amp;gt;
+jsp表达式(表达式元素中可以包含任何符合java语言规范的表达式，但是不能使用分号来结束) &amp;lt;%= 表达式%&amp;gt;
+eg：输出日期&amp;lt;p&amp;gt;Today's date:&amp;lt;% = (new java.util.Date()).toLocaleString()%&amp;gt;&amp;lt;/p&amp;gt;
+jsp脚本(可以包含任意量的java语句,变量,方法或者表达式) &amp;lt;% 代码片段 %&amp;gt;
+eg:打印ip&amp;lt;% out.println(&amp;quot;Your IP:&amp;quot;+request.getRemoteAddr()); %&amp;gt;
+jsp注释 &amp;lt;-- 这部分是jsp注释 --&amp;gt;</description></item></channel></rss>

@@ -1,0 +1,325 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>爬虫学习2-Requests库学习 - Euraxluo Blog</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180><link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png><link rel=icon href=/images/icons/favicon.ico><link rel=manifest href=/manifest.json><meta name=keywords content><meta name=description content="爬虫学习"><meta itemprop=name content="爬虫学习2-Requests库学习"><meta itemprop=description content="爬虫学习"><meta itemprop=datePublished content="2018-10-22T00:00:00+00:00"><meta itemprop=dateModified content="2018-10-22T00:00:00+00:00"><meta itemprop=wordCount content="343"><meta itemprop=keywords content="爬虫,Python,"><meta property="og:title" content="爬虫学习2-Requests库学习"><meta property="og:description" content="爬虫学习"><meta property="og:type" content="article"><meta property="og:url" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2018-10-22T00:00:00+00:00"><meta property="article:modified_time" content="2018-10-22T00:00:00+00:00"><meta property="og:see_also" content="/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"><meta property="og:see_also" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/"><meta property="og:see_also" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/"><meta name=twitter:card content="summary"><meta name=twitter:title content="爬虫学习2-Requests库学习"><meta name=twitter:description content="爬虫学习"><link rel=stylesheet href=/css/main.min.29f9b537bf546fdc11e6e11f92ddd52ea0bd1eefa2228b828bc3b750c66763b0.css integrity="sha256-Kfm1N79Ub9wR5uEfkt3VLqC9Hu+iIouCi8O3UMZnY7A=" crossorigin=anonymous><link rel=stylesheet href=/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head><body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top"><div class=container-fluid><button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/><img class=logo alt=Logo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy>
+Euraxluo</a>
+<button class=navbar-social-share type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<i class="fas fa-share-alt"></i></button><div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare><div class=offcanvas-header><h3 class=offcanvas-title>Share</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a02-Requests%e5%ba%93%e5%ad%a6%e4%b9%a0&url=%2fposts%2fcrawler%2f%25E7%2588%25AC%25E8%2599%25AB%25E5%2588%259D%25E7%25BA%25A72%2f"><i class="fab fa-fw fa-twitter"></i> Twitter</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fposts%2fcrawler%2f%25E7%2588%25AC%25E8%2599%25AB%25E5%2588%259D%25E7%25BA%25A72%2f"><i class="fab fa-fw fa-facebook-f"></i> Facebook</a></div></div><button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i></button><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings><div class=offcanvas-header><h3 class=offcanvas-title>Settings</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class="offcanvas-body d-flex flex-column"><section class=setting><form class=row><div class=col-auto><label><i class="fas fa-fw fa-adjust"></i> Mode</label></div><div class="col-auto ms-auto"><div class="form-check form-switch"><input class=form-check-input type=checkbox id=modeSwitcher></div></div></form></section><section class=setting><form class="font-size-switcher-form row"><div class=col-auto><label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Font Size</label></div><div class="col-auto ms-auto"><input type=range class=form-range min=-2 max=2 id=fontSize></div></form></section><section class="setting palettes"><form class=row><div class=col-auto><label><i class="fas fa-fw fa-palette"></i> Palette</label></div><div class="col-auto ms-auto"><a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker><i class="fas fa-eye-dropper"></i></a></div></form><div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Blue class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gray" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Brown class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Green class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Pink class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Purple class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Red class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label=Teal class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Yellow class="btn btn-sm palette" data-palette=yellow></button></div></section><section class="setting actions d-flex justify-content-center mt-auto"><a role=button class="action action-reload-page"><span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload</a>
+<a role=button class="action action-copy-url"><span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copy URL</a></section></div></div><div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent><form class="search-bar my-1" action=/search><div class="input-group input-group-sm"><span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search></div></form><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/archives/><i class="fas fa-fw fa-file-archive"></i>timeline</a></li><li class=nav-item><a class=nav-link href=/categories/><i class="fas fa-fw fa-folder"></i>category</a></li><li class=nav-item><a class=nav-link href=/tags/><i class="fas fa-fw fa-tags"></i>tags</a></li><li class=nav-item><a class=nav-link href=/series/><i class="fas fa-fw fa-columns"></i>series</a></li><li class="nav-item dropdown"><a class=nav-link id=navbarDropdownRepos role=button data-bs-toggle=dropdown aria-expanded=false><i class="fab fa-fw fa-github"></i>Repos</a><ul class=dropdown-menu aria-labelledby=navbarDropdownRepos><li><a class=dropdown-item href=https://github.com/BreezeTeam/cache target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>cache</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/distance_matrix target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>distance_matrix</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>Euraxluo</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/IMOMD-RRTStar-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>IMOMD-RRTStar-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/lang target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>lang</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/LKH-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>LKH-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/scheduler target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>scheduler</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/simplegrad target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>simplegrad</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/verb target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>verb</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/web target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>web</a></li></ul></li></ul></div></div></nav></header><main role=main class=container-fluid><div class="row content"><div class=col-lg-8><div class=container><article class="row card component mb-4 post"><div class=post-panel-wrapper><div class="d-flex flex-column component rounded post-panel"><a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler"><i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i></a>
+<a class="action btn-reward" role=button data-bs-toggle=modal data-bs-target=#rewardModal title="Buy me a coffee"><i class="fas fa-fw fa-coffee"></i></a>
+<a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright><i class="fas fa-fw fa-copyright"></i></a>
+<a class=action href=#post-comments role=button aria-label=Comments title=Comments><i class="fas fa-fw fa-comments"></i></a>
+<a class=action data-bs-toggle=offcanvas href=#offcanvasTOC aria-controls=offcanvasTOC role=button title="Table of contents"><i class="fas fa-fw fa-list-alt"></i></a></div></div><div class=card-header><h1 class="card-title post-title">爬虫学习2-Requests库学习</h1></div><div class=card-body><div class=post-meta><span class=post-date title="created on 2018-10-22 08:00:00 +0800 CST.">2018-10-22
+</span><span class=post-reading-time>2 min read
+</span><span class=post-taxonomies><a href=/categories/%E7%88%AC%E8%99%AB/ class="badge rounded-pill post-taxonomy">爬虫</a><a href=/series/python/ class="badge rounded-pill post-taxonomy">Python</a><a href=/tags/%E7%88%AC%E8%99%AB/ class="badge rounded-pill post-taxonomy">爬虫</a><a href=/tags/python/ class="badge rounded-pill post-taxonomy">Python</a></span></div><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasTOC aria-labelledby=offcanvasTOCLabel><div class=offcanvas-header><h2 class=offcanvas-title id=offcanvasTOCLabel>Table Of Contents</h5><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><nav id=TableOfContents><ul><li><a href=#get>GET</a><ul><li><a href=#eg>eg</a></li><li><a href=#响应状态码httphttpbinorg><a href=http://httpbin.org/#/>响应状态码</a></a></li><li><a href=#带参数的url请求>带参数的url请求：</a></li><li><a href=#tips>tips</a></li><li><a href=#响应内容>响应内容</a></li><li><a href=#定制headers>定制headers</a></li></ul></li><li><a href=#post>POST</a><ul><li><a href=#post表单>POST表单</a></li><li><a href=#post文件>POST文件</a></li></ul></li><li><a href=#cookie>Cookie</a><ul><li><a href=#访问cookie>访问cookie</a></li><li><a href=#发送cookie到服务器>发送cookie到服务器</a></li><li><a href=#eg-1>eg</a></li></ul></li><li><a href=#会话>会话</a><ul><li><a href=#使用get时先构建request对象发送请求再返回response对象包含服务器返回的所有信息>使用get()时，先构建Request对象，发送请求；再返回Response对象，包含服务器返回的所有信息</a></li><li><a href=#eg-2>eg</a></li></ul></li><li><a href=#ssl证书验证>SSL证书验证</a></li><li><a href=#代理>代理</a><ul><li><a href=#获取代理ip>获取代理ip</a></li><li><a href=#验证能否连接>验证能否连接</a></li></ul></li></ul></nav></div></div><div class="post-content mb-3"><h1 id=请求方法>请求方法：<a class="anchor ms-1" href=#请求方法><i class="fas fa-link"></i></a></h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>r<span style=color:#f92672>=</span>requests<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;http://httpbin.org/get&#39;</span>)<span style=color:#75715e>#get</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>post(<span style=color:#e6db74>&#34;http://httpbin.org/post&#34;</span>)<span style=color:#75715e>#post</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>put(<span style=color:#e6db74>&#34;http://httpbin.org/put&#34;</span>)<span style=color:#75715e>#put</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>delete(<span style=color:#e6db74>&#34;http://httpbin.org/delete&#34;</span>)<span style=color:#75715e>#delect</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>head(<span style=color:#e6db74>&#34;http://httpbin.org/get&#34;</span>)<span style=color:#75715e>#head</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>options(<span style=color:#e6db74>&#34;http://httpbin.org/get&#34;</span>)<span style=color:#75715e>#options</span>
+</span></span></code></pre></div><h2 id=get>GET<a class="anchor ms-1" href=#get><i class="fas fa-link"></i></a></h2><h3 id=eg>eg<a class="anchor ms-1" href=#eg><i class="fas fa-link"></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> requests
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>get(url<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;http://www.euraxluo.cn&#39;</span>)  <span style=color:#75715e># 最基本的GET请求</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(r<span style=color:#f92672>.</span>status_code)  <span style=color:#75715e># 内置的状态码查询对象</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#状态码非200视为出错</span>
+</span></span></code></pre></div><h3 id=响应状态码httphttpbinorg>响应状态码<a class="anchor ms-1" href=#响应状态码httphttpbinorg><i class="fas fa-link"></i></a></h3><h4 id=eg404>eg:404<a class="anchor ms-1" href=#eg404><i class="fas fa-link"></i></a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>r <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;http://httpbin.org/status/404&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(r<span style=color:#f92672>.</span>status_code)<span style=color:#75715e>#404</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>error_info <span style=color:#f92672>=</span> r<span style=color:#f92672>.</span>raise_for_status()<span style=color:#75715e>#Response.raise_for_status()抛出异常</span>
+</span></span></code></pre></div><h3 id=带参数的url请求>带参数的url请求：<a class="anchor ms-1" href=#带参数的url请求><i class="fas fa-link"></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#向url传递参数</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>get(url<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;http://dict.baidu.com/s&#39;</span>, params<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#39;wd&#39;</span>: <span style=color:#e6db74>&#39;python&#39;</span>})<span style=color:#75715e>#带参数的GET请求</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#当你不知道你的编码类型时</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r<span style=color:#f92672>.</span>encoding <span style=color:#f92672>=</span> r<span style=color:#f92672>.</span>apparent_encoding<span style=color:#75715e>#获取编码类型</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(r<span style=color:#f92672>.</span>text)<span style=color:#75715e>#返回解码后的数据</span>
+</span></span></code></pre></div><h3 id=tips>tips<a class="anchor ms-1" href=#tips><i class="fas fa-link"></i></a></h3><p>若有图片 r.content 返回bytes数据</p><h4 id=egrcontent>eg：r.content<a class="anchor ms-1" href=#egrcontent><i class="fas fa-link"></i></a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>r <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>get(url<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;http://music.baidu.com&#39;</span>)<span style=color:#75715e>#实测，没啥区别</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>html<span style=color:#f92672>=</span>r<span style=color:#f92672>.</span>content
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#html_doc=str(html,&#39;utf-8&#39;)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>html_doc<span style=color:#f92672>=</span>html<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#34;utf-8&#34;</span>,<span style=color:#e6db74>&#34;ignore&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(html_doc)
+</span></span></code></pre></div><h3 id=响应内容>响应内容<a class="anchor ms-1" href=#响应内容><i class="fas fa-link"></i></a></h3><h4 id=不同的内容处理方式>不同的内容处理方式<a class="anchor ms-1" href=#不同的内容处理方式><i class="fas fa-link"></i></a></h4><h5 id=jsonrequestjson>Json：request.json()<a class="anchor ms-1" href=#jsonrequestjson><i class="fas fa-link"></i></a></h5><h5 id=二进制一般用于图片>二进制：一般用于图片<a class="anchor ms-1" href=#二进制一般用于图片><i class="fas fa-link"></i></a></h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> PIL <span style=color:#f92672>import</span> Image
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> io <span style=color:#f92672>import</span> BytesIO
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>m <span style=color:#f92672>=</span> request<span style=color:#f92672>.</span>content<span style=color:#75715e>#未解码内容</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>i <span style=color:#f92672>=</span> Image<span style=color:#f92672>.</span>open(m)<span style=color:#75715e>#用二进制数据创建图片</span>
+</span></span></code></pre></div><h5 id=text可以自动解码用的最多>text:可以自动解码。用的最多<a class="anchor ms-1" href=#text可以自动解码用的最多><i class="fas fa-link"></i></a></h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> requests
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r<span style=color:#f92672>=</span>requests<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;https://euraxluo.cn&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r<span style=color:#f92672>.</span>text<span style=color:#75715e>#已经经过自动解码</span>
+</span></span></code></pre></div><h4 id=编码问题>编码问题：<a class="anchor ms-1" href=#编码问题><i class="fas fa-link"></i></a></h4><h5 id=1get_encodings_from_content>1.get_encodings_from_content<a class="anchor ms-1" href=#1get_encodings_from_content><i class="fas fa-link"></i></a></h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> req<span style=color:#f92672>.</span>encoding <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;ISO-8859-1&#39;</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    encodings <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>utils<span style=color:#f92672>.</span>get_encodings_from_content(req<span style=color:#f92672>.</span>text)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> encodings:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        encoding <span style=color:#f92672>=</span> encodings[<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        encoding <span style=color:#f92672>=</span> req<span style=color:#f92672>.</span>apparent_encoding
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># encode_content = req.content.decode(encoding, &#39;replace&#39;).encode(&#39;utf-8&#39;, &#39;replace&#39;)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>global</span> encode_content
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    encode_content <span style=color:#f92672>=</span> req<span style=color:#f92672>.</span>content<span style=color:#f92672>.</span>decode(encoding, <span style=color:#e6db74>&#39;replace&#39;</span>) <span style=color:#75715e>#如果设置为replace，则会用?取代非法字符；</span>
+</span></span></code></pre></div><h5 id=2防御编程>2.防御编程<a class="anchor ms-1" href=#2防御编程><i class="fas fa-link"></i></a></h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        r <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>get(url,timeout <span style=color:#f92672>=</span> <span style=color:#ae81ff>30</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        r<span style=color:#f92672>.</span>raise_for_status()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        r<span style=color:#f92672>.</span>encoding <span style=color:#f92672>=</span> r<span style=color:#f92672>.</span>apparent_encoding
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> r<span style=color:#f92672>.</span>text
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>except</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		print(<span style=color:#e6db74>&#34;error&#34;</span>)
+</span></span></code></pre></div><h3 id=定制headers>定制headers<a class="anchor ms-1" href=#定制headers><i class="fas fa-link"></i></a></h3><h4 id=headers必须是stringbytestringunicode>headers必须是string，bytestring,Unicode<a class="anchor ms-1" href=#headers必须是stringbytestringunicode><i class="fas fa-link"></i></a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>url<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;https://euraluo.cn&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>headers<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#39;user-agent&#39;</span>:<span style=color:#e6db74>&#39;my-app/0.0.1&#39;</span>}<span style=color:#75715e>#UA</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r<span style=color:#f92672>=</span>requests<span style=color:#f92672>.</span>get(url,headers<span style=color:#f92672>=</span>headers)
+</span></span></code></pre></div><h2 id=post>POST<a class="anchor ms-1" href=#post><i class="fas fa-link"></i></a></h2><h3 id=post表单>POST表单<a class="anchor ms-1" href=#post表单><i class="fas fa-link"></i></a></h3><p>多个元素使用同一key的时候可以将dict替换成元祖列表，</p><p>可以将data=替换成json=，传入json对象。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>payload<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#39;key1&#39;</span>:<span style=color:#e6db74>&#39;value1&#39;</span>,<span style=color:#e6db74>&#39;key2&#39;</span>:<span style=color:#e6db74>&#39;value2&#39;</span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r<span style=color:#f92672>=</span>requests<span style=color:#f92672>.</span>post(<span style=color:#e6db74>&#39;http://httpbin.org/post&#39;</span>, data<span style=color:#f92672>=</span>payload)
+</span></span></code></pre></div><h3 id=post文件>POST文件<a class="anchor ms-1" href=#post文件><i class="fas fa-link"></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;http://httpbin.org/post&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>files<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#39;file&#39;</span>:open(<span style=color:#e6db74>&#39;report.xls&#39;</span>,<span style=color:#e6db74>&#39;rb&#39;</span>)}<span style=color:#75715e>#使用二进制模式打开文件。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r<span style=color:#f92672>=</span>requests<span style=color:#f92672>.</span>post(url,files<span style=color:#f92672>=</span>files)
+</span></span></code></pre></div><h2 id=cookie>Cookie<a class="anchor ms-1" href=#cookie><i class="fas fa-link"></i></a></h2><h3 id=访问cookie>访问cookie<a class="anchor ms-1" href=#访问cookie><i class="fas fa-link"></i></a></h3><p><code>r.cookies['cookie_name']</code></p><h3 id=发送cookie到服务器>发送cookie到服务器<a class="anchor ms-1" href=#发送cookie到服务器><i class="fas fa-link"></i></a></h3><p><code>cookies=dict(cookies_are='workding')</code></p><p><code>r.requests.get(url,cookies=cookies)</code></p><h3 id=eg-1>eg<a class="anchor ms-1" href=#eg-1><i class="fas fa-link"></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#Cookie的返回对象为RequestsCookieJar，类似于字典，适合跨域名路径使用。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>jar<span style=color:#f92672>=</span>requests<span style=color:#f92672>.</span>cookies<span style=color:#f92672>.</span>RequestsCookieJar()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>jar<span style=color:#f92672>.</span>set(<span style=color:#e6db74>&#39;tasty_cookie&#39;</span>, <span style=color:#e6db74>&#39;yum&#39;</span>, domain<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;httpbin.org&#39;</span>, path<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;/cookies&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>jar<span style=color:#f92672>.</span>set(<span style=color:#e6db74>&#39;gross_cookie&#39;</span>, <span style=color:#e6db74>&#39;blech&#39;</span>, domain<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;httpbin.org&#39;</span>, path<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;/elsewhere&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;http://httpbin.org/cookies&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>get(url, cookies<span style=color:#f92672>=</span>jar)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r<span style=color:#f92672>.</span>text<span style=color:#75715e>#打印出cookie</span>
+</span></span></code></pre></div><h2 id=会话>会话<a class="anchor ms-1" href=#会话><i class="fas fa-link"></i></a></h2><h3 id=使用get时先构建request对象发送请求再返回response对象包含服务器返回的所有信息>使用get()时，先构建Request对象，发送请求；再返回Response对象，包含服务器返回的所有信息<a class="anchor ms-1" href=#使用get时先构建request对象发送请求再返回response对象包含服务器返回的所有信息><i class="fas fa-link"></i></a></h3><h3 id=eg-2>eg<a class="anchor ms-1" href=#eg-2><i class="fas fa-link"></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#会话也可用来为请求方法提供缺省数据</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>s<span style=color:#f92672>=</span>requests<span style=color:#f92672>.</span>Session()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>s<span style=color:#f92672>.</span>auth<span style=color:#f92672>=</span>(<span style=color:#e6db74>&#39;user&#39;</span>,<span style=color:#e6db74>&#39;pass&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>s<span style=color:#f92672>.</span>headers<span style=color:#f92672>.</span>update({<span style=color:#e6db74>&#39;x-test&#39;</span>:<span style=color:#e6db74>&#39;true&#39;</span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#x-test和x-test2都会发送出去</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>s<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;http://httpbin.org/headers&#39;</span>, headers<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#39;x-test2&#39;</span>:<span style=color:#e6db74>&#39;true&#39;</span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(s)
+</span></span></code></pre></div><h2 id=ssl证书验证>SSL证书验证<a class="anchor ms-1" href=#ssl证书验证><i class="fas fa-link"></i></a></h2><p>如果设置为False，会忽略对SSL证书的验证。</p><p><code>requests.get('https://github.com', verify=True)</code></p><p>SSL验证默认开始，如果验证失败，会抛出SSLErro</p><h2 id=代理>代理<a class="anchor ms-1" href=#代理><i class="fas fa-link"></i></a></h2><p>通过代理爬取</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> requests
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>proxies <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;http&#34;</span>: <span style=color:#e6db74>&#34;171.38.24.164:8132&#34;</span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r<span style=color:#f92672>=</span>requests<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;http://ip.chinaz.com/getip.aspx&#34;</span>, ,proxies<span style=color:#f92672>=</span>proxies)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(r<span style=color:#f92672>.</span>text)
+</span></span></code></pre></div><h3 id=获取代理ip>获取代理ip<a class="anchor ms-1" href=#获取代理ip><i class="fas fa-link"></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> requests
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> bs4
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> bs4 <span style=color:#f92672>import</span> BeautifulSoup
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>User_Agent <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Mozilla/5.0 (Windows NT 6.3; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>header <span style=color:#f92672>=</span> {}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>header[<span style=color:#e6db74>&#39;User-Agent&#39;</span>] <span style=color:#f92672>=</span> User_Agent
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;http://www.xicidaili.com/nn/1&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>r <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>get(url,headers<span style=color:#f92672>=</span>header)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>res <span style=color:#f92672>=</span> r<span style=color:#f92672>.</span>text
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>soup <span style=color:#f92672>=</span> BeautifulSoup(res,<span style=color:#e6db74>&#34;html.parser&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ips <span style=color:#f92672>=</span> soup<span style=color:#f92672>.</span>findAll(<span style=color:#e6db74>&#39;tr&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>f <span style=color:#f92672>=</span> open(<span style=color:#e6db74>&#34;./ip_proy/ip&#34;</span>,<span style=color:#e6db74>&#34;w&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> x <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>,len(ips)):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ip <span style=color:#f92672>=</span> ips[x]<span style=color:#75715e>#一行</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    tds <span style=color:#f92672>=</span> ip<span style=color:#f92672>.</span>findAll(<span style=color:#e6db74>&#34;td&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    line <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>%s</span><span style=color:#e6db74>:</span><span style=color:#e6db74>%s</span><span style=color:#e6db74>;</span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>%</span> (tds[<span style=color:#ae81ff>1</span>]<span style=color:#f92672>.</span>contents[<span style=color:#ae81ff>0</span>],tds[<span style=color:#ae81ff>2</span>]<span style=color:#f92672>.</span>contents[<span style=color:#ae81ff>0</span>],tds[<span style=color:#ae81ff>5</span>]<span style=color:#f92672>.</span>contents[<span style=color:#ae81ff>0</span>])<span style=color:#f92672>+</span><span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ip_temp <span style=color:#f92672>=</span> tds[<span style=color:#ae81ff>2</span>]<span style=color:#f92672>.</span>contents[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>+</span><span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\t</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>+</span>tds[<span style=color:#ae81ff>3</span>]<span style=color:#f92672>.</span>contents[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>+</span><span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    f<span style=color:#f92672>.</span>write(line)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(line)
+</span></span></code></pre></div><h3 id=验证能否连接>验证能否连接<a class="anchor ms-1" href=#验证能否连接><i class="fas fa-link"></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#Unicode gbk</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> socket
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> re
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> sys
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> requests
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#socket.setdefaulttimeout(3)#全局延时</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#f2 = open(&#34;./ip_proy/run_ip&#34;, &#34;w&#34;)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>f <span style=color:#f92672>=</span> open(<span style=color:#e6db74>&#34;./ip_proy/ip&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>lines <span style=color:#f92672>=</span> f<span style=color:#f92672>.</span>readlines()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>proxys <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>0</span>,len(lines)):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ip <span style=color:#f92672>=</span> lines[i]<span style=color:#f92672>.</span>strip(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>)<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\t</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ip_line <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>split(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#34;[.:;]&#34;</span>,ip[<span style=color:#ae81ff>0</span>])<span style=color:#75715e>#re.split分割</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    proxy_host <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;http://&#34;</span><span style=color:#f92672>+</span>ip_line[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>+</span><span style=color:#e6db74>&#34;.&#34;</span><span style=color:#f92672>+</span>ip_line[<span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span><span style=color:#e6db74>&#34;.&#34;</span><span style=color:#f92672>+</span>ip_line[<span style=color:#ae81ff>2</span>]<span style=color:#f92672>+</span><span style=color:#e6db74>&#34;.&#34;</span><span style=color:#f92672>+</span>ip_line[<span style=color:#ae81ff>3</span>]<span style=color:#f92672>+</span><span style=color:#e6db74>&#34;:&#34;</span><span style=color:#f92672>+</span>ip_line[<span style=color:#ae81ff>4</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    proxy_temp <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;http&#34;</span>:proxy_host}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    proxys<span style=color:#f92672>.</span>append(proxy_temp)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;http://ip.chinaz.com/getip.aspx&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> proxy <span style=color:#f92672>in</span> proxys:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        res <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>get(url,proxies<span style=color:#f92672>=</span>proxy,timeout<span style=color:#f92672>=</span><span style=color:#ae81ff>30</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        res<span style=color:#f92672>.</span>encoding <span style=color:#f92672>=</span> res<span style=color:#f92672>.</span>apparent_encoding
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        res <span style=color:#f92672>=</span> res<span style=color:#f92672>.</span>text
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        print(proxy)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        print(res<span style=color:#f92672>+</span><span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;&#39;&#39;#hava a bug
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        for values in proxy.values():
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        print(values)
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        f2.write(str(values)+&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;)
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        &#39;&#39;&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>except</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        print(proxy)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;times out</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>f<span style=color:#f92672>.</span>close()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#f2.close()</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sys<span style=color:#f92672>.</span>exit()
+</span></span></code></pre></div></div><div class="modal fade" id=rewardModal tabindex=-1 aria-labelledby=rewardModalLabel aria-hidden=true><div class=modal-dialog><div class="modal-content surface"><div class=modal-header><h5 class=modal-title id=rewardModalLabel><i class="fas fa-fw fa-coffee"></i>Buy me a coffee</h5><a href=# data-bs-dismiss=modal class="btn btn-sm btn-outline-primary" aria-label=Close><i class="fas fa-times"></i></a></div><div class=modal-body><ul class="nav nav-tabs mb-3" role=tablist><li class="nav-item text-nowrap" role=presentation><a class="nav-link active" id=reward-alipay-tab data-bs-toggle=tab href=#reward-alipay role=tab aria-controls=reward-alipay aria-selected=true><i class="fab fa-fw fa-alipay"></i>Alipay</a></li><li class="nav-item text-nowrap" role=presentation><a class=nav-link id=reward-wechat-tab data-bs-toggle=tab href=#reward-wechat role=tab aria-controls=reward-wechat aria-selected=true><i class="fab fa-fw fa-weixin"></i>WeChat</a></li></ul><div class=tab-content id=rewardTabContent><div class="tab-pane fade post-reward-content show active" id=reward-alipay role=tabpanel aria-labelledby=reward-alipay-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_alipay.jpg loading=lazy></div><div class="tab-pane fade post-reward-content show" id=reward-wechat role=tabpanel aria-labelledby=reward-wechat-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_wechatpay.jpg loading=lazy></div></div></div></div></div></div><hr><div class=post-copyright id=post-copyright><a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc/4.0/deed.en><span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i></span>
+CC BY-NC 4.0</a></div><hr><div class="post-navs d-flex mb-3 justify-content-evenly"><div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/>爬虫学习3-网页解析器</a></div><div class="post-nav post-next"><a href=/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/>爬虫学习1-概念及urllib2</a>
+<i class="fas fa-fw fa-chevron-right"></i></div></div></div></article><section class="related-posts row card component"><div class=card-header><h2 class=card-title>Related Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/>爬虫学习1-概念及urllib2</a>
+<span class="float-end post-date">2018-10-22</span></li><li><a href=/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/>爬虫学习3-网页解析器</a>
+<span class="float-end post-date">2018-10-22</span></li><li><a href=/posts/message_queue/rabbitmq_%E5%85%A5%E9%97%A8/>RabbitMQ-入门</a>
+<span class="float-end post-date">2018-10-22</span></li><li><a href=/posts/python/pyquerystudy/>爬虫学习4</a>
+<span class="float-end post-date">2018-10-22</span></li></ul></div></section><div class="card component row post-comments" id=post-comments><div class=card-header><h2 class=card-title>Comments</h2></div><div class=card-body><script src=https://utteranc.es/client.js repo=Euraxluo/Euraxluo.github.io issue-term=pathname label=✨💬✨ theme=github-dark crossorigin=anonymous async></script></div></div></div></div><aside class="col-lg-4 sidebar d-flex"><div class=container><section class="card row text-center profile component"><div class=card-body><div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt=Euraxluo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy></div><div class="col-12 profile-meta"><div class=profile-name>Euraxluo</div><div class=profile-bio>R&amp;D Engineer.</div><div class=profile-company><i class="fas fa-fw fa-building"></i>headingdata.com</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/about/>About</a></div></div></div></section><section class="featured-posts row card component"><div class=card-header><h2 class=card-title>Featured Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/>java面试笔记</a></li><li><a href=/posts/python/python-socket/>python socket编程</a></li><li><a href=/posts/note/rust%E5%AD%A6%E4%B9%A0/>rust学习</a></li><li><a href=/posts/note/scala%E5%85%A5%E9%97%A8/>Scala入门</a></li><li><a href=/posts/note/slam/>SLAM</a></li></ul></div></section><section class="recent-posts row card component"><div class=card-header><h2 class=card-title>Recent Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/>caddy简单使用</a></li><li><a href=/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/>安装K8S集群</a></li><li><a href=/posts/redis/redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/>Redis 实现分布式锁</a></li><li><a href=/posts/note/etcd%E5%85%A5%E9%97%A8/>etcd 基本使用</a></li><li><a href=/posts/note/gorm/>GORM学习</a></li></ul></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/categories>Categories</a></h2></div><div class=card-body><div class=py-2><a href=/categories/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/categories/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/categories/java/ class="badge rounded post-taxonomy" title=java>java
+</a><a href=/categories/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/categories/architecture-design/ class="badge rounded post-taxonomy" title="architecture design">architecture design</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/series>Series</a></h2></div><div class=card-body><div class=py-2><a href=/series/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/series/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/series/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/series/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/series/jdbc/ class="badge rounded post-taxonomy" title=JDBC>JDBC</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/tags>Tags</a></h2></div><div class=card-body><div class=py-2><a href=/tags/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/tags/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/tags/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/tags/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/tags/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/tags/architecture/ class="badge rounded post-taxonomy" title=architecture>architecture</a></div></div></section></div></aside></div></main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><a class="nav-link social-link" href=mailto:Euraxluo@outlook.com title=Email><i class="fas fa-fw fa-2x fa-envelope"></i>
+</a><a class="nav-link social-link" target=_blank href=https://github.com/Euraxluo title=GitHub rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-github"></i>
+</a><a class="nav-link social-link" target=_blank href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title=QQ rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-qq"></i>
+</a><a class="nav-link social-link" target=_blank href=https://www.zhihu.com/people/euraxluo title=Zhihu rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-zhihu"></i></a></nav><div class="copyright mb-2">Copyright © 2016-2023 Euraxluo. All Rights Reserved.</div></footer><script src=/js/main.min.353ac7952bbb8bdb7925c48cfcafede449a2253dd2610b49feb566a306011232.js integrity="sha256-NTrHlSu7i9t5JcSM/K/t5EmiJT3SYQtJ/rVmowYBEjI=" crossorigin=anonymous defer></script><script src=/js/icons.min.fb1b77be9bd37807602ec542d150423ad89114834c2e76ca7c004309310d64b0.js integrity="sha256-+xt3vpvTeAdgLsVC0VBCOtiRFINMLnbKfABDCTENZLA=" crossorigin=anonymous defer></script>
+<script src=/js/viewer.min.4f0b78319199ad080a1331f64e868866ccf303199b8144d80003d6ba8a4e5feb.js integrity="sha256-Twt4MZGZrQgKEzH2ToaIZszzAxmbgUTYAAPWuopOX+s=" crossorigin=anonymous defer></script><script defer src=/js/katex.min.3e41bd190b6187a4854d279cbde0b8d47fd0b6aae6341bdee804717abe8f6d51.js integrity="sha256-PkG9GQthh6SFTSecveC41H/QtqrmNBve6ARxer6PbVE=" crossorigin=anonymous></script></body></html>

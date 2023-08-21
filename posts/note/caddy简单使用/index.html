@@ -1,0 +1,247 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>caddy简单使用 - Euraxluo Blog</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180><link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png><link rel=icon href=/images/icons/favicon.ico><link rel=manifest href=/manifest.json><meta name=keywords content><meta name=description content="caddy简单使用"><meta itemprop=name content="caddy简单使用"><meta itemprop=description content="caddy简单使用"><meta itemprop=datePublished content="2023-08-21T00:00:00+00:00"><meta itemprop=dateModified content="2023-08-21T00:00:00+00:00"><meta itemprop=wordCount content="972"><meta itemprop=keywords content="notes,"><meta property="og:title" content="caddy简单使用"><meta property="og:description" content="caddy简单使用"><meta property="og:type" content="article"><meta property="og:url" content="/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-08-21T00:00:00+00:00"><meta property="article:modified_time" content="2023-08-21T00:00:00+00:00"><meta property="og:see_also" content="/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/"><meta property="og:see_also" content="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><meta property="og:see_also" content="/posts/note/%E5%AE%89%E8%A3%85flower/"><meta property="og:see_also" content="/posts/note/c++%E5%B0%8F%E8%AE%B0/"><meta property="og:see_also" content="/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/"><meta name=twitter:card content="summary"><meta name=twitter:title content="caddy简单使用"><meta name=twitter:description content="caddy简单使用"><link rel=stylesheet href=/css/main.min.29f9b537bf546fdc11e6e11f92ddd52ea0bd1eefa2228b828bc3b750c66763b0.css integrity="sha256-Kfm1N79Ub9wR5uEfkt3VLqC9Hu+iIouCi8O3UMZnY7A=" crossorigin=anonymous><link rel=stylesheet href=/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head><body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top"><div class=container-fluid><button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/><img class=logo alt=Logo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy>
+Euraxluo</a>
+<button class=navbar-social-share type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<i class="fas fa-share-alt"></i></button><div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare><div class=offcanvas-header><h3 class=offcanvas-title>Share</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=caddy%e7%ae%80%e5%8d%95%e4%bd%bf%e7%94%a8&url=%2fposts%2fnote%2fcaddy%25E7%25AE%2580%25E5%258D%2595%25E4%25BD%25BF%25E7%2594%25A8%2f"><i class="fab fa-fw fa-twitter"></i> Twitter</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fposts%2fnote%2fcaddy%25E7%25AE%2580%25E5%258D%2595%25E4%25BD%25BF%25E7%2594%25A8%2f"><i class="fab fa-fw fa-facebook-f"></i> Facebook</a></div></div><button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i></button><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings><div class=offcanvas-header><h3 class=offcanvas-title>Settings</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class="offcanvas-body d-flex flex-column"><section class=setting><form class=row><div class=col-auto><label><i class="fas fa-fw fa-adjust"></i> Mode</label></div><div class="col-auto ms-auto"><div class="form-check form-switch"><input class=form-check-input type=checkbox id=modeSwitcher></div></div></form></section><section class=setting><form class="font-size-switcher-form row"><div class=col-auto><label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Font Size</label></div><div class="col-auto ms-auto"><input type=range class=form-range min=-2 max=2 id=fontSize></div></form></section><section class="setting palettes"><form class=row><div class=col-auto><label><i class="fas fa-fw fa-palette"></i> Palette</label></div><div class="col-auto ms-auto"><a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker><i class="fas fa-eye-dropper"></i></a></div></form><div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Blue class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gray" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Brown class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Green class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Pink class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Purple class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Red class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label=Teal class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Yellow class="btn btn-sm palette" data-palette=yellow></button></div></section><section class="setting actions d-flex justify-content-center mt-auto"><a role=button class="action action-reload-page"><span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload</a>
+<a role=button class="action action-copy-url"><span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copy URL</a></section></div></div><div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent><form class="search-bar my-1" action=/search><div class="input-group input-group-sm"><span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search></div></form><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/archives/><i class="fas fa-fw fa-file-archive"></i>timeline</a></li><li class=nav-item><a class=nav-link href=/categories/><i class="fas fa-fw fa-folder"></i>category</a></li><li class=nav-item><a class=nav-link href=/tags/><i class="fas fa-fw fa-tags"></i>tags</a></li><li class=nav-item><a class=nav-link href=/series/><i class="fas fa-fw fa-columns"></i>series</a></li><li class="nav-item dropdown"><a class=nav-link id=navbarDropdownRepos role=button data-bs-toggle=dropdown aria-expanded=false><i class="fab fa-fw fa-github"></i>Repos</a><ul class=dropdown-menu aria-labelledby=navbarDropdownRepos><li><a class=dropdown-item href=https://github.com/BreezeTeam/cache target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>cache</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/distance_matrix target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>distance_matrix</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>Euraxluo</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/IMOMD-RRTStar-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>IMOMD-RRTStar-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/lang target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>lang</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/LKH-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>LKH-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/scheduler target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>scheduler</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/simplegrad target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>simplegrad</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/verb target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>verb</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/web target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>web</a></li></ul></li></ul></div></div></nav></header><main role=main class=container-fluid><div class="row content"><div class=col-lg-8><div class=container><article class="row card component mb-4 post"><div class=post-panel-wrapper><div class="d-flex flex-column component rounded post-panel"><a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler"><i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i></a>
+<a class="action btn-reward" role=button data-bs-toggle=modal data-bs-target=#rewardModal title="Buy me a coffee"><i class="fas fa-fw fa-coffee"></i></a>
+<a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright><i class="fas fa-fw fa-copyright"></i></a>
+<a class=action href=#post-comments role=button aria-label=Comments title=Comments><i class="fas fa-fw fa-comments"></i></a>
+<a class=action data-bs-toggle=offcanvas href=#offcanvasTOC aria-controls=offcanvasTOC role=button title="Table of contents"><i class="fas fa-fw fa-list-alt"></i></a></div></div><div class=card-header><h1 class="card-title post-title">caddy简单使用</h1></div><div class=card-body><div class=post-meta><span class=post-date title="created on 2023-08-21 08:00:00 +0800 CST.">2023-08-21
+</span><span class=post-reading-time>5 min read
+</span><span class=post-taxonomies><a href=/categories/notes/ class="badge rounded-pill post-taxonomy">notes</a><a href=/series/notes/ class="badge rounded-pill post-taxonomy">notes</a><a href=/tags/notes/ class="badge rounded-pill post-taxonomy">notes</a></span></div><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasTOC aria-labelledby=offcanvasTOCLabel><div class=offcanvas-header><h2 class=offcanvas-title id=offcanvasTOCLabel>Table Of Contents</h5><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><nav id=TableOfContents><ul><li><a href=#1-caddy-简介>1. caddy 简介</a></li><li><a href=#2-caddy-vs-nginx>2. caddy VS. nginx</a></li><li><a href=#3-caddy-简单使用>3. caddy 简单使用</a><ul><li><a href=#1-安装>1. 安装</a></li></ul></li><li><a href=#4-run-the-daemon>4. Run the daemon</a></li><li><a href=#5-创建一个配置>5. 创建一个配置</a></li><li><a href=#6-使用caddy-file>6. 使用caddy file</a></li></ul></nav></div></div><div class="post-content mb-3"><ul><li><a href=#1-caddy-%e7%ae%80%e4%bb%8b>1. caddy 简介</a></li><li><a href=#2-caddy-vs-nginx>2. caddy VS. nginx</a></li><li><a href=#3-caddy-%e7%ae%80%e5%8d%95%e4%bd%bf%e7%94%a8>3. caddy 简单使用</a><ul><li><a href=#1-%e5%ae%89%e8%a3%85>1. 安装</a></li></ul></li><li><a href=#4-run-the-daemon>4. Run the daemon</a></li><li><a href=#5-%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e9%85%8d%e7%bd%ae>5. 创建一个配置</a></li><li><a href=#6-%e4%bd%bf%e7%94%a8caddy-file>6. 使用caddy file</a></li></ul><h2 id=1-caddy-简介>1. caddy 简介<a class="anchor ms-1" href=#1-caddy-简介><i class="fas fa-link"></i></a></h2><p>官方文档：https://caddyserver.com/docs/</p><p>我认为caddy 就是类似于nginx 的角色，并且其没有依赖，丰富的平台支持性，简洁的使用方式，完全可以用于在某些场景替换nginx</p><p>nginx VS. caddy：https://cloudinfrastructureservices.co.uk/caddy-vs-nginx-which-web-server-is-better/</p><h2 id=2-caddy-vs-nginx>2. caddy VS. nginx<a class="anchor ms-1" href=#2-caddy-vs-nginx><i class="fas fa-link"></i></a></h2><p>GPT:
+比较Caddy和Nginx的方面：</p><p>配置简单性： Caddy以其简洁的配置语法而闻名，通过Caddyfile配置文件，用户可以轻松地完成各种任务，包括自动配置HTTPS、反向代理、静态文件服务等。相比之下，Nginx的配置文件语法可能相对复杂一些。</p><p>自动HTTPS： Caddy内置了自动获取和管理SSL证书的功能，可以在几乎不需要额外配置的情况下实现自动化的HTTPS支持。而Nginx需要手动设置和配置SSL证书。</p><p>插件生态系统： Caddy具有丰富的插件生态系统，可以通过插件扩展功能。Nginx也有很多模块和插件，但配置和管理可能需要更多的技术知识。</p><p>性能： 在性能方面，Nginx通常被认为是高性能的Web服务器，适用于处理大量的并发连接。Caddy也具备良好的性能，但在处理大规模负载时，Nginx可能会稍微更有优势。</p><p>学习曲线： 由于Caddy的简单配置和自动化特性，对于初学者来说，上手和学习可能会更容易。而Nginx的配置可能需要一些时间来理解和掌握。</p><p>需要注意的是，选择Caddy还是Nginx取决于你的需求和经验水平。如果你需要更高级的配置选项、对性能要求很高，或者已经熟悉Nginx，那么Nginx可能更适合你。如果你想要一个简单、自动化的解决方案，并且不需要太多复杂的配置，Caddy可能是一个更好的选择。</p><h2 id=3-caddy-简单使用>3. caddy 简单使用<a class="anchor ms-1" href=#3-caddy-简单使用><i class="fas fa-link"></i></a></h2><h3 id=1-安装>1. 安装<a class="anchor ms-1" href=#1-安装><i class="fas fa-link"></i></a></h3><p>caddy 支持很多平台，文档：https://caddyserver.com/docs/install</p><p><strong>Official</strong>:</p><p>Static binaries
+Debian, Ubuntu, Raspbian packages
+Fedora, RedHat, CentOS packages
+Arch Linux, Manjaro, Parabola packages
+Docker image
+Our official packages come only with the standard modules. If you need third-party plugins, build from source with xcaddy or use our download page.</p><p><strong>Community-maintained</strong>:</p><p>Homebrew (Mac)
+Chocolatey (Windows)
+Scoop (Windows)
+Webi
+Ansible
+Termux
+Nix/Nixpkgs/NixOS</p><p>我这里使用scoop 在windows 平添安装caddy</p><p><code>scoop install caddy</code></p><pre tabindex=0><code>Scoop was updated successfully!
+Installing &#39;caddy&#39; (2.7.4) [64bit] from main bucket
+caddy_2.7.4_windows_amd64.zip (14.1 MB) [===========================================================] 100%    
+Checking hash of caddy_2.7.4_windows_amd64.zip ... ok.
+Extracting caddy_2.7.4_windows_amd64.zip ... done.
+Linking D:\scoop\apps\caddy\current =&gt; D:\scoop\apps\caddy\2.7.4
+Creating shim for &#39;caddy&#39;.
+&#39;caddy&#39; (2.7.4) was installed successfully!
+</code></pre><p>caddy 的子命令相当多：</p><pre tabindex=0><code>(base) PS D:\Projects\windmill\frontend&gt; caddy
+Caddy is an extensible server platform written in Go.
+
+At its core, Caddy merely manages configuration. Modules are plugged      
+in statically at compile-time to provide useful functionality. Caddy&#39;s    
+standard distribution includes common modules to serve HTTP, TLS,
+and PKI applications, including the automation of certificates.
+
+To run Caddy, use:
+
+        - &#39;caddy run&#39; to run Caddy in the foreground (recommended).       
+        - &#39;caddy start&#39; to start Caddy in the background; only do this    
+          if you will be keeping the terminal window open until you run   
+          &#39;caddy stop&#39; to close the server.
+
+When Caddy is started, it opens a locally-bound administrative socket     
+to which configuration can be POSTed via a restful HTTP API (see
+https://caddyserver.com/docs/api).
+
+Caddy&#39;s native configuration format is JSON. However, config adapters     
+can be used to convert other config formats to JSON when Caddy receives   
+its configuration. The Caddyfile is a built-in config adapter that is     
+popular for hand-written configurations due to its straightforward        
+syntax (see https://caddyserver.com/docs/caddyfile). Many third-party     
+adapters are available (see https://caddyserver.com/docs/config-adapters).
+Use &#39;caddy adapt&#39; to see how a config translates to JSON.
+
+For convenience, the CLI can act as an HTTP client to give Caddy its      
+initial configuration for you. If a file named Caddyfile is in the        
+current working directory, it will do this automatically. Otherwise,      
+you can use the --config flag to specify the path to a config file.       
+
+Some special-purpose subcommands build and load a configuration file
+for you directly from command line input; for example:
+
+        - caddy file-server
+        - caddy reverse-proxy
+        - caddy respond
+
+These commands disable the administration endpoint because their
+configuration is specified solely on the command line.
+
+In general, the most common way to run Caddy is simply:
+
+        $ caddy run
+
+Or, with a configuration file:
+
+        $ caddy run --config caddy.json
+
+If running interactively in a terminal, running Caddy in the
+background may be more convenient:
+
+        $ caddy start
+        ...
+        $ caddy stop
+
+This allows you to run other commands while Caddy stays running.
+Be sure to stop Caddy before you close the terminal!
+
+Depending on the system, Caddy may need permission to bind to low
+ports. One way to do this on Linux is to use setcap:
+
+        $ sudo setcap cap_net_bind_service=+ep $(which caddy)
+
+Remember to run that command again after replacing the binary.
+
+See the Caddy website for tutorials, configuration structure,
+syntax, and module documentation: https://caddyserver.com/docs/
+
+Custom Caddy builds are available on the Caddy download page at:
+https://caddyserver.com/download
+
+The xcaddy command can be used to build Caddy from source with or
+without additional plugins: https://github.com/caddyserver/xcaddy
+
+Where possible, Caddy should be installed using officially-supported
+package installers: https://caddyserver.com/docs/install
+
+Instructions for running Caddy in production are also available:
+https://caddyserver.com/docs/running
+
+Usage:
+  caddy [command]
+
+Examples:
+  $ caddy run
+  $ caddy run --config caddy.json
+  $ caddy reload --config caddy.json
+  $ caddy stop
+
+Available Commands:
+  adapt          Adapts a configuration to Caddy&#39;s native JSON
+  add-package    Adds Caddy packages (EXPERIMENTAL)
+  build-info     Prints information about this build
+  completion     Generate completion script
+  environ        Prints the environment
+  file-server    Spins up a production-ready file server
+  fmt            Formats a Caddyfile
+  hash-password  Hashes a password and writes base64
+  help           Help about any command
+  list-modules   Lists the installed Caddy modules
+  manpage        Generates the manual pages for Caddy commands
+  reload         Changes the config of the running Caddy instance
+  remove-package Removes Caddy packages (EXPERIMENTAL)
+  respond        Simple, hard-coded HTTP responses for development and testing
+  reverse-proxy  A quick and production-ready reverse proxy
+  run            Starts the Caddy process and blocks indefinitely
+  start          Starts the Caddy process in the background and then returns
+  stop           Gracefully stops a started Caddy process
+  storage        Commands for working with Caddy&#39;s storage (EXPERIMENTAL)
+  trust          Installs a CA certificate into local trust stores
+  untrust        Untrusts a locally-trusted CA certificate
+  upgrade        Upgrade Caddy (EXPERIMENTAL)
+  validate       Tests whether a configuration file is valid
+  version        Prints the version
+
+Flags:
+  -h, --help   help for caddy
+
+Use &#34;caddy [command] --help&#34; for more information about a command.
+
+Full documentation is available at:
+https://caddyserver.com/docs/command-line
+</code></pre><h2 id=4-run-the-daemon>4. Run the daemon<a class="anchor ms-1" href=#4-run-the-daemon><i class="fas fa-link"></i></a></h2><p><code>caddy run</code> to run a daemon</p><pre tabindex=0><code>(base) PS D:\Projects\windmill\frontend&gt; caddy run
+2023/08/21 06:10:38.907 INFO    admin   admin endpoint started  {&#34;address&#34;: &#34;localhost:2019&#34;, &#34;enforce_origin&#34;: false, &#34;origins&#34;: [&#34;//localhost:2019&#34;, &#34;//[::1]:2019&#34;, &#34;//127.0.0.1:2019&#34;]}
+2023/08/21 06:10:38.907 INFO    serving initial configuration
+</code></pre><h2 id=5-创建一个配置>5. 创建一个配置<a class="anchor ms-1" href=#5-创建一个配置><i class="fas fa-link"></i></a></h2><p>caddy_conig.demo.json</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	<span style=color:#f92672>&#34;apps&#34;</span>: {
+</span></span><span style=display:flex><span>		<span style=color:#f92672>&#34;http&#34;</span>: {
+</span></span><span style=display:flex><span>			<span style=color:#f92672>&#34;servers&#34;</span>: {
+</span></span><span style=display:flex><span>				<span style=color:#f92672>&#34;example&#34;</span>: {
+</span></span><span style=display:flex><span>					<span style=color:#f92672>&#34;listen&#34;</span>: [<span style=color:#e6db74>&#34;:2015&#34;</span>],
+</span></span><span style=display:flex><span>					<span style=color:#f92672>&#34;routes&#34;</span>: [
+</span></span><span style=display:flex><span>						{
+</span></span><span style=display:flex><span>							<span style=color:#f92672>&#34;handle&#34;</span>: [{
+</span></span><span style=display:flex><span>								<span style=color:#f92672>&#34;handler&#34;</span>: <span style=color:#e6db74>&#34;static_response&#34;</span>,
+</span></span><span style=display:flex><span>								<span style=color:#f92672>&#34;body&#34;</span>: <span style=color:#e6db74>&#34;Hello, world!&#34;</span>
+</span></span><span style=display:flex><span>							}]
+</span></span><span style=display:flex><span>						}
+</span></span><span style=display:flex><span>					]
+</span></span><span style=display:flex><span>				}
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>加载配置：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ curl localhost:2019/load <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>&gt; -H <span style=color:#e6db74>&#34;Content-Type: application/json&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>&gt; -d @caddy_config.demo.json
+</span></span></code></pre></div><p>这时在http://localhost:2019/config/中就可以看到我们的配置了</p><p>根据配置文件，我们curl :2015</p><pre tabindex=0><code>curl localhost:2015
+Hello, world!
+</code></pre><p>该文档详细介绍了使用json作为服务配置以及使用/load端点来加载配置文件：https://caddyserver.com/docs/quick-starts/api</p><h2 id=6-使用caddy-file>6. 使用caddy file<a class="anchor ms-1" href=#6-使用caddy-file><i class="fas fa-link"></i></a></h2><p>上述为了显示一个hello world ，工作量非常大</p><p>我们使用CaddyFile:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Caddyfile data-lang=Caddyfile><span style=display:flex><span>:2016
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>respond</span> <span style=color:#e6db74>&#34;Hello,</span> <span style=color:#e6db74>world!</span> <span style=color:#e6db74>with</span> <span style=color:#e6db74>Caddyfile&#34;</span>
+</span></span></code></pre></div><p>然后使用caddy 重新加载该文件：
+<code>caddy adapt --config /path/to/Caddyfile</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ caddy adapt --config Caddyfile
+</span></span><span style=display:flex><span><span style=color:#f92672>{</span><span style=color:#e6db74>&#34;apps&#34;</span>:<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;http&#34;</span>:<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;servers&#34;</span>:<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;srv0&#34;</span>:<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;listen&#34;</span>:<span style=color:#f92672>[</span><span style=color:#e6db74>&#34;:2016&#34;</span><span style=color:#f92672>]</span>,<span style=color:#e6db74>&#34;routes&#34;</span>:<span style=color:#f92672>[{</span><span style=color:#e6db74>&#34;handle&#34;</span>:<span style=color:#f92672>[{</span><span style=color:#e6db74>&#34;body&#34;</span>:<span style=color:#e6db74>&#34;Hello, world! with Caddyfile&#34;</span>,<span style=color:#e6db74>&#34;handler&#34;</span>:<span style=color:#e6db74>&#34;static_response&#34;</span><span style=color:#f92672>}]}]}}}}}</span>
+</span></span><span style=display:flex><span>2023/08/21 06:29:21.751 WARN    caddyfile       Caddyfile input is not formatted; run <span style=color:#e6db74>&#39;caddy fmt --overwrite&#39;</span> 
+</span></span><span style=display:flex><span>to fix inconsistencies  <span style=color:#f92672>{</span><span style=color:#e6db74>&#34;file&#34;</span>: <span style=color:#e6db74>&#34;Caddyfile&#34;</span>, <span style=color:#e6db74>&#34;line&#34;</span>: 3<span style=color:#f92672>}</span>
+</span></span></code></pre></div><p>这里是使用了caddy 的适配器：配置适配器，将我们的 Caddyfile 转换为 Caddy 的原生 JSON 结构。</p><p><del>我们只需要重启一下：caddy stop && caddy run</del>
+使用reload重载配置
+<code>caddy reload</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ curl localhost:2016
+</span></span><span style=display:flex><span>Hello, world! with Caddyfile
+</span></span></code></pre></div><p>如果我们有多个端点，可以使用大括号包裹</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Caddyfile data-lang=Caddyfile><span style=display:flex><span>localhost {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>respond</span> <span style=color:#e6db74>&#34;Hello,</span> <span style=color:#e6db74>world!&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>localhost:2016 {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>respond</span> <span style=color:#e6db74>&#34;Goodbye,</span> <span style=color:#e6db74>world!&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>该文档介绍了Caddyfile的常用示例和模式：https://caddyserver.com/docs/caddyfile/patterns</p></div><div class="modal fade" id=rewardModal tabindex=-1 aria-labelledby=rewardModalLabel aria-hidden=true><div class=modal-dialog><div class="modal-content surface"><div class=modal-header><h5 class=modal-title id=rewardModalLabel><i class="fas fa-fw fa-coffee"></i>Buy me a coffee</h5><a href=# data-bs-dismiss=modal class="btn btn-sm btn-outline-primary" aria-label=Close><i class="fas fa-times"></i></a></div><div class=modal-body><ul class="nav nav-tabs mb-3" role=tablist><li class="nav-item text-nowrap" role=presentation><a class="nav-link active" id=reward-alipay-tab data-bs-toggle=tab href=#reward-alipay role=tab aria-controls=reward-alipay aria-selected=true><i class="fab fa-fw fa-alipay"></i>Alipay</a></li><li class="nav-item text-nowrap" role=presentation><a class=nav-link id=reward-wechat-tab data-bs-toggle=tab href=#reward-wechat role=tab aria-controls=reward-wechat aria-selected=true><i class="fab fa-fw fa-weixin"></i>WeChat</a></li></ul><div class=tab-content id=rewardTabContent><div class="tab-pane fade post-reward-content show active" id=reward-alipay role=tabpanel aria-labelledby=reward-alipay-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_alipay.jpg loading=lazy></div><div class="tab-pane fade post-reward-content show" id=reward-wechat role=tabpanel aria-labelledby=reward-wechat-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_wechatpay.jpg loading=lazy></div></div></div></div></div></div><hr><div class=post-copyright id=post-copyright><a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc/4.0/deed.en><span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i></span>
+CC BY-NC 4.0</a></div><hr><div class="post-navs d-flex mb-3 justify-content-evenly"><div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/>安装K8S集群</a></div></div></div></article><section class="related-posts row card component"><div class=card-header><h2 class=card-title>Related Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/>安装K8S集群</a>
+<span class="float-end post-date">2023-08-01</span></li><li><a href=/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/>数据分析</a>
+<span class="float-end post-date">2022-01-04</span></li><li><a href=/posts/note/%E5%AE%89%E8%A3%85flower/>安装flower</a>
+<span class="float-end post-date">2021-02-21</span></li><li><a href=/posts/note/c++%E5%B0%8F%E8%AE%B0/>C++ 小记</a>
+<span class="float-end post-date">2019-02-21</span></li><li><a href=/posts/note/slam/>SLAM</a>
+<span class="float-end post-date">2019-02-21</span></li><li><a href=/posts/note/scala%E5%85%A5%E9%97%A8/>Scala入门</a>
+<span class="float-end post-date">2019-02-21</span></li></ul></div></section><div class="card component row post-comments" id=post-comments><div class=card-header><h2 class=card-title>Comments</h2></div><div class=card-body><script src=https://utteranc.es/client.js repo=Euraxluo/Euraxluo.github.io issue-term=pathname label=✨💬✨ theme=github-dark crossorigin=anonymous async></script></div></div></div></div><aside class="col-lg-4 sidebar d-flex"><div class=container><section class="card row text-center profile component"><div class=card-body><div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt=Euraxluo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy></div><div class="col-12 profile-meta"><div class=profile-name>Euraxluo</div><div class=profile-bio>R&amp;D Engineer.</div><div class=profile-company><i class="fas fa-fw fa-building"></i>headingdata.com</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/about/>About</a></div></div></div></section><section class="featured-posts row card component"><div class=card-header><h2 class=card-title>Featured Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/>java面试笔记</a></li><li><a href=/posts/python/python-socket/>python socket编程</a></li><li><a href=/posts/note/rust%E5%AD%A6%E4%B9%A0/>rust学习</a></li><li><a href=/posts/note/scala%E5%85%A5%E9%97%A8/>Scala入门</a></li><li><a href=/posts/note/slam/>SLAM</a></li></ul></div></section><section class="recent-posts row card component"><div class=card-header><h2 class=card-title>Recent Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/>caddy简单使用</a></li><li><a href=/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/>安装K8S集群</a></li><li><a href=/posts/redis/redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/>Redis 实现分布式锁</a></li><li><a href=/posts/note/etcd%E5%85%A5%E9%97%A8/>etcd 基本使用</a></li><li><a href=/posts/note/gorm/>GORM学习</a></li></ul></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/categories>Categories</a></h2></div><div class=card-body><div class=py-2><a href=/categories/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/categories/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/categories/java/ class="badge rounded post-taxonomy" title=java>java
+</a><a href=/categories/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/categories/architecture-design/ class="badge rounded post-taxonomy" title="architecture design">architecture design</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/series>Series</a></h2></div><div class=card-body><div class=py-2><a href=/series/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/series/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/series/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/series/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/series/jdbc/ class="badge rounded post-taxonomy" title=JDBC>JDBC</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/tags>Tags</a></h2></div><div class=card-body><div class=py-2><a href=/tags/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/tags/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/tags/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/tags/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/tags/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/tags/architecture/ class="badge rounded post-taxonomy" title=architecture>architecture</a></div></div></section></div></aside></div></main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><a class="nav-link social-link" href=mailto:Euraxluo@outlook.com title=Email><i class="fas fa-fw fa-2x fa-envelope"></i>
+</a><a class="nav-link social-link" target=_blank href=https://github.com/Euraxluo title=GitHub rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-github"></i>
+</a><a class="nav-link social-link" target=_blank href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title=QQ rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-qq"></i>
+</a><a class="nav-link social-link" target=_blank href=https://www.zhihu.com/people/euraxluo title=Zhihu rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-zhihu"></i></a></nav><div class="copyright mb-2">Copyright © 2016-2023 Euraxluo. All Rights Reserved.</div></footer><script src=/js/main.min.353ac7952bbb8bdb7925c48cfcafede449a2253dd2610b49feb566a306011232.js integrity="sha256-NTrHlSu7i9t5JcSM/K/t5EmiJT3SYQtJ/rVmowYBEjI=" crossorigin=anonymous defer></script><script src=/js/icons.min.fb1b77be9bd37807602ec542d150423ad89114834c2e76ca7c004309310d64b0.js integrity="sha256-+xt3vpvTeAdgLsVC0VBCOtiRFINMLnbKfABDCTENZLA=" crossorigin=anonymous defer></script>
+<script src=/js/viewer.min.4f0b78319199ad080a1331f64e868866ccf303199b8144d80003d6ba8a4e5feb.js integrity="sha256-Twt4MZGZrQgKEzH2ToaIZszzAxmbgUTYAAPWuopOX+s=" crossorigin=anonymous defer></script><script defer src=/js/katex.min.3e41bd190b6187a4854d279cbde0b8d47fd0b6aae6341bdee804717abe8f6d51.js integrity="sha256-PkG9GQthh6SFTSecveC41H/QtqrmNBve6ARxer6PbVE=" crossorigin=anonymous></script></body></html>

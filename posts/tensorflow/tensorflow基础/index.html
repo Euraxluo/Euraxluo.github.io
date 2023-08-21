@@ -1,0 +1,351 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>TensorFlow 基础 - Euraxluo Blog</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180><link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png><link rel=icon href=/images/icons/favicon.ico><link rel=manifest href=/manifest.json><meta name=keywords content><meta name=description content="TensorFlow 基础"><meta itemprop=name content="TensorFlow 基础"><meta itemprop=description content="TensorFlow 基础"><meta itemprop=datePublished content="2019-02-22T00:00:00+00:00"><meta itemprop=dateModified content="2019-02-22T00:00:00+00:00"><meta itemprop=wordCount content="462"><meta itemprop=keywords content="TensorFlow,"><meta property="og:title" content="TensorFlow 基础"><meta property="og:description" content="TensorFlow 基础"><meta property="og:type" content="article"><meta property="og:url" content="/posts/tensorflow/tensorflow%E5%9F%BA%E7%A1%80/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2019-02-22T00:00:00+00:00"><meta property="article:modified_time" content="2019-02-22T00:00:00+00:00"><meta property="og:see_also" content="/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"><meta name=twitter:card content="summary"><meta name=twitter:title content="TensorFlow 基础"><meta name=twitter:description content="TensorFlow 基础"><link rel=stylesheet href=/css/main.min.29f9b537bf546fdc11e6e11f92ddd52ea0bd1eefa2228b828bc3b750c66763b0.css integrity="sha256-Kfm1N79Ub9wR5uEfkt3VLqC9Hu+iIouCi8O3UMZnY7A=" crossorigin=anonymous><link rel=stylesheet href=/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head><body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top"><div class=container-fluid><button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/><img class=logo alt=Logo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy>
+Euraxluo</a>
+<button class=navbar-social-share type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<i class="fas fa-share-alt"></i></button><div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare><div class=offcanvas-header><h3 class=offcanvas-title>Share</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=TensorFlow%20%e5%9f%ba%e7%a1%80&url=%2fposts%2ftensorflow%2ftensorflow%25E5%259F%25BA%25E7%25A1%2580%2f"><i class="fab fa-fw fa-twitter"></i> Twitter</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fposts%2ftensorflow%2ftensorflow%25E5%259F%25BA%25E7%25A1%2580%2f"><i class="fab fa-fw fa-facebook-f"></i> Facebook</a></div></div><button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i></button><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings><div class=offcanvas-header><h3 class=offcanvas-title>Settings</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class="offcanvas-body d-flex flex-column"><section class=setting><form class=row><div class=col-auto><label><i class="fas fa-fw fa-adjust"></i> Mode</label></div><div class="col-auto ms-auto"><div class="form-check form-switch"><input class=form-check-input type=checkbox id=modeSwitcher></div></div></form></section><section class=setting><form class="font-size-switcher-form row"><div class=col-auto><label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Font Size</label></div><div class="col-auto ms-auto"><input type=range class=form-range min=-2 max=2 id=fontSize></div></form></section><section class="setting palettes"><form class=row><div class=col-auto><label><i class="fas fa-fw fa-palette"></i> Palette</label></div><div class="col-auto ms-auto"><a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker><i class="fas fa-eye-dropper"></i></a></div></form><div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Blue class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gray" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Brown class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Green class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Pink class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Purple class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Red class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label=Teal class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Yellow class="btn btn-sm palette" data-palette=yellow></button></div></section><section class="setting actions d-flex justify-content-center mt-auto"><a role=button class="action action-reload-page"><span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload</a>
+<a role=button class="action action-copy-url"><span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copy URL</a></section></div></div><div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent><form class="search-bar my-1" action=/search><div class="input-group input-group-sm"><span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search></div></form><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/archives/><i class="fas fa-fw fa-file-archive"></i>timeline</a></li><li class=nav-item><a class=nav-link href=/categories/><i class="fas fa-fw fa-folder"></i>category</a></li><li class=nav-item><a class=nav-link href=/tags/><i class="fas fa-fw fa-tags"></i>tags</a></li><li class=nav-item><a class=nav-link href=/series/><i class="fas fa-fw fa-columns"></i>series</a></li><li class="nav-item dropdown"><a class=nav-link id=navbarDropdownRepos role=button data-bs-toggle=dropdown aria-expanded=false><i class="fab fa-fw fa-github"></i>Repos</a><ul class=dropdown-menu aria-labelledby=navbarDropdownRepos><li><a class=dropdown-item href=https://github.com/BreezeTeam/cache target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>cache</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/distance_matrix target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>distance_matrix</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>Euraxluo</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/IMOMD-RRTStar-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>IMOMD-RRTStar-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/lang target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>lang</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/LKH-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>LKH-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/scheduler target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>scheduler</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/simplegrad target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>simplegrad</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/verb target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>verb</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/web target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>web</a></li></ul></li></ul></div></div></nav></header><main role=main class=container-fluid><div class="row content"><div class=col-lg-8><div class=container><article class="row card component mb-4 post"><div class=post-panel-wrapper><div class="d-flex flex-column component rounded post-panel"><a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler"><i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i></a>
+<a class="action btn-reward" role=button data-bs-toggle=modal data-bs-target=#rewardModal title="Buy me a coffee"><i class="fas fa-fw fa-coffee"></i></a>
+<a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright><i class="fas fa-fw fa-copyright"></i></a>
+<a class=action href=#post-comments role=button aria-label=Comments title=Comments><i class="fas fa-fw fa-comments"></i></a>
+<a class=action data-bs-toggle=offcanvas href=#offcanvasTOC aria-controls=offcanvasTOC role=button title="Table of contents"><i class="fas fa-fw fa-list-alt"></i></a></div></div><div class=card-header><h1 class="card-title post-title">TensorFlow 基础</h1></div><div class=card-body><div class=post-meta><span class=post-date title="created on 2019-02-22 08:00:00 +0800 CST.">2019-02-22
+</span><span class=post-reading-time>3 min read
+</span><span class=post-taxonomies><a href=/categories/tensorflow/ class="badge rounded-pill post-taxonomy">TensorFlow</a><a href=/series/tensorflow/ class="badge rounded-pill post-taxonomy">TensorFlow</a><a href=/tags/tensorflow/ class="badge rounded-pill post-taxonomy">TensorFlow</a></span></div><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasTOC aria-labelledby=offcanvasTOCLabel><div class=offcanvas-header><h2 class=offcanvas-title id=offcanvasTOCLabel>Table Of Contents</h5><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><nav id=TableOfContents><ul><li><ul><li><a href=#计算密集型tensorflow>计算密集型(tensorflow)</a></li><li><a href=#io密集型djangoscrapy>io密集型(Django,Scrapy)</a></li></ul></li><li><a href=#线性回归回顾>线性回归回顾</a><ul><li><a href=#变量作用域>变量作用域</a></li><li><a href=#让变量显示可观测>让变量显示可观测</a></li><li><a href=#模型的保存和加载>模型的保存和加载</a></li><li><a href=#定义命令行参数>定义命令行参数</a></li></ul></li><li><a href=#graph图>graph图</a><ul><li><a href=#一个session运行一张图>一个Session运行一张图</a></li><li><a href=#重载>重载</a></li><li><a href=#实时的提供数据进行训练>实时的提供数据进行训练</a></li></ul></li><li><a href=#张量的动态形状和静态形状>张量的动态形状和静态形状</a></li><li><a href=#变量>变量</a></li><li><a href=#tensorboard>Tensorboard</a></li><li><a href=#文件读取>文件读取</a><ul><li><a href=#队列与队列管理器>队列与队列管理器</a></li><li><a href=#异步读取队列管理器>异步读取,队列管理器</a></li><li><a href=#线程协调器实现一个简单的机制来协调一组线程的终止>线程协调器,实现一个简单的机制来协调一组线程的终止</a></li><li><a href=#读取文件的流程>读取文件的流程</a></li></ul></li></ul></nav></div></div><div class="post-content mb-3"><h1 id=tensorflow-基础>TensorFlow 基础<a class="anchor ms-1" href=#tensorflow-基础><i class="fas fa-link"></i></a></h1><h3 id=计算密集型tensorflow>计算密集型(tensorflow)<a class="anchor ms-1" href=#计算密集型tensorflow><i class="fas fa-link"></i></a></h3><p>cpu计算</p><h3 id=io密集型djangoscrapy>io密集型(Django,Scrapy)<a class="anchor ms-1" href=#io密集型djangoscrapy><i class="fas fa-link"></i></a></h3><p>http请求</p><h2 id=线性回归回顾>线性回归回顾<a class="anchor ms-1" href=#线性回归回顾><i class="fas fa-link"></i></a></h2><ol><li>准备好特征和lable</li></ol><p>y = x*0.7+0.8</p><p>2.建模.随机初始化一个权重w,一个偏置b</p><p>y_predict = wx+b</p><ol start=3><li>求损失函数</li></ol><p>less化损失函数</p><p>(y-y_predict)^2/x.shape[0]</p><p>4.梯度下降优化损失函数,我们需要查阅tensorflowAPI,制定合适的eta</p><h3 id=变量作用域>变量作用域<a class="anchor ms-1" href=#变量作用域><i class="fas fa-link"></i></a></h3><p>tf.variable_scope</p><h3 id=让变量显示可观测>让变量显示可观测<a class="anchor ms-1" href=#让变量显示可观测><i class="fas fa-link"></i></a></h3><ol><li>收集变量</li></ol><ul><li><p>tf.summary.scalar(name=&rsquo;&rsquo;,tensor) #收集单值变量,name是变量名,tensor为值</p></li><li><p>tf.summary.histogram(name=&rsquo;&rsquo;,tensor) #收集高纬度的变量参数</p></li><li><p>tf.summary.image(name=&rsquo;&rsquo;,tensor) #收集输入的图片张量能显示图片</p></li></ul><ol start=2><li>合并变量写入事件文件</li></ol><ul><li><p>merged = tf.summary.merge_all()</p></li><li><p>summary = sess.run(merged) #每次迭代都需要运行</p></li><li><p>FileWriter.add_summary(summary,i) #表示第几次的值</p></li></ul><h3 id=模型的保存和加载>模型的保存和加载<a class="anchor ms-1" href=#模型的保存和加载><i class="fas fa-link"></i></a></h3><p>tf.train.Save(var_list = None,max_to_keep = 5)</p><blockquote><p>var_list:指定将要保存和还原的变量.他可以作为一个dict或一个列表传递</p></blockquote><blockquote><p>max_to_keep:指示要保留的最近检查点文件的最大数量.创建新文件时,会删除较旧文件,默认为5,即保留最近的5个检查点文件</p></blockquote><h3 id=定义命令行参数>定义命令行参数<a class="anchor ms-1" href=#定义命令行参数><i class="fas fa-link"></i></a></h3><ul><li><p>先定义有哪些参数需要在运行时指定</p></li><li><p>程序中获取定义命令行参数</p></li><li><p>使用时<code> python *.py --name=参数 [--DEFINE_name=参数]</code></p></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> os
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> tensorflow <span style=color:#66d9ef>as</span> tf
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#定义参数的名字,默认值,说明</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>tf<span style=color:#f92672>.</span>app<span style=color:#f92672>.</span>flags<span style=color:#f92672>.</span>DEFINE_integer(<span style=color:#e6db74>&#34;max_step&#34;</span>,<span style=color:#ae81ff>100</span>,<span style=color:#e6db74>&#34;模型的训练步数&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>tf<span style=color:#f92672>.</span>app<span style=color:#f92672>.</span>flags<span style=color:#f92672>.</span>DEFINE_string(<span style=color:#e6db74>&#34;model_dir&#34;</span>,<span style=color:#e6db74>&#34;&#34;</span>,<span style=color:#e6db74>&#34;模型文件的加载路径&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#定义获取命令行参数的名字</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>FLAGS <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>app<span style=color:#f92672>.</span>flags<span style=color:#f92672>.</span>FLAGS
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>mylg</span>():
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    g3 <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>get_default_graph()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>with</span> tf<span style=color:#f92672>.</span>variable_scope(<span style=color:#e6db74>&#34;data&#34;</span>):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># 准备特征和lablel</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        x <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>random_normal([<span style=color:#ae81ff>1000</span>,<span style=color:#ae81ff>1</span>],mean<span style=color:#f92672>=</span><span style=color:#ae81ff>1.75</span>,stddev<span style=color:#f92672>=</span><span style=color:#ae81ff>0.5</span>,name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;X_data&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        y <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>matmul(x,[[<span style=color:#ae81ff>0.7</span>]]) <span style=color:#f92672>+</span> <span style=color:#ae81ff>0.8</span><span style=color:#75715e>#举证相乘必须是二维的</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>with</span> tf<span style=color:#f92672>.</span>variable_scope(<span style=color:#e6db74>&#34;model&#34;</span>):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># 设置模型</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        w <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>Variable(tf<span style=color:#f92672>.</span>random_normal([<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>],mean<span style=color:#f92672>=</span><span style=color:#ae81ff>0.0</span>,stddev<span style=color:#f92672>=</span><span style=color:#ae81ff>1.0</span>),name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;w&#34;</span>,trainable<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>#trainable设置这个变量是否变化</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        b <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>Variable(<span style=color:#ae81ff>0.5</span>,name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;b&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        y_predict <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>matmul(x,w) <span style=color:#f92672>+</span> b
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>with</span> tf<span style=color:#f92672>.</span>variable_scope(<span style=color:#e6db74>&#34;loss&#34;</span>):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>#写损失函数</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        loss <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>reduce_mean(tf<span style=color:#f92672>.</span>square(y<span style=color:#f92672>-</span>y_predict))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>with</span> tf<span style=color:#f92672>.</span>variable_scope(<span style=color:#e6db74>&#34;train&#34;</span>):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        train <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>train<span style=color:#f92672>.</span>GradientDescentOptimizer(<span style=color:#ae81ff>0.01</span>)<span style=color:#f92672>.</span>minimize(loss)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#1. 收集tensor</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    tf<span style=color:#f92672>.</span>summary<span style=color:#f92672>.</span>scalar(<span style=color:#e6db74>&#34;loss&#34;</span>,loss)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    tf<span style=color:#f92672>.</span>summary<span style=color:#f92672>.</span>histogram(<span style=color:#e6db74>&#39;weight&#39;</span>,w)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    tf<span style=color:#f92672>.</span>summary<span style=color:#f92672>.</span>histogram(<span style=color:#e6db74>&#39;bias&#39;</span>,b)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#2. 合并变量</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    merged <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>summary<span style=color:#f92672>.</span>merge_all()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#初始化变量</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    init <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>global_variables_initializer()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#定义一个保存模型的实例</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    saver <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>train<span style=color:#f92672>.</span>Saver()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>with</span> tf<span style=color:#f92672>.</span>Session(graph<span style=color:#f92672>=</span>g3) <span style=color:#66d9ef>as</span> sess:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        sess<span style=color:#f92672>.</span>run(init)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        filewriter <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>summary<span style=color:#f92672>.</span>FileWriter(<span style=color:#e6db74>&#39;/home/python/jupyter/TensorFlow&#39;</span>,graph<span style=color:#f92672>=</span>g3)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>#加载模型</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>exists(FLAGS<span style=color:#f92672>.</span>model_dir<span style=color:#f92672>+</span><span style=color:#e6db74>&#34;/checkpoint&#34;</span>):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            saver<span style=color:#f92672>.</span>restore(sess,FLAGS<span style=color:#f92672>.</span>model_dir<span style=color:#f92672>+</span><span style=color:#e6db74>&#34;/model&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(FLAGS<span style=color:#f92672>.</span>max_step):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            sess<span style=color:#f92672>.</span>run(train)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            summary <span style=color:#f92672>=</span> sess<span style=color:#f92672>.</span>run(merged)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            filewriter<span style=color:#f92672>.</span>add_summary(summary,i) 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> i<span style=color:#f92672>%</span><span style=color:#ae81ff>20</span><span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                print(<span style=color:#e6db74>&#34;第</span><span style=color:#e6db74>%d</span><span style=color:#e6db74>次优化的参数权重为</span><span style=color:#e6db74>%f</span><span style=color:#e6db74>,偏置为</span><span style=color:#e6db74>%f</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>%</span>(i,w<span style=color:#f92672>.</span>eval(),b<span style=color:#f92672>.</span>eval()))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> i<span style=color:#f92672>%</span><span style=color:#ae81ff>200</span><span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>: 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                saver<span style=color:#f92672>.</span>save(sess,FLAGS<span style=color:#f92672>.</span>model_dir<span style=color:#f92672>+</span><span style=color:#e6db74>&#34;/model&#34;</span>)<span style=color:#75715e>#保存模型</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mylg()
+</span></span></code></pre></div><h2 id=graph图>graph图<a class="anchor ms-1" href=#graph图><i class="fas fa-link"></i></a></h2><p>创建一张图包含了一组op和tensor,上下文环境</p><p>没创建一个图就会包含一个内存地址</p><h3 id=一个session运行一张图>一个Session运行一张图<a class="anchor ms-1" href=#一个session运行一张图><i class="fas fa-link"></i></a></h3><p>tf.InteractiveSession()#开启Session一个上下文环境</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>g <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>Graph()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>with</span> g<span style=color:#f92672>.</span>as_default():
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    c <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>constant(<span style=color:#ae81ff>11.0</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>a <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>constant(<span style=color:#ae81ff>5.0</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>b <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>constant(<span style=color:#ae81ff>6.0</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sum1 <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>add(a,b)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mul <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>multiply(a,b)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>g2 <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>get_default_graph()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#config=tf.ConfigProto(log_device_placement=True) 可以查看运行在那些cpu</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>with</span> tf<span style=color:#f92672>.</span>Session(graph<span style=color:#f92672>=</span>g2,config<span style=color:#f92672>=</span>tf<span style=color:#f92672>.</span>ConfigProto(log_device_placement<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)) <span style=color:#66d9ef>as</span> sess:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(sess<span style=color:#f92672>.</span>run(sum1))<span style=color:#75715e>## run()方法</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(sess<span style=color:#f92672>.</span>run([a,b]))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(sum1<span style=color:#f92672>.</span>eval())
+</span></span></code></pre></div><h3 id=重载>重载<a class="anchor ms-1" href=#重载><i class="fas fa-link"></i></a></h3><p>默认会把运算符重载为op</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>d <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>constant(<span style=color:#ae81ff>1.0</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>e <span style=color:#f92672>=</span> <span style=color:#ae81ff>11.0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sum2 <span style=color:#f92672>=</span> d<span style=color:#f92672>+</span>e
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>with</span> tf<span style=color:#f92672>.</span>Session() <span style=color:#66d9ef>as</span> sess:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(sess<span style=color:#f92672>.</span>run(sum2))<span style=color:#75715e>## run()方法</span>
+</span></span></code></pre></div><h3 id=实时的提供数据进行训练>实时的提供数据进行训练<a class="anchor ms-1" href=#实时的提供数据进行训练><i class="fas fa-link"></i></a></h3><p>在程序执行时,不确定输入的shape</p><p>placeholder #占位符</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>plt <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>placeholder(tf<span style=color:#f92672>.</span>float32,[<span style=color:#66d9ef>None</span>,<span style=color:#ae81ff>3</span>])<span style=color:#75715e>#样本数不固定,三列</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(plt)<span style=color:#75715e>#打印这个张量</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#使用</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>with</span> tf<span style=color:#f92672>.</span>Session() <span style=color:#66d9ef>as</span> sess:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(sess<span style=color:#f92672>.</span>run(plt,feed_dict<span style=color:#f92672>=</span>{plt:[[<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>],[<span style=color:#ae81ff>4</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>6</span>]]}))<span style=color:#75715e>## run()方法</span>
+</span></span></code></pre></div><h2 id=张量的动态形状和静态形状>张量的动态形状和静态形状<a class="anchor ms-1" href=#张量的动态形状和静态形状><i class="fas fa-link"></i></a></h2><p>Numpy:把原来的数据通过<code>reshape</code>直接改变</p><ul><li>静态形状：</li></ul><p>创建一个张量，初始化状态的形状：</p><pre><code>tf.Tensor.get_shape:获取静态形状
+
+
+
+
+
+tf.Tensor.set_shape():更新Tensor对象的静态形状
+</code></pre><ul><li>动态形状:</li></ul><p>一种描述原始张量在执行过程中的一种形状(动态变化)</p><pre><code>tf.reshape:创建一个具有不同形状的新张量
+</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>plt<span style=color:#f92672>.</span>set_shape([<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>3</span>])<span style=color:#75715e>#把plt的shape从[?,3]变成[3,3]</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>with</span> tf<span style=color:#f92672>.</span>Session() <span style=color:#66d9ef>as</span> sess:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(sess<span style=color:#f92672>.</span>run(plt,feed_dict<span style=color:#f92672>=</span>{plt:[[<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>],[<span style=color:#ae81ff>4</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>6</span>],[<span style=color:#ae81ff>7</span>,<span style=color:#ae81ff>8</span>,<span style=color:#ae81ff>9</span>]]}))<span style=color:#75715e>## run()方法</span>
+</span></span></code></pre></div><h2 id=变量>变量<a class="anchor ms-1" href=#变量><i class="fas fa-link"></i></a></h2><p>变量也是一种op,是一种特殊的张量,能够进行持久化,他的值就是张量,默认被训练</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>var <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>Variable(tf<span style=color:#f92672>.</span>random_normal([<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>],mean<span style=color:#f92672>=</span><span style=color:#ae81ff>0.0</span>,stddev<span style=color:#f92672>=</span><span style=color:#ae81ff>1.0</span>))<span style=color:#75715e>#均值为0,标准差为1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>init <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>global_variables_initializer()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>with</span> tf<span style=color:#f92672>.</span>Session() <span style=color:#66d9ef>as</span> sess:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    sess<span style=color:#f92672>.</span>run(init)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(sess<span style=color:#f92672>.</span>run(var))
+</span></span></code></pre></div><h2 id=tensorboard>Tensorboard<a class="anchor ms-1" href=#tensorboard><i class="fas fa-link"></i></a></h2><ul><li>数据序列化->events文件</li></ul><p>TensorBoard通过读取TensorFlow的事件文件来运行</p><ul><li>生成文件:</li></ul><p>tf.summary.FileWriter(&lsquo;dir-path&rsquo;,graph=g?)</p><p>返回一个filewriter</p><ul><li>开启:</li></ul><p>tensorboard &ndash;logdir=&rsquo;/dir-path&rsquo;</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>d <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>constant(<span style=color:#ae81ff>1.0</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>e <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>constant(<span style=color:#ae81ff>1.0</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sum2 <span style=color:#f92672>=</span> d<span style=color:#f92672>+</span>e
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>var <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>Variable(tf<span style=color:#f92672>.</span>random_normal([<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>],mean<span style=color:#f92672>=</span><span style=color:#ae81ff>0.0</span>,stddev<span style=color:#f92672>=</span><span style=color:#ae81ff>1.0</span>))<span style=color:#75715e>#均值为0,标准差为1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>init <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>global_variables_initializer()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>with</span> tf<span style=color:#f92672>.</span>Session() <span style=color:#66d9ef>as</span> sess:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    sess<span style=color:#f92672>.</span>run(init)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(sess<span style=color:#f92672>.</span>run(var))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(sess<span style=color:#f92672>.</span>run(sum2))<span style=color:#75715e>## run()方法</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    filewriter <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>summary<span style=color:#f92672>.</span>FileWriter(<span style=color:#e6db74>&#39;/home/python/jupyter/TensorFlow&#39;</span>,graph<span style=color:#f92672>=</span>sess<span style=color:#f92672>.</span>graph)
+</span></span></code></pre></div><h2 id=文件读取>文件读取<a class="anchor ms-1" href=#文件读取><i class="fas fa-link"></i></a></h2><h3 id=队列与队列管理器>队列与队列管理器<a class="anchor ms-1" href=#队列与队列管理器><i class="fas fa-link"></i></a></h3><ol><li>在训练样本的时候,希望数据有序读取</li></ol><blockquote><p>tf.FIFOQueue(capacity,dtypes,name=&lsquo;fifo_queue&rsquo;) 先进先出队列,按顺序出队列</p></blockquote><ul><li><p>capacity:整数,可能存储在此队列中的元素数量的上限</p></li><li><p>dtypes:DType对象列表,长度dtypes必须等于每个队列元素中的张量数,dtype的元素形状,决定了后面进队元素的形状</p></li></ul><blockquote><p>tf.RandomShuffleQueue 随机出队列</p></blockquote><h3 id=异步读取队列管理器>异步读取,队列管理器<a class="anchor ms-1" href=#异步读取队列管理器><i class="fas fa-link"></i></a></h3><blockquote><p>tf.train.QueueRunner(queue,enqueue_ops=None)创建一个QueueRunner</p></blockquote><h3 id=线程协调器实现一个简单的机制来协调一组线程的终止>线程协调器,实现一个简单的机制来协调一组线程的终止<a class="anchor ms-1" href=#线程协调器实现一个简单的机制来协调一组线程的终止><i class="fas fa-link"></i></a></h3><blockquote><p>tf.train.Coordinator()</p></blockquote><ul><li><p>request_stop()</p></li><li><p>should_stop()检查是否要求停止</p></li><li><p>join(threads = None,stop_grace_period_secs=120)</p></li></ul><h3 id=读取文件的流程>读取文件的流程<a class="anchor ms-1" href=#读取文件的流程><i class="fas fa-link"></i></a></h3><h4 id=1构建文件队列>1.构建文件队列<a class="anchor ms-1" href=#1构建文件队列><i class="fas fa-link"></i></a></h4><p>将输出字符串到管道队列中</p><blockquote><p>tf.train.string_input_producer(string_tensor,shuffle = True)</p></blockquote><ul><li><p>string_tensor 含有文件名的1阶张量</p></li><li><p>num_epochs 过几遍数据,默认无线过数据</p></li><li><p>return:具有输出字符串的队列</p></li></ul><h4 id=2构造文件阅读器读取队列内容都是用readfile_queue这个方法从文件中读取指定数量内容>2.构造文件阅读器,读取队列内容(都是用read(file_queue)这个方法,从文件中读取指定数量内容)<a class="anchor ms-1" href=#2构造文件阅读器读取队列内容都是用readfile_queue这个方法从文件中读取指定数量内容><i class="fas fa-link"></i></a></h4><blockquote><p>tf.TextLineReader(阅读文本文件csv,默认按行读取)</p></blockquote><blockquote><p>tf.FixedLengthRecordReader(record_bytes):读取每个记录是固定数量的二进制文件</p></blockquote><ul><li>record_bytes:整形,指定每次读取的字节数</li></ul><blockquote><p>tf.TFRecordReader: 读取TFRecords文件</p></blockquote><h4 id=3读取每个队列文件的每一个样本>3.读取每个队列文件的每一个样本<a class="anchor ms-1" href=#3读取每个队列文件的每一个样本><i class="fas fa-link"></i></a></h4><blockquote><p>tf.decode_csv(records,record_defaults=None,field_delim=None,name=None)</p></blockquote><ul><li><p>将csv转换为张量,与tf.TextLineReader搭配使用</p></li><li><p>records:tensor型字符串,每个字符串是csv中的记录行</p></li><li><p>field_delim:默认分隔符","</p></li><li><p>record_defauts:参数决定所得每一列张量的类型,并设置一个值,在输入字符串中缺少使用默认值</p></li></ul><blockquote><p>tf.decode_raw(bytes,out_type,little_endian=None,name=None)</p></blockquote><p>将字节转换为一个数字向量表示,字节为一字符类型的张量,二进制读取为uint8</p><h4 id=4批处理>4.批处理<a class="anchor ms-1" href=#4批处理><i class="fas fa-link"></i></a></h4><p><code>tf.train.batch([sentence],batch_size=30,num_threads=1,capacity=30)</code></p><p>​</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> tensorflow <span style=color:#66d9ef>as</span> tf
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> os
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>myqueu</span>():
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 1. 定义队列</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Q <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>FIFOQueue(<span style=color:#ae81ff>1000</span>,tf<span style=color:#f92672>.</span>float32)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 2. 定义子线程操作</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    var  <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>Variable(<span style=color:#ae81ff>0.0</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    data <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>assign_add(var,tf<span style=color:#f92672>.</span>constant(<span style=color:#ae81ff>1.0</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    enq <span style=color:#f92672>=</span> Q<span style=color:#f92672>.</span>enqueue(data)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 3. 定义队列管理器,指定线程数</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    qr <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>train<span style=color:#f92672>.</span>QueueRunner(Q,enqueue_ops<span style=color:#f92672>=</span>[enq]<span style=color:#f92672>*</span><span style=color:#ae81ff>4</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#初始化变量</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    init <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>global_variables_initializer()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>with</span> tf<span style=color:#f92672>.</span>Session() <span style=color:#66d9ef>as</span> sess:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        sess<span style=color:#f92672>.</span>run(init)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>#开启线程协调管理器</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        coord <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>train<span style=color:#f92672>.</span>Coordinator()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        threads <span style=color:#f92672>=</span> qr<span style=color:#f92672>.</span>create_threads(sess,coord<span style=color:#f92672>=</span>coord,start<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>300</span>):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            print(sess<span style=color:#f92672>.</span>run(Q<span style=color:#f92672>.</span>dequeue()))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        coord<span style=color:#f92672>.</span>request_stop()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        coord<span style=color:#f92672>.</span>join(threads)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>convread</span>(filelist):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 1.构造队列</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    file_queue <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>train<span style=color:#f92672>.</span>string_input_producer(filelist)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 2.构造阅读器</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    reader <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>TextLineReader()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    key, value <span style=color:#f92672>=</span> reader<span style=color:#f92672>.</span>read(file_queue)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 3.对每一行解码</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    records <span style=color:#f92672>=</span> [[<span style=color:#e6db74>&#34; &#34;</span>],]<span style=color:#75715e>#以字符串读取每一行,默认值是&#34; &#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    sentence <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>decode_csv(value,record_defaults<span style=color:#f92672>=</span>records)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#开启批处理</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    sentence_batch <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>train<span style=color:#f92672>.</span>batch([sentence],batch_size<span style=color:#f92672>=</span><span style=color:#ae81ff>30</span>,num_threads<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>,capacity<span style=color:#f92672>=</span><span style=color:#ae81ff>30</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> sentence<span style=color:#75715e>#返回句子</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;__main__&#34;</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#构造文件列表</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    file_name <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>listdir(<span style=color:#e6db74>&#34;../data/&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    filelist <span style=color:#f92672>=</span> [os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>join(<span style=color:#e6db74>&#34;../data/&#34;</span>,file) <span style=color:#66d9ef>for</span> file <span style=color:#f92672>in</span> file_name]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#读取文件</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    sentence_batch <span style=color:#f92672>=</span> convread(filelist)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#开启会话</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>with</span> tf<span style=color:#f92672>.</span>Session() <span style=color:#66d9ef>as</span> sess:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>#定义一个线程协调器</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        coord <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>train<span style=color:#f92672>.</span>Coordinator()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>#开启读取文件的线程</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        threads <span style=color:#f92672>=</span> tf<span style=color:#f92672>.</span>train<span style=color:#f92672>.</span>start_queue_runners(sess,coord<span style=color:#f92672>=</span>coord)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        print(sess<span style=color:#f92672>.</span>run(sentence_batch))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>#回收子线程</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        coord<span style=color:#f92672>.</span>request_stop()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        coord<span style=color:#f92672>.</span>join(threads)
+</span></span></code></pre></div></div><div class="modal fade" id=rewardModal tabindex=-1 aria-labelledby=rewardModalLabel aria-hidden=true><div class=modal-dialog><div class="modal-content surface"><div class=modal-header><h5 class=modal-title id=rewardModalLabel><i class="fas fa-fw fa-coffee"></i>Buy me a coffee</h5><a href=# data-bs-dismiss=modal class="btn btn-sm btn-outline-primary" aria-label=Close><i class="fas fa-times"></i></a></div><div class=modal-body><ul class="nav nav-tabs mb-3" role=tablist><li class="nav-item text-nowrap" role=presentation><a class="nav-link active" id=reward-alipay-tab data-bs-toggle=tab href=#reward-alipay role=tab aria-controls=reward-alipay aria-selected=true><i class="fab fa-fw fa-alipay"></i>Alipay</a></li><li class="nav-item text-nowrap" role=presentation><a class=nav-link id=reward-wechat-tab data-bs-toggle=tab href=#reward-wechat role=tab aria-controls=reward-wechat aria-selected=true><i class="fab fa-fw fa-weixin"></i>WeChat</a></li></ul><div class=tab-content id=rewardTabContent><div class="tab-pane fade post-reward-content show active" id=reward-alipay role=tabpanel aria-labelledby=reward-alipay-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_alipay.jpg loading=lazy></div><div class="tab-pane fade post-reward-content show" id=reward-wechat role=tabpanel aria-labelledby=reward-wechat-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_wechatpay.jpg loading=lazy></div></div></div></div></div></div><hr><div class=post-copyright id=post-copyright><a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc/4.0/deed.en><span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i></span>
+CC BY-NC 4.0</a></div><hr><div class="post-navs d-flex mb-3 justify-content-evenly"><div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/>TensorFlow 线性回归</a></div><div class="post-nav post-next"><a href=/posts/redis/redis%E9%85%8D%E7%BD%AE/>Redis基础配置</a>
+<i class="fas fa-fw fa-chevron-right"></i></div></div></div></article><section class="related-posts row card component"><div class=card-header><h2 class=card-title>Related Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/tensorflow/tensorflow%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/>TensorFlow 线性回归</a>
+<span class="float-end post-date">2019-02-22</span></li></ul></div></section><div class="card component row post-comments" id=post-comments><div class=card-header><h2 class=card-title>Comments</h2></div><div class=card-body><script src=https://utteranc.es/client.js repo=Euraxluo/Euraxluo.github.io issue-term=pathname label=✨💬✨ theme=github-dark crossorigin=anonymous async></script></div></div></div></div><aside class="col-lg-4 sidebar d-flex"><div class=container><section class="card row text-center profile component"><div class=card-body><div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt=Euraxluo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy></div><div class="col-12 profile-meta"><div class=profile-name>Euraxluo</div><div class=profile-bio>R&amp;D Engineer.</div><div class=profile-company><i class="fas fa-fw fa-building"></i>headingdata.com</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/about/>About</a></div></div></div></section><section class="featured-posts row card component"><div class=card-header><h2 class=card-title>Featured Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/>java面试笔记</a></li><li><a href=/posts/python/python-socket/>python socket编程</a></li><li><a href=/posts/note/rust%E5%AD%A6%E4%B9%A0/>rust学习</a></li><li><a href=/posts/note/scala%E5%85%A5%E9%97%A8/>Scala入门</a></li><li><a href=/posts/note/slam/>SLAM</a></li></ul></div></section><section class="recent-posts row card component"><div class=card-header><h2 class=card-title>Recent Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/>caddy简单使用</a></li><li><a href=/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/>安装K8S集群</a></li><li><a href=/posts/redis/redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/>Redis 实现分布式锁</a></li><li><a href=/posts/note/etcd%E5%85%A5%E9%97%A8/>etcd 基本使用</a></li><li><a href=/posts/note/gorm/>GORM学习</a></li></ul></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/categories>Categories</a></h2></div><div class=card-body><div class=py-2><a href=/categories/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/categories/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/categories/java/ class="badge rounded post-taxonomy" title=java>java
+</a><a href=/categories/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/categories/architecture-design/ class="badge rounded post-taxonomy" title="architecture design">architecture design</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/series>Series</a></h2></div><div class=card-body><div class=py-2><a href=/series/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/series/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/series/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/series/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/series/jdbc/ class="badge rounded post-taxonomy" title=JDBC>JDBC</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/tags>Tags</a></h2></div><div class=card-body><div class=py-2><a href=/tags/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/tags/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/tags/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/tags/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/tags/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/tags/architecture/ class="badge rounded post-taxonomy" title=architecture>architecture</a></div></div></section></div></aside></div></main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><a class="nav-link social-link" href=mailto:Euraxluo@outlook.com title=Email><i class="fas fa-fw fa-2x fa-envelope"></i>
+</a><a class="nav-link social-link" target=_blank href=https://github.com/Euraxluo title=GitHub rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-github"></i>
+</a><a class="nav-link social-link" target=_blank href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title=QQ rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-qq"></i>
+</a><a class="nav-link social-link" target=_blank href=https://www.zhihu.com/people/euraxluo title=Zhihu rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-zhihu"></i></a></nav><div class="copyright mb-2">Copyright © 2016-2023 Euraxluo. All Rights Reserved.</div></footer><script src=/js/main.min.353ac7952bbb8bdb7925c48cfcafede449a2253dd2610b49feb566a306011232.js integrity="sha256-NTrHlSu7i9t5JcSM/K/t5EmiJT3SYQtJ/rVmowYBEjI=" crossorigin=anonymous defer></script><script src=/js/icons.min.fb1b77be9bd37807602ec542d150423ad89114834c2e76ca7c004309310d64b0.js integrity="sha256-+xt3vpvTeAdgLsVC0VBCOtiRFINMLnbKfABDCTENZLA=" crossorigin=anonymous defer></script>
+<script src=/js/viewer.min.4f0b78319199ad080a1331f64e868866ccf303199b8144d80003d6ba8a4e5feb.js integrity="sha256-Twt4MZGZrQgKEzH2ToaIZszzAxmbgUTYAAPWuopOX+s=" crossorigin=anonymous defer></script><script defer src=/js/katex.min.3e41bd190b6187a4854d279cbde0b8d47fd0b6aae6341bdee804717abe8f6d51.js integrity="sha256-PkG9GQthh6SFTSecveC41H/QtqrmNBve6ARxer6PbVE=" crossorigin=anonymous></script></body></html>

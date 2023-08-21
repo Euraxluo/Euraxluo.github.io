@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>driverless on Euraxluo Blog</title><link>/posts/driverless/</link><description>Recent content in driverless on Euraxluo Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/posts/driverless/index.xml" rel="self" type="application/rss+xml"/><item><title>无人驾驶概述</title><link>/posts/driverless/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%A6%82%E8%BF%B0/</link><pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate><guid>/posts/driverless/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%A6%82%E8%BF%B0/</guid><description>&lt;p>无人驾驶概述&lt;/p></description></item><item><title>Apollo无人车架构</title><link>/posts/driverless/apollo%E6%9E%B6%E6%9E%84/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/posts/driverless/apollo%E6%9E%B6%E6%9E%84/</guid><description>Apollo无人车架构 以HD-map为核心
+线控车辆，计算机和传感器通过CAN卡进行通信 ROTS(Ubuntu+apollo kernel) 保证实时性
+Feameworf(ROS+) 共享内存 减少传输中的数据拷贝，提高传输效率，减少传输延迟
+有效解决一对多传输
+共享内存减少CPU资源占用，提高机器计算能力
+数据兼容 引入了protopuf文件格式
+可以向后兼容
+ROS深度兼容protopuf格式
+去中心化，减小单点故障的影响 使用RTPS服务发现协议
+以域作为划分，通过rtps相互广播，实现完全P2P
+sub节点启动，组播registerNode-&amp;gt;节点发现及建立unicast-&amp;gt;向新加节点发送历史消息-&amp;gt;收发双方建立连接，开始通信
+application planning
+control
+end-to-end driving
+human-machine
+map-engine
+localization
+preception
+REDME： 定位 GPS+IMU -&amp;gt; Real Time Kine
+GPS+IMU+激光雷达（光探测，测距传感器）-&amp;gt;多传感器融合
+预测 从感知模块接受障碍物信息（位置，方向速度，加速度）
+生成不同概率的预测轨迹
+容器 存储订阅通道的输入数据（障碍物，车辆定位，车辆规划）
+评估器 对任何给定的障碍物分别预测路径和速度，通过模型给出的路径概率来进行评估
+1).成本评估器:概率是由成本函数给出
+2).MLP评估器:用MLP模型计算概率
+3).RNN评估器:用RNN模型计算
+预测器 生成障碍物的预测轨迹，预测规则有很多：
+1). 单行道：在公路导航模式下障碍物沿着单条车道移动。不在车道上的障碍物将被忽略。
+2). 车道顺序：障碍物沿车道移动
+3). 移动序列：障碍物沿其运动模式沿车道移动
+4). 自由运动：障碍物自由移动
+5). 区域运动：障碍物在可能的区域中移动
+路由 根据路由请求(开始和结束位置)以及地图数据生成高级导航信息
+依赖路由拓扑文件 规划 通过配置和参数规划不同的场景
+apollo是车道保持，通过障碍物，通过十字路有
+planning
+1). FSM，有限状态机
+2). Planning Dispatcher,根据车辆状态和其他信息，调用合适的planner</description></item></channel></rss>

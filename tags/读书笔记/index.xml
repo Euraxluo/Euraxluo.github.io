@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>读书笔记 on Euraxluo Blog</title><link>/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link><description>Recent content in 读书笔记 on Euraxluo Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><lastBuildDate>Mon, 29 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>Unix/Linux编程实践1</title><link>/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</link><pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/shell/linux%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5/</guid><description>Unix/Linux 编程實踐教程 ##　什麼是系統編程
+系统资源 处理器 程序由指令构成,处理器是执行指令的硬件设备,一个系统中可能有多个处理器,内核可以安排一个程序何时开始开始执行,暂时停止,恢复执行,终止执行
+输入输出 程序中所有的输入输出都必须流经内核,集中处理,保证了系统的正确性,安全性,有效性
+进程管理 每个程序执行都必须有自己的资源,内核可以新建进程,中止进程,进程调度
+内存 程序必须被装载到内存中才能运行,内核可以对进程进行管理,在程序需要的时候给程序分配内存,当程序不需要时,回收内存,还可以保证内存不被其他进程非法访问.
+设备 各种设备的操作方式不相同,通过内核,可以屏蔽這種差异,使我们对设备的操作简单统一
+计时器 程序的工作和时间有关,内核可以通过系统调用向应用程序提供计时器服务
+进程间通信 内核可以让进程之间进行通信
+网络 内核可以让不同主机上的不同进程进行通信
+bc:Unix计算器,可以接受逆波兰表达式 通过他的与处理器dc,转换为逆波兰表达式,通过pip给dc
+和web服务类似,web服务器作为預处理器,浏览器作为前端显示
+more: more filename,分页显示file内容
+command | more:分页显示command命令
+more &amp;lt; filename:分页+重定向
+自己写一个more
+//more command #include&amp;lt;stdio.h&amp;gt; #include&amp;lt;stdlib.h&amp;gt; #define PAGELEN 24 #define LINELEN 512 void do_more(FILE* ); int see_more(FILE*,int ); int sum_size = 0; int main(int ac,char *av[]) { FILE* fp; if(ac == 1) do_more(stdin); else while(--ac) { if((fp = fopen(*++av,&amp;#34;r&amp;#34;)) !</description></item></channel></rss>

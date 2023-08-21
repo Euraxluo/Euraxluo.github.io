@@ -1,0 +1,463 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Scala入门 - Euraxluo Blog</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180><link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png><link rel=icon href=/images/icons/favicon.ico><link rel=manifest href=/manifest.json><meta name=keywords content><meta name=description content="Scala入门"><meta itemprop=name content="Scala入门"><meta itemprop=description content="Scala入门"><meta itemprop=datePublished content="2019-02-21T00:00:00+00:00"><meta itemprop=dateModified content="2019-02-21T00:00:00+00:00"><meta itemprop=wordCount content="724"><meta itemprop=keywords content="notes,"><meta property="og:title" content="Scala入门"><meta property="og:description" content="Scala入门"><meta property="og:type" content="article"><meta property="og:url" content="/posts/note/scala%E5%85%A5%E9%97%A8/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2019-02-21T00:00:00+00:00"><meta property="article:modified_time" content="2019-02-21T00:00:00+00:00"><meta property="og:see_also" content="/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"><meta property="og:see_also" content="/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/"><meta property="og:see_also" content="/posts/note/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><meta property="og:see_also" content="/posts/note/%E5%AE%89%E8%A3%85flower/"><meta property="og:see_also" content="/posts/note/c++%E5%B0%8F%E8%AE%B0/"><meta property="og:see_also" content="/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/"><meta name=twitter:card content="summary"><meta name=twitter:title content="Scala入门"><meta name=twitter:description content="Scala入门"><link rel=stylesheet href=/css/main.min.29f9b537bf546fdc11e6e11f92ddd52ea0bd1eefa2228b828bc3b750c66763b0.css integrity="sha256-Kfm1N79Ub9wR5uEfkt3VLqC9Hu+iIouCi8O3UMZnY7A=" crossorigin=anonymous><link rel=stylesheet href=/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head><body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top"><div class=container-fluid><button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/><img class=logo alt=Logo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy>
+Euraxluo</a>
+<button class=navbar-social-share type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<i class="fas fa-share-alt"></i></button><div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare><div class=offcanvas-header><h3 class=offcanvas-title>Share</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=Scala%e5%85%a5%e9%97%a8&url=%2fposts%2fnote%2fscala%25E5%2585%25A5%25E9%2597%25A8%2f"><i class="fab fa-fw fa-twitter"></i> Twitter</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fposts%2fnote%2fscala%25E5%2585%25A5%25E9%2597%25A8%2f"><i class="fab fa-fw fa-facebook-f"></i> Facebook</a></div></div><button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i></button><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings><div class=offcanvas-header><h3 class=offcanvas-title>Settings</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class="offcanvas-body d-flex flex-column"><section class=setting><form class=row><div class=col-auto><label><i class="fas fa-fw fa-adjust"></i> Mode</label></div><div class="col-auto ms-auto"><div class="form-check form-switch"><input class=form-check-input type=checkbox id=modeSwitcher></div></div></form></section><section class=setting><form class="font-size-switcher-form row"><div class=col-auto><label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Font Size</label></div><div class="col-auto ms-auto"><input type=range class=form-range min=-2 max=2 id=fontSize></div></form></section><section class="setting palettes"><form class=row><div class=col-auto><label><i class="fas fa-fw fa-palette"></i> Palette</label></div><div class="col-auto ms-auto"><a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker><i class="fas fa-eye-dropper"></i></a></div></form><div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Blue class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gray" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Brown class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Green class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Pink class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Purple class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Red class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label=Teal class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Yellow class="btn btn-sm palette" data-palette=yellow></button></div></section><section class="setting actions d-flex justify-content-center mt-auto"><a role=button class="action action-reload-page"><span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload</a>
+<a role=button class="action action-copy-url"><span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copy URL</a></section></div></div><div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent><form class="search-bar my-1" action=/search><div class="input-group input-group-sm"><span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search></div></form><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/archives/><i class="fas fa-fw fa-file-archive"></i>timeline</a></li><li class=nav-item><a class=nav-link href=/categories/><i class="fas fa-fw fa-folder"></i>category</a></li><li class=nav-item><a class=nav-link href=/tags/><i class="fas fa-fw fa-tags"></i>tags</a></li><li class=nav-item><a class=nav-link href=/series/><i class="fas fa-fw fa-columns"></i>series</a></li><li class="nav-item dropdown"><a class=nav-link id=navbarDropdownRepos role=button data-bs-toggle=dropdown aria-expanded=false><i class="fab fa-fw fa-github"></i>Repos</a><ul class=dropdown-menu aria-labelledby=navbarDropdownRepos><li><a class=dropdown-item href=https://github.com/BreezeTeam/cache target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>cache</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/distance_matrix target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>distance_matrix</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>Euraxluo</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/IMOMD-RRTStar-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>IMOMD-RRTStar-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/lang target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>lang</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/LKH-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>LKH-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/scheduler target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>scheduler</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/simplegrad target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>simplegrad</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/verb target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>verb</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/web target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>web</a></li></ul></li></ul></div></div></nav></header><main role=main class=container-fluid><div class="row content"><div class=col-lg-8><div class=container><article class="row card component mb-4 post"><div class=post-panel-wrapper><div class="d-flex flex-column component rounded post-panel"><a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler"><i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i></a>
+<a class="action btn-reward" role=button data-bs-toggle=modal data-bs-target=#rewardModal title="Buy me a coffee"><i class="fas fa-fw fa-coffee"></i></a>
+<a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright><i class="fas fa-fw fa-copyright"></i></a>
+<a class=action href=#post-comments role=button aria-label=Comments title=Comments><i class="fas fa-fw fa-comments"></i></a></div></div><div class=card-header><h1 class="card-title post-title">Scala入门</h1></div><div class=card-body><div class=post-meta><span class=post-date title="created on 2019-02-21 08:00:00 +0800 CST.">2019-02-21
+</span><span class=post-reading-time>4 min read
+</span><span class=post-taxonomies><a href=/categories/notes/ class="badge rounded-pill post-taxonomy">notes</a><a href=/series/notes/ class="badge rounded-pill post-taxonomy">notes</a><a href=/tags/notes/ class="badge rounded-pill post-taxonomy">notes</a></span></div><div class="post-content mb-3"><p>Scala 入门之随便写写</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Scala data-lang=Scala><span style=display:flex><span><span style=color:#66d9ef>import</span>  scala.util.control._
+</span></span><span style=display:flex><span><span style=color:#66d9ef>object</span> <span style=color:#a6e22e>HelloWorld</span><span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>def</span> hello<span style=color:#f92672>(</span>name<span style=color:#66d9ef>:</span><span style=color:#66d9ef>String</span><span style=color:#f92672>)</span> <span style=color:#66d9ef>=</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>s&#34;Hello ,</span><span style=color:#e6db74>${</span>name<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>def</span> add<span style=color:#f92672>(</span>x<span style=color:#66d9ef>:</span> <span style=color:#66d9ef>Int</span><span style=color:#f92672>,</span>y<span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>)</span> <span style=color:#66d9ef>=</span> x<span style=color:#f92672>+</span>y
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>def</span> main<span style=color:#f92672>(</span>args<span style=color:#66d9ef>:</span><span style=color:#66d9ef>Array</span><span style=color:#f92672>[</span><span style=color:#66d9ef>String</span><span style=color:#f92672>])</span><span style=color:#66d9ef>:</span><span style=color:#66d9ef>Unit</span> <span style=color:#f92672>=</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 违反引用透明的例子:
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 怎么样获得引用透明性:{
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 需要具有不变性,即为了获得引用透明性,任何值都不能改变
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * }
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> x <span style=color:#66d9ef>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>StringBuilder</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Hello &#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>x<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> y <span style=color:#66d9ef>=</span> x<span style=color:#f92672>.</span>append<span style=color:#f92672>(</span><span style=color:#e6db74>&#34; world&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>y<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> z <span style=color:#66d9ef>=</span> x<span style=color:#f92672>.</span>append<span style=color:#f92672>(</span><span style=color:#e6db74>&#34; world&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>z<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 递归函数:
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 使用递归实现循环
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 尾递归函数
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 变量:
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * val 定义immutable variable:常量
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * var 定义mutable variable:变量
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * lazy val:惰性求值常量
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 可以再定义时不指定变量的类型,Scala会自动进行类型推导
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>hello<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Euraxluo&#34;</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>add<span style=color:#f92672>(</span><span style=color:#ae81ff>1</span><span style=color:#f92672>,</span><span style=color:#ae81ff>2</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * for循环
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> list <span style=color:#66d9ef>=</span> <span style=color:#a6e22e>List</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Euraxluo&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;xiaoli&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;xiaoxiong&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//循环1
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span>
+</span></span><span style=display:flex><span>      s <span style=color:#66d9ef>&lt;-</span> list<span style=color:#75715e>//generator
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>)</span>println<span style=color:#f92672>(</span>s<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//循环2
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>      s<span style=color:#66d9ef>&lt;-</span>list
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span>  <span style=color:#f92672>(</span>s<span style=color:#f92672>.</span>length<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>6</span><span style=color:#f92672>)</span><span style=color:#75715e>//filter
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>}</span>println<span style=color:#f92672>(</span>s<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//循环3
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>val</span> res_for <span style=color:#66d9ef>=</span> <span style=color:#66d9ef>for</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>      s<span style=color:#66d9ef>&lt;-</span> list
+</span></span><span style=display:flex><span>      s1 <span style=color:#66d9ef>=</span> s<span style=color:#f92672>.</span>toUpperCase<span style=color:#f92672>()</span><span style=color:#75715e>//变量绑定
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#66d9ef>if</span><span style=color:#f92672>(</span>s1 <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span><span style=color:#66d9ef>yield</span> <span style=color:#f92672>(</span>s1<span style=color:#f92672>)</span><span style=color:#75715e>//将s1放在新的collection中
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    println<span style=color:#f92672>(</span>res_for<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 无限循环
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//    var a = 10
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//    while (true){
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//      println(s&#34;a的值:${a}&#34;)
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//    }
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 中断循环
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> loop <span style=color:#66d9ef>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Breaks</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> numl <span style=color:#66d9ef>=</span> <span style=color:#a6e22e>List</span><span style=color:#f92672>(</span><span style=color:#ae81ff>0</span><span style=color:#f92672>,</span><span style=color:#ae81ff>1</span><span style=color:#f92672>,</span><span style=color:#ae81ff>2</span><span style=color:#f92672>,</span><span style=color:#ae81ff>3</span><span style=color:#f92672>,</span><span style=color:#ae81ff>6</span><span style=color:#f92672>,</span><span style=color:#ae81ff>5</span><span style=color:#f92672>,</span><span style=color:#ae81ff>6</span><span style=color:#f92672>,</span><span style=color:#ae81ff>7</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    loop<span style=color:#f92672>.</span>breakable<span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>for</span><span style=color:#f92672>(</span>a<span style=color:#66d9ef>&lt;-</span>numl<span style=color:#f92672>){</span>
+</span></span><span style=display:flex><span>        println<span style=color:#f92672>(</span>a<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span><span style=color:#f92672>(</span>a<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>6</span><span style=color:#f92672>){</span>
+</span></span><span style=display:flex><span>          loop<span style=color:#f92672>.</span>break<span style=color:#f92672>()</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 嵌套循环
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> outer <span style=color:#66d9ef>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Breaks</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> inner <span style=color:#66d9ef>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Breaks</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    outer<span style=color:#f92672>.</span>breakable<span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span>a<span style=color:#66d9ef>&lt;-</span>numl<span style=color:#f92672>){</span>
+</span></span><span style=display:flex><span>        inner<span style=color:#f92672>.</span>breakable<span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span>b<span style=color:#66d9ef>&lt;-</span>numl<span style=color:#f92672>){</span><span style=color:#75715e>//次数
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>            println<span style=color:#f92672>(</span>a<span style=color:#f92672>*</span>a<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>a<span style=color:#f92672>*</span>a <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>36</span><span style=color:#f92672>){</span>
+</span></span><span style=display:flex><span>              inner<span style=color:#f92672>.</span>break<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * try{}catch{}finally{}
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> res_try <span style=color:#66d9ef>=</span> <span style=color:#66d9ef>try</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>Integer</span><span style=color:#f92672>.</span>parseInt<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;sa&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span><span style=color:#66d9ef>catch</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#66d9ef>_</span> <span style=color:#66d9ef>=&gt;</span> <span style=color:#ae81ff>2222222</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span><span style=color:#66d9ef>finally</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>      println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;finally&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>res_try<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * match
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> code <span style=color:#66d9ef>=</span> <span style=color:#ae81ff>600</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> res_match <span style=color:#66d9ef>=</span> code <span style=color:#66d9ef>match</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#ae81ff>200</span> <span style=color:#66d9ef>=&gt;</span> <span style=color:#e6db74>&#34;OK&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#ae81ff>404</span> <span style=color:#66d9ef>=&gt;</span> <span style=color:#e6db74>&#34;Not Found&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#ae81ff>400</span> <span style=color:#66d9ef>=&gt;</span> <span style=color:#e6db74>&#34;Bad Request&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>case</span> <span style=color:#66d9ef>_</span>   <span style=color:#66d9ef>=&gt;</span> <span style=color:#e6db74>&#34;Server Error&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>res_match<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 重要概念
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 表达式求值策略:严格求值与非严格求值
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * Scala中:Call By Value vs. Call By Name
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 惰性求值(lazy Evluation):
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 当定义表达式时,不会立即求值,而是当这个表达式第一次被调用时才会求值
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> bar<span style=color:#f92672>(</span>x<span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>,</span>y<span style=color:#66d9ef>:</span> <span style=color:#f92672>=&gt;</span> <span style=color:#a6e22e>Int</span><span style=color:#f92672>)</span> <span style=color:#66d9ef>=</span> x<span style=color:#75715e>//Call By Value , Call By Name
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>Loop</span><span style=color:#f92672>()</span><span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>=</span> <span style=color:#f92672>{</span>println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;...&#34;</span><span style=color:#f92672>);</span><span style=color:#a6e22e>Loop</span><span style=color:#f92672>}</span> <span style=color:#75715e>//无限循环
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//    println(bar(Loop,1))//将Loop传给call by value ,函数体中即便没有使用到,也去运行这个无限循环
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    println<span style=color:#f92672>(</span>bar<span style=color:#f92672>(</span><span style=color:#ae81ff>1</span><span style=color:#f92672>,</span><span style=color:#a6e22e>Loop</span><span style=color:#f92672>))</span><span style=color:#75715e>//将Loop传给call by name ,函数体中没有使用到,因此不会去运行这个无限循环
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 柯里化
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * @param a
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * @param b
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * @return
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//def curriedAdd(a:Int,b:Int) = a+b
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>def</span> curriedAdd<span style=color:#f92672>(</span>a<span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>)(</span>b<span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>)</span> <span style=color:#66d9ef>=</span> a<span style=color:#f92672>+</span>b
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>curriedAdd<span style=color:#f92672>(</span><span style=color:#ae81ff>2</span><span style=color:#f92672>)(</span><span style=color:#ae81ff>2</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> addOne <span style=color:#66d9ef>=</span> curriedAdd<span style=color:#f92672>(</span><span style=color:#ae81ff>1</span><span style=color:#f92672>)</span><span style=color:#66d9ef>_</span><span style=color:#75715e>//Int=&gt;Int
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    println<span style=color:#f92672>(</span>addOne<span style=color:#f92672>(</span><span style=color:#ae81ff>2</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 递归例子
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * n!
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> factorial<span style=color:#f92672>(</span>n<span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>)</span><span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span> <span style=color:#f92672>=</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>n<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>0</span><span style=color:#f92672>)</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>else</span> n<span style=color:#f92672>*</span>factorial<span style=color:#f92672>(</span>n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>factorial<span style=color:#f92672>(</span><span style=color:#ae81ff>5</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 尾递归函数
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 尾递归函数中所有递归形式的调用都出现在函数的末尾
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 当编译器检测到一个函数调用是尾递归的时候,
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 他就会覆盖当前的栈,而不是在栈中创建一个新的
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      *
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 优化:把之前的递归调用的结果保存起来,而不是用栈去做这件事
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@annotation</span><span style=color:#f92672>.</span>tailrec <span style=color:#75715e>//开启尾递归调用优化
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>def</span> factorial_tailrec<span style=color:#f92672>(</span>n<span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>,</span>m<span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>)</span><span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span> <span style=color:#f92672>=</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>n<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>0</span><span style=color:#f92672>)</span> m
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>else</span> factorial_tailrec<span style=color:#f92672>(</span>n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span><span style=color:#f92672>,</span>m<span style=color:#f92672>*</span>n<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>factorial_tailrec<span style=color:#f92672>(</span><span style=color:#ae81ff>5</span><span style=color:#f92672>,</span><span style=color:#ae81ff>1</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 求f(x){x=a...b}的和
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * @param f :一个func
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * @param a :x=a
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * @param b :x=b
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * @return :返回和
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> sum <span style=color:#f92672>(</span>f<span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>=&gt;</span><span style=color:#a6e22e>Int</span><span style=color:#f92672>)(</span>a<span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>)(</span>b<span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>)</span><span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span> <span style=color:#f92672>=</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e>//定义一个循环
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#a6e22e>@annotation</span><span style=color:#f92672>.</span>tailrec
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>def</span> loop<span style=color:#f92672>(</span>n<span style=color:#66d9ef>:</span> <span style=color:#66d9ef>Int</span><span style=color:#f92672>,</span>acc<span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>)</span><span style=color:#66d9ef>:</span><span style=color:#66d9ef>Int</span> <span style=color:#f92672>=</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>n<span style=color:#f92672>&gt;</span>b<span style=color:#f92672>)</span> acc<span style=color:#75715e>//如果当前N大于b,返回相加结果
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>else</span> loop<span style=color:#f92672>(</span>n<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span><span style=color:#f92672>,</span>acc<span style=color:#f92672>+</span>f<span style=color:#f92672>(</span>n<span style=color:#f92672>))</span> <span style=color:#75715e>//尾调用优化
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>      loop<span style=color:#f92672>(</span>a<span style=color:#f92672>,</span><span style=color:#ae81ff>0</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>sum<span style=color:#f92672>(</span>x<span style=color:#66d9ef>=&gt;</span>x<span style=color:#f92672>)(</span><span style=color:#ae81ff>0</span><span style=color:#f92672>)(</span><span style=color:#ae81ff>100</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>sum<span style=color:#f92672>(</span>x<span style=color:#66d9ef>=&gt;</span>x<span style=color:#f92672>*</span>x<span style=color:#f92672>)(</span><span style=color:#ae81ff>0</span><span style=color:#f92672>)(</span><span style=color:#ae81ff>5</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> sumSquare <span style=color:#66d9ef>=</span> sum<span style=color:#f92672>(</span>x<span style=color:#66d9ef>=&gt;</span>x<span style=color:#f92672>*</span>x<span style=color:#f92672>)</span><span style=color:#66d9ef>_</span> <span style=color:#75715e>//定义一个函数,是平方的和,_通配a,b
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    println<span style=color:#f92672>(</span>sumSquare<span style=color:#f92672>(</span><span style=color:#ae81ff>1</span><span style=color:#f92672>)(</span><span style=color:#ae81ff>5</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * list相关操作
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 连接操作
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> listB <span style=color:#66d9ef>=</span> <span style=color:#a6e22e>List</span><span style=color:#f92672>(</span><span style=color:#ae81ff>5</span><span style=color:#f92672>,</span><span style=color:#ae81ff>6</span><span style=color:#f92672>,</span><span style=color:#ae81ff>7</span><span style=color:#f92672>)</span><span style=color:#66d9ef>:</span><span style=color:#66d9ef>::list</span> <span style=color:#75715e>//连接两个list
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span>
+</span></span><span style=display:flex><span>      s <span style=color:#66d9ef>&lt;-</span> listB<span style=color:#75715e>//generator
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>)</span>println<span style=color:#f92672>(</span>s<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> listC <span style=color:#66d9ef>=</span> <span style=color:#ae81ff>6</span><span style=color:#66d9ef>:</span><span style=color:#66d9ef>:list</span> <span style=color:#75715e>//连接一个对象和其他的对象(List/Object)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>//list是引用类型,6是值类型,因此listC的类型是List(Any)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span>
+</span></span><span style=display:flex><span>      s <span style=color:#66d9ef>&lt;-</span> listC<span style=color:#75715e>//generator
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>)</span>println<span style=color:#f92672>(</span>s<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> listD <span style=color:#66d9ef>=</span> <span style=color:#e6db74>&#34;7&#34;</span><span style=color:#66d9ef>:</span><span style=color:#66d9ef>:</span><span style=color:#960050;background-color:#1e0010>&#34;8&#34;</span><span style=color:#66d9ef>::Nil</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span>
+</span></span><span style=display:flex><span>      s <span style=color:#66d9ef>&lt;-</span> listD<span style=color:#75715e>//generator
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>)</span>println<span style=color:#f92672>(</span>s<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * head方法,获取第一个元素
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>listC<span style=color:#f92672>.</span>head<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * tail方法,获取除了第一个元素以外的元素
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>listC<span style=color:#f92672>.</span>tail<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * isEmpty:判断是否为空
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      *
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>listC<span style=color:#f92672>.</span>isEmpty <span style=color:#f92672>==</span> <span style=color:#a6e22e>Nil</span><span style=color:#f92672>.</span>isEmpty<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 自己的toString
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * @param l
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * @return
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> walkthru<span style=color:#f92672>(</span>l<span style=color:#66d9ef>:</span><span style=color:#66d9ef>List</span><span style=color:#f92672>[</span><span style=color:#66d9ef>Any</span><span style=color:#f92672>])</span> <span style=color:#66d9ef>:</span><span style=color:#66d9ef>String</span> <span style=color:#f92672>=</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>l<span style=color:#f92672>.</span>isEmpty<span style=color:#f92672>)</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>else</span> l<span style=color:#f92672>.</span>head<span style=color:#f92672>.</span>toString<span style=color:#f92672>+</span><span style=color:#e6db74>&#34; &#34;</span><span style=color:#f92672>+</span>walkthru<span style=color:#f92672>(</span>l<span style=color:#f92672>.</span>tail<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>walkthru<span style=color:#f92672>(</span>listC<span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * filter(func),如果func返回为true,保留此元素
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> listE <span style=color:#66d9ef>=</span> <span style=color:#a6e22e>List</span><span style=color:#f92672>(</span><span style=color:#ae81ff>1</span><span style=color:#f92672>,</span><span style=color:#ae81ff>2</span><span style=color:#f92672>,</span><span style=color:#ae81ff>3</span><span style=color:#f92672>,</span><span style=color:#ae81ff>4</span><span style=color:#f92672>,</span><span style=color:#ae81ff>5</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//    println(listE.filter(x=&gt;x%2==1))
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    println<span style=color:#f92672>(</span>listE<span style=color:#f92672>.</span>filter<span style=color:#f92672>(</span><span style=color:#66d9ef>_</span><span style=color:#f92672>%</span><span style=color:#ae81ff>2</span><span style=color:#f92672>==</span><span style=color:#ae81ff>1</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * toList
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Hello Scalar 666&#34;</span><span style=color:#f92672>.</span>toList<span style=color:#f92672>.</span>filter<span style=color:#f92672>(</span>x<span style=color:#66d9ef>=&gt;</span><span style=color:#a6e22e>Character</span><span style=color:#f92672>.</span>isDigit<span style=color:#f92672>(</span>x<span style=color:#f92672>)))</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * takeWhile,获取元素,指导P返回为False
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Hello Scalar 666&#34;</span><span style=color:#f92672>.</span>toList<span style=color:#f92672>.</span>takeWhile<span style=color:#f92672>(</span>x <span style=color:#66d9ef>=&gt;</span> <span style=color:#f92672>!</span><span style=color:#a6e22e>Character</span><span style=color:#f92672>.</span>isDigit<span style=color:#f92672>(</span>x<span style=color:#f92672>)))</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * map
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Hello Scalar 66&#34;</span><span style=color:#f92672>.</span>toList<span style=color:#f92672>.</span>map<span style=color:#f92672>(</span><span style=color:#66d9ef>_</span><span style=color:#f92672>.</span>toUpper<span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * flatMap
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> l1 <span style=color:#66d9ef>=</span> <span style=color:#a6e22e>List</span><span style=color:#f92672>(</span><span style=color:#a6e22e>List</span><span style=color:#f92672>(</span><span style=color:#ae81ff>3</span><span style=color:#f92672>,</span><span style=color:#ae81ff>4</span><span style=color:#f92672>),</span><span style=color:#a6e22e>List</span><span style=color:#f92672>(</span><span style=color:#ae81ff>4</span><span style=color:#f92672>,</span><span style=color:#ae81ff>5</span><span style=color:#f92672>,</span><span style=color:#ae81ff>6</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>l1<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//map 返回值与原来的类型一致
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    println<span style=color:#f92672>(</span>l1<span style=color:#f92672>.</span>map<span style=color:#f92672>(</span><span style=color:#66d9ef>_</span><span style=color:#f92672>.</span>filter<span style=color:#f92672>(</span><span style=color:#66d9ef>_</span><span style=color:#f92672>%</span><span style=color:#ae81ff>2</span><span style=color:#f92672>==</span><span style=color:#ae81ff>0</span><span style=color:#f92672>)))</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//会将多层的容器打平
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    println<span style=color:#f92672>(</span>l1<span style=color:#f92672>.</span>flatMap<span style=color:#f92672>(</span><span style=color:#66d9ef>_</span><span style=color:#f92672>.</span>filter<span style=color:#f92672>(</span><span style=color:#66d9ef>_</span><span style=color:#f92672>%</span><span style=color:#ae81ff>2</span><span style=color:#f92672>==</span><span style=color:#ae81ff>0</span><span style=color:#f92672>)))</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * reduce
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>listE<span style=color:#f92672>.</span>reduce<span style=color:#f92672>(</span><span style=color:#66d9ef>_</span><span style=color:#f92672>+</span><span style=color:#66d9ef>_</span><span style=color:#f92672>))</span><span style=color:#75715e>//==reduceLeft
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    println<span style=color:#f92672>(</span>listE<span style=color:#f92672>.</span>reduceLeft<span style=color:#f92672>(</span><span style=color:#66d9ef>_</span><span style=color:#f92672>+</span><span style=color:#66d9ef>_</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * foldLeft
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>listE<span style=color:#f92672>.</span>fold<span style=color:#f92672>(</span><span style=color:#ae81ff>0</span><span style=color:#f92672>)(</span><span style=color:#66d9ef>_</span><span style=color:#f92672>+</span><span style=color:#66d9ef>_</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>listE<span style=color:#f92672>.</span>fold<span style=color:#f92672>(</span><span style=color:#ae81ff>1</span><span style=color:#f92672>)(</span><span style=color:#66d9ef>_</span><span style=color:#f92672>*</span><span style=color:#66d9ef>_</span><span style=color:#f92672>))</span><span style=color:#75715e>//会根据U的值进行类型改变
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * Range
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * to
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>((</span><span style=color:#ae81ff>1</span> to <span style=color:#ae81ff>10</span><span style=color:#f92672>).</span>toList<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * until
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>((</span><span style=color:#ae81ff>1</span> until <span style=color:#ae81ff>10</span><span style=color:#f92672>).</span>toList<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * stream is a lazy List
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> s1 <span style=color:#66d9ef>=</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>#</span><span style=color:#66d9ef>:</span><span style=color:#66d9ef>:</span> <span style=color:#960050;background-color:#1e0010>2</span> <span style=color:#66d9ef>#</span><span style=color:#66d9ef>::</span> <span style=color:#960050;background-color:#1e0010>3</span> <span style=color:#66d9ef>#</span><span style=color:#66d9ef>::</span> <span style=color:#66d9ef>Stream.empty</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>s1<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> s2 <span style=color:#66d9ef>=</span> <span style=color:#f92672>(</span><span style=color:#ae81ff>1</span> to <span style=color:#ae81ff>1000000</span><span style=color:#f92672>).</span>toStream
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>s2<span style=color:#f92672>.</span>tail<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * tuple
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * paire
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>((</span><span style=color:#ae81ff>1</span><span style=color:#f92672>,</span><span style=color:#ae81ff>2</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#ae81ff>1</span><span style=color:#f92672>-&gt;</span><span style=color:#ae81ff>2</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> t1 <span style=color:#66d9ef>=</span> <span style=color:#f92672>(</span><span style=color:#ae81ff>1</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;Euraxluo&#34;</span><span style=color:#f92672>,</span><span style=color:#ae81ff>21</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;男&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Euraxluo is :&#34;</span><span style=color:#f92672>+</span>t1<span style=color:#f92672>.</span>_4<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      *
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * @param l:一个List
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * @return (List元素个数,List元素和,List元素平方和)
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> sumSq<span style=color:#f92672>(</span>l<span style=color:#66d9ef>:</span><span style=color:#66d9ef>List</span><span style=color:#f92672>[</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>])</span><span style=color:#66d9ef>:</span><span style=color:#f92672>(</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>,</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>,</span><span style=color:#a6e22e>Int</span><span style=color:#f92672>)</span> <span style=color:#66d9ef>=</span>
+</span></span><span style=display:flex><span>      l<span style=color:#f92672>.</span>foldLeft<span style=color:#f92672>((</span><span style=color:#ae81ff>0</span><span style=color:#f92672>,</span><span style=color:#ae81ff>0</span><span style=color:#f92672>,</span><span style=color:#ae81ff>0</span><span style=color:#f92672>))((</span>t<span style=color:#f92672>,</span> v<span style=color:#f92672>)</span> <span style=color:#66d9ef>=&gt;</span> <span style=color:#f92672>(</span>t<span style=color:#f92672>.</span>_1 <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>,</span> t<span style=color:#f92672>.</span>_2 <span style=color:#f92672>+</span> v<span style=color:#f92672>,</span> t<span style=color:#f92672>.</span>_3 <span style=color:#f92672>+</span> v <span style=color:#f92672>*</span> v<span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>sumSq<span style=color:#f92672>(</span>listE<span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * Map
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> map <span style=color:#66d9ef>=</span> <span style=color:#a6e22e>Map</span><span style=color:#f92672>(</span><span style=color:#ae81ff>1</span><span style=color:#f92672>-&gt;</span><span style=color:#e6db74>&#34;Euraxluo&#34;</span><span style=color:#f92672>,</span><span style=color:#ae81ff>2</span><span style=color:#f92672>-&gt;</span><span style=color:#e6db74>&#34;hehe&#34;</span><span style=color:#f92672>,</span><span style=color:#ae81ff>4</span><span style=color:#f92672>-&gt;</span><span style=color:#e6db74>&#34;sa&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>map<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>map<span style=color:#f92672>(</span><span style=color:#ae81ff>4</span><span style=color:#f92672>))</span><span style=color:#75715e>//通过key获取value
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    println<span style=color:#f92672>(</span>map<span style=color:#f92672>.</span>contains<span style=color:#f92672>(</span><span style=color:#ae81ff>3</span><span style=color:#f92672>))</span><span style=color:#75715e>//判断是否有这个key
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    println<span style=color:#f92672>(</span>map<span style=color:#f92672>.</span>keys<span style=color:#f92672>)</span><span style=color:#75715e>//获取keys
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    println<span style=color:#f92672>(</span>map<span style=color:#f92672>.</span>values<span style=color:#f92672>)</span><span style=color:#75715e>//获取values
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * +:添加一个k-v
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 返回一个新Map
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>map<span style=color:#f92672>+(</span><span style=color:#ae81ff>6</span><span style=color:#f92672>-&gt;</span><span style=color:#e6db74>&#34;hehheheh&#34;</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * -:根据key删除一个k-v
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 返回一个新Map
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>map <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * ++:添加多个
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span> map <span style=color:#f92672>++</span> <span style=color:#a6e22e>List</span><span style=color:#f92672>(</span><span style=color:#ae81ff>22</span><span style=color:#f92672>-&gt;</span><span style=color:#e6db74>&#34;alice&#34;</span><span style=color:#f92672>,</span><span style=color:#ae81ff>51</span><span style=color:#f92672>-&gt;</span><span style=color:#e6db74>&#34;sas&#34;</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * --:删除多个
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>map <span style=color:#f92672>--</span> <span style=color:#a6e22e>List</span><span style=color:#f92672>(</span><span style=color:#ae81ff>1</span><span style=color:#f92672>,</span><span style=color:#ae81ff>2</span><span style=color:#f92672>))</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * 递归实现的快速排序
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * @param l
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      * @return
+</span></span></span><span style=display:flex><span><span style=color:#75715e>      */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> qSort<span style=color:#f92672>(</span>l<span style=color:#66d9ef>:</span><span style=color:#66d9ef>List</span><span style=color:#f92672>[</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>])</span><span style=color:#66d9ef>:</span><span style=color:#66d9ef>List</span><span style=color:#f92672>[</span><span style=color:#66d9ef>Int</span><span style=color:#f92672>]</span> <span style=color:#66d9ef>=</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>l<span style=color:#f92672>.</span>length <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>)</span> l<span style=color:#75715e>//如果List元素小于两个,返回其自身
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>        qSort<span style=color:#f92672>(</span>l<span style=color:#f92672>.</span>filter<span style=color:#f92672>(</span><span style=color:#66d9ef>_</span><span style=color:#f92672>&lt;</span>l<span style=color:#f92672>.</span>head<span style=color:#f92672>))</span> <span style=color:#f92672>++</span> <span style=color:#75715e>//小于l.head的部分,然后加上剩下部分
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        l<span style=color:#f92672>.</span>filter<span style=color:#f92672>(</span><span style=color:#66d9ef>_</span><span style=color:#f92672>==</span>l<span style=color:#f92672>.</span>head<span style=color:#f92672>)</span> <span style=color:#f92672>++</span> <span style=color:#75715e>//等于l.head的部分,加上大于l.head的部分
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        qSort<span style=color:#f92672>(</span>l<span style=color:#f92672>.</span>filter<span style=color:#f92672>(</span><span style=color:#66d9ef>_</span> <span style=color:#f92672>&gt;</span> l<span style=color:#f92672>.</span>head<span style=color:#f92672>))</span><span style=color:#75715e>//大于l.head的部分
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>(</span>qSort<span style=color:#f92672>(</span><span style=color:#a6e22e>List</span><span style=color:#f92672>(</span><span style=color:#ae81ff>9</span><span style=color:#f92672>,</span><span style=color:#ae81ff>3</span><span style=color:#f92672>,</span><span style=color:#ae81ff>7</span><span style=color:#f92672>,</span><span style=color:#ae81ff>6</span><span style=color:#f92672>,</span><span style=color:#ae81ff>5</span><span style=color:#f92672>,</span><span style=color:#ae81ff>4</span><span style=color:#f92672>,</span><span style=color:#ae81ff>2</span><span style=color:#f92672>,</span><span style=color:#ae81ff>8</span><span style=color:#f92672>,</span><span style=color:#ae81ff>1</span><span style=color:#f92672>)))</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//函数式编程的重要概念
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//引用透明:对于相同的输入,总是得到相同的输出
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//如果F(x)的参数x和函数体都是引用透明的,那么函数F是纯函数
+</span></span></span></code></pre></div></div><div class="modal fade" id=rewardModal tabindex=-1 aria-labelledby=rewardModalLabel aria-hidden=true><div class=modal-dialog><div class="modal-content surface"><div class=modal-header><h5 class=modal-title id=rewardModalLabel><i class="fas fa-fw fa-coffee"></i>Buy me a coffee</h5><a href=# data-bs-dismiss=modal class="btn btn-sm btn-outline-primary" aria-label=Close><i class="fas fa-times"></i></a></div><div class=modal-body><ul class="nav nav-tabs mb-3" role=tablist><li class="nav-item text-nowrap" role=presentation><a class="nav-link active" id=reward-alipay-tab data-bs-toggle=tab href=#reward-alipay role=tab aria-controls=reward-alipay aria-selected=true><i class="fab fa-fw fa-alipay"></i>Alipay</a></li><li class="nav-item text-nowrap" role=presentation><a class=nav-link id=reward-wechat-tab data-bs-toggle=tab href=#reward-wechat role=tab aria-controls=reward-wechat aria-selected=true><i class="fab fa-fw fa-weixin"></i>WeChat</a></li></ul><div class=tab-content id=rewardTabContent><div class="tab-pane fade post-reward-content show active" id=reward-alipay role=tabpanel aria-labelledby=reward-alipay-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_alipay.jpg loading=lazy></div><div class="tab-pane fade post-reward-content show" id=reward-wechat role=tabpanel aria-labelledby=reward-wechat-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_wechatpay.jpg loading=lazy></div></div></div></div></div></div><hr><div class=post-copyright id=post-copyright><a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc/4.0/deed.en><span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i></span>
+CC BY-NC 4.0</a></div><hr><div class="post-navs d-flex mb-3 justify-content-evenly"><div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/posts/note/slam/>SLAM</a></div><div class="post-nav post-next"><a href=/posts/note/rust%E5%AD%A6%E4%B9%A0/>rust学习</a>
+<i class="fas fa-fw fa-chevron-right"></i></div></div></div></article><section class="related-posts row card component"><div class=card-header><h2 class=card-title>Related Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/c++%E5%B0%8F%E8%AE%B0/>C++ 小记</a>
+<span class="float-end post-date">2019-02-21</span></li><li><a href=/posts/note/slam/>SLAM</a>
+<span class="float-end post-date">2019-02-21</span></li><li><a href=/posts/note/vslam/>VSLAM</a>
+<span class="float-end post-date">2019-02-21</span></li><li><a href=/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/>java面试笔记</a>
+<span class="float-end post-date">2019-02-21</span></li><li><a href=/posts/note/%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F/>pattern:斑图</a>
+<span class="float-end post-date">2019-02-21</span></li><li><a href=/posts/note/rust%E5%AD%A6%E4%B9%A0/>rust学习</a>
+<span class="float-end post-date">2019-02-21</span></li></ul></div></section><div class="card component row post-comments" id=post-comments><div class=card-header><h2 class=card-title>Comments</h2></div><div class=card-body><script src=https://utteranc.es/client.js repo=Euraxluo/Euraxluo.github.io issue-term=pathname label=✨💬✨ theme=github-dark crossorigin=anonymous async></script></div></div></div></div><aside class="col-lg-4 sidebar d-flex"><div class=container><section class="card row text-center profile component"><div class=card-body><div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt=Euraxluo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy></div><div class="col-12 profile-meta"><div class=profile-name>Euraxluo</div><div class=profile-bio>R&amp;D Engineer.</div><div class=profile-company><i class="fas fa-fw fa-building"></i>headingdata.com</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/about/>About</a></div></div></div></section><section class="featured-posts row card component"><div class=card-header><h2 class=card-title>Featured Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/>java面试笔记</a></li><li><a href=/posts/python/python-socket/>python socket编程</a></li><li><a href=/posts/note/rust%E5%AD%A6%E4%B9%A0/>rust学习</a></li><li><a href=/posts/note/scala%E5%85%A5%E9%97%A8/>Scala入门</a></li><li><a href=/posts/note/slam/>SLAM</a></li></ul></div></section><section class="recent-posts row card component"><div class=card-header><h2 class=card-title>Recent Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/>caddy简单使用</a></li><li><a href=/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/>安装K8S集群</a></li><li><a href=/posts/redis/redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/>Redis 实现分布式锁</a></li><li><a href=/posts/note/etcd%E5%85%A5%E9%97%A8/>etcd 基本使用</a></li><li><a href=/posts/note/gorm/>GORM学习</a></li></ul></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/categories>Categories</a></h2></div><div class=card-body><div class=py-2><a href=/categories/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/categories/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/categories/java/ class="badge rounded post-taxonomy" title=java>java
+</a><a href=/categories/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/categories/architecture-design/ class="badge rounded post-taxonomy" title="architecture design">architecture design</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/series>Series</a></h2></div><div class=card-body><div class=py-2><a href=/series/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/series/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/series/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/series/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/series/jdbc/ class="badge rounded post-taxonomy" title=JDBC>JDBC</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/tags>Tags</a></h2></div><div class=card-body><div class=py-2><a href=/tags/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/tags/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/tags/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/tags/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/tags/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/tags/architecture/ class="badge rounded post-taxonomy" title=architecture>architecture</a></div></div></section></div></aside></div></main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><a class="nav-link social-link" href=mailto:Euraxluo@outlook.com title=Email><i class="fas fa-fw fa-2x fa-envelope"></i>
+</a><a class="nav-link social-link" target=_blank href=https://github.com/Euraxluo title=GitHub rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-github"></i>
+</a><a class="nav-link social-link" target=_blank href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title=QQ rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-qq"></i>
+</a><a class="nav-link social-link" target=_blank href=https://www.zhihu.com/people/euraxluo title=Zhihu rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-zhihu"></i></a></nav><div class="copyright mb-2">Copyright © 2016-2023 Euraxluo. All Rights Reserved.</div></footer><script src=/js/main.min.353ac7952bbb8bdb7925c48cfcafede449a2253dd2610b49feb566a306011232.js integrity="sha256-NTrHlSu7i9t5JcSM/K/t5EmiJT3SYQtJ/rVmowYBEjI=" crossorigin=anonymous defer></script><script src=/js/icons.min.fb1b77be9bd37807602ec542d150423ad89114834c2e76ca7c004309310d64b0.js integrity="sha256-+xt3vpvTeAdgLsVC0VBCOtiRFINMLnbKfABDCTENZLA=" crossorigin=anonymous defer></script>
+<script src=/js/viewer.min.4f0b78319199ad080a1331f64e868866ccf303199b8144d80003d6ba8a4e5feb.js integrity="sha256-Twt4MZGZrQgKEzH2ToaIZszzAxmbgUTYAAPWuopOX+s=" crossorigin=anonymous defer></script><script defer src=/js/katex.min.3e41bd190b6187a4854d279cbde0b8d47fd0b6aae6341bdee804717abe8f6d51.js integrity="sha256-PkG9GQthh6SFTSecveC41H/QtqrmNBve6ARxer6PbVE=" crossorigin=anonymous></script></body></html>

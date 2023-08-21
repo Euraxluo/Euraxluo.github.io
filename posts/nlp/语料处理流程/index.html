@@ -1,0 +1,512 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>语料处理基础 - Euraxluo Blog</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180><link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png><link rel=icon href=/images/icons/favicon.ico><link rel=manifest href=/manifest.json><meta name=keywords content><meta name=description content="语料处理基础"><meta itemprop=name content="语料处理基础"><meta itemprop=description content="语料处理基础"><meta itemprop=datePublished content="2019-02-21T00:00:00+00:00"><meta itemprop=dateModified content="2019-02-21T00:00:00+00:00"><meta itemprop=wordCount content="702"><meta itemprop=keywords content="NLP,"><meta property="og:title" content="语料处理基础"><meta property="og:description" content="语料处理基础"><meta property="og:type" content="article"><meta property="og:url" content="/posts/nlp/%E8%AF%AD%E6%96%99%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2019-02-21T00:00:00+00:00"><meta property="article:modified_time" content="2019-02-21T00:00:00+00:00"><meta property="og:see_also" content="/posts/nlp/nlp%E5%9F%BA%E7%A1%80/"><meta property="og:see_also" content="/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/"><meta name=twitter:card content="summary"><meta name=twitter:title content="语料处理基础"><meta name=twitter:description content="语料处理基础"><link rel=stylesheet href=/css/main.min.29f9b537bf546fdc11e6e11f92ddd52ea0bd1eefa2228b828bc3b750c66763b0.css integrity="sha256-Kfm1N79Ub9wR5uEfkt3VLqC9Hu+iIouCi8O3UMZnY7A=" crossorigin=anonymous><link rel=stylesheet href=/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head><body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top"><div class=container-fluid><button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/><img class=logo alt=Logo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy>
+Euraxluo</a>
+<button class=navbar-social-share type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<i class="fas fa-share-alt"></i></button><div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare><div class=offcanvas-header><h3 class=offcanvas-title>Share</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=%e8%af%ad%e6%96%99%e5%a4%84%e7%90%86%e5%9f%ba%e7%a1%80&url=%2fposts%2fnlp%2f%25E8%25AF%25AD%25E6%2596%2599%25E5%25A4%2584%25E7%2590%2586%25E6%25B5%2581%25E7%25A8%258B%2f"><i class="fab fa-fw fa-twitter"></i> Twitter</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fposts%2fnlp%2f%25E8%25AF%25AD%25E6%2596%2599%25E5%25A4%2584%25E7%2590%2586%25E6%25B5%2581%25E7%25A8%258B%2f"><i class="fab fa-fw fa-facebook-f"></i> Facebook</a></div></div><button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i></button><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings><div class=offcanvas-header><h3 class=offcanvas-title>Settings</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class="offcanvas-body d-flex flex-column"><section class=setting><form class=row><div class=col-auto><label><i class="fas fa-fw fa-adjust"></i> Mode</label></div><div class="col-auto ms-auto"><div class="form-check form-switch"><input class=form-check-input type=checkbox id=modeSwitcher></div></div></form></section><section class=setting><form class="font-size-switcher-form row"><div class=col-auto><label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Font Size</label></div><div class="col-auto ms-auto"><input type=range class=form-range min=-2 max=2 id=fontSize></div></form></section><section class="setting palettes"><form class=row><div class=col-auto><label><i class="fas fa-fw fa-palette"></i> Palette</label></div><div class="col-auto ms-auto"><a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker><i class="fas fa-eye-dropper"></i></a></div></form><div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Blue class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gray" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Brown class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Green class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Pink class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Purple class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Red class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label=Teal class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Yellow class="btn btn-sm palette" data-palette=yellow></button></div></section><section class="setting actions d-flex justify-content-center mt-auto"><a role=button class="action action-reload-page"><span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload</a>
+<a role=button class="action action-copy-url"><span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copy URL</a></section></div></div><div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent><form class="search-bar my-1" action=/search><div class="input-group input-group-sm"><span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search></div></form><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/archives/><i class="fas fa-fw fa-file-archive"></i>timeline</a></li><li class=nav-item><a class=nav-link href=/categories/><i class="fas fa-fw fa-folder"></i>category</a></li><li class=nav-item><a class=nav-link href=/tags/><i class="fas fa-fw fa-tags"></i>tags</a></li><li class=nav-item><a class=nav-link href=/series/><i class="fas fa-fw fa-columns"></i>series</a></li><li class="nav-item dropdown"><a class=nav-link id=navbarDropdownRepos role=button data-bs-toggle=dropdown aria-expanded=false><i class="fab fa-fw fa-github"></i>Repos</a><ul class=dropdown-menu aria-labelledby=navbarDropdownRepos><li><a class=dropdown-item href=https://github.com/BreezeTeam/cache target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>cache</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/distance_matrix target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>distance_matrix</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>Euraxluo</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/IMOMD-RRTStar-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>IMOMD-RRTStar-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/lang target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>lang</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/LKH-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>LKH-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/scheduler target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>scheduler</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/simplegrad target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>simplegrad</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/verb target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>verb</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/web target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>web</a></li></ul></li></ul></div></div></nav></header><main role=main class=container-fluid><div class="row content"><div class=col-lg-8><div class=container><article class="row card component mb-4 post"><div class=post-panel-wrapper><div class="d-flex flex-column component rounded post-panel"><a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler"><i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i></a>
+<a class="action btn-reward" role=button data-bs-toggle=modal data-bs-target=#rewardModal title="Buy me a coffee"><i class="fas fa-fw fa-coffee"></i></a>
+<a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright><i class="fas fa-fw fa-copyright"></i></a>
+<a class=action href=#post-comments role=button aria-label=Comments title=Comments><i class="fas fa-fw fa-comments"></i></a>
+<a class=action data-bs-toggle=offcanvas href=#offcanvasTOC aria-controls=offcanvasTOC role=button title="Table of contents"><i class="fas fa-fw fa-list-alt"></i></a></div></div><div class=card-header><h1 class="card-title post-title">语料处理基础</h1></div><div class=card-body><div class=post-meta><span class=post-date title="created on 2019-02-21 08:00:00 +0800 CST.">2019-02-21
+</span><span class=post-reading-time>4 min read
+</span><span class=post-taxonomies><a href=/categories/nlp/ class="badge rounded-pill post-taxonomy">NLP</a><a href=/series/nlp/ class="badge rounded-pill post-taxonomy">NLP</a><a href=/tags/nlp/ class="badge rounded-pill post-taxonomy">NLP</a></span></div><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasTOC aria-labelledby=offcanvasTOCLabel><div class=offcanvas-header><h2 class=offcanvas-title id=offcanvasTOCLabel>Table Of Contents</h5><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><nav id=TableOfContents><ul><li><a href=#语料处理流程>语料处理流程</a><ul><li><a href=#语料收集>语料收集</a></li><li><a href=#语料清洗>语料清洗</a></li><li><a href=#语料问答对的构建>语料问答对的构建</a></li><li><a href=#句子向量的编码化>句子向量的编码化</a></li><li><a href=#语料模型的保存>语料模型的保存</a></li></ul></li><li><a href=#实操>实操</a><ul><li><a href=#收集语料>收集语料:</a></li><li><a href=#语料清洗-1>语料清洗</a></li><li><a href=#问答对的构建>问答对的构建</a></li><li><a href=#句子向量的编码化-1>句子向量的编码化</a></li><li><a href=#语料模型的训练和保存>语料模型的训练和保存</a></li></ul></li></ul></nav></div></div><div class="post-content mb-3"><h2 id=语料处理流程>语料处理流程<a class="anchor ms-1" href=#语料处理流程><i class="fas fa-link"></i></a></h2><p>语料收集 > 语料清洗 > 句子向量编码化 > 语料问答对构建 > 语料的模型保存 > 结束
+<img class=img-fluid alt src loading=lazy></p><h3 id=语料收集>语料收集<a class="anchor ms-1" href=#语料收集><i class="fas fa-link"></i></a></h3><ul><li><p>聊天记录</p></li><li><p>电影对话</p></li><li><p>台词片断</p></li></ul><h3 id=语料清洗>语料清洗<a class="anchor ms-1" href=#语料清洗><i class="fas fa-link"></i></a></h3><blockquote><p>要清洗的内容</p></blockquote><ul><li><p>多余的空格</p></li><li><p>不正规的符号</p></li><li><p>多余的字符,英文</p></li></ul><blockquote><p>清洗的方法</p></blockquote><ul><li><p>正则化</p></li><li><p>切分</p></li><li><p>好坏语句判断</p></li></ul><h3 id=语料问答对的构建>语料问答对的构建<a class="anchor ms-1" href=#语料问答对的构建><i class="fas fa-link"></i></a></h3><ul><li>问答对的处理和拆分</li></ul><h3 id=句子向量的编码化>句子向量的编码化<a class="anchor ms-1" href=#句子向量的编码化><i class="fas fa-link"></i></a></h3><ul><li><p>原始文本不能直接训练</p></li><li><p>将句子转化为向量</p></li><li><p>将向量转换为句子</p></li></ul><h3 id=语料模型的保存>语料模型的保存<a class="anchor ms-1" href=#语料模型的保存><i class="fas fa-link"></i></a></h3><ul><li><p>使用pickle来保存模型</p></li><li><p>生成pkl格式</p></li><li><p>利用pkl格式进行语料的训练</p></li><li><p>最后通过深度模型过后打包成restful</p></li></ul><h2 id=实操>实操<a class="anchor ms-1" href=#实操><i class="fas fa-link"></i></a></h2><h3 id=收集语料>收集语料:<a class="anchor ms-1" href=#收集语料><i class="fas fa-link"></i></a></h3><p>收集了200M的电影台词作为语料</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt><span style=display:flex><span>
+</span></span><span style=display:flex><span>M 你/没/事/吧/？/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M 是/的/，/我/没/事/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M 来/吧/，/我/在/做/早/餐/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M 好/的/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>E
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M C/h/l/o/e/./
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M J/a/c/k/!/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M 没/事/吧/?/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M 发/生/什/么/了/?/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M 杀/死/知/道/你/还/活/着/的/人/?/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M 我/不/知/道/,/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M 现/在/,/ /我/要/进/入/C/T/U/的/档/案/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M 秘/密/的
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M 我/没/电/脑/不/行/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M 在/加/州/工/学/院/有/个/研/究/处/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M 我/们/能/进/去/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M 那/是/谁/?/
+</span></span></code></pre></div><h3 id=语料清洗-1>语料清洗<a class="anchor ms-1" href=#语料清洗-1><i class="fas fa-link"></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 语料清洗</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>##合并和切分,去掉不常用的符号</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>make_split</span>(line):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> re<span style=color:#f92672>.</span><span style=color:#66d9ef>match</span>(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;.*([，···?!\.,!？])$&#39;</span>, <span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>join(line)):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> [<span style=color:#e6db74>&#39;, &#39;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>##筛选出好句子和坏句子,判断英文和数字是不是太多了</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>good_line</span>(line):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> len(re<span style=color:#f92672>.</span>findall(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;[a-zA-Z0-9]&#39;</span>, <span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>join(line))) <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>2</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>##替换掉多余的字符</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>regular</span>(sen):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    sen <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>sub(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;\.{3,100}&#39;</span>, <span style=color:#e6db74>&#39;···&#39;</span>, sen)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    sen <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>sub(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;···{2,100}&#39;</span>, <span style=color:#e6db74>&#39;···&#39;</span>, sen)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    sen <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>sub(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;[,]{1,100}&#39;</span>, <span style=color:#e6db74>&#39;，&#39;</span>, sen)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    sen <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>sub(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;[\.]{1,100}&#39;</span>, <span style=color:#e6db74>&#39;。&#39;</span>, sen)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    sen <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>sub(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;[\?]{1,100}&#39;</span>, <span style=color:#e6db74>&#39;？&#39;</span>, sen)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    sen <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>sub(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;[!]{1,100}&#39;</span>, <span style=color:#e6db74>&#39;！&#39;</span>, sen)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> sen
+</span></span></code></pre></div><h3 id=问答对的构建>问答对的构建<a class="anchor ms-1" href=#问答对的构建><i class="fas fa-link"></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#解压文件</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;extract lines&#39;</span>)<span style=color:#75715e>#dgk_shooter_min</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    fp <span style=color:#f92672>=</span> open(<span style=color:#e6db74>&#39;test.conv&#39;</span>, <span style=color:#e6db74>&#39;r&#39;</span>, errors<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;ignore&#39;</span>, encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;utf-8&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#去掉M空格,和斜杠,丢弃,无效的句子</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    groups <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    group <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> line <span style=color:#f92672>in</span> tqdm(fp):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> line<span style=color:#f92672>.</span>startswith(<span style=color:#e6db74>&#39;M &#39;</span>): <span style=color:#75715e>#表示这一行是句子,需要处理</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            line <span style=color:#f92672>=</span> line<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#39;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#39;</span>, <span style=color:#e6db74>&#39;&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> <span style=color:#e6db74>&#39;/&#39;</span> <span style=color:#f92672>in</span> line:<span style=color:#75715e>#如果这一行有&#39;/&#39;,我们就从第二个字符开始以&#39;/&#39;切分</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                line <span style=color:#f92672>=</span> line[<span style=color:#ae81ff>2</span>:]<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#39;/&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                line <span style=color:#f92672>=</span> list(line[<span style=color:#ae81ff>2</span>:])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            line <span style=color:#f92672>=</span> line[:<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            group<span style=color:#f92672>.</span>append(list(regular(<span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>join(line))))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> group:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                groups<span style=color:#f92672>.</span>append(group)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                group <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> group:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        groups<span style=color:#f92672>.</span>append(group)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        group <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;extract group&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 定义问答对</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    x_data <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    y_data <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> group <span style=color:#f92672>in</span> tqdm(groups):<span style=color:#75715e>#tqdm可以显示进度</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i, line <span style=color:#f92672>in</span> enumerate(group): <span style=color:#75715e>#把他化为枚举类</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            last_line <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> i <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>:<span style=color:#75715e>#表示最少有两行</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                last_line <span style=color:#f92672>=</span> group[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> good_line(last_line):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                    last_line <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            next_line <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> i <span style=color:#f92672>&lt;</span> len(group) <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                next_line <span style=color:#f92672>=</span> group[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> good_line(next_line):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                    next_line <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            next_next_line <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> i <span style=color:#f92672>&lt;</span> len(group) <span style=color:#f92672>-</span> <span style=color:#ae81ff>2</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                next_next_line <span style=color:#f92672>=</span> group[i <span style=color:#f92672>+</span> <span style=color:#ae81ff>2</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> good_line(next_next_line):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                    next_next_line <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> next_line:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                x_data<span style=color:#f92672>.</span>append(line)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                y_data<span style=color:#f92672>.</span>append(next_line)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> last_line <span style=color:#f92672>and</span> next_line:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                x_data<span style=color:#f92672>.</span>append(last_line <span style=color:#f92672>+</span> make_split(last_line) <span style=color:#f92672>+</span> line)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                y_data<span style=color:#f92672>.</span>append(next_line)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> next_line <span style=color:#f92672>and</span> next_next_line:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                x_data<span style=color:#f92672>.</span>append(line)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                y_data<span style=color:#f92672>.</span>append(next_line <span style=color:#f92672>+</span> make_split(next_line) <span style=color:#f92672>+</span> next_next_line)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(len(x_data), len(y_data))
+</span></span></code></pre></div><h3 id=句子向量的编码化-1>句子向量的编码化<a class="anchor ms-1" href=#句子向量的编码化-1><i class="fas fa-link"></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 把句子进行编码化</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>WordSequence</span>(object):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 字典定义</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    PAD_TAG <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&lt;pad&gt;&#39;</span>   <span style=color:#75715e>#填充标签</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    UNK_TAG <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&lt;unk&gt;&#39;</span>   <span style=color:#75715e>#未知标签</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    START_TAG <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&lt;s&gt;&#39;</span>   <span style=color:#75715e>#开始标记</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    END_TAG <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&lt;/S&gt;&#39;</span>    <span style=color:#75715e>#结束标记</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    PAD <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    UNK <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    START <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    END <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> __init__(self):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>fited <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>  <span style=color:#75715e>#是否训练</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>dict <span style=color:#f92672>=</span> {WordSequence<span style=color:#f92672>.</span>PAD_TAG: WordSequence<span style=color:#f92672>.</span>PAD, WordSequence<span style=color:#f92672>.</span>UNK_TAG: WordSequence<span style=color:#f92672>.</span>UNK,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                     WordSequence<span style=color:#f92672>.</span>START_TAG: WordSequence<span style=color:#f92672>.</span>START, WordSequence<span style=color:#f92672>.</span>END_TAG: WordSequence<span style=color:#f92672>.</span>END}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 编码转换</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>to_index</span>(self, word):   <span style=color:#75715e>#word 2 index</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>assert</span> self<span style=color:#f92672>.</span>fited, <span style=color:#e6db74>&#39;WordSequence尚未进行fit操作&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> word <span style=color:#f92672>in</span> self<span style=color:#f92672>.</span>dict:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> self<span style=color:#f92672>.</span>dict[word]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> WordSequence<span style=color:#f92672>.</span>UNK
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>to_word</span>(self, index):   <span style=color:#75715e>#index 2 word</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>assert</span> self<span style=color:#f92672>.</span>fited, <span style=color:#e6db74>&#39;WordSequence尚未进行fit操作&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> k, v <span style=color:#f92672>in</span> self<span style=color:#f92672>.</span>dict<span style=color:#f92672>.</span>items():
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> v <span style=color:#f92672>==</span> index:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> k
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> WordSequence<span style=color:#f92672>.</span>UNK_TAG
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>size</span>(self):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>assert</span> self<span style=color:#f92672>.</span>fited, <span style=color:#e6db74>&#39;WordSequence尚未进行fit操作&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> len(self<span style=color:#f92672>.</span>dict) <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> __len__(self):  <span style=color:#75715e># 返回字典长度</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> self<span style=color:#f92672>.</span>size()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 训练函数</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>fit</span>(self, sentences, min_count<span style=color:#f92672>=</span><span style=color:#ae81ff>5</span>, max_count<span style=color:#f92672>=</span><span style=color:#66d9ef>None</span>, max_features<span style=color:#f92672>=</span><span style=color:#66d9ef>None</span>):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>assert</span> <span style=color:#f92672>not</span> self<span style=color:#f92672>.</span>fited, <span style=color:#e6db74>&#39;WordSequence只能fit一次&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        count <span style=color:#f92672>=</span> {}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> sentence <span style=color:#f92672>in</span> sentences:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            arr <span style=color:#f92672>=</span> list(sentence)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> a <span style=color:#f92672>in</span> arr:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> a <span style=color:#f92672>not</span> <span style=color:#f92672>in</span> count:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                    count[a] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                count[a] <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> min_count <span style=color:#f92672>is</span> <span style=color:#f92672>not</span> <span style=color:#66d9ef>None</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            count <span style=color:#f92672>=</span> {k: v <span style=color:#66d9ef>for</span> k, v <span style=color:#f92672>in</span> count<span style=color:#f92672>.</span>items() <span style=color:#66d9ef>if</span> v <span style=color:#f92672>&gt;=</span> min_count}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> max_count <span style=color:#f92672>is</span> <span style=color:#f92672>not</span> <span style=color:#66d9ef>None</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            count <span style=color:#f92672>=</span> {k: v <span style=color:#66d9ef>for</span> k, v <span style=color:#f92672>in</span> count<span style=color:#f92672>.</span>items() <span style=color:#66d9ef>if</span> v <span style=color:#f92672>&lt;=</span> max_count}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>dict <span style=color:#f92672>=</span> {WordSequence<span style=color:#f92672>.</span>PAD_TAG: WordSequence<span style=color:#f92672>.</span>PAD, WordSequence<span style=color:#f92672>.</span>UNK_TAG: WordSequence<span style=color:#f92672>.</span>UNK,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                     WordSequence<span style=color:#f92672>.</span>START_TAG: WordSequence<span style=color:#f92672>.</span>START, WordSequence<span style=color:#f92672>.</span>END_TAG: WordSequence<span style=color:#f92672>.</span>END}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> isinstance(max_features, int):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            count <span style=color:#f92672>=</span> sorted(list(count<span style=color:#f92672>.</span>items()), key<span style=color:#f92672>=</span><span style=color:#66d9ef>lambda</span> x: x[<span style=color:#ae81ff>1</span>])<span style=color:#75715e>#排序,找到最大特征的数目</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> max_features <span style=color:#f92672>is</span> <span style=color:#f92672>not</span> <span style=color:#66d9ef>None</span> <span style=color:#f92672>and</span> len(count) <span style=color:#f92672>&gt;</span> max_features:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                count <span style=color:#f92672>=</span> count[<span style=color:#f92672>-</span>int(max_features):]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> w, _ <span style=color:#f92672>in</span> count:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                self<span style=color:#f92672>.</span>dict[w] <span style=color:#f92672>=</span> len(self<span style=color:#f92672>.</span>dict)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> w <span style=color:#f92672>in</span> sorted(count<span style=color:#f92672>.</span>keys()):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                self<span style=color:#f92672>.</span>dict[w] <span style=color:#f92672>=</span> len(self<span style=color:#f92672>.</span>dict)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>fited <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#把句子编码化</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>transform</span>(self, sentence, max_len<span style=color:#f92672>=</span><span style=color:#66d9ef>None</span>):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>assert</span> self<span style=color:#f92672>.</span>fited, <span style=color:#e6db74>&#39;WordSequence尚未进行fit操作&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> max_len <span style=color:#f92672>is</span> <span style=color:#f92672>not</span> <span style=color:#66d9ef>None</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            r <span style=color:#f92672>=</span> [self<span style=color:#f92672>.</span>PAD] <span style=color:#f92672>*</span> max_len
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            r <span style=color:#f92672>=</span> [self<span style=color:#f92672>.</span>PAD] <span style=color:#f92672>*</span> len(sentence)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> index, a <span style=color:#f92672>in</span> enumerate(sentence):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> max_len <span style=color:#f92672>is</span> <span style=color:#f92672>not</span> <span style=color:#66d9ef>None</span> <span style=color:#f92672>and</span> index <span style=color:#f92672>&gt;=</span> len(r):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            r[index] <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>to_index(a)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> np<span style=color:#f92672>.</span>array(r)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 把句子解码</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>inverse_transform</span>(self, indices, ignore_pad<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>, ignore_unk<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>, ignore_start<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>, ignore_end<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        ret <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> indices:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            word <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>to_word(i)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> word <span style=color:#f92672>==</span> WordSequence<span style=color:#f92672>.</span>PAD_TAG <span style=color:#f92672>and</span> ignore_pad:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>continue</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> word <span style=color:#f92672>==</span> WordSequence<span style=color:#f92672>.</span>UNK_TAG <span style=color:#f92672>and</span> ignore_unk:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>continue</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> word <span style=color:#f92672>==</span> WordSequence<span style=color:#f92672>.</span>START_TAG <span style=color:#f92672>and</span> ignore_start:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>continue</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> word <span style=color:#f92672>==</span> WordSequence<span style=color:#f92672>.</span>END_TAG <span style=color:#f92672>and</span> ignore_end:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>continue</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            ret<span style=color:#f92672>.</span>append(word)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> ret
+</span></span></code></pre></div><p>效果:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ws <span style=color:#f92672>=</span> WordSequence()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ws<span style=color:#f92672>.</span>fit([
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        [<span style=color:#e6db74>&#39;你&#39;</span>, <span style=color:#e6db74>&#39;好&#39;</span>, <span style=color:#e6db74>&#39;啊&#39;</span>],
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        [<span style=color:#e6db74>&#39;你&#39;</span>, <span style=color:#e6db74>&#39;好&#39;</span>, <span style=color:#e6db74>&#39;哦&#39;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    indice <span style=color:#f92672>=</span> ws<span style=color:#f92672>.</span>transform([<span style=color:#e6db74>&#39;我&#39;</span>, <span style=color:#e6db74>&#39;们&#39;</span>, <span style=color:#e6db74>&#39;好&#39;</span>])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(indice)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    back <span style=color:#f92672>=</span> ws<span style=color:#f92672>.</span>inverse_transform(indice,ignore_pad<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>,ignore_unk<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>,ignore_start<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>,ignore_end<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(back)
+</span></span></code></pre></div><p>output:</p><pre tabindex=0><code>
+[1 1 1]
+
+[&#39;&lt;unk&gt;&#39;, &#39;&lt;unk&gt;&#39;, &#39;&lt;unk&gt;&#39;]
+</code></pre><h3 id=语料模型的训练和保存>语料模型的训练和保存<a class="anchor ms-1" href=#语料模型的训练和保存><i class="fas fa-link"></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>dump</span>(x_data, y_data):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#f92672>from</span> word_sequence <span style=color:#f92672>import</span> WordSequence
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 生成pkl文件备用</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    data <span style=color:#f92672>=</span> list(zip(x_data, y_data))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    data <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        (x, y) <span style=color:#66d9ef>for</span> x, y <span style=color:#f92672>in</span> data <span style=color:#66d9ef>if</span> limit <span style=color:#f92672>&gt;</span> len(x) <span style=color:#f92672>&gt;=</span> x_limit <span style=color:#f92672>and</span> limit <span style=color:#f92672>&gt;</span> len(y) <span style=color:#f92672>&gt;=</span> y_limit
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    x_data, y_data <span style=color:#f92672>=</span> zip(<span style=color:#f92672>*</span>data)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>## 训练以及词向量模型保存</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ws_input <span style=color:#f92672>=</span> WordSequence()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ws_input<span style=color:#f92672>.</span>fit(x_data <span style=color:#f92672>+</span> y_data)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;dump&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    pickle<span style=color:#f92672>.</span>dump((x_data, y_data), open(<span style=color:#e6db74>&#39;chatbot_test.pkl&#39;</span>, <span style=color:#e6db74>&#39;wb&#39;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    pickle<span style=color:#f92672>.</span>dump(ws_input, open(<span style=color:#e6db74>&#39;ws_test.pkl&#39;</span>, <span style=color:#e6db74>&#39;wb&#39;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;done&#39;</span>)
+</span></span></code></pre></div></div><div class="modal fade" id=rewardModal tabindex=-1 aria-labelledby=rewardModalLabel aria-hidden=true><div class=modal-dialog><div class="modal-content surface"><div class=modal-header><h5 class=modal-title id=rewardModalLabel><i class="fas fa-fw fa-coffee"></i>Buy me a coffee</h5><a href=# data-bs-dismiss=modal class="btn btn-sm btn-outline-primary" aria-label=Close><i class="fas fa-times"></i></a></div><div class=modal-body><ul class="nav nav-tabs mb-3" role=tablist><li class="nav-item text-nowrap" role=presentation><a class="nav-link active" id=reward-alipay-tab data-bs-toggle=tab href=#reward-alipay role=tab aria-controls=reward-alipay aria-selected=true><i class="fab fa-fw fa-alipay"></i>Alipay</a></li><li class="nav-item text-nowrap" role=presentation><a class=nav-link id=reward-wechat-tab data-bs-toggle=tab href=#reward-wechat role=tab aria-controls=reward-wechat aria-selected=true><i class="fab fa-fw fa-weixin"></i>WeChat</a></li></ul><div class=tab-content id=rewardTabContent><div class="tab-pane fade post-reward-content show active" id=reward-alipay role=tabpanel aria-labelledby=reward-alipay-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_alipay.jpg loading=lazy></div><div class="tab-pane fade post-reward-content show" id=reward-wechat role=tabpanel aria-labelledby=reward-wechat-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_wechatpay.jpg loading=lazy></div></div></div></div></div></div><hr><div class=post-copyright id=post-copyright><a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc/4.0/deed.en><span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i></span>
+CC BY-NC 4.0</a></div><hr><div class="post-navs d-flex mb-3 justify-content-evenly"><div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/posts/note/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/>逆波兰式</a></div><div class="post-nav post-next"><a href=/posts/note/%E7%AE%80%E6%98%93%E6%9C%8D%E5%8A%A1%E5%99%A8/>简易服务器</a>
+<i class="fas fa-fw fa-chevron-right"></i></div></div></div></article><section class="related-posts row card component"><div class=card-header><h2 class=card-title>Related Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/nlp/chatbot%E6%A8%A1%E5%9E%8B/>ChatBot模型基础</a>
+<span class="float-end post-date">2019-02-21</span></li></ul></div></section><div class="card component row post-comments" id=post-comments><div class=card-header><h2 class=card-title>Comments</h2></div><div class=card-body><script src=https://utteranc.es/client.js repo=Euraxluo/Euraxluo.github.io issue-term=pathname label=✨💬✨ theme=github-dark crossorigin=anonymous async></script></div></div></div></div><aside class="col-lg-4 sidebar d-flex"><div class=container><section class="card row text-center profile component"><div class=card-body><div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt=Euraxluo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy></div><div class="col-12 profile-meta"><div class=profile-name>Euraxluo</div><div class=profile-bio>R&amp;D Engineer.</div><div class=profile-company><i class="fas fa-fw fa-building"></i>headingdata.com</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/about/>About</a></div></div></div></section><section class="featured-posts row card component"><div class=card-header><h2 class=card-title>Featured Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/>java面试笔记</a></li><li><a href=/posts/python/python-socket/>python socket编程</a></li><li><a href=/posts/note/rust%E5%AD%A6%E4%B9%A0/>rust学习</a></li><li><a href=/posts/note/scala%E5%85%A5%E9%97%A8/>Scala入门</a></li><li><a href=/posts/note/slam/>SLAM</a></li></ul></div></section><section class="recent-posts row card component"><div class=card-header><h2 class=card-title>Recent Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/>caddy简单使用</a></li><li><a href=/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/>安装K8S集群</a></li><li><a href=/posts/redis/redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/>Redis 实现分布式锁</a></li><li><a href=/posts/note/etcd%E5%85%A5%E9%97%A8/>etcd 基本使用</a></li><li><a href=/posts/note/gorm/>GORM学习</a></li></ul></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/categories>Categories</a></h2></div><div class=card-body><div class=py-2><a href=/categories/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/categories/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/categories/java/ class="badge rounded post-taxonomy" title=java>java
+</a><a href=/categories/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/categories/architecture-design/ class="badge rounded post-taxonomy" title="architecture design">architecture design</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/series>Series</a></h2></div><div class=card-body><div class=py-2><a href=/series/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/series/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/series/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/series/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/series/jdbc/ class="badge rounded post-taxonomy" title=JDBC>JDBC</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/tags>Tags</a></h2></div><div class=card-body><div class=py-2><a href=/tags/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/tags/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/tags/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/tags/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/tags/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/tags/architecture/ class="badge rounded post-taxonomy" title=architecture>architecture</a></div></div></section></div></aside></div></main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><a class="nav-link social-link" href=mailto:Euraxluo@outlook.com title=Email><i class="fas fa-fw fa-2x fa-envelope"></i>
+</a><a class="nav-link social-link" target=_blank href=https://github.com/Euraxluo title=GitHub rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-github"></i>
+</a><a class="nav-link social-link" target=_blank href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title=QQ rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-qq"></i>
+</a><a class="nav-link social-link" target=_blank href=https://www.zhihu.com/people/euraxluo title=Zhihu rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-zhihu"></i></a></nav><div class="copyright mb-2">Copyright © 2016-2023 Euraxluo. All Rights Reserved.</div></footer><script src=/js/main.min.353ac7952bbb8bdb7925c48cfcafede449a2253dd2610b49feb566a306011232.js integrity="sha256-NTrHlSu7i9t5JcSM/K/t5EmiJT3SYQtJ/rVmowYBEjI=" crossorigin=anonymous defer></script><script src=/js/icons.min.fb1b77be9bd37807602ec542d150423ad89114834c2e76ca7c004309310d64b0.js integrity="sha256-+xt3vpvTeAdgLsVC0VBCOtiRFINMLnbKfABDCTENZLA=" crossorigin=anonymous defer></script>
+<script src=/js/viewer.min.4f0b78319199ad080a1331f64e868866ccf303199b8144d80003d6ba8a4e5feb.js integrity="sha256-Twt4MZGZrQgKEzH2ToaIZszzAxmbgUTYAAPWuopOX+s=" crossorigin=anonymous defer></script><script defer src=/js/katex.min.3e41bd190b6187a4854d279cbde0b8d47fd0b6aae6341bdee804717abe8f6d51.js integrity="sha256-PkG9GQthh6SFTSecveC41H/QtqrmNBve6ARxer6PbVE=" crossorigin=anonymous></script></body></html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>mvc on Euraxluo Blog</title><link>/tags/mvc/</link><description>Recent content in mvc on Euraxluo Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><lastBuildDate>Tue, 20 Nov 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/mvc/index.xml" rel="self" type="application/rss+xml"/><item><title>MVC分层模型</title><link>/posts/architecture_design/mvc/</link><pubDate>Tue, 20 Nov 2018 00:00:00 +0000</pubDate><guid>/posts/architecture_design/mvc/</guid><description>MVC分层模型 DAO 模式初识 PO(persistant object) 持久对象 在o/r映射的时候出现的概念，如果没有o/r映射，没有这个概念存在了。通常对应数据模型(数据库),本身还有部分业务逻辑的处理。可以看成是与数据库中的表相映射的java对象。最简单的PO就是对应数据库中某个表中的一条记录，多个记录可以用PO的集合。PO中应该不包含任何对数据库的操作。
+最形象的理解就是一个PO就是数据库中的一条记录。
+好处是可以把一条记录作为一个对象处理，可以方便的转为其它对象。
+VO(value object) 值对象 通常用于业务层之间的数据传递，和PO一样也是仅仅包含数据而已。但应是抽象出的业务对象,可以和表对应,也可以不,这根据业务的需要.个人觉得同TO(数据传输对象),在web上传递。
+主要对应界面显示的数据对象。对于一个WEB页面，或者SWT、SWING的一个界面，用一个VO对象对应整个界面的值。
+TO(Transfer Object)，数据传输对象 在应用程序不同tie(关系)之间传输的对象
+BO(business object) 业务对象 从业务模型的角度看,见UML元件领域模型中的领域对象。封装业务逻辑的java对象,通过调用DAO方法,结合PO,VO进行业务操作。
+POJO(plain ordinary java object) 简单无规则java对象 纯的传统意义的java对象。就是说在一些Object/Relation Mapping工具中，能够做到维护数据库表记录的persisent object完全是一个符合Java Bean规范的纯Java对象，没有增加别的属性和方法。我的理解就是最基本的Java Bean，只有属性字段及setter和getter方法！。
+DTO（Data Transfer Object）：数据传输对象 这个概念来源于J2EE的设计模式，原来的目的是为了EJB的分布式应用提供粗粒度的数据实体，以减少分布式调用的次数，从而提高分布式调用的性能和降低网络负载，但在这里，我泛指用于展示层与服务层之间的数据传输对象。
+DAO(data access object) 数据访问对象 是一个sun的一个标准j2ee设计模式，这个模式中有个接口就是DAO，它负持久层的操作。为业务层提供接口。此对象用于访问数据库。通常和PO结合使用，DAO中包含了各种数据库的操作方法。通过它的方法,结合PO对数据库进行相关的操作。夹在业务逻辑与数据库资源中间。配合VO, 提供数据库的CRUD操作&amp;hellip;
+这个大家最熟悉，和上面几个O区别最大，基本没有互相转化的可能性和必要.
+主要用来封装对数据库的访问。通过它可以把POJO持久化为PO，用PO组装出来VO、DTO
+O/R Mapper 对象/关系 映射 定义好所有的mapping之后，这个O/R Mapper可以帮我们做很多的工作。通过这些mappings,这个O/R Mapper可以生成所有的关于对象保存，删除，读取的SQL语句，我们不再需要写那么多行的DAL代码了。
+实体Model(实体模式)
+DAL(数据访问层)
+IDAL(接口层)
+DALFactory(类工厂)
+BLL(业务逻辑层)
+BOF Business Object Framework 业务对象框架
+SOA Service Orient Architecture 面向服务的设计
+EMF Eclipse Model Framework Eclipse建模框架</description></item></channel></rss>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NIO on Euraxluo Blog</title><link>/tags/nio/</link><description>Recent content in NIO on Euraxluo Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/nio/index.xml" rel="self" type="application/rss+xml"/><item><title>IO模型小记</title><link>/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</link><pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate><guid>/posts/note/io%E6%A8%A1%E5%9E%8B%E5%B0%8F%E8%AE%B0/</guid><description>BIO (block io) 同步阻塞IO
+线程池:伪异步IO,实际上也是同步阻塞IO
+NIO(同步非阻塞)
+selector会主动轮询,与客户端建立通信(channel)
+每一个server会有一个selector
+AIO(异步非阻塞)
+当客户端通知我(回调),我再去连接
+单线程模式:所有的IO操作都由同一个NIO线程处理
+主线程组,从单线程模型
+主从线程组模型,具有一个主线程族和从线程组,主线程组去建立channel,从线程组会去进行处理</description></item></channel></rss>

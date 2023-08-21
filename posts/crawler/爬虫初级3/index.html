@@ -1,0 +1,422 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>爬虫学习3-网页解析器 - Euraxluo Blog</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180><link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png><link rel=icon href=/images/icons/favicon.ico><link rel=manifest href=/manifest.json><meta name=keywords content><meta name=description content="爬虫学习"><meta itemprop=name content="爬虫学习3-网页解析器"><meta itemprop=description content="爬虫学习"><meta itemprop=datePublished content="2018-10-22T00:00:00+00:00"><meta itemprop=dateModified content="2018-10-22T00:00:00+00:00"><meta itemprop=wordCount content="411"><meta itemprop=keywords content="爬虫,Python,"><meta property="og:title" content="爬虫学习3-网页解析器"><meta property="og:description" content="爬虫学习"><meta property="og:type" content="article"><meta property="og:url" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A73/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2018-10-22T00:00:00+00:00"><meta property="article:modified_time" content="2018-10-22T00:00:00+00:00"><meta property="og:see_also" content="/posts/python/python%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"><meta property="og:see_also" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/"><meta property="og:see_also" content="/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/"><meta name=twitter:card content="summary"><meta name=twitter:title content="爬虫学习3-网页解析器"><meta name=twitter:description content="爬虫学习"><link rel=stylesheet href=/css/main.min.29f9b537bf546fdc11e6e11f92ddd52ea0bd1eefa2228b828bc3b750c66763b0.css integrity="sha256-Kfm1N79Ub9wR5uEfkt3VLqC9Hu+iIouCi8O3UMZnY7A=" crossorigin=anonymous><link rel=stylesheet href=/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head><body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top"><div class=container-fluid><button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/><img class=logo alt=Logo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy>
+Euraxluo</a>
+<button class=navbar-social-share type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<i class="fas fa-share-alt"></i></button><div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare><div class=offcanvas-header><h3 class=offcanvas-title>Share</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=%e7%88%ac%e8%99%ab%e5%ad%a6%e4%b9%a03-%e7%bd%91%e9%a1%b5%e8%a7%a3%e6%9e%90%e5%99%a8&url=%2fposts%2fcrawler%2f%25E7%2588%25AC%25E8%2599%25AB%25E5%2588%259D%25E7%25BA%25A73%2f"><i class="fab fa-fw fa-twitter"></i> Twitter</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fposts%2fcrawler%2f%25E7%2588%25AC%25E8%2599%25AB%25E5%2588%259D%25E7%25BA%25A73%2f"><i class="fab fa-fw fa-facebook-f"></i> Facebook</a></div></div><button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i></button><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings><div class=offcanvas-header><h3 class=offcanvas-title>Settings</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class="offcanvas-body d-flex flex-column"><section class=setting><form class=row><div class=col-auto><label><i class="fas fa-fw fa-adjust"></i> Mode</label></div><div class="col-auto ms-auto"><div class="form-check form-switch"><input class=form-check-input type=checkbox id=modeSwitcher></div></div></form></section><section class=setting><form class="font-size-switcher-form row"><div class=col-auto><label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Font Size</label></div><div class="col-auto ms-auto"><input type=range class=form-range min=-2 max=2 id=fontSize></div></form></section><section class="setting palettes"><form class=row><div class=col-auto><label><i class="fas fa-fw fa-palette"></i> Palette</label></div><div class="col-auto ms-auto"><a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker><i class="fas fa-eye-dropper"></i></a></div></form><div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Blue class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gray" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Brown class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Green class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Pink class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Purple class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Red class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label=Teal class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Yellow class="btn btn-sm palette" data-palette=yellow></button></div></section><section class="setting actions d-flex justify-content-center mt-auto"><a role=button class="action action-reload-page"><span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload</a>
+<a role=button class="action action-copy-url"><span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copy URL</a></section></div></div><div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent><form class="search-bar my-1" action=/search><div class="input-group input-group-sm"><span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search></div></form><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/archives/><i class="fas fa-fw fa-file-archive"></i>timeline</a></li><li class=nav-item><a class=nav-link href=/categories/><i class="fas fa-fw fa-folder"></i>category</a></li><li class=nav-item><a class=nav-link href=/tags/><i class="fas fa-fw fa-tags"></i>tags</a></li><li class=nav-item><a class=nav-link href=/series/><i class="fas fa-fw fa-columns"></i>series</a></li><li class="nav-item dropdown"><a class=nav-link id=navbarDropdownRepos role=button data-bs-toggle=dropdown aria-expanded=false><i class="fab fa-fw fa-github"></i>Repos</a><ul class=dropdown-menu aria-labelledby=navbarDropdownRepos><li><a class=dropdown-item href=https://github.com/BreezeTeam/cache target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>cache</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/distance_matrix target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>distance_matrix</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>Euraxluo</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/IMOMD-RRTStar-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>IMOMD-RRTStar-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/lang target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>lang</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/LKH-rs target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>LKH-rs</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/scheduler target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>scheduler</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/simplegrad target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>simplegrad</a></li><li><a class=dropdown-item href=https://github.com/Euraxluo/verb target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>verb</a></li><li><a class=dropdown-item href=https://github.com/BreezeTeam/web target=_blank rel="noopener noreferrer"><i class="fab fa-fw fa-github"></i>web</a></li></ul></li></ul></div></div></nav></header><main role=main class=container-fluid><div class="row content"><div class=col-lg-8><div class=container><article class="row card component mb-4 post"><div class=post-panel-wrapper><div class="d-flex flex-column component rounded post-panel"><a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler"><i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i></a>
+<a class="action btn-reward" role=button data-bs-toggle=modal data-bs-target=#rewardModal title="Buy me a coffee"><i class="fas fa-fw fa-coffee"></i></a>
+<a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright><i class="fas fa-fw fa-copyright"></i></a>
+<a class=action href=#post-comments role=button aria-label=Comments title=Comments><i class="fas fa-fw fa-comments"></i></a>
+<a class=action data-bs-toggle=offcanvas href=#offcanvasTOC aria-controls=offcanvasTOC role=button title="Table of contents"><i class="fas fa-fw fa-list-alt"></i></a></div></div><div class=card-header><h1 class="card-title post-title">爬虫学习3-网页解析器</h1></div><div class=card-body><div class=post-meta><span class=post-date title="created on 2018-10-22 08:00:00 +0800 CST.">2018-10-22
+</span><span class=post-reading-time>2 min read
+</span><span class=post-taxonomies><a href=/categories/%E7%88%AC%E8%99%AB/ class="badge rounded-pill post-taxonomy">爬虫</a><a href=/series/python/ class="badge rounded-pill post-taxonomy">Python</a><a href=/tags/%E7%88%AC%E8%99%AB/ class="badge rounded-pill post-taxonomy">爬虫</a><a href=/tags/python/ class="badge rounded-pill post-taxonomy">Python</a></span></div><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasTOC aria-labelledby=offcanvasTOCLabel><div class=offcanvas-header><h2 class=offcanvas-title id=offcanvasTOCLabel>Table Of Contents</h5><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><nav id=TableOfContents><ul><li><a href=#beautifulsoup解析器>BeautifulSoup解析器：</a><ul><li><a href=#基本元素>基本元素</a></li><li><a href=#搜索节点html中的标签>搜索节点(html中的标签)</a></li><li><a href=#实例>实例</a></li></ul></li><li><a href=#正则re>正则RE</a><ul><li><a href=#特殊字符使用rstring定义字符>特殊字符：(使用r&rsquo;string&rsquo;定义字符)</a></li><li><a href=#方法>方法：</a></li></ul></li></ul></nav></div></div><div class="post-content mb-3"><h2 id=beautifulsoup解析器>BeautifulSoup解析器：<a class="anchor ms-1" href=#beautifulsoup解析器><i class="fas fa-link"></i></a></h2><table><thead><tr><th>解析器</th><th>使用方法</th><th>条件</th></tr></thead><tbody><tr><td>bs4的html解析器</td><td>BeautifulSoup(html,&lsquo;html.parser&rsquo;)</td><td>安装bs4</td></tr><tr><td>lxml的html解析器</td><td>BeautifulSoup(html,&rsquo;lxml')</td><td>pip install lxml</td></tr><tr><td>lxml的xml解析器</td><td>BeautifulSoup(html,&lsquo;xml&rsquo;)</td><td>pip install lxml</td></tr><tr><td>html5lib的解析器</td><td>BeautifulSoup(html,&lsquo;html5lib&rsquo;)</td><td>pip install html5lib</td></tr></tbody></table><h3 id=基本元素>基本元素<a class="anchor ms-1" href=#基本元素><i class="fas fa-link"></i></a></h3><table><thead><tr><th>基本元素</th><th>说明</th></tr></thead><tbody><tr><td>tag</td><td>标签,&lt;>开头，&lt;/>结尾</td></tr><tr><td>name</td><td>标签的名字，,<code>&lt;tag>.name</code></td></tr><tr><td>attrs</td><td>标签的属性，<code>&lt;tag>.attrs</code></td></tr><tr><td>NavigableString</td><td>String,<code>&lt;tag>.String</code></td></tr><tr><td>Comment</td><td>标签内字符串的注释部分，Comment类型</td></tr></tbody></table><h3 id=搜索节点html中的标签>搜索节点(html中的标签)<a class="anchor ms-1" href=#搜索节点html中的标签><i class="fas fa-link"></i></a></h3><p><code>find_all(name,attrs,recursive,string)</code></p><p>name:对标签名称的检索字符串</p><p>attrs:对标签属性值的检索字符串,可棕注属性栓索</p><p>recursive:是否对子孙全部检索,默以True</p><p>string:&lt;>..&lt;/>中字符串区域的检索字符串</p><h4 id=eg>eg:<a class="anchor ms-1" href=#eg><i class="fas fa-link"></i></a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> bs4
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> bs4 <span style=color:#f92672>import</span> BeautifulSoup
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> re
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>html <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&lt;body&gt;&lt;a href=&#39;./test/123.txt&#39;&gt;hjhkj&lt;/a&gt; &lt;div class=&#39;test&#39;&gt;fdfdfd&lt;div class=&#39;test&#39;&gt;fdfdfd&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>soup <span style=color:#f92672>=</span> BeautifulSoup(html,<span style=color:#e6db74>&#34;html.parser&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#查找所有标签为a，链接为./test/123.txt形式的节点</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>m <span style=color:#f92672>=</span> soup<span style=color:#f92672>.</span>find_all(<span style=color:#e6db74>&#39;a&#39;</span>,href<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span>compile(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;./test/(.*).txt&#39;</span>))<span style=color:#75715e># (另一种写法\d+\)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#查找所有标签为div，class为test，文字为fdfdfd的节点</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>m<span style=color:#f92672>=</span>soup<span style=color:#f92672>.</span>find_all(<span style=color:#e6db74>&#39;div&#39;</span>,class_<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;test&#39;</span>,string <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;fdfdfd&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>m <span style=color:#f92672>=</span> soup<span style=color:#f92672>.</span>div(class_<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;test&#39;</span>,string <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;fdfdfd&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>soup<span style=color:#f92672>.</span>div<span style=color:#f92672>.</span>attrs<span style=color:#75715e>#tag的attrs</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>soup<span style=color:#f92672>.</span>div<span style=color:#f92672>.</span>parent<span style=color:#f92672>.</span>name<span style=color:#75715e>#tag的父亲节点的名字</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>m <span style=color:#f92672>=</span> soup<span style=color:#f92672>.</span>a<span style=color:#f92672>.</span>string<span style=color:#75715e>#String</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#显示：</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>m <span style=color:#f92672>=</span> soup<span style=color:#f92672>.</span>prettify()<span style=color:#75715e>#友好度+1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(m)
+</span></span></code></pre></div><p>###标签树的遍历</p><p>上行遍历</p><table><thead><tr><th>属性</th><th>说明</th></tr></thead><tbody><tr><td>.parent</td><td>节点的父亲标签</td></tr><tr><td>.parents</td><td>节点父辈的迭代，用来遍历父辈节点</td></tr></tbody></table><p>下行遍历</p><table><thead><tr><th>属性</th><th>说明</th></tr></thead><tbody><tr><td>.contents</td><td>tag的子节点列表</td></tr><tr><td>.children</td><td>子结点的迭代，用于循环儿子节点</td></tr><tr><td>.descendants</td><td>子孙节点的迭代，循环遍历所有子孙节点</td></tr></tbody></table><p>平行遍历</p><table><thead><tr><th>属性</th><th>说明</th></tr></thead><tbody><tr><td>.next_sibling</td><td>返回下一个平行节点的tag</td></tr><tr><td>.previous_sibling</td><td>分返回上一个平行节点</td></tr><tr><td>.next_siblings</td><td>迭代类型，返回后续所有平行节点</td></tr><tr><td>.previous_siblings</td><td>迭代类型，返回前序所有平行节点</td></tr></tbody></table><h3 id=实例>实例<a class="anchor ms-1" href=#实例><i class="fas fa-link"></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># coding:utf-8</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> bs4 <span style=color:#f92672>import</span> BeautifulSoup
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> re
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>html_doc <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;&#34;  #定义一个长字符串，存储html代码,&#39;&#39;&#39;可以保留格式
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse&#39;s story&lt;/title&gt;&lt;/head&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&lt;body&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&lt;p class=&#34;title&#34;&gt;&lt;b&gt;The Dormouse&#39;s story&lt;/b&gt;&lt;/p&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&lt;p class=&#34;story&#34;&gt;Once upon a time there were three little sisters; and their names were
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&lt;a href=&#34;http://example.com/elsie&#34; class=&#34;sister&#34; id=&#34;link1&#34;&gt;Elsie&lt;/a&gt;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&lt;a href=&#34;http://example.com/lacie&#34; class=&#34;sister&#34; id=&#34;link2&#34;&gt;Lacie&lt;/a&gt; and
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&lt;a href=&#34;http://example.com/tillie&#34; class=&#34;sister&#34; id=&#34;link3&#34;&gt;Tillie&lt;/a&gt;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>and they lived at the bottom of a well.&lt;/p&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>http://example.com/lacie
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&lt;p class=&#34;story&#34;&gt;...&lt;/p&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>soup <span style=color:#f92672>=</span> BeautifulSoup(html_doc, <span style=color:#e6db74>&#39;html.parser&#39;</span>)<span style=color:#75715e>#传入的html字符串；使用的解析器；编码方式</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(soup<span style=color:#f92672>.</span>prettify())<span style=color:#75715e>#按照标准的缩进格式输出获取的soup内容</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#提取所有的连接出来</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>links <span style=color:#f92672>=</span> soup<span style=color:#f92672>.</span>find_all(<span style=color:#e6db74>&#39;a&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> link <span style=color:#f92672>in</span> links:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(link<span style=color:#f92672>.</span>name, link[<span style=color:#e6db74>&#39;href&#39;</span>], link[<span style=color:#e6db74>&#39;class&#39;</span>], link<span style=color:#f92672>.</span>get_text())
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#获取lacie连接</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>link_node <span style=color:#f92672>=</span> soup<span style=color:#f92672>.</span>find(<span style=color:#e6db74>&#39;a&#39;</span>, href<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;http://example.com/lacie&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(link_node<span style=color:#f92672>.</span>name, link_node[<span style=color:#e6db74>&#39;href&#39;</span>], link_node<span style=color:#f92672>.</span>get_text())
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#用强大的 正则匹配</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>link_node <span style=color:#f92672>=</span> soup<span style=color:#f92672>.</span>find(<span style=color:#e6db74>&#39;a&#39;</span>, href<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span>compile(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#34;ill&#34;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(link_node<span style=color:#f92672>.</span>name, link_node[<span style=color:#e6db74>&#39;href&#39;</span>], link_node<span style=color:#f92672>.</span>get_text())
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#获取P标签</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>p_node <span style=color:#f92672>=</span> soup<span style=color:#f92672>.</span>find(<span style=color:#e6db74>&#39;p&#39;</span>, class_<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span>compile(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#34;ti&#34;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(p_node<span style=color:#f92672>.</span>name, p_node[<span style=color:#e6db74>&#39;class&#39;</span>], p_node<span style=color:#f92672>.</span>get_text())
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#抓取暗链接</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>link_node <span style=color:#f92672>=</span> soup<span style=color:#f92672>.</span>find_all(style<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;display:none;&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(link_node)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#选择器</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>soup<span style=color:#f92672>.</span>select(<span style=color:#e6db74>&#39;title&#39;</span>)<span style=color:#75715e>#选择title标签</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>soup<span style=color:#f92672>.</span>select(<span style=color:#e6db74>&#39;p nth-of-type(3)&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#通过tag标签逐层查找</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>soup<span style=color:#f92672>.</span>select(<span style=color:#e6db74>&#39;body a&#39;</span>)<span style=color:#75715e>#查找body标签下面的a标签</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#找到某个tag标签下的直接子标签：</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>soup<span style=color:#f92672>.</span>select(<span style=color:#e6db74>&#39;head&gt;title&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#通过id来查找：</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>soup<span style=color:#f92672>.</span>select(<span style=color:#e6db74>&#39;#link1&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#通过class来查找：</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>soup<span style=color:#f92672>.</span>select(<span style=color:#e6db74>&#39;.story&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>soup<span style=color:#f92672>.</span>select(<span style=color:#e6db74>&#39;[class~=story]&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#通过是否存在某个属性来查找：</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>soup<span style=color:#f92672>.</span>select(<span style=color:#e6db74>&#39;a[href]&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#通过属性的值来查找：</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>soup<span style=color:#f92672>.</span>select(<span style=color:#e6db74>&#39;a[href=&#34;http://example.com/lacie]&#39;</span>)
+</span></span></code></pre></div><h2 id=正则re>正则RE<a class="anchor ms-1" href=#正则re><i class="fas fa-link"></i></a></h2><h3 id=特殊字符使用rstring定义字符>特殊字符：(使用r&rsquo;string&rsquo;定义字符)<a class="anchor ms-1" href=#特殊字符使用rstring定义字符><i class="fas fa-link"></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#39;.&#39;</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#75715e>#点号，在默认模式中，匹配任何一个字符，除了新的行newline。如果DOTALL标记指定了，那么还可以匹配newline。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;^&#39;</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#75715e>#匹配字符串的开始</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;$&#39;</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#75715e>#匹配字符串的结束。比如foo匹配foo或者foobar，但是foo$只能匹配到foo。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;*&#39;</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#75715e>#匹配0个或者多个字符，比如ab*，可以匹配a，ab，abbbb等</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;+&#39;</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#75715e>#匹配1个或者多个字符，比如ab+，可以匹配ab，或者abbbb</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;?&#39;</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#75715e>#匹配0或者1个字符，比如ab?只能匹配a或者ab。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#39;*？+&#39;</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#75715e>#贪婪模式的，会尽可能多的匹配字符，</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#39;*？+&#39;</span>,<span style=color:#75715e>#在后面加上一个？则会变为非贪婪模式，尽可能匹配少的字符。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#我们一般用非贪婪模式。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#m,n表示匹配的数量，如果不指定m或者n，则表示没有上限，下限不能低于0个</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{m}</span><span style=color:#e6db74>&#39;</span>,<span style=color:#75715e>#指定匹配的数量，比如a{6}表示将匹配6个a字符，而不是5个，准确匹配。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;{m,n}&#39;</span>,<span style=color:#75715e>#匹配在m~n个字符之间，包含m和n，比如a{3,5}将匹配3-5个a字符，一般会取上限来匹配。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;{m,n}?&#39;</span>,<span style=color:#75715e>#非贪婪模式的匹配，尽可能匹配少，取下限m来匹配。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;[]&#39;</span>,<span style=color:#75715e>#用于创造一个字符的集合，字符可以单独出现或者使用0-9，a-z这种格式。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> 比如<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#ae81ff>1.</span>[amk]会匹配a<span style=color:#960050;background-color:#1e0010>，</span>m或者k字符<span style=color:#960050;background-color:#1e0010>。</span>[a<span style=color:#f92672>-</span>z]将会匹配a<span style=color:#f92672>-</span>z之间的任何一个字符<span style=color:#960050;background-color:#1e0010>。</span>[<span style=color:#ae81ff>0</span><span style=color:#f92672>-</span><span style=color:#ae81ff>5</span>][<span style=color:#ae81ff>0</span><span style=color:#f92672>-</span><span style=color:#ae81ff>9</span>]匹配从00<span style=color:#f92672>-</span><span style=color:#ae81ff>59</span>的所有字符<span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#ae81ff>2.</span>如果在[]中包含一个特殊字符的集合<span style=color:#960050;background-color:#1e0010>，</span>比如[(<span style=color:#f92672>+*</span>)]<span style=color:#960050;background-color:#1e0010>，</span>这些特殊字符将会失去其特殊含义<span style=color:#960050;background-color:#1e0010>，</span>只匹配字面意义<span style=color:#960050;background-color:#1e0010>，</span><span style=color:#e6db74>&#39;(&#39;&#39;)&#39;&#39;+&#39;&#39;*&#39;</span><span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#ae81ff>3.</span>如果在[]的开始有一个<span style=color:#e6db74>&#39;^&#39;</span><span style=color:#960050;background-color:#1e0010>，</span>比如[<span style=color:#f92672>^</span><span style=color:#ae81ff>5</span>]<span style=color:#960050;background-color:#1e0010>，</span>将会匹配任何一个不是5的字符<span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;|&#39;</span>,<span style=color:#75715e>#A|B，AB是任意的RE表达式，可以匹配A或者B</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;(...)&#39;</span>,<span style=color:#75715e>#括号内的表达式将作为分组，从表达式左边开始每遇到一个分组的左括号，编号+1。分组表达式作为一个整体，可以后接数量词。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> 比如:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#ae81ff>1.</span>(abc){<span style=color:#ae81ff>2</span>}匹配abcabc<span style=color:#960050;background-color:#1e0010>，</span>a(<span style=color:#ae81ff>123</span><span style=color:#f92672>|</span><span style=color:#ae81ff>456</span>)c匹配a456c或者a123c<span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;(?P&lt;name&gt;...)&#39;</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#75715e>#分组，除了原有的编号外，指定一个额外的别名，比如：(?P&lt;id&gt;abc){2}，可以匹配abcabc，通过.&#39;id&#39;来访问。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;\&lt;number&gt;&#39;</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#75715e>#引用编号为&lt;number&gt;的分组匹配到的字符串。比如(\d)abc\1，可以匹配1abc1，或者5abc5</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;(?P=name)&#39;</span>,<span style=color:#75715e>#引用别名为&lt;name&gt;的分组匹配到的字符串，比如(?P&lt;id&gt;\d)abc(?P=id),可以匹配1abc1，5abc5等。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;\d&#39;</span>,<span style=color:#75715e>#表示数字，0-9之间的一个，比如a\dc,可以匹配a1c;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;\D&#39;</span>,<span style=color:#75715e>#表示非数字，也可以用[^\d]来代替，</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;\s&#39;</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#75715e>#表示空白字符</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;\S&#39;</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#75715e>#表示非空白字符</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;\w&#39;</span>,<span style=color:#75715e>#表示单词字符，[A-Za-z0-9_]</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;\W&#39;</span><span style=color:#960050;background-color:#1e0010>，</span><span style=color:#75715e>#表示非单词字符。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;\A&#39;</span>,<span style=color:#75715e>#仅匹配字符串的开头，\Aabc可以匹配abc。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;\Z&#39;</span>,<span style=color:#75715e>#仅匹配字符串结尾，abc\Z,匹配abc</span>
+</span></span></code></pre></div><h3 id=方法>方法：<a class="anchor ms-1" href=#方法><i class="fas fa-link"></i></a></h3><h4 id=1-refindallpatternstring>1. re.findall(pattern,string)<a class="anchor ms-1" href=#1-refindallpatternstring><i class="fas fa-link"></i></a></h4><p>对string中所有符合pattern规则的进行匹配</p><h4 id=2-recompilepatternflag0>2. re.compile(pattern,flag=0)<a class="anchor ms-1" href=#2-recompilepatternflag0><i class="fas fa-link"></i></a></h4><p>返回一个对象的模式，用法：<code>re.compile(pattern,flag=0).findall(string)</code></p><p>pattern为正则字符串</p><p>flag，匹配模式,以下可选</p><pre tabindex=0><code>
+re.I #忽略大小写
+
+re.M #多行模式
+
+re.S #点任意匹配，
+
+re.L #
+
+re.U
+
+re.X #详细模式，这个模式下正则表达式可以是多行，忽略空白字符，并可以加入注释
+</code></pre><h4 id=3-rematchpattern-string-flags0>3. re.match(pattern, string, flags=0)<a class="anchor ms-1" href=#3-rematchpattern-string-flags0><i class="fas fa-link"></i></a></h4><p>match方法会从要匹配的string的开头开始，尝试匹配pattern，一直向后，如果遇到无法匹配的字符，就返回None，如果匹配未结束已经到达string的末尾也会返回None，表示匹配失败。匹配成功会返回True，以及匹配到的内容的group,非完全匹配，完全匹配需要在表达式末尾加上&rsquo;$'</p><h5 id=eg-1>eg:<a class="anchor ms-1" href=#eg-1><i class="fas fa-link"></i></a></h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>pattern<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span>compile(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;hello&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>result1<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span><span style=color:#66d9ef>match</span>(pattern,<span style=color:#e6db74>&#39;hello&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>result2<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span><span style=color:#66d9ef>match</span>(pattern,<span style=color:#e6db74>&#39;helloo world&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>result3<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span><span style=color:#66d9ef>match</span>(pattern,<span style=color:#e6db74>&#39;helo world&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>result4<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span><span style=color:#66d9ef>match</span>(pattern,<span style=color:#e6db74>&#39;hello world&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> result1:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(result1<span style=color:#f92672>.</span>group())
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;1匹配失败!&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> result2:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(result2<span style=color:#f92672>.</span>group())
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;2匹配失败!&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> result3:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(result3<span style=color:#f92672>.</span>group())
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;3匹配失败!&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> result4:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(result4<span style=color:#f92672>.</span>group())
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;4匹配失败!&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>m<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span><span style=color:#66d9ef>match</span>(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;(\w+) (\w+)(?P&lt;sign&gt;.*)&#39;</span>,<span style=color:#e6db74>&#39;hello world!&#39;</span>)<span style=color:#75715e>#单词+空格+单词+任意字符</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(m<span style=color:#f92672>.</span>string)<span style=color:#75715e>#获取匹配时使用的文本</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(m<span style=color:#f92672>.</span>re)<span style=color:#75715e>#获取匹配时使用的pattern对象</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(m<span style=color:#f92672>.</span>pos)<span style=color:#75715e>#文本中开始搜索的位置</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(m<span style=color:#f92672>.</span>endpos)<span style=color:#75715e>#返回结束搜索的位置</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(m<span style=color:#f92672>.</span>lastindex)<span style=color:#75715e>#最后一个被捕获的分组在文本中的索引</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(m<span style=color:#f92672>.</span>lastgroup)<span style=color:#75715e>#最后一个最捕获的分组的别名</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(m<span style=color:#f92672>.</span>group())<span style=color:#75715e>#获得一个或多个分组截获的字符串，如果指定多个参数，将会以元祖形式返回</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(m<span style=color:#f92672>.</span>group(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>))<span style=color:#75715e>#指定多个参数</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(m<span style=color:#f92672>.</span>groups())<span style=color:#75715e>#以元组形式返回所有分组截获的字符串</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(m<span style=color:#f92672>.</span>groupdict())<span style=color:#75715e>#返回具有别名的组的别名为Key，字符串为value的字典，不包含别名的组不统计</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(m<span style=color:#f92672>.</span>start(<span style=color:#ae81ff>2</span>))<span style=color:#75715e>#返回指定的组截获的子串在string中的起始索引</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(m<span style=color:#f92672>.</span>end(<span style=color:#ae81ff>2</span>))<span style=color:#75715e>#返回指定的组在string中的结束索引</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(m<span style=color:#f92672>.</span>span(<span style=color:#ae81ff>2</span>))<span style=color:#75715e>#返回(start(group),end(group))</span>
+</span></span></code></pre></div><h4 id=4-researchpattern-string-flags0>4. re.search(pattern, string, flags=0)<a class="anchor ms-1" href=#4-researchpattern-string-flags0><i class="fas fa-link"></i></a></h4><p>类似与match方法，但是match会检测re是不是在string的开始位置就能够匹配到，而search会扫描整个string来匹配。match方法只有在0位置匹配成功的话才会返回，如果不是开始i位置，即使后面由匹配，也会返回None。</p><h5 id=eg-2>eg:<a class="anchor ms-1" href=#eg-2><i class="fas fa-link"></i></a></h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>pattern<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span>compile(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;world&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>match</span><span style=color:#f92672>=</span>re<span style=color:#f92672>.</span>search(pattern,<span style=color:#e6db74>&#39;hello world!&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#66d9ef>match</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#66d9ef>match</span><span style=color:#f92672>.</span>group()
+</span></span></code></pre></div><h4 id=5-resplitpattern-string-maxsplit0-flags0>5. re.split(pattern, string, maxsplit=0, flags=0)<a class="anchor ms-1" href=#5-resplitpattern-string-maxsplit0-flags0><i class="fas fa-link"></i></a></h4><p>将string按照匹配的子串分割后返回列表，maxsplit参数指定最大分割次数，不指定的话会全部分割。</p><h5 id=eg-3>eg:<a class="anchor ms-1" href=#eg-3><i class="fas fa-link"></i></a></h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>pattern<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span>compile(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;\d+&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>split<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span>split(pattern,<span style=color:#e6db74>&#39;one1two2three3four4&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(split)
+</span></span></code></pre></div><h4 id=6-refindallpattern-string-flags0>6. re.findall(pattern, string, flags=0)<a class="anchor ms-1" href=#6-refindallpattern-string-flags0><i class="fas fa-link"></i></a></h4><p>搜索string，以列表的形式返回全部能匹配的子串。</p><h5 id=eg-4>eg:<a class="anchor ms-1" href=#eg-4><i class="fas fa-link"></i></a></h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>pattern <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>compile(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;\d+&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(re<span style=color:#f92672>.</span>findall(pattern,<span style=color:#e6db74>&#39;one1two23three3four4&#39;</span>))
+</span></span></code></pre></div><h4 id=7-refinditerpattern-string-flags0>7. re.finditer(pattern, string, flags=0)<a class="anchor ms-1" href=#7-refinditerpattern-string-flags0><i class="fas fa-link"></i></a></h4><p>搜索string，返回一个顺序访问每一个匹配结果的迭代器</p><h5 id=eg-5>eg:<a class="anchor ms-1" href=#eg-5><i class="fas fa-link"></i></a></h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>pattern<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span>compile(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;\d+&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> m <span style=color:#f92672>in</span> re<span style=color:#f92672>.</span>finditer(pattern,<span style=color:#e6db74>&#39;one1two23three3four4&#39;</span>):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(m<span style=color:#f92672>.</span>group())
+</span></span></code></pre></div><h4 id=8-resubpattern-repl-string-count0-flags0>8. re.sub(pattern, repl, string, count=0, flags=0)<a class="anchor ms-1" href=#8-resubpattern-repl-string-count0-flags0><i class="fas fa-link"></i></a></h4><p>使用repl替换string中的每一个匹配的子串后返回替换的字符串。</p><p>repl可以是一个方法，这个方法应该只接受一个match对象作为参数，并且返回一个字符串用于替换。</p><p>count可以指定最多替换次数，不指定的话就全部替换。</p><h5 id=eg-6>eg:<a class="anchor ms-1" href=#eg-6><i class="fas fa-link"></i></a></h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>pattern<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span>compile(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;(\w+) (\w+)&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>string<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;i say, hello world!&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(re<span style=color:#f92672>.</span>sub(pattern,<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;\2 \1&#39;</span>,string))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>func</span>(m):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> m<span style=color:#f92672>.</span>group(<span style=color:#ae81ff>1</span>)<span style=color:#f92672>.</span>title()<span style=color:#f92672>+</span><span style=color:#e6db74>&#39; &#39;</span><span style=color:#f92672>+</span>m<span style=color:#f92672>.</span>group(<span style=color:#ae81ff>2</span>)<span style=color:#f92672>.</span>title()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(re<span style=color:#f92672>.</span>sub(pattern,func,string))
+</span></span></code></pre></div></div><div class="modal fade" id=rewardModal tabindex=-1 aria-labelledby=rewardModalLabel aria-hidden=true><div class=modal-dialog><div class="modal-content surface"><div class=modal-header><h5 class=modal-title id=rewardModalLabel><i class="fas fa-fw fa-coffee"></i>Buy me a coffee</h5><a href=# data-bs-dismiss=modal class="btn btn-sm btn-outline-primary" aria-label=Close><i class="fas fa-times"></i></a></div><div class=modal-body><ul class="nav nav-tabs mb-3" role=tablist><li class="nav-item text-nowrap" role=presentation><a class="nav-link active" id=reward-alipay-tab data-bs-toggle=tab href=#reward-alipay role=tab aria-controls=reward-alipay aria-selected=true><i class="fab fa-fw fa-alipay"></i>Alipay</a></li><li class="nav-item text-nowrap" role=presentation><a class=nav-link id=reward-wechat-tab data-bs-toggle=tab href=#reward-wechat role=tab aria-controls=reward-wechat aria-selected=true><i class="fab fa-fw fa-weixin"></i>WeChat</a></li></ul><div class=tab-content id=rewardTabContent><div class="tab-pane fade post-reward-content show active" id=reward-alipay role=tabpanel aria-labelledby=reward-alipay-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_alipay.jpg loading=lazy></div><div class="tab-pane fade post-reward-content show" id=reward-wechat role=tabpanel aria-labelledby=reward-wechat-tab><img class="img-fluid post-reward-img" src=https://euraxluo.github.io/images/picgo/_wechatpay.jpg loading=lazy></div></div></div></div></div></div><hr><div class=post-copyright id=post-copyright><a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc/4.0/deed.en><span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i></span>
+CC BY-NC 4.0</a></div><hr><div class="post-navs d-flex mb-3 justify-content-evenly"><div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/posts/python/pyquerystudy/>爬虫学习4</a></div><div class="post-nav post-next"><a href=/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/>爬虫学习2-Requests库学习</a>
+<i class="fas fa-fw fa-chevron-right"></i></div></div></div></article><section class="related-posts row card component"><div class=card-header><h2 class=card-title>Related Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A71/>爬虫学习1-概念及urllib2</a>
+<span class="float-end post-date">2018-10-22</span></li><li><a href=/posts/crawler/%E7%88%AC%E8%99%AB%E5%88%9D%E7%BA%A72/>爬虫学习2-Requests库学习</a>
+<span class="float-end post-date">2018-10-22</span></li><li><a href=/posts/message_queue/rabbitmq_%E5%85%A5%E9%97%A8/>RabbitMQ-入门</a>
+<span class="float-end post-date">2018-10-22</span></li><li><a href=/posts/python/pyquerystudy/>爬虫学习4</a>
+<span class="float-end post-date">2018-10-22</span></li></ul></div></section><div class="card component row post-comments" id=post-comments><div class=card-header><h2 class=card-title>Comments</h2></div><div class=card-body><script src=https://utteranc.es/client.js repo=Euraxluo/Euraxluo.github.io issue-term=pathname label=✨💬✨ theme=github-dark crossorigin=anonymous async></script></div></div></div></div><aside class="col-lg-4 sidebar d-flex"><div class=container><section class="card row text-center profile component"><div class=card-body><div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt=Euraxluo src=https://euraxluo.github.io/images/picgo/profile.png loading=lazy></div><div class="col-12 profile-meta"><div class=profile-name>Euraxluo</div><div class=profile-bio>R&amp;D Engineer.</div><div class=profile-company><i class="fas fa-fw fa-building"></i>headingdata.com</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/about/>About</a></div></div></div></section><section class="featured-posts row card component"><div class=card-header><h2 class=card-title>Featured Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/>java面试笔记</a></li><li><a href=/posts/python/python-socket/>python socket编程</a></li><li><a href=/posts/note/rust%E5%AD%A6%E4%B9%A0/>rust学习</a></li><li><a href=/posts/note/scala%E5%85%A5%E9%97%A8/>Scala入门</a></li><li><a href=/posts/note/slam/>SLAM</a></li></ul></div></section><section class="recent-posts row card component"><div class=card-header><h2 class=card-title>Recent Posts</h2></div><div class=card-body><ul class=post-list><li><a href=/posts/note/caddy%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/>caddy简单使用</a></li><li><a href=/posts/note/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/>安装K8S集群</a></li><li><a href=/posts/redis/redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/>Redis 实现分布式锁</a></li><li><a href=/posts/note/etcd%E5%85%A5%E9%97%A8/>etcd 基本使用</a></li><li><a href=/posts/note/gorm/>GORM学习</a></li></ul></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/categories>Categories</a></h2></div><div class=card-body><div class=py-2><a href=/categories/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/categories/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/categories/java/ class="badge rounded post-taxonomy" title=java>java
+</a><a href=/categories/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/categories/architecture-design/ class="badge rounded post-taxonomy" title="architecture design">architecture design</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/series>Series</a></h2></div><div class=card-body><div class=py-2><a href=/series/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/series/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/series/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/series/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ class="badge rounded post-taxonomy" title=读书笔记>读书笔记
+</a><a href=/series/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/series/jdbc/ class="badge rounded post-taxonomy" title=JDBC>JDBC</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/tags>Tags</a></h2></div><div class=card-body><div class=py-2><a href=/tags/notes/ class="badge rounded post-taxonomy" title=notes>notes
+</a><a href=/tags/redis/ class="badge rounded post-taxonomy" title=redis>redis
+</a><a href=/tags/python/ class="badge rounded post-taxonomy" title=Python>Python
+</a><a href=/tags/java/ class="badge rounded post-taxonomy" title=Java>Java
+</a><a href=/tags/%E7%88%AC%E8%99%AB/ class="badge rounded post-taxonomy" title=爬虫>爬虫
+</a><a href=/tags/architecture/ class="badge rounded post-taxonomy" title=architecture>architecture</a></div></div></section></div></aside></div></main><footer class="footer mt-auto py-3 text-center container-fluid"><nav class="social-links nav my-2 justify-content-center"><a class="nav-link social-link" href=mailto:Euraxluo@outlook.com title=Email><i class="fas fa-fw fa-2x fa-envelope"></i>
+</a><a class="nav-link social-link" target=_blank href=https://github.com/Euraxluo title=GitHub rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-github"></i>
+</a><a class="nav-link social-link" target=_blank href="http://wpa.qq.com/msgrd?v=3&amp;uin=1793939176&amp;site=qq&amp;menu=yes" title=QQ rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-qq"></i>
+</a><a class="nav-link social-link" target=_blank href=https://www.zhihu.com/people/euraxluo title=Zhihu rel="noopener noreferrer"><i class="fa-fw fa-2x fab fa-zhihu"></i></a></nav><div class="copyright mb-2">Copyright © 2016-2023 Euraxluo. All Rights Reserved.</div></footer><script src=/js/main.min.353ac7952bbb8bdb7925c48cfcafede449a2253dd2610b49feb566a306011232.js integrity="sha256-NTrHlSu7i9t5JcSM/K/t5EmiJT3SYQtJ/rVmowYBEjI=" crossorigin=anonymous defer></script><script src=/js/icons.min.fb1b77be9bd37807602ec542d150423ad89114834c2e76ca7c004309310d64b0.js integrity="sha256-+xt3vpvTeAdgLsVC0VBCOtiRFINMLnbKfABDCTENZLA=" crossorigin=anonymous defer></script>
+<script src=/js/viewer.min.4f0b78319199ad080a1331f64e868866ccf303199b8144d80003d6ba8a4e5feb.js integrity="sha256-Twt4MZGZrQgKEzH2ToaIZszzAxmbgUTYAAPWuopOX+s=" crossorigin=anonymous defer></script><script defer src=/js/katex.min.3e41bd190b6187a4854d279cbde0b8d47fd0b6aae6341bdee804717abe8f6d51.js integrity="sha256-PkG9GQthh6SFTSecveC41H/QtqrmNBve6ARxer6PbVE=" crossorigin=anonymous></script></body></html>

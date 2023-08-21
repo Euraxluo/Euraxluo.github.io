@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>JDBC on Euraxluo Blog</title><link>/tags/jdbc/</link><description>Recent content in JDBC on Euraxluo Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><lastBuildDate>Thu, 20 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/jdbc/index.xml" rel="self" type="application/rss+xml"/><item><title>JDBC1</title><link>/posts/java/jdbc1/</link><pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate><guid>/posts/java/jdbc1/</guid><description>jdbc JAVA Database Connectivity java 数据库连接
+为什么会出现JDBC SUN公司提供的一种数据库访问规则、规范, 由于数据库种类较多，并且java语言使用比较广泛，sun公司就提供了一种规范，让其他的数据库提供商去实现底层的访问规则。 我们的java程序只要使用sun公司提供的jdbc驱动即可。
+jdbc是一种接口规范
+优势:
+简单
+快捷
+移植性
+框架(在jdbc的基础上开发更好的框架)
+jdbc Manager的上层JDBC API负责与java Application通信,JDBC Driver API 负责与具体的数据库通信(由数据库厂商开发和提供)
+API介绍: Driver:接口,定义了各个驱动程序都必须要实现的功能
+DriverManager:Driver的管理类
+用户通过Class.forname(DriverName)可以向DriverManager注册一个驱动程序,然后使用getConnection来建立物理连接,基于物理连接没使用SQL语句
+eg:
+Class.forName(JDBC_DRIVER); conn= DriverManager.getConnection(DB_URL,USER,PASS); //DB_URL:链接,USER:用户名,PASS:密码 //例如 conn= DriverManager.getConnection(&amp;#34;jdbc:mysql://127.0.0.1:3306/test&amp;#34; ,USER,PASS); //jdbc:mysql://ip:端口/数据库名;协议:子协议:主机ip:端口/数据库 常用的3种格式 mysql jdbc:mysql://&amp;lt;ip&amp;gt;:&amp;lt;port&amp;gt;/database
+oracle jdbc:oracle:thin:@&amp;lt;ip&amp;gt;:&amp;lt;port&amp;gt;:database
+sqlserver jdbc:microsoft:sqlserver://&amp;lt;ip&amp;gt;:&amp;lt;port&amp;gt;;DatabaseName=database
+Connection 常用方法 Statement对象
+创建(其实是一个sql语句的容器 ​ Statement stmt = conn.createStatement();
+使用(使用Statement对象执行sql语句,返回结果为ResultSet/int): ​ ResultSet rs = stmt.executeQuery(&amp;quot;select userName from user&amp;quot;)
+​ 查询结果是一个ResultSet对象
+ResultSet对象(Statement对象的查询结果)
+rs.next():将光标移动到下一行(默认在第一行)
+rs.previous():将光标移动到上一行
+rs.absolute():将光标定位到某一行
+rs.beforeFirst():直接将光标定位到第一行的前一行
+rs.afterLast():直接将光标移动到最后一行</description></item><item><title>JDBC2</title><link>/posts/java/jdbc2/</link><pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate><guid>/posts/java/jdbc2/</guid><description>业务场景1 过滤条件比较弱,一次读出多条记录 读取数据库表中的所有记录 海量数据读取 这些都容易产生内存溢出,为了不使得内存溢出,我们采用游标的方式
+游标:提供一种客户端读取部分服务器端结果集的机制 一个批次的大小为:Fetch Size
+游标的使用 开启游标,DB_URL的处理(加上useCursorFetch=true) eg:
+jdbc:mysql://&amp;lt;ip&amp;gt;:&amp;lt;port&amp;gt;/&amp;lt;database&amp;gt;?useCursorFetch=true
+使用PreparedStatement接口
+PreparedStatement接口继承自Statement接口,我们可以使用PreparedStatement替代Statement
+这个接口要求创建时就要传入sql语句,但是这个sql语句,参数格式化.即过滤条件用问号表示,后续再用PreparedStatement.setString()和PreparedStatement.setInt()来设置过滤条件.还可以使用PreparedStatement.setFetchSize()设置游标的大小.即每次从数据库服务端取回记录的数量
+eg:
+//使用prepareStatement()接口 ptmt = conn.prepareStatement(&amp;#34;select * from user&amp;#34;); ptmt.setFetchSize(1); rs = ptmt.executeQuery(); 业务场景2 读取的记录字段太大(例如博文) 也是会造成内存溢出,即使读取的记录很少
+流方式 把大字段按照二进制流的方式,分成多个区间,每次只读取一个区间的内容
+流方式的使用 利用ResultSet.getBinaryStream();获取对象流
+生成一个外部文件,把对象流采用边读边写的方式写入文件
+eg:
+while(rs2.next()){ //5.获取对象流 InputStream in = rs1.getBinaryStream(&amp;#34;userName&amp;#34;); //6.将对象流写入文件 File f = new File(FTLE_URL); OutputStream out = null; try { out = new FileOutputStream(f); int temp = 0; while((temp = in.read()) != -1){//边读边写 out.write(temp); System.out.println(rs2.getString(&amp;#34;id&amp;#34;)+&amp;#34;:&amp;#34;+rs2.getString(&amp;#34;userName&amp;#34;)); System.out.println(&amp;#34;---rs2--&amp;#34;); } in.</description></item><item><title>JDBC3</title><link>/posts/java/jdbc3/</link><pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate><guid>/posts/java/jdbc3/</guid><description>1. execute,executeQuery,executeUdate的区别 JDBCTM中Statement接口提供的execute,executeQuery,executeUdate之间的区别:
+executeQuery:
+用于产生单个结果集的语句,例如SELECT语句,使用最多的方法
+executeUpdate:
+用于执行INSERT,UPDATE,DELETE语句以及DDL语言,返回值是一个整数,指示受影响的行
+execute:
+用于执行返回多个结果集,多个更新技术或者两者皆有的语句
+2. SQL注入 防范措施:
+使用动态封装的方式会导致SQL注入的风险,我们应该使用prepareStatement提供的参数化SQL
+严格的数据库权限管理
+仅给web应用访问数据库的最小权限
+避免Drop table等权限
+封装数据库错误
+不要直接将后端数据库异常信息暴露给用户
+对后端遗产信息进行必要的封装,避免用户直接看到后端异常
+机密信息禁止明文存储
+涉密信息需要加密处理
+使用AES_ENCRYPT/AES_DECRYPT加密和解密
+事务:{是并发控制的基本单位,指作为单个逻辑工作单位执行的一系列操作,而这些逻辑工作单元需要满足ACID特性} ACID:原子性,一致性,隔离性,持久性
+jdbc事务控制 connection:
+.setAutoCommit('false')开启事务
+.commit()事务执行结束提交事务
+.rollback()回滚到事务开始之前的状态
+eg:
+try{ conn = JDCBUtil.getConnection; conn.setAutoCommit(false); /** *sql语句 * conn.commit(); }catch(){ //如果出错,事务回滚 conn.rollback(); } 事务并发执行 脏读:读取一个事务未提交的更新
+不可重复读:一个失误读取到另一个事务的更新,两次读取的结果包含的行记录的值不一样
+幻读:两次读取的结果包含的行记录不一样
+事务隔离级别 读未提交{允许脏读}
+读提交{不允许脏读,允许重复读}
+重复读{不允许不可重复读,可以幻读}
+串行化{严格的并发控制}{如果有一个连接的隔离级别设置为了串行化 ，那么谁先打开了事务， 谁就有了先执行的权利， 谁后打开事务，谁就只能得着，等前面的那个事务，提交或者回滚后，才能执行。 但是这种隔离级别一般比较少用。 容易造成性能上的问题。 效率比较低。}
+例子 查看隔离级别:select @@tx_isolation
+设置隔离级别为读未更新:set session transaction isolation level read uncommitted;
+开启事务:start transaction</description></item></channel></rss>

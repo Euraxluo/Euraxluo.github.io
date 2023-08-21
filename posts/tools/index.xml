@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tools on Euraxluo Blog</title><link>/posts/tools/</link><description>Recent content in tools on Euraxluo Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2016-{year} Euraxluo. All Rights Reserved.</copyright><lastBuildDate>Fri, 10 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="/posts/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Typora画图</title><link>/posts/tools/typora%E7%94%BB%E5%9B%BE/</link><pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate><guid>/posts/tools/typora%E7%94%BB%E5%9B%BE/</guid><description>标准流程图源码格式： st=&amp;gt;start: 开始框 op=&amp;gt;operation: 处理框 cond=&amp;gt;condition: 判断框 sub1=&amp;gt;subroutine: 子流程 io=&amp;gt;inputoutput: 输入输出框 e=&amp;gt;end: 结束框 st-&amp;gt;op-&amp;gt;cond cond(yes)-&amp;gt;io-&amp;gt;e cond(no)-&amp;gt;sub1(right)-&amp;gt;op 标准流程图源码格式（横向）： st=&amp;gt;start: 开始框 op=&amp;gt;operation: 处理框 cond=&amp;gt;condition: 判断框(是或否?) sub1=&amp;gt;subroutine: 子流程 io=&amp;gt;inputoutput: 输入输出框 e=&amp;gt;end: 结束框 st(right)-&amp;gt;op(right)-&amp;gt;cond cond(yes)-&amp;gt;io(bottom)-&amp;gt;e cond(no)-&amp;gt;sub1(right)-&amp;gt;op 流程圖 graph TD A[方形] --&amp;gt;B(圆角) B --&amp;gt; C{条件a} C --&amp;gt;|a=1| D[结果1] C --&amp;gt;|a=2| E[结果2] F[竖向流程图] graph LR A[方形] --&amp;gt;B(圆角) B --&amp;gt; C{条件a} C --&amp;gt;|a=1| D[结果1] C --&amp;gt;|a=2| E[结果2] F[横向流程图] UML时序图源码样例： 对象A-&amp;gt;对象B: 对象B你好吗?（请求） Note right of 对象B: 对象B的描述 Note left of 对象A: 对象A的描述(提示) 对象B--&amp;gt;对象A: 我很好(响应) 对象A-&amp;gt;对象B: 你真的好吗？ UML时序图源码复杂样例： Title: 标题：复杂使用 对象A-&amp;gt;对象B: 对象B你好吗?</description></item><item><title>Git学习笔记</title><link>/posts/tools/git%E5%AD%A6%E4%B9%A0/</link><pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate><guid>/posts/tools/git%E5%AD%A6%E4%B9%A0/</guid><description>Git 学习笔记 cd相对路径 cd 什么都不加 回到用户的家目录下 cd ~ 回到root目录下 cd .. 进入上一级目录
+cd - 返回上一次目录
+cd . 当前目录
+创建和删除目录 创建目录mkdir mkdir=make directory
+mkdir dirname 创建目录
+mkdir -p /etc/dirname/test/ 级联创建目录
+mkdir -pv /etc/dirname/test/ 加上v可以看到创建的过程
+删除目录rmdir rmdir=remove directory
+rmdir dirname 可 删除空目录（下面无目录和文件）
+删除文件 rm = remove命令 rmdir -p 可级联删除一串目录，但是是从最开始的目录删起。比较危险，慎用
+rm /tmp/ww/2/3/1.txt 会提示是否删除1.txt
+rm -f /tmp/ww/2/3/1.txt 强制删除，不给提示
+rm -r 级联删除目录，但是会提示是否删除，直接rm不能删目录
+rm -rf 直接级联强制删除
+rm -rfv 加上v显示删除过程
+更新仓库 //在github上创建项目 $ git clone https://github/xx账号/xx项目.git//克隆到本地 //编辑项目 $ git add .</description></item></channel></rss>
